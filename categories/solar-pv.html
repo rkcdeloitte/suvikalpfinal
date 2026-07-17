@@ -598,6 +598,61 @@ html, body, button, input, select, textarea {
   to   { opacity: 1; transform: translateY(0); }
 }
 .prism2-content-panel { animation: prism-fadein .26s ease; }
+
+/* ── Solar Green Finance Tool ───────────────────────────── */
+.sgft-card {
+  border: 1.5px solid #dbe7ea;
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 22px 24px;
+  box-shadow: 0 3px 14px rgba(15, 23, 42, 0.05);
+}
+.sgft-title {
+  margin: 0 0 10px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+.sgft-desc {
+  margin: 0 0 16px;
+  font-size: 0.9rem;
+  color: #475569;
+  line-height: 1.7;
+}
+.sgft-pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+.sgft-pill {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 999px;
+  border: 1px solid #b9d9df;
+  background: #f4fbfc;
+  color: #0a7377;
+}
+.sgft-launch {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  border-radius: 8px;
+  background: #0a9396;
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.84rem;
+  padding: 10px 14px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.sgft-launch:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(10, 147, 150, 0.22);
+}
 </style>
 </head>
 <body>
@@ -657,6 +712,7 @@ html, body, button, input, select, textarea {
 <!-- EXPERTS TAB HIDDEN (page not yet complete)
 <button class="spv-tab"        data-tab="experts"      onclick="showSPVTab('experts')">Experts</button>
 -->
+    <button class="spv-tab" onclick="window.location.href='./solar-green-finance-tool.html'">Green Finance</button>
   </nav>
 
   <!-- TAB: About -->
@@ -2778,9 +2834,36 @@ html, body, button, input, select, textarea {
       </div>
     </div>
   </div>
-     
-  
+
+
 </div>
+
+  <!-- ── TAB: Solar Green Finance Tool ───────────────────── -->
+  <div id="spv-panel-greernfinance" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+      <div class="sgft-card">
+        <h3 class="sgft-title">Green Finance</h3>
+        <p class="sgft-desc">
+          Complete the 6-question questionnaire to get a preliminary eligibility snapshot for
+          Green Bonds, GCF and Green Loans. The result updates live as you answer, highlighting
+          key flags based on your inputs and the Solar PV financing criteria.
+        </p>
+        <div class="sgft-pill-row">
+          <span class="sgft-pill">6 Questions</span>
+          <span class="sgft-pill">Live Preliminary Result</span>
+          <span class="sgft-pill">Key Flags</span>
+          <span class="sgft-pill">Solar PV Criteria</span>
+        </div>
+        <a class="sgft-launch" href="./solar-green-finance-tool.html">
+          Open Tool
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M7 17L17 7M9 7h8v8"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
   <!-- ── TAB: References ────────────────────────────────── -->
   <div id="spv-panel-references" class="spv-panel">
     <div class="spv-content">
