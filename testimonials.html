@@ -718,10 +718,14 @@ document.getElementById('carouselNext').onclick = () => {
 window.addEventListener('resize', renderCarousel);
 
 // ── Auto-advance, slow motion, pauses on hover/manual interaction ─────
+// Respects prefers-reduced-motion: the interval itself is JS-driven (not a
+// CSS animation), so the site-wide reduced-motion CSS rule above doesn't
+// touch it — this check is the only thing that actually stops it.
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 let carouselAutoTimer = null;
 function startCarouselAutoplay(){
   clearInterval(carouselAutoTimer);
-  if (carouselCards.length <= 1) return;
+  if (prefersReducedMotion || carouselCards.length <= 1) return;
   carouselAutoTimer = setInterval(() => {
     carouselCurrent = (carouselCurrent + 1) % carouselCards.length;
     renderCarousel();
