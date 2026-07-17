@@ -43,8 +43,21 @@ header#site-header{background:#21808d;color:#fff;height:72px;display:flex;align-
 }
 .hero-inner{ position:absolute; inset:0; display:flex; align-items:flex-end; padding:0 6vw 28px; }
 .hero-eyebrow{ font-size:.74rem; text-transform:uppercase; letter-spacing:.16em; font-weight:700; color:var(--teal-300); margin-bottom:12px; }
-.hero-headline{ font-size:clamp(1.7rem,3.4vw,2.7rem); line-height:1.12; font-weight:700; color:#fff; margin:0 0 10px; letter-spacing:-.01em; max-width:680px; }
-.hero-sub{ font-size:.92rem; line-height:1.5; color:rgba(255,255,255,.88); max-width:520px; margin:0; }
+.hero-headline{ font-size:clamp(1.7rem,3.4vw,2.7rem); line-height:1.12; font-weight:700; color:#fff; margin:0 0 10px; letter-spacing:-.01em; max-width:680px; transition:color .2s, font-size .2s; }
+.hero-sub{ font-size:.92rem; line-height:1.5; color:rgba(255,255,255,.88); max-width:520px; margin:0; transition:color .2s; }
+
+/* ── Signed-in "workspace" treatment: compact dot-grid bar replaces the
+   photo hero, so the composer reads as a distinct workspace rather than
+   the public marketing page ── */
+.hero.workspace{
+  height:auto; min-height:0;
+  background:
+    radial-gradient(rgba(33,128,141,.16) 1.3px, transparent 1.3px) 0 0/18px 18px,
+    var(--cream-50);
+}
+.hero.workspace .hero-inner{ position:static; align-items:center; padding:22px 6vw; }
+.hero.workspace .hero-headline{ font-size:1.25rem; color:var(--slate-900); margin:0 0 4px; }
+.hero.workspace .hero-sub{ font-size:.85rem; color:var(--slate-500); }
 
 /* ── v2: trust bar (Synthesia pattern) + featured spotlight/feed layout ── */
 .trust-section{ padding:36px 6vw 8px; text-align:center; }
@@ -78,7 +91,12 @@ header#site-header{background:#21808d;color:#fff;height:72px;display:flex;align-
 @media (max-width:600px){ .spot-card{ padding:30px 26px; } .spot-quote{ font-size:1.1rem; } }
 
 .feed-label{ font-size:.72rem; text-transform:uppercase; letter-spacing:.1em; font-weight:700; color:var(--slate-500); margin-bottom:14px; }
+.feed-viewport{ max-height:460px; overflow:hidden; -webkit-mask-image:linear-gradient(to bottom, transparent 0, #000 20px, #000 calc(100% - 20px), transparent 100%); mask-image:linear-gradient(to bottom, transparent 0, #000 20px, #000 calc(100% - 20px), transparent 100%); }
 .feed{ display:flex; flex-direction:column; gap:12px; }
+.feed.auto-scroll{ animation-name:feedScroll; animation-timing-function:linear; animation-iteration-count:infinite; }
+.feed-viewport:hover .feed.auto-scroll{ animation-play-state:paused; }
+@keyframes feedScroll{ from{ transform:translateY(0); } to{ transform:translateY(-50%); } }
+@media (prefers-reduced-motion:reduce){ .feed.auto-scroll{ animation:none; } }
 .frow{ background:var(--cream-100); border:1px solid var(--card-border); border-left:3px solid var(--pc,var(--teal-500)); border-radius:12px; padding:16px 18px; box-shadow:var(--shadow-md); }
 .frow-quote{ font-size:.86rem; line-height:1.5; margin:0 0 10px; color:var(--slate-900); opacity:.9; }
 .frow-who{ display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
@@ -194,11 +212,11 @@ footer{text-align:center;font-size:.75rem;color:var(--slate-500);padding:20px;}
   </div>
 </header>
 
-<div class="hero">
+<div class="hero" id="heroBand">
   <div class="hero-inner">
     <div>
-      <h2 class="hero-headline">What professionals are saying about SUVIKALP.</h2>
-      <p class="hero-sub">Verified statements from registered practitioners who used the tool on real closed-mine repurposing projects.</p>
+      <h2 class="hero-headline" id="heroHeadline">What professionals are saying about SUVIKALP.</h2>
+      <p class="hero-sub" id="heroSub">Verified statements from registered practitioners who used the tool on real closed-mine repurposing projects.</p>
     </div>
   </div>
 </div>
@@ -218,7 +236,9 @@ footer{text-align:center;font-size:.75rem;color:var(--slate-500);padding:20px;}
     <div class="spot-card" id="spotCard"></div>
     <div>
       <div class="feed-label">More testimonials</div>
-      <div class="feed" id="feedList"></div>
+      <div class="feed-viewport" id="feedViewport">
+        <div class="feed" id="feedList"></div>
+      </div>
       <div class="feed-empty hidden" id="feedEmpty">No other testimonials yet — yours could be next.</div>
     </div>
   </div>
@@ -267,7 +287,7 @@ footer{text-align:center;font-size:.75rem;color:var(--slate-500);padding:20px;}
   </div>
 </div>
 
-<div class="page">
+<div class="page hidden" id="pageWrap">
 
   <!-- ═══ SIGNED-IN AREA ═══ -->
   <div id="appArea" class="hidden">
@@ -540,10 +560,18 @@ auth.onAuthStateChanged(async (user) => {
     document.getElementById('ctaBar').classList.remove('hidden');
     closeAuthModal();
     document.getElementById('appArea').classList.add('hidden');
+    document.getElementById('pageWrap').classList.add('hidden');
+    document.getElementById('heroBand').classList.remove('workspace');
+    document.getElementById('heroHeadline').textContent = 'What professionals are saying about SUVIKALP.';
+    document.getElementById('heroSub').textContent = 'Verified statements from registered practitioners who used the tool on real closed-mine repurposing projects.';
     return;
   }
   document.getElementById('ctaBar').classList.add('hidden');
   closeAuthModal();
+  document.getElementById('pageWrap').classList.remove('hidden');
+  document.getElementById('heroBand').classList.add('workspace');
+  document.getElementById('heroHeadline').textContent = 'Share Your Testimonial';
+  document.getElementById('heroSub').textContent = 'Two minutes — help other professionals see what\'s possible.';
   document.getElementById('appArea').classList.remove('hidden');
   document.getElementById('submitCard').classList.remove('hidden');
   document.getElementById('userEmailLabel').textContent = user.email;
@@ -691,7 +719,15 @@ db.collection('testimonials').where('status','==','approved')
     const feedList = document.getElementById('feedList');
     const feedEmpty = document.getElementById('feedEmpty');
     if (rest.length) {
-      feedList.innerHTML = rest.map(renderFeedRow).join('');
+      const rowsHtml = rest.map(renderFeedRow).join('');
+      const shouldScroll = rest.length > 2;
+      // Duplicate the rows so the 0%→-50% keyframe loops seamlessly; the
+      // duplicate is aria-hidden so screen readers only see the real list once.
+      feedList.innerHTML = shouldScroll
+        ? rowsHtml + `<div aria-hidden="true" style="display:contents;">${rowsHtml}</div>`
+        : rowsHtml;
+      feedList.classList.toggle('auto-scroll', shouldScroll);
+      feedList.style.animationDuration = shouldScroll ? (rest.length * 4) + 's' : '';
       feedList.classList.remove('hidden');
       feedEmpty.classList.add('hidden');
     } else {
@@ -718,7 +754,6 @@ function renderSpotlight(d){
     <p class="spot-quote">"${escapeHtml(d.message)}"</p>
     ${d.impact ? `<div class="spot-metric"><b>${escapeHtml(d.impact)}</b></div>` : ''}
     <div class="spot-who">
-      <div class="spot-badge" style="background:${color};">${initials(d.name)}</div>
       <div><div class="spot-name">${escapeHtml(d.name)}</div><div class="spot-role">${escapeHtml(d.designation)}, ${escapeHtml(d.company)}</div></div>
       ${stars ? `<span class="spot-stars">${stars}</span>` : ''}
     </div>

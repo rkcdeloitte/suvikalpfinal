@@ -43,8 +43,21 @@ header#site-header{background:#21808d;color:#fff;height:72px;display:flex;align-
 }
 .hero-inner{ position:absolute; inset:0; display:flex; align-items:flex-end; padding:0 6vw 28px; }
 .hero-eyebrow{ font-size:.74rem; text-transform:uppercase; letter-spacing:.16em; font-weight:700; color:var(--teal-300); margin-bottom:12px; }
-.hero-headline{ font-size:clamp(1.7rem,3.4vw,2.7rem); line-height:1.12; font-weight:700; color:#fff; margin:0 0 10px; letter-spacing:-.01em; max-width:680px; }
-.hero-sub{ font-size:.92rem; line-height:1.5; color:rgba(255,255,255,.88); max-width:520px; margin:0; }
+.hero-headline{ font-size:clamp(1.7rem,3.4vw,2.7rem); line-height:1.12; font-weight:700; color:#fff; margin:0 0 10px; letter-spacing:-.01em; max-width:680px; transition:color .2s, font-size .2s; }
+.hero-sub{ font-size:.92rem; line-height:1.5; color:rgba(255,255,255,.88); max-width:520px; margin:0; transition:color .2s; }
+
+/* ── Signed-in "workspace" treatment: compact dot-grid bar replaces the
+   photo hero, so the composer reads as a distinct workspace rather than
+   the public marketing page ── */
+.hero.workspace{
+  height:auto; min-height:0;
+  background:
+    radial-gradient(rgba(33,128,141,.16) 1.3px, transparent 1.3px) 0 0/18px 18px,
+    var(--cream-50);
+}
+.hero.workspace .hero-inner{ position:static; align-items:center; padding:22px 6vw; }
+.hero.workspace .hero-headline{ font-size:1.25rem; color:var(--slate-900); margin:0 0 4px; }
+.hero.workspace .hero-sub{ font-size:.85rem; color:var(--slate-500); }
 
 /* ── v2: trust bar + centered carousel (mixes Synthesia trust-bar/takeaway-line
    pattern with Phidata's controlled peeking carousel), kept inside our own
@@ -61,9 +74,9 @@ header#site-header{background:#21808d;color:#fff;height:72px;display:flex;align-
 
 .carousel{ position:relative; display:flex; align-items:center; justify-content:center; gap:0; padding:14px 6vw 8px; }
 .carousel-viewport{ overflow:hidden; width:100%; max-width:900px; }
-.carousel-rail{ display:flex; align-items:stretch; gap:22px; transition:transform .35s cubic-bezier(.2,.8,.3,1); will-change:transform; }
-.tcard{ flex:0 0 min(520px,78vw); background:var(--cream-100); border:1px solid var(--card-border); border-top:4px solid var(--pc,var(--teal-500)); border-radius:18px; padding:34px 38px; box-shadow:var(--shadow-lg); text-align:left; transition:opacity .3s ease, filter .3s ease; }
-.tcard.side{ opacity:.35; filter:blur(1px); }
+.carousel-rail{ display:flex; align-items:stretch; gap:22px; transition:transform 1.1s cubic-bezier(.65,0,.35,1); will-change:transform; }
+.tcard{ flex:0 0 min(520px,78vw); background:var(--cream-100); border:1px solid var(--card-border); border-top:4px solid var(--pc,var(--teal-500)); border-radius:18px; padding:34px 38px; box-shadow:var(--shadow-lg); text-align:left; transition:opacity 1.1s cubic-bezier(.65,0,.35,1), filter 1.1s cubic-bezier(.65,0,.35,1), transform 1.1s cubic-bezier(.65,0,.35,1); transform:scale(1); }
+.tcard.side{ opacity:.35; filter:blur(1px); transform:scale(.94); }
 .tcard .takeaway{ font-size:1.15rem; font-weight:700; line-height:1.4; margin:0 0 12px; letter-spacing:-.005em; }
 .tcard .stars{ font-size:.85rem; letter-spacing:2px; color:var(--gold); margin-bottom:10px; }
 .tcard .impact{ display:inline-block; font-size:.76rem; font-weight:600; color:var(--teal-700); background:var(--teal-bg); border:1px solid var(--teal-border); border-radius:20px; padding:4px 12px; margin-bottom:14px; }
@@ -201,11 +214,11 @@ footer{text-align:center;font-size:.75rem;color:var(--slate-500);padding:20px;}
   </div>
 </header>
 
-<div class="hero">
+<div class="hero" id="heroBand">
   <div class="hero-inner">
     <div>
-      <h2 class="hero-headline">What professionals are saying about SUVIKALP.</h2>
-      <p class="hero-sub">Verified statements from registered practitioners who used the tool on real closed-mine repurposing projects.</p>
+      <h2 class="hero-headline" id="heroHeadline">What professionals are saying about SUVIKALP.</h2>
+      <p class="hero-sub" id="heroSub">Verified statements from registered practitioners who used the tool on real closed-mine repurposing projects.</p>
     </div>
   </div>
 </div>
@@ -277,7 +290,7 @@ footer{text-align:center;font-size:.75rem;color:var(--slate-500);padding:20px;}
   </div>
 </div>
 
-<div class="page">
+<div class="page hidden" id="pageWrap">
 
   <!-- ═══ SIGNED-IN AREA ═══ -->
   <div id="appArea" class="hidden">
@@ -553,10 +566,18 @@ auth.onAuthStateChanged(async (user) => {
     document.getElementById('ctaBar').classList.remove('hidden');
     closeAuthModal();
     document.getElementById('appArea').classList.add('hidden');
+    document.getElementById('pageWrap').classList.add('hidden');
+    document.getElementById('heroBand').classList.remove('workspace');
+    document.getElementById('heroHeadline').textContent = 'What professionals are saying about SUVIKALP.';
+    document.getElementById('heroSub').textContent = 'Verified statements from registered practitioners who used the tool on real closed-mine repurposing projects.';
     return;
   }
   document.getElementById('ctaBar').classList.add('hidden');
   closeAuthModal();
+  document.getElementById('pageWrap').classList.remove('hidden');
+  document.getElementById('heroBand').classList.add('workspace');
+  document.getElementById('heroHeadline').textContent = 'Share Your Testimonial';
+  document.getElementById('heroSub').textContent = 'Two minutes — help other professionals see what\'s possible.';
   document.getElementById('appArea').classList.remove('hidden');
   document.getElementById('submitCard').classList.remove('hidden');
   document.getElementById('userEmailLabel').textContent = user.email;
@@ -686,13 +707,29 @@ document.getElementById('carouselPrev').onclick = () => {
   if (!carouselCards.length) return;
   carouselCurrent = (carouselCurrent - 1 + carouselCards.length) % carouselCards.length;
   renderCarousel();
+  startCarouselAutoplay();
 };
 document.getElementById('carouselNext').onclick = () => {
   if (!carouselCards.length) return;
   carouselCurrent = (carouselCurrent + 1) % carouselCards.length;
   renderCarousel();
+  startCarouselAutoplay();
 };
 window.addEventListener('resize', renderCarousel);
+
+// ── Auto-advance, slow motion, pauses on hover/manual interaction ─────
+let carouselAutoTimer = null;
+function startCarouselAutoplay(){
+  clearInterval(carouselAutoTimer);
+  if (carouselCards.length <= 1) return;
+  carouselAutoTimer = setInterval(() => {
+    carouselCurrent = (carouselCurrent + 1) % carouselCards.length;
+    renderCarousel();
+  }, 5000);
+}
+const carouselEl = document.getElementById('carousel');
+carouselEl.addEventListener('mouseenter', () => clearInterval(carouselAutoTimer));
+carouselEl.addEventListener('mouseleave', () => startCarouselAutoplay());
 
 // ── Trust bar + carousel, driven by live approved testimonials ────────
 db.collection('testimonials').where('status','==','approved')
@@ -737,7 +774,7 @@ db.collection('testimonials').where('status','==','approved')
     carouselCards = sorted;
     document.getElementById('carouselRail').innerHTML = sorted.map(renderCard).join('');
     dotsWrap.innerHTML = sorted.map((_,i) => `<button class="dot" aria-label="Go to testimonial ${i+1}"></button>`).join('');
-    Array.from(dotsWrap.children).forEach((dot,i) => dot.onclick = () => { carouselCurrent = i; renderCarousel(); });
+    Array.from(dotsWrap.children).forEach((dot,i) => dot.onclick = () => { carouselCurrent = i; renderCarousel(); startCarouselAutoplay(); });
 
     carouselCurrent = featuredIndex >= 0 ? featuredIndex : 0;
     carousel.classList.remove('hidden');
@@ -747,6 +784,7 @@ db.collection('testimonials').where('status','==','approved')
 
     // Card widths aren't known until the browser lays them out — measure next frame.
     requestAnimationFrame(renderCarousel);
+    startCarouselAutoplay();
 
     if (sorted.length < 4) {
       const firstName = sorted[0].name ? sorted[0].name.split(' ')[0] : 'others';
