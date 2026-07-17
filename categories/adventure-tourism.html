@@ -1,0 +1,1450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adventure Tourism Landscapes — SUVIKALP | Coal Controller Organisation</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="./category.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+.about-hero-row { display: flex; gap: 28px; align-items: stretch; margin-bottom: 40px; min-height: 300px; }
+.about-hero-slide-col { flex: 0 0 40%; min-width: 0; display: flex; flex-direction: column; }
+.about-hero-slide-col .proj-slideshow { flex: none; height: 340px; }
+.about-hero-text-col  { flex: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; }
+.about-hero-label { font-family: var(--font-sans); font-size: var(--fs-xs); font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--teal); margin-bottom: 0; }
+.about-hero-label-wrap { margin-bottom: 12px; }
+.about-hero-label-bar { display: block; height: 3px; width: 48px; margin-top: 7px; border-radius: 99px; background: linear-gradient(90deg, #21808d 0%, #38bdf8 60%, transparent 100%); }
+.about-intro { display: flex; flex-direction: column; gap: 14px; }
+.about-intro-block { padding: 14px 18px; border-radius: 10px; }
+.about-intro-primary   { border-left: 4px solid #21808d; background: rgba(33,128,141,.05); }
+.about-intro-secondary { border-left: 4px solid rgba(33,128,141,.3); background: #fafafa; }
+.about-section { margin-bottom: 40px; }
+.about-section-eyebrow { font-family: var(--font-sans); font-size: var(--fs-xs); font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--teal); margin-bottom: 4px; }
+.about-section-title   { font-family: var(--font-sans); font-size: var(--fs-xl); font-weight: 700; color: #0f172a; margin: 0 0 20px; line-height: var(--lh-tight); }
+.proj-slideshow { position: relative; border-radius: 14px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,.15); background: #1c2a1a; }
+.proj-slide { display: none; position: relative; height: 340px; }
+.proj-slide.active { display: block; animation: projFadeIn .5s ease; }
+@keyframes projFadeIn { from { opacity: 0; transform: scale(1.03); } to { opacity: 1; transform: scale(1); } }
+.proj-slide-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.proj-slide-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 12px 18px; background: linear-gradient(90deg, rgba(30,60,20,.95) 0%, rgba(80,140,40,.88) 100%); display: flex; align-items: center; z-index: 1; }
+.proj-caption { font-family: var(--font-sans); font-size: var(--fs-base); font-weight: 600; color: #fff; line-height: 1.4; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.proj-ss-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,.18); backdrop-filter: blur(6px); border: 1px solid rgba(255,255,255,.28); color: #fff; font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background .2s; z-index: 3; opacity: 0; }
+.proj-slideshow:hover .proj-ss-btn { opacity: 1; }
+.proj-ss-btn:hover { background: rgba(255,255,255,.38); }
+.proj-ss-prev { left: 12px; }
+.proj-ss-next { right: 12px; }
+.schemes-outer { position: relative; margin: 0 20px; }
+.schemes-nav-btn { position: absolute; top: 50%; transform: translateY(-50%); z-index: 10; width: 36px; height: 36px; border-radius: 50%; background: #fff; border: 1.5px solid #e2e8f0; box-shadow: 0 2px 10px rgba(0,0,0,.10); cursor: pointer; display: flex; align-items: center; justify-content: center; color: #475569; transition: background .2s, color .2s; padding: 0; }
+.schemes-nav-btn:hover { background: var(--teal, #0a9396); color: #fff; border-color: var(--teal, #0a9396); }
+.schemes-nav-btn.schemes-prev { left: -20px; }
+.schemes-nav-btn.schemes-next { right: -20px; }
+.schemes-ticker-wrap { overflow: hidden; mask-image: linear-gradient(to right, transparent 0%, black 7%, black 93%, transparent 100%); -webkit-mask-image: linear-gradient(to right, transparent 0%, black 7%, black 93%, transparent 100%); }
+.schemes-ticker { display: flex; gap: 16px; overflow-x: auto; scrollbar-width: none; padding: 8px 4px; }
+.schemes-ticker::-webkit-scrollbar { display: none; }
+.scheme-card { flex: 0 0 220px; background: #fff; border: 1px solid #e8eaed; border-radius: 12px; padding: 18px 16px; box-shadow: 0 2px 8px rgba(0,0,0,.05); transition: box-shadow .2s, transform .2s; }
+.scheme-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,.1); transform: translateY(-3px); }
+.scheme-card-icon  { font-size: 22px; margin-bottom: 10px; }
+.scheme-card-tag   { font-family: var(--font-sans); font-size: var(--fs-xs); font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: var(--teal); margin-bottom: 5px; }
+.scheme-card-title { font-family: var(--font-sans); font-size: var(--fs-base); font-weight: 700; color: #1e293b; margin-bottom: 8px; line-height: var(--lh-tight); }
+.scheme-card-desc  { font-family: var(--font-sans); font-size: var(--fs-sm); color: #64748b; line-height: var(--lh-base); display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
+</style>
+</head>
+<body>
+<header id="site-header">
+  <div class="header-left">
+    <div class="header-tool-title">
+      <span class="hindi">सुविकल्प:</span> Mine Repurposing Tool
+    </div>
+    <div class="header-tool-sub">
+      Select factors and sub-factors to discover suitable repurposing options for your mining site
+    </div>
+  </div>
+  <div class="header-right">
+    <a href="https://coalcontroller.gov.in/" target="_blank" rel="noopener" title="CCO Home">
+    <div class="header-cco-lockup">
+      <img class="header-cco-logo" src="data:image/png;base64,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" alt="Coal Controller Organisation emblem">
+      <div class="header-cco-text">
+        <!-- text intentionally empty: organisation name is encoded in the emblem logo -->
+      </div>
+    </div>
+    </a>
+  </div>
+</header>
+<div class="page">
+
+  <div class="sf-backbar">
+    <button class="back-btn" onclick="window.location.href='../index.html'" aria-label="Back to results">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3L5 8l5 5"/></svg>
+      Back to Results
+    </button>
+    <span class="sf-breadcrumb">
+      <span>Final Recommendations</span>
+      <span class="sep">/</span>
+      <span style="color:var(--teal);font-weight:500;">Adventure Tourism Landscapes</span>
+    </span>
+  </div>
+
+  <div class="spv-hero-wrap">
+    <img src="../images/adventure-tourism-hero-new.jpg" alt="Mountain biker on rugged high-altitude trail — adventure tourism on challenging terrain" class="spv-hero-img">
+    <div class="spv-hero-overlay"></div>
+    <div class="spv-hero-title">Adventure Tourism Landscapes</div>
+  </div>
+
+  <nav class="spv-tabs" aria-label="Detail sections">
+    <button class="spv-tab active" data-tab="about"      onclick="showSPVTab('about')">About</button>
+    <button class="spv-tab"        data-tab="prism"       onclick="showSPVTab('prism')">P.R.I.S.M</button>
+    <button class="spv-tab"        data-tab="casestudies" onclick="showSPVTab('casestudies');setTimeout(function(){window.dispatchEvent(new Event('resize'))},30)">Case Studies</button>
+    <button class="spv-tab"        data-tab="tender"      onclick="showSPVTab('tender')">Sample Tender Documents</button>
+    <button class="spv-tab"        data-tab="media"       onclick="showSPVTab('media')">Media/Web</button>
+    <button class="spv-tab"        data-tab="agencies"    onclick="showSPVTab('agencies')">Agencies</button>
+<!-- EXPERTS TAB HIDDEN (page not yet complete)
+<button class="spv-tab"        data-tab="experts"     onclick="showSPVTab('experts')">Experts</button>
+-->
+  </nav>
+
+  <!-- ABOUT TAB -->
+  <div id="spv-panel-about" class="spv-panel">
+    <div class="spv-content">
+
+<div class="about-hero-row">
+  <div class="about-hero-slide-col">
+    <div class="about-hero-label-wrap">
+      <div class="about-hero-label">Global Precedents</div>
+      <span class="about-hero-label-bar"></span>
+    </div>
+    <div class="proj-slideshow">
+      <img src="../images/adventure-tourism-about.jpg" alt="Eden Project biodomes, Cornwall — former quarry pit repurposed as ecological attraction (CC BY-SA 2.0)" class="proj-slide-img">
+      <div class="proj-slide-overlay"><span class="proj-caption">Eden Project, Cornwall, UK</span></div>
+    </div>
+  </div>
+
+  <div class="about-hero-text-col">
+    <div class="about-intro">
+      <div class="about-intro-block about-intro-primary">
+        <p class="spv-body-text" style="margin:0;">
+          Adventure tourism is emerging as a significant driver of sustainable economic growth, supported by diverse landscapes and expanding tourism infrastructure. Activities such as trekking, rafting, rock climbing, camping, and eco-tourism attract both domestic and international visitors. Post-closure coal mines present unique opportunities to be repurposed into adventure tourism destinations by utilizing mine voids, reclaimed land, and existing mining infrastructure for activities such as boating, zip-lining, cycling, camping, and eco-parks, thereby transforming degraded land into vibrant tourism hubs.
+
+        </p>
+      </div>
+      <div class="about-intro-block about-intro-secondary">
+        <p class="spv-body-text" style="margin:0;">
+          This approach promotes sustainable land use, ecological restoration, and regional development while creating employment and income opportunities for local communities, particularly those previously dependent on mining. However, successful implementation requires addressing key challenges, including ensuring safety and environmental stability of sites, developing adequate tourism infrastructure, providing skill training to local stakeholders, and establishing strong marketing and connectivity to attract visitors and ensure the long-term sustainability of adventure tourism initiatives.
+
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="about-section">
+  <div class="about-section-eyebrow">Policy &amp; Support</div>
+  <h3 class="about-section-title">Policy Levers driving Adventure Tourism Landscapes scale-up</h3>
+  <div class="schemes-outer">
+    <button class="schemes-nav-btn schemes-prev" onclick="schemesNav(-1)" aria-label="Previous">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <div class="schemes-ticker-wrap">
+      <div class="schemes-ticker" id="schemesTicker">
+        <div class="scheme-card"><div class="scheme-card-icon">🏔️</div><div class="scheme-card-tag">Ministry of Tourism</div><div class="scheme-card-title">Indian Adventure Tourism Guidelines 2018</div><div class="scheme-card-desc">Version 2.0 — safety and quality norms for land, air and water-based adventure activities. Trained guides, equipment inspection, risk mitigation and medical safety.</div></div>
+        <div class="scheme-card"><div class="scheme-card-icon">🗺️</div><div class="scheme-card-tag">Ministry of Tourism</div><div class="scheme-card-title">National Strategy for Adventure Tourism 2022</div><div class="scheme-card-desc">Framework for developing adventure tourism destinations across India, with emphasis on safety, local employment, and sustainable tourism management.</div></div>
+        <div class="scheme-card"><div class="scheme-card-icon">🌱</div><div class="scheme-card-tag">MoC / CCO</div><div class="scheme-card-title">Mine Closure Framework 2025</div><div class="scheme-card-desc">Guidelines for preparation of Mining Plan and Mine Closure Plan — treating adventure tourism as a legitimate post-mining productive land use.</div></div>
+        <div class="scheme-card"><div class="scheme-card-icon">🏗️</div><div class="scheme-card-tag">Ministry of Tourism</div><div class="scheme-card-title">Swadesh Darshan 2.0</div><div class="scheme-card-desc">Integrated development of theme-based tourist circuits — funds adventure tourism hubs, activity zones and supporting infrastructure, including on reclaimed mine land.</div></div>
+        <div class="scheme-card"><div class="scheme-card-icon">🎓</div><div class="scheme-card-tag">Ministry of Tourism</div><div class="scheme-card-title">Hunar Se Rozgar</div><div class="scheme-card-desc">Hospitality and tourism skill-training programme — creates certified adventure guides, safety personnel and service staff from mine-affected local communities.</div></div>
+        <div class="scheme-card"><div class="scheme-card-icon">📋</div><div class="scheme-card-tag">Ministry of Commerce &amp; Industry</div><div class="scheme-card-title">UNNATI 2024 — Model Adventure Tourism DPR</div><div class="scheme-card-desc">Uttar Poorva Transformative Industrialization Scheme includes a Model Detailed Project Report for establishing adventure tourism on post-industrial and degraded land.</div></div>
+        <!-- duplicates for loop -->
+        <div class="scheme-card" aria-hidden="true"><div class="scheme-card-icon">🏔️</div><div class="scheme-card-tag">Ministry of Tourism</div><div class="scheme-card-title">Indian Adventure Tourism Guidelines 2018</div><div class="scheme-card-desc">Version 2.0 — safety and quality norms for land, air and water-based adventure activities. Trained guides, equipment inspection, risk mitigation and medical safety.</div></div>
+        <div class="scheme-card" aria-hidden="true"><div class="scheme-card-icon">🗺️</div><div class="scheme-card-tag">Ministry of Tourism</div><div class="scheme-card-title">National Strategy for Adventure Tourism 2022</div><div class="scheme-card-desc">Framework for developing adventure tourism destinations across India, with emphasis on safety, local employment, and sustainable tourism management.</div></div>
+        <div class="scheme-card" aria-hidden="true"><div class="scheme-card-icon">🌱</div><div class="scheme-card-tag">MoC / CCO</div><div class="scheme-card-title">Mine Closure Framework 2025</div><div class="scheme-card-desc">Guidelines for preparation of Mining Plan and Mine Closure Plan — treating adventure tourism as a legitimate post-mining productive land use.</div></div>
+        <div class="scheme-card" aria-hidden="true"><div class="scheme-card-icon">🏗️</div><div class="scheme-card-tag">Ministry of Tourism</div><div class="scheme-card-title">Swadesh Darshan 2.0</div><div class="scheme-card-desc">Integrated development of theme-based tourist circuits — funds adventure tourism hubs, activity zones and supporting infrastructure, including on reclaimed mine land.</div></div>
+        <div class="scheme-card" aria-hidden="true"><div class="scheme-card-icon">🎓</div><div class="scheme-card-tag">Ministry of Tourism</div><div class="scheme-card-title">Hunar Se Rozgar</div><div class="scheme-card-desc">Hospitality and tourism skill-training programme — creates certified adventure guides, safety personnel and service staff from mine-affected local communities.</div></div>
+        <div class="scheme-card" aria-hidden="true"><div class="scheme-card-icon">📋</div><div class="scheme-card-tag">Ministry of Commerce &amp; Industry</div><div class="scheme-card-title">UNNATI 2024 — Model Adventure Tourism DPR</div><div class="scheme-card-desc">Uttar Poorva Transformative Industrialization Scheme includes a Model Detailed Project Report for establishing adventure tourism on post-industrial and degraded land.</div></div>
+      </div>
+    </div>
+    <button class="schemes-nav-btn schemes-next" onclick="schemesNav(1)" aria-label="Next">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+  <!-- PRISM TAB -->
+  <div id="spv-panel-prism" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+<style>
+/* ── PRISM intro banner ── */
+  .pr-intro {
+    padding: 22px 24px 20px;
+    background: rgba(33,128,141,.05);
+    border: 1px solid rgba(33,128,141,.15);
+    border-radius: 14px;
+    margin-bottom: 20px;
+  }
+  .pr-intro-eyebrow {
+    font-size: 15px; font-weight: 700; letter-spacing: .01em;
+    text-transform: none; color: #21808d; margin-bottom: 8px;
+    font-style: normal; line-height: 1.35;
+  }
+  .pr-intro-heading {
+    font-size: 16px; font-weight: 700; color: #0f172a;
+    margin-bottom: 10px; line-height: 1.35; font-style: normal;
+  }
+  .pr-intro-body {
+    font-size: 13.5px; color: #374151; line-height: 1.85; font-style: normal;
+  }
+  /* ── Shell ── */
+  .pr-shell {
+    display: flex; border: 1px solid #e2e8f0;
+    border-radius: 14px; overflow: clip; background: #fff;
+  }
+  /* ── Sidebar ── */
+  .pr-sidebar {
+    width: 220px; flex-shrink: 0;
+    border-right: 1px solid #e8edf2;
+    padding: 16px 0 16px; background: #f8fafc;
+    position: sticky; top: 125px; align-self: flex-start;
+    max-height: calc(100vh - 155px);
+    overflow-y: auto; overflow-x: visible;
+  }
+  .pr-sidebar-label {
+    font-size: 11px; font-weight: 700; letter-spacing: .14em;
+    text-transform: uppercase; color: #7a8a9a;
+    padding: 0 16px 14px; font-style: normal;
+  }
+  /* ── Sliding highlight bar ── */
+  .pr-nav-highlight {
+    position: absolute; left: 0; right: 0;
+    pointer-events: none; z-index: 0; will-change: top, height;
+    background: color-mix(in srgb, var(--pr-hl, #C85000) 9%, transparent);
+    transition: top .4s cubic-bezier(.4,0,.2,1), height .4s cubic-bezier(.4,0,.2,1), background .38s ease;
+  }
+  .pr-nav-highlight::before {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+    background: var(--pr-hl, #C85000); border-radius: 0 2px 2px 0;
+    transition: background .38s ease;
+  }
+  /* ── Nav item ── */
+  .pr-nav-item {
+    position: relative; z-index: 1;
+    display: flex; align-items: center; gap: 12px;
+    padding: 13px 16px; cursor: pointer; font-style: normal;
+  }
+  .pr-nav-item::after { display: none; }
+  .pr-nav-item:hover, .pr-nav-item.active { background: transparent; transform: none; }
+  /* ── Badge (circle) ── */
+  .pr-nav-badge {
+    width: 34px; height: 34px; border-radius: 50%; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 800;
+    border: 1.5px solid #d1d5db; color: #9ca3af; background: #fff;
+    position: relative; z-index: 1;
+    transition: background .35s cubic-bezier(.4,0,.2,1), color .3s ease, border-color .35s ease,
+      transform .45s cubic-bezier(.34,1.56,.64,1), box-shadow .35s ease;
+  }
+  .pr-nav-item.active .pr-nav-badge {
+    background: var(--pr-accent); color: #fff; border-color: var(--pr-accent);
+    transform: scale(1.12);
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--pr-accent) 18%, transparent),
+      0 3px 10px color-mix(in srgb, var(--pr-accent) 32%, transparent);
+  }
+  .pr-nav-item:hover:not(.active) .pr-nav-badge {
+    border-color: var(--pr-accent); color: var(--pr-accent);
+    background: color-mix(in srgb, var(--pr-accent) 7%, #fff); transform: scale(1.07);
+  }
+  /* ── Nav text ── */
+  .pr-nav-letter {
+    font-size: 13px; font-weight: 600; color: #374151;
+    line-height: 1.25; font-style: normal; position: relative; z-index: 1;
+    transition: color .25s ease, font-weight .2s;
+  }
+  .pr-nav-item.active .pr-nav-letter { color: var(--pr-accent); font-weight: 700; }
+  .pr-nav-item:hover:not(.active) .pr-nav-letter { color: var(--pr-accent); }
+  /* ── Stagger-in animation ── */
+  @keyframes nav-slide-in {
+    from { opacity: 0; transform: translateX(-10px); }
+    to   { opacity: 1; transform: translateX(0); }
+  }
+  .pr-nav-item { opacity: 0; animation: nav-slide-in .32s cubic-bezier(.4,0,.2,1) both; }
+  .pr-nav-item:nth-child(3) { animation-delay: .02s; }
+  .pr-nav-item:nth-child(4) { animation-delay: .07s; }
+  .pr-nav-item:nth-child(5) { animation-delay: .12s; }
+  .pr-nav-item:nth-child(6) { animation-delay: .17s; }
+  .pr-nav-item:nth-child(7) { animation-delay: .22s; }
+  /* ── Content pane ── */
+  .pr-content-wrap { flex: 1; min-width: 0; }
+  .pr-content-wrap .prism2-content-panel { border-radius: 0; box-shadow: none; }
+  /* ── Panel header tint ── */
+  .prism2-content-panel .prism2-panel-header {
+    background: color-mix(in srgb, var(--pc) 5%, #fff);
+  }
+  /* ── Eyebrow ── */
+  .prism2-panel-eyebrow {
+    font-size: 13px; font-weight: 700; letter-spacing: .10em;
+    text-transform: uppercase; color: var(--pc); margin-bottom: 6px; opacity: 1;
+  }</style>
+
+<!-- ── PRISM intro banner ── -->
+<div class="pr-intro">
+  <div class="pr-intro-eyebrow">PRISM – Post-Mining Repurposing and Implementation Strategy Models</div>
+  <div class="pr-intro-heading">A structured framework for mine repurposing from concept to implementation</div>
+  <div class="pr-intro-body">PRISM is a structured framework designed to support identified post-mining repurposing opportunities by evaluating suitable implementation pathways, financial and revenue-generation models, and the implementation requirements, roles, and responsibilities of mine owners, developers, operators, and other stakeholders throughout the project lifecycle. Built around five integrated pillars, PRISM guides Adventure Tourism Landscapes projects from concept to operation.</div>
+</div>
+
+<!-- ── Sidebar shell ── -->
+<div class="pr-shell">
+  <div class="pr-sidebar">
+    <div class="pr-sidebar-label">Pillars</div>
+    <div class="pr-nav-highlight" id="pr-hl"></div>
+    <div class="pr-nav-item active" style="--pr-accent:#C85000;" data-key="P" onclick="prNav('P')">
+      <div class="pr-nav-badge">P</div>
+      <div><div class="pr-nav-letter">Project vision</div></div>
+    </div>
+    <div class="pr-nav-item" style="--pr-accent:#1a5ca8;" data-key="R" onclick="prNav('R')">
+      <div class="pr-nav-badge">R</div>
+      <div><div class="pr-nav-letter">Repurposing pathways</div></div>
+    </div>
+    <div class="pr-nav-item" style="--pr-accent:#b06a10;" data-key="I" onclick="prNav('I')">
+      <div class="pr-nav-badge">I</div>
+      <div><div class="pr-nav-letter">Investment dynamics</div></div>
+    </div>
+    <div class="pr-nav-item" style="--pr-accent:#5a3d9e;" data-key="S" onclick="prNav('S')">
+      <div class="pr-nav-badge">S</div>
+      <div><div class="pr-nav-letter">Strategic structuring</div></div>
+    </div>
+    <div class="pr-nav-item" style="--pr-accent:#1a7a5e;" data-key="M" onclick="prNav('M')">
+      <div class="pr-nav-badge">M</div>
+      <div><div class="pr-nav-letter">Monitoring guidance</div></div>
+    </div>
+  </div><!-- /pr-sidebar -->
+
+  <div class="pr-content-wrap">
+
+      <!-- ── P Panel ── -->
+      <div class="prism2-content-panel active" id="prism2-panel-P" style="--pc:#C85000;--pb:#fff0e6;--cb:#fff8f3;">
+    <div class="prism2-panel-header">
+      <div class="prism2-panel-header-letter">P</div>
+      <div class="prism2-panel-header-text">
+        <div class="prism2-panel-eyebrow">PROJECT VISION</div>
+        <p class="prism2-panel-desc">Using existing mine landforms — slopes, benches, ridgelines, quarry walls, voids, haul roads and water bodies — as assets for safe, regulated adventure tourism with community livelihood integration.</p>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggleAccordion(this)"><span>Project Overview</span><span class="accordion-chevron">&#8964;</span></button>
+      <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">This concept proposes the development of <strong>Adventure Tourism Zones</strong> on closed, reclaimed, stabilised, or repurposed coal mine land. The objective is to convert under-utilised mine land into a safe, regulated, income-generating, tourism-oriented and community-linked adventure landscape centred around zip lines and high-rope courses, trekking and nature trails, mountain biking and cycling tracks, climbing walls and rappelling zones, ATV/off-road trail circuits where environmentally permissible, mine-view points and geological interpretation trails, controlled water-based recreation in safe mine voids if technically approved, camping and eco-lodges, and mine-heritage tourism and guided interpretation circuits.</p>
+        <p class="spv-body-text">Unlike heavy industrial reuse, adventure tourism uses existing post-mining landforms, can be integrated with eco-restoration, plantations, lakes, biodiversity zones and mine heritage, creates local employment, requires strong safety systems but comparatively moderate land disturbance, and can create a new public identity for closed mine areas.</p>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggleAccordion(this)"><span>Strategic Rationale</span><span class="accordion-chevron">&#8964;</span></button>
+      <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">Adventure tourism is particularly suited for selected closed coal mine areas because mines often have unusual landforms, elevated viewpoints, terraced slopes, quarry-like walls, haul roads, water-filled voids and industrial heritage features that can be repurposed into controlled adventure and eco-tourism assets after safety screening.</p>
+        <p class="spv-body-text"><strong>International precedents</strong> include Quarry Park Adventures in Rocklin, California (operates within the historic Big Gun Quarry using quarry walls, floor, rim, lake and waterfall) and Zip World Penrhyn Quarry in Wales (zip lines, quarry karts and quarry tours in a historic slate quarry).</p>
+        <ul class="spv-list">
+          <li>Converts closed mine land into a tourism and recreation destination</li>
+          <li>Generates local jobs in guiding, operations, safety, hospitality and maintenance</li>
+          <li>Uses existing mine landforms: benches, slopes, roads, ridges and water bodies</li>
+          <li>Supports mine heritage interpretation, geological education and eco-tourism</li>
+          <li>Can be phased from low-risk nature trails to high-value adventure attractions</li>
+          <li>Revenue through tickets, guided tours, adventure activities, parking, food kiosks, events, camping and merchandise</li>
+          <li>Encourages local entrepreneurship through homestays, transport, food stalls, souvenirs and guide services</li>
+          <li>Reduces risk of abandoned land misuse by creating controlled public access</li>
+          <li>Supports ESG, CSR, just-transition and community development objectives</li>
+          <li>Offers strong potential for branding closed mine areas as productive post-mining landscapes</li>
+        </ul>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggleAccordion(this)"><span>Site Suitability and Technical Specification Matrix</span><span class="accordion-chevron">&#8964;</span></button>
+      <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">The following matrix provides a structured checklist for assessing the suitability of the proposed site for the selected repurposing option. It identifies the key physical, technical, environmental, infrastructure, legal, and owner-side readiness parameters that should be reviewed before the project is advanced to the next stage of development. The purpose of this matrix is to help the project owner understand existing site conditions, technical requirements, potential constraints, and preparatory actions required before feasibility studies, approvals, or tendering are initiated.</p>
+        <div class="table-wrap"><table class="spv-table">
+          <thead><tr><th>Category</th><th>What to Assess</th><th>Why it Matters</th><th>Readiness Needed</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Land status</strong></td><td>Closure status, ownership, land-use permissibility, tourism use approval</td><td>Legal viability for public tourism and commercial activities</td><td>Closure note and land-use permissibility note</td></tr>
+            <tr><td><strong>Mine stability</strong></td><td>Subsidence risk, slope stability, dump stability, highwall condition, void proximity</td><td>Public safety is the primary precondition for adventure tourism</td><td>Geotechnical and mine-safety report</td></tr>
+            <tr><td><strong>Landform</strong></td><td>Slopes, benches, ridgelines, haul roads, quarry walls, water bodies</td><td>Determines suitable activities: zip line, trekking, cycling, viewpoints or boating</td><td>Topographic and geomorphology survey</td></tr>
+            <tr><td><strong>Soil and ground</strong></td><td>Bearing capacity, erosion risk, contamination, loose spoil, dust</td><td>Required for trails, platforms, foundations, camping and visitor safety</td><td>Soil and contamination report</td></tr>
+            <tr><td><strong>Water bodies</strong></td><td>Depth, water quality, slope edges, inflow, water-level variation</td><td>Determines whether boating, kayaking, floating decks or only viewing is safe</td><td>Hydrogeological and water-safety report</td></tr>
+            <tr><td><strong>Access</strong></td><td>Road approach, emergency access, parking, public transport linkage</td><td>Tourism success and emergency response depend on access</td><td>Access and traffic plan</td></tr>
+            <tr><td><strong>Climate</strong></td><td>Heat, wind, lightning, rainfall, fog, seasonal closure requirements</td><td>Affects activity timing, zip line safety, trail safety and visitor comfort</td><td>Seasonal operating plan</td></tr>
+            <tr><td><strong>Environmental sensitivity</strong></td><td>Flora, fauna, bird habitats, wetlands, dust, noise sensitivity</td><td>Ensures activities do not damage restoration areas</td><td>Environmental screening</td></tr>
+            <tr><td><strong>Adventure suitability</strong></td><td>Height difference, line-of-sight, slope angle, rock quality, available corridors</td><td>Determines feasibility of zip line, rappelling, climbing, ATV or biking</td><td>Activity feasibility note</td></tr>
+            <tr><td><strong>Community proximity</strong></td><td>Villages, SHGs, youth groups, transport providers, local entrepreneurs</td><td>Enables livelihood integration</td><td>Beneficiary and enterprise mapping</td></tr>
+            <tr><td><strong>Safety and rescue</strong></td><td>Emergency routes, first-aid points, rescue equipment, ambulance access, communication</td><td>Mandatory for adventure tourism operations</td><td>Emergency-response plan</td></tr>
+            <tr><td><strong>Utilities</strong></td><td>Power, lighting, water, toilets, sewage, waste management, CCTV, communication</td><td>Required for visitor facilities and operations</td><td>Utility plan</td></tr>
+            <tr><td><strong>Approvals</strong></td><td>Tourism registration, local-body permissions, forest/wildlife approvals, safety certification</td><td>Ensures lawful operation</td><td>Approval matrix</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggleAccordion(this)"><span>Indicative Project Scale and Configuration Matrix</span><span class="accordion-chevron">&#8964;</span></button>
+      <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">The following matrix presents an indicative relationship between available site area, project scale, technical configuration, and likely development potential. It is intended to support preliminary planning by helping the project owner identify the appropriate scale and configuration for the proposed repurposing option. The values and recommendations are indicative and should be refined through detailed feasibility studies, site surveys, engineering assessments, and relevant technical and commercial evaluations.</p>
+        <div class="table-wrap"><table class="spv-table">
+          <thead><tr><th>Land Area</th><th>Recommended Scale</th><th>Configuration</th><th>Use Case</th></tr></thead>
+          <tbody>
+            <tr><td>1–5 ha</td><td>Pilot adventure and interpretation zone</td><td>Nature trail, viewpoint, low-rope course, children's adventure zone, basic visitor kiosk, safety fencing</td><td>Proof of concept and low-risk community tourism</td></tr>
+            <tr><td>5–20 ha</td><td>Community adventure tourism zone</td><td>Zip line / low-height rope course, trekking trail, cycling loop, climbing wall, viewing decks, food kiosks, parking and toilets</td><td>Local tourism and youth employment</td></tr>
+            <tr><td>20–50 ha</td><td>Integrated adventure tourism park</td><td>High-rope course, zip line, rappelling, mountain biking, mine-heritage trail, camping area, visitor centre and first-aid station</td><td>District-level adventure destination</td></tr>
+            <tr><td>50–100 ha</td><td>Large adventure and eco-tourism park</td><td>Multi-zone adventure park, ATV trail if permissible, eco-trails, controlled water recreation, camping, amphitheatre, interpretation centre, restaurant and local market</td><td>PPP / CSR / concession model</td></tr>
+            <tr><td>100 ha+</td><td>Regional mine-tourism and adventure ecosystem</td><td>Multiple adventure circuits, eco-park, water body recreation, heritage museum, cycling network, eco-lodges, event space, training academy</td><td>Just-transition flagship and regional tourism anchor</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </div>
+    <div class="prism2-nav-row">
+      <button class="prism2-btn-prev" id="prism2-prev-P" onclick="prism2Prev()" disabled>&#8592; Previous</button>
+      <div class="prism2-progress-dots" style="display:flex;gap:5px;align-items:center;">
+        <span class="pdot active" data-p="P"></span><span class="pdot" data-p="R"></span>
+        <span class="pdot" data-p="I"></span><span class="pdot" data-p="S"></span><span class="pdot" data-p="M"></span>
+      </div>
+      <button class="prism2-btn-next" id="prism2-next-P" onclick="prism2Next()">Next pillar &#8594;</button>
+    </div>
+  </div>
+
+      <!-- ── R Panel ── -->
+      <div class="prism2-content-panel" id="prism2-panel-R" style="--pc:#1a5ca8;--pb:#e4eef9;--cb:#f3f7fd;">
+    <div class="prism2-panel-header">
+      <div class="prism2-panel-header-letter">R</div>
+      <div class="prism2-panel-header-text">
+        <div class="prism2-panel-eyebrow">REPURPOSING PATHWAYS</div>
+        <p class="prism2-panel-desc">Evaluating delivery models — EPC, EPC+O&amp;M, BOOT, BOO, DBFOT, Concession/LDO, and Hybrid — for suitability across safety, livelihood, ecological, and commercial objectives.</p>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggleAccordion(this)"><span>Implementation Options</span><span class="accordion-chevron">&#8964;</span></button>
+      <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">The following table outlines the possible implementation models that may be considered for developing the proposed repurposing project. These models differ in terms of ownership structure, funding responsibility, private sector participation, operational control, and long-term risk allocation. The purpose of this table is to help the project owner compare broad development routes and select an implementation approach that aligns with its financial capacity, institutional preference, risk appetite, and long-term asset management objectives.</p>
+        <div class="table-wrap"><table class="spv-table">
+          <thead><tr><th>Model</th><th>Suitability</th><th>Comment</th></tr></thead>
+          <tbody>
+            <tr><td><strong>EPC</strong></td><td>Moderate</td><td>Good for basic civil works: trails, fencing, viewpoints, toilets, parking, lighting and visitor shelters</td></tr>
+            <tr><td><strong>EPC + O&amp;M</strong></td><td>High</td><td>Strong for owner-controlled tourism facility with professional safety, maintenance and visitor management</td></tr>
+            <tr><td><strong>BOOT</strong></td><td>High</td><td>Suitable for commercial adventure attractions — zip lines, rope courses, camping, visitor facilities — with transfer</td></tr>
+            <tr><td><strong>BOO</strong></td><td>Moderate</td><td>Suitable for private commercial adventure park, but weaker for community benefit unless obligations are mandated</td></tr>
+            <tr><td><strong>DBFOT</strong></td><td>High</td><td>Best for large structured adventure tourism projects requiring design, financing, operation and transfer</td></tr>
+            <tr><td><strong>Concession / LDO</strong></td><td>Very High</td><td>Strong for long-term tourism operation with community access, lease rent, revenue share and safety obligations</td></tr>
+            <tr><td><strong>Hybrid</strong></td><td>Very High</td><td>Most flexible combining mine-owner land, CSR support, private adventure operator, local entrepreneurs and eco-restoration</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggleAccordion(this)"><span>Comparative Assessment of Key Models</span><span class="accordion-chevron">&#8964;</span></button>
+      <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">The following comparative assessment evaluates the major implementation models across key decision parameters such as investment requirement, ownership control, financing responsibility, contractual complexity, risk transfer, and long-term economic benefit. This matrix is intended to support early-stage decision-making by highlighting the relative strengths and limitations of each model. The final choice of model should be guided by the specific circumstances of the project, including its scale, commercial viability, applicable policy framework, and the owner's institutional preference.</p>
+        <div class="table-wrap"><table class="spv-table">
+          <thead><tr><th>Evaluation Parameter</th><th>EPC</th><th>EPC+O&amp;M</th><th>BOOT</th><th>BOO</th><th>DBFOT</th><th>Concession</th><th>Hybrid</th></tr></thead>
+          <tbody>
+            <tr><td>Upfront investment by Mine Owner</td><td>High</td><td>High–Moderate</td><td>Low–Moderate</td><td>Low</td><td>Low–Moderate</td><td>Low–Moderate</td><td>Variable</td></tr>
+            <tr><td>Ownership retained by Mine Owner</td><td>Yes</td><td>Yes</td><td>Land retained</td><td>Limited</td><td>Usually retained</td><td>Land retained</td><td>Usually retained</td></tr>
+            <tr><td>Suitability for welfare objective</td><td>High</td><td>Very High</td><td>High if mandated</td><td>Moderate</td><td>High</td><td>Very High</td><td>Very High</td></tr>
+            <tr><td>Suitability for local livelihood</td><td>Moderate</td><td>Very High</td><td>High</td><td>Moderate</td><td>High–Very High</td><td>Very High</td><td>Very High</td></tr>
+            <tr><td>Suitability for ecological restoration</td><td>Moderate</td><td>High</td><td>High if regulated</td><td>Moderate</td><td>High</td><td>High</td><td>Very High</td></tr>
+            <tr><td>Suitability for long-term safety maintenance</td><td>Low–Moderate</td><td>High</td><td>High</td><td>High</td><td>High</td><td>Very High</td><td>Very High</td></tr>
+            <tr><td>Revenue potential</td><td>Low–Moderate</td><td>Moderate</td><td>High</td><td>High</td><td>High</td><td>Moderate–High</td><td>Variable–High</td></tr>
+            <tr><td>Suitability for phased development</td><td>Moderate</td><td>High</td><td>Moderate</td><td>Moderate</td><td>High</td><td>Very High</td><td>Very High</td></tr>
+            <tr><td>Overall suitability for Adventure Tourism</td><td>Moderate</td><td>High</td><td>High</td><td>Moderate</td><td>High</td><td>Very High</td><td>Very High / Most Suitable</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </div>
+          <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Model-Wise Responsibility Logic</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following table explains how major project responsibilities are typically allocated under different implementation models. It covers key functional areas such as site availability, financing, design and construction, regulatory approvals, operation and maintenance, revenue collection, asset ownership, and end-of-term transfer. This helps clarify the respective roles of the project owner, private developer, EPC contractor, operator, or concessionaire, and supports the preparation of tender documents and contractual structures.</p>
+        <div class="table-wrap">
+          <table class="spv-table">
+            <thead><tr><th>Responsibility Area</th><th>EPC</th><th>EPC+O&amp;M</th><th>BOOT</th><th>DBFOT</th><th>Concession</th><th>Hybrid</th></tr></thead>
+            <tbody>
+              <tr><td>Site / Land Availability</td><td>Owner</td><td>Owner</td><td>Owner / authority</td><td>Owner / authority</td><td>Owner / authority</td><td>Variable</td></tr>
+              <tr><td>Financing (CAPEX)</td><td>Owner</td><td>Owner</td><td>Developer</td><td>Developer</td><td>Concessionaire</td><td>Shared</td></tr>
+              <tr><td>Infrastructure Design &amp; Construction</td><td>EPC contractor</td><td>EPC contractor</td><td>Developer / EPC</td><td>Developer / EPC</td><td>Concessionaire / contractor</td><td>Variable</td></tr>
+              <tr><td>Equipment &amp; Activity Gear Procurement</td><td>Owner</td><td>Owner / O&amp;M operator</td><td>Developer</td><td>Developer</td><td>Concessionaire</td><td>Variable</td></tr>
+              <tr><td>Visitor Safety &amp; Risk Management</td><td>Owner</td><td>O&amp;M operator</td><td>Developer</td><td>Developer</td><td>Concessionaire</td><td>Shared</td></tr>
+              <tr><td>Activity &amp; Event Operations</td><td>Owner or separate operator</td><td>O&amp;M operator</td><td>Developer</td><td>Developer / operator</td><td>Concessionaire</td><td>Operator / NGO / developer</td></tr>
+              <tr><td>Revenue Collection / Ticketing</td><td>Owner</td><td>Owner</td><td>Developer during concession</td><td>Developer / concessionaire</td><td>Concessionaire</td><td>Shared per agreement</td></tr>
+              <tr><td>O&amp;M (Site, Equipment, Safety)</td><td>Owner or separate agency</td><td>O&amp;M operator</td><td>Developer</td><td>Developer</td><td>Concessionaire</td><td>Shared / specialist</td></tr>
+              <tr><td>Asset Ownership During Term</td><td>Owner</td><td>Owner</td><td>Developer during concession</td><td>Developer during concession</td><td>Owner (land); concessionaire (structures)</td><td>Variable</td></tr>
+              <tr><td>Transfer at End of Term</td><td>No</td><td>No</td><td>Yes — to owner</td><td>Yes — to owner</td><td>Usually yes</td><td>Variable</td></tr>
+            </tbody>
+          </table>
+        </div>
+          <p class="spv-body-text" style="margin-top:16px;">In owner-led models such as EPC and EPC + O&amp;M, the project owner retains primary responsibility for financing and ownership, while technical functions are outsourced. In developer-led models such as BOOT, BOO, DBFOT, and Concession, financing, construction, operation, and revenue realisation are largely undertaken by the private developer or concessionaire. Hybrid structures allocate responsibilities according to the negotiated project arrangement.</p>
+        </div>
+      </div>
+
+<div class="prism2-nav-row">
+      <button class="prism2-btn-prev" id="prism2-prev-R" onclick="prism2Prev()">&#8592; Previous</button>
+      <div class="prism2-progress-dots" style="display:flex;gap:5px;align-items:center;">
+        <span class="pdot" data-p="P"></span><span class="pdot active" data-p="R"></span>
+        <span class="pdot" data-p="I"></span><span class="pdot" data-p="S"></span><span class="pdot" data-p="M"></span>
+      </div>
+      <button class="prism2-btn-next" id="prism2-next-R" onclick="prism2Next()">Next pillar &#8594;</button>
+    </div>
+  </div>
+
+      <!-- ── I Panel ── -->
+      <div class="prism2-content-panel" id="prism2-panel-I" style="--pc:#b06a10;--pb:#faedda;--cb:#fdf7f0;">
+    <div class="prism2-panel-header">
+      <div class="prism2-panel-header-letter">I</div>
+      <div class="prism2-panel-header-text">
+        <div class="prism2-panel-eyebrow">INVESTMENT DYNAMICS</div>
+        <p class="prism2-panel-desc">Funding sources, CAPEX logic, revenue streams, profitability by model, and local job creation across adventure tourism delivery approaches.</p>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggleAccordion(this)"><span>Funding Logic</span><span class="accordion-chevron">&#8964;</span></button>
+      <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">The following table presents the broad funding logic for each implementation model. It explains who is expected to finance the project, the level of owner-side funding requirement, and the commercial rationale behind each structure. This section is intended to help the project owner assess whether the project is more suitable for owner-funded development, private investment, public-private partnership, lease or concession structure, or a hybrid funding arrangement.</p>
+        <div class="table-wrap"><table class="spv-table">
+          <thead><tr><th>Model</th><th>Funding Source</th><th>Owner Requirement</th><th>Suitability</th></tr></thead>
+          <tbody>
+            <tr><td><strong>EPC</strong></td><td>Mine owner budget / mine closure fund / CSR</td><td>High</td><td>Basic trails, fencing, viewpoints, toilets, parking, signage, visitor shelters and access roads</td></tr>
+            <tr><td><strong>EPC + O&amp;M</strong></td><td>Mine owner budget + O&amp;M budget + CSR</td><td>High–Moderate</td><td>Owner-controlled adventure tourism with safety, visitor access, community welfare and local employment</td></tr>
+            <tr><td><strong>BOOT</strong></td><td>Private developer capital + CSR / VGF / grant</td><td>Low–Moderate</td><td>Commercial zip lines, rope courses, camping, visitor centre, food court and eventual asset transfer</td></tr>
+            <tr><td><strong>DBFOT</strong></td><td>Private concessionaire + public/CSR + VGF</td><td>Low–Moderate</td><td>Large adventure tourism parks with private finance, professional design, safety systems and transfer</td></tr>
+            <tr><td><strong>Concession / LDO</strong></td><td>Private operator / tourism agency / NGO / CSR / blended finance</td><td>Low–Moderate</td><td>Community-linked tourism with safety obligations, lease fee, revenue sharing and local employment</td></tr>
+            <tr><td><strong>Hybrid</strong></td><td>Mine owner + CSR + government schemes + private operator + SHG/enterprise + NGO + grants</td><td>Variable</td><td>Balancing tourism, livelihood, ecological restoration, heritage interpretation and owner revenue</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggleAccordion(this)"><span>Revenue Generation by Model</span><span class="accordion-chevron">&#8964;</span></button>
+      <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">The following table explains how revenue may be generated under different implementation models and identifies who is likely to receive the principal project income. It also describes the nature and extent of the financial benefit available to the project owner, whether through direct project revenue, cost savings, lease income, concession fees, revenue sharing, service charges, or eventual asset transfer. This comparison is intended to support the selection of a commercially appropriate model for the proposed repurposing project.</p>
+        <div class="table-wrap"><table class="spv-table">
+          <thead><tr><th>Model</th><th>How Revenue is Generated</th><th>Who Receives Revenue</th><th>Owner's Financial Benefit</th></tr></thead>
+          <tbody>
+            <tr><td><strong>EPC</strong></td><td>Entry tickets, parking, guided trails, viewpoints, activity fees, kiosks and events</td><td>Mine Owner</td><td>Full revenue retained, but owner bears full CAPEX, O&amp;M, safety, liability and market risk</td></tr>
+            <tr><td><strong>EPC + O&amp;M</strong></td><td>Tickets, activity fees, guided tours, rentals, camping, events, kiosks, parking</td><td>Mine Owner after O&amp;M payments</td><td>High; owner retains revenue while outsourcing operations and technical maintenance</td></tr>
+            <tr><td><strong>BOOT</strong></td><td>Commercial adventure activities, zip lines, rope courses, guided tours, camping, hospitality during concession</td><td>Developer / concessionaire</td><td>Lease rent, concession fee, revenue share, local economic uplift and asset transfer at end</td></tr>
+            <tr><td><strong>DBFOT</strong></td><td>Adventure park value chain, guided mine tours, visitor centre, hospitality, events, kiosks and sponsorship</td><td>Concessionaire during concession</td><td>Concession fee, lease rent, revenue share, performance-linked payments and asset transfer</td></tr>
+            <tr><td><strong>Concession / LDO</strong></td><td>Adventure operations, local enterprise stalls, guided tours, camping, parking, events and eco-tourism packages</td><td>Concessionaire / operator as per agreement</td><td>Lease rentals, revenue share, improved land value and indirect socio-economic benefits</td></tr>
+            <tr><td><strong>Hybrid</strong></td><td>Mixed: tickets, CSR support, adventure operator, SHG/local enterprises, events, sponsorships, grants, eco-tourism</td><td>Shared between owner, operator, SHG/FPO as structured</td><td>Variable to High; revenue share, reduced O&amp;M burden, ESG gains, enhanced land value</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggleAccordion(this)"><span>Which Model is Better for Local Livelihood and Jobs</span><span class="accordion-chevron">&#8964;</span></button>
+      <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">The following table assesses the likely local livelihood and employment potential of each implementation model. It considers the extent to which each model can support construction-phase jobs, long-term operational employment, local procurement opportunities, skill development, community participation, and associated support services. This section is particularly relevant where the repurposing project is expected to contribute to post-mining or post-operational economic transition and sustained local community benefit.</p>
+        <div class="table-wrap"><table class="spv-table">
+          <thead><tr><th>Model</th><th>Local Job Potential</th><th>Why</th><th>Overall Suggestibility</th></tr></thead>
+          <tbody>
+            <tr><td><strong>EPC</strong></td><td>Moderate</td><td>Short-term construction jobs. Long-term employment depends on owner-led operations after completion.</td><td>Moderate</td></tr>
+            <tr><td><strong>EPC + O&amp;M</strong></td><td>High to Very High</td><td>Sustained employment in visitor management, guiding, ticketing, security, equipment handling, trail maintenance, food kiosks, local transport.</td><td>Very High</td></tr>
+            <tr><td><strong>BOOT</strong></td><td>High</td><td>Jobs in development and operation. Strong local benefit if agreement mandates local guides, procurement, community access, training and revenue sharing.</td><td>High</td></tr>
+            <tr><td><strong>DBFOT</strong></td><td>High to Very High</td><td>Suitable for large parks with ticketing, zip line ops, guided tours, camping, events, food courts, retail, housekeeping, rescue teams.</td><td>High to Very High</td></tr>
+            <tr><td><strong>Concession / LDO</strong></td><td>Very High</td><td>Strong model via mandated local employment, guide training, kiosk allocation, homestay linkage, transport and local enterprise participation.</td><td>Very High</td></tr>
+            <tr><td><strong>Hybrid</strong></td><td>Very High</td><td>Best: combines mine-owner support, private adventure expertise, NGO facilitation, SHG/local enterprise participation, CSR and community benefit obligations.</td><td>Very High / Most Suitable</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </div>
+          <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Combined Comparison: Revenue, Profitability, and Livelihood</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following combined comparison brings together three important dimensions of project structuring: revenue potential, owner-side financial benefit, and local livelihood generation. It provides a consolidated view of how each implementation model performs across commercial, institutional, and community-development perspectives. This matrix is intended to support balanced decision-making where the objective extends beyond financial return to include sustainable site reuse and long-term local economic benefit.</p>
+        <div class="table-wrap">
+          <table class="spv-table">
+            <thead><tr><th>Model</th><th>Owner Profitability</th><th>Local Job Creation</th><th>Overall Comment</th></tr></thead>
+            <tbody>
+              <tr><td><strong>EPC</strong></td><td>High — owner retains full revenue after capital repayment</td><td>Moderate to High</td><td>Suitable where the owner has funding capacity and seeks full control over the asset</td></tr>
+              <tr><td><strong>EPC + O&amp;M</strong></td><td>High — strong ongoing revenue net of O&amp;M costs</td><td>High to Very High</td><td>Best for owners who can fund development and want sustained control with professional management</td></tr>
+              <tr><td><strong>BOOT</strong></td><td>Moderate — income through lease, concession fee, or transfer value</td><td>High</td><td>Suitable where private financing is needed; owner benefits indirectly and gains the asset at end of concession</td></tr>
+              <tr><td><strong>DBFOT</strong></td><td>Moderate to High — through lease, concession fee, and transfer</td><td>High to Very High</td><td>Strong PPP structure for larger projects requiring private investment and structured public participation</td></tr>
+              <tr><td><strong>Concession / LDO</strong></td><td>Moderate — through concession fee and revenue-sharing arrangement</td><td>High to Very High</td><td>Highly suitable where the owner wants to retain land while outsourcing commercial activation</td></tr>
+              <tr><td><strong>Hybrid</strong></td><td>Variable to High — depends on structure and revenue-sharing terms</td><td>Very High</td><td>Most suitable where public value, community benefit, and commercial viability are all required</td></tr>
+            </tbody>
+          </table>
+        </div>
+        </div>
+      </div>
+
+<div class="prism2-nav-row">
+      <button class="prism2-btn-prev" id="prism2-prev-I" onclick="prism2Prev()">&#8592; Previous</button>
+      <div class="prism2-progress-dots" style="display:flex;gap:5px;align-items:center;">
+        <span class="pdot" data-p="P"></span><span class="pdot" data-p="R"></span>
+        <span class="pdot active" data-p="I"></span><span class="pdot" data-p="S"></span><span class="pdot" data-p="M"></span>
+      </div>
+      <button class="prism2-btn-next" id="prism2-next-I" onclick="prism2Next()">Next pillar &#8594;</button>
+    </div>
+  </div>
+
+      <!-- ── S Panel ── -->
+      <div class="prism2-content-panel" id="prism2-panel-S" style="--pc:#5a3d9e;--pb:#edeaf8;--cb:#f7f5fd;">
+    <div class="prism2-panel-header">
+      <div class="prism2-panel-header-letter">S</div>
+      <div class="prism2-panel-header-text">
+        <div class="prism2-panel-eyebrow">STRATEGIC STRUCTURING</div>
+        <p class="prism2-panel-desc">Defining the procurement groundwork — what must be ready before the first RFP, and what the selected operator can take up post-award.</p>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggleAccordion(this)"><span>Preparations Needed Before RFP</span><span class="accordion-chevron">&#8964;</span></button>
+      <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">The following section identifies the key owner-side preparatory actions that should ideally be completed before issuing the first Request for Proposal. These actions are aimed at reducing uncertainty for prospective bidders, improving project bankability, clarifying site availability, identifying approval pathways and risks, and defining the technical and commercial scope of the project. Completing these preparatory steps before tendering can improve bid quality, attract credible responses, and reduce the risk of delays during project implementation.</p>
+        <p class="spv-body-text">Before issuing an RFP for an adventure-tourism-based mine repurposing project, the mine owner should prepare the following in priority order:</p>
+        <ol class="spv-list">
+          <li>Land and closure confirmation — Confirm land ownership, closure status, mine-closure linkage and permissibility of adventure tourism / eco-tourism / recreational use.</li>
+          <li>Legal and land-use screening — Review land-use restrictions, concession / lease rights, visitor liability, insurance requirements, public-access permission, tourism registration, GST applicability, commercial rights, user charges, revenue-sharing permissibility, forest / wildlife restrictions where applicable, water-body use permissions, construction permissions, advertising rights and local-body approvals.</li>
+          <li>Safety and no-go zone mapping — Identify safe and unsafe zones, including active mine areas, unstable dumps, highwalls, subsidence-prone areas, unsafe water bodies and restricted infrastructure.</li>
+          <li>Preliminary technical site assessment — Prepare topographic survey, slope-stability screening, geotechnical screening, drainage review and water-body safety note where applicable.</li>
+          <li>Environmental and contamination screening — Assess soil, water, dust, residual contamination, ecological sensitivity and environmental suitability for public tourism use.</li>
+          <li>Preliminary safety and rescue framework — Prepare the minimum safety framework for activity selection, guide qualifications, rescue access, ambulance tie-up, weather closure, equipment standards, visitor eligibility, insurance, incident reporting and third-party safety audit requirements.</li>
+          <li>Activity suitability assessment — Identify feasible activities such as trekking, cycling, viewpoints, rope course, zip line, camping, water recreation or mine-heritage trail based on site safety and terrain.</li>
+          <li>Community and stakeholder consultation — Consult local administration, tourism department, police, fire services, health department, panchayats, nearby communities, youth groups, SHGs and local entrepreneurs.</li>
+          <li>Preliminary zoning and carrying-capacity plan — Prepare a basic layout showing entry area, visitor centre, activity zones, buffer zones, emergency routes, no-go areas, parking and broad visitor capacity.</li>
+          <li>Market and revenue assessment — Estimate demand and possible revenue from entry tickets, adventure activities, guided tours, food kiosks, camping, parking, events and local transport.</li>
+          <li>Cost and implementation model selection — Prepare broad CAPEX and 5-year O&amp;M estimates and select a preferred model such as Hybrid, Concession / LDOT, DBFOT or EPC + O&amp;M.</li>
+          <li>Draft RFP scope and obligations — Prepare bidder scope covering design, construction, operation, safety compliance, equipment standards, local employment, guide training, kiosk allocation and environmental safeguards.</li>
+          <li>Bid evaluation framework — Define evaluation criteria covering adventure-tourism experience, safety record, technical capability, financial capacity, community integration, O&amp;M plan and revenue proposal.</li>
+        </ol>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggleAccordion(this)"><span>Activities to be taken After Selecting the Agency</span><span class="accordion-chevron">&#8964;</span></button>
+      <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">The following section lists the principal activities that may be undertaken by the selected contractor, developer, concessionaire, operator, or implementation agency after award of the project. These activities generally include detailed site investigations, engineering design, statutory submissions and approvals, equipment procurement, construction, commissioning, operational planning, staff training, and performance monitoring. The distinction between pre-RFP owner preparedness and post-award implementation responsibilities helps ensure an appropriate and efficient allocation of effort across the project development cycle.</p>
+        <p class="spv-body-text">After award, the selected concessionaire / contractor / O&amp;M agency / adventure-tourism operator can take up the following activities in chronological order:</p>
+        <ol class="spv-list">
+          <li>Detailed site investigation — Undertake detailed topographic survey, drone mapping, geotechnical investigation, slope assessment, highwall assessment, foundation investigation and water-body assessment where applicable.</li>
+          <li>Detailed environmental and safety planning — Prepare the environmental management plan, safety management plan, emergency-response plan, rescue plan, visitor-flow plan and final carrying-capacity assessment.</li>
+          <li>Final master planning — Prepare the final adventure-tourism master plan showing activity zones, visitor circulation, no-go areas, buffer areas, emergency routes, service areas, parking and local enterprise zones.</li>
+          <li>Detailed engineering and activity design — Prepare detailed designs for trails, zip lines, rope courses, climbing walls, viewing decks, camping areas, visitor centre, parking, utilities, platforms, anchors, towers and safety barriers.</li>
+          <li>Detailed Project Report (DPR) — The selected concessionaire / operator shall prepare the detailed DPR, including detailed surveys, final master plan, detailed engineering, activity-wise safety design, financial model, statutory approvals plan, O&amp;M plan, environmental management plan and implementation schedule, for approval by the mine owner before execution.</li>
+          <li>Approvals, certification and insurance — Obtain final statutory permissions, operating approvals, safety certifications, equipment certifications, insurance cover and other clearances required before construction or operation.</li>
+          <li>Procurement of equipment and systems — Procure certified adventure equipment, PPE, rescue equipment, first-aid systems, communication devices, CCTV, public-address system, access-control system and digital ticketing system.</li>
+          <li>Construction and installation — Develop trails, platforms, towers, rope courses, safety nets, signage, barricades, lighting, visitor facilities, toilets, drinking water points, kiosks, parking and rest areas.</li>
+          <li>Preparation of operating procedures — Prepare activity-wise SOPs covering visitor briefing, eligibility checks, medical declaration, equipment use, rescue response, incident reporting, weather closure, inspection and maintenance.</li>
+          <li>Recruitment and training — Recruit and train guides, instructors, safety marshals, rescue personnel, maintenance staff, visitor-service staff and local youth for adventure operations.</li>
+          <li>Local livelihood integration — Onboard SHGs, food vendors, transport operators, souvenir sellers, homestay operators and local entrepreneurs for tourism-linked livelihood activities.</li>
+          <li>Trial operation and safety audit — Conduct trial runs, mock drills, rescue exercises, equipment testing, third-party safety audits and owner / competent-authority review before opening the facility to the public.</li>
+          <li>Branding and tourism linkage — Develop branding, marketing, online booking, signage, tourism-circuit linkage, school / college outreach and event promotion.</li>
+          <li>Commissioning and public opening — Commission the adventure tourism zone after successful trial runs, safety clearance, staff readiness and visitor-management systems are in place.</li>
+          <li>Regular operation and monitoring — Carry out routine O&amp;M, equipment inspection, visitor management, incident reporting, environmental monitoring, safety audits and compliance reporting.</li>
+          <li>Phased expansion — Expand activities and facilities in phases based on visitor demand, revenue performance, safety record, environmental compliance and owner approval.</li>
+        </ol>
+      </div>
+    </div>
+        <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggleAccordion(this)"><span>Indicative Implementation Pathway</span><span class="accordion-chevron">&#8964;</span></button>
+      <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">The following implementation pathway presents a practical high-level sequence for advancing the proposed repurposing concept from initial approval through to project execution and long-term operation. It outlines the broad stages of concept approval, preliminary studies, model selection, bid preparation, procurement, detailed design, statutory approvals, construction, commissioning, and ongoing operation. This pathway is indicative and should be adapted to reflect the specific complexity, regulatory requirements, financing structure, and site conditions applicable to the project.</p>
+        <ol class="spv-list">
+          <li>Concept approval and objective setting</li>
+          <li>Land, safety and mine-closure permissibility screening</li>
+          <li>Geotechnical, topographic and environmental assessment</li>
+          <li>Community engagement and tourism demand assessment</li>
+          <li>Selection of priority adventure activities</li>
+          <li>Preliminary zoning and master planning</li>
+          <li>Selection of implementation model</li>
+          <li>DPR and bid structuring</li>
+          <li>RFP issuance and partner selection</li>
+          <li>Detailed design and safety certification</li>
+          <li>Site grading, fencing, access and utility development</li>
+          <li>Installation of trails, platforms, towers, rope courses and visitor facilities</li>
+          <li>Equipment procurement, testing and trial operation</li>
+          <li>Training of guides, rescue teams and local workers</li>
+          <li>Launch of visitor operations, revenue systems and local enterprise linkages</li>
+          <li>Monitoring, maintenance, safety audits and phased expansion</li>
+        </ol>
+      </div>
+    </div>
+    <div class="prism2-nav-row">
+      <button class="prism2-btn-prev" id="prism2-prev-S" onclick="prism2Prev()">&#8592; Previous</button>
+      <div class="prism2-progress-dots" style="display:flex;gap:5px;align-items:center;">
+        <span class="pdot" data-p="P"></span><span class="pdot" data-p="R"></span>
+        <span class="pdot" data-p="I"></span><span class="pdot active" data-p="S"></span><span class="pdot" data-p="M"></span>
+      </div>
+      
+    <button class="prism2-btn-next" id="prism2-next-S" onclick="prism2Next()">Next pillar &#8594;</button>
+    </div>
+  </div>
+
+      <!-- ── M Panel ── -->
+      <div class="prism2-content-panel" id="prism2-panel-M" style="--pc:#1a7a5e;--pb:#e1f3ec;--cb:#f1faf6;">
+    <div class="prism2-panel-header">
+      <div class="prism2-panel-header-letter">M</div>
+      <div class="prism2-panel-header-text">
+        <div class="prism2-panel-eyebrow">MONITORING GUIDANCE</div>
+        <p class="prism2-panel-desc">A practical implementation sequence, preferred models and scaling logic — from a pilot interpretation trail to a regional mine-tourism and adventure ecosystem.</p>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggleAccordion(this)"><span>Way Forward</span><span class="accordion-chevron">&#8964;</span></button>
+      <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">The following way forward summarizes the preferred development approach for the proposed repurposing option, based on the assessment presented in PRISM (Post Mining Repurposing Implementation and Strategy Models). It identifies the most suitable implementation models in order of preference, highlights key technical and due-diligence considerations, and outlines the recommended next steps and broad development logic. This section is intended to guide internal decision-making and support the project owner in progressing from concept-stage evaluation toward feasibility assessment, project structuring, regulatory approvals, and implementation planning.</p>
+        <p class="spv-body-text"><strong>Preferred Models, in order:</strong> (1) Hybrid Model, (2) Concession / Lease-Develop-Operate, (3) DBFOT</p>
+        <p class="spv-body-text"><strong>Why preferred:</strong> The Hybrid Model is preferred because the mine owner can retain control over land, safety, access and mine-closure obligations while bringing in private adventure operators, tourism agencies, CSR support, local enterprises and community benefit obligations. The hybrid structure should combine owner-funded safety infrastructure + concession-based tourism operation + CSR/community livelihood participation.</p>
+        <p class="spv-body-text"><strong>Secondary option:</strong> EPC + O&amp;M may be used where the project is mainly welfare-driven, low-risk and owner-controlled, especially for walking trails, viewing decks, interpretation areas and basic recreation zones.</p>
+        <p class="spv-body-text"><strong>Suggestable technical care:</strong> Geotechnical stability, slope safety, highwall protection, water-body safety, controlled access, emergency rescue, insurance, visitor carrying capacity, lighting, first-aid and environmental permissions must be verified before high-risk activities.</p>
+        <p class="spv-body-text"><strong>Recommended development logic:</strong> Start with low-risk elements such as boundary control, viewing decks, mine-heritage trail, walking / cycling routes, children’s adventure zone, visitor centre, toilets, parking and first-aid. Add zipline, rappelling, ATV, boating, camping and night tourism only after technical, safety, insurance and rescue-readiness clearance.</p>
+        <p class="spv-body-text"><strong>Final recommendation:</strong> Hybrid Model is the most suitable because adventure tourism requires strong public safety control along with professional tourism operation and local livelihood participation.</p>
+        <p class="spv-body-text" style="font-style:italic; margin-top:1.2rem;"><strong>Disclaimer —</strong> All repurposing interventions proposed under P.R.I.S.M. shall remain subject to applicable mining laws, land-use regulations, environmental approvals, mine-closure conditions, forest and biodiversity regulations, groundwater permissions, and any other statutory approvals as may be applicable. Land ownership is proposed to remain with the mine owner / competent authority unless otherwise permitted under applicable law.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">
+        <span>References</span>
+        <span class="accordion-chevron">&#8964;</span>
+      </button>
+      <div class="accordion-body" style="display:none;">
+        <ul class="spv-list">
+          <li>Ministry of Tourism, Government of India. (2018). <em>Indian Adventure Tourism Guidelines Version 2.0 &#8212; Safety and Quality Norms for Adventure Tourism in India</em>. Government of India, Ministry of Tourism, New Delhi.</li>
+          <li>Ministry of Tourism, Government of India. (2018). <em>Indian Adventure Tourism Guidelines: Land, Air and Water Based Adventure Activities</em>. Government of India, Ministry of Tourism.</li>
+          <li>Ministry of Tourism, Government of India. (2022). <em>National Strategy for Adventure Tourism</em>. Government of India, Ministry of Tourism, New Delhi.</li>
+          <li>Coal Controller Organisation, Ministry of Coal, Government of India. <em>Mine Closure Handbooks Portal: A.R.T.H.A., L.I.V.E.S. and R.E.C.L.A.I.M.</em> Available at: <a href="https://coalcontroller.gov.in/mine-closure-handbooks" target="_blank" rel="noopener noreferrer">coalcontroller.gov.in/mine-closure-handbooks</a></li>
+          <li>Ministry of Coal, Government of India. (2025). <em>Guidelines for Preparation of Mining Plan and Mine Closure Plan for Coal and Lignite Mines</em>.</li>
+          <li>Coal Controller Organisation, Ministry of Coal, Government of India. <em>A.R.T.H.A: Green Finance for Coal Mines Repurposing</em>.</li>
+          <li>Coal Controller Organisation, Ministry of Coal, Government of India. <em>L.I.V.E.S Framework for Mine Closure</em>.</li>
+          <li>Coal Controller Organisation, Ministry of Coal, Government of India. <em>R.E.C.L.A.I.M: A Community Development Framework for Mine Closure</em>.</li>
+          <li>Press Information Bureau, Government of India. (2023). <em>Coal India Ltd Converts 30 Mined-Out Areas into Eco-Parks and Tourism Sites</em>. Ministry of Coal, Government of India, press release dated 21 February 2023.</li>
+          <li>Agora Energiewende and TERI. (2023). <em>Repurposing Options for Coal Mines in India</em>. Energy Transition Forum / Agora Energiewende / The Energy and Resources Institute.</li>
+          <li>Rocklin City Government. (2021). <em>Adventure Operations, LLC Receives First-Ever ACCT Accreditation for Quarry Park Adventures</em>. City of Rocklin, California.</li>
+          <li>Quarry Park Adventures. Official website: Quarry Adventures / Big Gun Quarry adventure features. Accessed 2026.</li>
+          <li>Zip World. Official website: Penrhyn Quarry adventure experiences. Accessed 2026.</li>
+          <li>Eden Project. Official website: Our Origins / Eden Project in a disused china clay quarry. Accessed 2026. Eden Project, Cornwall, United Kingdom.</li>
+          <li>Gandah, F., &amp; Atiyat, D. (2016). Re-Use of Abandoned Quarries: Case Study of Eco-Tourism and Rangers Academy &#8212; Ajloun, Jordan. <em>Journal of Civil &amp; Environmental Engineering</em>, 6(4), Article 238.</li>
+          <li>Ministry of Tourism, Government of India. <em>Swadesh Darshan 2.0 Scheme Guidelines / Scheme Guidelines for Sustainable and Responsible Destinations</em>.</li>
+          <li>Iannaccone, B., et al. (2024). Assessment of the Recreational Potential of Flooded Quarries. <em>Sustainability</em>, 16(21), 9602.</li>
+          <li>Ghosh, S. (2021). Alternative Use of Abandoned Mines for Geotourism: A Case Study Using Geoinformatics. <em>ResearchGate / academic preprint</em>.</li>
+          <li>Zhao, Q. (2016). <em>Repurposing Abandoned Tunnels in Coal-Mining Systems by Underground Space Design</em>. Master&#8217;s Thesis, University of Illinois.</li>
+          <li>International Journal of Scientific Research. (2018). Developing Abandoned Mines as a Recreational and Tourist Destination: Joda Area, Keonjhar, Odisha. <em>International Journal of Scientific Research</em>.</li>
+          <li>Association for Challenge Course Technology. (Ongoing). ANSI-Accredited Standards Development for Challenge Courses, Aerial Adventure Parks, Canopy Tours and Zip Lines. Referenced through City of Rocklin accreditation note.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">
+        <span>Abbreviations</span>
+        <span class="accordion-chevron">&#8964;</span>
+      </button>
+      <div class="accordion-body" style="display:none;">
+        <div class="table-wrap">
+          <table class="spv-table">
+            <thead><tr><th>Abbreviation</th><th>Full Form</th></tr></thead>
+            <tbody>
+              <tr><td>ACCT</td><td>Association for Challenge Course Technology</td></tr>
+              <tr><td>ANSI</td><td>American National Standards Institute</td></tr>
+              <tr><td>ATO</td><td>Approved Adventure Tour Operator</td></tr>
+              <tr><td>ATV</td><td>All-Terrain Vehicle</td></tr>
+              <tr><td>BLT</td><td>Build Lease Transfer</td></tr>
+              <tr><td>BOO</td><td>Build Own Operate</td></tr>
+              <tr><td>BOOT</td><td>Build Own Operate Transfer</td></tr>
+              <tr><td>BOLT</td><td>Build Own Lease Transfer</td></tr>
+              <tr><td>BOT</td><td>Build Operate Transfer</td></tr>
+              <tr><td>CAPEX</td><td>Capital Expenditure</td></tr>
+              <tr><td>CCTV</td><td>Closed-Circuit Television</td></tr>
+              <tr><td>CSR</td><td>Corporate Social Responsibility</td></tr>
+              <tr><td>DBFO</td><td>Design, Build, Finance, Operate</td></tr>
+              <tr><td>DBFOT</td><td>Design, Build, Finance, Operate, Transfer</td></tr>
+              <tr><td>DBOT</td><td>Design, Build, Operate and Transfer</td></tr>
+              <tr><td>DMF</td><td>District Mineral Foundation</td></tr>
+              <tr><td>DPR</td><td>Detailed Project Report</td></tr>
+              <tr><td>EPC</td><td>Engineering, Procurement and Construction</td></tr>
+              <tr><td>ESG</td><td>Environmental, Social and Governance</td></tr>
+              <tr><td>FM</td><td>Facility Management</td></tr>
+              <tr><td>HAM</td><td>Hybrid Annuity Model</td></tr>
+              <tr><td>LDOT</td><td>Lease, Develop, Operate and Transfer</td></tr>
+              <tr><td>MoC</td><td>Ministry of Coal</td></tr>
+              <tr><td>MOT</td><td>Ministry of Tourism</td></tr>
+              <tr><td>NGO</td><td>Non-Governmental Organization</td></tr>
+              <tr><td>O&amp;M</td><td>Operation and Maintenance</td></tr>
+              <tr><td>PPE</td><td>Personal Protective Equipment</td></tr>
+              <tr><td>PPP</td><td>Public-Private Partnership</td></tr>
+              <tr><td>RFP</td><td>Request for Proposal</td></tr>
+              <tr><td>ROMT</td><td>Rehabilitate, Operate, Maintain and Transfer</td></tr>
+              <tr><td>SASCI</td><td>Special Assistance to States for Capital Investment</td></tr>
+              <tr><td>SHG</td><td>Self-Help Group</td></tr>
+              <tr><td>SOP</td><td>Standard Operating Procedure</td></tr>
+              <tr><td>VGF</td><td>Viability Gap Funding</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="prism2-nav-row">
+      <button class="prism2-btn-prev" id="prism2-prev-M" onclick="prism2Prev()">&#8592; Previous</button>
+      <div class="prism2-progress-dots" style="display:flex;gap:5px;align-items:center;">
+        <span class="pdot" data-p="P"></span><span class="pdot" data-p="R"></span>
+        <span class="pdot" data-p="I"></span><span class="pdot" data-p="S"></span><span class="pdot active" data-p="M"></span>
+      </div>
+    </div>
+
+        <!-- Framework completion card -->
+        <div style="margin:0 26px 16px;padding:16px 20px;border-radius:12px;background:#f4faf7;border:1.5px dashed #a8d5c2;display:flex;align-items:center;gap:14px;">
+          <div style="width:36px;height:36px;border-radius:50%;background:#d1ece2;border:1.5px solid #a8d5c2;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#1a7a5e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2.5 8 6 11.5 13.5 4"/></svg>
+          </div>
+          <div style="flex:1;min-width:0;">
+            <div style="font-size:.82rem;font-weight:700;color:#1a7a5e;letter-spacing:.01em;">PRISM Framework Complete</div>
+            <div style="font-size:.75rem;color:#4a7a6a;margin-top:2px;line-height:1.5;">All five pillars reviewed — explore case studies to see how similar projects were executed.</div>
+          </div>
+          <button onclick="showSPVTab('casestudies');setTimeout(function(){window.dispatchEvent(new Event('resize'))},30)" style="flex-shrink:0;font-size:.75rem;font-weight:600;padding:7px 14px;border-radius:8px;border:1.5px solid #a8d5c2;background:#fff;color:#1a7a5e;cursor:pointer;transition:background .2s,border-color .2s;" onmouseover="this.style.background='#e6f5ef'" onmouseout="this.style.background='#fff'">Case Studies &#8599;</button>
+        </div>
+
+        <!-- Download PRISM PDF -->
+        <div style="margin:0 26px 28px;padding:18px 22px;border-radius:12px;background:linear-gradient(135deg,#f0f7ff 0%,#e8f4fd 100%);border:1.5px solid #c5ddf5;display:flex;align-items:center;gap:16px;">
+          <div style="width:40px;height:40px;border-radius:50%;background:#daeafa;border:1.5px solid #b8d4ef;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#1a5ca8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v10M5 8l4 4 4-4"/><rect x="3" y="14" width="12" height="2" rx="1"/></svg>
+          </div>
+          <div style="flex:1;min-width:0;">
+            <div style="font-size:.82rem;font-weight:700;color:#1a5ca8;letter-spacing:.01em;">Download PRISM Framework</div>
+            <div style="font-size:.75rem;color:#3a6a98;margin-top:2px;line-height:1.5;">Save a print-ready PDF of all five pillars for offline reference.</div>
+          </div>
+          <button onclick="downloadPRISM()" style="flex-shrink:0;font-size:.75rem;font-weight:600;padding:8px 16px;border-radius:8px;border:1.5px solid #b8d4ef;background:#fff;color:#1a5ca8;cursor:pointer;transition:background .2s,border-color .2s;display:flex;align-items:center;gap:6px;" onmouseover="this.style.background='#daeafa'" onmouseout="this.style.background='#fff'">
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 1v7M3.5 5.5l3 3 3-3"/><rect x="1.5" y="10" width="10" height="1.5" rx=".75"/></svg>
+            Download PDF
+          </button>
+        </div>
+      </div>
+
+  </div><!-- /pr-content-wrap -->
+</div><!-- /pr-shell -->
+
+<script>
+function prNav(key) {
+  if (typeof prism2Show === 'function') prism2Show(key);
+  document.querySelectorAll('#spv-panel-prism .pr-nav-item').forEach(function(n) {
+    n.classList.toggle('active', n.dataset.key === key);
+  });
+  var hl = document.getElementById('pr-hl');
+  var active = document.querySelector('#spv-panel-prism .pr-nav-item[data-key="' + key + '"]');
+  if (hl && active) {
+    var accent = getComputedStyle(active).getPropertyValue('--pr-accent').trim();
+    hl.style.setProperty('--pr-hl', accent);
+    hl.style.top = active.offsetTop + 'px';
+    hl.style.height = active.offsetHeight + 'px';
+  }
+}
+</script>
+    </div>
+  </div>
+
+  <!-- CASE STUDIES TAB -->
+  <div id="spv-panel-casestudies" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+      <div class="lit-wrap"><div class="lit-outer"><div class="lit-track-clip">
+        <div class="lit-track" id="litTrack-all">
+          <a class="lit-card" href="https://www.yonderhq.com/case-study/quarry-park-adventures-scaling-guest-support-without-losing-the-personal-touch" target="_blank" rel="noopener noreferrer" style="--lit-accent:#C85000;--lit-glow:rgba(200,80,0,.18);--lit-tint:rgba(200,80,0,.06);">
+            <div class="lit-card-body"><div class="lit-card-title">Quarry Park Adventures — Scaling Guest Support Without Losing the Personal Touch</div><div class="lit-card-meta"><div class="lit-card-type"><span>Industry Case Study</span></div><div class="lit-card-source">Source: <span>Yonder HQ</span></div></div></div>
+            <div class="lit-card-img"><img src="../images/cs/cs-quarrylake.jpg" alt="Quarry Park Adventures, Rocklin California" loading="lazy"></div>
+            <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+          </a>
+          <a class="lit-card" href="https://www.researchgate.net/publication/404950185_Industrial_Heritage_as_a_Redevelopment_Platform_Multi-Site_Insights_from_Estonian_Oil_Shale_Mining_Region" target="_blank" rel="noopener noreferrer" style="--lit-accent:#1a5ca8;--lit-glow:rgba(26,92,168,.18);--lit-tint:rgba(26,92,168,.06);">
+            <div class="lit-card-body"><div class="lit-card-title">Case A — Kiviõli: Adventure &amp; Recreation-Led Redevelopment Platform · Industrial Heritage as a Redevelopment Platform: Multi-Site Insights from Estonian Oil Shale Mining Region</div><div class="lit-card-meta"><div class="lit-card-type"><span>Open Access Article</span></div><div class="lit-card-source">Source: <span>ResearchGate</span></div></div></div>
+            <div class="lit-card-img"><img src="../images/cs/cs-petrila.jpg" alt="Kiviõli adventure park, Estonia — former oil shale mining site" loading="lazy"></div>
+            <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+          </a>
+          <a class="lit-card" href="https://adventureparkinsider.com/article/mining-for-adventure/" target="_blank" rel="noopener noreferrer" style="--lit-accent:#b06a10;--lit-glow:rgba(176,106,16,.18);--lit-tint:rgba(176,106,16,.06);">
+            <div class="lit-card-body"><div class="lit-card-title">Mining for Adventure</div><div class="lit-card-meta"><div class="lit-card-type"><span>Industry Article</span></div><div class="lit-card-source">Source: <span>Adventure Park Insider</span></div></div></div>
+            <div class="lit-card-img"><img src="../images/cs/cs-dinorwig.jpg" alt="Adventure park on former mine terrain" loading="lazy"></div>
+            <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+          </a>
+          <a class="lit-card" href="https://ideas.repec.org/a/gam/jsusta/v12y2020i23p9922-d452148.html" target="_blank" rel="noopener noreferrer" style="--lit-accent:#5a3d9e;--lit-glow:rgba(90,61,158,.18);--lit-tint:rgba(90,61,158,.06);">
+            <div class="lit-card-body"><div class="lit-card-title">The Path of Petrila Mining Area towards Future Industrial Heritage Tourism Seen through the Lenses of Past and Present</div><div class="lit-card-meta"><div class="lit-card-type"><span>Open Access Article</span></div><div class="lit-card-source">Source: <span>IDEAS / RePEC — Sustainability</span></div></div></div>
+            <div class="lit-card-img"><img src="../images/cs/cs-katowice2.jpg" alt="Katowice mine heritage complex — adaptive reuse for industrial heritage tourism" loading="lazy"></div>
+            <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+          </a>
+          <a class="lit-card" href="https://op.europa.eu/en/publication-detail/-/publication/df15d9b8-41c1-11f0-b9f2-01aa75ed71a1/language-en" target="_blank" rel="noopener noreferrer" style="--lit-accent:#1a7a5e;--lit-glow:rgba(26,122,94,.18);--lit-tint:rgba(26,122,94,.06);">
+            <div class="lit-card-body"><div class="lit-card-title">Repurposing Mines for Tourism and Culture: Dolní Vítkovice (Czechia) and Golpa-Nord (Germany) — Case Study</div><div class="lit-card-meta"><div class="lit-card-type"><span>EU Case Study Report</span></div><div class="lit-card-source">Source: <span>European Union Publications Office</span></div></div></div>
+            <div class="lit-card-img"><img src="../images/cs/cs-zollverein.jpg" alt="Dolní Vítkovice & Golpa-Nord mine heritage" loading="lazy"></div>
+            <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+          </a>
+          <a class="lit-card" href="https://www.tandfonline.com/doi/epdf/10.1080/1743873X.2023.2255691?needAccess=true" target="_blank" rel="noopener noreferrer" style="--lit-accent:#C85000;--lit-glow:rgba(200,80,0,.18);--lit-tint:rgba(200,80,0,.06);">
+            <div class="lit-card-body"><div class="lit-card-title">Mining for Tourists in China: A Digital Ethnography of User-Generated Content from Coal Mining Heritage Parks</div><div class="lit-card-meta"><div class="lit-card-type"><span>Open Access Article</span></div><div class="lit-card-source">Source: <span>Taylor &amp; Francis Online</span></div></div></div>
+            <div class="lit-card-img"><img src="../images/cs/cs-zeche.jpg" alt="Coal mining heritage park, Germany" loading="lazy"></div>
+            <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+          </a>
+          <a class="lit-card" href="https://www.researchgate.net/publication/354280007_Creating_Tourism_Destinations_of_Underground_Built_Heritage-The_Cases_of_Salt_Mines_in_Poland_Portugal_and_Romania" target="_blank" rel="noopener noreferrer" style="--lit-accent:#1a5ca8;--lit-glow:rgba(26,92,168,.18);--lit-tint:rgba(26,92,168,.06);">
+            <div class="lit-card-body"><div class="lit-card-title">Creating Tourism Destinations of Underground Built Heritage — The Cases of Salt Mines in Poland, Portugal, and Romania</div><div class="lit-card-meta"><div class="lit-card-type"><span>Open Access Article</span></div><div class="lit-card-source">Source: <span>ResearchGate</span></div></div></div>
+            <div class="lit-card-img"><img src="../images/cs/cs-wieliczka.jpg" alt="Wieliczka Salt Mine, Poland" loading="lazy"></div>
+            <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+          </a>
+          <a class="lit-card" href="https://www.researchgate.net/publication/287221818_Reconstruction_of_former_industrial_complexes_and_their_utilisation_in_tourism_-_Case_study" target="_blank" rel="noopener noreferrer" style="--lit-accent:#b06a10;--lit-glow:rgba(176,106,16,.18);--lit-tint:rgba(176,106,16,.06);">
+            <div class="lit-card-body"><div class="lit-card-title">Reconstruction of Former Industrial Complexes and Their Utilisation in Tourism — Case Study</div><div class="lit-card-meta"><div class="lit-card-type"><span>Open Access Article</span></div><div class="lit-card-source">Source: <span>ResearchGate</span></div></div></div>
+            <div class="lit-card-img"><img src="../images/cs/cs-crespi.jpg" alt="Former industrial complex, Crespi d'Adda Italy" loading="lazy"></div>
+            <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+          </a>
+          <a class="lit-card" href="https://reference-global.com/article/10.2478/kbo-2023-0043" target="_blank" rel="noopener noreferrer" style="--lit-accent:#0369a1;--lit-glow:rgba(3,105,161,.18);--lit-tint:rgba(3,105,161,.06);">
+            <div class="lit-card-body"><div class="lit-card-title">Industrial Heritage as a Tourist Attraction: Case Study — Unirea Salt Mine, Romania</div><div class="lit-card-meta"><div class="lit-card-type"><span>Conference Paper</span></div><div class="lit-card-source">Source: <span>Sciendo / De Gruyter</span></div></div></div>
+            <div class="lit-card-img"><img src="../images/cs/cs-turda.jpg" alt="Salina Turda (Unirea Salt Mine), Romania" loading="lazy"></div>
+            <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+          </a>
+          <a class="lit-card" href="https://dergipark.org.tr/en/pub/jomat/article/1479773" target="_blank" rel="noopener noreferrer" style="--lit-accent:#d97706;--lit-glow:rgba(217,119,6,.18);--lit-tint:rgba(217,119,6,.06);">
+            <div class="lit-card-body"><div class="lit-card-title">Evaluation of Çankırı and Iğdır Salt Caves within the Scope of Health and Recreation Tourism</div><div class="lit-card-meta"><div class="lit-card-type"><span>Open Access Article</span></div><div class="lit-card-source">Source: <span>Dergipark (Journal of Management &amp; Tourism)</span></div></div></div>
+            <div class="lit-card-img"><img src="../images/cs/cs-turda2.jpg" alt="Underground mine cavern, Salina Turda" loading="lazy"></div>
+            <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+          </a>
+          <a class="lit-card" href="https://www.researchgate.net/publication/341123947_Quarries_From_Abandoned_to_Renewed_Places" target="_blank" rel="noopener noreferrer" style="--lit-accent:#5a3d9e;--lit-glow:rgba(90,61,158,.18);--lit-tint:rgba(90,61,158,.06);">
+            <div class="lit-card-body"><div class="lit-card-title">Quarries: From Abandoned to Renewed Places</div><div class="lit-card-meta"><div class="lit-card-type"><span>Open Access Article</span></div><div class="lit-card-source">Source: <span>ResearchGate</span></div></div></div>
+            <div class="lit-card-img"><img src="../images/cs/cs-ruins.jpg" alt="Abandoned quarry with new vegetation — landscape rehabilitation" loading="lazy"></div>
+            <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+          </a>
+          <a class="lit-card" href="https://www.researchgate.net/publication/372212088_The_Rationale_for_Restoration_of_Abandoned_Quarries_in_Forests_of_the_Sleza_Massif_Poland_in_the_Context_of_Sustainable_Tourism_and_Forest_Environment_Protection" target="_blank" rel="noopener noreferrer" style="--lit-accent:#C85000;--lit-glow:rgba(200,80,0,.18);--lit-tint:rgba(200,80,0,.06);">
+            <div class="lit-card-body"><div class="lit-card-title">The Rationale for Restoration of Abandoned Quarries in Forests of the Ślęża Massif (Poland) in the Context of Sustainable Tourism and Forest Environment Protection</div><div class="lit-card-meta"><div class="lit-card-type"><span>Open Access Article</span></div><div class="lit-card-source">Source: <span>ResearchGate</span></div></div></div>
+            <div class="lit-card-img"><img src="../images/cs/cs-mtbike.jpg" alt="Mountain biking trail through former mine forest — active outdoor recreation" loading="lazy"></div>
+            <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+          </a>
+          <a class="lit-card" href="https://www.mdpi.com/2571-9408/6/2/115" target="_blank" rel="noopener noreferrer" style="--lit-accent:#1a5ca8;--lit-glow:rgba(26,92,168,.18);--lit-tint:rgba(26,92,168,.06);">
+            <div class="lit-card-body"><div class="lit-card-title">Dismissed Mines: From the Past to the Future</div><div class="lit-card-meta"><div class="lit-card-type"><span>Open Access Article</span></div><div class="lit-card-source">Source: <span>MDPI — Heritage</span></div></div></div>
+            <div class="lit-card-img"><img src="../images/cs/cs-zipline.jpg" alt="Eden Project biomes in former clay quarry — dismissed mine transformed into world-class attraction" loading="lazy"></div>
+            <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+          </a>
+          <a class="lit-card" href="https://energyhistory.yale.edu/epa-meeting-community-needs-protecting-human-health-and-the-environment-active-and-passive-recreational-opportunities-at-abandoned-mine-lands-undated-circa-2001-or-2002/" target="_blank" rel="noopener noreferrer" style="--lit-accent:#0369a1;--lit-glow:rgba(3,105,161,.18);--lit-tint:rgba(3,105,161,.06);">
+            <div class="lit-card-body"><div class="lit-card-title">Meeting Community Needs, Protecting Human Health and the Environment: Active and Passive Recreational Opportunities at Abandoned Mine Lands</div><div class="lit-card-meta"><div class="lit-card-type"><span>Report</span></div><div class="lit-card-source">Source: <span>U.S. Environmental Protection Agency (EPA)</span></div></div></div>
+            <div class="lit-card-img"><img src="../images/cs/cs-katowice.jpg" alt="Katowice mine heritage precinct — community recreational space at former colliery" loading="lazy"></div>
+            <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+          </a>
+          <a class="lit-card" href="https://semspub.epa.gov/work/08/1570746.pdf" target="_blank" rel="noopener noreferrer" style="--lit-accent:#1a7a5e;--lit-glow:rgba(26,122,94,.18);--lit-tint:rgba(26,122,94,.06);">
+            <div class="lit-card-body"><div class="lit-card-title">Out of the Dust: Recreational Reuse After Vermiculite Mining — The Libby Asbestos Superfund Site in Libby, Montana</div><div class="lit-card-meta"><div class="lit-card-type"><span>Report</span></div><div class="lit-card-source">Source: <span>U.S. Environmental Protection Agency (EPA)</span></div></div></div>
+            <div class="lit-card-img"><img src="../images/cs/cs-adv-mine-trail.jpg" alt="Hiking trail through reclaimed mine land — recreational reuse of former industrial site" loading="lazy"></div>
+            <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+          </a>
+        </div><!-- /lit-track -->
+        </div><!-- /lit-track-clip -->
+        <div class="lit-nav">
+          <button class="lit-nav-btn" id="litPrev-all" onclick="litMove('all',-1)" aria-label="Previous"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
+          <div class="lit-dots" id="litDots-all"></div>
+          <button class="lit-nav-btn" id="litNext-all" onclick="litMove('all',1)" aria-label="Next"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
+        </div>
+      </div><!-- /lit-outer -->
+
+      </div><!-- /lit-wrap -->
+    </div><!-- /spv-content casestudies -->
+  </div><!-- /spv-panel-casestudies -->
+
+  <!-- TENDER TAB -->
+  <div id="spv-panel-tender" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+                    <div class="t5-wrap">
+    <div class="t5-topbar">
+      <div class="t5-pills">
+        <button class="t5-pill t5-pill--all active" onclick="t5Filter('all')">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          All Documents <span class="t5-pill-count" id="t5cnt-all">13</span>
+        </button>
+        <button class="t5-pill--rfp t5-pill" data-sec="rfp" onclick="t5Filter('rfp')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          RFP <span class="t5-pill-count" id="t5cnt-rfp">8</span>
+        </button>
+        <button class="t5-pill--rpt t5-pill" data-sec="rpt" onclick="t5Filter('rpt')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          Reports &amp; DPR <span class="t5-pill-count" id="t5cnt-rpt">5</span>
+        </button>
+      </div>
+      <div class="t5-right">
+        <div class="t5-search-wrap">
+          <svg class="t5-search-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input id="t5SearchInput" class="t5-search" type="text" placeholder="Search documents…" oninput="t5Search(this.value)">
+        </div>
+        <span class="t5-counter" id="t5Counter"></span>
+      </div>
+    </div>
+    <div id="t5Sections">
+      <div class="t5-section" data-sec="rfp" style="animation-delay:0.05s">
+        <div class="t5-section-header">
+          <div class="t5-section-bar" style="background:#0F6E56"></div>
+          <span class="t5-section-label" style="color:#0F6E56">Requests for Proposal (RFP)</span>
+          <span class="t5-section-count">8 documents</span>
+        </div>
+        <div class="t5-list">
+          <a class="t5-row t5-row--rfp" data-sec="rfp"
+             data-title="draft model request for proposal [rfp] for selection of agency under swadesh darshan 2.0 scheme for development, operations, maintenance and management of “development of adventure tourism hub at tikkar taal &amp; adventure park"
+             href="https://haryanatourism.gov.in/wp-content/uploads/2026/02/RFP-for-Development-of-Adventure-Tourism-Hub-at-Tikkar-Taal-and-Adventure-Park-2.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0F6E56">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Draft Model Request for Proposal [RFP] for Selection of Agency under Swadesh Darshan 2.0 Scheme for Development, Operations, Maintenance and Management of “Development of Adventure Tourism Hub at Tikkar Taal &amp; Adventure Park</div>
+              <div class="t5-sub">EPC Model followed by operation &amp; maintenence · haryanatourism.gov.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">RFP</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rfp" data-sec="rfp"
+             data-title="request for proposal for selection of operators for adventure sports activities at different locations across andhra pradesh"
+             href="https://cms.aptdc.in/fetch?payload=700ce60b-8237-442c-9391-b127837f20bb.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0F6E56">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Request for Proposal for Selection of Operators for Adventure Sports Activities at Different Locations across Andhra Pradesh</div>
+              <div class="t5-sub">Selection of Operator · cms.aptdc.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">RFP</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rfp" data-sec="rfp"
+             data-title="request for proposal selection of agency to set up, operate and maintain integrated adventure sports activity at sendh lake, naya raipur"
+             href="https://navaraipuratalnagar.com/NRDARevampTheme/archive/RFP-Adventure-Sports-03102016.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0F6E56">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Request for Proposal Selection of Agency to set up, operate and maintain Integrated Adventure Sports Activity at Sendh Lake, Naya Raipur</div>
+              <div class="t5-sub">Build Operate &amp; Maintain · navaraipuratalnagar.com</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">RFP</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rfp" data-sec="rfp"
+             data-title="request for proposal (rfp) for development, operations &amp; maintenance of himalayan luxury ecoadventure park with heli operations at abbott mount on ppp mode"
+             href="https://uttarakhandtourism.gov.in/assets/media/UTDB_media_1735208551Technicalbidabbottmount.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0F6E56">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Request for Proposal (RFP) for Development, Operations &amp; Maintenance of Himalayan Luxury EcoAdventure Park with Heli Operations at Abbott Mount on PPP Mode</div>
+              <div class="t5-sub">Public Private Partnership (PPP) · uttarakhandtourism.gov.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">RFP</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rfp" data-sec="rfp"
+             data-title="request for proposal (rfp) for selection of specialized experienced consultancy firms/ companies for providing dpr &amp; pmc consultancy services for development of eco tourism sites across ut of j&amp;k"
+             href="https://fulfilment.gem.gov.in/contract/slafds?fileDownloadPath=SLA_UPLOAD_PATH/2026/Jan/GEM_2026_B_7139399/CL10360/RFP_c991beab-bba1-4f8b-852c1769078026619_dgmpp-jkfdcl@jk.gov.in.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0F6E56">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Request for Proposal (RFP) for Selection of Specialized Experienced Consultancy Firms/ companies for providing DPR &amp; PMC consultancy services for development of Eco tourism sites across Ut of J&amp;K</div>
+              <div class="t5-sub">Companies for providing DPR &amp; PMC consultancy services · fulfilment.gem.gov.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">RFP</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rfp" data-sec="rfp"
+             data-title="request for proposal (rfp) selection of consultant for preparation of destination action plan and detailed project report for development of digital experience centre at buddhavanam, nalgonda district &amp; eco-tourism project at kalki lake, kamareddy district under challenge based destination development scheme (sub-scheme of swadesh darshan 2.0, ministry of tourism, goi)"
+             href="https://cms.tgtdc.in/fetch?payload=d5ed0d14-4a47-4c68-bed7-a139b597d0d6.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0F6E56">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Request for Proposal (RFP) Selection of Consultant for Preparation of Destination Action Plan and Detailed Project Report for Development of Digital Experience Centre at Buddhavanam, Nalgonda District &amp; Eco-tourism Project at Kalki Lake, Kamareddy District under Challenge Based Destination Development Scheme (Sub-Scheme of Swadesh Darshan 2.0, Ministry of Tourism, GoI)</div>
+              <div class="t5-sub">cms.tgtdc.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">RFP</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rfp" data-sec="rfp"
+             data-title="request for proposal for selection of consultant for tourism project assessment and price discovery in daman district"
+             href="https://cdnbbsr.s3waas.gov.in/s371e09b16e21f7b6919bbfc43f6a5b2f0/uploads/2025/09/202509221051722227.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0F6E56">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Request for Proposal for Selection of Consultant for Tourism Project Assessment and Price Discovery in Daman District</div>
+              <div class="t5-sub">cdnbbsr.s3waas.gov.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">RFP</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rfp" data-sec="rfp"
+             data-title="request for proposal (rfp) for selection of agency for development, operation &amp; management of go karting facility in daman"
+             href="https://cdnbbsr.s3waas.gov.in/s371e09b16e21f7b6919bbfc43f6a5b2f0/uploads/2024/02/20240207600244583.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0F6E56">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Request for Proposal (RFP) for Selection of Agency for Development, Operation &amp; Management of Go Karting Facility in Daman</div>
+              <div class="t5-sub">Development, Operation &amp; Management through Public Private Partnership (&quot;PPP&quot;) · cdnbbsr.s3waas.gov.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">RFP</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+        </div>
+      </div><!-- /rfp section -->
+      <div class="t5-section" data-sec="rpt" style="animation-delay:0.30s">
+        <div class="t5-section-header">
+          <div class="t5-section-bar" style="background:#0369a1"></div>
+          <span class="t5-section-label" style="color:#0369a1">Reports &amp; DPR</span>
+          <span class="t5-section-count">5 documents</span>
+        </div>
+        <div class="t5-list">
+          <a class="t5-row t5-row--rpt" data-sec="rpt"
+             data-title="model detailed project report establishment of adventure tourism under uttar poorva transformative industrialization scheme (unnati), 2024"
+             href="https://industries.mizoram.gov.in/uploads/attachments/2025/02/04b092dd6f4309240484e08e121114ed/pages-173-model-dpr-adventure-tourism.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0369a1">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Model Detailed Project Report Establishment of Adventure Tourism under Uttar Poorva Transformative Industrialization Scheme (Unnati), 2024</div>
+              <div class="t5-sub">industries.mizoram.gov.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">DPR</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rpt" data-sec="rpt"
+             data-title="detailed project report ecotourism site development plan dhanora-turur"
+             href="https://forestsclearance.nic.in/writereaddata/Addinfo/0_0_7112112212161DPR.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0369a1">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Detailed Project Report Ecotourism Site Development Plan Dhanora-Turur</div>
+              <div class="t5-sub">forestsclearance.nic.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">DPR</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rpt" data-sec="rpt"
+             data-title="kailash sacred landscape conservation initiative"
+             href="https://lib.icimod.org/records/32paf-d9r47/files/attachment_761.pdf?download=1" target="_blank" rel="noopener"
+             style="--row-accent:#0369a1">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Kailash Sacred Landscape Conservation Initiative</div>
+              <div class="t5-sub">Sustainable Livelihoods — Community Based Sustainable Tourism (Adventure) · lib.icimod.org</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">Feasibility</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rpt" data-sec="rpt"
+             data-title="developmentof adventure sports camps on public private partnership model at various locations in karnataka"
+             href="https://idd.karnataka.gov.in/storage/pdf-files/51.AdventureSports.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0369a1">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Development of Adventure Sports Camps on Public Private Partnership Model at Various Locations in Karnataka</div>
+              <div class="t5-sub">Preliminary Feasibility Report · idd.karnataka.gov.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">Feasibility</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rpt" data-sec="rpt"
+             data-title="feasibility report attendance potentials planning factors and financial potentials for the proposed rocklin quarry adventures park"
+             href="https://www.rocklin.ca.us/sites/main/files/file-attachments/rocklin_adventure_park_feasibility_study.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0369a1">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Feasibility Report — Attendance Potentials, Planning Factors and Financial Potentials for the Proposed Rocklin Quarry Adventures Park</div>
+              <div class="t5-sub">Feasibility Report · rocklin.ca.us</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">Feasibility</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+        </div>
+      </div><!-- /rpt section -->
+    </div><!-- /t5Sections -->
+  </div><!-- /t5-wrap -->
+    </div>
+  </div>
+
+  <!-- MEDIA TAB -->
+  <div id="spv-panel-media" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+<div class="media-stack">
+  <a class="media-row" href="https://youtu.be/VpEogenJFx4?si=p6xd4I94LOkcSE0q" target="_blank" rel="noopener noreferrer" style="--mr-accent:#C85000;--mr-tint:rgba(200,80,0,.1);">
+    <div class="media-row-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C85000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+    <div class="media-row-main"><div class="media-row-tag">YouTube Video &middot; USA</div><div class="media-row-title">Quarry Park Adventure — Adventure Park on Reclaimed Quarry Site, Rocklin, California</div><div class="media-row-source"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><line x1="2" y1="8" x2="14" y2="8"/><path d="M8 2a10 10 0 010 12M8 2a10 10 0 000 12"/></svg>youtube.com</div></div>
+    <div class="media-row-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/></svg></div>
+  </a>
+  <a class="media-row" href="https://whc.unesco.org/en/list/32/" target="_blank" rel="noopener noreferrer" style="--mr-accent:#5a3d9e;--mr-tint:rgba(90,61,158,.1);">
+    <div class="media-row-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5a3d9e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+    <div class="media-row-main"><div class="media-row-tag">UNESCO World Heritage &middot; Poland</div><div class="media-row-title">Wieliczka and Bochnia Royal Salt Mines — UNESCO World Heritage Site</div><div class="media-row-source"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><line x1="2" y1="8" x2="14" y2="8"/><path d="M8 2a10 10 0 010 12M8 2a10 10 0 000 12"/></svg>whc.unesco.org</div></div>
+    <div class="media-row-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/></svg></div>
+  </a>
+  <a class="media-row" href="https://whc.unesco.org/en/list/984/" target="_blank" rel="noopener noreferrer" style="--mr-accent:#1a7a5e;--mr-tint:rgba(26,122,94,.1);">
+    <div class="media-row-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a7a5e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+    <div class="media-row-main"><div class="media-row-tag">UNESCO World Heritage &middot; Wales, UK</div><div class="media-row-title">Blaenavon Industrial Landscape — UNESCO World Heritage Site</div><div class="media-row-source"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><line x1="2" y1="8" x2="14" y2="8"/><path d="M8 2a10 10 0 010 12M8 2a10 10 0 000 12"/></svg>whc.unesco.org</div></div>
+    <div class="media-row-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/></svg></div>
+  </a>
+  <a class="media-row" href="https://be-mine.be/en/" target="_blank" rel="noopener noreferrer" style="--mr-accent:#C85000;--mr-tint:rgba(200,80,0,.1);">
+    <div class="media-row-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C85000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></div>
+    <div class="media-row-main"><div class="media-row-tag">Project Website &middot; Belgium</div><div class="media-row-title">be-MINE — Adventure &amp; Leisure Hub on Former Coal Mine Site</div><div class="media-row-source"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><line x1="2" y1="8" x2="14" y2="8"/><path d="M8 2a10 10 0 010 12M8 2a10 10 0 000 12"/></svg>be-mine.be</div></div>
+    <div class="media-row-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/></svg></div>
+  </a>
+  <a class="media-row" href="https://terhills.be/en/" target="_blank" rel="noopener noreferrer" style="--mr-accent:#1a5ca8;--mr-tint:rgba(26,92,168,.1);">
+    <div class="media-row-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a5ca8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+    <div class="media-row-main"><div class="media-row-tag">Project Website &middot; Belgium</div><div class="media-row-title">Terhills — Nature, Recreation &amp; Adventure on Reclaimed Mine Land</div><div class="media-row-source"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><line x1="2" y1="8" x2="14" y2="8"/><path d="M8 2a10 10 0 010 12M8 2a10 10 0 000 12"/></svg>terhills.be</div></div>
+    <div class="media-row-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/></svg></div>
+  </a>
+</div>
+<p style="font-size:0.72rem;color:var(--color-text-secondary);font-style:italic;margin-top:16px;">Links open external websites. Coal Controller Organisation does not endorse third-party content.</p>
+    </div>
+  </div>
+
+  <!-- AGENCIES TAB -->
+  <div id="spv-panel-agencies" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+  <div class="agencies-logo-grid">
+    <div class="agency-logo-card"><div class="agency-logo-inner agency-logo-inner--img"><img src="../images/agencies/ADVENTURE%20TOURISM/RCube%20Adventure%20%28Rocksport%29.png" alt="RCube Adventure (Rocksport)" loading="lazy"></div><div class="agency-logo-name">RCube Adventure (Rocksport)</div><div class="agency-logo-type">Climbing wall fabrication, high ropes, bouldering &amp; indoor adventure zone installation</div></div>
+    <div class="agency-logo-card"><div class="agency-logo-inner agency-logo-inner--img"><img src="../images/agencies/ADVENTURE%20TOURISM/Walltopia%20India.svg" alt="Walltopia India" loading="lazy"></div><div class="agency-logo-name">Walltopia India</div><div class="agency-logo-type">Climbing wall &amp; adventure structure manufacturing, supply &amp; installation</div></div>
+    <div class="agency-logo-card"><div class="agency-logo-inner agency-logo-inner--img"><img src="../images/agencies/ADVENTURE%20TOURISM/Outdoor%20Adventure%20India%20%28OAI%29.png" alt="Outdoor Adventure India (OAI)" loading="lazy"></div><div class="agency-logo-name">Outdoor Adventure India (OAI)</div><div class="agency-logo-type">Site-specific rope course, zip-line, rappelling &amp; adventure trail infrastructure build</div></div>
+    <div class="agency-logo-card"><div class="agency-logo-inner agency-logo-inner--img"><img src="../images/agencies/ADVENTURE%20TOURISM/FunTech%20India.jpg" alt="FunTech India" loading="lazy"></div><div class="agency-logo-name">FunTech India</div><div class="agency-logo-type">Amusement &amp; adventure equipment fabrication, site installation &amp; commissioning</div></div>
+    <div class="agency-logo-card"><div class="agency-logo-inner agency-logo-inner--img"><img src="../images/agencies/ADVENTURE%20TOURISM/Freakouts%20Adventure%20Works.png" alt="Freakouts Adventure Works" loading="lazy"></div><div class="agency-logo-name">Freakouts Adventure Works</div><div class="agency-logo-type">Customised adventure park setups — ITDA NTR Adventure Park, Seethampeta (reference project)</div></div>
+    <div class="agency-logo-card"><div class="agency-logo-inner agency-logo-inner--img"><img src="../images/agencies/rope.jpg" alt="Rope Course India" loading="lazy"></div><div class="agency-logo-name">Rope Course India</div><div class="agency-logo-type">Leading adventure park provider — rope courses, zip-lines, climbing walls &amp; aerial adventure structures</div></div>
+    <div class="agency-logo-card"><div class="agency-logo-inner agency-logo-inner--img"><img src="../images/agencies/peachlogo-10.png" alt="Peach Prime Consultancy" loading="lazy"></div><div class="agency-logo-name">Peach Prime Consultancy</div><div class="agency-logo-type">Adventure park design consultancy — feasibility, concept planning &amp; project management</div></div>
+    <div class="agency-logo-card"><div class="agency-logo-inner agency-logo-inner--img"><img src="../images/agencies/nailindia.png" alt="Nail India Adventure Pvt. Ltd." loading="lazy"></div><div class="agency-logo-name">Nail India Adventure Pvt. Ltd.</div><div class="agency-logo-type">End-to-end adventure tourism operator — zip-lines, high-rope courses &amp; trekking trails on reclaimed terrain</div></div>
+   </div>
+  <div style="margin-top:28px;padding:14px 18px;background:rgba(33,128,141,.05);border:1px solid rgba(33,128,141,.18);border-radius:8px;display:flex;gap:12px;align-items:flex-start;">
+    <svg style="flex-shrink:0;margin-top:2px;" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#21808d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+    <p style="margin:0;font-family:var(--font-sans);font-size:0.8rem;color:var(--color-text-secondary);line-height:1.65;"><strong style="color:var(--color-text);font-weight:600;">Disclaimer:</strong> Inclusion of an agency does not constitute endorsement, empanelment, or recommendation by the Coal Controller Organisation or the Ministry of Coal, Government of India. Mine owners are advised to conduct their own due diligence process before engaging any agency.</p>
+  </div>
+    </div>
+  </div>
+
+  <!-- EXPERTS TAB -->
+  
+  
+  <div id="spv-panel-experts" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+      <div class="experts-grid">
+
+        <div class="expert-card">
+          <div class="expert-card-top">
+            <div class="expert-avatar">PK</div>
+            <div class="expert-header-info">
+              <div class="expert-name">Pankaj Kanoujia</div>
+              <div class="expert-role">Adventure Tourism Expert · Stay Out Adventure</div>
+            </div>
+          </div>
+          <div class="expert-tags">
+          <span class="expert-tag">Adventure Tourism</span>
+          <span class="expert-tag">Outdoor Experiences</span>
+          <span class="expert-tag">Stay Out</span>
+          </div>
+          <p class="expert-bio">Adventure tourism specialist with expertise in outdoor experiential programmes, eco-lodges and mine-heritage tourism circuits.</p>
+          <div class="expert-contact">
+            <a href="tel:9810614238">981-061-4238</a>
+            <a href="mailto:stayoutadventure@gmail.com">stayoutadventure@gmail.com</a>
+          </div>
+        </div>
+
+        <div class="expert-card">
+          <div class="expert-card-top">
+            <div class="expert-avatar">SS</div>
+            <div class="expert-header-info">
+              <div class="expert-name">Sanjay Sharma</div>
+              <div class="expert-role">Aqua &amp; Adventure Parks Developer · Aramya Hospitality</div>
+            </div>
+          </div>
+          <div class="expert-tags">
+          <span class="expert-tag">Aqua Parks</span>
+          <span class="expert-tag">Adventure</span>
+          <span class="expert-tag">Hospitality</span>
+          </div>
+          <p class="expert-bio">Develops aqua and adventure parks on post-industrial land integrating eco-lodges, community engagement and mine-heritage tourism.</p>
+          <div class="expert-contact">
+            <a href="tel:9780122690">9780122690</a>
+            <a href="mailto:aramyahospitality@gmail.com">aramyahospitality@gmail.com</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="margin-top:28px;padding:14px 18px;background:rgba(33,128,141,.05);border:1px solid rgba(33,128,141,.18);border-radius:8px;display:flex;gap:12px;align-items:flex-start;">
+        <svg style="flex-shrink:0;margin-top:2px;" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#21808d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <p style="margin:0;font-family:var(--font-sans);font-size:0.8rem;color:var(--color-text-secondary);line-height:1.65;"><strong style="color:var(--color-text);font-weight:600;">Disclaimer:</strong> Inclusion of an expert does not constitute endorsement, empanelment, or recommendation by the Coal Controller Organisation or the Ministry of Coal, Government of India. Users are advised to independently verify credentials and suitability before engaging any individual.</p>
+      </div>
+    </div>
+  </div>
+  <!-- Footer -->
+  <footer id="site-footer-sf">
+    &copy; 2026 Coal Controller Organisation, Ministry of Coal, Government of India.
+  </footer>
+
+</div><!-- /page -->
+
+<!-- Per-page PRISM colour config (injected by build.py) -->
+<script>
+const PRISM2_COLORS = {P:'#C85000', R:'#1a5ca8', I:'#b06a10', S:'#5a3d9e', M:'#1a7a5e'};
+const PRISM2_BG     = {P:'#fff0e6', R:'#e4eef9', I:'#faedda', S:'#edeaf8', M:'#e1f3ec'};
+</script>
+<script src="./category.js"></script>
+<script>
+window.prism2Next = function() {
+  if (prism2Current < PRISM2_ORDER.length - 1) prNav(PRISM2_ORDER[prism2Current + 1]);
+};
+window.prism2Prev = function() {
+  if (prism2Current > 0) prNav(PRISM2_ORDER[prism2Current - 1]);
+};
+
+function downloadPRISM() {
+  var rawTitle = document.title || '';
+  var catName  = rawTitle.split('—')[0].split('-')[0].trim() || 'Category';
+
+  var PC = {P:'#C85000',R:'#1a5ca8',I:'#b06a10',S:'#5a3d9e',M:'#1a7a5e'};
+  var PB = {P:'#fff8f3',R:'#f3f7fd',I:'#fdf7f0',S:'#f7f5fd',M:'#f1faf6'};
+  var PN = {P:'Project Vision',R:'Repurposing Pathways',I:'Investment Dynamics',S:'Strategic Structuring',M:'Monitoring &amp; Management'};
+  var PE = {P:'POST-MINING',R:'REPURPOSING',I:'INVESTMENT',S:'STRATEGY',M:'MANAGEMENT'};
+
+  var introHeadEl = document.querySelector('.pr-intro-heading');
+  var introBodyEl = document.querySelector('.pr-intro-body');
+  var introHead   = introHeadEl ? introHeadEl.textContent : 'A structured framework for mine repurposing from concept to implementation';
+  var introBody   = introBodyEl ? introBodyEl.innerHTML   : '';
+
+  var pillarsHTML = '';
+  ['P','R','I','S','M'].forEach(function(k) {
+    var panel = document.getElementById('prism2-panel-' + k);
+    if (!panel) return;
+
+    var eyebrowEl   = panel.querySelector('.prism2-panel-eyebrow');
+    var titleEl     = panel.querySelector('.prism2-panel-title');
+    var descEl      = panel.querySelector('.prism2-panel-desc');
+    var eyebrow     = eyebrowEl  ? eyebrowEl.textContent  : PE[k];
+    var panelTitle  = titleEl    ? titleEl.textContent    : PN[k];
+    var descHTML    = descEl     ? descEl.innerHTML       : '';
+
+    var accHTML = '';
+    panel.querySelectorAll('.accordion-item').forEach(function(item) {
+      var spans = item.querySelectorAll('.accordion-btn span');
+      var btnText = '';
+      for (var s = 0; s < spans.length; s++) {
+        var t = spans[s].textContent.trim();
+        if (t && t !== '⥤' && t !== '˅') { btnText = t; break; }
+      }
+      var body = item.querySelector('.accordion-body');
+      if (!body) return;
+      var clone = body.cloneNode(true);
+      clone.style.display = '';
+      /* Remove scroll-wrapper overflow so tables span full width */
+      clone.querySelectorAll('.spv-table-wrap').forEach(function(w){w.style.overflowX='visible';});
+      accHTML += '<div class="acc-item">' +
+        '<div class="acc-heading">' + btnText + '</div>' +
+        '<div class="acc-body">' + clone.innerHTML + '</div>' +
+        '</div>';
+    });
+
+    pillarsHTML +=
+      '<div class="pillar" style="border-left-color:' + PC[k] + ';">' +
+        '<div class="pillar-hdr" style="background:' + PC[k] + '18;">' +
+          '<div class="pillar-letter" style="color:' + PC[k] + ';">' + k + '</div>' +
+          '<div class="pillar-info">' +
+            '<div class="pillar-eyebrow" style="color:' + PC[k] + ';">' + eyebrow + '</div>' +
+            '<div class="pillar-name">' + panelTitle + '</div>' +
+            (descHTML ? '<div class="pillar-desc">' + descHTML + '</div>' : '') +
+          '</div>' +
+        '</div>' +
+        '<div class="pillar-content">' + accHTML + '</div>' +
+      '</div>';
+  });
+
+  var css = [
+    '*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}',
+    'body{font-family:"Segoe UI",Arial,sans-serif;font-size:10pt;color:#1a1a1a;line-height:1.65;background:#fff}',
+    '@page{size:A4;margin:16mm 14mm}',
+    /* ── Cover ── */
+    '.cover{margin-bottom:28pt;padding-bottom:22pt;border-bottom:1.5pt solid #ddd}',
+    '.rainbow{height:5pt;border-radius:99pt;background:linear-gradient(to right,#7C3AB5,#4f6de0,#0ea5e9,#1D9E75,#3B6D11,#BA7517,#C85000,#A32D2D);margin-bottom:18pt}',
+    '.cover-eye{font-size:7.5pt;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#888;margin-bottom:7pt}',
+    '.cover-title{font-size:24pt;font-weight:800;color:#111;line-height:1.15;margin-bottom:5pt}',
+    '.cover-sub{font-size:11pt;font-weight:600;color:#444;margin-bottom:11pt}',
+    '.cover-body{font-size:9pt;color:#555;line-height:1.75}',
+    /* ── Pillars ── */
+    '.pillars{display:flex;flex-direction:column;gap:20pt}',
+    '.pillar{border-left:4pt solid #ccc;border-radius:6pt;overflow:hidden;page-break-inside:avoid}',
+    '.pillar-hdr{padding:13pt 15pt 11pt;display:flex;align-items:flex-start;gap:12pt}',
+    '.pillar-letter{font-size:30pt;font-weight:800;line-height:1;flex-shrink:0;width:38pt;opacity:.85}',
+    '.pillar-info{flex:1}',
+    '.pillar-eyebrow{font-size:7pt;font-weight:700;letter-spacing:.11em;text-transform:uppercase;margin-bottom:2pt}',
+    '.pillar-name{font-size:12.5pt;font-weight:700;color:#111;margin-bottom:3pt}',
+    '.pillar-desc{font-size:8.5pt;color:#555;line-height:1.6}',
+    /* ── Accordion ── */
+    '.pillar-content{background:#fff}',
+    '.acc-item{border-top:1pt solid #e8e8e0}',
+    '.acc-heading{font-size:9pt;font-weight:700;padding:8pt 13pt;color:#2a2a2a;background:#fafaf8}',
+    '.acc-body{font-size:8.5pt;line-height:1.75;color:#444;padding:9pt 13pt 11pt}',
+    /* ── Body content ── */
+    '.spv-body-text{margin-bottom:7pt}',
+    'p{margin-bottom:7pt}',
+    '.spv-list,.spv-list-unstyled{margin:5pt 0 7pt 16pt}',
+    'ul,ol{margin:5pt 0 7pt 16pt}',
+    '.spv-list li,ul li,ol li{margin-bottom:3pt}',
+    /* ── Tables ── */
+    '.spv-table-wrap{margin:7pt 0;overflow:visible}',
+    '.spv-table{width:100%;border-collapse:collapse;font-size:8pt}',
+    '.spv-table th{background:#f0f0ea;font-weight:700;text-align:left;padding:5pt 7pt;border:1pt solid #ccc;vertical-align:top}',
+    '.spv-table td{padding:4.5pt 7pt;border:1pt solid #ccc;vertical-align:top}',
+    '.spv-table tr:nth-child(even) td{background:#f9f9f7}',
+    /* ── Strong/em ── */
+    'strong{font-weight:700}',
+    'em{font-style:italic}',
+    /* ── Info/note boxes (if any) ── */
+    '.spv-note,.spv-info{background:#f5f5f0;border-left:3pt solid #aaa;padding:8pt 10pt;margin:6pt 0;font-size:8.5pt}'
+  ].join('\n');
+
+  var html = '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">' +
+    '<title>PRISM — ' + catName + '<\/title>' +
+    '<style>' + css + '<\/style><\/head><body>' +
+    '<div class="cover">' +
+      '<div class="rainbow"><\/div>' +
+      '<div class="cover-eye">PRISM Framework — Post-Mining Repurposing &amp; Implementation Strategy Models<\/div>' +
+      '<div class="cover-title">' + catName + '<\/div>' +
+      '<div class="cover-sub">' + introHead + '<\/div>' +
+      (introBody ? '<div class="cover-body">' + introBody + '<\/div>' : '') +
+    '<\/div>' +
+    '<div class="pillars">' + pillarsHTML + '<\/div>' +
+    '<\/body><\/html>';
+
+  var win = window.open('', '_blank', 'width=960,height=750');
+  if (!win) { alert('Please allow pop-ups for this site to download the PDF.'); return; }
+  win.document.write(html);
+  win.document.close();
+  win.focus();
+  setTimeout(function() { win.print(); }, 700);
+}
+
+(function() {
+  var panel = document.getElementById('spv-panel-prism');
+  if (!panel) return;
+  new MutationObserver(function() {
+    if (panel.style.display !== 'none') setTimeout(function() { prNav('P'); }, 10);
+  }).observe(panel, { attributes: true, attributeFilter: ['style'] });
+})();
+</script>
+
+<!-- browse-back-script -->
+<script>
+(function(){
+  if(new URLSearchParams(location.search).get('from')==='browse'){
+    var btn=document.querySelector('.back-btn');
+    if(btn){
+      btn.onclick=function(){window.location.href='../browse.html';};
+      btn.setAttribute('aria-label','Back to Browse');
+      for(var i=btn.childNodes.length-1;i>=0;i--){
+        var n=btn.childNodes[i];
+        if(n.nodeType===3&&n.textContent.trim()){n.textContent=' Back to Browse';break;}
+      }
+    }
+    var cr=document.querySelector('.sf-breadcrumb span:not(.sep)');
+    if(cr)cr.textContent='All Categories';
+  }
+})();
+</script>
+</body>
+</html>
