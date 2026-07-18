@@ -1,0 +1,1667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wetlands Restoration — SUVIKALP | Coal Controller Organisation</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="./category.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+@font-face { font-family:"Inter"; font-weight:400; font-display:swap; src:url("../fonts/Inter_18pt-Regular.woff2") format("woff2"),url("../fonts/Inter_18pt-Regular.ttf") format("truetype"); }
+@font-face { font-family:"Inter"; font-weight:500; font-display:swap; src:url("../fonts/Inter_18pt-Medium.woff2") format("woff2"),url("../fonts/Inter_18pt-Medium.ttf") format("truetype"); }
+@font-face { font-family:"Inter"; font-weight:600; font-display:swap; src:url("../fonts/Inter_18pt-SemiBold.woff2") format("woff2"),url("../fonts/Inter_18pt-SemiBold.ttf") format("truetype"); }
+@font-face { font-family:"Inter"; font-weight:700; font-display:swap; src:url("../fonts/Inter_18pt-Bold.woff2") format("woff2"),url("../fonts/Inter_18pt-Bold.ttf") format("truetype"); }
+:root{--font-sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;--font-devanagari:'Noto Sans Devanagari','Noto Sans',sans-serif;--fs-xs:.75rem;--fs-sm:.8125rem;--fs-base:.875rem;--fs-md:.9375rem;--fs-lg:1rem;--fs-xl:1.125rem;--fs-2xl:1.375rem;--lh-tight:1.35;--lh-base:1.6;--lh-loose:1.8;}
+html,body,button,input,select,textarea{font-family:var(--font-sans);}
+.hindi,.header-cco-hindi{font-family:var(--font-devanagari);}
+.spv-body-text{font-family:var(--font-sans);font-size:var(--fs-md);line-height:var(--lh-loose);color:var(--color-text);margin-bottom:14px;font-weight:400;}
+.spv-list{margin:8px 0 14px 22px;font-family:var(--font-sans);font-size:var(--fs-md);line-height:var(--lh-loose);color:var(--color-text);}
+.spv-list li{margin-bottom:6px;}
+.spv-section-title{font-family:var(--font-sans);font-weight:700;font-size:var(--fs-xl);color:var(--color-teal-600);border-bottom:2px solid var(--color-primary);padding-bottom:8px;margin-bottom:22px;letter-spacing:-.01em;}
+.accordion-btn{font-family:var(--font-sans);font-weight:600;font-size:var(--fs-base);}
+.accordion-body{font-family:var(--font-sans);font-size:var(--fs-md);}
+.spv-table,.spv-table thead tr th,.spv-table td,.spv-table td:first-child{font-family:var(--font-sans);}
+.spv-tab{font-family:var(--font-sans);font-weight:500;font-size:var(--fs-sm);}
+.spv-tab.active{font-weight:700;}
+.prism-label{font-family:var(--font-sans);font-size:.7rem;line-height:1.3;}
+.prism-letter{font-family:var(--font-sans);font-weight:800;}
+.back-btn{font-family:var(--font-sans);font-weight:600;font-size:var(--fs-base);}
+.sf-breadcrumb{font-family:var(--font-sans);font-size:var(--fs-sm);}
+.cs-location{font-family:var(--font-sans);font-weight:700;font-size:var(--fs-base);}
+.cs-title{font-family:var(--font-sans);font-size:var(--fs-sm);line-height:var(--lh-base);}
+.agency-logo-name{font-family:var(--font-sans);font-weight:700;font-size:var(--fs-sm);}
+.agency-logo-type{font-family:var(--font-sans);font-size:.72rem;}
+.agency-logo-inner--img{display:flex;align-items:center;justify-content:center;padding:10px 14px;border-radius:8px;height:76px !important;box-sizing:border-box;}
+.agency-logo-inner--img img{max-width:100%;max-height:56px;width:auto;height:auto;object-fit:contain;}
+.expert-name{font-family:var(--font-sans);font-weight:700;font-size:var(--fs-lg);}
+.expert-role{font-family:var(--font-sans);font-size:var(--fs-sm);line-height:var(--lh-base);}
+.expert-tag{font-family:var(--font-sans);font-size:.7rem;font-weight:500;}
+.about-hero-row{display:flex;gap:28px;align-items:stretch;margin-bottom:40px;min-height:300px;}
+.about-hero-slide-col{flex:0 0 40%;min-width:0;display:flex;flex-direction:column;}
+.about-hero-slide-col .proj-slideshow{flex:none;height:340px;}
+.about-hero-text-col{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center;}
+.about-hero-label{font-family:var(--font-sans);font-size:var(--fs-xs);font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin-bottom:0;}
+.about-hero-label-wrap{margin-bottom:12px;}
+.about-hero-label-bar{display:block;height:3px;width:48px;margin-top:7px;border-radius:99px;background:linear-gradient(90deg,#21808d 0%,#38bdf8 60%,transparent 100%);}
+.about-intro{display:flex;flex-direction:column;gap:14px;}
+.about-intro-block{padding:14px 18px;border-radius:10px;}
+.about-intro-primary{border-left:4px solid #21808d;background:rgba(33,128,141,.05);}
+.about-intro-secondary{border-left:4px solid rgba(33,128,141,.3);background:#fafafa;}
+.about-section{margin-bottom:40px;}
+.about-section-eyebrow{font-family:var(--font-sans);font-size:var(--fs-xs);font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin-bottom:4px;}
+.about-section-title{font-family:var(--font-sans);font-size:var(--fs-xl);font-weight:700;color:#0f172a;margin:0 0 20px;line-height:var(--lh-tight);}
+.schemes-outer{position:relative;margin:0 20px;}
+.schemes-nav-btn{position:absolute;top:50%;transform:translateY(-50%);z-index:10;width:36px;height:36px;border-radius:50%;background:#fff;border:1.5px solid #e2e8f0;box-shadow:0 2px 10px rgba(0,0,0,.10);cursor:pointer;display:flex;align-items:center;justify-content:center;color:#475569;transition:background .2s,color .2s,border-color .2s,box-shadow .2s;padding:0;}
+.schemes-nav-btn:hover{background:var(--teal,#0a9396);color:#fff;border-color:var(--teal,#0a9396);box-shadow:0 4px 14px rgba(10,147,150,.3);}
+.schemes-nav-btn.schemes-prev{left:-20px;}
+.schemes-nav-btn.schemes-next{right:-20px;}
+.schemes-ticker-wrap{overflow:hidden;position:relative;mask-image:linear-gradient(to right,transparent 0%,black 7%,black 93%,transparent 100%);-webkit-mask-image:linear-gradient(to right,transparent 0%,black 7%,black 93%,transparent 100%);}
+.schemes-ticker{display:flex;gap:16px;overflow-x:auto;-ms-overflow-style:none;scrollbar-width:none;padding:8px 4px;}
+.schemes-ticker::-webkit-scrollbar{display:none;}
+.scheme-card{flex:0 0 220px;scroll-snap-align:start;background:#fff;border:1px solid #e8eaed;border-radius:12px;padding:18px 16px;box-shadow:0 2px 8px rgba(0,0,0,.05);transition:box-shadow .2s,transform .2s;}
+.scheme-card:hover{box-shadow:0 6px 20px rgba(0,0,0,.1);transform:translateY(-3px);}
+.scheme-card-icon{font-size:22px;margin-bottom:10px;}
+.scheme-card-tag{font-family:var(--font-sans);font-size:var(--fs-xs);font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--teal);margin-bottom:5px;}
+.scheme-card-title{font-family:var(--font-sans);font-size:var(--fs-base);font-weight:700;color:#1e293b;margin-bottom:8px;line-height:var(--lh-tight);}
+.scheme-card-desc{font-family:var(--font-sans);font-size:var(--fs-sm);color:#64748b;line-height:var(--lh-base);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
+.proj-slideshow{position:relative;border-radius:14px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,.15);background:#000;}
+.proj-slide{display:none;position:relative;height:100%;min-height:260px;}
+.proj-slide.active{display:block;animation:projFadeIn .5s ease;}
+@keyframes projFadeIn{from{opacity:0;transform:scale(1.03);}to{opacity:1;transform:scale(1);}}
+.proj-slide-img{width:100%;height:100%;object-fit:cover;display:block;}
+.proj-slide-overlay{position:absolute;bottom:0;left:0;right:0;padding:12px 18px;background:linear-gradient(90deg,rgba(10,70,80,.95) 0%,rgba(33,128,141,.88) 100%);display:flex;align-items:center;gap:0;z-index:1;}
+.proj-caption{font-family:var(--font-sans);font-size:var(--fs-base);font-weight:600;color:#fff;line-height:1.4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.pr-intro{padding:22px 24px 20px;background:rgba(33,128,141,.05);border:1px solid rgba(33,128,141,.15);border-radius:14px;margin-bottom:20px;}
+.pr-intro-eyebrow{font-size:15px;font-weight:700;letter-spacing:.01em;text-transform:none;color:#21808d;margin-bottom:8px;font-style:normal;line-height:1.35;}
+.pr-intro-heading{font-size:16px;font-weight:700;color:#0f172a;margin-bottom:10px;line-height:1.35;font-style:normal;}
+.pr-intro-body{font-size:13.5px;color:#374151;line-height:1.85;font-style:normal;}
+.pr-shell{display:flex;border:1px solid #e2e8f0;border-radius:14px;overflow:clip;background:#fff;}
+.pr-sidebar{width:220px;flex-shrink:0;border-right:1px solid #e8edf2;padding:16px 0 16px;background:#f8fafc;position:sticky;top:125px;align-self:flex-start;max-height:calc(100vh - 155px);overflow-y:auto;overflow-x:visible;}
+.pr-sidebar-label{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#7a8a9a;padding:0 16px 14px;font-style:normal;}
+.pr-nav-highlight{position:absolute;left:0;right:0;pointer-events:none;z-index:0;will-change:top,height;background:color-mix(in srgb,var(--pr-hl,#C85000) 9%,transparent);transition:top .4s cubic-bezier(.4,0,.2,1),height .4s cubic-bezier(.4,0,.2,1),background .38s ease;}
+.pr-nav-highlight::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--pr-hl,#C85000);border-radius:0 2px 2px 0;transition:background .38s ease;}
+.pr-nav-item{position:relative;z-index:1;display:flex;align-items:center;gap:12px;padding:13px 16px;cursor:pointer;font-style:normal;}
+.pr-nav-item::after{display:none;}
+.pr-nav-badge{width:34px;height:34px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;border:1.5px solid #d1d5db;color:#9ca3af;background:#fff;position:relative;z-index:1;transition:background .35s cubic-bezier(.4,0,.2,1),color .3s ease,border-color .35s ease,transform .45s cubic-bezier(.34,1.56,.64,1),box-shadow .35s ease;}
+.pr-nav-item.active .pr-nav-badge{background:var(--pr-accent);color:#fff;border-color:var(--pr-accent);transform:scale(1.12);box-shadow:0 0 0 4px color-mix(in srgb,var(--pr-accent) 18%,transparent),0 3px 10px color-mix(in srgb,var(--pr-accent) 32%,transparent);}
+.pr-nav-letter{font-size:13px;font-weight:600;color:#374151;line-height:1.25;font-style:normal;position:relative;z-index:1;transition:color .25s ease,font-weight .2s;}
+.pr-nav-item.active .pr-nav-letter{color:var(--pr-accent);font-weight:700;}
+.pr-nav-item{opacity:0;animation:nav-slide-in .32s cubic-bezier(.4,0,.2,1) both;}
+@keyframes nav-slide-in{from{opacity:0;transform:translateX(-10px);}to{opacity:1;transform:translateX(0);}}
+.pr-nav-item:nth-child(3){animation-delay:.02s;}
+.pr-nav-item:nth-child(4){animation-delay:.07s;}
+.pr-nav-item:nth-child(5){animation-delay:.12s;}
+.pr-nav-item:nth-child(6){animation-delay:.17s;}
+.pr-nav-item:nth-child(7){animation-delay:.22s;}
+.pr-content-wrap{flex:1;min-width:0;}
+.pr-content-wrap .prism2-content-panel{border-radius:0;box-shadow:none;}
+.prism2-content-panel .prism2-panel-header{background:color-mix(in srgb,var(--pc) 5%,#fff);}
+.prism2-panel-eyebrow{font-size:13px;font-weight:700;letter-spacing:.10em;text-transform:uppercase;color:var(--pc);margin-bottom:6px;opacity:1;}</style>
+</head>
+<body>
+
+<header id="site-header">
+  <div class="header-left">
+    <div class="header-tool-title">
+      <span class="hindi">सुविकल्प:</span> Mine Repurposing Tool
+    </div>
+    <div class="header-tool-sub">
+      Select factors and sub-factors to discover suitable repurposing options for your mining site
+    </div>
+  </div>
+  <div class="header-right">
+    <a href="https://coalcontroller.gov.in/" target="_blank" rel="noopener" title="CCO Home">
+    <div class="header-cco-lockup">
+      <img class="header-cco-logo" src="data:image/png;base64,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" alt="Coal Controller Organisation emblem">
+      <div class="header-cco-text"></div>
+    </div>
+    </a>
+  </div>
+</header>
+
+<div class="page">
+
+  <div class="sf-backbar">
+    <button class="back-btn" onclick="window.location.href='../index.html'" aria-label="Back to results">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3L5 8l5 5"/></svg>
+      Back to Results
+    </button>
+    <span class="sf-breadcrumb">
+      <span>Final Recommendations</span>
+      <span class="sep">/</span>
+      <span style="color:var(--teal);font-weight:500;">Wetlands Restoration</span>
+    </span>
+  </div>
+
+  <div class="spv-hero-wrap">
+    <img src="../images/wl-hero.jpg" alt="Wetlands Restoration — mine pit lake converted to ecological landscape" class="spv-hero-img">
+    <div class="spv-hero-overlay"></div>
+    <div class="spv-hero-title">Wetlands Restoration</div>
+  </div>
+
+  <nav class="spv-tabs" aria-label="Detail sections">
+    <button class="spv-tab active" data-tab="about"       onclick="showSPVTab('about')">About</button>
+    <button class="spv-tab"        data-tab="prism"        onclick="showSPVTab('prism')">P.R.I.S.M</button>
+    <button class="spv-tab"        data-tab="casestudies"  onclick="showSPVTab('casestudies');setTimeout(function(){window.dispatchEvent(new Event('resize'))},30)">Case Studies</button>
+    <button class="spv-tab"        data-tab="tender"       onclick="showSPVTab('tender')">Sample Tender Documents</button>
+    <button class="spv-tab"        data-tab="media"        onclick="showSPVTab('media')">Media/Web</button>
+    <button class="spv-tab"        data-tab="agencies"    onclick="showSPVTab('agencies')">Agencies</button>
+<!-- EXPERTS TAB HIDDEN (page not yet complete)
+<button class="spv-tab"        data-tab="experts"      onclick="showSPVTab('experts')">Experts</button>
+-->
+  </nav>
+
+  <!-- TAB 1: ABOUT -->
+  <div id="spv-panel-about" class="spv-panel">
+    <div class="spv-content">
+
+      <div class="about-hero-row">
+        <div class="about-hero-slide-col">
+          <div class="about-hero-label-wrap">
+            <div class="about-hero-label">Indian Precedents</div>
+            <span class="about-hero-label-bar"></span>
+          </div>
+          <div class="proj-slideshow">
+            <img src="../images/sccl-baya-bird.jpg" alt="Baya weaver colony at SCCL mine land restoration site, Singareni, Telangana — wetland-edge biodiversity recovery on reclaimed coal mine land" class="proj-slide-img" loading="lazy">
+            <div class="proj-slide-overlay">
+              <span class="proj-caption">Mine Land Biodiversity Recovery — SCCL, Singareni, Telangana</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-hero-text-col">
+          <div class="about-intro">
+            <div class="about-intro-block about-intro-primary">
+              This concept proposes the development of <strong>Wetlands Restoration / Constructed Wetland and Mine Waterbody Ecological Landscapes</strong> on closed, reclaimed, or repurposed coal mine land as part of a sustainable mine-closure and post-mining land-use strategy. The objective is to convert under-utilised mine land, mine voids, pit lakes, low-lying reclaimed areas, overburden drainage zones and mine water discharge areas into <strong>ecologically functional, water-sensitive, biodiversity-supporting and community-linked wetland landscapes</strong> centred around restoration, water-quality improvement, biodiversity habitat, eco-tourism and local livelihood.
+            </div>
+            <div class="about-intro-block about-intro-secondary">
+              Wetlands restoration is particularly suited for closed coal mine areas because many mine-closure landscapes already contain <strong>water-filled voids, pit lakes, seasonal drainage channels, low-lying reclaimed areas, sedimentation ponds and mine water discharge points</strong>. These can be converted into ecologically functional wetland systems if safety, water quality, slope stability and hydrological continuity are properly addressed. This aligns with the <strong>Wetlands (Conservation and Management) Rules, 2017</strong>, the <strong>National Plan for Conservation of Aquatic Ecosystems</strong>, and CCO mine-closure handbooks <strong>A.R.T.H.A, L.I.V.E.S and R.E.C.L.A.I.M</strong>.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-section">
+        <div class="about-section-eyebrow">Relevant Schemes &amp; Standards</div>
+        <h3 class="about-section-title">Policy Levers driving Wetlands Restoration scale-up</h3>
+        <div class="schemes-outer">
+          <button class="schemes-nav-btn schemes-prev" onclick="schemesNav(-1)" aria-label="Previous">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <div class="schemes-ticker-wrap">
+            <div class="schemes-ticker" id="schemesTicker">
+
+              <div class="scheme-card">
+                <div class="scheme-card-icon">🌿</div>
+                <div class="scheme-card-tag">MoEFCC</div>
+                <div class="scheme-card-title">Wetlands (Conservation &amp; Management) Rules, 2017</div>
+                <div class="scheme-card-desc">Provides the regulatory framework for conservation and wise use of wetlands in India, including created and restored wetlands on post-mining land.</div>
+              </div>
+
+              <div class="scheme-card">
+                <div class="scheme-card-icon">💧</div>
+                <div class="scheme-card-tag">MoEFCC</div>
+                <div class="scheme-card-title">Natl Plan for Conservation of Aquatic Ecosystems</div>
+                <div class="scheme-card-desc">NPCA supports holistic conservation and restoration of wetlands and lakes for water quality, biodiversity improvement and community benefit.</div>
+              </div>
+
+              <div class="scheme-card">
+                <div class="scheme-card-icon">⛏️</div>
+                <div class="scheme-card-tag">CCO</div>
+                <div class="scheme-card-title">Mine Closure Guidelines 2025</div>
+                <div class="scheme-card-desc">CCO handbooks A.R.T.H.A, L.I.V.E.S and R.E.C.L.A.I.M promote ecological remediation, water management and productive post-mining land use.</div>
+              </div>
+
+              <div class="scheme-card">
+                <div class="scheme-card-icon">🐦</div>
+                <div class="scheme-card-tag">Convention on Wetlands</div>
+                <div class="scheme-card-title">Ramsar Convention / Global Wetland Outlook</div>
+                <div class="scheme-card-desc">The Global Wetland Outlook 2021 &amp; 2025 identifies wetlands as critical ecosystems for biodiversity, climate adaptation and human well-being.</div>
+              </div>
+
+              <div class="scheme-card">
+                <div class="scheme-card-icon">👩‍🌾</div>
+                <div class="scheme-card-tag">NABARD / NRLM</div>
+                <div class="scheme-card-title">SHG / FPO Wetland Livelihood</div>
+                <div class="scheme-card-desc">NABARD and NRLM support self-help group and FPO-based wetland nursery, maintenance, eco-guiding and visitor-service enterprises on post-mining land.</div>
+              </div>
+
+              <div class="scheme-card">
+                <div class="scheme-card-icon">🏛️</div>
+                <div class="scheme-card-tag">MoT / MoEFCC</div>
+                <div class="scheme-card-title">Eco-Tourism Policy &amp; Nature-Based Tourism</div>
+                <div class="scheme-card-desc">Central and state eco-tourism policies support birdwatching, guided nature trails, interpretation centres and visitor facilities at restored wetland sites.</div>
+              </div>
+
+              <div class="scheme-card">
+                <div class="scheme-card-icon">🌍</div>
+                <div class="scheme-card-tag">GEF / UNDP</div>
+                <div class="scheme-card-title">Global Environment Facility — Wetland Grants</div>
+                <div class="scheme-card-desc">GEF and UNDP provide grant support for wetland restoration, biodiversity conservation and climate adaptation projects in developing countries including India.</div>
+              </div>
+
+              <div class="scheme-card">
+                <div class="scheme-card-icon">☀️</div>
+                <div class="scheme-card-tag">CSR / ESG</div>
+                <div class="scheme-card-title">CSR &amp; ESG Funding for Ecological Restoration</div>
+                <div class="scheme-card-desc">Mine operators can channel CSR funds under Schedule VII of the Companies Act toward wetland restoration, biodiversity improvement and community livelihood.</div>
+              </div>
+
+              <!-- Duplicates for seamless loop -->
+              <div class="scheme-card" aria-hidden="true">
+                <div class="scheme-card-icon">🌿</div>
+                <div class="scheme-card-tag">MoEFCC</div>
+                <div class="scheme-card-title">Wetlands (Conservation &amp; Management) Rules, 2017</div>
+                <div class="scheme-card-desc">Provides the regulatory framework for conservation and wise use of wetlands in India, including created and restored wetlands on post-mining land.</div>
+              </div>
+              <div class="scheme-card" aria-hidden="true">
+                <div class="scheme-card-icon">💧</div>
+                <div class="scheme-card-tag">MoEFCC</div>
+                <div class="scheme-card-title">Natl Plan for Conservation of Aquatic Ecosystems</div>
+                <div class="scheme-card-desc">NPCA supports holistic conservation and restoration of wetlands and lakes for water quality, biodiversity improvement and community benefit.</div>
+              </div>
+              <div class="scheme-card" aria-hidden="true">
+                <div class="scheme-card-icon">⛏️</div>
+                <div class="scheme-card-tag">CCO</div>
+                <div class="scheme-card-title">Mine Closure Guidelines 2025</div>
+                <div class="scheme-card-desc">CCO handbooks A.R.T.H.A, L.I.V.E.S and R.E.C.L.A.I.M promote ecological remediation, water management and productive post-mining land use.</div>
+              </div>
+              <div class="scheme-card" aria-hidden="true">
+                <div class="scheme-card-icon">🐦</div>
+                <div class="scheme-card-tag">Convention on Wetlands</div>
+                <div class="scheme-card-title">Ramsar Convention / Global Wetland Outlook</div>
+                <div class="scheme-card-desc">The Global Wetland Outlook 2021 &amp; 2025 identifies wetlands as critical ecosystems for biodiversity, climate adaptation and human well-being.</div>
+              </div>
+              <div class="scheme-card" aria-hidden="true">
+                <div class="scheme-card-icon">👩‍🌾</div>
+                <div class="scheme-card-tag">NABARD / NRLM</div>
+                <div class="scheme-card-title">SHG / FPO Wetland Livelihood</div>
+                <div class="scheme-card-desc">NABARD and NRLM support self-help group and FPO-based wetland nursery, maintenance, eco-guiding and visitor-service enterprises on post-mining land.</div>
+              </div>
+              <div class="scheme-card" aria-hidden="true">
+                <div class="scheme-card-icon">🏛️</div>
+                <div class="scheme-card-tag">MoT / MoEFCC</div>
+                <div class="scheme-card-title">Eco-Tourism Policy &amp; Nature-Based Tourism</div>
+                <div class="scheme-card-desc">Central and state eco-tourism policies support birdwatching, guided nature trails, interpretation centres and visitor facilities at restored wetland sites.</div>
+              </div>
+              <div class="scheme-card" aria-hidden="true">
+                <div class="scheme-card-icon">🌍</div>
+                <div class="scheme-card-tag">GEF / UNDP</div>
+                <div class="scheme-card-title">Global Environment Facility — Wetland Grants</div>
+                <div class="scheme-card-desc">GEF and UNDP provide grant support for wetland restoration, biodiversity conservation and climate adaptation projects in developing countries including India.</div>
+              </div>
+              <div class="scheme-card" aria-hidden="true">
+                <div class="scheme-card-icon">☀️</div>
+                <div class="scheme-card-tag">CSR / ESG</div>
+                <div class="scheme-card-title">CSR &amp; ESG Funding for Ecological Restoration</div>
+                <div class="scheme-card-desc">Mine operators can channel CSR funds under Schedule VII of the Companies Act toward wetland restoration, biodiversity improvement and community livelihood.</div>
+              </div>
+
+            </div>
+          </div>
+          <button class="schemes-nav-btn schemes-next" onclick="schemesNav(1)" aria-label="Next">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div><!-- /spv-panel-about -->
+
+  <!-- TAB 2: P.R.I.S.M -->
+  <div id="spv-panel-prism" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+
+<div class="pr-intro">
+  <div class="pr-intro-eyebrow">PRISM – Post-Mining Repurposing and Implementation Strategy Models</div>
+  <div class="pr-intro-heading">A structured framework for mine repurposing from concept to implementation</div>
+  <div class="pr-intro-body">PRISM is a structured framework designed to support identified post-mining repurposing opportunities by evaluating suitable implementation pathways, financial and revenue-generation models, and the implementation requirements, roles, and responsibilities of mine owners, developers, operators, and other stakeholders throughout the project lifecycle. Built around five integrated pillars, PRISM guides Wetlands Restoration projects from concept to operation.</div>
+</div>
+
+<div class="pr-shell">
+  <div class="pr-sidebar">
+    <div class="pr-sidebar-label">Pillars</div>
+    <div class="pr-nav-highlight" id="pr-hl"></div>
+    <div class="pr-nav-item active" style="--pr-accent:#C85000;" data-key="P" onclick="prNav('P')">
+      <div class="pr-nav-badge">P</div>
+      <div><div class="pr-nav-letter">Project vision</div></div>
+    </div>
+    <div class="pr-nav-item" style="--pr-accent:#1a5ca8;" data-key="R" onclick="prNav('R')">
+      <div class="pr-nav-badge">R</div>
+      <div><div class="pr-nav-letter">Repurposing pathways</div></div>
+    </div>
+    <div class="pr-nav-item" style="--pr-accent:#b06a10;" data-key="I" onclick="prNav('I')">
+      <div class="pr-nav-badge">I</div>
+      <div><div class="pr-nav-letter">Investment dynamics</div></div>
+    </div>
+    <div class="pr-nav-item" style="--pr-accent:#5a3d9e;" data-key="S" onclick="prNav('S')">
+      <div class="pr-nav-badge">S</div>
+      <div><div class="pr-nav-letter">Strategic structuring</div></div>
+    </div>
+    <div class="pr-nav-item" style="--pr-accent:#1a7a5e;" data-key="M" onclick="prNav('M')">
+      <div class="pr-nav-badge">M</div>
+      <div><div class="pr-nav-letter">Monitoring guidance</div></div>
+    </div>
+  </div>
+
+  <div class="pr-content-wrap">
+
+    <!-- P PANEL -->
+    <div class="prism2-content-panel active" id="prism2-panel-P" style="--pc:#C85000;--pb:#fff0e6;--cb:#fff8f3;">
+      <div class="prism2-panel-header">
+        <div class="prism2-panel-header-letter">P</div>
+        <div class="prism2-panel-header-text">
+          <div class="prism2-panel-eyebrow">PROJECT VISION</div>
+          <p class="prism2-panel-desc">Project concept, strategic rationale, site suitability assessment and indicative scales for wetland restoration on closed coal mine land.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Project Overview</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">This concept proposes the development of <strong>Wetlands Restoration / Constructed Wetland and Mine Waterbody Ecological Landscapes</strong> on closed, reclaimed, or repurposed coal mine land as part of a sustainable mine-closure and post-mining land-use strategy.</p>
+          <p class="spv-body-text">The objective is to convert under-utilised mine land, mine voids, pit lakes, low-lying reclaimed areas, overburden drainage zones and mine water discharge areas into ecologically functional wetland landscapes centred around:</p>
+          <ul class="spv-list">
+            <li>Restoration of mine waterbodies, pit lakes, low-lying depressions and seasonal wetlands</li>
+            <li>Creation of constructed wetlands for polishing mine water, stormwater and treated wastewater where technically suitable</li>
+            <li>Native aquatic, marsh, riparian and wetland-edge vegetation</li>
+            <li>Bird, butterfly, amphibian, fish and pollinator habitat creation</li>
+            <li>Flood buffering, stormwater retention and groundwater recharge support</li>
+            <li>Nature-based water-quality improvement and erosion control</li>
+            <li>Environmental education, birdwatching, interpretation and low-impact eco-tourism</li>
+            <li>Community-based wetland maintenance, nursery, fishery-support, guide, monitoring and visitor-service livelihoods</li>
+            <li>Long-term carbon, biodiversity, ESG and mine-closure value creation</li>
+          </ul>
+          <p class="spv-body-text">Unlike conventional built infrastructure, wetlands restoration can use existing mine voids, depressions, drainage lines, pit lakes and reclaimed lowlands; is compatible with eco-parks, biodiversity parks, walking trails, bird hides, interpretation centres and mine-water treatment systems; and allows phased investment depending on landform, water quality, safety and hydrological conditions.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Strategic Rationale</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">Wetlands restoration is particularly suited for closed coal mine areas because many mine-closure landscapes already contain water-filled voids, pit lakes, seasonal drainage channels, low-lying reclaimed areas, sedimentation ponds and mine water discharge points. Wetlands provide multiple ecosystem services:</p>
+          <ul class="spv-list">
+            <li>Converts mine voids, pit lakes, lowlands and drainage zones into productive ecological assets</li>
+            <li>Supports water-quality improvement through sedimentation, filtration, microbial action, plant uptake and wetland biogeochemistry</li>
+            <li>Provides stormwater retention, flood moderation and erosion control</li>
+            <li>Enhances biodiversity through wetland vegetation, bird habitat, amphibian habitat, pollinator zones and fish refuges</li>
+            <li>Creates long-term local jobs in maintenance, nursery raising, vegetation management, monitoring, guided nature trails, security, visitor services and eco-tourism</li>
+            <li>Supports women SHGs, youth groups and FPOs through wetland nurseries, birdwatching guides, maintenance contracts and visitor services</li>
+            <li>Provides environmental education for schools, colleges, mine workers and surrounding communities</li>
+            <li>Enhances ESG, biodiversity, carbon and mine-closure compliance outcomes</li>
+            <li>Offers diversified revenue: entry tickets, birdwatching, wetland nursery sales, training programmes, interpretation centre income, CSR/grant support and eco-tourism facilities</li>
+          </ul>
+          <p class="spv-body-text">The Nature Conservancy India's Sembakkam Lake restoration (100 acres, Tamil Nadu) and Wular Lake restoration (Jammu &amp; Kashmir) are strong Indian precedents for scientific, economic and participatory wetland restoration approaches.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Site Suitability and Technical Specification Matrix</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following matrix provides a structured checklist for assessing the suitability of the proposed site for the selected repurposing option. It identifies the key physical, technical, environmental, infrastructure, legal, and owner-side readiness parameters that should be reviewed before the project is advanced to the next stage of development. The purpose of this matrix is to help the project owner understand existing site conditions, technical requirements, potential constraints, and preparatory actions required before feasibility studies, approvals, or tendering are initiated.</p>
+          <table class="spv-table">
+            <thead><tr><th>Category</th><th>What to Assess / Prepare</th><th>Why It Matters</th><th>Owner-Side Readiness</th></tr></thead>
+            <tbody>
+              <tr><td>Land status</td><td>Closure status, permissible post-mining land use, land ownership, encumbrances and waterbody ownership</td><td>Legal viability for wetland restoration and public access</td><td>Closure note</td></tr>
+              <tr><td>Landform stability</td><td>Slope stability, dump stability, subsidence risk, erosion-prone zones, pit edge stability</td><td>Visitor safety, embankment stability and wetland longevity</td><td>Geotechnical screening</td></tr>
+              <tr><td>Hydrology</td><td>Catchment area, runoff inflow, seasonal water level, mine water inflow, overflow route, retention time</td><td>Determines wetland type, size, water balance and sustainability</td><td>Hydrology note</td></tr>
+              <tr><td>Mine void / pit lake condition</td><td>Depth, side slopes, water level fluctuation, access, unsafe edges and bathymetry</td><td>Determines suitability for deep-water wetland, buffer wetland or restricted conservation zone</td><td>Pit lake safety note</td></tr>
+              <tr><td>Soil and sediment condition</td><td>Soil depth, pH, texture, compaction, organic carbon, sediment load, heavy metals, acidity, salinity</td><td>Determines planting, substrate design, contamination risk and habitat suitability</td><td>Soil and sediment report</td></tr>
+              <tr><td>Water quality</td><td>pH, EC, DO, BOD, COD, TSS, turbidity, metals, sulphate, oil and grease, coliform where public interface exists</td><td>Determines whether wetland is suitable for biodiversity, treatment, restricted use or public recreation</td><td>Water quality report</td></tr>
+              <tr><td>AMD risk</td><td>Acidity, iron, manganese, sulphate, metal load, seasonal variation and alkalinity</td><td>Important for passive treatment wetland design and safety</td><td>AMD screening</td></tr>
+              <tr><td>Contamination risk</td><td>Screening for heavy metals, hydrocarbon residues, mine drainage influence, ash, unsafe sludge and legacy waste</td><td>Public safety and suitability for wetland vegetation, fishery or eco-tourism</td><td>Environmental screening</td></tr>
+              <tr><td>Water availability</td><td>Mine water, stormwater, treated wastewater, rainfall, groundwater seepage, ponds and pit lakes</td><td>Essential for maintaining wetland hydroperiod and vegetation survival</td><td>Water plan</td></tr>
+              <tr><td>Vegetation</td><td>Existing aquatic plants, riparian vegetation, invasive species, grass cover and nearby native flora</td><td>Forms basis for wetland zoning and restoration</td><td>Vegetation inventory</td></tr>
+              <tr><td>Biodiversity potential</td><td>Birds, fish, amphibians, reptiles, butterflies, pollinators and wetland-dependent species</td><td>Supports ecological and educational value</td><td>Biodiversity baseline</td></tr>
+              <tr><td>Invasive species risk</td><td>Water hyacinth, salvinia, prosopis, lantana, invasive fish and aggressive grasses</td><td>Prevents wetland degradation and O&amp;M burden</td><td>Invasive species plan</td></tr>
+              <tr><td>Access</td><td>Roads, parking, pedestrian movement, emergency access and maintenance routes</td><td>Visitor management, monitoring and maintenance logistics</td><td>Access plan</td></tr>
+              <tr><td>Safety</td><td>Deep water, soft sediments, unstable slopes, sudden water-level changes, wildlife interaction and restricted zones</td><td>Public safety and controlled access</td><td>Safety zoning plan</td></tr>
+              <tr><td>Community proximity</td><td>Nearby villages, SHGs, land-losers, youth, women groups, schools and fishery groups</td><td>Livelihood and education integration</td><td>Beneficiary mapping</td></tr>
+              <tr><td>Institutional linkages</td><td>Wetland Authority, forest department, fisheries department, irrigation department, KVKs, universities, NGOs</td><td>Technical credibility and long-term wetland management support</td><td>Partnership note</td></tr>
+              <tr><td>Visitor potential</td><td>Nearby towns, schools, eco-tourism circuits, birdwatching potential and transport access</td><td>Determines scale, revenue and facility planning</td><td>Demand assessment</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Indicative Project Scale and Configuration Matrix</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following matrix presents an indicative relationship between available site area, project scale, technical configuration, and likely development potential. It is intended to support preliminary planning by helping the project owner identify the appropriate scale and configuration for the proposed repurposing option. The values and recommendations are indicative and should be refined through detailed feasibility studies, site surveys, engineering assessments, and relevant technical and commercial evaluations.</p>
+          <table class="spv-table">
+            <thead><tr><th>Land Area</th><th>Recommended Scale</th><th>Configuration</th><th>Use Case</th></tr></thead>
+            <tbody>
+              <tr><td>1–5 ha</td><td>Pilot wetland restoration / demonstration wetland</td><td>Small constructed wetland cell, sediment pond, native wetland planting, boardwalk or viewing deck, interpretation boards</td><td>Proof of concept</td></tr>
+              <tr><td>5–20 ha</td><td>Community wetland restoration landscape</td><td>Marsh zones, shallow-water wetland, riparian planting, bird habitat, wetland nursery, walking trail, small interpretation facility</td><td>Community education and local livelihood</td></tr>
+              <tr><td>20–50 ha</td><td>Integrated wetland and biodiversity park</td><td>Multiple wetland cells, sedimentation basin, open water, marsh, riparian buffer, bird hides, eco-trails, monitoring station, nursery</td><td>Cluster-level ecological and water-management asset</td></tr>
+              <tr><td>50–100 ha</td><td>Large mine wetland restoration and eco-education park</td><td>Pit lake buffer wetland, constructed treatment wetland, biodiversity zones, visitor centre, training centre, boardwalks, eco-tourism facilities</td><td>PPP / CSR / institutional model</td></tr>
+              <tr><td>100 ha+</td><td>Regional wetland conservation landscape</td><td>Multi-zone wetland complex, pit lake system, flood-buffer zones, biodiversity conservation areas, research plots, community enterprise zones</td><td>Just-transition flagship</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="prism2-nav-row">
+        <button class="prism2-btn-prev" id="prism2-prev-P" onclick="prism2Prev()" disabled>&#8592; Previous</button>
+        <div class="prism2-progress-dots" style="display:flex;gap:5px;align-items:center;">
+          <span class="pdot active" data-p="P"></span><span class="pdot" data-p="R"></span>
+          <span class="pdot" data-p="I"></span><span class="pdot" data-p="S"></span><span class="pdot" data-p="M"></span>
+        </div>
+        <button class="prism2-btn-next" id="prism2-next-P" onclick="prism2Next()">Next pillar &#8594;</button>
+      </div>
+    </div><!-- /P -->
+
+    <!-- R PANEL -->
+    <div class="prism2-content-panel" id="prism2-panel-R" style="--pc:#1a5ca8;--pb:#e4eef9;--cb:#f3f7fd;">
+      <div class="prism2-panel-header">
+        <div class="prism2-panel-header-letter">R</div>
+        <div class="prism2-panel-header-text">
+          <div class="prism2-panel-eyebrow">REPURPOSING PATHWAYS</div>
+          <p class="prism2-panel-desc">Implementation models available for wetlands restoration and comparative assessment of suitability across ecological, livelihood, water-management and commercial dimensions.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Implementation Options</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following table outlines the possible implementation models that may be considered for developing the proposed repurposing project. These models differ in terms of ownership structure, funding responsibility, private sector participation, operational control, and long-term risk allocation. The purpose of this table is to help the project owner compare broad development routes and select an implementation approach that aligns with its financial capacity, institutional preference, risk appetite, and long-term asset management objectives.</p>
+          <table class="spv-table">
+            <thead><tr><th>Model</th><th>Suitability</th><th>Comment</th></tr></thead>
+            <tbody>
+              <tr><td>EPC</td><td>Moderate</td><td>Suitable for basic wetland earthworks, bunds, inlets, outlets, silt traps, fencing, paths, planting and monitoring infrastructure</td></tr>
+              <tr><td>EPC + O&amp;M / Facility Mgmt</td><td>High</td><td>Strong for owner-controlled wetland restoration with assured maintenance, water-level management and community livelihood support</td></tr>
+              <tr><td>BOOT</td><td>Moderate</td><td>Suitable where private developer builds visitor facilities, interpretation areas and eco-tourism components with asset transfer</td></tr>
+              <tr><td>BOO</td><td>Low to Moderate</td><td>Suitable only for commercially oriented eco-tourism or waterbody recreation; less suitable for sensitive wetland conservation unless safeguards are strong</td></tr>
+              <tr><td>DBFOT</td><td>High</td><td>Suitable for large wetland restoration projects with constructed wetlands, visitor facilities, interpretation centres and eco-tourism</td></tr>
+              <tr><td>Concession / Lease-Develop-Operate</td><td>Very High</td><td>Strong for wetland operation with community livelihood obligations, eco-tourism, maintenance and revenue sharing</td></tr>
+              <tr><td>Hybrid</td><td>Very High</td><td>Most flexible and balanced for ecological restoration, water management, public education, livelihood and revenue objectives</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Comparative Assessment of Key Models</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following comparative assessment evaluates the major implementation models across key decision parameters such as investment requirement, ownership control, financing responsibility, contractual complexity, risk transfer, and long-term economic benefit. This matrix is intended to support early-stage decision-making by highlighting the relative strengths and limitations of each model. The final choice of model should be guided by the specific circumstances of the project, including its scale, commercial viability, applicable policy framework, and the owner's institutional preference.</p>
+          <table class="spv-table">
+            <thead><tr><th>Evaluation Parameter</th><th>EPC</th><th>EPC+O&amp;M</th><th>BOOT</th><th>BOO</th><th>DBFOT</th><th>Concession</th><th>Hybrid</th></tr></thead>
+            <tbody>
+              <tr><td>Upfront investment by Mine Owner</td><td>High</td><td>High to Moderate</td><td>Low to Moderate</td><td>Low</td><td>Low to Moderate</td><td>Low to Moderate</td><td>Variable</td></tr>
+              <tr><td>Need for private financing</td><td>Low</td><td>Low</td><td>High</td><td>High</td><td>High</td><td>Moderate to High</td><td>Variable</td></tr>
+              <tr><td>Ownership retained by Mine Owner</td><td>Yes</td><td>Yes</td><td>Land retained; assets may be developer-held during concession</td><td>Limited</td><td>Usually land retained</td><td>Land retained</td><td>Usually retained</td></tr>
+              <tr><td>Suitability for welfare objective</td><td>High</td><td>Very High</td><td>High if mandated</td><td>Moderate</td><td>High</td><td>Very High</td><td>Very High</td></tr>
+              <tr><td>Suitability for local livelihood</td><td>Moderate</td><td>Very High</td><td>Moderate to High</td><td>Moderate</td><td>High</td><td>Very High</td><td>Very High</td></tr>
+              <tr><td>Suitability for ecological restoration</td><td>Moderate</td><td>High</td><td>High if regulated</td><td>Moderate</td><td>High</td><td>High</td><td>Very High</td></tr>
+              <tr><td>Suitability for water-quality improvement</td><td>Moderate</td><td>High</td><td>Moderate</td><td>Low to Moderate</td><td>High</td><td>High</td><td>Very High</td></tr>
+              <tr><td>Suitability for SHG / FPO integration</td><td>Moderate</td><td>High</td><td>Moderate</td><td>Low to Moderate</td><td>High if required</td><td>Very High</td><td>Core feature</td></tr>
+              <tr><td>Revenue potential</td><td>Low to Moderate</td><td>Moderate</td><td>Moderate to High</td><td>High</td><td>High</td><td>Moderate to High</td><td>Variable to High</td></tr>
+              <tr><td>O&amp;M burden on owner</td><td>High</td><td>Moderate</td><td>Low</td><td>Low</td><td>Low</td><td>Low to Moderate</td><td>Shared</td></tr>
+              <tr><td>Suitability for sensitive mine land</td><td>High if owner controls access</td><td>High</td><td>Moderate if regulated</td><td>Low to Moderate</td><td>High with safeguards</td><td>High with monitoring</td><td>Very High</td></tr>
+              <tr><td>Suitability for phased development</td><td>Moderate</td><td>High</td><td>Moderate</td><td>Moderate</td><td>High</td><td>Very High</td><td>Very High</td></tr>
+              <tr><td>Overall suitability for Wetlands Restoration</td><td>Moderate</td><td>High</td><td>Moderate</td><td>Low to Moderate</td><td>High</td><td>Very High</td><td>Very High / Most Suitable</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+            <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Model-Wise Responsibility Logic</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following table explains how major project responsibilities are typically allocated under different implementation models. It covers key functional areas such as site availability, financing, design and construction, regulatory approvals, operation and maintenance, revenue collection, asset ownership, and end-of-term transfer. This helps clarify the respective roles of the project owner, private developer, EPC contractor, operator, or concessionaire, and supports the preparation of tender documents and contractual structures.</p>
+        <div class="table-wrap">
+          <table class="spv-table">
+            <thead><tr><th>Responsibility Area</th><th>EPC</th><th>EPC + O&amp;M / FM</th><th>BOOT</th><th>DBFOT</th><th>Concession / Lease-Operate-Develop</th><th>Hybrid</th></tr></thead>
+            <tbody>
+              <tr><td>Site / Land Availability</td><td>Owner</td><td>Owner</td><td>Owner / authority</td><td>Owner / authority</td><td>Owner</td><td>Variable</td></tr>
+              <tr><td>Financing (CAPEX)</td><td>Owner (often grant-funded)</td><td>Owner</td><td>Developer / NGO</td><td>Developer / NGO</td><td>Concessionaire / NGO</td><td>Shared / grant + private</td></tr>
+              <tr><td>Ecological Baseline &amp; Hydrological Assessment</td><td>Owner / consultant</td><td>Owner / consultant</td><td>Developer / ecologist</td><td>Developer / ecologist</td><td>Concessionaire / specialist</td><td>Shared / specialist</td></tr>
+              <tr><td>Wetland Design &amp; Engineering</td><td>EPC contractor / ecologist</td><td>EPC contractor</td><td>Developer / EPC</td><td>Developer / EPC</td><td>Concessionaire / contractor</td><td>Variable</td></tr>
+              <tr><td>Species Selection &amp; Planting</td><td>Owner / ecologist</td><td>O&amp;M agency / ecologist</td><td>Developer / ecologist</td><td>Developer</td><td>Concessionaire / ecologist</td><td>Community + ecologist + NGO</td></tr>
+              <tr><td>Water Control &amp; Management Structures</td><td>EPC contractor</td><td>EPC + FM agency</td><td>Developer</td><td>Developer</td><td>Concessionaire</td><td>Shared</td></tr>
+              <tr><td>Community Engagement &amp; Stakeholder Coordination</td><td>Owner</td><td>Owner + FM agency</td><td>Owner + developer (if mandated)</td><td>Owner + developer</td><td>Concessionaire + NGO</td><td>Core responsibility shared across all parties</td></tr>
+              <tr><td>O&amp;M (Monitoring, Maintenance, Invasives Control)</td><td>Owner or separate agency</td><td>FM / O&amp;M contractor</td><td>Developer</td><td>Developer</td><td>Concessionaire</td><td>Community + specialist agency</td></tr>
+              <tr><td>Grant &amp; Carbon Credit Management</td><td>Owner</td><td>Owner</td><td>Developer / owner jointly</td><td>Developer / owner jointly</td><td>Shared per concession terms</td><td>Shared as agreed</td></tr>
+              <tr><td>Asset / Ecological Ownership</td><td>Owner</td><td>Owner</td><td>Developer during concession; owner thereafter</td><td>Developer during concession; owner thereafter</td><td>Owner (land); concessionaire (management)</td><td>Variable</td></tr>
+              <tr><td>Transfer / Continuation at End of Term</td><td>No formal transfer</td><td>No formal transfer</td><td>Yes — site and documentation to owner</td><td>Yes — to owner</td><td>Yes — site to owner</td><td>Variable</td></tr>
+            </tbody>
+          </table>
+        </div>
+          <p class="spv-body-text" style="margin-top:16px;">In owner-led models such as EPC and EPC + O&amp;M, the project owner retains primary responsibility for financing and ownership, while technical functions are outsourced. In developer-led models such as BOOT, BOO, DBFOT, and Concession, financing, construction, operation, and revenue realisation are largely undertaken by the private developer or concessionaire. Hybrid structures allocate responsibilities according to the negotiated project arrangement.</p>
+        </div>
+      </div>
+
+<div class="prism2-nav-row">
+        <button class="prism2-btn-prev" id="prism2-prev-R" onclick="prism2Prev()">&#8592; Previous</button>
+        <div class="prism2-progress-dots" style="display:flex;gap:5px;align-items:center;">
+          <span class="pdot" data-p="P"></span><span class="pdot active" data-p="R"></span>
+          <span class="pdot" data-p="I"></span><span class="pdot" data-p="S"></span><span class="pdot" data-p="M"></span>
+        </div>
+        <button class="prism2-btn-next" id="prism2-next-R" onclick="prism2Next()">Next pillar &#8594;</button>
+      </div>
+    </div><!-- /R -->
+
+    <!-- I PANEL -->
+    <div class="prism2-content-panel" id="prism2-panel-I" style="--pc:#b06a10;--pb:#faedda;--cb:#fdf7f0;">
+      <div class="prism2-panel-header">
+        <div class="prism2-panel-header-letter">I</div>
+        <div class="prism2-panel-header-text">
+          <div class="prism2-panel-eyebrow">INVESTMENT DYNAMICS</div>
+          <p class="prism2-panel-desc">Funding logic, revenue streams, local livelihood outcomes and financial/social value comparison across implementation models for wetlands restoration.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Funding Logic</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following table presents the broad funding logic for each implementation model. It explains who is expected to finance the project, the level of owner-side funding requirement, and the commercial rationale behind each structure. This section is intended to help the project owner assess whether the project is more suitable for owner-funded development, private investment, public-private partnership, lease or concession structure, or a hybrid funding arrangement.</p>
+          <table class="spv-table">
+            <thead><tr><th>Model</th><th>Funding Source</th><th>Owner Funding Requirement</th><th>Suitability for Wetlands Restoration</th></tr></thead>
+            <tbody>
+              <tr><td>EPC</td><td>Mine owner budget / mine closure fund / CSR</td><td>High</td><td>Suitable for basic wetland earthworks, bunds, pathways, hydraulic structures, planting, fencing and interpretation boards</td></tr>
+              <tr><td>EPC + O&amp;M / FM</td><td>Mine owner budget + O&amp;M budget + CSR</td><td>High to Moderate</td><td>Strong fit where owner wants control over water quality, public access, wetland health, monitoring, maintenance and SHG participation</td></tr>
+              <tr><td>BOOT</td><td>Private developer capital + possible CSR / VGF / grant support</td><td>Low to Moderate</td><td>Suitable for wetland with visitor centre, bird hides, trails, eco-tourism facilities and eventual asset transfer</td></tr>
+              <tr><td>BOO</td><td>Private developer capital</td><td>Low</td><td>Suitable only for commercially driven wetland recreation or eco-tourism; less preferred where conservation and public control are important</td></tr>
+              <tr><td>DBFOT</td><td>Private concessionaire + public / CSR support + possible VGF</td><td>Low to Moderate</td><td>Suitable for large wetland restoration parks with treatment wetlands, interpretation centres, eco-tourism and visitor facilities</td></tr>
+              <tr><td>Concession / Lease-Develop-Operate</td><td>Private operator / FPO / SHG federation / NGO / CSR / blended finance</td><td>Low to Moderate</td><td>Very suitable for community-linked wetland restoration with livelihood obligations, visitor revenue, maintenance and revenue sharing</td></tr>
+              <tr><td>Hybrid</td><td>Mine owner + CSR + government schemes + private operator + SHG/FPO + NGO + grants</td><td>Variable</td><td>Most suitable for balancing water management, ecological restoration, public education, livelihood generation and owner revenue participation</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Revenue Generation by Model</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following table explains how revenue may be generated under different implementation models and identifies who is likely to receive the principal project income. It also describes the nature and extent of the financial benefit available to the project owner, whether through direct project revenue, cost savings, lease income, concession fees, revenue sharing, service charges, or eventual asset transfer. This comparison is intended to support the selection of a commercially appropriate model for the proposed repurposing project.</p>
+          <table class="spv-table">
+            <thead><tr><th>Model</th><th>How Revenue is Generated</th><th>Who Receives Revenue</th><th>Owner's Financial Benefit</th></tr></thead>
+            <tbody>
+              <tr><td>EPC</td><td>Entry tickets, guided wetland trails, birdwatching, interpretation centre income, wetland nursery plant sales, training fees, exhibitions, events and eco-tourism visits</td><td>Mine Owner</td><td>Full revenue retained by owner, but owner bears full CAPEX, O&amp;M, wetland maintenance, visitor safety and ecological monitoring risk</td></tr>
+              <tr><td>EPC + O&amp;M / FM</td><td>Same revenue streams: tickets, guided trails, training, birdwatching, eco-tourism, exhibitions, school programmes, wetland nursery sales and events</td><td>Mine Owner after paying O&amp;M agency</td><td>High benefit; owner retains revenue while outsourcing operations and technical management</td></tr>
+              <tr><td>BOOT</td><td>Developer earns from ticketing, visitor facilities, eco-tourism, bird hides, guided tours, training, interpretation facilities and events during concession</td><td>Developer / concessionaire during concession</td><td>Lease rent, concession fee, revenue share, local economic uplift and asset transfer at end of concession</td></tr>
+              <tr><td>DBFOT</td><td>Structured revenue from ticketing, interpretation centre, eco-tourism, events, training programmes, visitor amenities and CSR-supported education</td><td>Concessionaire during concession</td><td>Concession fee, lease rent, revenue share, performance-linked payments and asset transfer at end</td></tr>
+              <tr><td>Concession / Lease-Operate-Develop</td><td>Revenue from wetland operations, SHG/FPO-based visitor services, guided tours, birdwatching, training, eco-tourism and events</td><td>Concessionaire / operator as per agreement</td><td>Lease rentals, revenue share, improved land value, ESG gains and indirect socio-economic benefits</td></tr>
+              <tr><td>Hybrid</td><td>Mixed revenue streams: tickets, guided trails, SHG/FPO enterprises, CSR/grants, eco-tourism, training, events, exhibitions, interpretation centre and wetland nursery products</td><td>Shared between owner, operator, SHG/FPO, NGO as structured</td><td>Variable to high; owner benefits through revenue share, reduced O&amp;M burden, ESG gains and enhanced land value</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Which Model is Better for Local Livelihood and Jobs</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following table assesses the likely local livelihood and employment potential of each implementation model. It considers the extent to which each model can support construction-phase jobs, long-term operational employment, local procurement opportunities, skill development, community participation, and associated support services. This section is particularly relevant where the repurposing project is expected to contribute to post-mining or post-operational economic transition and sustained local community benefit.</p>
+          <table class="spv-table">
+            <thead><tr><th>Model</th><th>Local Job Potential</th><th>Why</th><th>Overall Suggestibility for Local Livelihood</th></tr></thead>
+            <tbody>
+              <tr><td>EPC</td><td>Moderate</td><td>Creates short-term jobs in earthwork, bund construction, fencing, pathway construction, planting and wetland infrastructure setup. Long-term jobs depend on owner-led operations after completion.</td><td>Moderate</td></tr>
+              <tr><td>EPC + O&amp;M / FM</td><td>High to Very High</td><td>Supports sustained employment in wetland maintenance, vegetation management, water-level control, nursery operations, visitor management, guides, ticketing, security, monitoring and SHG facilitation.</td><td>Very High</td></tr>
+              <tr><td>BOOT</td><td>Moderate to High</td><td>Generates jobs during development and operation. Local employment strong if agreement mandates local hiring, SHG/FPO wetland nursery participation, training and local procurement.</td><td>High</td></tr>
+              <tr><td>BOO</td><td>Moderate</td><td>Can create wetland maintenance, visitor facility and eco-tourism jobs, but local livelihood depends mainly on private developer policy unless contractually mandated.</td><td>Moderate</td></tr>
+              <tr><td>DBFOT</td><td>High to Very High</td><td>Suitable for large wetland restoration landscapes with interpretation centres, eco-tourism, training centres, trails, bird hides and conservation facilities.</td><td>High to Very High</td></tr>
+              <tr><td>Concession / Lease-Operate-Develop</td><td>Very High</td><td>Strong model for long-term local livelihood through SHG/FPO participation, wetland nursery production, maintenance, visitor services, guided tours and market linkage.</td><td>Very High</td></tr>
+              <tr><td>Hybrid</td><td>Very High</td><td>Best suited for combining mine-owner support, private expertise, NGO facilitation, SHG/FPO participation, CSR support, conservation objectives and community benefit obligations.</td><td>Very High / Most Suitable</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+            <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Combined Comparison: Revenue, Profitability, and Livelihood</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following combined comparison brings together three important dimensions of project structuring: revenue potential, owner-side financial benefit, and local livelihood generation. It provides a consolidated view of how each implementation model performs across commercial, institutional, and community-development perspectives. This matrix is intended to support balanced decision-making where the objective extends beyond financial return to include sustainable site reuse and long-term local economic benefit.</p>
+        <div class="table-wrap">
+          <table class="spv-table">
+            <thead><tr><th>Model</th><th>Owner Profitability</th><th>Local Job Creation</th><th>Overall Comment</th></tr></thead>
+            <tbody>
+              <tr><td><strong>EPC</strong></td><td>High — owner retains full revenue after capital repayment</td><td>Moderate to High</td><td>Suitable where the owner has funding capacity and seeks full control over the asset</td></tr>
+              <tr><td><strong>EPC + O&amp;M / FM</strong></td><td>High — full revenue retained after O&amp;M / FM contract costs</td><td>High to Very High</td><td>Best for owners who want full control combined with professional facility management</td></tr>
+              <tr><td><strong>BOOT</strong></td><td>Moderate — income through lease, concession fee, or transfer value</td><td>High</td><td>Suitable where private financing is needed; owner benefits indirectly and gains the asset at end of concession</td></tr>
+              <tr><td><strong>DBFOT</strong></td><td>Moderate to High — through lease, concession fee, and transfer</td><td>High to Very High</td><td>Strong PPP structure for larger projects requiring private investment and structured public participation</td></tr>
+              <tr><td><strong>Concession / Lease-Operate-Develop</strong></td><td>Moderate — through concession fee and revenue-sharing arrangement</td><td>High to Very High</td><td>Highly suitable where the owner wants to retain land while outsourcing commercial activation</td></tr>
+              <tr><td><strong>Hybrid</strong></td><td>Variable to High — depends on structure and revenue-sharing terms</td><td>Very High</td><td>Most suitable where public value, community benefit, and commercial viability are all required</td></tr>
+            </tbody>
+          </table>
+        </div>
+        </div>
+      </div>
+
+<div class="prism2-nav-row">
+        <button class="prism2-btn-prev" id="prism2-prev-I" onclick="prism2Prev()">&#8592; Previous</button>
+        <div class="prism2-progress-dots" style="display:flex;gap:5px;align-items:center;">
+          <span class="pdot" data-p="P"></span><span class="pdot" data-p="R"></span>
+          <span class="pdot active" data-p="I"></span><span class="pdot" data-p="S"></span><span class="pdot" data-p="M"></span>
+        </div>
+        <button class="prism2-btn-next" id="prism2-next-I" onclick="prism2Next()">Next pillar &#8594;</button>
+      </div>
+    </div><!-- /I -->
+
+    <!-- S PANEL -->
+    <div class="prism2-content-panel" id="prism2-panel-S" style="--pc:#5a3d9e;--pb:#edeaf8;--cb:#f7f5fd;">
+      <div class="prism2-panel-header">
+        <div class="prism2-panel-header-letter">S</div>
+        <div class="prism2-panel-header-text">
+          <div class="prism2-panel-eyebrow">STRATEGIC STRUCTURING</div>
+          <p class="prism2-panel-desc">Pre-RFP readiness requirements and post-award implementation activities for wetlands restoration on closed coal mine land.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Preparations Needed Before RFP</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">The following section identifies the key owner-side preparatory actions that should ideally be completed before issuing the first Request for Proposal. These actions are aimed at reducing uncertainty for prospective bidders, improving project bankability, clarifying site availability, identifying approval pathways and risks, and defining the technical and commercial scope of the project. Completing these preparatory steps before tendering can improve bid quality, attract credible responses, and reduce the risk of delays during project implementation.</p>
+          <ol class="spv-list">
+            <li>Land ownership and closure-status confirmation</li>
+            <li>Mine closure and repurposing permissibility note</li>
+            <li>Safe and unsafe zone mapping</li>
+            <li>Topographic survey and contour mapping</li>
+            <li>Bathymetric survey of pit lakes / deep waterbodies where applicable</li>
+            <li>Slope-stability and subsidence screening</li>
+            <li>Hydrological assessment including catchment, inflow, outflow, water balance and seasonal water-level variation</li>
+            <li>Water-quality assessment including pH, EC, DO, BOD, COD, TSS, turbidity, metals, sulphate, oil and grease</li>
+            <li>AMD risk assessment where mine drainage is acidic or metal-rich</li>
+            <li>Soil and sediment testing, including fertility, pH, compaction and contamination</li>
+            <li>Drainage and erosion assessment</li>
+            <li>Flood-risk and overflow route assessment</li>
+            <li>Existing vegetation and biodiversity baseline</li>
+            <li>Invasive species assessment</li>
+            <li>Fish, bird, amphibian and wetland habitat potential assessment</li>
+            <li>Community and beneficiary mapping</li>
+            <li>Consultation with nearby villages, panchayats, SHGs, FPOs, fisheries department, forest department, wetland authority, irrigation department, KVKs, schools and local institutions</li>
+            <li>Market assessment for wetland eco-tourism, birdwatching, guided trails, nursery plants, training programmes, visitor services and interpretation centre revenue</li>
+            <li>Preliminary wetland zoning plan</li>
+            <li>Estimate of CAPEX and 5-year maintenance cost</li>
+            <li>Proposed implementation model and draft livelihood obligations</li>
+            <li>Legal review of waterbody ownership, wetland notification implications, fishing rights, visitor access, revenue sharing, vegetation harvesting restrictions, safety responsibilities and land-use restrictions</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Activities to be taken After Selecting the Agency</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following section lists the principal activities that may be undertaken by the selected contractor, developer, concessionaire, operator, or implementation agency after award of the project. These activities generally include detailed site investigations, engineering design, statutory submissions and approvals, equipment procurement, construction, commissioning, operational planning, staff training, and performance monitoring. The distinction between pre-RFP owner preparedness and post-award implementation responsibilities helps ensure an appropriate and efficient allocation of effort across the project development cycle.</p>
+          <ol class="spv-list">
+            <li>Detailed wetland restoration master plan and hydrological modelling</li>
+            <li>Detailed design of inlet, outlet, overflow, spillway, sluice and water-level control structures</li>
+            <li>Detailed design of sedimentation basins, forebays, constructed wetland cells and polishing ponds</li>
+            <li>Detailed water-quality improvement plan including passive treatment, aeration, sediment control, phytoremediation and microbial treatment where suitable</li>
+            <li>Detailed safety design for deep water, unstable banks, restricted areas, railings, signage and emergency access</li>
+            <li>Detailed landscape design for marsh, open water, riparian buffer, grassland, bird habitat and visitor zones</li>
+            <li>Native aquatic, emergent, riparian and wetland-edge species selection</li>
+            <li>Procurement and establishment of wetland nursery</li>
+            <li>Soil and sediment improvement through organic matter addition, stabilisation, mulching and erosion-control measures</li>
+            <li>Invasive species removal and long-term control plan</li>
+            <li>Boardwalks, bird hides, viewing decks, trails, seating, interpretation signage and visitor amenities</li>
+            <li>Installation of water-level gauges, water-quality sensors, CCTV and GIS-based monitoring system</li>
+            <li>Community training for wetland maintenance, nursery work, biodiversity monitoring, guided tours and visitor services</li>
+            <li>SHG/FPO onboarding for nursery, maintenance, visitor kiosks, eco-guiding and waste management</li>
+            <li>Operations manual, wetland maintenance manual and emergency-response plan</li>
+            <li>Annual desilting, vegetation management and monitoring schedule</li>
+            <li>Visitor promotion strategy, school outreach, birdwatching calendar and tourism linkage</li>
+            <li>Periodic independent wetland health audit and environmental compliance review</li>
+          </ol>
+        </div>
+      </div>
+
+          <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Indicative Implementation Pathway</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following implementation pathway presents a practical high-level sequence for advancing the proposed repurposing concept from initial approval through to project execution and long-term operation. It outlines the broad stages of concept approval, preliminary studies, model selection, bid preparation, procurement, detailed design, statutory approvals, construction, commissioning, and ongoing operation. This pathway is indicative and should be adapted to reflect the specific complexity, regulatory requirements, financing structure, and site conditions applicable to the project.</p>
+          <ol class="spv-list">
+            <li>Concept approval and objective setting</li>
+            <li>Site suitability, landform and soil assessment</li>
+            <li>Hydrology, water-quality and AMD risk assessment</li>
+            <li>Environmental, contamination and safety screening</li>
+            <li>Existing vegetation and biodiversity baseline</li>
+            <li>Community engagement and SHG/FPO onboarding</li>
+            <li>Market, visitor and education demand assessment</li>
+            <li>Wetland zoning, hydrological design and species selection</li>
+            <li>Selection of implementation model</li>
+            <li>DPR and bid structuring</li>
+            <li>RFP issuance and partner selection</li>
+            <li>Earthworks, bunding, inlet, outlet and drainage development</li>
+            <li>Sedimentation basin and constructed wetland cell development</li>
+            <li>Soil / substrate improvement and phased wetland planting</li>
+            <li>Boardwalks, signage, bird hides and visitor trail development</li>
+            <li>Training and livelihood integration</li>
+            <li>Public opening, operations and monitoring</li>
+            <li>Scaling, biodiversity partnerships and revenue diversification</li>
+          </ol>
+        </div>
+      </div>
+    <div class="prism2-nav-row">
+        <button class="prism2-btn-prev" id="prism2-prev-S" onclick="prism2Prev()">&#8592; Previous</button>
+        <div class="prism2-progress-dots" style="display:flex;gap:5px;align-items:center;">
+          <span class="pdot" data-p="P"></span><span class="pdot" data-p="R"></span>
+          <span class="pdot" data-p="I"></span><span class="pdot active" data-p="S"></span><span class="pdot" data-p="M"></span>
+        </div>
+        
+    <button class="prism2-btn-next" id="prism2-next-S" onclick="prism2Next()">Next pillar &#8594;</button>
+      </div>
+    </div><!-- /S -->
+
+    <!-- M PANEL -->
+    <div class="prism2-content-panel" id="prism2-panel-M" style="--pc:#1a7a5e;--pb:#e1f3ec;--cb:#f1faf6;">
+      <div class="prism2-panel-header">
+        <div class="prism2-panel-header-letter">M</div>
+        <div class="prism2-panel-header-text">
+          <div class="prism2-panel-eyebrow">MONITORING GUIDANCE</div>
+          <p class="prism2-panel-desc">Recommended way forward, indicative implementation pathway, key references and glossary for wetlands restoration on closed coal mine land.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Way Forward</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">The following way forward summarizes the preferred development approach for the proposed repurposing option, based on the assessment presented in PRISM (Post Mining Repurposing Implementation and Strategy Models). It identifies the most suitable implementation models in order of preference, highlights key technical and due-diligence considerations, and outlines the recommended next steps and broad development logic. This section is intended to guide internal decision-making and support the project owner in progressing from concept-stage evaluation toward feasibility assessment, project structuring, regulatory approvals, and implementation planning.</p>
+          <p class="spv-body-text"><strong>Preferred Models (in order):</strong></p>
+          <ul class="spv-list">
+            <li><strong>Hybrid Model</strong></li>
+            <li><strong>Concession / Lease-Develop-Operate</strong></li>
+            <li><strong>EPC + O&amp;M / Facility Management</strong></li>
+            <li><strong>DBFOT</strong></li>
+          </ul>
+          <p class="spv-body-text"><em>Secondary option:</em> EPC, for basic earthworks, hydraulic structures, fencing, planting and initial restoration where the mine owner wants full control and can separately arrange long-term wetland maintenance.</p>
+          <p class="spv-body-text" style="margin-top:10px;"><strong>Recommended Development Position:</strong> The <strong>Hybrid Model</strong> is the most suitable model because wetlands restoration requires long-term hydrological management, water-quality monitoring, scientific wetland design, ecological restoration and biodiversity management, public safety management, community participation, visitor services and interpretation, nursery and maintenance operations, invasive species control, phased capital investment, and institutional partnerships. Wetlands restoration is not only a beautification or revenue project — it is a <strong>mine-closure legacy asset</strong> that can combine water management, ecological restoration, biodiversity conservation, climate resilience, education, eco-tourism, local livelihood and ESG value.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>References</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <ul class="spv-list">
+            <li>Coal Controller Organisation. 2026. <em>Mine Closure: Introduction to Mine Closure Plans.</em> Ministry of Coal, Government of India.</li>
+            <li>Ministry of Environment, Forest and Climate Change. 2017. <em>Wetlands (Conservation and Management) Rules, 2017.</em> Government of India Gazette Notification.</li>
+            <li>Ministry of Environment, Forest and Climate Change. 2019. <em>National Plan for Conservation of Aquatic Ecosystems: Guidelines for Preparation of Integrated Management Plans for Wetlands and Lakes.</em> Government of India.</li>
+            <li>Convention on Wetlands. 2021. <em>Global Wetland Outlook: Special Edition 2021.</em> Secretariat of the Convention on Wetlands, Gland, Switzerland.</li>
+            <li>Convention on Wetlands. 2025. <em>Global Wetland Outlook 2025: Valuing, Conserving, Restoring and Financing Wetlands.</em> Gland, Switzerland.</li>
+            <li>Kadlec, R. H., and Wallace, S. D. 2009. <em>Treatment Wetlands, Second Edition.</em> CRC Press / Taylor &amp; Francis Group.</li>
+            <li>Pat-Espadas, A. M., et al. 2018. "Review of Constructed Wetlands for Acid Mine Drainage Treatment." <em>Water,</em> 10(11), 1685.</li>
+            <li>Lund, M. A., Blanchette, M. L., and McCullough, C. D. 2023. "Closing Pit Lakes as Aquatic Ecosystems: Risk, Reality, and Future Directions." <em>WIREs Water,</em> 10(3), e1648.</li>
+            <li>The Nature Conservancy India. 2022. <em>An Integrated Approach for Urban Wetland Restoration: Eco-restoration of Sembakkam Lake.</em> The Nature Conservancy India, New Delhi.</li>
+            <li>Kingsford, R. T., Bino, G., and Porter, J. L. 2021. "Ramsar Wetlands of International Importance: Improving Conservation Outcomes." <em>Frontiers in Environmental Science,</em> 9, 643367.</li>
+            <li>Ahirwal, J., and Pandey, V. C. 2021. "Restoration of Mine-Degraded Land for Sustainable Environmental Development." In: <em>Phytomanagement of Polluted Sites.</em> Elsevier.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Abbreviations</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <table class="spv-table">
+            <thead><tr><th>Abbreviation</th><th>Full Form</th></tr></thead>
+            <tbody>
+              <tr><td>EPC</td><td>Engineering, Procurement and Construction</td></tr>
+              <tr><td>O&amp;M</td><td>Operation and Maintenance</td></tr>
+              <tr><td>BOOT</td><td>Build, Own, Operate, Transfer</td></tr>
+              <tr><td>BOO</td><td>Build, Own, Operate</td></tr>
+              <tr><td>DBFOT</td><td>Design, Build, Finance, Operate, Transfer</td></tr>
+              <tr><td>PPP</td><td>Public-Private Partnership</td></tr>
+              <tr><td>CSR</td><td>Corporate Social Responsibility</td></tr>
+              <tr><td>RFP</td><td>Request for Proposal</td></tr>
+              <tr><td>DPR</td><td>Detailed Project Report</td></tr>
+              <tr><td>CAPEX</td><td>Capital Expenditure</td></tr>
+              <tr><td>ESG</td><td>Environmental, Social and Governance</td></tr>
+              <tr><td>SHG</td><td>Self-Help Group</td></tr>
+              <tr><td>FPO</td><td>Farmer Producer Organization</td></tr>
+              <tr><td>NGO</td><td>Non-Governmental Organization</td></tr>
+              <tr><td>VGF</td><td>Viability Gap Funding</td></tr>
+              <tr><td>CCO</td><td>Coal Controller Organisation</td></tr>
+              <tr><td>AMD</td><td>Acid Mine Drainage</td></tr>
+              <tr><td>EC</td><td>Electrical Conductivity</td></tr>
+              <tr><td>DO</td><td>Dissolved Oxygen</td></tr>
+              <tr><td>BOD</td><td>Biochemical Oxygen Demand</td></tr>
+              <tr><td>COD</td><td>Chemical Oxygen Demand</td></tr>
+              <tr><td>TSS</td><td>Total Suspended Solids</td></tr>
+              <tr><td>GIS</td><td>Geographic Information System</td></tr>
+              <tr><td>NPCA</td><td>National Plan for Conservation of Aquatic Ecosystems</td></tr>
+              <tr><td>MoEFCC</td><td>Ministry of Environment, Forest and Climate Change</td></tr>
+              <tr><td>GEF</td><td>Global Environment Facility</td></tr>
+              <tr><td>KVK</td><td>Krishi Vigyan Kendra</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="prism2-nav-row">
+        <button class="prism2-btn-prev" id="prism2-prev-M" onclick="prism2Prev()">&#8592; Previous</button>
+        <div class="prism2-progress-dots" style="display:flex;gap:5px;align-items:center;">
+          <span class="pdot" data-p="P"></span><span class="pdot" data-p="R"></span>
+          <span class="pdot" data-p="I"></span><span class="pdot" data-p="S"></span><span class="pdot active" data-p="M"></span>
+        </div>
+      </div>
+
+      <div style="margin:0 26px 16px;padding:16px 20px;border-radius:12px;background:#f4faf7;border:1.5px dashed #a8d5c2;display:flex;align-items:center;gap:14px;">
+        <div style="width:36px;height:36px;border-radius:50%;background:#d1ece2;border:1.5px solid #a8d5c2;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#1a7a5e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2.5 8 6 11.5 13.5 4"/></svg>
+        </div>
+        <div style="flex:1;min-width:0;">
+          <div style="font-size:.82rem;font-weight:700;color:#1a7a5e;letter-spacing:.01em;">PRISM Framework Complete</div>
+          <div style="font-size:.75rem;color:#4a7a6a;margin-top:2px;line-height:1.5;">All five pillars reviewed — explore case studies to see how similar projects were executed.</div>
+        </div>
+        <button onclick="showSPVTab('casestudies');setTimeout(function(){window.dispatchEvent(new Event('resize'))},30)" style="flex-shrink:0;font-size:.75rem;font-weight:600;padding:7px 14px;border-radius:8px;border:1.5px solid #a8d5c2;background:#fff;color:#1a7a5e;cursor:pointer;transition:background .2s,border-color .2s;" onmouseover="this.style.background='#e6f5ef'" onmouseout="this.style.background='#fff'">Case Studies &#8599;</button>
+      </div>
+
+      <div style="margin:0 26px 28px;padding:18px 22px;border-radius:12px;background:linear-gradient(135deg,#f0f7ff 0%,#e8f4fd 100%);border:1.5px solid #c5ddf5;display:flex;align-items:center;gap:16px;">
+        <div style="width:40px;height:40px;border-radius:50%;background:#daeafa;border:1.5px solid #b8d4ef;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#1a5ca8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v10M5 8l4 4 4-4"/><rect x="3" y="14" width="12" height="2" rx="1"/></svg>
+        </div>
+        <div style="flex:1;min-width:0;">
+          <div style="font-size:.82rem;font-weight:700;color:#1a5ca8;letter-spacing:.01em;">Download PRISM Framework</div>
+          <div style="font-size:.75rem;color:#3a6a98;margin-top:2px;line-height:1.5;">Save a print-ready PDF of all five pillars for offline reference.</div>
+        </div>
+        <button onclick="downloadPRISM()" style="flex-shrink:0;font-size:.75rem;font-weight:600;padding:8px 16px;border-radius:8px;border:1.5px solid #b8d4ef;background:#fff;color:#1a5ca8;cursor:pointer;transition:background .2s,border-color .2s;display:flex;align-items:center;gap:6px;" onmouseover="this.style.background='#daeafa'" onmouseout="this.style.background='#fff'">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 1v7M3.5 5.5l3 3 3-3"/><rect x="1.5" y="10" width="10" height="1.5" rx=".75"/></svg>
+          Download PDF
+        </button>
+      </div>
+
+    </div><!-- /M -->
+
+  </div><!-- /pr-content-wrap -->
+</div><!-- /pr-shell -->
+
+<script>
+function prNav(key) {
+  if (typeof prism2Show === 'function') prism2Show(key);
+  document.querySelectorAll('#spv-panel-prism .pr-nav-item').forEach(function(n) {
+    n.classList.toggle('active', n.dataset.key === key);
+  });
+  var hl = document.getElementById('pr-hl');
+  var active = document.querySelector('#spv-panel-prism .pr-nav-item[data-key="' + key + '"]');
+  if (hl && active) {
+    var accent = getComputedStyle(active).getPropertyValue('--pr-accent').trim();
+    hl.style.setProperty('--pr-hl', accent);
+    hl.style.top = active.offsetTop + 'px';
+    hl.style.height = active.offsetHeight + 'px';
+  }
+}
+</script>
+
+    </div>
+  </div><!-- /spv-panel-prism -->
+
+  <!-- TAB 3: CASE STUDIES -->
+  <div id="spv-panel-casestudies" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+      <div class="lit-wrap">
+        <div class="lit-outer">
+          <div class="lit-track-clip">
+            <div class="lit-track" id="litTrack-all">
+
+              <a class="lit-card" href="https://www.researchgate.net/publication/248614633_Case_study_on_the_redevelopment_of_industrial_wasteland_in_resource-exhausted_mining_area" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#1a7a5e;--lit-glow:rgba(26,122,94,.18);--lit-tint:rgba(26,122,94,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Case Study on the Redevelopment of Industrial Wasteland in Resource-Exhausted Mining Area</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Open Access Article</span></div>
+                    <div class="lit-card-source">Source: <span>researchgate.net</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs/cs-wr-1.jpg" alt="Industrial wasteland redevelopment reclaimed green mining area" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://semspub.epa.gov/work/HQ/176036.pdf" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#C85000;--lit-glow:rgba(200,80,0,.18);--lit-tint:rgba(200,80,0,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Land Conservation and Former Mine Lands: Preserving Natural Land Resources, Planning for the Future</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Report</span></div>
+                    <div class="lit-card-source">Source: <span>semspub.epa.gov</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs/cs-wr-2.jpg" alt="Former mine land conservation natural landscape preservation" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://semspub.epa.gov/work/HQ/176035.pdf" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#1a5ca8;--lit-glow:rgba(26,92,168,.18);--lit-tint:rgba(26,92,168,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Water Quality Credits at Former Mine Lands: Improving America's Water Resources, Reclaiming Lost Landscapes</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Report</span></div>
+                    <div class="lit-card-source">Source: <span>semspub.epa.gov</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs/cs-wr-3.jpg" alt="Clean water creek flowing through reclaimed mine landscape — water quality credits" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://semspub.epa.gov/work/HQ/176039.pdf" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#5a3d9e;--lit-glow:rgba(90,61,158,.18);--lit-tint:rgba(90,61,158,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Wetland Banking at Former Mine Lands: An Ecological Solution with Economic Benefits</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Report</span></div>
+                    <div class="lit-card-source">Source: <span>semspub.epa.gov</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs/cs-wr-4.jpg" alt="Wetland reeds and water — wetland banking ecological solution former mine lands" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://satoyamainitiative.org/case_studies/community-based-approach-to-wetland-restoration-case-study-of-the-songor-wetland-ghana-sitr8-8/" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#b06a10;--lit-glow:rgba(176,106,16,.18);--lit-tint:rgba(176,106,16,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Community-Based Approach to Wetland Restoration: Case Study of the Songor Wetland, Ghana</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Case Study</span></div>
+                    <div class="lit-card-source">Source: <span>satoyamainitiative.org</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs/cs-wr-5.jpg" alt="Community wetland restoration green landscape — Songor Wetland Ghana" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://ijg.e-geoinfo.com/index.php/journal/article/view/3025" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#d97706;--lit-glow:rgba(215,119,6,.18);--lit-tint:rgba(215,119,6,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Land Use Dynamics and Environmental Consequences in the Vicinity of Ramsar Wetland: A Case Study of Kanjli Wetland</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Open Access Article</span></div>
+                    <div class="lit-card-source">Source: <span>ijg.e-geoinfo.com</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs/cs-wr-6.jpg" alt="Ramsar wetland water birds landscape — Kanjli Wetland India land use dynamics" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://journals.bilpubgroup.com/index.php/jbr/article/view/5479" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#0369a1;--lit-glow:rgba(3,105,161,.18);--lit-tint:rgba(3,105,161,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Restoration Planning of Mining Wastelands: A Case Study</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Case Study</span></div>
+                    <div class="lit-card-source">Source: <span>journals.bilpubgroup.com</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs/cs-wr-7.jpg" alt="Mining wasteland restoration green recovery — restoration planning case study" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://www.preprints.org/manuscript/202601.0121" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#1a7a5e;--lit-glow:rgba(26,122,94,.18);--lit-tint:rgba(26,122,94,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Avifaunal Response to Wetland Restoration in a Semi-Arid Landscape: A Case Study from Kanwas Pakshi Vihar Wetland, Kota, Rajasthan</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Open Access Article</span></div>
+                    <div class="lit-card-source">Source: <span>preprints.org</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs/cs-wr-8.jpg" alt="Birds over wetland semi-arid landscape — Kanwas Pakshi Vihar Wetland Kota Rajasthan" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://www.mdpi.com/2673-4834/6/1/14" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#C85000;--lit-glow:rgba(200,80,0,.18);--lit-tint:rgba(200,80,0,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Human Comfort and Environmental Sustainability Through Wetland Management: A Case Study of the Nawabganj Wetland, India</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Open Access Article</span></div>
+                    <div class="lit-card-source">Source: <span>mdpi.com</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs/cs-wr-9.jpg" alt="Wetland lake nature sustainability India — Nawabganj Wetland human comfort" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0238243" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#1a5ca8;--lit-glow:rgba(26,92,168,.18);--lit-tint:rgba(26,92,168,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Assessing the Ecological Regime and Spatial Spillover Effects of a Reclaimed Mining Subsided Lake: A Case Study of the Pan'an Lake Wetland in Xuzhou</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Open Access Article</span></div>
+                    <div class="lit-card-source">Source: <span>journals.plos.org</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs/cs-wr-10.jpg" alt="Lake wetland ecological regime reclaimed mining subsided — Pan'an Lake Xuzhou" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://nbshub.naturebasedsolutionsinitiative.org/casestudy/wetland-restoration-in-st-aidans-aire-valley-uk/" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#5a3d9e;--lit-glow:rgba(90,61,158,.18);--lit-tint:rgba(90,61,158,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Wetland Restoration in St. Aidan's Nature Reserve</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Case Study</span></div>
+                    <div class="lit-card-source">Source: <span>nbshub.naturebasedsolutionsinitiative.org</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs/cs-wr-11.jpg" alt="Nature reserve wetland green landscape — St. Aidan's wetland restoration UK" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+            </div>
+          </div>
+          <div class="lit-nav">
+            <button class="lit-nav-btn" id="litPrev-all" onclick="litMove('all',-1)" aria-label="Previous">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <div class="lit-dots" id="litDots-all"></div>
+            <button class="lit-nav-btn" id="litNext-all" onclick="litMove('all',1)" aria-label="Next">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!-- /spv-panel-casestudies -->
+
+  <!-- TAB 4: SAMPLE TENDER DOCUMENTS -->
+  <div id="spv-panel-tender" class="spv-panel" style="display:none;">
+  <div class="spv-content">
+  
+    <div class="t5-wrap">
+    <div class="t5-topbar">
+      <div class="t5-pills">
+        <button class="t5-pill t5-pill--all active" onclick="t5Filter('all')">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          All Documents <span class="t5-pill-count" id="t5cnt-all">12</span>
+        </button>
+        <button class="t5-pill--rfp t5-pill" data-sec="rfp" onclick="t5Filter('rfp')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          RFP <span class="t5-pill-count" id="t5cnt-rfp">4</span>
+        </button>
+        <button class="t5-pill--nit t5-pill" data-sec="nit" onclick="t5Filter('nit')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+          NIT <span class="t5-pill-count" id="t5cnt-nit">1</span>
+        </button>
+        <button class="t5-pill--eoi t5-pill" data-sec="eoi" onclick="t5Filter('eoi')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          EOI <span class="t5-pill-count" id="t5cnt-eoi">2</span>
+        </button>
+        <button class="t5-pill--rpt t5-pill" data-sec="rpt" onclick="t5Filter('rpt')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          Reports &amp; DPR <span class="t5-pill-count" id="t5cnt-rpt">5</span>
+        </button>
+      </div>
+      <div class="t5-right">
+        <div class="t5-search-wrap">
+          <svg class="t5-search-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input id="t5SearchInput" class="t5-search" type="text" placeholder="Search documents…" oninput="t5Search(this.value)">
+        </div>
+        <span class="t5-counter" id="t5Counter"></span>
+      </div>
+    </div>
+    <div id="t5Sections">
+      <div class="t5-section" data-sec="rfp" style="animation-delay:0.05s">
+        <div class="t5-section-header">
+          <div class="t5-section-bar" style="background:#0F6E56"></div>
+          <span class="t5-section-label" style="color:#0F6E56">Requests for Proposal (RFP)</span>
+          <span class="t5-section-count">4 documents</span>
+        </div>
+        <div class="t5-list">
+          <a class="t5-row t5-row--rfp" data-sec="rfp"
+             data-title="request for proposal for engagement of empanelled consultants for project: “restoration and rejuvenation of wetlands of assam to enhance the water retention capacity and to mitigate the risks of flooding and erosion”"
+             href="https://waterresources.assam.gov.in/sites/default/files/swf_utility_folder/departments/wr_webcomindia_org_oid_3/menu/document/rfp_wetland.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0F6E56">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Request for Proposal for Engagement of Empanelled Consultants for Project: “Restoration and rejuvenation of wetlands of Assam to enhance the water retention capacity and to mitigate the risks of flooding and erosion”</div>
+              <div class="t5-sub">waterresources.assam.gov.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">RFP</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rfp" data-sec="rfp"
+             data-title="invitation to offer e-request for qualifications (rfq) for the empanelment of an agency for the work of restoration of mangroves and other related activities pertaining to mangroves along the coastline region."
+             href="https://mahapreit.in/assets/uploads/tender-docs200.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0F6E56">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Invitation to Offer e-REQUEST for Qualifications (RFQ) for the Empanelment of an Agency for the work of Restoration of mangroves and other related activities pertaining to Mangroves along the coastline Region.</div>
+              <div class="t5-sub">mahapreit.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">RFQ</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rfp" data-sec="rfp"
+             data-title="request for proposal (rfp) is invited from consultant/ joint venture/ multidisciplinary consortia, government organization , public sector undertaking, government educational institute and i&amp;fc empanelled agencies, for project management consultancy (pmc) for the work to rejuvenate drain in holistic manners by using ecologically sensitive sustainable technique like creation of stationary and floating wetlands and in-situ aeration &amp; installation of ozonizer in drains which can reduce bod load, improve dissolved oxygen levels, reduce bad odour and harmful gas emission from the drains. further to develop the vacant land by landscaping, developing it for recreation activities such as cycling track, jogging track, illumination of dark spots of drain by installation of street lighting automated with solar energy/wind energy wherever feasible and installation of solar panels for generation of solar energy where ever feasible in respect of drains falls under the jurisdiction of civil division viii, i&amp;fc department, govt. of nct of delhi."
+             href="https://ifc.delhi.gov.in/sites/default/files/ifc/generic_multiple_files/cd-viii_rfp_19219.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0F6E56">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Request for Proposal (RFP) is invited from Consultant/ Joint Venture/ Multidisciplinary Consortia, Government Organization , Public Sector undertaking, Government Educational Institute and I&amp;FC Empanelled agencies, for Project Management Consultancy (PMC) for the work to rejuvenate drain in holistic manners by using ecologically sensitive sustainable technique like creation of stationary and floating wetlands and in-situ aeration &amp; installation of ozonizer in drains which can reduce Bod load, improve dissolved oxygen levels, reduce bad odour and harmful gas emission from the drains. Further to develop the vacant land by landscaping, developing it for recreation activities such as cycling track, jogging track, Illumination of dark spots of drain by installation of street lighting automated with solar energy/wind energy wherever feasible and Installation of solar panels for generation of solar energy where ever feasible in respect of drains falls under the jurisdiction of Civil Division VIII, I&amp;FC Department, Govt. of Nct of Delhi.</div>
+              <div class="t5-sub">ifc.delhi.gov.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">RFP</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rfp" data-sec="rfp"
+             data-title="request for proposals for selection of agencies for preparation of “wise use and management plan for east kolkata wetlands”"
+             href="https://ekwma.in/ek/wp-content/uploads/2018/09/Revised-RFP-Document_etender_final-18.09.2018.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0F6E56">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Request for Proposals for Selection of Agencies for Preparation of “wise Use and Management Plan for East Kolkata Wetlands”</div>
+              <div class="t5-sub">ekwma.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">RFP</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+        </div>
+      </div><!-- /rfp section -->
+      <div class="t5-section" data-sec="nit" style="animation-delay:0.10s">
+        <div class="t5-section-header">
+          <div class="t5-section-bar" style="background:#B45309"></div>
+          <span class="t5-section-label" style="color:#B45309">Notice Inviting Tender (NIT)</span>
+          <span class="t5-section-count">1 document</span>
+        </div>
+        <div class="t5-list">
+          <a class="t5-row t5-row--nit" data-sec="nit"
+             data-title="tender notice for preparation of dpr for ecosystem-based restoration of wetlands and enhancement of rural livelihoods for climate resilience in uttar pradesh"
+             href="https://www.dgmarket.in/Notice/83659139" target="_blank" rel="noopener"
+             style="--row-accent:#B45309">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Tender Notice for Preparation of DPR for ecosystem-based restoration of wetlands and enhancement of rural livelihoods for climate resilience in Uttar Pradesh</div>
+              <div class="t5-sub">dgmarket.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">E-Tender</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+        </div>
+      </div><!-- /nit section -->
+      <div class="t5-section" data-sec="eoi" style="animation-delay:0.15s">
+        <div class="t5-section-header">
+          <div class="t5-section-bar" style="background:#0a7377"></div>
+          <span class="t5-section-label" style="color:#0a7377">Expression of Interest (EOI)</span>
+          <span class="t5-section-count">2 documents</span>
+        </div>
+        <div class="t5-list">
+          <a class="t5-row t5-row--eoi" data-sec="eoi"
+             data-title="engagement of a consultant for preparation of feasibility study report &amp; detailed project report (dpr) including detailed design, cost estimate and bidding documents for 30 % of the total investment under adb funded “sundarban upper delta climate resilient development project” in the state of west bengal, india"
+             href="https://wbiwd.gov.in/uploads/tender/ten_1758021026.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0a7377">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Engagement of a Consultant for preparation of Feasibility Study Report &amp; Detailed Project Report (DPR) including detailed design, cost estimate and bidding documents for 30 % of the total investment under Adb funded “Sundarban Upper Delta Climate Resilient Development Project” in the State of West Bengal, India</div>
+              <div class="t5-sub">wbiwd.gov.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">EOI</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--eoi" data-sec="eoi"
+             data-title="request for expression of interest (eoi) for project management consultant for the work under project for ecosystem restoration in gujarat (perg)"
+             href="https://forests.gujarat.gov.in/writereaddata/Portal/Tender/622_1/2_Uploaded_Final_Request_for_EoI_for_PMC_GUJARAT.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0a7377">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Request for Expression of Interest (EOI) for Project Management Consultant for the work under Project for Ecosystem Restoration in Gujarat (PERG)</div>
+              <div class="t5-sub">forests.gujarat.gov.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">EOI</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+        </div>
+      </div><!-- /eoi section -->
+      <div class="t5-section" data-sec="rpt" style="animation-delay:0.30s">
+        <div class="t5-section-header">
+          <div class="t5-section-bar" style="background:#0369a1"></div>
+          <span class="t5-section-label" style="color:#0369a1">Reports &amp; DPR</span>
+          <span class="t5-section-count">5 documents</span>
+        </div>
+        <div class="t5-list">
+          <a class="t5-row t5-row--rpt" data-sec="rpt"
+             data-title="proposed loan india: assam sustainable wetland and integrated fisheries transformation project"
+             href="https://www.adb.org/sites/default/files/linked-documents/57042-001-pp-01.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0369a1">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Proposed Loan India: Assam Sustainable Wetland and Integrated Fisheries Transformation Project</div>
+              <div class="t5-sub">adb.org</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">Report</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rpt" data-sec="rpt"
+             data-title="the preparatory survey on project for ecosystem restoration in gujarat in india"
+             href="https://openjicareport.jica.go.jp/pdf/1000042363.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0369a1">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">The Preparatory Survey on Project for Ecosystem Restoration in Gujarat in India</div>
+              <div class="t5-sub">openjicareport.jica.go.jp</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">Report</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rpt" data-sec="rpt"
+             data-title="wetland creation/restoration feasibility study report outline"
+             href="https://extapps.dec.ny.gov/docs/water_pdf/npg23wetland.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0369a1">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Wetland Creation/Restoration Feasibility Study Report Outline</div>
+              <div class="t5-sub">extapps.dec.ny.gov</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">Report</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rpt" data-sec="rpt"
+             data-title="kingston wetland restoration project feasibility study"
+             href="https://www.crwd.org/uploads/1/3/0/2/130247478/kw_restoration_feasibility_study.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0369a1">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Kingston Wetland Restoration Project Feasibility Study</div>
+              <div class="t5-sub">crwd.org</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">Report</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rpt" data-sec="rpt"
+             data-title="technical report: wetland restoration and protection"
+             href="https://www.adb.org/sites/default/files/linked-documents/51425-002-sd-03.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0369a1">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Technical Report: Wetland Restoration and Protection</div>
+              <div class="t5-sub">adb.org</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">Report</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+        </div>
+      </div><!-- /rpt section -->
+    </div><!-- /t5Sections -->
+  </div><!-- /t5-wrap -->
+  </div>
+  </div><!-- /spv-panel-tender -->
+
+  <!-- TAB 5: MEDIA / WEB -->
+  <div id="spv-panel-media" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+    <div class="media-stack">
+
+        <a class="media-row" href="https://dxi97tvbmhbca.cloudfront.net/upload/user/image/slorentz-aowens_WetlandsFlowingAgain_202020200409220544560.pdf" target="_blank" rel="noopener noreferrer" style="--mr-accent:#1a7a5e;--mr-tint:rgba(26,122,94,.1);">
+          <div class="media-row-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a7a5e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+          <div class="media-row-main">
+            <div class="media-row-tag">Report · PDF</div>
+            <div class="media-row-title">Coal Mine Plans to get Wetlands Flowing Again</div>
+            <div class="media-row-source"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><line x1="2" y1="8" x2="14" y2="8"/><path d="M8 2a10 10 0 010 12M8 2a10 10 0 000 12"/></svg>dxi97tvbmhbca.cloudfront.net</div>
+          </div>
+          <div class="media-row-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/></svg></div>
+        </a>
+
+        <a class="media-row" href="https://youtu.be/0xpVBeOJLwI?si=weahcMZ7qpKLw8yx" target="_blank" rel="noopener noreferrer" style="--mr-accent:#C85000;--mr-tint:rgba(200,80,0,.1);">
+          <div class="media-row-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C85000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></div>
+          <div class="media-row-main">
+            <div class="media-row-tag">YouTube · Eco Restoration · India</div>
+            <div class="media-row-title">Eco Restoration at Ramco Cements Mine in Pandalgudi</div>
+            <div class="media-row-source"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><line x1="2" y1="8" x2="14" y2="8"/><path d="M8 2a10 10 0 010 12M8 2a10 10 0 000 12"/></svg>youtu.be</div>
+          </div>
+          <div class="media-row-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/></svg></div>
+        </a>
+
+        <a class="media-row" href="https://idronline.org/article/environment/a-step-by-step-guide-to-wetland-restoration-in-urban-india/" target="_blank" rel="noopener noreferrer" style="--mr-accent:#1a5ca8;--mr-tint:rgba(26,92,168,.1);">
+          <div class="media-row-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a5ca8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+          <div class="media-row-main">
+            <div class="media-row-tag">Article · IDR Online · India</div>
+            <div class="media-row-title">Restoring Urban Wetlands: A Case Study from Tamil Nadu</div>
+            <div class="media-row-source"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><line x1="2" y1="8" x2="14" y2="8"/><path d="M8 2a10 10 0 010 12M8 2a10 10 0 000 12"/></svg>idronline.org</div>
+          </div>
+          <div class="media-row-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/></svg></div>
+        </a>
+
+        <a class="media-row" href="https://www.dw.com/en/delhis-restored-wetlands/video-51917496" target="_blank" rel="noopener noreferrer" style="--mr-accent:#5a3d9e;--mr-tint:rgba(90,61,158,.1);">
+          <div class="media-row-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5a3d9e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+          <div class="media-row-main">
+            <div class="media-row-tag">Video · DW · Delhi</div>
+            <div class="media-row-title">Scientists and Gardeners Have Restored Wetlands in Delhi</div>
+            <div class="media-row-source"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><line x1="2" y1="8" x2="14" y2="8"/><path d="M8 2a10 10 0 010 12M8 2a10 10 0 000 12"/></svg>dw.com</div>
+          </div>
+          <div class="media-row-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/></svg></div>
+        </a>
+
+        <a class="media-row" href="https://www.osmre.gov/news/archive/ConstructedWetlands" target="_blank" rel="noopener noreferrer" style="--mr-accent:#b06a10;--mr-tint:rgba(176,106,16,.1);">
+          <div class="media-row-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#b06a10" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+          <div class="media-row-main">
+            <div class="media-row-tag">Resource · osmre.gov</div>
+            <div class="media-row-title">Constructed Wetlands for Mine Drainage Treatment</div>
+            <div class="media-row-source"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><line x1="2" y1="8" x2="14" y2="8"/><path d="M8 2a10 10 0 010 12M8 2a10 10 0 000 12"/></svg>osmre.gov</div>
+          </div>
+          <div class="media-row-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/></svg></div>
+        </a>
+
+    </div>
+    <p style="font-size:0.72rem;color:var(--color-text-secondary);font-style:italic;margin-top:16px;">Links open external websites. Coal Controller Organisation does not endorse third-party content.</p>
+    </div>
+  </div><!-- /spv-panel-media -->
+
+  <!-- TAB 6: AGENCIES -->
+  <div id="spv-panel-agencies" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+      <div class="agencies-logo-grid">
+
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img" style="background:#ffffff; border-radius:10px;">
+            <img src="../images/agencies/Urban%20Frame%20Landscape%20Architects.png" alt="Urban Frame Landscape Architects" style="max-width:100%; max-height:60px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">Urban Frame Landscape Architects</div>
+          <div class="agency-logo-type">Wetland grading, berm &amp; embankment construction, reed bed establishment &amp; inflow structures</div>
+        </div>
+
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img" style="background:#ffffff; border-radius:10px;">
+            <img src="../images/agencies/Concepts%20&%20Solutions%20Landscape%20Architects.png" alt="Concepts &amp; Solutions Landscape Architects" style="max-width:100%; max-height:60px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">Concepts &amp; Solutions Landscape Architects</div>
+          <div class="agency-logo-type">Wetland earthworks, hydrological restoration, species planting &amp; water regime setup</div>
+        </div>
+
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img" style="background:#ffffff; border-radius:10px;">
+            <img src="../images/agencies/GreenLine%20Landscapes%20Pvt%20Ltd.jpeg" alt="GreenLine Landscapes Pvt Ltd" style="max-width:100%; max-height:60px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">GreenLine Landscapes Pvt Ltd</div>
+          <div class="agency-logo-type">Wetland habitat construction: earth shaping, planting beds, check structures &amp; reed establishment</div>
+        </div>
+
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img" style="background:#ffffff; border-radius:10px;">
+            <img src="../images/agencies/Afcons%20Infrastructure%20Ltd.png" alt="Afcons Infrastructure Ltd" style="max-width:100%; max-height:60px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">Afcons Infrastructure Ltd</div>
+          <div class="agency-logo-type">Civil earthworks, embankment, outlet weirs &amp; hydrological structures for wetland creation</div>
+        </div>
+
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img" style="background:#ffffff; border-radius:10px;">
+            <img src="../images/agencies/WAPCOS%20Ltd.png" alt="WAPCOS Ltd" style="max-width:100%; max-height:60px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">WAPCOS Ltd</div>
+          <div class="agency-logo-type">Hydraulic civil: embankment, sluice, check dam &amp; outlet structure construction</div>
+        </div>
+
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img" style="background:#ffffff; border-radius:10px;">
+            <img src="../images/agencies/Jain%20Irrigation%20Systems%20Ltd.png" alt="Jain Irrigation Systems Ltd" style="max-width:100%; max-height:60px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">Jain Irrigation Systems Ltd</div>
+          <div class="agency-logo-type">Water control infrastructure, check structures &amp; wetland inflow system installation</div>
+        </div>
+
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img" style="background:#ffffff; border-radius:10px;">
+            <img src="../images/agencies/Va%20Tech%20Wabag%20Ltd.jpg" alt="Va Tech Wabag Ltd" style="max-width:100%; max-height:60px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">Va Tech Wabag Ltd</div>
+          <div class="agency-logo-type">Constructed wetland &amp; phytoremediation cell design, civil &amp; commissioning</div>
+        </div>
+
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img" style="background:#ffffff; border-radius:10px;">
+            <img src="../images/agencies/Vriksha%20Farms%20Pvt%20Ltd.webp" alt="Vriksha Farms Pvt Ltd" style="max-width:100%; max-height:60px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">Vriksha Farms Pvt Ltd</div>
+          <div class="agency-logo-type">Native wetland plant nursery, species supply &amp; wetland planting implementation</div>
+        </div>
+
+      </div>
+
+      <div style="margin-top:28px;padding:14px 18px;background:rgba(33,128,141,.05);border:1px solid rgba(33,128,141,.18);border-radius:8px;display:flex;gap:12px;align-items:flex-start;">
+        <svg style="flex-shrink:0;margin-top:2px;" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#21808d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <p style="margin:0;font-family:var(--font-sans);font-size:0.8rem;color:var(--color-text-secondary);line-height:1.65;">
+          <strong style="color:var(--color-text);font-weight:600;">Disclaimer:</strong>
+          Inclusion of an agency on this list does not constitute endorsement, empanelment, or recommendation by the Coal Controller Organisation or the Ministry of Coal, Government of India. Mine owners and project proponents are advised to conduct their own due diligence process before engaging any agency.
+        </p>
+      </div>
+    </div>
+  </div><!-- /spv-panel-agencies -->
+
+  <!-- TAB 7: EXPERTS -->
+  <div id="spv-panel-experts" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+      <div class="experts-grid">
+
+        
+
+      </div>
+      <div style="margin-top:28px;padding:14px 18px;background:rgba(33,128,141,.05);border:1px solid rgba(33,128,141,.18);border-radius:8px;display:flex;gap:12px;align-items:flex-start;">
+        <svg style="flex-shrink:0;margin-top:2px;" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#21808d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <p style="margin:0;font-family:var(--font-sans);font-size:0.8rem;color:var(--color-text-secondary);line-height:1.65;"><strong style="color:var(--color-text);font-weight:600;">Disclaimer:</strong> Inclusion of an expert does not constitute endorsement, empanelment, or recommendation by the Coal Controller Organisation or the Ministry of Coal, Government of India. Users are advised to independently verify credentials and suitability before engaging any individual.</p>
+      </div>
+    </div>
+  </div><!-- /spv-panel-experts -->
+
+  <!-- Footer -->
+  <footer id="site-footer-sf">
+    &copy; 2026 Coal Controller Organisation, Ministry of Coal, Government of India.
+  </footer>
+
+</div><!-- /page -->
+
+<script>
+const PRISM2_COLORS = {P:'#C85000', R:'#1a5ca8', I:'#b06a10', S:'#5a3d9e', M:'#1a7a5e'};
+const PRISM2_BG     = {P:'#fff0e6', R:'#e4eef9', I:'#faedda', S:'#edeaf8', M:'#e1f3ec'};
+</script>
+
+<script src="./category.js"></script>
+
+<script>
+window.prism2Next = function() {
+  if (prism2Current < PRISM2_ORDER.length - 1) prNav(PRISM2_ORDER[prism2Current + 1]);
+};
+window.prism2Prev = function() {
+  if (prism2Current > 0) prNav(PRISM2_ORDER[prism2Current - 1]);
+};
+
+function downloadPRISM() {
+  var rawTitle = document.title || '';
+  var catName  = rawTitle.split('—')[0].split('-')[0].trim() || 'Category';
+
+  var PC = {P:'#C85000',R:'#1a5ca8',I:'#b06a10',S:'#5a3d9e',M:'#1a7a5e'};
+  var PB = {P:'#fff8f3',R:'#f3f7fd',I:'#fdf7f0',S:'#f7f5fd',M:'#f1faf6'};
+  var PN = {P:'Project Vision',R:'Repurposing Pathways',I:'Investment Dynamics',S:'Strategic Structuring',M:'Monitoring &amp; Management'};
+  var PE = {P:'POST-MINING',R:'REPURPOSING',I:'INVESTMENT',S:'STRATEGY',M:'MANAGEMENT'};
+
+  var introHeadEl = document.querySelector('.pr-intro-heading');
+  var introBodyEl = document.querySelector('.pr-intro-body');
+  var introHead   = introHeadEl ? introHeadEl.textContent : 'A structured framework for mine repurposing from concept to implementation';
+  var introBody   = introBodyEl ? introBodyEl.innerHTML   : '';
+
+  var pillarsHTML = '';
+  ['P','R','I','S','M'].forEach(function(k) {
+    var panel = document.getElementById('prism2-panel-' + k);
+    if (!panel) return;
+
+    var eyebrowEl   = panel.querySelector('.prism2-panel-eyebrow');
+    var titleEl     = panel.querySelector('.prism2-panel-title');
+    var descEl      = panel.querySelector('.prism2-panel-desc');
+    var eyebrow     = eyebrowEl  ? eyebrowEl.textContent  : PE[k];
+    var panelTitle  = titleEl    ? titleEl.textContent    : PN[k];
+    var descHTML    = descEl     ? descEl.innerHTML       : '';
+
+    var accHTML = '';
+    panel.querySelectorAll('.accordion-item').forEach(function(item) {
+      var spans = item.querySelectorAll('.accordion-btn span');
+      var btnText = '';
+      for (var s = 0; s < spans.length; s++) {
+        var t = spans[s].textContent.trim();
+        if (t && t !== '⥤' && t !== '˅') { btnText = t; break; }
+      }
+      var body = item.querySelector('.accordion-body');
+      if (!body) return;
+      var clone = body.cloneNode(true);
+      clone.style.display = '';
+      /* Remove scroll-wrapper overflow so tables span full width */
+      clone.querySelectorAll('.spv-table-wrap').forEach(function(w){w.style.overflowX='visible';});
+      accHTML += '<div class="acc-item">' +
+        '<div class="acc-heading">' + btnText + '</div>' +
+        '<div class="acc-body">' + clone.innerHTML + '</div>' +
+        '</div>';
+    });
+
+    pillarsHTML +=
+      '<div class="pillar" style="border-left-color:' + PC[k] + ';">' +
+        '<div class="pillar-hdr" style="background:' + PC[k] + '18;">' +
+          '<div class="pillar-letter" style="color:' + PC[k] + ';">' + k + '</div>' +
+          '<div class="pillar-info">' +
+            '<div class="pillar-eyebrow" style="color:' + PC[k] + ';">' + eyebrow + '</div>' +
+            '<div class="pillar-name">' + panelTitle + '</div>' +
+            (descHTML ? '<div class="pillar-desc">' + descHTML + '</div>' : '') +
+          '</div>' +
+        '</div>' +
+        '<div class="pillar-content">' + accHTML + '</div>' +
+      '</div>';
+  });
+
+  var css = [
+    '*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}',
+    'body{font-family:"Segoe UI",Arial,sans-serif;font-size:10pt;color:#1a1a1a;line-height:1.65;background:#fff}',
+    '@page{size:A4;margin:16mm 14mm}',
+    /* ── Cover ── */
+    '.cover{margin-bottom:28pt;padding-bottom:22pt;border-bottom:1.5pt solid #ddd}',
+    '.rainbow{height:5pt;border-radius:99pt;background:linear-gradient(to right,#7C3AB5,#4f6de0,#0ea5e9,#1D9E75,#3B6D11,#BA7517,#C85000,#A32D2D);margin-bottom:18pt}',
+    '.cover-eye{font-size:7.5pt;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#888;margin-bottom:7pt}',
+    '.cover-title{font-size:24pt;font-weight:800;color:#111;line-height:1.15;margin-bottom:5pt}',
+    '.cover-sub{font-size:11pt;font-weight:600;color:#444;margin-bottom:11pt}',
+    '.cover-body{font-size:9pt;color:#555;line-height:1.75}',
+    /* ── Pillars ── */
+    '.pillars{display:flex;flex-direction:column;gap:20pt}',
+    '.pillar{border-left:4pt solid #ccc;border-radius:6pt;overflow:hidden;page-break-inside:avoid}',
+    '.pillar-hdr{padding:13pt 15pt 11pt;display:flex;align-items:flex-start;gap:12pt}',
+    '.pillar-letter{font-size:30pt;font-weight:800;line-height:1;flex-shrink:0;width:38pt;opacity:.85}',
+    '.pillar-info{flex:1}',
+    '.pillar-eyebrow{font-size:7pt;font-weight:700;letter-spacing:.11em;text-transform:uppercase;margin-bottom:2pt}',
+    '.pillar-name{font-size:12.5pt;font-weight:700;color:#111;margin-bottom:3pt}',
+    '.pillar-desc{font-size:8.5pt;color:#555;line-height:1.6}',
+    /* ── Accordion ── */
+    '.pillar-content{background:#fff}',
+    '.acc-item{border-top:1pt solid #e8e8e0}',
+    '.acc-heading{font-size:9pt;font-weight:700;padding:8pt 13pt;color:#2a2a2a;background:#fafaf8}',
+    '.acc-body{font-size:8.5pt;line-height:1.75;color:#444;padding:9pt 13pt 11pt}',
+    /* ── Body content ── */
+    '.spv-body-text{margin-bottom:7pt}',
+    'p{margin-bottom:7pt}',
+    '.spv-list,.spv-list-unstyled{margin:5pt 0 7pt 16pt}',
+    'ul,ol{margin:5pt 0 7pt 16pt}',
+    '.spv-list li,ul li,ol li{margin-bottom:3pt}',
+    /* ── Tables ── */
+    '.spv-table-wrap{margin:7pt 0;overflow:visible}',
+    '.spv-table{width:100%;border-collapse:collapse;font-size:8pt}',
+    '.spv-table th{background:#f0f0ea;font-weight:700;text-align:left;padding:5pt 7pt;border:1pt solid #ccc;vertical-align:top}',
+    '.spv-table td{padding:4.5pt 7pt;border:1pt solid #ccc;vertical-align:top}',
+    '.spv-table tr:nth-child(even) td{background:#f9f9f7}',
+    /* ── Strong/em ── */
+    'strong{font-weight:700}',
+    'em{font-style:italic}',
+    /* ── Info/note boxes (if any) ── */
+    '.spv-note,.spv-info{background:#f5f5f0;border-left:3pt solid #aaa;padding:8pt 10pt;margin:6pt 0;font-size:8.5pt}'
+  ].join('\n');
+
+  var html = '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">' +
+    '<title>PRISM — ' + catName + '<\/title>' +
+    '<style>' + css + '<\/style><\/head><body>' +
+    '<div class="cover">' +
+      '<div class="rainbow"><\/div>' +
+      '<div class="cover-eye">PRISM Framework — Post-Mining Repurposing &amp; Implementation Strategy Models<\/div>' +
+      '<div class="cover-title">' + catName + '<\/div>' +
+      '<div class="cover-sub">' + introHead + '<\/div>' +
+      (introBody ? '<div class="cover-body">' + introBody + '<\/div>' : '') +
+    '<\/div>' +
+    '<div class="pillars">' + pillarsHTML + '<\/div>' +
+    '<\/body><\/html>';
+
+  var win = window.open('', '_blank', 'width=960,height=750');
+  if (!win) { alert('Please allow pop-ups for this site to download the PDF.'); return; }
+  win.document.write(html);
+  win.document.close();
+  win.focus();
+  setTimeout(function() { win.print(); }, 700);
+}
+
+(function() {
+  var panel = document.getElementById('spv-panel-prism');
+  if (!panel) return;
+  new MutationObserver(function() {
+    if (panel.style.display !== 'none') setTimeout(function() { prNav('P'); }, 10);
+  }).observe(panel, { attributes: true, attributeFilter: ['style'] });
+})();
+</script>
+
+<!-- browse-back-script -->
+<script>
+(function(){
+  if(new URLSearchParams(location.search).get('from')==='browse'){
+    var btn=document.querySelector('.back-btn');
+    if(btn){
+      btn.onclick=function(){window.location.href='../browse.html';};
+      btn.setAttribute('aria-label','Back to Browse');
+      for(var i=btn.childNodes.length-1;i>=0;i--){
+        var n=btn.childNodes[i];
+        if(n.nodeType===3&&n.textContent.trim()){n.textContent=' Back to Browse';break;}
+      }
+    }
+    var cr=document.querySelector('.sf-breadcrumb span:not(.sep)');
+    if(cr)cr.textContent='All Categories';
+  }
+})();
+</script>
+</body>
+</html>
