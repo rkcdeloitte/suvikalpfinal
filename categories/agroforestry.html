@@ -12,6 +12,8 @@
   
 </head>
 <body>
+
+<!-- FIXED SITE HEADER -->
 <header id="site-header">
   <div class="header-left">
     <div class="header-tool-title">
@@ -64,10 +66,9 @@
     <button class="spv-tab"        data-tab="casestudies"  onclick="showSPVTab('casestudies');setTimeout(function(){window.dispatchEvent(new Event('resize'))},30)">Case Studies</button>
     <button class="spv-tab"        data-tab="tender"       onclick="showSPVTab('tender')">Sample Tender Documents</button>
     <button class="spv-tab"        data-tab="media"        onclick="showSPVTab('media')">Media/Web</button>
-    <button class="spv-tab"        data-tab="agencies"    onclick="showSPVTab('agencies')">Agencies</button>
-<!-- EXPERTS TAB HIDDEN (page not yet complete)
-<button class="spv-tab"        data-tab="experts"      onclick="showSPVTab('experts')">Experts</button>
--->
+    <button class="spv-tab"        data-tab="agencies"     onclick="showSPVTab('agencies')">Agencies</button>
+    <button class="spv-tab"        data-tab="experts"      onclick="showSPVTab('experts')">Experts</button>
+    <button class="spv-tab" onclick="window.location.href='./agroforestry-green-finance-tool.html'">Green Finance</button>
   </nav>
 
   <!-- TAB: About -->
@@ -1022,6 +1023,7 @@ function prNav(key) {
   <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/><polyline points="9 9 10 9"/></svg> View</div>
 </a>
 
+
             </div>
           </div>
           <div class="lit-nav">
@@ -1078,6 +1080,7 @@ function prNav(key) {
       </div>
     </div>
     <div id="t5Sections">
+      <!-- ═══ SECTION: RFP ═══════════════════════════════════════════ -->
       <div class="t5-section" data-sec="rfp" style="animation-delay:0.05s">
         <div class="t5-section-header">
           <div class="t5-section-bar" style="background:#0F6E56"></div>
@@ -1261,6 +1264,7 @@ function prNav(key) {
           </a>
         </div>
       </div><!-- /ppa section -->
+      <!-- ═══ SECTION: RPT ═══════════════════════════════════════════ -->
       <div class="t5-section" data-sec="rpt" style="animation-delay:0.30s">
         <div class="t5-section-header">
           <div class="t5-section-bar" style="background:#0369a1"></div>
@@ -1400,6 +1404,7 @@ function prNav(key) {
   <!-- TAB: Media/Web -->
   <div id="spv-panel-media" class="spv-panel" style="display:none;">
     <div class="spv-content">
+
 
 <div class="media-stack">
   <a class="media-row" href="https://youtu.be/jmvLUXldjso?si=ZyAxRvAG3HdFnpSc" target="_blank" rel="noopener noreferrer" style="--mr-accent:#C85000;--mr-tint:rgba(200,80,0,.1);">
@@ -1594,7 +1599,9 @@ function prNav(key) {
 
   <!-- Footer -->
   <footer id="site-footer-sf">
-    &copy; 2026 Coal Controller Organisation, Ministry of Coal, Government of India.
+    &copy; 2026 Coal Controller Organisation, Ministry of Coal, Government of India.&nbsp;&nbsp;
+    <a href="https://coalcontroller.gov.in/suvikalp.html" target="_blank" rel="noopener noreferrer">Original SUVIKALP tool &nearr;</a>
+    <span style="display:block;margin-top:8px;font-size:.75em;opacity:.7;">This is a prototype under development — not an official publication.</span>
   </footer>
 
 </div><!-- /page -->
@@ -1772,25 +1779,6 @@ document.addEventListener('DOMContentLoaded', () => {
     revealObs.observe(el);
   });
 });
-</script>
-
-<!-- browse-back-script -->
-<script>
-(function(){
-  if(new URLSearchParams(location.search).get('from')==='browse'){
-    var btn=document.querySelector('.back-btn');
-    if(btn){
-      btn.onclick=function(){window.location.href='../browse.html';};
-      btn.setAttribute('aria-label','Back to Browse');
-      for(var i=btn.childNodes.length-1;i>=0;i--){
-        var n=btn.childNodes[i];
-        if(n.nodeType===3&&n.textContent.trim()){n.textContent=' Back to Browse';break;}
-      }
-    }
-    var cr=document.querySelector('.sf-breadcrumb span:not(.sep)');
-    if(cr)cr.textContent='All Categories';
-  }
-})();
 </script>
 </body>
 </html>
