@@ -247,6 +247,31 @@
     .sgft-mid  .status { background: #fffbeb; color: #92400e; }
     .sgft-low  .status { background: #fef2f2; color: var(--color-red-500); }
 
+    .sgft-result .reason-list, .sgft-result .reco-list {
+      position: relative; list-style: none; margin: 0 0 8px; padding: 0;
+    }
+    .sgft-result .reason-list li {
+      position: relative; padding-left: 14px; margin-bottom: 6px;
+      font-family: var(--font-sans); font-size: var(--fs-sm);
+      color: var(--color-text-secondary); line-height: 1.6;
+    }
+    .sgft-result .reason-list li::before { content: "•"; position: absolute; left: 0; }
+    .sgft-result .reason-list li:last-child { margin-bottom: 0; }
+    .sgft-result .reco-list {
+      margin: 0; padding-top: 8px; border-top: 1px dashed var(--color-card-border);
+    }
+    .sgft-result .reco-list li {
+      position: relative; padding-left: 14px; margin-bottom: 6px;
+      font-family: var(--font-sans); font-size: var(--fs-sm);
+      color: var(--color-teal-700); line-height: 1.6;
+    }
+    .sgft-result .reco-list li::before { content: "•"; position: absolute; left: 0; }
+    .sgft-result .reco-list li:last-child { margin-bottom: 0; }
+
+    .sgft-final-result { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--color-card-border); }
+    .sgft-final-result-title { margin: 0 0 4px; font-family: var(--font-sans); font-size: var(--fs-lg); font-weight: 700; }
+    .sgft-final-result-sub { margin: 0 0 20px; font-family: var(--font-sans); font-size: var(--fs-sm); color: var(--color-text-secondary); }
+
     .sgft-detail-label {
       font-family: var(--font-sans); font-size: var(--fs-xs); font-weight: 700;
       letter-spacing: .07em; text-transform: uppercase; color: var(--color-text-secondary);
@@ -434,7 +459,7 @@
             </div>
 
             <div class="sgft-actions">
-              <button id="show-result" class="sgft-btn sgft-btn-primary" type="button" disabled>See Preliminary Result</button>
+              <button id="show-result" class="sgft-btn sgft-btn-primary" type="button" disabled>See Final Result</button>
               <a href="./agroforestry.html" class="sgft-btn sgft-btn-secondary">Back to Agroforestry Page</a>
             </div>
           </div>
@@ -450,6 +475,13 @@
             </div>
           </aside>
         </div>
+
+        <section id="final-result" class="sgft-final-result" hidden>
+          <h2 class="sgft-final-result-title">Final Result</h2>
+          <p class="sgft-final-result-sub">Combined eligibility across all 7 answers.</p>
+          <div id="final-verdict-container"></div>
+          <div class="sgft-grid" id="final-result-grid"></div>
+        </section>
       </section>
     </div>
 
@@ -468,8 +500,6 @@
     const answers = {};
     const selects = document.querySelectorAll(".answer");
 
-    // tier ranking, lowest wins when we combine multiple answers
-    const TIER_RANK = { pending: -1, ineligible: 0, moderate: 1, high: 2 };
     const TIER_LABEL = { ineligible: "Ineligible", moderate: "Moderately Eligible", high: "Highly Eligible" };
     const TIER_CLASS = { ineligible: "sgft-low", moderate: "sgft-mid", high: "sgft-high" };
 
@@ -695,7 +725,8 @@
           });
         }
         updateProgress();
-        buildPreliminaryResult();
+        currentQ = el.dataset.q;
+        buildPreliminaryResult(currentQ);
         const currentIndex = QUESTION_IDS.indexOf(el.dataset.q);
         const nextUnanswered = QUESTION_IDS.slice(currentIndex + 1).find((q) => !answers[q]);
         setActive(nextUnanswered || null);
@@ -715,53 +746,25 @@
       { id: "gl", title: "Green Loans" }
     ];
 
-    function buildPreliminaryResult() {
-      const result = {};
-      INSTRUMENTS.forEach((i) => { result[i.id] = { tier: "pending", reason: "", reco: "" }; });
+    // live preview only ever looks at the question you just answered —
+    // no need to compare against earlier answers, so just show that
+    // one question's result straight from RULES
+    let currentQ = null;
 
-      QUESTION_IDS.forEach((q) => {
-        const rule = RULES[q] && RULES[q][answers[q]];
-        if (!rule) return;
-        INSTRUMENTS.forEach(({ id }) => {
-          if (rule[id] === undefined) return; // this question doesn't apply to this instrument
-          // worst tier still wins overall, but on a tie the most recently
-          // answered question's text takes over — keeps the live panel in
-          // sync with whatever you just picked, not a stale earlier answer
-          if (result[id].tier === "pending" || TIER_RANK[rule[id]] <= TIER_RANK[result[id].tier]) {
-            result[id].tier = rule[id];
-            result[id].reason = (rule.reason && rule.reason[id]) || "";
-            result[id].reco = (rule.reco && rule.reco[id]) || "";
-          }
-        });
-      });
+    // shared by the live preview and the final result — both just need
+    // a tier count per instrument, this turns that into the banner html
+    function renderVerdict(container, tierCounts, total, emptyMessage) {
+      if (total === 0) {
+        container.innerHTML = `<div class="sgft-verdict tier-mixed">
+          <svg class="sgft-verdict-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M8 5v4M8 11h.01"/><circle cx="8" cy="8" r="6.5"/></svg>
+          <p class="sgft-verdict-title">${emptyMessage}</p>
+        </div>`;
+        return;
+      }
 
-      const resultGrid = document.getElementById("result-grid");
-      resultGrid.innerHTML = INSTRUMENTS.map(({ id, title }) => {
-        const st = result[id];
-        if (st.tier === "pending") {
-          return `<article class="sgft-result">
-            <h3>${title}</h3>
-          </article>`;
-        }
-        return `<article class="sgft-result ${TIER_CLASS[st.tier]}">
-          <h3>${title}</h3>
-          <p class="status">${TIER_LABEL[st.tier]}</p>
-          ${st.reason ? `<p class="reason">${st.reason}</p>` : ""}
-          ${st.reco ? `<p class="reco">${st.reco}</p>` : ""}
-        </article>`;
-      }).join("");
-
-      const tierCounts = { high: 0, moderate: 0, ineligible: 0, pending: 0 };
-      INSTRUMENTS.forEach(({ id }) => { tierCounts[result[id].tier] += 1; });
-      const total = INSTRUMENTS.length;
       const worstTier = tierCounts.ineligible > 0 ? "ineligible" : tierCounts.moderate > 0 ? "moderate" : "high";
-
-      const verdictContainer = document.getElementById("verdict-container");
       let verdictClass, verdictTitle;
-      if (tierCounts.pending === total) {
-        verdictClass = "tier-mixed";
-        verdictTitle = "Complete the questionnaire to see the preliminary result";
-      } else if (tierCounts.high === total) {
+      if (tierCounts.high === total) {
         verdictClass = "tier-high";
         verdictTitle = "Highly eligible across all instruments";
       } else if (tierCounts.ineligible === total) {
@@ -783,10 +786,94 @@
         : verdictClass === "tier-low"
           ? '<path d="M8 5v4M8 11h.01"/><path d="M2 13.5L8 3l6 10.5H2z"/>'
           : '<path d="M8 5v4M8 11h.01"/><circle cx="8" cy="8" r="6.5"/>';
-      verdictContainer.innerHTML = `<div class="sgft-verdict ${verdictClass}">
+      container.innerHTML = `<div class="sgft-verdict ${verdictClass}">
         <svg class="sgft-verdict-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">${iconPath}</svg>
         <p class="sgft-verdict-title">${verdictTitle}</p>
       </div>`;
+    }
+
+    function buildPreliminaryResult(qid) {
+      const resultGrid = document.getElementById("result-grid");
+      const verdictContainer = document.getElementById("verdict-container");
+      const rule = qid && RULES[qid] && RULES[qid][answers[qid]];
+
+      if (!rule) {
+        resultGrid.innerHTML = INSTRUMENTS.map(({ title }) => `<article class="sgft-result"><h3>${title}</h3></article>`).join("");
+        renderVerdict(verdictContainer, {}, 0, "Answer a question to see its eligibility result");
+        return;
+      }
+
+      resultGrid.innerHTML = INSTRUMENTS.map(({ id, title }) => {
+        const tier = rule[id];
+        if (tier === undefined) {
+          return `<article class="sgft-result"><h3>${title}</h3></article>`;
+        }
+        const reason = (rule.reason && rule.reason[id]) || "";
+        const reco = (rule.reco && rule.reco[id]) || "";
+        return `<article class="sgft-result ${TIER_CLASS[tier]}">
+          <h3>${title}</h3>
+          <p class="status">${TIER_LABEL[tier]}</p>
+          ${reason ? `<p class="reason">${reason}</p>` : ""}
+          ${reco ? `<p class="reco">${reco}</p>` : ""}
+        </article>`;
+      }).join("");
+
+      const touched = INSTRUMENTS.filter(({ id }) => rule[id] !== undefined);
+      const tierCounts = { high: 0, moderate: 0, ineligible: 0 };
+      touched.forEach(({ id }) => { tierCounts[rule[id]] += 1; });
+      renderVerdict(verdictContainer, tierCounts, touched.length, "This question doesn't affect any instrument");
+    }
+
+    // final result combines all 7 answers: worst tier wins per instrument,
+    // and every reason/reco that landed on that worst tier gets listed
+    // (deduped, so repeated text only shows once)
+    function buildFinalResult() {
+      const hitsByInstrument = {};
+      INSTRUMENTS.forEach(({ id }) => { hitsByInstrument[id] = []; });
+
+      QUESTION_IDS.forEach((q) => {
+        const rule = RULES[q] && RULES[q][answers[q]];
+        if (!rule) return;
+        INSTRUMENTS.forEach(({ id }) => {
+          if (rule[id] === undefined) return;
+          hitsByInstrument[id].push({
+            tier: rule[id],
+            reason: (rule.reason && rule.reason[id]) || "",
+            reco: (rule.reco && rule.reco[id]) || ""
+          });
+        });
+      });
+
+      const TIER_RANK = { ineligible: 0, moderate: 1, high: 2 };
+      const result = {};
+      INSTRUMENTS.forEach(({ id }) => {
+        const hits = hitsByInstrument[id];
+        if (!hits.length) { result[id] = null; return; }
+        const worstTier = hits.reduce((worst, h) => (TIER_RANK[h.tier] < TIER_RANK[worst] ? h.tier : worst), hits[0].tier);
+        const atWorst = hits.filter((h) => h.tier === worstTier);
+        result[id] = {
+          tier: worstTier,
+          reasons: [...new Set(atWorst.map((h) => h.reason).filter(Boolean))],
+          recos: [...new Set(atWorst.map((h) => h.reco).filter(Boolean))]
+        };
+      });
+
+      const grid = document.getElementById("final-result-grid");
+      grid.innerHTML = INSTRUMENTS.map(({ id, title }) => {
+        const st = result[id];
+        if (!st) return `<article class="sgft-result"><h3>${title}</h3></article>`;
+        return `<article class="sgft-result ${TIER_CLASS[st.tier]}">
+          <h3>${title}</h3>
+          <p class="status">${TIER_LABEL[st.tier]}</p>
+          ${st.reasons.length ? `<ul class="reason-list">${st.reasons.map((r) => `<li>${r}</li>`).join("")}</ul>` : ""}
+          ${st.recos.length ? `<ul class="reco-list">${st.recos.map((r) => `<li>${r}</li>`).join("")}</ul>` : ""}
+        </article>`;
+      }).join("");
+
+      const touched = INSTRUMENTS.filter(({ id }) => result[id]);
+      const tierCounts = { high: 0, moderate: 0, ineligible: 0 };
+      touched.forEach(({ id }) => { tierCounts[result[id].tier] += 1; });
+      renderVerdict(document.getElementById("final-verdict-container"), tierCounts, touched.length, "No instruments affected");
     }
 
     function allAnswered() {
@@ -795,8 +882,10 @@
 
     document.getElementById("show-result").addEventListener("click", () => {
       if (!allAnswered()) return;
-      buildPreliminaryResult();
-      document.getElementById("checklist").scrollIntoView({ behavior: "smooth", block: "start" });
+      buildFinalResult();
+      const finalResult = document.getElementById("final-result");
+      finalResult.hidden = false;
+      finalResult.scrollIntoView({ behavior: "smooth", block: "start" });
     });
 
     buildOptionButtons();
