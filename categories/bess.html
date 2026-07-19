@@ -1,0 +1,1856 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BESS (Battery Energy Storage) — SUVIKALP | Coal Controller Organisation</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="./category.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+/* Per-page custom overrides (optional) */
+    /* ── Five Steps Section ──────────────────────────────────── */
+.section-steps {
+  background: #fff;
+  padding: 72px 0 88px;
+  border-top: 1px solid #e8eaed;
+}
+.steps-header {
+  text-align: center;
+  margin-bottom: 52px;
+  padding: 0 24px;
+}
+.steps-eyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-teal-600, #21808d);
+  margin-bottom: 12px;
+}
+.steps-h2 {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.15;
+  margin: 0 0 14px;
+  letter-spacing: -0.03em;
+}
+.steps-sub {
+  font-size: 1rem;
+  color: #64748b;
+  line-height: 1.6;
+  max-width: 460px;
+  margin: 0 auto;
+}
+.steps-flow {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 18px;
+  justify-content: center;
+  overflow-x: auto;
+  padding: 8px 24px 52px;
+  margin-bottom: -36px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.steps-flow::-webkit-scrollbar { display: none; }
+.step-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 215px;
+  width: 215px;
+  height: 360px;
+  flex-shrink: 0;
+  background: #fff;
+  border-radius: 20px;
+  border: 1px solid #e8eaed;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05), 0 8px 28px rgba(0,0,0,0.07);
+  overflow: hidden;
+  transition: box-shadow .3s, transform .25s;
+}
+.step-card:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06), 0 20px 48px var(--s-glow);
+  transform: translateY(-6px);
+}
+.step-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: var(--s-accent);
+  border-radius: 20px 20px 0 0;
+  z-index: 1;
+}
+.step-card--01 { --s-accent: #21808d; --s-glow: rgba(33,128,141,0.28); }
+.step-card--02 { --s-accent: #d97706; --s-glow: rgba(217,119,6,0.28); }
+.step-card--03 { --s-accent: #16a34a; --s-glow: rgba(22,163,74,0.28); }
+.step-card--04 { --s-accent: #0369a1; --s-glow: rgba(3,105,161,0.28); }
+.step-card--05 { --s-accent: #7c3aed; --s-glow: rgba(124,58,237,0.28); }
+.step-card-img {
+  width: 100%;
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  min-height: 0;
+}
+.step-card-img img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform .6s cubic-bezier(.25,.46,.45,.94);
+  display: block;
+}
+.step-card:hover .step-card-img img { transform: scale(1.08); }
+.step-card-body {
+  padding: 16px 16px 18px;
+  flex-shrink: 0;
+}
+.step-num {
+  font-size: 30px;
+  font-weight: 900;
+  color: var(--s-accent);
+  letter-spacing: -0.05em;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.step-card-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1e293b;
+  line-height: 1.35;
+  margin-bottom: 5px;
+}
+.step-card-desc {
+  font-size: 11.5px;
+  color: #64748b;
+  line-height: 1.6;
+}
+.reveal {
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity 1s cubic-bezier(.25,.46,.45,.94), transform 1s cubic-bezier(.25,.46,.45,.94);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+@media (max-width: 640px) {
+  .step-card { min-width: 190px; width: 190px; height: 320px; }
+  .step-num  { font-size: 26px; }
+}
+.vibgyor-chips { display: none !important; }
+
+/* ── About Tab ─────────────────────────────────────────── */
+.about-hero-row { display: flex; gap: 28px; align-items: stretch; margin-bottom: 40px; min-height: 300px; }
+.about-hero-slide-col { flex: 0 0 40%; min-width: 0; display: flex; flex-direction: column; }
+.about-hero-slide-col .proj-slideshow { flex: none; height: 340px; }
+.about-hero-text-col  { flex: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; }
+.about-hero-label { font-family: var(--font-sans); font-size: var(--fs-xs); font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--teal); margin-bottom: 0; }
+.about-hero-label-wrap { margin-bottom: 12px; }
+.about-hero-label-bar { display: block; height: 3px; width: 48px; margin-top: 7px; border-radius: 99px; background: linear-gradient(90deg, #21808d 0%, #38bdf8 60%, transparent 100%); }
+
+.about-intro { display: flex; flex-direction: column; gap: 14px; }
+.about-intro-block { padding: 14px 18px; border-radius: 10px; }
+.about-intro-primary   { border-left: 4px solid #21808d; background: rgba(33,128,141,.05); }
+.about-intro-secondary { border-left: 4px solid rgba(33,128,141,.3); background: #fafafa; }
+
+.about-section { margin-bottom: 40px; }
+.about-section-eyebrow { font-family: var(--font-sans); font-size: var(--fs-xs); font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--teal); margin-bottom: 4px; }
+.about-section-title   { font-family: var(--font-sans); font-size: var(--fs-xl); font-weight: 700; color: #0f172a; margin: 0 0 20px; line-height: var(--lh-tight); }
+
+/* Schemes carousel */
+.schemes-outer { position: relative; margin: 0 20px; }
+.schemes-nav-btn { position: absolute; top: 50%; transform: translateY(-50%); z-index: 10; width: 36px; height: 36px; border-radius: 50%; background: #fff; border: 1.5px solid #e2e8f0; box-shadow: 0 2px 10px rgba(0,0,0,.10); cursor: pointer; display: flex; align-items: center; justify-content: center; color: #475569; transition: background .2s, color .2s, border-color .2s, box-shadow .2s; padding: 0; }
+.schemes-nav-btn:hover { background: var(--teal, #0a9396); color: #fff; border-color: var(--teal, #0a9396); box-shadow: 0 4px 14px rgba(10,147,150,.3); }
+.schemes-nav-btn.schemes-prev { left: -20px; }
+.schemes-nav-btn.schemes-next { right: -20px; }
+.schemes-ticker-wrap { overflow: hidden; position: relative; mask-image: linear-gradient(to right, transparent 0%, black 7%, black 93%, transparent 100%); -webkit-mask-image: linear-gradient(to right, transparent 0%, black 7%, black 93%, transparent 100%); }
+.schemes-ticker { display: flex; gap: 16px; overflow-x: auto; -ms-overflow-style: none; scrollbar-width: none; padding: 8px 4px; }
+.schemes-ticker::-webkit-scrollbar { display: none; }
+
+.scheme-card { flex: 0 0 220px; scroll-snap-align: start; background: #fff; border: 1px solid #e8eaed; border-radius: 12px; padding: 18px 16px; box-shadow: 0 2px 8px rgba(0,0,0,.05); transition: box-shadow .2s, transform .2s; }
+.scheme-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,.1); transform: translateY(-3px); }
+.scheme-card-icon  { font-size: 22px; margin-bottom: 10px; }
+.scheme-card-tag   { font-family: var(--font-sans); font-size: var(--fs-xs); font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: var(--teal); margin-bottom: 5px; }
+.scheme-card-title { font-family: var(--font-sans); font-size: var(--fs-base); font-weight: 700; color: #1e293b; margin-bottom: 8px; line-height: var(--lh-tight); }
+.scheme-card-desc  { font-family: var(--font-sans); font-size: var(--fs-sm); color: #64748b; line-height: var(--lh-base); display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
+
+/* Projects slideshow */
+.proj-slideshow { position: relative; border-radius: 14px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,.15); background: #000; }
+.proj-slide { display: none; position: relative; height: 100%; min-height: 260px; }
+.proj-slide.active { display: block; animation: projFadeIn .5s ease; }
+@keyframes projFadeIn { from { opacity: 0; transform: scale(1.03); } to { opacity: 1; transform: scale(1); } }
+.proj-slide-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.proj-slide-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 12px 18px; background: linear-gradient(90deg, rgba(10,70,80,.95) 0%, rgba(33,128,141,.88) 100%); display: flex; align-items: center; gap: 0; z-index: 1; }
+.proj-caption { font-family: var(--font-sans); font-size: var(--fs-base); font-weight: 600; color: #fff; line-height: 1.4; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.proj-ss-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,.18); backdrop-filter: blur(6px); border: 1px solid rgba(255,255,255,.28); color: #fff; font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background .2s, opacity .25s; z-index: 3; opacity: 0; }
+.proj-slideshow:hover .proj-ss-btn { opacity: 1; }
+.proj-ss-btn:hover { background: rgba(255,255,255,.38); }
+.proj-ss-prev { left: 12px; }
+.proj-ss-next { right: 12px; }
+.proj-ss-dots { display: none; }
+.proj-ss-counter { display: none; }
+.vibgyor-step-label { display: flex; flex-direction: column; gap: 1px; }
+.vsl-letter { font-size: 13px; font-weight: 800; color: #1e293b; line-height: 1.1; }
+.vsl-name   { font-size: 12px; font-weight: 400; color: #64748b; line-height: 1.3; }
+.vibgyor-step.active .vsl-letter { color: #0f172a; }
+.vibgyor-step.active .vsl-name   { color: #334155; font-weight: 500; }
+.prism-fullform-wrap { display: inline-flex; flex-direction: column; margin-bottom: 20px; }
+.prism-fullform-title { display: block; margin: 0 0 8px; padding: 0; line-height: 1.5; }
+.prism-rainbow-bar { display: block; height: 3px; border-radius: 99px; background: linear-gradient(to right, #7C3AB5, #4f6de0, #0ea5e9, #1D9E75, #3B6D11, #BA7517, #C85000, #A32D2D); }
+.pf-word { display: inline-flex; align-items: baseline; gap: 0; margin-right: 8px; white-space: nowrap; }
+.pf-word:last-child { margin-right: 0; }
+.pf-key  { font-size: 30px; font-weight: 700; line-height: 1; color: #1e293b; }
+.pf-tail { font-size: 17px; font-weight: 400; color: #64748b; line-height: 1; }
+.pf-sep  { display: inline; font-size: 17px; font-weight: 400; color: #94a3b8; margin-right: 8px; }
+</style>
+</head>
+<body>
+<header id="site-header">
+  <div class="header-left">
+    <div class="header-tool-title">
+      <span class="hindi">सुविकल्प:</span> Mine Repurposing Tool
+    </div>
+    <div class="header-tool-sub">
+      Select factors and sub-factors to discover suitable repurposing options for your mining site
+    </div>
+  </div>
+  <div class="header-right">
+    <a href="https://coalcontroller.gov.in/" target="_blank" rel="noopener" title="CCO Home">
+    <div class="header-cco-lockup">
+      <img class="header-cco-logo" src="data:image/png;base64,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" alt="Coal Controller Organisation emblem">
+      <div class="header-cco-text">
+        <!-- text intentionally empty: organisation name is encoded in the emblem logo -->
+      </div>
+    </div>
+    </a>
+  </div>
+</header>
+
+<div class="page">
+
+  <!-- Back bar -->
+  <div class="sf-backbar">
+    <button class="back-btn" onclick="window.location.href='../index.html'" aria-label="Back to results">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M10 3L5 8l5 5"/>
+      </svg>
+      Back to Results
+    </button>
+    <span class="sf-breadcrumb">
+      <span>Final Recommendations</span>
+      <span class="sep">/</span>
+      <span style="color:var(--teal);font-weight:500;">Battery Energy Storage System (BESS)</span>
+    </span>
+  </div>
+
+  <!-- Hero Image -->
+  <div class="spv-hero-wrap">
+    <img src="../images/cs-nlcil-bess.jpg" alt="Battery Energy Storage System (BESS)" class="spv-hero-img">
+    <div class="spv-hero-overlay"></div>
+    <div class="spv-hero-title">BESS (Battery Energy Storage)</div>
+  </div>
+
+  <!-- Main Tab navigation -->
+  <nav class="spv-tabs" aria-label="Detail sections">
+    <button class="spv-tab active" data-tab="about"       onclick="showSPVTab('about')">About</button>
+    <button class="spv-tab"        data-tab="prism"        onclick="showSPVTab('prism')">P.R.I.S.M</button>
+    <button class="spv-tab"        data-tab="casestudies"  onclick="showSPVTab('casestudies');setTimeout(function(){window.dispatchEvent(new Event('resize'))},30)">Case Studies</button>
+    <button class="spv-tab"        data-tab="tender"       onclick="showSPVTab('tender')">Sample Tender Documents</button>
+    <button class="spv-tab"        data-tab="media"        onclick="showSPVTab('media')">Media/Web</button>
+    <button class="spv-tab"        data-tab="agencies"    onclick="showSPVTab('agencies')">Agencies</button>
+<!-- EXPERTS TAB HIDDEN (page not yet complete)
+<button class="spv-tab"        data-tab="experts"      onclick="showSPVTab('experts')">Experts</button>
+-->
+  </nav>
+
+  <!-- TAB: About -->
+  <div id="spv-panel-about" class="spv-panel">
+    <div class="spv-content">
+
+<div class="about-hero-row">
+  <div class="about-hero-slide-col">
+    <div class="about-hero-label-wrap">
+      <div class="about-hero-label">Precedents</div>
+      <span class="about-hero-label-bar"></span>
+    </div>
+    <div class="proj-slideshow">
+      <img src="../images/cs-seci-bess-rajnandgaon.jpg" alt="SECI 50 MW / 50 MWh standalone BESS at Rajnandgaon, Chhattisgarh — Tata Power Solar battery containers beside a grid substation and solar farm, India" class="proj-slide-img" loading="lazy">
+      <div class="proj-slide-overlay">
+        <span class="proj-caption">SECI 50 MW BESS, Rajnandgaon, India</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="about-hero-text-col">
+    <div class="about-intro">
+      <div class="about-intro-block about-intro-primary">
+        <p class="spv-body-text" style="margin:0;">
+        In India, Battery Energy Storage Systems (BESS) are emerging as a critical component of the clean energy transition, enabling storage and dispatch of renewable energy to meet grid stability requirements and peak demand. Closed coal mines offer a strategically suitable environment for BESS installations due to the availability of large, flat, previously disturbed land parcels, proximity to existing electrical grid infrastructure, and the opportunity to contribute to a just energy transition in mining-affected regions.</p>
+      </div>
+      <div class="about-intro-block about-intro-secondary">
+        <p class="spv-body-text" style="margin:0;">
+        The development of BESS facilities in such regions can generate skilled employment and economic activity for local communities, particularly those transitioning from mining-based livelihoods, through roles in installation, operations, maintenance, and grid management. However, successful implementation requires addressing key challenges, including securing appropriate land parcels, ensuring grid connectivity and power offtake agreements, managing environmental and safety considerations related to battery storage, and establishing robust regulatory and financial frameworks to ensure the long-term viability and operational efficiency of BESS projects.</p>
+      </div>
+    </div>
+  </div>
+</div><!-- /about-hero-row -->
+
+<!-- Government Schemes ticker -->
+<div class="about-section">
+  <div class="about-section-eyebrow">Policy &amp; Support</div>
+  <h3 class="about-section-title">Policy Levers driving Battery Energy Storage System (BESS) scale-up</h3>
+  <div class="schemes-outer">
+    <button class="schemes-nav-btn schemes-prev" onclick="schemesNav(-1)" aria-label="Previous">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <div class="schemes-ticker-wrap">
+      <div class="schemes-ticker" id="schemesTicker">
+        <div class="scheme-card">
+          <div class="scheme-card-icon">🔋</div>
+          <div class="scheme-card-tag">MoP / MNRE</div>
+          <div class="scheme-card-title">VGF for BESS</div>
+          <div class="scheme-card-desc">Viability Gap Funding scheme for development of Battery Energy Storage Systems under MoP guidelines.</div>
+        </div>
+        <div class="scheme-card">
+          <div class="scheme-card-icon">⚡</div>
+          <div class="scheme-card-tag">MNRE</div>
+          <div class="scheme-card-title">National Framework for ESS</div>
+          <div class="scheme-card-desc">National framework for promoting energy storage systems as notified by Ministry of Power, August 2023.</div>
+        </div>
+        <div class="scheme-card">
+          <div class="scheme-card-icon">🌱</div>
+          <div class="scheme-card-tag">MoP / SECI</div>
+          <div class="scheme-card-title">ISTS-connected BESS</div>
+          <div class="scheme-card-desc">Central procurement of BESS under ISTS for grid balancing, frequency regulation, and peak management.</div>
+        </div>
+        <div class="scheme-card">
+          <div class="scheme-card-icon">🏭</div>
+          <div class="scheme-card-tag">State Nodal Agency</div>
+          <div class="scheme-card-title">State Storage Policies</div>
+          <div class="scheme-card-desc">State-level energy storage mandates, must-run exemptions, and ancillary service market frameworks.</div>
+        </div>
+        <div class="scheme-card">
+          <div class="scheme-card-icon">💰</div>
+          <div class="scheme-card-tag">IREDA / PFC</div>
+          <div class="scheme-card-title">Concessional Financing</div>
+          <div class="scheme-card-desc">Debt financing and green bonds available through IREDA and PFC for storage infrastructure projects.</div>
+        </div>
+        <div class="scheme-card">
+          <div class="scheme-card-icon">🔬</div>
+          <div class="scheme-card-tag">DST / MNRE</div>
+          <div class="scheme-card-title">R&amp;D and PLI for Batteries</div>
+          <div class="scheme-card-desc">Production Linked Incentive and R&amp;D support for domestic battery cell manufacturing under ACC scheme.</div>
+        </div>
+        <!-- duplicate set for seamless loop -->
+        <div class="scheme-card" aria-hidden="true">
+          <div class="scheme-card-icon">🔋</div>
+          <div class="scheme-card-tag">MoP / MNRE</div>
+          <div class="scheme-card-title">VGF for BESS</div>
+          <div class="scheme-card-desc">Viability Gap Funding scheme for development of Battery Energy Storage Systems under MoP guidelines.</div>
+        </div>
+        <div class="scheme-card" aria-hidden="true">
+          <div class="scheme-card-icon">⚡</div>
+          <div class="scheme-card-tag">MNRE</div>
+          <div class="scheme-card-title">National Framework for ESS</div>
+          <div class="scheme-card-desc">National framework for promoting energy storage systems as notified by Ministry of Power, August 2023.</div>
+        </div>
+        <div class="scheme-card" aria-hidden="true">
+          <div class="scheme-card-icon">🌱</div>
+          <div class="scheme-card-tag">MoP / SECI</div>
+          <div class="scheme-card-title">ISTS-connected BESS</div>
+          <div class="scheme-card-desc">Central procurement of BESS under ISTS for grid balancing, frequency regulation, and peak management.</div>
+        </div>
+        <div class="scheme-card" aria-hidden="true">
+          <div class="scheme-card-icon">🏭</div>
+          <div class="scheme-card-tag">State Nodal Agency</div>
+          <div class="scheme-card-title">State Storage Policies</div>
+          <div class="scheme-card-desc">State-level energy storage mandates, must-run exemptions, and ancillary service market frameworks.</div>
+        </div>
+        <div class="scheme-card" aria-hidden="true">
+          <div class="scheme-card-icon">💰</div>
+          <div class="scheme-card-tag">IREDA / PFC</div>
+          <div class="scheme-card-title">Concessional Financing</div>
+          <div class="scheme-card-desc">Debt financing and green bonds available through IREDA and PFC for storage infrastructure projects.</div>
+        </div>
+        <div class="scheme-card" aria-hidden="true">
+          <div class="scheme-card-icon">🔬</div>
+          <div class="scheme-card-tag">DST / MNRE</div>
+          <div class="scheme-card-title">R&amp;D and PLI for Batteries</div>
+          <div class="scheme-card-desc">Production Linked Incentive and R&amp;D support for domestic battery cell manufacturing under ACC scheme.</div>
+        </div>
+      </div>
+    </div>
+    <button class="schemes-nav-btn schemes-next" onclick="schemesNav(1)" aria-label="Next">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+  </div>
+</div>
+
+  <style>
+/* ── Intro banner ──────────────────────────────────────── */
+  .pr-intro { padding:22px 24px 20px; background:rgba(33,128,141,.05); border:1px solid rgba(33,128,141,.15); border-radius:14px; margin-bottom:20px; }
+  .pr-intro-eyebrow { font-size:15px; font-weight:700; letter-spacing:.01em; text-transform:none; color:#21808d; margin-bottom:8px; font-style:normal; line-height:1.35; }
+  .pr-intro-heading { font-size:16px; font-weight:700; color:#0f172a; margin-bottom:10px; line-height:1.35; font-style:normal; }
+  .pr-intro-body { font-size:13.5px; color:#374151; line-height:1.85; font-style:normal; }
+  /* ── Shell ─────────────────────────────────────────────── */
+  .pr-shell { display:flex; border:1px solid #e2e8f0; border-radius:14px; overflow:clip; background:#fff; box-shadow:0 4px 24px rgba(0,0,0,.06),0 1px 4px rgba(0,0,0,.04); }
+  /* ── Sidebar ───────────────────────────────────────────── */
+  .pr-sidebar { width:220px; flex-shrink:0; border-right:1px solid #e8edf2; padding:16px 0 16px; background:#f8fafc; position:sticky; top:125px; align-self:flex-start; max-height:calc(100vh - 155px); overflow-y:auto; overflow-x:visible; }
+  .pr-sidebar-label { font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:#7a8a9a; padding:0 16px 14px; font-style:normal; }
+  .pr-nav-highlight { position:absolute; left:0; right:0; pointer-events:none; z-index:0; will-change:top,height; background:color-mix(in srgb,var(--pr-hl,#C85000) 9%,transparent); transition:top .4s cubic-bezier(.4,0,.2,1),height .4s cubic-bezier(.4,0,.2,1),background .38s ease; }
+  .pr-nav-highlight::before { content:''; position:absolute; left:0; top:0; bottom:0; width:3px; background:var(--pr-hl,#C85000); border-radius:0 2px 2px 0; transition:background .38s ease; }
+  .pr-nav-item { position:relative; z-index:1; display:flex; align-items:center; gap:12px; padding:13px 16px; cursor:pointer; font-style:normal; }
+  .pr-nav-item::after { display:none; }
+  .pr-nav-item:hover, .pr-nav-item.active { background:transparent; transform:none; }
+  .pr-nav-badge { width:34px; height:34px; border-radius:50%; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:800; border:1.5px solid #d1d5db; color:#9ca3af; background:#fff; position:relative; z-index:1; transition:background .35s cubic-bezier(.4,0,.2,1),color .3s ease,border-color .35s ease,transform .45s cubic-bezier(.34,1.56,.64,1),box-shadow .35s ease; }
+  .pr-nav-item.active .pr-nav-badge { background:var(--pr-accent); color:#fff; border-color:var(--pr-accent); transform:scale(1.12); box-shadow:0 0 0 4px color-mix(in srgb,var(--pr-accent) 18%,transparent),0 3px 10px color-mix(in srgb,var(--pr-accent) 32%,transparent); }
+  .pr-nav-item:hover:not(.active) .pr-nav-badge { border-color:var(--pr-accent); color:var(--pr-accent); background:color-mix(in srgb,var(--pr-accent) 7%,#fff); transform:scale(1.07); }
+  .pr-nav-letter { font-size:13px; font-weight:600; color:#374151; line-height:1.25; font-style:normal; position:relative; z-index:1; transition:color .25s ease,font-weight .2s; }
+  .pr-nav-item.active .pr-nav-letter { color:var(--pr-accent); font-weight:700; }
+  .pr-nav-item:hover:not(.active) .pr-nav-letter { color:var(--pr-accent); }
+  @keyframes nav-slide-in { from { opacity:0; transform:translateX(-10px); } to { opacity:1; transform:translateX(0); } }
+  .pr-nav-item { opacity:0; animation:nav-slide-in .32s cubic-bezier(.4,0,.2,1) both; }
+  .pr-nav-item:nth-child(3) { animation-delay:.02s; }
+  .pr-nav-item:nth-child(4) { animation-delay:.07s; }
+  .pr-nav-item:nth-child(5) { animation-delay:.12s; }
+  .pr-nav-item:nth-child(6) { animation-delay:.17s; }
+  .pr-nav-item:nth-child(7) { animation-delay:.22s; }
+  /* ── Content wrap ──────────────────────────────────────── */
+  .pr-content-wrap { flex:1; min-width:0; }
+  .pr-content-wrap .prism2-content-panel { border-radius:0; box-shadow:none; }
+  /* ── Panel header ──────────────────────────────────────── */
+  .prism2-content-panel .prism2-panel-header { display:flex; align-items:center; gap:20px; padding:26px 28px 22px; background:color-mix(in srgb,var(--pc) 5%,#fff); border-bottom:1px solid color-mix(in srgb,var(--pc) 14%,#e8edf2); position:relative; overflow:hidden; }
+  .prism2-content-panel .prism2-panel-header::after { content:''; position:absolute; bottom:0; left:0; right:0; height:2px; background:linear-gradient(to right,var(--pc),transparent 70%); opacity:.35; }
+  .prism2-panel-header-letter { font-size:68px; font-weight:200; line-height:1; color:var(--pc); flex-shrink:0; opacity:.9; letter-spacing:-3px; text-shadow:2px 2px 0 color-mix(in srgb,var(--pc) 12%,transparent); }
+  .prism2-panel-eyebrow { font-size:13px; font-weight:700; letter-spacing:.10em; text-transform:uppercase; color:var(--pc); margin-bottom:6px; opacity:1; }
+  .prism2-panel-desc { font-size:13.5px; color:#4b5563; line-height:1.78; margin:0; max-width:560px; }
+  /* ── Accordion ─────────────────────────────────────────── */
+  .prism2-content-panel .accordion-item { border-bottom:1px solid #f1f5f9; }
+  .prism2-content-panel .accordion-item:last-of-type { border-bottom:none; }
+  .prism2-content-panel .accordion-btn { padding:15px 28px; transition:color .18s,background .18s; font-size:13.5px; font-weight:600; color:#1e293b; }
+  .prism2-content-panel .accordion-btn:hover { color:var(--pc); background:color-mix(in srgb,var(--pc) 4%,transparent); }
+  .prism2-content-panel .accordion-btn.open { color:var(--pc); background:color-mix(in srgb,var(--pc) 5%,transparent); }
+  .prism2-content-panel .accordion-body { border-left:2px solid color-mix(in srgb,var(--pc) 35%,#e2e8f0); margin:0 28px 18px 32px; padding-left:16px; }
+  .spv-body-text { font-family:var(--font-sans); font-size:var(--fs-md); line-height:var(--lh-loose); color:var(--color-text); margin-bottom:14px; font-weight:400; }
+  .spv-list { margin:8px 0 14px 22px; font-family:var(--font-sans); font-size:var(--fs-md); line-height:var(--lh-loose); color:var(--color-text); }
+  .spv-list li { margin-bottom:6px; }
+  /* ── Chevron ───────────────────────────────────────────── */
+  .accordion-chevron { width:22px; height:22px; border-radius:50%; border:1px solid #d1d5db; display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; font-size:12px; color:#9ca3af; font-style:normal; transition:transform .28s cubic-bezier(.4,0,.2,1),border-color .2s,color .2s; }
+  .accordion-btn.open .accordion-chevron { transform:rotate(180deg); border-color:var(--pc); color:var(--pc); }
+  /* ── Nav row ───────────────────────────────────────────── */
+  .prism2-nav-row { padding:14px 28px; border-top:1px solid color-mix(in srgb,var(--pc) 10%,#e8edf2); background:color-mix(in srgb,var(--pc) 3%,#f8fafc); display:flex; align-items:center; justify-content:space-between; }
+  /* ── Pill buttons ──────────────────────────────────────── */
+  .prism2-btn-prev, .prism2-btn-next { border-radius:999px; font-size:12.5px; font-weight:600; padding:8px 20px; letter-spacing:.01em; transition:background .2s,box-shadow .2s,transform .15s,color .2s; }
+  .prism2-btn-next:not(:disabled) { background:var(--pc,#0a9396); color:#fff; border-color:transparent; box-shadow:0 2px 10px color-mix(in srgb,var(--pc) 35%,transparent); }
+  .prism2-btn-next:not(:disabled):hover { box-shadow:0 4px 18px color-mix(in srgb,var(--pc) 45%,transparent); transform:translateY(-1px); }
+  /* ── Progress dots ─────────────────────────────────────── */
+  .pdot { width:7px; height:7px; border-radius:50%; background:#d1d5db; display:inline-block; transition:background .22s,width .28s cubic-bezier(.34,1.56,.64,1),border-radius .22s; }
+  .pdot.active { background:var(--pc,#0a9396); width:20px; border-radius:4px; }
+  /* ── Panel fade-in ─────────────────────────────────────── */
+  @keyframes prism-fadein { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
+  .prism2-content-panel { animation:prism-fadein .26s ease; }</style>
+
+    </div>
+  </div>
+
+  <!-- TAB: P.R.I.S.M -->
+  <div id="spv-panel-prism" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+
+<div class="pr-intro">
+  <div class="pr-intro-eyebrow">PRISM – Post-Mining Repurposing and Implementation Strategy Models</div>
+  <div class="pr-intro-heading">A structured framework for mine repurposing from concept to implementation</div>
+  <div class="pr-intro-body">PRISM is a structured framework designed to support identified post-mining repurposing opportunities by evaluating suitable implementation pathways, financial and revenue-generation models, and the implementation requirements, roles, and responsibilities of mine owners, developers, operators, and other stakeholders. Built around five integrated pillars, PRISM guides Battery Energy Storage System (BESS) projects from concept to operation.</div>
+</div>
+
+<div class="pr-shell">
+  <div class="pr-sidebar">
+    <div class="pr-sidebar-label">Pillars</div>
+    <div class="pr-nav-highlight" id="pr-hl"></div>
+    <div class="pr-nav-item active" style="--pr-accent:#C85000;" data-key="P" onclick="prNav('P')">
+      <div class="pr-nav-badge">P</div>
+      <div><div class="pr-nav-letter">Project vision</div></div>
+    </div>
+    <div class="pr-nav-item" style="--pr-accent:#1a5ca8;" data-key="R" onclick="prNav('R')">
+      <div class="pr-nav-badge">R</div>
+      <div><div class="pr-nav-letter">Repurposing pathways</div></div>
+    </div>
+    <div class="pr-nav-item" style="--pr-accent:#b06a10;" data-key="I" onclick="prNav('I')">
+      <div class="pr-nav-badge">I</div>
+      <div><div class="pr-nav-letter">Investment dynamics</div></div>
+    </div>
+    <div class="pr-nav-item" style="--pr-accent:#5a3d9e;" data-key="S" onclick="prNav('S')">
+      <div class="pr-nav-badge">S</div>
+      <div><div class="pr-nav-letter">Strategic structuring</div></div>
+    </div>
+    <div class="pr-nav-item" style="--pr-accent:#1a7a5e;" data-key="M" onclick="prNav('M')">
+      <div class="pr-nav-badge">M</div>
+      <div><div class="pr-nav-letter">Monitoring guidance</div></div>
+    </div>
+  </div><!-- /pr-sidebar -->
+
+  <div class="pr-content-wrap">
+
+    <!-- ── P Panel ── -->
+    <div class="prism2-content-panel active" id="prism2-panel-P" style="--pc:#C85000;--pb:#fff0e6;--cb:#fff8f3;">
+      <div class="prism2-panel-header">
+        <div class="prism2-panel-header-letter">P</div>
+        <div class="prism2-panel-header-text">
+          <div class="prism2-panel-eyebrow">PROJECT VISION</div>
+          <p class="prism2-panel-desc">Project overview, strategic rationale, site suitability assessment, and indicative BESS scale and configuration matrix for post-mining land.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item"><button class="accordion-btn" onclick="toggleAccordion(this)"><span>Project Overview</span><span class="accordion-chevron">&#8964;</span></button>
+      <div class="accordion-body" style="display:none;">
+        <ul class="spv-list">
+          <li><strong>What:</strong> A Battery Energy Storage System (BESS) stores electricity during low-demand or surplus periods and discharges during high-demand or grid-stress periods — improving the timing, reliability, and commercial value of electricity on post-mining land</li>
+          <li><strong>Why it fits mine land:</strong> Closed mine sites offer large flat land parcels, existing power infrastructure (substations, transformers, cabling), good grid connectivity, and access roads — all directly usable for BESS deployment</li>
+          <li><strong>Grid value:</strong> Unlike generation, BESS improves system flexibility — enabling peak shaving, renewable firming, load shifting, frequency regulation, and backup power without adding intermittency</li>
+          <li><strong>National alignment:</strong> Supports India's National Energy Storage Mission, SECI's standalone BESS tenders, Revamped Distribution Sector Scheme (RDSS), and Net Zero 2070 commitments</li>
+          <li><strong>Who benefits:</strong> Mine owner (asset monetisation, ESG), grid operator (flexibility services), local community (energy security), renewable developers (curtailment reduction and firming)</li>
+          <li><strong>Integration potential:</strong> Can be combined with Floating Solar PV (FSPV) or ground-mounted SPV on the same mine site — improving project bankability and dispatch profile</li>
+        </ul>
+      </div>
+      </div>
+
+      <div class="accordion-item"><button class="accordion-btn" onclick="toggleAccordion(this)"><span>Strategic Rationale</span><span class="accordion-chevron">&#8964;</span></button>
+      <div class="accordion-body" style="display:none;">
+        <ul class="spv-list">
+          <li><strong>Peak demand reduction:</strong> Discharges during peak demand to reduce maximum demand charges — significant cost saving for captive users</li>
+          <li><strong>Time shifting / energy arbitrage:</strong> Charges during low-price periods, discharges during high-price periods — improves economic efficiency</li>
+          <li><strong>Backup and reliability:</strong> Provides short-duration power during grid interruption — enhances reliability for critical operations</li>
+          <li><strong>Renewable firming:</strong> Smooths variable solar/wind output — improves predictability and dispatchability of renewable energy</li>
+          <li><strong>Grid support services:</strong> Frequency regulation, ramp support, voltage support — strengthens system stability and opens ancillary service revenue</li>
+          <li><strong>Curtailment reduction:</strong> Stores otherwise unused renewable generation — increases energy utilisation and project revenue</li>
+          <li><strong>Power quality:</strong> Fast response to fluctuations protects sensitive equipment — reduces downtime and maintenance costs</li>
+          <li><strong>Mine-closure alignment:</strong> Productive use of otherwise idle land; ESG reporting value; supports just-transition narrative for coal mine closure</li>
+        </ul>
+      </div>
+      </div>
+
+      <div class="accordion-item"><button class="accordion-btn" onclick="toggleAccordion(this)"><span>Site Suitability and Technical Specification Matrix</span><span class="accordion-chevron">&#8964;</span></button>
+      <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">The following matrix provides a structured checklist for assessing the suitability of the proposed site for the selected repurposing option. It identifies the key physical, technical, environmental, infrastructure, legal, and owner-side readiness parameters that should be reviewed before the project is advanced to the next stage of development. The purpose of this matrix is to help the project owner understand existing site conditions, technical requirements, potential constraints, and preparatory actions required before feasibility studies, approvals, or tendering are initiated.</p>
+        <table class="spv-table">
+          <thead><tr><th>Category</th><th>Sub-category</th><th>What to Assess</th><th>Why It Matters</th></tr></thead>
+          <tbody>
+            <tr><td rowspan="3"><strong>Site / Land</strong></td><td>Available land area</td><td>Total area, usable area, setbacks, expansion space</td><td>Determines project size and safety clearances</td></tr>
+            <tr><td>Site topography</td><td>Slope, grading, drainage, flood exposure</td><td>Affects civil works and container placement cost</td></tr>
+            <tr><td>Ground condition</td><td>Bearing capacity, contamination, filled ground</td><td>Critical for foundations and heavy equipment</td></tr>
+            <tr><td rowspan="2"><strong>Electrical interface</strong></td><td>Grid connection point</td><td>Nearest substation, voltage level, spare bay availability</td><td>Often the key technical and cost constraint</td></tr>
+            <tr><td>Existing internal load</td><td>Demand profile, peak timing, outage sensitivity</td><td>Determines best storage use case and sizing logic</td></tr>
+            <tr><td rowspan="3"><strong>BESS system design</strong></td><td>Power rating</td><td>Required MW output and response capability</td><td>Defines discharge strength and operational role</td></tr>
+            <tr><td>Energy rating</td><td>Required MWh and discharge duration</td><td>Defines how long system can support load</td></tr>
+            <tr><td>Battery chemistry</td><td>LFP, NMC, sodium-ion, or other</td><td>Affects safety, cost, cycle life, and footprint</td></tr>
+            <tr><td rowspan="2"><strong>Thermal &amp; safety</strong></td><td>Cooling system</td><td>Air cooling or liquid cooling requirement</td><td>Critical for battery performance and longevity</td></tr>
+            <tr><td>Fire safety</td><td>Detection, suppression, emergency isolation design</td><td>Most critical design area in BESS — non-negotiable</td></tr>
+            <tr><td><strong>Legal / approvals</strong></td><td>Land rights</td><td>Ownership, lease rights, land-use permissibility post-mining</td><td>Foundational requirement before RFP</td></tr>
+            <tr><td><strong>Environmental &amp; social</strong></td><td>Local sensitivity</td><td>Nearby settlements, safety perception, noise, visual impact</td><td>Important for acceptance and compliance</td></tr>
+          </tbody>
+        </table>
+      </div>
+      </div>
+
+      <div class="accordion-item"><button class="accordion-btn" onclick="toggleAccordion(this)"><span>Indicative Project Scale and Configuration Matrix</span><span class="accordion-chevron">&#8964;</span></button>
+      <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">The following matrix presents an indicative relationship between available site area, project scale, technical configuration, and likely development potential. It is intended to support preliminary planning by helping the project owner identify the appropriate scale and configuration for the proposed repurposing option. The values and recommendations are indicative and should be refined through detailed feasibility studies, site surveys, engineering assessments, and relevant technical and commercial evaluations.</p>
+        <table class="spv-table">
+          <thead><tr><th>Scale</th><th>Power Capacity</th><th>Duration</th><th>Energy Capacity</th><th>Configuration</th><th>Typical Application</th></tr></thead>
+          <tbody>
+            <tr><td>Small pilot</td><td>1–5 MW</td><td>1–2 hr</td><td>1–10 MWh</td><td>Containerized modular</td><td>Pilot, backup, peak shaving for captive use</td></tr>
+            <tr><td>Small industrial</td><td>5–10 MW</td><td>1–2 hr</td><td>5–20 MWh</td><td>Modular container blocks</td><td>Captive demand savings, reliability improvement</td></tr>
+            <tr><td>Medium commercial</td><td>10–25 MW</td><td>2–4 hr</td><td>20–100 MWh</td><td>Multi-container with EMS</td><td>Peak management, renewable integration support</td></tr>
+            <tr><td>Utility-interfacing</td><td>25–50 MW</td><td>2–4 hr</td><td>50–200 MWh</td><td>Utility-scale block architecture</td><td>Grid support, load shifting, ancillary services</td></tr>
+            <tr><td>Large utility-scale</td><td>50–100 MW</td><td>2–4 hr</td><td>100–400 MWh</td><td>Centralized dispatch BESS yard</td><td>Grid services, renewable balancing, PPA-backed</td></tr>
+            <tr><td>Mega-scale</td><td>100 MW+</td><td>2–6 hr</td><td>200 MWh+</td><td>Utility-scale integrated platform</td><td>Large-scale grid balancing and dispatch support</td></tr>
+          </tbody>
+        </table>
+      </div>
+      </div>
+
+      <div class="prism2-nav-row">
+        <button class="prism2-btn-prev" id="prism2-prev-P" onclick="prism2Prev()" disabled>&#8592; Previous</button>
+        <div class="prism2-progress-dots" style="display:flex;gap:5px;align-items:center;">
+          <span class="pdot active" data-p="P"></span><span class="pdot" data-p="R"></span>
+          <span class="pdot" data-p="I"></span><span class="pdot" data-p="S"></span><span class="pdot" data-p="M"></span>
+        </div>
+        <button class="prism2-btn-next" id="prism2-next-P" onclick="prism2Next()">Next pillar &#8594;</button>
+      </div>
+    </div><!-- /P Panel -->
+
+    <!-- ── R Panel ── -->
+    <div class="prism2-content-panel" id="prism2-panel-R" style="--pc:#1a5ca8;--pb:#e4eef9;--cb:#f3f7fd;">
+      <div class="prism2-panel-header">
+        <div class="prism2-panel-header-letter">R</div>
+        <div class="prism2-panel-header-text">
+          <div class="prism2-panel-eyebrow">REPURPOSING PATHWAYS</div>
+          <p class="prism2-panel-desc">Implementation options for BESS, comparative assessment of delivery models, and model-wise responsibility logic for mine-owner and developer partners.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item"><button class="accordion-btn" onclick="toggleAccordion(this)"><span>Implementation Options</span><span class="accordion-chevron">&#8964;</span></button>
+      <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">The following table outlines the possible implementation models that may be considered for developing the proposed repurposing project. These models differ in terms of ownership structure, funding responsibility, private sector participation, operational control, and long-term risk allocation. The purpose of this table is to help the project owner compare broad development routes and select an implementation approach that aligns with its financial capacity, institutional preference, risk appetite, and long-term asset management objectives.</p>
+        <table class="spv-table">
+          <thead><tr><th>Group</th><th>Model</th><th>Core Feature</th><th>Broad Suitability</th></tr></thead>
+          <tbody>
+            <tr><td rowspan="2"><strong>Owner-led</strong></td><td>EPC</td><td>Owner funds and owns the project; contractor builds the BESS</td><td>Owner wants full control and retains all value</td></tr>
+            <tr><td>EPC + O&amp;M</td><td>Owner funds and owns; specialist agency handles O&amp;M and dispatch</td><td>Owner wants ownership with professional operational support</td></tr>
+            <tr><td rowspan="2"><strong>Developer-led</strong></td><td>BOO</td><td>Private developer finances, builds, owns, and operates without mandatory transfer</td><td>Long-term private ownership acceptable; owner earns lease</td></tr>
+            <tr><td>BOOT</td><td>Developer finances, builds, operates during concession and transfers at end</td><td>Eventual transfer to owner is preferred; PPP-style</td></tr>
+            <tr><td><strong>Partnership</strong></td><td>PPP / Hybrid</td><td>Public/private structure with shared responsibilities, risks, and benefits</td><td>Structured partnership with shared upside</td></tr>
+            <tr><td><strong>Service-based</strong></td><td>RESCO / Storage-as-a-Service</td><td>Service provider invests in BESS and provides storage services under a service arrangement</td><td>User wants storage benefits without large upfront CAPEX</td></tr>
+          </tbody>
+        </table>
+      </div>
+      </div>
+
+      <div class="accordion-item"><button class="accordion-btn" onclick="toggleAccordion(this)"><span>Comparative Assessment of Key Models</span><span class="accordion-chevron">&#8964;</span></button>
+      <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">The following comparative assessment evaluates the major implementation models across key decision parameters such as investment requirement, ownership control, financing responsibility, contractual complexity, risk transfer, and long-term economic benefit. This matrix is intended to support early-stage decision-making by highlighting the relative strengths and limitations of each model. The final choice of model should be guided by the specific circumstances of the project, including its scale, commercial viability, applicable policy framework, and the owner's institutional preference.</p>
+        <table class="spv-table">
+          <thead><tr><th>Parameter</th><th>EPC</th><th>EPC+O&amp;M</th><th>BOOT</th><th>BOO</th><th>RESCO</th></tr></thead>
+          <tbody>
+            <tr><td>Upfront investment by owner</td><td>High</td><td>High</td><td>Low</td><td>Low</td><td>Low</td></tr>
+            <tr><td>Ownership retained from start</td><td>Yes</td><td>Yes</td><td>No</td><td>No</td><td>No / limited</td></tr>
+            <tr><td>Long-term asset control</td><td>High</td><td>High</td><td>Limited during concession</td><td>Low</td><td>Limited</td></tr>
+            <tr><td>Technology &amp; market risk to owner</td><td>High</td><td>Moderate</td><td>Low</td><td>Low</td><td>Low</td></tr>
+            <tr><td>Contractual complexity</td><td>Low–Moderate</td><td>Moderate</td><td>High</td><td>Moderate</td><td>Moderate–High</td></tr>
+            <tr><td>Retention of long-term economic benefit</td><td>High</td><td>High</td><td>Deferred / partial</td><td>Low</td><td>Low</td></tr>
+            <tr><td>Overall suitability — owner has funds</td><td>High</td><td>Very High</td><td>Moderate</td><td>Low–Moderate</td><td>Low</td></tr>
+            <tr><td>Overall suitability — owner wants private finance</td><td>Low</td><td>Low</td><td>High</td><td>High</td><td>High</td></tr>
+          </tbody>
+        </table>
+      </div>
+      </div>
+
+      <div class="accordion-item"><button class="accordion-btn" onclick="toggleAccordion(this)"><span>Model-Wise Responsibility Logic</span><span class="accordion-chevron">&#8964;</span></button>
+      <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">The following table explains how major project responsibilities are typically allocated under different implementation models. It covers key functional areas such as site availability, financing, design and construction, regulatory approvals, operation and maintenance, revenue collection, asset ownership, and end-of-term transfer. This helps clarify the respective roles of the project owner, private developer, EPC contractor, operator, or concessionaire, and supports the preparation of tender documents and contractual structures.</p>
+        <table class="spv-table">
+          <thead><tr><th>Responsibility Area</th><th>EPC+O&amp;M</th><th>BOOT</th><th>BOO</th><th>RESCO</th><th>Hybrid/PPP</th></tr></thead>
+          <tbody>
+            <tr><td>Land provision</td><td>Mine owner</td><td>Mine owner</td><td>Mine owner</td><td>Mine owner</td><td>Mine owner</td></tr>
+            <tr><td>CAPEX (BESS system + civil)</td><td>Mine owner</td><td>Developer</td><td>Developer</td><td>Service provider</td><td>Shared</td></tr>
+            <tr><td>Technology selection &amp; procurement</td><td>Owner (with contractor)</td><td>Developer</td><td>Developer</td><td>Service provider</td><td>Shared</td></tr>
+            <tr><td>O&amp;M, EMS, dispatch management</td><td>O&amp;M contractor</td><td>Developer</td><td>Developer</td><td>Service provider</td><td>Shared / specialist</td></tr>
+            <tr><td>Grid interface &amp; utility coordination</td><td>Owner / contractor</td><td>Developer</td><td>Developer</td><td>Service provider</td><td>Joint</td></tr>
+            <tr><td>Revenue receipt</td><td>Mine owner</td><td>Developer during concession</td><td>Developer</td><td>Service provider (fee-based)</td><td>Shared per agreement</td></tr>
+            <tr><td>Revenue to mine owner</td><td>Full revenue (net O&amp;M)</td><td>Lease + transfer value</td><td>Lease / royalty</td><td>Avoided CAPEX + savings</td><td>Revenue share</td></tr>
+            <tr><td>Risk bearing</td><td>Owner (technology + market)</td><td>Developer</td><td>Developer</td><td>Service provider</td><td>Distributed</td></tr>
+          </tbody>
+        </table>
+      </div>
+      </div>
+
+      <div class="prism2-nav-row">
+        <button class="prism2-btn-prev" id="prism2-prev-R" onclick="prism2Prev()">&#8592; Previous</button>
+        <div class="prism2-progress-dots" style="display:flex;gap:5px;align-items:center;">
+          <span class="pdot" data-p="P"></span><span class="pdot active" data-p="R"></span>
+          <span class="pdot" data-p="I"></span><span class="pdot" data-p="S"></span><span class="pdot" data-p="M"></span>
+        </div>
+        <button class="prism2-btn-next" id="prism2-next-R" onclick="prism2Next()">Next pillar &#8594;</button>
+      </div>
+    </div><!-- /R Panel -->
+
+    <!-- ── I Panel ── -->
+    <div class="prism2-content-panel" id="prism2-panel-I" style="--pc:#b06a10;--pb:#faedda;--cb:#fdf7f0;">
+      <div class="prism2-panel-header">
+        <div class="prism2-panel-header-letter">I</div>
+        <div class="prism2-panel-header-text">
+          <div class="prism2-panel-eyebrow">INVESTMENT DYNAMICS</div>
+          <p class="prism2-panel-desc">Funding logic, revenue generation by model, livelihood and jobs comparison, and combined revenue-profitability-livelihood assessment for BESS.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item"><button class="accordion-btn" onclick="toggleAccordion(this)"><span>Funding Logic</span><span class="accordion-chevron">&#8964;</span></button>
+      <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">The following table presents the broad funding logic for each implementation model. It explains who is expected to finance the project, the level of owner-side funding requirement, and the commercial rationale behind each structure. This section is intended to help the project owner assess whether the project is more suitable for owner-funded development, private investment, public-private partnership, lease or concession structure, or a hybrid funding arrangement.</p>
+        <table class="spv-table">
+          <thead><tr><th>Model</th><th>Primary Funding Source</th><th>Owner Funding Requirement</th><th>Commercial Logic</th></tr></thead>
+          <tbody>
+            <tr><td>EPC</td><td>Owner's equity, internal accruals, or debt</td><td>High</td><td>Owner directly finances and retains complete ownership and long-term economic benefit</td></tr>
+            <tr><td>EPC + O&amp;M</td><td>Owner's equity or debt financing</td><td>High</td><td>Owner finances and retains ownership; operation is outsourced to specialist</td></tr>
+            <tr><td>BOOT</td><td>Private developer equity and project financing</td><td>Low</td><td>Developer finances and operates; transfers asset to owner at end of concession</td></tr>
+            <tr><td>BOO</td><td>Private developer equity and external project financing</td><td>Low</td><td>Developer finances, owns, and operates; retains long-term revenue; owner earns lease</td></tr>
+            <tr><td>RESCO / Storage-as-a-Service</td><td>Developer equity and debt</td><td>Low</td><td>Developer funds; earns returns through service fees or shared demand savings</td></tr>
+            <tr><td>IPP / PPA-backed hybrid</td><td>Private developer equity and debt</td><td>Low</td><td>Developer recovers investment through contracted storage or power-linked revenue</td></tr>
+          </tbody>
+        </table>
+      </div>
+      </div>
+
+      <div class="accordion-item"><button class="accordion-btn" onclick="toggleAccordion(this)"><span>Revenue Generation by Model</span><span class="accordion-chevron">&#8964;</span></button>
+      <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">The following table explains how revenue may be generated under different implementation models and identifies who is likely to receive the principal project income. It also describes the nature and extent of the financial benefit available to the project owner, whether through direct project revenue, cost savings, lease income, concession fees, revenue sharing, service charges, or eventual asset transfer. This comparison is intended to support the selection of a commercially appropriate model for the proposed repurposing project.</p>
+        <table class="spv-table">
+          <thead><tr><th>Model</th><th>How Revenue is Generated</th><th>Who Receives Main Revenue</th><th>Owner's Financial Benefit</th></tr></thead>
+          <tbody>
+            <tr><td>EPC</td><td>Demand-charge reduction, time-shifting, electricity sale, backup value, grid ancillary services</td><td>Owner</td><td>Full economic benefit from storage operation and asset ownership</td></tr>
+            <tr><td>EPC + O&amp;M</td><td>Same value streams, net of O&amp;M service payments</td><td>Owner</td><td>Full economic benefit subject to O&amp;M charges; specialist optimises dispatch</td></tr>
+            <tr><td>BOOT</td><td>Storage service payments, arbitrage, grid support during concession period</td><td>Developer during concession</td><td>Deferred benefit through concession fee, lease income, and asset transfer</td></tr>
+            <tr><td>BOO</td><td>Continuous storage-related revenues and energy-market participation</td><td>Developer</td><td>Limited direct benefit through negotiated lease rent or revenue share</td></tr>
+            <tr><td>RESCO</td><td>Service fee, shared demand savings, avoided peak charges</td><td>Service provider</td><td>Benefit through avoided CAPEX, energy cost savings, site-related payments</td></tr>
+            <tr><td>IPP / PPA-backed hybrid</td><td>Contracted storage / dispatch support or hybrid electricity sale</td><td>IPP / developer</td><td>Moderate through lease, concession income, or negotiated revenue-sharing</td></tr>
+          </tbody>
+        </table>
+      </div>
+      </div>
+
+      <div class="accordion-item"><button class="accordion-btn" onclick="toggleAccordion(this)"><span>Which Model is Better for Local Livelihood and Jobs</span><span class="accordion-chevron">&#8964;</span></button>
+      <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">The following table assesses the likely local livelihood and employment potential of each implementation model. It considers the extent to which each model can support construction-phase jobs, long-term operational employment, local procurement opportunities, skill development, community participation, and associated support services. This section is particularly relevant where the repurposing project is expected to contribute to post-mining or post-operational economic transition and sustained local community benefit.</p>
+        <table class="spv-table">
+          <thead><tr><th>Model</th><th>Local Job Potential</th><th>Why</th><th>Overall Suitability</th></tr></thead>
+          <tbody>
+            <tr><td>EPC + O&amp;M</td><td>High</td><td>Construction jobs plus long-term O&amp;M, monitoring, safety, cleaning, and security roles; owner can mandate local hiring</td><td>Very High / Most Suitable</td></tr>
+            <tr><td>BOOT</td><td>High</td><td>Both construction and operational jobs over concession; local benefit depends on contractual developer commitments</td><td>High — contractually mandatable</td></tr>
+            <tr><td>IPP / PPA-backed hybrid</td><td>High</td><td>Larger projects generate substantial jobs; local benefit depends on hiring requirements in concession</td><td>High — needs RFP conditions</td></tr>
+            <tr><td>BOO</td><td>Moderate–High</td><td>Generates construction and operation employment; outcomes depend on private owner practices</td><td>Moderate</td></tr>
+            <tr><td>EPC (owner-led, no O&amp;M)</td><td>Moderate</td><td>Creates local jobs mainly during civil works, cabling, and security; limited ongoing employment</td><td>Moderate</td></tr>
+            <tr><td>RESCO</td><td>Moderate</td><td>Usually strong in technical delivery; long-term local employment may be narrower due to specialist crew</td><td>Moderate</td></tr>
+          </tbody>
+        </table>
+      </div>
+      </div>
+
+      <div class="accordion-item"><button class="accordion-btn" onclick="toggleAccordion(this)"><span>Combined Comparison: Revenue, Profitability, and Livelihood</span><span class="accordion-chevron">&#8964;</span></button>
+      <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">The following combined comparison brings together three important dimensions of project structuring: revenue potential, owner-side financial benefit, and local livelihood generation. It provides a consolidated view of how each implementation model performs across commercial, institutional, and community-development perspectives. This matrix is intended to support balanced decision-making where the objective extends beyond financial return to include sustainable site reuse and long-term local economic benefit.</p>
+        <table class="spv-table">
+          <thead><tr><th>Model</th><th>Revenue / Value Source</th><th>Owner Profitability</th><th>Local Job Creation</th><th>Overall Comment</th></tr></thead>
+          <tbody>
+            <tr><td>EPC</td><td>Peak shaving, energy shifting, captive savings, reliability, grid services</td><td>High — owner retains full value; requires high upfront investment</td><td>Moderate</td><td>Suitable where owner has funds and wants full control</td></tr>
+            <tr><td>EPC + O&amp;M</td><td>Same as EPC, under service contract</td><td>High — owner retains most benefit after O&amp;M charges</td><td>High</td><td>Most suitable to combine profitability, ownership, and local livelihood</td></tr>
+            <tr><td>BOOT</td><td>Storage revenue, service fee, hybrid dispatch during concession</td><td>Moderate — benefit deferred through transfer or lease income</td><td>High</td><td>Suitable for PPP-style development; owner profitability is indirect initially</td></tr>
+            <tr><td>BOO</td><td>Long-term storage revenue by private developer</td><td>Low–Moderate — most value goes to developer</td><td>Moderate–High</td><td>Suitable where private ownership is acceptable; owner earns lease only</td></tr>
+            <tr><td>RESCO</td><td>Service-based payment, shared savings, demand reduction</td><td>Low–Moderate — owner benefits through avoided CAPEX and savings</td><td>Moderate</td><td>Suitable where owner wants benefit without major upfront investment</td></tr>
+            <tr><td>IPP / PPA-backed hybrid</td><td>Contracted dispatch / storage-linked revenue</td><td>Moderate — through lease, concession, or negotiated sharing</td><td>High</td><td>Suitable for large-scale bankable projects with hybrid renewable systems</td></tr>
+          </tbody>
+        </table>
+      </div>
+      </div>
+
+      <div class="prism2-nav-row">
+        <button class="prism2-btn-prev" id="prism2-prev-I" onclick="prism2Prev()">&#8592; Previous</button>
+        <div class="prism2-progress-dots" style="display:flex;gap:5px;align-items:center;">
+          <span class="pdot" data-p="P"></span><span class="pdot" data-p="R"></span>
+          <span class="pdot active" data-p="I"></span><span class="pdot" data-p="S"></span><span class="pdot" data-p="M"></span>
+        </div>
+        <button class="prism2-btn-next" id="prism2-next-I" onclick="prism2Next()">Next pillar &#8594;</button>
+      </div>
+    </div><!-- /I Panel -->
+
+    <!-- ── S Panel ── -->
+    <div class="prism2-content-panel" id="prism2-panel-S" style="--pc:#5a3d9e;--pb:#edeaf8;--cb:#f7f5fd;">
+      <div class="prism2-panel-header">
+        <div class="prism2-panel-header-letter">S</div>
+        <div class="prism2-panel-header-text">
+          <div class="prism2-panel-eyebrow">STRATEGIC STRUCTURING</div>
+          <p class="prism2-panel-desc">Pre-RFP preparation checklist, post-award activity scope, and indicative implementation pathway for BESS development on post-mining land.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item"><button class="accordion-btn" onclick="toggleAccordion(this)"><span>Preparations Needed Before RFP</span><span class="accordion-chevron">&#8964;</span></button>
+      <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">The following section identifies the key owner-side preparatory actions that should ideally be completed before issuing the first Request for Proposal. These actions are aimed at reducing uncertainty for prospective bidders, improving project bankability, clarifying site availability, identifying approval pathways and risks, and defining the technical and commercial scope of the project. Completing these preparatory steps before tendering can improve bid quality, attract credible responses, and reduce the risk of delays during project implementation.</p>
+        <ol class="spv-list">
+          <li>Land, closure and permissibility confirmation — Confirm land ownership, closure status, post-mining land-use permissibility, site access rights, and whether the proposed BESS use is compatible with the mine-closure framework and internal asset-repurposing approvals.</li>
+          <li>Project use-case and asset classification note — Clearly define whether the BESS is intended for captive use, peak shaving, renewable integration, reliability support, transmission / distribution support, or ancillary-service-linked use, consistent with the Ministry of Power's BESS utilization framework.</li>
+          <li>Legal, commercial and contracting screening — Review land-use restrictions, lease / concession permissibility, user charges, revenue-sharing permissibility, insurance approach, and preferred delivery structure such as EPC, EPC + O&amp;M, BOOT, BOO, RESCO, or hybrid.</li>
+          <li>Preliminary site and geotechnical screening — Prepare preliminary topographic survey, geotechnical screening, drainage assessment, constructability note, and hazard mapping for reclaimed land, subsidence-prone areas, unstable dumps, and access corridors.</li>
+          <li>Electrical interconnection and evacuation screening — Identify the interconnection point, voltage level, bay availability, evacuation route, metering implications, and broad protection-system requirements for grid-connected or captive integration.</li>
+          <li>Preliminary load, dispatch and sizing assessment — Prepare a basic assessment of load profile, peak demand pattern, outage profile, charging source, discharge windows, indicative MW / MWh sizing, and expected operating cycles.</li>
+          <li>Safety and compliance pre-screening — Identify applicable electrical safety, fire safety, hazardous-area, emergency access, and BESS-specific safety requirements, including likely CEIG / electrical inspectorate interface and owner-side safety philosophy.</li>
+          <li>Environmental and statutory screening — Screen site-specific statutory triggers such as forest, wildlife, CRZ / IPZ, SPCB-related requirements, battery-waste handling implications, and any water / drainage permissions if applicable.</li>
+          <li>Funding and scheme eligibility assessment — Examine whether the project may be developed under normal commercial mode, PPP mode, VGF-supported mode, or state / central support mechanisms under current BESS policy frameworks.</li>
+          <li>Preliminary implementation model selection — Select the preferred procurement / delivery model and prepare the broad risk-allocation logic for financing, ownership, dispatch rights, O&amp;M responsibility, performance guarantees, and asset transfer where applicable.</li>
+          <li>Draft RFP scope and performance framework — Prepare the draft bidder scope covering design, supply, installation, integration, EMS / SCADA, commissioning, safety compliance, availability guarantee, augmentation philosophy, O&amp;M obligations, and end-of-life / battery replacement responsibility.</li>
+          <li>Bid evaluation framework — Define evaluation criteria covering BESS experience, OEM / integrator capability, safety record, technical compliance, financial capacity, lifecycle support, local employment approach, and commercial offer.</li>
+        </ol>
+      </div>
+      </div>
+
+      <div class="accordion-item"><button class="accordion-btn" onclick="toggleAccordion(this)"><span>Activities to be taken After Selecting the Agency</span><span class="accordion-chevron">&#8964;</span></button>
+      <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">The following section lists the principal activities that may be undertaken by the selected contractor, developer, concessionaire, operator, or implementation agency after award of the project. These activities generally include detailed site investigations, engineering design, statutory submissions and approvals, equipment procurement, construction, commissioning, operational planning, staff training, and performance monitoring. The distinction between pre-RFP owner preparedness and post-award implementation responsibilities helps ensure an appropriate and efficient allocation of effort across the project development cycle.</p>
+        <ol class="spv-list">
+          <li>Detailed site investigation — Undertake detailed topographic survey, geotechnical investigation, drainage study, soil / foundation assessment, and constructability confirmation for the BESS blocks, control room, transformer area, fire systems, and access roads.</li>
+          <li>Detailed electrical and interconnection studies — Carry out detailed evacuation design, protection coordination, metering scheme, relay philosophy, short-circuit assessment, auxiliary power design, and utility interface studies.</li>
+          <li>Detailed BESS sizing and system engineering — Finalize MW / MWh sizing, operating duty cycle, battery chemistry, container / enclosure layout, PCS configuration, EMS, SCADA, augmentation philosophy, and warranty-backed performance assumptions.</li>
+          <li>Detailed safety, fire and emergency planning — Prepare the detailed safety management plan, fire detection and suppression design, emergency response plan, electrical isolation philosophy, access-control plan, and incident-response protocol in line with applicable safety requirements.</li>
+          <li>Detailed Project Report (DPR) — Prepare the DPR covering final surveys, system design, electrical integration, safety design, project cost, implementation schedule, O&amp;M plan, statutory approvals matrix, and lifecycle management strategy for owner approval before execution.</li>
+          <li>Approvals, permissions and statutory compliance — Obtain final utility approvals, CEIG / electrical approvals, metering approvals, fire clearances, environmental / SPCB clearances where applicable, and any other permissions required prior to energization.</li>
+          <li>Procurement of equipment and systems — Procure battery systems, PCS, EMS, SCADA, transformers, switchgear, protection systems, fire systems, security systems, communications equipment, and approved auxiliary systems.</li>
+          <li>Construction, installation and integration — Execute civil works, foundations, BESS block installation, cabling, control-room works, transformer and switchyard integration, fire systems, communications, and grid / load interconnection.</li>
+          <li>Testing, commissioning and acceptance procedures — Carry out factory and site acceptance tests, functional tests, protection tests, EMS / SCADA integration checks, trial charging / discharging, performance demonstration, and reliability verification.</li>
+          <li>Preparation of operating procedures and manuals — Finalize SOPs for charging / discharging, dispatch control, shutdown and isolation, emergency response, inspection, maintenance, augmentation, incident reporting, and battery replacement handling.</li>
+          <li>Recruitment and training — Recruit and train operators, technicians, safety personnel, control-room staff, maintenance teams, and local support manpower for routine operation and emergency response.</li>
+          <li>Local livelihood integration — Integrate local employment and service opportunities such as security, housekeeping, minor maintenance support, vegetation control, logistics support, and auxiliary facility services, subject to project structure.</li>
+          <li>Trial operation and performance stabilization — Undertake initial operating cycles, dispatch trials, reliability runs, safety drills, and performance stabilization before commercial operation date declaration.</li>
+          <li>Commercial operation and routine O&amp;M — Commence regular operation, scheduled maintenance, safety inspections, warranty management, environmental compliance, and periodic performance reporting.</li>
+          <li>Lifecycle review and augmentation planning — Plan periodic capacity review, augmentation requirements, major component replacement strategy, warranty-event management, and end-of-life disposal / recycling compliance under applicable battery-waste rules.</li>
+        </ol>
+      </div>
+      </div>
+
+      <div class="accordion-item"><button class="accordion-btn" onclick="toggleAccordion(this)"><span>Indicative Implementation Pathway</span><span class="accordion-chevron">&#8964;</span></button>
+      <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">The following implementation pathway presents a practical high-level sequence for advancing the proposed repurposing concept from initial approval through to project execution and long-term operation. It outlines the broad stages of concept approval, preliminary studies, model selection, bid preparation, procurement, detailed design, statutory approvals, construction, commissioning, and ongoing operation. This pathway is indicative and should be adapted to reflect the specific complexity, regulatory requirements, financing structure, and site conditions applicable to the project.</p>
+        <ol class="spv-list">
+          <li>Concept approval and owner-side structuring</li>
+          <li>Identification of primary BESS use case and commercial objective</li>
+          <li>Preliminary site studies and de-risking (land, geotechnical, safety)</li>
+          <li>Preliminary grid and load integration assessment</li>
+          <li>Selection of preferred implementation model</li>
+          <li>Preparation of DPR / technical scope / bid documents (internal team or PMC)</li>
+          <li>Market sounding with BESS manufacturers, EPC contractors, developers, and O&amp;M providers</li>
+          <li>Issuance of RFP</li>
+          <li>Selection of contractor / developer / service provider</li>
+          <li>Detailed engineering, safety design, and statutory approvals</li>
+          <li>Construction, installation, and commissioning</li>
+          <li>Testing, performance validation, and commercial operation</li>
+          <li>Long-term O&amp;M, dispatch optimisation, monitoring, and lifecycle management</li>
+        </ol>
+      </div>
+      </div>
+
+      <div class="prism2-nav-row">
+        <button class="prism2-btn-prev" id="prism2-prev-S" onclick="prism2Prev()">&#8592; Previous</button>
+        <div class="prism2-progress-dots" style="display:flex;gap:5px;align-items:center;">
+          <span class="pdot" data-p="P"></span><span class="pdot" data-p="R"></span>
+          <span class="pdot" data-p="I"></span><span class="pdot active" data-p="S"></span><span class="pdot" data-p="M"></span>
+        </div>
+        <button class="prism2-btn-next" id="prism2-next-S" onclick="prism2Next()">Next pillar &#8594;</button>
+      </div>
+    </div><!-- /S Panel -->
+
+    <!-- ── M Panel ── -->
+    <div class="prism2-content-panel" id="prism2-panel-M" style="--pc:#1a7a5e;--pb:#e1f3ec;--cb:#f1faf6;">
+      <div class="prism2-panel-header">
+        <div class="prism2-panel-header-letter">M</div>
+        <div class="prism2-panel-header-text">
+          <div class="prism2-panel-eyebrow">MONITORING GUIDANCE</div>
+          <p class="prism2-panel-desc">Way forward recommendations, key references, and abbreviations for BESS development on post-mining and closed mine sites.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item"><button class="accordion-btn" onclick="toggleAccordion(this)"><span>Way Forward</span><span class="accordion-chevron">&#8964;</span></button>
+      <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">The following way forward summarizes the preferred development approach for the proposed repurposing option, based on the assessment presented in PRISM (Post Mining Repurposing Implementation and Strategy Models). It identifies the most suitable implementation models in order of preference, highlights key technical and due-diligence considerations, and outlines the recommended next steps and broad development logic. This section is intended to guide internal decision-making and support the project owner in progressing from concept-stage evaluation toward feasibility assessment, project structuring, regulatory approvals, and implementation planning.</p>
+        <p class="spv-body-text"><strong>Preferred Models, in order:</strong> (1) DBFOT / BOOT, (2) Concession / Lease-Develop-Operate, (3) Hybrid, (4) EPC + O&amp;M</p>
+        <p class="spv-body-text"><strong>Why preferred:</strong> DBFOT / BOOT is preferred for larger BESS projects because battery storage requires high capital, technology selection, performance guarantees, safety systems and specialist O&amp;M. Hybrid may combine mine-owner land / grid facilitation + renewable developer + storage technology provider + power offtake arrangement.</p>
+        <p class="spv-body-text"><strong>Secondary option:</strong> EPC + O&amp;M is suitable where the mine owner has a captive power use case, funding capacity and wants ownership from inception.</p>
+        <p class="spv-body-text"><strong>Suggestable technical care:</strong> Grid connectivity, fire safety, battery chemistry, thermal management, EMS / SCADA, evacuation capacity, warranties, degradation risk, recycling obligation and integration with solar or wind must be assessed.</p>
+        <p class="spv-body-text"><strong>Recommended development logic:</strong> Start with BESS only where there is a clear use case such as peak shifting, captive supply, renewable smoothing or grid service. Co-located SPV / FSPV + BESS should be prioritized where solar generation is already planned.</p>
+        <p class="spv-body-text"><strong>Final recommendation:</strong> DBFOT / BOOT is most suitable for commercial BESS, while Hybrid is best where the owner wants to enable clean-energy redevelopment without taking full technology risk.</p>
+        <p class="spv-body-text" style="font-style:italic; margin-top:1.2rem;"><strong>Disclaimer —</strong> All repurposing interventions proposed under P.R.I.S.M. shall remain subject to applicable mining laws, land-use regulations, environmental approvals, mine-closure conditions, forest and biodiversity regulations, groundwater permissions, and any other statutory approvals as may be applicable. Land ownership is proposed to remain with the mine owner / competent authority unless otherwise permitted under applicable law.</p>
+      </div>
+      </div>
+
+      <div class="accordion-item"><button class="accordion-btn" onclick="toggleAccordion(this)"><span>References</span><span class="accordion-chevron">&#8964;</span></button>
+      <div class="accordion-body" style="display:none;">
+        <ul class="spv-list" >
+          <li>National Energy Storage Mission (NESM) — Ministry of New and Renewable Energy (MNRE), Government of India</li>
+          <li>SECI Standalone BESS Tender Documentation — Solar Energy Corporation of India</li>
+          <li>Revamped Distribution Sector Scheme (RDSS) Guidelines — Ministry of Power, Government of India</li>
+          <li>Mine Closure Guidelines — Ministry of Coal / Coal Controller's Organisation, Government of India</li>
+          <li>CEA Grid Code and CEIG Safety Regulations for Energy Storage Systems — Central Electricity Authority</li>
+          <li>IEC 62619:2022 — Safety Requirements for Secondary Lithium Cells and Batteries for Use in Industrial Applications</li>
+          <li>NITI Aayog Report on Battery Storage in India — Energy Storage Roadmap</li>
+          <li>SPCB Guidelines for Battery Energy Storage Systems — respective State Pollution Control Boards</li>
+        </ul>
+      </div>
+      </div>
+
+      <div class="accordion-item"><button class="accordion-btn" onclick="toggleAccordion(this)"><span>Abbreviations</span><span class="accordion-chevron">&#8964;</span></button>
+      <div class="accordion-body" style="display:none;">
+        <table class="spv-table">
+          <thead><tr><th>Abbreviation</th><th>Full Form</th></tr></thead>
+          <tbody>
+            <tr><td>BESS</td><td>Battery Energy Storage System</td></tr>
+            <tr><td>BOO</td><td>Build-Own-Operate</td></tr>
+            <tr><td>BOOT</td><td>Build-Own-Operate-Transfer</td></tr>
+            <tr><td>CAPEX</td><td>Capital Expenditure</td></tr>
+            <tr><td>CCO</td><td>Coal Controller's Organisation</td></tr>
+            <tr><td>CEA</td><td>Central Electricity Authority</td></tr>
+            <tr><td>CEIG</td><td>Chief Electrical Inspector to Government</td></tr>
+            <tr><td>DPR</td><td>Detailed Project Report</td></tr>
+            <tr><td>EMS</td><td>Energy Management System</td></tr>
+            <tr><td>EPC</td><td>Engineering, Procurement and Construction</td></tr>
+            <tr><td>FSPV</td><td>Floating Solar Photovoltaic</td></tr>
+            <tr><td>IEC</td><td>International Electrotechnical Commission</td></tr>
+            <tr><td>IPP</td><td>Independent Power Producer</td></tr>
+            <tr><td>LFP</td><td>Lithium Iron Phosphate (battery chemistry)</td></tr>
+            <tr><td>MNRE</td><td>Ministry of New and Renewable Energy</td></tr>
+            <tr><td>MoC</td><td>Ministry of Coal</td></tr>
+            <tr><td>MWh</td><td>Megawatt-hour</td></tr>
+            <tr><td>NESM</td><td>National Energy Storage Mission</td></tr>
+            <tr><td>NMC</td><td>Nickel Manganese Cobalt (battery chemistry)</td></tr>
+            <tr><td>O&amp;M</td><td>Operation and Maintenance</td></tr>
+            <tr><td>PMC</td><td>Project Management Consultant</td></tr>
+            <tr><td>PPA</td><td>Power Purchase Agreement</td></tr>
+            <tr><td>PPP</td><td>Public-Private Partnership</td></tr>
+            <tr><td>RDSS</td><td>Revamped Distribution Sector Scheme</td></tr>
+            <tr><td>RESCO</td><td>Renewable Energy Service Company</td></tr>
+            <tr><td>RFP</td><td>Request for Proposal</td></tr>
+            <tr><td>SCADA</td><td>Supervisory Control and Data Acquisition</td></tr>
+            <tr><td>SECI</td><td>Solar Energy Corporation of India</td></tr>
+            <tr><td>SPV</td><td>Solar Photovoltaic</td></tr>
+            <tr><td>SPCB</td><td>State Pollution Control Board</td></tr>
+          </tbody>
+        </table>
+      </div>
+      </div>
+
+      <div class="prism2-nav-row">
+        <button class="prism2-btn-prev" id="prism2-prev-M" onclick="prism2Prev()">&#8592; Previous</button>
+        <div class="prism2-progress-dots" style="display:flex;gap:5px;align-items:center;">
+          <span class="pdot" data-p="P"></span><span class="pdot" data-p="R"></span>
+          <span class="pdot" data-p="I"></span><span class="pdot" data-p="S"></span><span class="pdot active" data-p="M"></span>
+        </div>
+      </div>
+
+      <!-- Framework Complete card -->
+      <div style="margin:0 26px 16px;padding:16px 20px;border-radius:12px;background:#f4faf7;border:1.5px dashed #a8d5c2;display:flex;align-items:center;gap:14px;">
+        <div style="width:36px;height:36px;border-radius:50%;background:#d1ece2;border:1.5px solid #a8d5c2;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#1a7a5e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2.5 8 6 11.5 13.5 4"/></svg>
+        </div>
+        <div style="flex:1;min-width:0;">
+          <div style="font-size:.82rem;font-weight:700;color:#1a7a5e;letter-spacing:.01em;">PRISM Framework Complete</div>
+          <div style="font-size:.75rem;color:#4a7a6a;margin-top:2px;line-height:1.5;">All five pillars reviewed — explore case studies to see how similar projects were executed.</div>
+        </div>
+        <button onclick="showSPVTab('casestudies');setTimeout(function(){window.dispatchEvent(new Event('resize'))},30)" style="flex-shrink:0;font-size:.75rem;font-weight:600;padding:7px 14px;border-radius:8px;border:1.5px solid #a8d5c2;background:#fff;color:#1a7a5e;cursor:pointer;transition:background .2s,border-color .2s;" onmouseover="this.style.background='#e6f5ef'" onmouseout="this.style.background='#fff'">Case Studies &#8599;</button>
+      </div>
+
+      <!-- Download PRISM PDF -->
+      <div style="margin:0 26px 28px;padding:18px 22px;border-radius:12px;background:linear-gradient(135deg,#f0f7ff 0%,#e8f4fd 100%);border:1.5px solid #c5ddf5;display:flex;align-items:center;gap:16px;">
+        <div style="width:40px;height:40px;border-radius:50%;background:#daeafa;border:1.5px solid #b8d4ef;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#1a5ca8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v10M5 8l4 4 4-4"/><rect x="3" y="14" width="12" height="2" rx="1"/></svg>
+        </div>
+        <div style="flex:1;min-width:0;">
+          <div style="font-size:.82rem;font-weight:700;color:#1a5ca8;letter-spacing:.01em;">Download PRISM Framework</div>
+          <div style="font-size:.75rem;color:#3a6a98;margin-top:2px;line-height:1.5;">Save a print-ready PDF of all five pillars for offline reference.</div>
+        </div>
+        <button onclick="downloadPRISM()" style="flex-shrink:0;font-size:.75rem;font-weight:600;padding:8px 16px;border-radius:8px;border:1.5px solid #b8d4ef;background:#fff;color:#1a5ca8;cursor:pointer;transition:background .2s,border-color .2s;display:flex;align-items:center;gap:6px;" onmouseover="this.style.background='#daeafa'" onmouseout="this.style.background='#fff'">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 1v7M3.5 5.5l3 3 3-3"/><rect x="1.5" y="10" width="10" height="1.5" rx=".75"/></svg>
+          Download PDF
+        </button>
+      </div>
+    </div><!-- /M Panel -->
+
+  </div><!-- /pr-content-wrap -->
+</div><!-- /pr-shell -->
+
+<script>
+function prNav(key) {
+  if (typeof prism2Show === 'function') prism2Show(key);
+  document.querySelectorAll('#spv-panel-prism .pr-nav-item').forEach(function(n) {
+    n.classList.toggle('active', n.dataset.key === key);
+  });
+  var hl = document.getElementById('pr-hl');
+  var active = document.querySelector('#spv-panel-prism .pr-nav-item[data-key="' + key + '"]');
+  if (hl && active) {
+    var accent = getComputedStyle(active).getPropertyValue('--pr-accent').trim();
+    hl.style.setProperty('--pr-hl', accent);
+    hl.style.top = active.offsetTop + 'px';
+    hl.style.height = active.offsetHeight + 'px';
+  }
+  document.querySelectorAll('#spv-panel-prism .pdot').forEach(function(d) {
+    d.classList.toggle('active', d.dataset.p === key);
+  });
+}
+</script>
+
+    </div>
+  </div>
+
+  <!-- TAB: Case Studies -->
+  <div id="spv-panel-casestudies" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+      <div class="lit-wrap">
+        <div class="lit-outer">
+          <div class="lit-track-clip">
+            <div class="lit-track" id="litTrack-all">
+<a class="lit-card" href="https://www.tataconsultingengineers.com/case_study/case-study-grid-connected-battery-energy-storage-system-bess/" target="_blank" rel="noopener noreferrer"
+   style="--lit-accent:#21808d;--lit-glow:rgba(33,128,141,.18);--lit-tint:rgba(33,128,141,.06);">
+  <div class="lit-card-body">
+    <div class="lit-card-title">Case Study: Grid-Connected BESS (Battery Energy Storage)</div>
+    <div class="lit-card-meta">
+      <div class="lit-card-type"><span>Case Study</span></div>
+      <div class="lit-card-source">Source: <span>Tata Consulting Engineers</span></div>
+    </div>
+  </div>
+  <div class="lit-card-img"><img src="../images/cs-seci-bess.jpg" alt="Grid-connected BESS, Tata Consulting Engineers India" loading="lazy"></div>
+  <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+</a>
+
+<a class="lit-card" href="https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2015/IRENA_Battery_Storage_case_studies_2015.pdf?la=en&hash=9F36F343000EAC1763B685F18B9CD61311463A6E" target="_blank" rel="noopener noreferrer"
+   style="--lit-accent:#d97706;--lit-glow:rgba(217,119,6,.18);--lit-tint:rgba(217,119,6,.06);">
+  <div class="lit-card-body">
+    <div class="lit-card-title">Case Study 1: Alaska, U.S. — Island / Off-Grid Frequency Response</div>
+    <div class="lit-card-meta">
+      <div class="lit-card-type"><span>Case Study</span></div>
+      <div class="lit-card-source">Source: <span>IRENA Battery Storage Case Studies, 2015</span></div>
+    </div>
+  </div>
+  <div class="lit-card-img"><img src="../images/cs-bess-offgrid-island.jpg" alt="Remote off-grid island power station with solar panels — IRENA Alaska case study context" loading="lazy"></div>
+  <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> View PDF</div>
+</a>
+
+<a class="lit-card" href="https://ampowr.com/resources/case-studies/" target="_blank" rel="noopener noreferrer"
+   style="--lit-accent:#16a34a;--lit-glow:rgba(22,163,74,.18);--lit-tint:rgba(22,163,74,.06);">
+  <div class="lit-card-body">
+    <div class="lit-card-title">Battery Energy Storage System Case Studies</div>
+    <div class="lit-card-meta">
+      <div class="lit-card-type"><span>Case Studies</span></div>
+      <div class="lit-card-source">Source: <span>Ampowr</span></div>
+    </div>
+  </div>
+  <div class="lit-card-img"><img src="../images/cs-bess-ampowr.jpg" alt="Ampowr battery energy storage case study installation" loading="lazy"></div>
+  <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+</a>
+
+<a class="lit-card" href="https://bellrockadvisory.com/risk-perspective-battery-energy-storage-systems-bess-in-mining/" target="_blank" rel="noopener noreferrer"
+   style="--lit-accent:#0369a1;--lit-glow:rgba(3,105,161,.18);--lit-tint:rgba(3,105,161,.06);">
+  <div class="lit-card-body">
+    <div class="lit-card-title">Risk Perspective – Battery Energy Storage Systems (BESS) in Mining</div>
+    <div class="lit-card-meta">
+      <div class="lit-card-type"><span>Risk Analysis</span></div>
+      <div class="lit-card-source">Source: <span>Bell Rock Advisory</span></div>
+    </div>
+  </div>
+  <div class="lit-card-img"><img src="../images/cs-nlcil-mine-bess.jpg" alt="BESS in mining risk perspective" loading="lazy"></div>
+  <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+</a>
+
+<a class="lit-card" href="https://cdn.shopify.com/s/files/1/0693/5655/2444/files/Case_Study-BESS_14052024.pdf?v=1719894874" target="_blank" rel="noopener noreferrer"
+   style="--lit-accent:#7c3aed;--lit-glow:rgba(124,58,237,.18);--lit-tint:rgba(124,58,237,.06);">
+  <div class="lit-card-body">
+    <div class="lit-card-title">Case Study: Battery Energy Storage Systems</div>
+    <div class="lit-card-meta">
+      <div class="lit-card-type"><span>Case Study</span></div>
+      <div class="lit-card-source">Source: <span>Industry Case Study (PDF, 2024)</span></div>
+    </div>
+  </div>
+  <div class="lit-card-img"><img src="../images/cs-hornsdale-bess-arena.jpg" alt="Hornsdale Power Reserve — world's largest battery storage at sunset, South Australia" loading="lazy"></div>
+  <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> View PDF</div>
+</a>
+
+<a class="lit-card" href="https://www.sciencedirect.com/science/article/abs/pii/S2352152X20317199" target="_blank" rel="noopener noreferrer"
+   style="--lit-accent:#C85000;--lit-glow:rgba(200,80,0,.18);--lit-tint:rgba(200,80,0,.06);">
+  <div class="lit-card-body">
+    <div class="lit-card-title">Converting Closed Mines into Giant Batteries: Underground Compressed Air Energy Storage</div>
+    <div class="lit-card-meta">
+      <div class="lit-card-type"><span>Research Paper</span></div>
+      <div class="lit-card-source">Source: <span>ScienceDirect / Journal of Energy Storage</span></div>
+    </div>
+  </div>
+  <div class="lit-card-img"><img src="../images/cs-bess-mine-caes.jpg" alt="Industrial underground mine tunnel — closed mines converted to compressed air energy storage" loading="lazy"></div>
+  <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+</a>
+
+<a class="lit-card" href="https://www.diva-portal.org/smash/get/diva2:1986296/FULLTEXT01.pdf" target="_blank" rel="noopener noreferrer"
+   style="--lit-accent:#dc2626;--lit-glow:rgba(220,38,38,.18);--lit-tint:rgba(220,38,38,.06);">
+  <div class="lit-card-body">
+    <div class="lit-card-title">A Second Life for Batteries in the Mining Industry</div>
+    <div class="lit-card-meta">
+      <div class="lit-card-type"><span>Research Paper</span></div>
+      <div class="lit-card-source">Source: <span>DiVA Portal</span></div>
+    </div>
+  </div>
+  <div class="lit-card-img"><img src="../images/cs-bess-secondlife-batteries.jpg" alt="Used batteries being collected for recycling and second life repurposing" loading="lazy"></div>
+  <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> View PDF</div>
+</a>
+
+<a class="lit-card" href="https://www.deutz.com.au/resources/deutz-battery-energy-storage-systems-for-mining/" target="_blank" rel="noopener noreferrer"
+   style="--lit-accent:#0f766e;--lit-glow:rgba(15,118,110,.18);--lit-tint:rgba(15,118,110,.06);">
+  <div class="lit-card-body">
+    <div class="lit-card-title">Battery Energy Storage Systems for Mining: Powering Remote Sites Smarter With BESS</div>
+    <div class="lit-card-meta">
+      <div class="lit-card-type"><span>Industry Article</span></div>
+      <div class="lit-card-source">Source: <span>DEUTZ Australia</span></div>
+    </div>
+  </div>
+  <div class="lit-card-img"><img src="../images/cs-bess-deutz-mining.jpg" alt="DEUTZ battery energy storage system for remote mining site" loading="lazy"></div>
+  <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+</a>
+
+<a class="lit-card" href="https://www.hitachienergy.com/in/en/news-and-events/features/2022/09/deploying-battery-energy-storage-systems-in-mining" target="_blank" rel="noopener noreferrer"
+   style="--lit-accent:#9333ea;--lit-glow:rgba(147,51,234,.18);--lit-tint:rgba(147,51,234,.06);">
+  <div class="lit-card-body">
+    <div class="lit-card-title">Deploying Battery Energy Storage Systems in Mining</div>
+    <div class="lit-card-meta">
+      <div class="lit-card-type"><span>Industry Article</span></div>
+      <div class="lit-card-source">Source: <span>Hitachi Energy India</span></div>
+    </div>
+  </div>
+  <div class="lit-card-img"><img src="../images/cs-minera-bess-mttomprice.jpg" alt="Hitachi Energy BESS installation at Mt Tom Price mine, Western Australia" loading="lazy"></div>
+  <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+</a>
+
+<a class="lit-card" href="https://www.mdpi.com/1996-1073/17/22/5678" target="_blank" rel="noopener noreferrer"
+   style="--lit-accent:#b45309;--lit-glow:rgba(180,83,9,.18);--lit-tint:rgba(180,83,9,.06);">
+  <div class="lit-card-body">
+    <div class="lit-card-title">Case Studies of Battery Energy Storage System Applications in the Brazilian Transmission System</div>
+    <div class="lit-card-meta">
+      <div class="lit-card-type"><span>Open Access Paper</span></div>
+      <div class="lit-card-source">Source: <span>MDPI Energies</span></div>
+    </div>
+  </div>
+  <div class="lit-card-img"><img src="../images/cs-agl-liddell-bess.jpg" alt="Grid-scale BESS in transmission system — AGL Liddell site" loading="lazy"></div>
+  <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+</a>
+
+<a class="lit-card" href="https://jmkresearch.com/battery-energy-storage-project-case-study/" target="_blank" rel="noopener noreferrer"
+   style="--lit-accent:#1d4ed8;--lit-glow:rgba(29,78,216,.18);--lit-tint:rgba(29,78,216,.06);">
+  <div class="lit-card-body">
+    <div class="lit-card-title">Battery Energy Storage Project Case Study</div>
+    <div class="lit-card-meta">
+      <div class="lit-card-type"><span>Case Study</span></div>
+      <div class="lit-card-source">Source: <span>JMK Research, India</span></div>
+    </div>
+  </div>
+  <div class="lit-card-img"><img src="../images/cs-nlcil-bess.jpg" alt="Battery energy storage project, India — JMK Research case study" loading="lazy"></div>
+  <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+</a>
+
+<a class="lit-card" href="https://iiasa.ac.at/news/jan-2023/turning-abandoned-mines-into-batteries" target="_blank" rel="noopener noreferrer"
+   style="--lit-accent:#059669;--lit-glow:rgba(5,150,105,.18);--lit-tint:rgba(5,150,105,.06);">
+  <div class="lit-card-body">
+    <div class="lit-card-title">Underground Gravity Energy Storage: Turning Abandoned Mines into Batteries</div>
+    <div class="lit-card-meta">
+      <div class="lit-card-type"><span>News Article</span></div>
+      <div class="lit-card-source">Source: <span>IIASA</span></div>
+    </div>
+  </div>
+  <div class="lit-card-img"><img src="../images/pexels-julia-volk-5207427.jpg" alt="Underground mine interior with lighting — abandoned mines repurposed for gravity energy storage" loading="lazy"></div>
+  <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+</a>
+
+<a class="lit-card" href="https://energyalliance.org/wp-content/uploads/2026/04/BESS-India-Case-Study-Global-Energy-Alliance.pdf" target="_blank" rel="noopener noreferrer"
+   style="--lit-accent:#b91c1c;--lit-glow:rgba(185,28,28,.18);--lit-tint:rgba(185,28,28,.06);">
+  <div class="lit-card-body">
+    <div class="lit-card-title">India's First Commercial Standalone Utility-Scale BESS — Reliable Power for a Modern Economy</div>
+    <div class="lit-card-meta">
+      <div class="lit-card-type"><span>Case Study</span></div>
+      <div class="lit-card-source">Source: <span>Global Energy Alliance for People and Planet</span></div>
+    </div>
+  </div>
+  <div class="lit-card-img"><img src="../images/cs-seci-bess-rajnandgaon.jpg" alt="India first commercial standalone utility-scale BESS — Rajnandgaon, Chhattisgarh" loading="lazy"></div>
+  <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> View PDF</div>
+</a>
+
+<a class="lit-card" href="https://www.sciencedirect.com/science/article/abs/pii/S0040162521009021" target="_blank" rel="noopener noreferrer"
+   style="--lit-accent:#6d28d9;--lit-glow:rgba(109,40,217,.18);--lit-tint:rgba(109,40,217,.06);">
+  <div class="lit-card-body">
+    <div class="lit-card-title">Technical and Economic Aspects of Electric Energy Storage in a Mine Shaft — Budryk Case Study</div>
+    <div class="lit-card-meta">
+      <div class="lit-card-type"><span>Research Paper</span></div>
+      <div class="lit-card-source">Source: <span>ScienceDirect / Technological Forecasting &amp; Social Change</span></div>
+    </div>
+  </div>
+  <div class="lit-card-img"><img src="../images/cs-bess-mine-shaft.jpg" alt="Mining tunnel with rail cars — Budryk mine shaft energy storage, Poland" loading="lazy"></div>
+  <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+</a>
+
+<a class="lit-card" href="https://www.ceew.in/battery-energy-storage-systems" target="_blank" rel="noopener noreferrer"
+   style="--lit-accent:#0284c7;--lit-glow:rgba(2,132,199,.18);--lit-tint:rgba(2,132,199,.06);">
+  <div class="lit-card-body">
+    <div class="lit-card-title">Battery Energy Storage Systems — India Policy and Market Overview</div>
+    <div class="lit-card-meta">
+      <div class="lit-card-type"><span>Policy Report</span></div>
+      <div class="lit-card-source">Source: <span>CEEW (Council on Energy, Environment and Water)</span></div>
+    </div>
+  </div>
+  <div class="lit-card-img"><img src="../images/cs-hornsdale-bess.jpg" alt="Battery energy storage facility with co-located solar — grid-scale BESS" loading="lazy"></div>
+  <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+</a>
+
+<a class="lit-card" href="https://www.alsym.com/blog/5-real-world-examples-of-industries-using-bess/" target="_blank" rel="noopener noreferrer"
+   style="--lit-accent:#4f46e5;--lit-glow:rgba(79,70,229,.18);--lit-tint:rgba(79,70,229,.06);">
+  <div class="lit-card-body">
+    <div class="lit-card-title">5 Real-World Examples of Industries Using BESS</div>
+    <div class="lit-card-meta">
+      <div class="lit-card-type"><span>Industry Article</span></div>
+      <div class="lit-card-source">Source: <span>Alsym Energy</span></div>
+    </div>
+  </div>
+  <div class="lit-card-img"><img src="../images/cs-bess-alsym-industries.jpg" alt="Five real-world industries using BESS — data centres, steel, oil and gas, cement, mining" loading="lazy"></div>
+  <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+</a>
+
+            </div>
+          </div>
+          <div class="lit-nav">
+            <button class="lit-nav-btn" id="litPrev-all" onclick="litMove('all',-1)" aria-label="Previous">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <div class="lit-dots" id="litDots-all"></div>
+            <button class="lit-nav-btn" id="litNext-all" onclick="litMove('all',1)" aria-label="Next">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+          </div><!-- /lit-nav -->
+        </div><!-- /lit-outer -->
+      </div><!-- /lit-wrap -->
+    </div><!-- /spv-content -->
+  </div><!-- /spv-panel-casestudies -->
+
+  <!-- TAB: Tender Documents -->
+  <div id="spv-panel-tender" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+        <div class="t5-wrap">
+    <div class="t5-topbar">
+      <div class="t5-pills">
+        <button class="t5-pill t5-pill--all active" onclick="t5Filter('all')">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          All Documents <span class="t5-pill-count" id="t5cnt-all">11</span>
+        </button>
+        <button class="t5-pill--rfp t5-pill" data-sec="rfp" onclick="t5Filter('rfp')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          RFP <span class="t5-pill-count" id="t5cnt-rfp">8</span>
+        </button>
+        <button class="t5-pill--nit t5-pill" data-sec="nit" onclick="t5Filter('nit')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+          NIT <span class="t5-pill-count" id="t5cnt-nit">2</span>
+        </button>
+        <button class="t5-pill--rpt t5-pill" data-sec="rpt" onclick="t5Filter('rpt')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          Reports &amp; DPR <span class="t5-pill-count" id="t5cnt-rpt">1</span>
+        </button>
+      </div>
+      <div class="t5-right">
+        <div class="t5-search-wrap">
+          <svg class="t5-search-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input id="t5SearchInput" class="t5-search" type="text" placeholder="Search documents…" oninput="t5Search(this.value)">
+        </div>
+        <span class="t5-counter" id="t5Counter"></span>
+      </div>
+    </div>
+    <div id="t5Sections">
+      <div class="t5-section" data-sec="rfp" style="animation-delay:0.05s">
+        <div class="t5-section-header">
+          <div class="t5-section-bar" style="background:#0F6E56"></div>
+          <span class="t5-section-label" style="color:#0F6E56">Requests for Proposal (RFP)</span>
+          <span class="t5-section-count">8 documents</span>
+        </div>
+        <div class="t5-list">
+          <a class="t5-row t5-row--rfp" data-sec="rfp"
+             data-title="request for selection (rfs) document for setting up of pilot projects of 300 mw/ 600 mwh standalone battery energy storage systems in maharashtra under tariff-based global competitive bidding"
+             href="https://www.mahadiscom.in/supplier/wp-content/uploads/2024/08/2.-RfS-for-setting-up-300-MW-BESS.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0F6E56">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Request for Selection (RFS) Document for setting up of Pilot Projects of 300 MW/ 600 MWH Standalone Battery Energy Storage Systems in Maharashtra under Tariff-Based Global Competitive Bidding</div>
+              <div class="t5-sub">BESS · mahadiscom.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">RFS</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rfp" data-sec="rfp"
+             data-title="request for selection (rfs) document for setting up of projects of 125 mw/ 500 mwh standalone battery energy storage systems in odisha under tariff-based competitive bidding with viability gap funding supported through psdf"
+             href="https://www.gridco.co.in/writereaddata/Tenders/184725044732RfS-BESS%20Projects-GRIDCO.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0F6E56">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Request for Selection (RFS) Document for setting up of Projects of 125 MW/ 500 MWH Standalone Battery Energy Storage Systems in Odisha under Tariff-Based Competitive Bidding with Viability Gap Funding supported through Psdf</div>
+              <div class="t5-sub">BESS · gridco.co.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">RFS</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rfp" data-sec="rfp"
+             data-title="request for selection (rfs) document for selection of re power developers for supply of 250 mw firm and dispatchable power from grid connected renewable energy (re) power projects with energy storage system in india under tariff based competitive bidding"
+             href="https://www.tatapower.com/tenders/tender-listing/tender-document/Request%20for%20Selection%20(RFS)%20document%20and%20Draft%20PPA.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0F6E56">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Request for Selection (RFS) Document for Selection of RE Power Developers for Supply of 250 MW Firm and Dispatchable Power from Grid Connected Renewable Energy (RE) Power Projects with Energy Storage System in India under Tariff based Competitive Bidding</div>
+              <div class="t5-sub">BESS · tatapower.com</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">RFS</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rfp" data-sec="rfp"
+             data-title="request for proposals for selection of contractor for balance of system along with 5 years of comprehensive o&amp;m of 600 mw/1200 mwh bess project at nandiyal, andhra pradesh (ac package)"
+             href="https://www.seci.co.in/uploads/tenders/RfP_for_BoS_of_600_MW_with_1200_MWh_BESS_AC_Package.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0F6E56">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Request for Proposals for Selection of Contractor for Balance of System along with 5 years of Comprehensive O&amp;M of 600 Mw/1200 MWH BESS Project at Nandiyal, Andhra Pradesh (Ac Package)</div>
+              <div class="t5-sub">BESS · seci.co.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">RFP</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rfp" data-sec="rfp"
+             data-title="scope of work for above"
+             href="https://www.seci.co.in/uploads/tenders/Annexure_B_to_the_BoS_RfP_for_600_MW_with_12000_MWh_BESS.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0F6E56">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Scope of work for above</div>
+              <div class="t5-sub">Bess · seci.co.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">RFP</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rfp" data-sec="rfp"
+             data-title="request for proposal (rfp) for selection of engineering, procurement and construction (epc) contractor for design, engineering, supply, construction, erection, testing, commissioning and o&amp;m of 2 mw (ac) solar pv power plant (2.2mwp dc) 4.5 mwh battery energy storage system having 12 years plant o&amp;m at pavagada ultra mega solar park of tumakuru district in karnataka"
+             href="https://www.eqmagpro.com/wp-content/uploads/2022/12/rfp-for-2mw-solar-with-bess-document.docx" target="_blank" rel="noopener"
+             style="--row-accent:#0F6E56">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Request for Proposal (RFP) for Selection of Engineering, Procurement and Construction (EPC) Contractor for Design, Engineering, Supply, Construction, Erection, Testing, Commissioning and O&amp;M of 2 MW (Ac) Solar Pv Power Plant (2.2MWp Dc) 4.5 MWH Battery Energy Storage System having 12 years Plant O&amp;M at Pavagada Ultra Mega Solar Park of Tumakuru District in Karnataka</div>
+              <div class="t5-sub">BESS+solar · eqmagpro.com</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">RFP</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rfp" data-sec="rfp"
+             data-title="request for proposal design, supply, testing, installation, commissioning, operation and maintenance of 20 mw/ 40 mwh battery energy storage systems (bess) in delhi under tariff-based competitive bidding"
+             href="https://teriin.org/sites/default/files/files/Vol_1_Sow_and_technical_specs_updated.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0F6E56">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Request for Proposal Design, Supply, Testing, Installation, Commissioning, Operation and Maintenance of 20 MW/ 40 MWH Battery Energy Storage Systems (BESS) in Delhi under Tariff-Based Competitive Bidding</div>
+              <div class="t5-sub">BESS · teriin.org</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">RFP</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rfp" data-sec="rfp"
+             data-title="request for selection (rfs) document for procurement under tariff-based global competitive bidding request for selection (rfs) document for setting up of 250 mw/500 mwh stu connected standalone battery energy storage systems (bess) in the state of kerala for kerala state electricity board (ksebl)"
+             href="https://ntpctender.ntpc.co.in/Uploads/job_44752.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0F6E56">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Request for Selection (RFS) Document for Procurement under Tariff-Based Global Competitive Bidding Request for Selection (RFS) document for setting up of 250 Mw/500 MWH Stu connected standalone Battery Energy Storage Systems (BESS) in the state of Kerala for Kerala State Electricity Board (KSEBL)</div>
+              <div class="t5-sub">BESS · ntpctender.ntpc.co.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">RFS</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+        </div>
+      </div><!-- /rfp section -->
+      <div class="t5-section" data-sec="nit" style="animation-delay:0.10s">
+        <div class="t5-section-header">
+          <div class="t5-section-bar" style="background:#B45309"></div>
+          <span class="t5-section-label" style="color:#B45309">Notice Inviting Tender (NIT)</span>
+          <span class="t5-section-count">2 documents</span>
+        </div>
+        <div class="t5-list">
+          <a class="t5-row t5-row--nit" data-sec="nit"
+             data-title="engagement of consultancy agency services for tariff calculation and financial modelling for participating in a renewable energy (re) tender of 100 mw solar power project (spp) with battery energy storage system (bess)"
+             href="https://web.nlcindia.in/tender/2526000204_nit.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#B45309">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Engagement of Consultancy Agency Services for Tariff Calculation and Financial Modelling for participating in a Renewable Energy (RE) tender of 100 MW Solar Power Project (Spp) with BESS (Battery Energy Storage)</div>
+              <div class="t5-sub">bess + solar · web.nlcindia.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">NIT</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--nit" data-sec="nit"
+             data-title="open tender notification for outline agreement (ola) for 2 years for design, supply, installation, testing &amp; commissioning of battery energy storage system at various locations in mumbai distribution with cumulative capacity of 100mw/200mwh having 100mwh energy storage for two hours."
+             href="https://www.tatapower.com/tenders/tender-listing/tender-document/Tender-Document-BESS-in-Mumbai-Distribution.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#B45309">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">OPEN Tender Notification for Outline Agreement (OLA) for 2 years for Design, Supply, Installation, Testing &amp; Commissioning of Battery Energy Storage system at various locations in Mumbai Distribution with cumulative capacity of 100MW/200MWh having 100MWh energy storage for two hours.</div>
+              <div class="t5-sub">bess · tatapower.com</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">Tender</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+        </div>
+      </div><!-- /nit section -->
+      <div class="t5-section" data-sec="rpt" style="animation-delay:0.30s">
+        <div class="t5-section-header">
+          <div class="t5-section-bar" style="background:#0369a1"></div>
+          <span class="t5-section-label" style="color:#0369a1">Reports &amp; DPR</span>
+          <span class="t5-section-count">1 document</span>
+        </div>
+        <div class="t5-list">
+          <a class="t5-row t5-row--rpt" data-sec="rpt"
+             data-title="petition for the capital investment approval for the implementation of 500 kw/ 1 mwh battery energy storage system (bess) along with 400 kwp solar plant"
+             href="https://dev.erckerala.org/api/storage/otherpetitions/Q2Q1qpfimRXIMLn0IK3aQ8WsDym75tLvLm7l2w0Z.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0369a1">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Petition for the Capital Investment Approval for the Implementation of 500 kW/ 1 MWH Battery Energy Storage System (BESS) along with 400 KWP Solar Plant</div>
+              <div class="t5-sub">bess + solar · dev.erckerala.org</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">Report</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+        </div>
+      </div><!-- /rpt section -->
+    </div><!-- /t5Sections -->
+  </div><!-- /t5-wrap -->
+    </div>
+  </div>
+
+  <!-- TAB: Media/Web -->
+  <div id="spv-panel-media" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+
+<div class="media-stack">
+
+  <a class="media-row" href="https://youtu.be/_KVG_av0HMs?si=6mBRkOoap_BEK9Dr" target="_blank" rel="noopener noreferrer" style="--mr-accent:#dc2626;--mr-tint:rgba(220,38,38,.1);">
+    <div class="media-row-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+    <div class="media-row-main">
+      <div class="media-row-tag">Video &middot; Mining</div>
+      <div class="media-row-title">Murray Engineering Battery Energy Storage Systems</div>
+      <div class="media-row-source"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><line x1="2" y1="8" x2="14" y2="8"/><path d="M8 2a10 10 0 010 12M8 2a10 10 0 000 12"/></svg>youtu.be</div>
+    </div>
+    <div class="media-row-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/></svg></div>
+  </a>
+
+  <a class="media-row" href="https://youtu.be/AUx0emnkAos?si=a92HujdsAoiIo3eX" target="_blank" rel="noopener noreferrer" style="--mr-accent:#b91c1c;--mr-tint:rgba(185,28,28,.1);">
+    <div class="media-row-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#b91c1c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+    <div class="media-row-main">
+      <div class="media-row-tag">Video &middot; Mining</div>
+      <div class="media-row-title">Renewable Energy, Battery Energy Storage and Microgrid Solutions for the Mining Industry</div>
+      <div class="media-row-source"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><line x1="2" y1="8" x2="14" y2="8"/><path d="M8 2a10 10 0 010 12M8 2a10 10 0 000 12"/></svg>youtu.be</div>
+    </div>
+    <div class="media-row-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/></svg></div>
+  </a>
+
+  <a class="media-row" href="https://www.mordorintelligence.com/industry-reports/india-battery-energy-storage-systems-market" target="_blank" rel="noopener noreferrer" style="--mr-accent:#0369a1;--mr-tint:rgba(3,105,161,.1);">
+    <div class="media-row-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0369a1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+    <div class="media-row-main">
+      <div class="media-row-tag">Market Report &middot; India</div>
+      <div class="media-row-title">India Battery Energy Storage System (BESS) Market Size &amp; Share Analysis — Growth Trends and Forecast (2026–2031)</div>
+      <div class="media-row-source"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><line x1="2" y1="8" x2="14" y2="8"/><path d="M8 2a10 10 0 010 12M8 2a10 10 0 000 12"/></svg>mordorintelligence.com</div>
+    </div>
+    <div class="media-row-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/></svg></div>
+  </a>
+
+  <a class="media-row" href="https://ornatesolar.com/blog/battery-storage-for-open-access-users-4-ways-it-can-improve-roi-and-reliability" target="_blank" rel="noopener noreferrer" style="--mr-accent:#d97706;--mr-tint:rgba(217,119,6,.1);">
+    <div class="media-row-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+    <div class="media-row-main">
+      <div class="media-row-tag">Blog &middot; India</div>
+      <div class="media-row-title">Battery Storage for Open Access Users: 4 Ways It Can Improve ROI and Reliability</div>
+      <div class="media-row-source"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><line x1="2" y1="8" x2="14" y2="8"/><path d="M8 2a10 10 0 010 12M8 2a10 10 0 000 12"/></svg>ornatesolar.com</div>
+    </div>
+    <div class="media-row-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/></svg></div>
+  </a>
+
+  <a class="media-row" href="https://www.gracebess.com/battery-energy-storage-system-manufacturers-in-india.html" target="_blank" rel="noopener noreferrer" style="--mr-accent:#16a34a;--mr-tint:rgba(22,163,74,.1);">
+    <div class="media-row-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg></div>
+    <div class="media-row-main">
+      <div class="media-row-tag">Industry &middot; India</div>
+      <div class="media-row-title">Battery Energy Storage System Manufacturers in India – Reliable &amp; Advanced BESS Solutions</div>
+      <div class="media-row-source"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><line x1="2" y1="8" x2="14" y2="8"/><path d="M8 2a10 10 0 010 12M8 2a10 10 0 000 12"/></svg>gracebess.com</div>
+    </div>
+    <div class="media-row-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/></svg></div>
+  </a>
+
+  <a class="media-row" href="https://business.moglix.com/blogs/top-10-battery-energy-storage-systems-bess-manufacturers-in-india-2026-latest-ranking-prices-key-features" target="_blank" rel="noopener noreferrer" style="--mr-accent:#7c3aed;--mr-tint:rgba(124,58,237,.1);">
+    <div class="media-row-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+    <div class="media-row-main">
+      <div class="media-row-tag">Blog &middot; India</div>
+      <div class="media-row-title">Top 10 Battery Energy Storage Systems (BESS) Manufacturers in India 2026: Latest Ranking, Prices &amp; Key Features</div>
+      <div class="media-row-source"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><line x1="2" y1="8" x2="14" y2="8"/><path d="M8 2a10 10 0 010 12M8 2a10 10 0 000 12"/></svg>business.moglix.com</div>
+    </div>
+    <div class="media-row-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/></svg></div>
+  </a>
+
+  <a class="media-row" href="https://ornatesolar.com/blog/top-10-battery-energy-storage-system-bess-manufacturers-in-india" target="_blank" rel="noopener noreferrer" style="--mr-accent:#d97706;--mr-tint:rgba(217,119,6,.1);">
+    <div class="media-row-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+    <div class="media-row-main">
+      <div class="media-row-tag">Blog &middot; India</div>
+      <div class="media-row-title">Top 10 Battery Energy Storage System (BESS) Manufacturers in India</div>
+      <div class="media-row-source"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><line x1="2" y1="8" x2="14" y2="8"/><path d="M8 2a10 10 0 010 12M8 2a10 10 0 000 12"/></svg>ornatesolar.com</div>
+    </div>
+    <div class="media-row-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/></svg></div>
+  </a>
+
+  <a class="media-row" href="https://www.avaada.com/blog/pros-cons-applications-battery-energy-systems-bess/" target="_blank" rel="noopener noreferrer" style="--mr-accent:#C85000;--mr-tint:rgba(200,80,0,.1);">
+    <div class="media-row-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C85000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+    <div class="media-row-main">
+      <div class="media-row-tag">Blog &middot; India</div>
+      <div class="media-row-title">Pros, Cons and Applications of Battery Energy Systems (BESS)</div>
+      <div class="media-row-source"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><line x1="2" y1="8" x2="14" y2="8"/><path d="M8 2a10 10 0 010 12M8 2a10 10 0 000 12"/></svg>avaada.com</div>
+    </div>
+    <div class="media-row-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/></svg></div>
+  </a>
+
+  <a class="media-row" href="https://anushri.info/battery-energy-storage-system-in-india/" target="_blank" rel="noopener noreferrer" style="--mr-accent:#21808d;--mr-tint:rgba(33,128,141,.1);">
+    <div class="media-row-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#21808d" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+    <div class="media-row-main">
+      <div class="media-row-tag">Article &middot; India</div>
+      <div class="media-row-title">Battery Energy Storage System in India: Types, Applications, and Industrial Solutions</div>
+      <div class="media-row-source"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><line x1="2" y1="8" x2="14" y2="8"/><path d="M8 2a10 10 0 010 12M8 2a10 10 0 000 12"/></svg>anushri.info</div>
+    </div>
+    <div class="media-row-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/></svg></div>
+  </a>
+
+</div>
+
+<p style="font-size:0.72rem; color:var(--color-text-secondary); font-style:italic; margin-top:16px;">Links open external websites. Coal Controller Organisation does not endorse third-party content.</p>
+
+    </div>
+  </div>
+
+  <!-- ── TAB: Agencies ───────────────────────────────────── -->
+  <div id="spv-panel-agencies" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+
+      <div class="agencies-logo-grid">
+
+        <!-- Amara Raja Energy & Mobility -->
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img">
+            <img src="../images/logo-amara-raja.png" alt="Amara Raja Energy &amp; Mobility" style="max-width:100%; max-height:60px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">Amara Raja Energy &amp; Mobility</div>
+          <div class="agency-logo-type">Turnkey BESS &amp; EPC</div>
+        </div>
+
+        <!-- Exide Industries -->
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img">
+            <img src="../images/logo-exide.png" alt="Exide Industries Ltd" style="max-width:100%; max-height:60px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">Exide Industries Ltd</div>
+          <div class="agency-logo-type">Industrial Battery Systems</div>
+        </div>
+
+        <!-- Fluence Energy India -->
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img">
+            <img src="../images/logo-fluence.svg" alt="Fluence Energy India" style="max-width:100%; max-height:52px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">Fluence Energy India</div>
+          <div class="agency-logo-type">Grid-Scale BESS EPC</div>
+        </div>
+
+        <!-- Sterling and Wilson Renewable Energy -->
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img">
+            <img src="../images/logo-sterling-wilson.svg" alt="Sterling and Wilson Renewable Energy" style="max-width:100%; max-height:56px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">Sterling and Wilson Renewable Energy</div>
+          <div class="agency-logo-type">BESS EPC</div>
+        </div>
+
+        <!-- Delta Electronics India -->
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img">
+            <img src="../images/logo-delta.png" alt="Delta Electronics India Pvt Ltd" style="max-width:100%; max-height:60px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">Delta Electronics India Pvt Ltd</div>
+          <div class="agency-logo-type">Power Electronics &amp; PCS</div>
+        </div>
+
+        <!-- HBL Power Systems -->
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img">
+            <img src="../images/logo-hbl.png" alt="HBL Power Systems Ltd" style="max-width:100%; max-height:60px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">HBL Power Systems Ltd</div>
+          <div class="agency-logo-type">BESS Systems &amp; Battery Supply</div>
+        </div>
+
+        <!-- Waaree Energies -->
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img">
+            <img src="../images/waaree.png" alt="Waaree Energies Ltd" style="max-width:100%; max-height:60px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">Waaree Energies Ltd</div>
+          <div class="agency-logo-type">Solar+BESS EPC</div>
+        </div>
+
+        <!-- Tata Power Solar Systems -->
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img">
+            <img src="../images/tata-power-solar.jpg" alt="Tata Power Solar Systems Ltd" style="max-width:100%; max-height:64px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">Tata Power Solar Systems Ltd</div>
+          <div class="agency-logo-type">Solar-Coupled BESS EPC</div>
+        </div>
+
+        <!-- BHEL -->
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img">
+            <img src="../images/logo-bhel.svg" alt="BHEL" style="max-width:100%; max-height:60px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">BHEL</div>
+          <div class="agency-logo-type">Grid-Scale BESS EPC (PSU)</div>
+        </div>
+
+      </div><!-- /.agencies-logo-grid -->
+
+      <!-- Disclaimer -->
+      <div style="margin-top:28px; padding:14px 18px; background:rgba(33,128,141,.05); border:1px solid rgba(33,128,141,.18); border-radius:8px; display:flex; gap:12px; align-items:flex-start;">
+        <svg style="flex-shrink:0; margin-top:2px;" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#21808d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <p style="margin:0; font-family:var(--font-sans); font-size:0.8rem; color:var(--color-text-secondary); line-height:1.65;">
+          <strong style="color:var(--color-text); font-weight:600;">Disclaimer:</strong>
+          Inclusion of an agency on this list does not constitute endorsement, empanelment, or recommendation by the Coal Controller Organisation or the Ministry of Coal, Government of India. Mine owners and project proponents are advised to conduct their own due diligence process before engaging any agency.
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- TAB: Experts -->
+  <div id="spv-panel-experts" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+  <div class="experts-grid">
+
+        <div class="expert-card">
+          <div class="expert-card-top">
+            <div class="expert-avatar">RG</div>
+            <div class="expert-header-info">
+              <div class="expert-name">Dr. Rashi Gupta</div>
+              <div class="expert-role">Founder &amp; Managing Director · Vision Mechatronics Private Limited</div>
+            </div>
+          </div>
+          <div class="expert-tags">
+            <span class="expert-tag">BESS</span>
+            <span class="expert-tag">Battery Technology</span>
+            <span class="expert-tag">Energy Storage</span>
+            <span class="expert-tag">Mechatronics</span>
+          </div>
+          <p class="expert-bio">Founder and Managing Director of Vision Mechatronics Pvt. Ltd., specialising in battery energy storage systems, energy management, and sustainable technology solutions.</p>
+          <div class="expert-contact">
+            <a href="tel:+919082219980">+91 90822 19980</a>
+            <a href="mailto:batterywali@gmail.com">batterywali@gmail.com</a>
+            <a href="mailto:info@vmechatronics.com">info@vmechatronics.com</a>
+          </div>
+        </div>
+
+        <div class="expert-card">
+          <div class="expert-card-top">
+            <div class="expert-avatar">BR</div>
+            <div class="expert-header-info">
+              <div class="expert-name">Dr. Bhawani Singh Rathore</div>
+              <div class="expert-role">Global Renewable Energy (Solar, Wind &amp; BESS)</div>
+            </div>
+          </div>
+          <div class="expert-tags">
+            <span class="expert-tag">BESS</span>
+            <span class="expert-tag">Solar</span>
+            <span class="expert-tag">Wind</span>
+            <span class="expert-tag">Renewable Energy</span>
+          </div>
+          <p class="expert-bio">Global renewable energy specialist with expertise across solar, wind, and battery energy storage systems, supporting large-scale energy transition projects internationally.</p>
+          <div class="expert-contact">
+            <a href="tel:+919602359779">+91 96023 59779</a>
+            <a href="mailto:powerbhawani@gmail.com">powerbhawani@gmail.com</a>
+          </div>
+        </div>
+
+    </div>
+      <div style="margin-top:28px;padding:14px 18px;background:rgba(33,128,141,.05);border:1px solid rgba(33,128,141,.18);border-radius:8px;display:flex;gap:12px;align-items:flex-start;">
+        <svg style="flex-shrink:0;margin-top:2px;" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#21808d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <p style="margin:0;font-family:var(--font-sans);font-size:0.8rem;color:var(--color-text-secondary);line-height:1.65;"><strong style="color:var(--color-text);font-weight:600;">Disclaimer:</strong> Inclusion of an expert does not constitute endorsement, empanelment, or recommendation by the Coal Controller Organisation or the Ministry of Coal, Government of India. Users are advised to independently verify credentials and suitability before engaging any individual.</p>
+      </div>
+
+  </div>
+  </div>
+
+  <!-- Footer -->
+  <footer id="site-footer-sf">
+    &copy; 2026 Coal Controller Organisation, Ministry of Coal, Government of India.
+  </footer>
+
+</div><!-- /page -->
+
+<!-- Per-page PRISM colour config (injected by build.py) -->
+<script>
+const PRISM2_COLORS = {P:'#C85000', R:'#1a5ca8', I:'#b06a10', S:'#5a3d9e', M:'#1a7a5e'};
+const PRISM2_BG     = {P:'#fff0e6', R:'#e4eef9', I:'#faedda', S:'#edeaf8', M:'#e1f3ec'};
+</script>
+<script src="./category.js"></script>
+<script>
+/* ── PRISM nav overrides for sidebar prNav() integration ── */
+window.prism2Next = function() {
+  if (prism2Current < PRISM2_ORDER.length - 1) prNav(PRISM2_ORDER[prism2Current + 1]);
+};
+window.prism2Prev = function() {
+  if (prism2Current > 0) prNav(PRISM2_ORDER[prism2Current - 1]);
+};
+function downloadPRISM() {
+  var rawTitle = document.title || '';
+  var catName  = rawTitle.split('—')[0].split('-')[0].trim() || 'Category';
+
+  var PC = {P:'#C85000',R:'#1a5ca8',I:'#b06a10',S:'#5a3d9e',M:'#1a7a5e'};
+  var PB = {P:'#fff8f3',R:'#f3f7fd',I:'#fdf7f0',S:'#f7f5fd',M:'#f1faf6'};
+  var PN = {P:'Project Vision',R:'Repurposing Pathways',I:'Investment Dynamics',S:'Strategic Structuring',M:'Monitoring &amp; Management'};
+  var PE = {P:'POST-MINING',R:'REPURPOSING',I:'INVESTMENT',S:'STRATEGY',M:'MANAGEMENT'};
+
+  var introHeadEl = document.querySelector('.pr-intro-heading');
+  var introBodyEl = document.querySelector('.pr-intro-body');
+  var introHead   = introHeadEl ? introHeadEl.textContent : 'A structured framework for mine repurposing from concept to implementation';
+  var introBody   = introBodyEl ? introBodyEl.innerHTML   : '';
+
+  var pillarsHTML = '';
+  ['P','R','I','S','M'].forEach(function(k) {
+    var panel = document.getElementById('prism2-panel-' + k);
+    if (!panel) return;
+
+    var eyebrowEl   = panel.querySelector('.prism2-panel-eyebrow');
+    var titleEl     = panel.querySelector('.prism2-panel-title');
+    var descEl      = panel.querySelector('.prism2-panel-desc');
+    var eyebrow     = eyebrowEl  ? eyebrowEl.textContent  : PE[k];
+    var panelTitle  = titleEl    ? titleEl.textContent    : PN[k];
+    var descHTML    = descEl     ? descEl.innerHTML       : '';
+
+    var accHTML = '';
+    panel.querySelectorAll('.accordion-item').forEach(function(item) {
+      var spans = item.querySelectorAll('.accordion-btn span');
+      var btnText = '';
+      for (var s = 0; s < spans.length; s++) {
+        var t = spans[s].textContent.trim();
+        if (t && t !== '⥤' && t !== '˅') { btnText = t; break; }
+      }
+      var body = item.querySelector('.accordion-body');
+      if (!body) return;
+      var clone = body.cloneNode(true);
+      clone.style.display = '';
+      /* Remove scroll-wrapper overflow so tables span full width */
+      clone.querySelectorAll('.spv-table-wrap').forEach(function(w){w.style.overflowX='visible';});
+      accHTML += '<div class="acc-item">' +
+        '<div class="acc-heading">' + btnText + '</div>' +
+        '<div class="acc-body">' + clone.innerHTML + '</div>' +
+        '</div>';
+    });
+
+    pillarsHTML +=
+      '<div class="pillar" style="border-left-color:' + PC[k] + ';">' +
+        '<div class="pillar-hdr" style="background:' + PC[k] + '18;">' +
+          '<div class="pillar-letter" style="color:' + PC[k] + ';">' + k + '</div>' +
+          '<div class="pillar-info">' +
+            '<div class="pillar-eyebrow" style="color:' + PC[k] + ';">' + eyebrow + '</div>' +
+            '<div class="pillar-name">' + panelTitle + '</div>' +
+            (descHTML ? '<div class="pillar-desc">' + descHTML + '</div>' : '') +
+          '</div>' +
+        '</div>' +
+        '<div class="pillar-content">' + accHTML + '</div>' +
+      '</div>';
+  });
+
+  var css = [
+    '*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}',
+    'body{font-family:"Segoe UI",Arial,sans-serif;font-size:10pt;color:#1a1a1a;line-height:1.65;background:#fff}',
+    '@page{size:A4;margin:16mm 14mm}',
+    /* ── Cover ── */
+    '.cover{margin-bottom:28pt;padding-bottom:22pt;border-bottom:1.5pt solid #ddd}',
+    '.rainbow{height:5pt;border-radius:99pt;background:linear-gradient(to right,#7C3AB5,#4f6de0,#0ea5e9,#1D9E75,#3B6D11,#BA7517,#C85000,#A32D2D);margin-bottom:18pt}',
+    '.cover-eye{font-size:7.5pt;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#888;margin-bottom:7pt}',
+    '.cover-title{font-size:24pt;font-weight:800;color:#111;line-height:1.15;margin-bottom:5pt}',
+    '.cover-sub{font-size:11pt;font-weight:600;color:#444;margin-bottom:11pt}',
+    '.cover-body{font-size:9pt;color:#555;line-height:1.75}',
+    /* ── Pillars ── */
+    '.pillars{display:flex;flex-direction:column;gap:20pt}',
+    '.pillar{border-left:4pt solid #ccc;border-radius:6pt;overflow:hidden;page-break-inside:avoid}',
+    '.pillar-hdr{padding:13pt 15pt 11pt;display:flex;align-items:flex-start;gap:12pt}',
+    '.pillar-letter{font-size:30pt;font-weight:800;line-height:1;flex-shrink:0;width:38pt;opacity:.85}',
+    '.pillar-info{flex:1}',
+    '.pillar-eyebrow{font-size:7pt;font-weight:700;letter-spacing:.11em;text-transform:uppercase;margin-bottom:2pt}',
+    '.pillar-name{font-size:12.5pt;font-weight:700;color:#111;margin-bottom:3pt}',
+    '.pillar-desc{font-size:8.5pt;color:#555;line-height:1.6}',
+    /* ── Accordion ── */
+    '.pillar-content{background:#fff}',
+    '.acc-item{border-top:1pt solid #e8e8e0}',
+    '.acc-heading{font-size:9pt;font-weight:700;padding:8pt 13pt;color:#2a2a2a;background:#fafaf8}',
+    '.acc-body{font-size:8.5pt;line-height:1.75;color:#444;padding:9pt 13pt 11pt}',
+    /* ── Body content ── */
+    '.spv-body-text{margin-bottom:7pt}',
+    'p{margin-bottom:7pt}',
+    '.spv-list,.spv-list-unstyled{margin:5pt 0 7pt 16pt}',
+    'ul,ol{margin:5pt 0 7pt 16pt}',
+    '.spv-list li,ul li,ol li{margin-bottom:3pt}',
+    /* ── Tables ── */
+    '.spv-table-wrap{margin:7pt 0;overflow:visible}',
+    '.spv-table{width:100%;border-collapse:collapse;font-size:8pt}',
+    '.spv-table th{background:#f0f0ea;font-weight:700;text-align:left;padding:5pt 7pt;border:1pt solid #ccc;vertical-align:top}',
+    '.spv-table td{padding:4.5pt 7pt;border:1pt solid #ccc;vertical-align:top}',
+    '.spv-table tr:nth-child(even) td{background:#f9f9f7}',
+    /* ── Strong/em ── */
+    'strong{font-weight:700}',
+    'em{font-style:italic}',
+    /* ── Info/note boxes (if any) ── */
+    '.spv-note,.spv-info{background:#f5f5f0;border-left:3pt solid #aaa;padding:8pt 10pt;margin:6pt 0;font-size:8.5pt}'
+  ].join('\n');
+
+  var html = '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">' +
+    '<title>PRISM — ' + catName + '<\/title>' +
+    '<style>' + css + '<\/style><\/head><body>' +
+    '<div class="cover">' +
+      '<div class="rainbow"><\/div>' +
+      '<div class="cover-eye">PRISM Framework — Post-Mining Repurposing &amp; Implementation Strategy Models<\/div>' +
+      '<div class="cover-title">' + catName + '<\/div>' +
+      '<div class="cover-sub">' + introHead + '<\/div>' +
+      (introBody ? '<div class="cover-body">' + introBody + '<\/div>' : '') +
+    '<\/div>' +
+    '<div class="pillars">' + pillarsHTML + '<\/div>' +
+    '<\/body><\/html>';
+
+  var win = window.open('', '_blank', 'width=960,height=750');
+  if (!win) { alert('Please allow pop-ups for this site to download the PDF.'); return; }
+  win.document.write(html);
+  win.document.close();
+  win.focus();
+  setTimeout(function() { win.print(); }, 700);
+}
+(function() {
+  var panel = document.getElementById('spv-panel-prism');
+  if (!panel) return;
+  new MutationObserver(function() {
+    if (panel.style.display !== 'none') setTimeout(function() { prNav('P'); }, 10);
+  }).observe(panel, { attributes: true, attributeFilter: ['style'] });
+})();
+</script>
+
+<!-- browse-back-script -->
+<script>
+(function(){
+  if(new URLSearchParams(location.search).get('from')==='browse'){
+    var btn=document.querySelector('.back-btn');
+    if(btn){
+      btn.onclick=function(){window.location.href='../browse.html';};
+      btn.setAttribute('aria-label','Back to Browse');
+      for(var i=btn.childNodes.length-1;i>=0;i--){
+        var n=btn.childNodes[i];
+        if(n.nodeType===3&&n.textContent.trim()){n.textContent=' Back to Browse';break;}
+      }
+    }
+    var cr=document.querySelector('.sf-breadcrumb span:not(.sep)');
+    if(cr)cr.textContent='All Categories';
+  }
+})();
+</script>
+</body>
+</html>

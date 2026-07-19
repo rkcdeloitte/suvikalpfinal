@@ -1,0 +1,1366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gravity Battery / Gravity Energy Storage — SUVIKALP | Coal Controller Organisation</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="./category.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+@font-face{font-family:"Inter";font-weight:400;font-display:swap;src:url("../fonts/Inter_18pt-Regular.woff2") format("woff2"),url("../fonts/Inter_18pt-Regular.ttf") format("truetype");}
+@font-face{font-family:"Inter";font-weight:500;font-display:swap;src:url("../fonts/Inter_18pt-Medium.woff2") format("woff2"),url("../fonts/Inter_18pt-Medium.ttf") format("truetype");}
+@font-face{font-family:"Inter";font-weight:600;font-display:swap;src:url("../fonts/Inter_18pt-SemiBold.woff2") format("woff2"),url("../fonts/Inter_18pt-SemiBold.ttf") format("truetype");}
+@font-face{font-family:"Inter";font-weight:700;font-display:swap;src:url("../fonts/Inter_18pt-Bold.woff2") format("woff2"),url("../fonts/Inter_18pt-Bold.ttf") format("truetype");}
+:root{--font-sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;--font-devanagari:'Noto Sans Devanagari','Noto Sans',sans-serif;--fs-xs:.75rem;--fs-sm:.8125rem;--fs-base:.875rem;--fs-md:.9375rem;--fs-lg:1rem;--fs-xl:1.125rem;--fs-2xl:1.375rem;--lh-tight:1.35;--lh-base:1.6;--lh-loose:1.8;}
+html,body,button,input,select,textarea{font-family:var(--font-sans);}
+.hindi,.header-cco-hindi{font-family:var(--font-devanagari);}
+.spv-body-text{font-family:var(--font-sans);font-size:var(--fs-md);line-height:var(--lh-loose);color:var(--color-text);margin-bottom:14px;font-weight:400;}
+.spv-list{margin:8px 0 14px 22px;font-family:var(--font-sans);font-size:var(--fs-md);line-height:var(--lh-loose);color:var(--color-text);}
+.spv-list li{margin-bottom:6px;}
+.spv-section-title{font-family:var(--font-sans);font-weight:700;font-size:var(--fs-xl);color:var(--color-teal-600);border-bottom:2px solid var(--color-primary);padding-bottom:8px;margin-bottom:22px;letter-spacing:-.01em;}
+.accordion-btn{font-family:var(--font-sans);font-weight:600;font-size:var(--fs-base);}
+.accordion-body{font-family:var(--font-sans);font-size:var(--fs-md);}
+.spv-table,.spv-table thead tr th,.spv-table td,.spv-table td:first-child{font-family:var(--font-sans);}
+.spv-tab{font-family:var(--font-sans);font-weight:500;font-size:var(--fs-sm);}
+.spv-tab.active{font-weight:700;}
+.back-btn{font-family:var(--font-sans);font-weight:600;font-size:var(--fs-base);}
+.sf-breadcrumb{font-family:var(--font-sans);font-size:var(--fs-sm);}
+.agency-logo-name{font-family:var(--font-sans);font-weight:700;font-size:var(--fs-sm);}
+.agency-logo-type{font-family:var(--font-sans);font-size:.72rem;}
+.agency-logo-inner--img{display:flex;align-items:center;justify-content:center;padding:10px 14px;border-radius:8px;height:76px !important;box-sizing:border-box;}
+.agency-logo-inner--img img{max-width:100%;max-height:56px;width:auto;height:auto;object-fit:contain;}
+.about-hero-row{display:flex;gap:28px;align-items:stretch;margin-bottom:40px;min-height:300px;}
+.about-hero-slide-col{flex:0 0 40%;min-width:0;display:flex;flex-direction:column;}
+.about-hero-slide-col .proj-static-img-wrap{flex:none;height:340px;}
+.about-hero-text-col{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center;}
+.about-hero-label{font-family:var(--font-sans);font-size:var(--fs-xs);font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin-bottom:0;}
+.about-hero-label-wrap{margin-bottom:12px;}
+.about-hero-label-bar{display:block;height:3px;width:48px;margin-top:7px;border-radius:99px;background:linear-gradient(90deg,#21808d 0%,#38bdf8 60%,transparent 100%);}
+.about-intro{display:flex;flex-direction:column;gap:14px;}
+.about-intro-block{padding:14px 18px;border-radius:10px;}
+.about-intro-primary{border-left:4px solid #21808d;background:rgba(33,128,141,.05);}
+.about-intro-secondary{border-left:4px solid rgba(33,128,141,.3);background:#fafafa;}
+.about-section{margin-bottom:40px;}
+.about-section-eyebrow{font-family:var(--font-sans);font-size:var(--fs-xs);font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin-bottom:4px;}
+.about-section-title{font-family:var(--font-sans);font-size:var(--fs-xl);font-weight:700;color:#0f172a;margin:0 0 20px;line-height:var(--lh-tight);}
+.schemes-outer{position:relative;margin:0 20px;}
+.schemes-nav-btn{position:absolute;top:50%;transform:translateY(-50%);z-index:10;width:36px;height:36px;border-radius:50%;background:#fff;border:1.5px solid #e2e8f0;box-shadow:0 2px 10px rgba(0,0,0,.10);cursor:pointer;display:flex;align-items:center;justify-content:center;color:#475569;transition:background .2s,color .2s,border-color .2s,box-shadow .2s;padding:0;}
+.schemes-nav-btn:hover{background:var(--teal,#0a9396);color:#fff;border-color:var(--teal,#0a9396);box-shadow:0 4px 14px rgba(10,147,150,.3);}
+.schemes-nav-btn.schemes-prev{left:-20px;}
+.schemes-nav-btn.schemes-next{right:-20px;}
+.schemes-ticker-wrap{overflow:hidden;position:relative;mask-image:linear-gradient(to right,transparent 0%,black 7%,black 93%,transparent 100%);-webkit-mask-image:linear-gradient(to right,transparent 0%,black 7%,black 93%,transparent 100%);}
+.schemes-ticker{display:flex;gap:16px;overflow-x:auto;-ms-overflow-style:none;scrollbar-width:none;padding:8px 4px;}
+.schemes-ticker::-webkit-scrollbar{display:none;}
+.scheme-card{flex:0 0 220px;background:#fff;border:1px solid #e8eaed;border-radius:12px;padding:18px 16px;box-shadow:0 2px 8px rgba(0,0,0,.05);transition:box-shadow .2s,transform .2s;}
+.scheme-card:hover{box-shadow:0 6px 20px rgba(0,0,0,.1);transform:translateY(-3px);}
+.scheme-card-icon{font-size:22px;margin-bottom:10px;}
+.scheme-card-tag{font-family:var(--font-sans);font-size:var(--fs-xs);font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--teal);margin-bottom:5px;}
+.scheme-card-title{font-family:var(--font-sans);font-size:var(--fs-base);font-weight:700;color:#1e293b;margin-bottom:8px;line-height:var(--lh-tight);}
+.scheme-card-desc{font-family:var(--font-sans);font-size:var(--fs-sm);color:#64748b;line-height:var(--lh-base);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
+.proj-static-img-wrap{position:relative;border-radius:14px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,.15);}
+.proj-static-img{width:100%;height:100%;object-fit:cover;display:block;}
+.proj-slide-overlay{position:absolute;bottom:0;left:0;right:0;padding:12px 18px;background:linear-gradient(90deg,rgba(10,70,80,.95) 0%,rgba(33,128,141,.88) 100%);display:flex;align-items:center;z-index:1;}
+.proj-caption{font-family:var(--font-sans);font-size:var(--fs-base);font-weight:600;color:#fff;line-height:1.4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.pr-intro{padding:22px 24px 20px;background:rgba(33,128,141,.05);border:1px solid rgba(33,128,141,.15);border-radius:14px;margin-bottom:20px;}
+.pr-intro-eyebrow{font-size:15px;font-weight:700;color:#21808d;margin-bottom:8px;line-height:1.35;}
+.pr-intro-heading{font-size:16px;font-weight:700;color:#0f172a;margin-bottom:10px;line-height:1.35;}
+.pr-intro-body{font-size:13.5px;color:#374151;line-height:1.85;}
+.pr-shell{display:flex;border:1px solid #e2e8f0;border-radius:14px;overflow:clip;background:#fff;}
+.pr-sidebar{width:220px;flex-shrink:0;border-right:1px solid #e8edf2;padding:16px 0;background:#f8fafc;position:sticky;top:125px;align-self:flex-start;max-height:calc(100vh - 155px);overflow-y:auto;}
+.pr-sidebar-label{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#7a8a9a;padding:0 16px 14px;}
+.pr-nav-highlight{position:absolute;left:0;right:0;pointer-events:none;z-index:0;background:color-mix(in srgb,var(--pr-hl,#C85000) 9%,transparent);transition:top .4s cubic-bezier(.4,0,.2,1),height .4s cubic-bezier(.4,0,.2,1),background .38s ease;}
+.pr-nav-highlight::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--pr-hl,#C85000);border-radius:0 2px 2px 0;transition:background .38s ease;}
+.pr-nav-item{position:relative;z-index:1;display:flex;align-items:center;gap:12px;padding:13px 16px;cursor:pointer;opacity:0;animation:nav-slide-in .32s cubic-bezier(.4,0,.2,1) both;}
+@keyframes nav-slide-in{from{opacity:0;transform:translateX(-10px);}to{opacity:1;transform:translateX(0);}}
+.pr-nav-item:nth-child(3){animation-delay:.02s;}
+.pr-nav-item:nth-child(4){animation-delay:.07s;}
+.pr-nav-item:nth-child(5){animation-delay:.12s;}
+.pr-nav-item:nth-child(6){animation-delay:.17s;}
+.pr-nav-item:nth-child(7){animation-delay:.22s;}
+.pr-nav-badge{width:34px;height:34px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;border:1.5px solid #d1d5db;color:#9ca3af;background:#fff;position:relative;z-index:1;transition:background .35s cubic-bezier(.4,0,.2,1),color .3s,border-color .35s,transform .45s cubic-bezier(.34,1.56,.64,1),box-shadow .35s;}
+.pr-nav-item.active .pr-nav-badge{background:var(--pr-accent);color:#fff;border-color:var(--pr-accent);transform:scale(1.12);box-shadow:0 0 0 4px color-mix(in srgb,var(--pr-accent) 18%,transparent),0 3px 10px color-mix(in srgb,var(--pr-accent) 32%,transparent);}
+.pr-nav-letter{font-size:13px;font-weight:600;color:#374151;line-height:1.25;position:relative;z-index:1;transition:color .25s,font-weight .2s;}
+.pr-nav-item.active .pr-nav-letter{color:var(--pr-accent);font-weight:700;}
+.pr-content-wrap{flex:1;min-width:0;}
+.pr-content-wrap .prism2-content-panel{border-radius:0;box-shadow:none;}
+.prism2-content-panel .prism2-panel-header{background:color-mix(in srgb,var(--pc) 5%,#fff);}
+.prism2-panel-eyebrow{font-size:13px;font-weight:700;letter-spacing:.10em;text-transform:uppercase;color:var(--pc);margin-bottom:6px;}
+.tbl-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-bottom:4px;}</style>
+</head>
+<body>
+
+<header id="site-header">
+  <div class="header-left">
+    <div class="header-tool-title"><span class="hindi">सुविकल्प:</span> Mine Repurposing Tool</div>
+    <div class="header-tool-sub">Select factors and sub-factors to discover suitable repurposing options for your mining site</div>
+  </div>
+  <div class="header-right">
+    <a href="https://coalcontroller.gov.in/" target="_blank" rel="noopener" title="CCO Home">
+    <div class="header-cco-lockup">
+      <img class="header-cco-logo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANAAAABHCAYAAAB2x8mPAAAAAXNSR0IArs4c6QAAAHhlWElmTU0AKgAAAAgABAEaAAUAAAABAAAAPgEbAAUAAAABAAAARgEoAAMAAAABAAIAAIdpAAQAAAABAAAATgAAAAAAAAH0AAAAAQAAAfQAAAABAAOgAQADAAAAAQABAACgAgAEAAAAAQAAANCgAwAEAAAAAQAAAEcAAAAA7cIEvwAAAAlwSFlzAABM5QAATOUBdc7wlQAABDBJREFUeAHtnQty2yAQQNXeJPdqkiP0Bj1Cj5IjNGmSJumkSZI2aZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIk" alt="Coal Controller Organisation emblem">
+      <div class="header-cco-text"></div>
+    </div>
+    </a>
+  </div>
+</header>
+
+<div class="page">
+
+  <div class="sf-backbar">
+    <button class="back-btn" onclick="window.location.href='../index.html'" aria-label="Back to results">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3L5 8l5 5"/></svg>
+      Back to Results
+    </button>
+    <span class="sf-breadcrumb">
+      <span>Final Recommendations</span>
+      <span class="sep">/</span>
+      <span style="color:var(--teal);font-weight:500;">Gravity Battery / Gravity Energy Storage</span>
+    </span>
+  </div>
+
+  <div class="spv-hero-wrap">
+    <img src="../images/gb-hero-winding-tower.jpg" alt="Zollverein winding tower headframe against blue sky — mine shaft winding machinery directly analogous to gravity energy storage systems" class="spv-hero-img">
+    <div class="spv-hero-overlay"></div>
+    <div class="spv-hero-title">Gravity Battery / Gravity Energy Storage</div>
+  </div>
+
+  <nav class="spv-tabs" aria-label="Detail sections">
+    <button class="spv-tab active" data-tab="about"       onclick="showSPVTab('about')">About</button>
+    <button class="spv-tab"        data-tab="prism"        onclick="showSPVTab('prism')">P.R.I.S.M</button>
+    <button class="spv-tab"        data-tab="casestudies"  onclick="showSPVTab('casestudies');setTimeout(function(){window.dispatchEvent(new Event('resize'))},30)">Case Studies</button>
+    <button class="spv-tab"        data-tab="tender"       onclick="showSPVTab('tender')">Sample Tender Documents</button>
+    <button class="spv-tab"        data-tab="media"        onclick="showSPVTab('media')">Media/Web</button>
+    <button class="spv-tab"        data-tab="agencies"    onclick="showSPVTab('agencies')">Agencies</button>
+<!-- EXPERTS TAB HIDDEN (page not yet complete)
+<button class="spv-tab"        data-tab="experts"      onclick="showSPVTab('experts')">Experts</button>
+-->
+  </nav>
+
+  <div id="spv-panel-about" class="spv-panel">
+    <div class="spv-content">
+
+      <div class="about-hero-row">
+        <div class="about-hero-slide-col">
+          <div class="about-hero-label-wrap">
+            <div class="about-hero-label">Global Precedents</div>
+            <span class="about-hero-label-bar"></span>
+          </div>
+          <div class="proj-static-img-wrap">
+            <img src="../images/gb-precedent-zollverein.jpg" alt="Disused mine headframe and shaft tower — deep vertical infrastructure suitable for gravity-based energy storage systems" class="proj-static-img" loading="lazy">
+            <div class="proj-slide-overlay">
+              <span class="proj-caption">Gravitricity GraviStore, Edinburgh, Scotland</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-hero-text-col">
+          <div class="about-intro">
+            <div class="about-intro-block about-intro-primary">
+              This concept proposes the development of a <strong>Gravity Battery / Gravity Energy Storage System (GES)</strong> as a mine-closure repurposing project. The objective is to convert suitable closed, abandoned, discontinued, or end-of-life mine infrastructure into a <strong>long-duration energy storage asset</strong> that can support grid stability, renewable energy integration, mine-area redevelopment, post-closure livelihood creation, and long-term clean-energy transition. A gravity battery stores electricity by using surplus power to lift a heavy mass — such as modular weights, mine-compatible blocks, or granular material — to a higher elevation. When power is required, the mass is lowered in a controlled manner, driving a motor-generator system to produce electricity.
+            </div>
+            <div class="about-intro-block about-intro-secondary">
+              For mine repurposing, the most relevant configurations are <strong>mine-shaft gravity storage</strong>, <strong>underground gravity energy storage (UGES) using sand or similar material</strong>, and surface-based gravity storage structures. Unlike electrochemical batteries, gravity storage does not depend on lithium-ion cells — the storage value comes from gravitational potential energy governed by mass, vertical height, and system efficiency. The Ministry of Coal has already emphasised responsible mine closure, rehabilitation, and land repurposing. This aligns with CCO mine-closure frameworks <strong>A.R.T.H.A., L.I.V.E.S. and R.E.C.L.A.I.M.</strong>
+            </div>
+          </div>
+        </div>
+      </div><!-- /about-hero-row -->
+
+      <div class="about-section">
+        <div class="about-section-eyebrow">Relevant Schemes &amp; Policy</div>
+        <h3 class="about-section-title">Policy levers and frameworks supporting Gravity Energy Storage at closed coal mines</h3>
+        <div class="schemes-outer">
+          <button class="schemes-nav-btn schemes-prev" onclick="schemesNav(-1)" aria-label="Previous">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <div class="schemes-ticker-wrap">
+            <div class="schemes-ticker" id="schemesTicker">
+
+              <div class="scheme-card">
+                <div class="scheme-card-icon">⛏️</div>
+                <div class="scheme-card-tag">CCO / MoCoal</div>
+                <div class="scheme-card-title">Mine Closure Guidelines 2025</div>
+                <div class="scheme-card-desc">Guidelines for preparation of Mining Plan and Mine Closure Plan for Coal and Lignite Mines, 2025 — provide the framework for responsible closure, land repurposing, and infrastructure redevelopment.</div>
+              </div>
+
+              <div class="scheme-card">
+                <div class="scheme-card-icon">🏭</div>
+                <div class="scheme-card-tag">MoCoal</div>
+                <div class="scheme-card-title">Coal CPSE Diversification Policy 2024</div>
+                <div class="scheme-card-desc">Ministry of Coal's 2024 policy on Diversification of Coal CPSEs for Sustainable Energy Ecosystem enables coal PSUs to develop energy storage, renewables, and clean-energy projects on mine land.</div>
+              </div>
+
+              <div class="scheme-card">
+                <div class="scheme-card-icon">🔋</div>
+                <div class="scheme-card-tag">MoCoal / CIL</div>
+                <div class="scheme-card-title">Abandoned Mine Repurposing — PSP &amp; Storage</div>
+                <div class="scheme-card-desc">Coal India has identified 20 abandoned mines for Pumped Storage Projects (2023). Gravity storage shares the same site logic — closed shafts, elevation, existing power corridors — and can be co-developed.</div>
+              </div>
+
+              <div class="scheme-card">
+                <div class="scheme-card-icon">⚡</div>
+                <div class="scheme-card-tag">MNRE / MoP</div>
+                <div class="scheme-card-title">Grid-Scale Energy Storage Policy</div>
+                <div class="scheme-card-desc">MNRE's policy framework for grid-scale battery and non-battery storage supports long-duration energy storage procurement, ancillary services, and viability gap funding for emerging storage technologies.</div>
+              </div>
+
+              <div class="scheme-card">
+                <div class="scheme-card-icon">📜</div>
+                <div class="scheme-card-tag">Ministry of Power</div>
+                <div class="scheme-card-title">Electricity (Amendment) Rules — Energy Storage</div>
+                <div class="scheme-card-desc">Amendments to the Electricity Rules recognise energy storage systems as a distinct category, enabling grid connection, metering, scheduling, and dispatch of storage assets including gravity-based systems.</div>
+              </div>
+
+              <div class="scheme-card">
+                <div class="scheme-card-icon">🗺️</div>
+                <div class="scheme-card-tag">CEA / MoP</div>
+                <div class="scheme-card-title">National Electricity Plan — Storage Targets</div>
+                <div class="scheme-card-desc">The National Electricity Plan 2023 mandates large-scale energy storage capacity deployment. Long-duration, low-degradation storage technologies such as gravity systems align with India's 2030–2032 storage goals.</div>
+              </div>
+
+              <div class="scheme-card">
+                <div class="scheme-card-icon">🌿</div>
+                <div class="scheme-card-tag">CSR / ESG</div>
+                <div class="scheme-card-title">CSR &amp; ESG for Mine Transition</div>
+                <div class="scheme-card-desc">Mine operators can deploy CSR funds under the Companies Act toward gravity storage pilots, shaft safety studies, feasibility work, skill development, and livelihood creation in post-mining communities.</div>
+              </div>
+
+              <div class="scheme-card">
+                <div class="scheme-card-icon">🔬</div>
+                <div class="scheme-card-tag">DGMS / CEIG / PESO</div>
+                <div class="scheme-card-title">Mine Safety &amp; Electrical Approvals</div>
+                <div class="scheme-card-desc">DGMS governs underground and shaft safety. CEIG / state electrical inspectorates cover electrical commissioning. PESO covers mechanical and pressure systems. All are relevant for mine-shaft gravity storage.</div>
+              </div>
+
+              <!-- Duplicates for seamless loop -->
+              <div class="scheme-card" aria-hidden="true"><div class="scheme-card-icon">⛏️</div><div class="scheme-card-tag">CCO / MoCoal</div><div class="scheme-card-title">Mine Closure Guidelines 2025</div><div class="scheme-card-desc">Framework for responsible closure, land repurposing, and infrastructure redevelopment at coal and lignite mines.</div></div>
+              <div class="scheme-card" aria-hidden="true"><div class="scheme-card-icon">🏭</div><div class="scheme-card-tag">MoCoal</div><div class="scheme-card-title">Coal CPSE Diversification Policy 2024</div><div class="scheme-card-desc">Enables coal PSUs to develop energy storage, renewables, and clean-energy projects on mine land.</div></div>
+              <div class="scheme-card" aria-hidden="true"><div class="scheme-card-icon">🔋</div><div class="scheme-card-tag">MoCoal / CIL</div><div class="scheme-card-title">Abandoned Mine Repurposing — PSP &amp; Storage</div><div class="scheme-card-desc">Coal India's 20 abandoned mine PSP programme shares the same site logic as gravity energy storage.</div></div>
+              <div class="scheme-card" aria-hidden="true"><div class="scheme-card-icon">⚡</div><div class="scheme-card-tag">MNRE / MoP</div><div class="scheme-card-title">Grid-Scale Energy Storage Policy</div><div class="scheme-card-desc">Supports long-duration energy storage procurement and viability gap funding for emerging storage technologies.</div></div>
+              <div class="scheme-card" aria-hidden="true"><div class="scheme-card-icon">📜</div><div class="scheme-card-tag">Ministry of Power</div><div class="scheme-card-title">Electricity (Amendment) Rules — Energy Storage</div><div class="scheme-card-desc">Recognises energy storage as a distinct category enabling grid connection and dispatch of gravity-based systems.</div></div>
+              <div class="scheme-card" aria-hidden="true"><div class="scheme-card-icon">🗺️</div><div class="scheme-card-tag">CEA / MoP</div><div class="scheme-card-title">National Electricity Plan — Storage Targets</div><div class="scheme-card-desc">Mandates large-scale energy storage by 2030–2032, aligning with long-duration gravity storage systems.</div></div>
+              <div class="scheme-card" aria-hidden="true"><div class="scheme-card-icon">🌿</div><div class="scheme-card-tag">CSR / ESG</div><div class="scheme-card-title">CSR &amp; ESG for Mine Transition</div><div class="scheme-card-desc">CSR funds can support gravity storage pilots, shaft safety studies, and livelihood creation in post-mining communities.</div></div>
+              <div class="scheme-card" aria-hidden="true"><div class="scheme-card-icon">🔬</div><div class="scheme-card-tag">DGMS / CEIG / PESO</div><div class="scheme-card-title">Mine Safety &amp; Electrical Approvals</div><div class="scheme-card-desc">DGMS, CEIG, and PESO govern shaft safety, electrical commissioning, and mechanical systems for mine-shaft gravity storage.</div></div>
+
+            </div>
+          </div>
+          <button class="schemes-nav-btn schemes-next" onclick="schemesNav(1)" aria-label="Next">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div><!-- /spv-panel-about -->
+
+  <div id="spv-panel-prism" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+
+<div class="pr-intro">
+  <div class="pr-intro-eyebrow">PRISM – Post-Mining Repurposing and Implementation Strategy Models</div>
+  <div class="pr-intro-heading">A structured framework for mine repurposing from concept to implementation</div>
+  <div class="pr-intro-body">PRISM is a structured framework designed to support identified post-mining repurposing opportunities by evaluating suitable implementation pathways, financial and revenue-generation models, and the implementation requirements, roles, and responsibilities of mine owners, developers, operators, and other stakeholders throughout the project lifecycle. Built around five integrated pillars, PRISM guides Gravity Battery / GES projects from concept to operation.</div>
+</div>
+
+<div class="pr-shell">
+  <div class="pr-sidebar">
+    <div class="pr-sidebar-label">Pillars</div>
+    <div class="pr-nav-highlight" id="pr-hl"></div>
+    <div class="pr-nav-item active" style="--pr-accent:#C85000;" data-key="P" onclick="prNav('P')">
+      <div class="pr-nav-badge">P</div>
+      <div><div class="pr-nav-letter">Project vision</div></div>
+    </div>
+    <div class="pr-nav-item" style="--pr-accent:#1a5ca8;" data-key="R" onclick="prNav('R')">
+      <div class="pr-nav-badge">R</div>
+      <div><div class="pr-nav-letter">Repurposing pathways</div></div>
+    </div>
+    <div class="pr-nav-item" style="--pr-accent:#b06a10;" data-key="I" onclick="prNav('I')">
+      <div class="pr-nav-badge">I</div>
+      <div><div class="pr-nav-letter">Investment dynamics</div></div>
+    </div>
+    <div class="pr-nav-item" style="--pr-accent:#5a3d9e;" data-key="S" onclick="prNav('S')">
+      <div class="pr-nav-badge">S</div>
+      <div><div class="pr-nav-letter">Strategic structuring</div></div>
+    </div>
+    <div class="pr-nav-item" style="--pr-accent:#1a7a5e;" data-key="M" onclick="prNav('M')">
+      <div class="pr-nav-badge">M</div>
+      <div><div class="pr-nav-letter">Monitoring guidance</div></div>
+    </div>
+  </div>
+
+  <div class="pr-content-wrap">
+
+    <!-- ── P PANEL ── -->
+    <div class="prism2-content-panel active" id="prism2-panel-P" style="--pc:#C85000;--pb:#fff0e6;--cb:#fff8f3;">
+      <div class="prism2-panel-header">
+        <div class="prism2-panel-header-letter">P</div>
+        <div class="prism2-panel-header-text">
+          <div class="prism2-panel-eyebrow">PROJECT VISION</div>
+          <p class="prism2-panel-desc">Project concept, strategic rationale, site suitability assessment and indicative scales for gravity battery / GES development on closed coal mine infrastructure.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Project Overview</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">This concept proposes the development of a <strong>Gravity Battery / Gravity Energy Storage System (GES)</strong> as a mine-closure repurposing project. The objective is to convert suitable closed, abandoned, discontinued, or end-of-life mine infrastructure into a long-duration energy storage asset that can support grid stability, renewable energy integration, mine-area redevelopment, post-closure livelihood creation, and long-term clean-energy transition.</p>
+          <p class="spv-body-text">A gravity battery stores electricity by using surplus power to lift a heavy mass — such as modular weights, mine-compatible blocks, or granular material — to a higher elevation. When power is required, the mass is lowered in a controlled manner, driving a motor-generator system to produce electricity. For mine repurposing, the most relevant configurations are:</p>
+          <ul class="spv-list">
+            <li><strong>Mine-shaft gravity storage</strong> — suspended weights raised and lowered through existing mine shafts using hoisting infrastructure</li>
+            <li><strong>Underground Gravity Energy Storage (UGES)</strong> — uses decommissioned mine voids as reservoirs for bulk material such as sand, dropped to release energy</li>
+            <li><strong>Surface-based gravity storage structures</strong> — crane-and-block systems on reclaimed mine land where shaft conditions are unsuitable</li>
+          </ul>
+          <p class="spv-body-text">Unlike electrochemical battery storage, gravity storage does not depend on lithium-ion cells for the core energy-storage medium. The storage value comes from <strong>gravitational potential energy</strong>, governed by the mass lifted, vertical height available, and system efficiency. Research on abandoned mine shafts has identified their potential for suspended-weight gravity storage, while recent studies on UGES propose using decommissioned mines as storage reservoirs for bulk material.</p>
+          <p class="spv-body-text">This note is intended as an early-stage concept and structuring framework — not as a final DPR, tender, feasibility report, or implementation document. It is meant to support internal decision-making, project screening, mine-closure planning, stakeholder discussion, feasibility preparation, approval mapping, and procurement strategy.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Strategic Rationale</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">Gravity energy storage is emerging as a potential long-duration storage option for locations where vertical height, existing mine shafts, pits, underground voids, hoisting infrastructure, grid connection, or renewable-energy redevelopment potential are available. For mine owners, it may create a productive post-mining use for land and infrastructure that would otherwise require closure, guarding, monitoring, and long-term safety management.</p>
+          <p class="spv-body-text">A gravity battery project may be considered for one or more of the following strategic purposes:</p>
+          <ul class="spv-list">
+            <li>Mine-closure repurposing and productive reuse of closed mine assets</li>
+            <li>Long-duration storage for solar, floating solar, wind, or hybrid renewable projects</li>
+            <li>Peak shifting from daytime renewable generation to evening demand</li>
+            <li>Grid-support and flexible dispatch where permitted</li>
+            <li>Resilience support for mine-area redevelopment, industrial parks, water systems, townships, or critical infrastructure</li>
+            <li>Local employment generation through construction, fabrication, facility management, operations, safety, and monitoring</li>
+            <li>Reduction of dependency on electrochemical battery replacement cycles where long asset life is preferred</li>
+            <li>Creation of a clean-energy redevelopment narrative for closed mine regions</li>
+          </ul>
+          <p class="spv-body-text">Key strategic benefits include:</p>
+          <ul class="spv-list">
+            <li>Productive use of existing mine shafts, pits, land parcels, workshops, roads, power lines, and substations</li>
+            <li>Potential for long-duration storage with low self-discharge, especially in bulk-material underground gravity systems</li>
+            <li>Decoupling of storage power from storage duration in some gravity configurations</li>
+            <li>Lower exposure to battery-chemistry risks such as thermal runaway, battery degradation, and end-of-life cell disposal</li>
+            <li>Potential for local fabrication of structural components, weights, civil works, access systems, and balance-of-plant</li>
+            <li>Support for just transition and local livelihood in post-mining regions</li>
+            <li>Compatibility with solar, FSPV, wind, and hybrid clean-energy redevelopment</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Site Suitability and Technical Specification Matrix</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following matrix provides a structured checklist for assessing the suitability of the proposed site for the selected repurposing option. It identifies the key physical, technical, environmental, infrastructure, legal, and owner-side readiness parameters that should be reviewed before the project is advanced to the next stage of development. The purpose of this matrix is to help the project owner understand existing site conditions, technical requirements, potential constraints, and preparatory actions required before feasibility studies, approvals, or tendering are initiated.</p>
+          <div class="tbl-scroll">
+          <table class="spv-table">
+            <thead><tr>
+              <th>Category</th>
+              <th>Sub-category</th>
+              <th>What to assess</th>
+              <th>Why it matters</th>
+            </tr></thead>
+            <tbody>
+              <tr><td>Site / Land</td><td>Mine closure status</td><td>Active, discontinued, abandoned, temporarily closed, finally closed, or under closure plan</td><td>Determines legal permissibility, safety obligations, and redevelopment pathway</td></tr>
+              <tr><td>Site / Land</td><td>Available land area</td><td>Shaft-collar area, surface yard, hoist-house area, transformer yard, access road, emergency space</td><td>Required for equipment, cranes, weights, power electronics, control systems, and emergency access</td></tr>
+              <tr><td>Site / Land</td><td>Indicative land requirement</td><td>~0.5–2 ha for pilot/small systems; 2–5 ha for medium; 5+ ha for multi-shaft or hybrid surface systems</td><td>Shaft systems use vertical underground space; surface logistics still require land</td></tr>
+              <tr><td>Site / Land</td><td>Topography &amp; access</td><td>Slope, bench stability, drainage, road access, crane access, flood risk</td><td>Affects civil works, installation, safety, and long-term O&amp;M</td></tr>
+              <tr><td>Site / Land</td><td>Ground condition</td><td>Subsidence risk, filled ground, bearing capacity, old workings, voids, contamination</td><td>Critical for foundations, hoist structures, equipment pads</td></tr>
+              <tr><td>Mine infrastructure</td><td>Shaft availability</td><td>Shaft depth, diameter, lining, verticality, water ingress, obstruction, ventilation</td><td>Shaft depth and usable travel distance are central to stored energy capacity</td></tr>
+              <tr><td>Mine infrastructure</td><td>Shaft structural integrity</td><td>Lining condition, collar stability, shaft support, corrosion, deformation, rock mass condition</td><td>Determines whether shaft can safely host moving weights or bulk-material systems</td></tr>
+              <tr><td>Mine infrastructure</td><td>Hoisting infrastructure</td><td>Existing winder, headgear, sheaves, ropes, brakes, control systems, foundations, load rating</td><td>Reuse may reduce cost; old hoists may require replacement or certification</td></tr>
+              <tr><td>Mine infrastructure</td><td>Underground void / reservoir</td><td>Availability of underground galleries, stopes, shafts, or lower storage zones</td><td>Relevant for UGES concepts using sand or bulk material</td></tr>
+              <tr><td>Mine infrastructure</td><td>Mine water &amp; drainage</td><td>Water level, inflow, pumping needs, flooding, corrosion risk</td><td>Water may damage mechanical/electrical systems and affect access and safety</td></tr>
+              <tr><td>Electrical interface</td><td>Grid connection point</td><td>Nearest substation, voltage level, spare bay, route, evacuation capacity</td><td>Often the key commercial and technical constraint</td></tr>
+              <tr><td>Electrical interface</td><td>Existing mine electrical assets</td><td>Transformers, switchgear, overhead lines, protection systems, metering</td><td>Determines integration cost and potential reuse</td></tr>
+              <tr><td>Electrical interface</td><td>Renewable interface</td><td>Nearby solar, FSPV, wind, hybrid plant, captive load, or grid injection point</td><td>Determines charging source and dispatch strategy</td></tr>
+              <tr><td>Gravity system design</td><td>Power &amp; energy rating</td><td>Required MW output, ramp rate, motor-generator rating; energy based on mass × g × height × efficiency</td><td>Defines discharge strength, duration, and grid-service capability</td></tr>
+              <tr><td>Gravity system design</td><td>Technology route</td><td>Suspended-weight shaft system, UGES / sand system, surface tower / building system, or hybrid</td><td>Determines feasibility, safety design, land use, and procurement strategy</td></tr>
+              <tr><td>Gravity system design</td><td>Moving mass / storage medium</td><td>Steel/concrete/composite weights, recycled mine material, sand, aggregate, or engineered blocks</td><td>Affects cost, local fabrication, safety, and lifecycle</td></tr>
+              <tr><td>Safety &amp; closure</td><td>Shaft safety</td><td>Fall protection, exclusion zone, emergency braking, overspeed protection, rope failure logic</td><td>Most critical risk area for mine-shaft gravity systems</td></tr>
+              <tr><td>Safety &amp; closure</td><td>Mine safety</td><td>Gas, ventilation, old workings, underground access, inundation, subsidence</td><td>Determines whether underground works are permissible and safe</td></tr>
+              <tr><td>Commercial performance</td><td>Round-trip efficiency</td><td>Electrical-mechanical-electrical conversion; ~80% reported for some mine-shaft systems (project-specific validation required)</td><td>Affects delivered energy and revenue</td></tr>
+              <tr><td>Legal / approvals</td><td>Key statutory triggers</td><td>Mine safety (DGMS), CEIG / electrical inspectorate, PESO, forest, wildlife, SPCB, local authority</td><td>Necessary before commissioning; site-specific screening required</td></tr>
+            </tbody>
+          </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Indicative Project Scale and Configuration Matrix</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">The following matrix presents an indicative relationship between available site area, project scale, technical configuration, and likely development potential. It is intended to support preliminary planning by helping the project owner identify the appropriate scale and configuration for the proposed repurposing option. The values and recommendations are indicative and should be refined through detailed feasibility studies, site surveys, engineering assessments, and relevant technical and commercial evaluations.</p>
+          <p class="spv-body-text">The following matrix is indicative and should be refined through shaft survey, grid study, vendor interaction, and feasibility analysis. Publicly reported reference points include Gravitricity's 250 kW demonstrator using two 25-tonne masses on a 15 m rig, Green Gravity's use of mine shafts with 60–80 tonne weights, and Energy Vault's 25 MW / 100 MWh EVx project in China.</p>
+          <div class="tbl-scroll">
+          <table class="spv-table">
+            <thead><tr>
+              <th>Project Scale</th>
+              <th>Typical Power</th>
+              <th>Duration</th>
+              <th>Indicative Energy</th>
+              <th>Asset Basis</th>
+              <th>Suitable Technology</th>
+              <th>Typical Application</th>
+            </tr></thead>
+            <tbody>
+              <tr><td>Demonstration / PoC</td><td>100 kW – 1 MW</td><td>0.25–2 hr</td><td>0.025–2 MWh</td><td>Existing shaft collar or test rig; ~0.25–1 ha</td><td>Suspended-weight shaft or surface test frame</td><td>Technology validation, local training, control testing</td></tr>
+              <tr><td>Small mine-closure pilot</td><td>1–5 MW</td><td>1–4 hr</td><td>1–20 MWh</td><td>One usable shaft + small surface yard; ~0.5–2 ha</td><td>Mine-shaft gravity battery</td><td>Pilot, mine-area backup, solar shifting</td></tr>
+              <tr><td>Small industrial / captive</td><td>5–10 MW</td><td>2–6 hr</td><td>10–60 MWh</td><td>One deep shaft or multiple shorter shafts; ~1–3 ha</td><td>Mine-shaft GES / hybrid with solar</td><td>Peak management, reliability, mine-township supply</td></tr>
+              <tr><td>Medium mine-repurposing</td><td>10–25 MW</td><td>4–10 hr</td><td>40–250 MWh</td><td>Multi-shaft or deep-shaft; ~2–5 ha plus access</td><td>Shaft GES / UGES / hybrid</td><td>Renewable shifting, grid support, industrial park support</td></tr>
+              <tr><td>Utility-interfacing mine</td><td>25–50 MW</td><td>4–12 hr</td><td>100–600 MWh</td><td>Large shaft system, mine void, or surface + shaft hybrid; 5+ ha</td><td>Mine-shaft GES / UGES / surface hybrid</td><td>Load shifting, renewable balancing, grid services</td></tr>
+              <tr><td>Large mine-region platform</td><td>50–100 MW</td><td>6–24 hr</td><td>300 MWh – 2,400 MWh</td><td>Multiple shafts, large underground void, or surface gravity building</td><td>UGES / multi-shaft GES / surface GESS</td><td>Regional balancing, renewable park integration</td></tr>
+              <tr><td>Mega-scale / long-duration</td><td>100 MW+</td><td>8 hr to multi-day</td><td>800 MWh+</td><td>Large mine complex, multiple shafts, large voids, or purpose-built structures</td><td>Case-specific: UGES + pumped storage + renewables</td><td>Long-duration grid support and mine-region redevelopment</td></tr>
+            </tbody>
+          </table>
+          </div>
+          <p class="spv-body-text" style="font-size:var(--fs-sm);color:#64748b;margin-top:10px;"><strong>Note on area:</strong> Published data on land footprint for mine-shaft gravity storage is limited. Above-ground gravity systems can require substantial surface area; area estimates above should be used only for early screening and not for DPR-level planning.</p>
+        </div>
+      </div>
+
+      <div class="prism2-nav-row">
+        <button class="prism2-btn-prev" id="prism2-prev-P" onclick="prism2Prev()" disabled>&#8592; Previous</button>
+        <div class="prism2-progress-dots" style="display:flex;gap:5px;align-items:center;">
+          <span class="pdot active" data-p="P"></span><span class="pdot" data-p="R"></span>
+          <span class="pdot" data-p="I"></span><span class="pdot" data-p="S"></span><span class="pdot" data-p="M"></span>
+        </div>
+        <button class="prism2-btn-next" id="prism2-next-P" onclick="prism2Next()">Next pillar &#8594;</button>
+      </div>
+    </div><!-- /P -->
+
+    <!-- ── R PANEL ── -->
+    <div class="prism2-content-panel" id="prism2-panel-R" style="--pc:#1a5ca8;--pb:#e4eef9;--cb:#f3f7fd;">
+      <div class="prism2-panel-header">
+        <div class="prism2-panel-header-letter">R</div>
+        <div class="prism2-panel-header-text">
+          <div class="prism2-panel-eyebrow">REPURPOSING PATHWAYS</div>
+          <p class="prism2-panel-desc">Implementation options and models for structuring a gravity battery project — from owner-led EPC to developer-led concessions and hybrid renewable-storage approaches.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Implementation Options</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">The following table outlines the possible implementation models that may be considered for developing the proposed repurposing project. These models differ in terms of ownership structure, funding responsibility, private sector participation, operational control, and long-term risk allocation. The purpose of this table is to help the project owner compare broad development routes and select an implementation approach that aligns with its financial capacity, institutional preference, risk appetite, and long-term asset management objectives.</p>
+          <p class="spv-body-text">For a gravity battery mine-closure project, the implementation approach should be selected based on ownership preference, mine-safety responsibility, technology maturity, financing availability, and whether the asset is intended for captive use, grid services, or renewable integration.</p>
+          <div class="tbl-scroll">
+          <table class="spv-table">
+            <thead><tr>
+              <th>Model Group</th>
+              <th>Model</th>
+              <th>Core Feature</th>
+              <th>Broad Suitability</th>
+            </tr></thead>
+            <tbody>
+              <tr><td>Owner-led</td><td><strong>EPC</strong></td><td>Owner funds and owns the project; contractor designs and builds the gravity battery</td><td>Suitable where the mine owner wants full control and has funding capacity</td></tr>
+              <tr><td>Owner-led</td><td><strong>EPC + O&amp;M / Facility Management</strong></td><td>Owner funds and owns the project; specialist agency handles long-term operation, safety monitoring, hoist maintenance, and facility management</td><td>Most suitable where owner wants asset control but needs specialist technical operation</td></tr>
+              <tr><td>Developer-led</td><td><strong>BOO</strong></td><td>Private developer finances, builds, owns, and operates the gravity storage asset</td><td>Suitable where long-term private ownership is acceptable</td></tr>
+              <tr><td>Developer-led</td><td><strong>BOOT</strong></td><td>Private developer finances, builds, owns, and operates during concession period, then transfers the asset</td><td>Suitable where eventual transfer to mine owner or authority is preferred</td></tr>
+              <tr><td>Developer-led / PPP</td><td><strong>DBFOT</strong></td><td>Developer designs, builds, finances, operates, and transfers under structured concession</td><td>Suitable for PPP-style mine repurposing with limited upfront owner funding</td></tr>
+              <tr><td>Concession-based</td><td><strong>Lease-Develop-Operate</strong></td><td>Mine owner leases shaft/land/infrastructure to developer, who develops and operates the project</td><td>Suitable where mine owner wants site monetization without full CAPEX burden</td></tr>
+              <tr><td>Hybrid</td><td><strong>Mine Closure + Renewable + Gravity Storage Hybrid</strong></td><td>Combines solar/FSPV/wind with gravity storage and mine-area redevelopment</td><td>Suitable where clean-energy redevelopment is a central mine-closure objective</td></tr>
+              <tr><td>Service-based</td><td><strong>Storage-as-a-Service</strong></td><td>Developer owns/operates the system and provides storage, dispatch, or reliability service to mine owner/user</td><td>Suitable where user wants storage benefits without owning complex technology</td></tr>
+            </tbody>
+          </table>
+          </div>
+        </div>
+      </div>
+
+      
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Comparative Assessment of Key Models</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following comparative assessment evaluates the major implementation models across key decision parameters such as investment requirement, ownership control, financing responsibility, contractual complexity, risk transfer, and long-term economic benefit. This matrix is intended to support early-stage decision-making by highlighting the relative strengths and limitations of each model. The final choice of model should be guided by the specific circumstances of the project, including its scale, commercial viability, applicable policy framework, and the owner's institutional preference.</p>
+          <div class="tbl-scroll">
+          <table class="spv-table">
+            <thead><tr>
+              <th>Evaluation Parameter</th>
+              <th>EPC</th>
+              <th>EPC + O&amp;M</th>
+              <th>BOOT</th>
+              <th>BOO</th>
+              <th>DBFOT</th>
+              <th>Lease-Develop-Operate</th>
+              <th>Hybrid RE + Gravity</th>
+            </tr></thead>
+            <tbody>
+              <tr><td><strong>Upfront investment by Mine Owner</strong></td><td>High</td><td>High</td><td>Low</td><td>Low</td><td>Low</td><td>Low</td><td>Moderate to Low</td></tr>
+              <tr><td><strong>Need for private financing</strong></td><td>Low</td><td>Low</td><td>High</td><td>High</td><td>High</td><td>High</td><td>Moderate to High</td></tr>
+              <tr><td><strong>Ownership retained by Mine Owner from start</strong></td><td>Yes</td><td>Yes</td><td>No</td><td>No</td><td>No</td><td>No, except land/shaft</td><td>Depends on structure</td></tr>
+              <tr><td><strong>Long-term control over project asset</strong></td><td>High</td><td>High</td><td>Limited during concession</td><td>Low</td><td>Limited during concession</td><td>Moderate</td><td>Moderate to High if owner-led</td></tr>
+              <tr><td><strong>Suitability where owner already has funds</strong></td><td>High</td><td>High</td><td>Moderate</td><td>Low to Moderate</td><td>Moderate</td><td>Moderate</td><td>High</td></tr>
+              <tr><td><strong>Suitability to reduce upfront CAPEX</strong></td><td>Low</td><td>Low</td><td>High</td><td>High</td><td>High</td><td>High</td><td>High if developer-led</td></tr>
+              <tr><td><strong>Mine safety responsibility clarity</strong></td><td>High if owner capable</td><td>High if O&amp;M scope is strong</td><td>Shared / concession-defined</td><td>Developer-heavy</td><td>Developer-heavy</td><td>Shared through lease</td><td>Case-specific</td></tr>
+              <tr><td><strong>Suitability for PPP-style development</strong></td><td>Low</td><td>Moderate</td><td>High</td><td>Moderate</td><td>Very High</td><td>High</td><td>High</td></tr>
+              <tr><td><strong>Local livelihood enforceability</strong></td><td>High</td><td>Very High</td><td>High but contract-dependent</td><td>Moderate</td><td>High if concession conditions are strong</td><td>High if lease conditions are strong</td><td>High</td></tr>
+            </tbody>
+          </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Model-Wise Responsibility Logic</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following table explains how major project responsibilities are typically allocated under different implementation models. It covers key functional areas such as site availability, financing, design and construction, regulatory approvals, operation and maintenance, revenue collection, asset ownership, and end-of-term transfer. This helps clarify the respective roles of the project owner, private developer, EPC contractor, operator, or concessionaire, and supports the preparation of tender documents and contractual structures.</p>
+          <div class="tbl-scroll">
+          <table class="spv-table">
+            <thead><tr>
+              <th>Responsibility Area</th>
+              <th>EPC</th>
+              <th>EPC + O&amp;M</th>
+              <th>BOOT</th>
+              <th>BOO</th>
+              <th>DBFOT</th>
+              <th>Lease-Develop-Operate</th>
+              <th>Hybrid RE + Gravity</th>
+            </tr></thead>
+            <tbody>
+              <tr><td><strong>Site / Land Availability</strong></td><td>Owner</td><td>Owner</td><td>Usually owner / authority</td><td>Owner / authority or developer</td><td>Owner / authority</td><td>Owner leases to developer</td><td>Owner / authority / SPV</td></tr>
+              <tr><td><strong>Mine closure compliance</strong></td><td>Owner</td><td>Owner with O&amp;M support</td><td>Shared</td><td>Shared / developer as per agreement</td><td>Shared</td><td>Owner retains closure obligations unless assigned</td><td>Shared</td></tr>
+              <tr><td><strong>Shaft safety due diligence</strong></td><td>Owner before bid; contractor validates</td><td>Owner before bid; O&amp;M agency supports</td><td>Developer validates</td><td>Developer validates</td><td>Developer validates</td><td>Developer validates</td><td>Joint</td></tr>
+              <tr><td><strong>Financing</strong></td><td>Owner</td><td>Owner</td><td>Private developer</td><td>Private developer</td><td>Private developer</td><td>Developer / concessionaire</td><td>Mixed</td></tr>
+              <tr><td><strong>Design &amp; Construction</strong></td><td>EPC contractor</td><td>EPC contractor</td><td>Developer through EPC contractors</td><td>Developer through EPC contractors</td><td>Developer / concessionaire</td><td>Developer</td><td>EPC / developer / hybrid contractor</td></tr>
+              <tr><td><strong>Technology selection</strong></td><td>Owner / PMC</td><td>Owner / PMC with O&amp;M input</td><td>Developer</td><td>Developer</td><td>Developer</td><td>Developer</td><td>Joint / SPV</td></tr>
+              <tr><td><strong>Regulatory approvals</strong></td><td>Primarily owner, contractor support</td><td>Primarily owner, contractor and O&amp;M support</td><td>Shared</td><td>Mostly developer</td><td>Mostly developer</td><td>Shared</td><td>Shared</td></tr>
+              <tr><td><strong>O&amp;M / shaft &amp; hoist inspection</strong></td><td>Owner or separate agency</td><td>O&amp;M / FM contractor under owner oversight</td><td>Developer during concession</td><td>Developer</td><td>Developer during concession</td><td>Developer</td><td>Operator / SPV</td></tr>
+              <tr><td><strong>Revenue collection</strong></td><td>Owner</td><td>Owner</td><td>Developer during concession</td><td>Developer</td><td>Developer during concession</td><td>Developer / revenue share</td><td>SPV / owner / developer</td></tr>
+              <tr><td><strong>Transfer at end of term</strong></td><td>No</td><td>No</td><td>Yes</td><td>No</td><td>Yes</td><td>Usually no, unless built into lease</td><td>Case-specific</td></tr>
+            </tbody>
+          </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="prism2-nav-row">
+        <button class="prism2-btn-prev" id="prism2-prev-R" onclick="prism2Prev()">&#8592; Previous</button>
+        <div class="prism2-progress-dots" style="display:flex;gap:5px;align-items:center;">
+          <span class="pdot" data-p="P"></span><span class="pdot active" data-p="R"></span>
+          <span class="pdot" data-p="I"></span><span class="pdot" data-p="S"></span><span class="pdot" data-p="M"></span>
+        </div>
+        <button class="prism2-btn-next" id="prism2-next-R" onclick="prism2Next()">Next pillar &#8594;</button>
+      </div>
+    </div><!-- /R -->
+
+    <!-- ── I PANEL ── -->
+    <div class="prism2-content-panel" id="prism2-panel-I" style="--pc:#b06a10;--pb:#faedda;--cb:#fdf6ee;">
+      <div class="prism2-panel-header">
+        <div class="prism2-panel-header-letter">I</div>
+        <div class="prism2-panel-header-text">
+          <div class="prism2-panel-eyebrow">INVESTMENT DYNAMICS</div>
+          <p class="prism2-panel-desc">Funding logic and revenue generation pathways for gravity battery projects — from owner-financed EPC to developer-led concession and storage-service models.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Funding Logic</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following table presents the broad funding logic for each implementation model. It explains who is expected to finance the project, the level of owner-side funding requirement, and the commercial rationale behind each structure. This section is intended to help the project owner assess whether the project is more suitable for owner-funded development, private investment, public-private partnership, lease or concession structure, or a hybrid funding arrangement.</p>
+          <div class="tbl-scroll">
+          <table class="spv-table">
+            <thead><tr>
+              <th>Model</th>
+              <th>Primary Funding Source</th>
+              <th>Owner Funding Requirement</th>
+              <th>Commercial Logic</th>
+            </tr></thead>
+            <tbody>
+              <tr><td><strong>EPC</strong></td><td>Owner's equity, internal accruals, mine closure fund where permissible, or debt financing</td><td>High</td><td>Owner directly finances and retains complete ownership and long-term economic benefit</td></tr>
+              <tr><td><strong>EPC + O&amp;M / FM</strong></td><td>Owner's equity, internal accruals, debt financing, or approved closure-repurposing allocation</td><td>High</td><td>Owner finances and owns while outsourcing specialist operation, hoist maintenance, monitoring, and safety management</td></tr>
+              <tr><td><strong>BOOT</strong></td><td>Private developer equity and external project financing</td><td>Low</td><td>Developer finances, develops, and operates; recovers investment during concession; transfers asset later</td></tr>
+              <tr><td><strong>BOO</strong></td><td>Private developer equity and external financing</td><td>Low</td><td>Developer owns and operates asset and retains long-term revenue</td></tr>
+              <tr><td><strong>DBFOT</strong></td><td>Developer equity and debt backed by concession rights, storage service agreement, grid contract, or hybrid offtake</td><td>Low</td><td>Developer assumes design, financing, construction, operation, and transfer obligations</td></tr>
+              <tr><td><strong>Lease-Develop-Operate</strong></td><td>Developer equity and debt; mine owner contributes land/shaft lease</td><td>Low</td><td>Developer pays lease, royalty, or revenue share while monetizing storage service</td></tr>
+              <tr><td><strong>Storage-as-a-Service</strong></td><td>Service provider equity and debt</td><td>Low</td><td>Developer provides storage capacity, peak-shifting, or dispatch service under service-fee or shared-savings arrangement</td></tr>
+              <tr><td><strong>Hybrid RE + Gravity</strong></td><td>Combination of renewable project financing, storage financing, concessional finance, and owner/developer equity</td><td>Moderate to Low</td><td>Renewable generation improves charging source; gravity storage improves dispatchability and commercial value</td></tr>
+            </tbody>
+          </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Revenue Generation by Model</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following table explains how revenue may be generated under different implementation models and identifies who is likely to receive the principal project income. It also describes the nature and extent of the financial benefit available to the project owner, whether through direct project revenue, cost savings, lease income, concession fees, revenue sharing, service charges, or eventual asset transfer. This comparison is intended to support the selection of a commercially appropriate model for the proposed repurposing project.</p>
+          <div class="tbl-scroll">
+          <table class="spv-table">
+            <thead><tr>
+              <th>Model</th>
+              <th>How Revenue is Generated</th>
+              <th>Who Receives Main Revenue</th>
+              <th>Owner's Financial Benefit</th>
+            </tr></thead>
+            <tbody>
+              <tr><td><strong>EPC</strong></td><td>Peak shaving, energy shifting, captive savings, grid services where permitted, backup value, renewable firming</td><td>Owner</td><td>Full economic benefit from storage operation and asset ownership</td></tr>
+              <tr><td><strong>EPC + O&amp;M / FM</strong></td><td>Same as EPC, net of O&amp;M and facility management payments</td><td>Owner</td><td>High benefit, with reduced operational burden</td></tr>
+              <tr><td><strong>BOOT</strong></td><td>Storage service payments, grid support, renewable shifting, contracted dispatch, concession revenue</td><td>Developer during concession</td><td>Deferred or partial benefit through concession fee, lease income, revenue share, and eventual transfer</td></tr>
+              <tr><td><strong>BOO</strong></td><td>Long-term storage-related revenue by private developer</td><td>Developer</td><td>Limited direct benefit; generally through lease, royalty, or negotiated revenue share</td></tr>
+              <tr><td><strong>DBFOT</strong></td><td>Contracted storage capacity, availability charges, grid service revenues, renewable hybrid dispatch revenue</td><td>Developer / concessionaire during concession</td><td>Benefit through concession payments, avoided CAPEX, asset transfer, and local redevelopment</td></tr>
+              <tr><td><strong>Lease-Develop-Operate</strong></td><td>Storage revenue earned by developer; lease rent or revenue share to mine owner</td><td>Developer, with negotiated share to owner</td><td>Land/shaft monetization without large investment</td></tr>
+              <tr><td><strong>Storage-as-a-Service</strong></td><td>Service fee, shared savings, demand reduction, renewable shifting, reliability service</td><td>Service provider</td><td>Benefit through avoided CAPEX and savings from managed storage</td></tr>
+              <tr><td><strong>Hybrid RE + Gravity</strong></td><td>Solar/FSPV/wind generation value plus storage-enabled peak shifting, firming, and contracted supply</td><td>SPV / owner / developer depending on structure</td><td>Can be high if owner retains stake or revenue share</td></tr>
+            </tbody>
+          </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Which Model is Better for Local Livelihood and Jobs</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following table assesses the likely local livelihood and employment potential of each implementation model. It considers the extent to which each model can support construction-phase jobs, long-term operational employment, local procurement opportunities, skill development, community participation, and associated support services. This section is particularly relevant where the repurposing project is expected to contribute to post-mining or post-operational economic transition and sustained local community benefit.</p>
+          <div class="tbl-scroll">
+          <table class="spv-table">
+            <thead><tr><th>Model</th><th>Local Job Potential</th><th>Why</th><th>Overall Suggestibility</th></tr></thead>
+            <tbody>
+              <tr><td><strong>EPC</strong></td><td>High</td><td>Generates significant local employment during construction, civil works, and site preparation. Long-term jobs depend on whether the owner subsequently localises operations and maintenance activities.</td><td>High</td></tr>
+              <tr><td><strong>EPC + O&amp;M / FM</strong></td><td>Very High</td><td>Supports sustained long-term employment across operations, maintenance, facility management, security, and administration. Owner retains control and can mandate local hiring obligations.</td><td>Very High / Most Suitable</td></tr>
+              <tr><td><strong>BOOT</strong></td><td>High</td><td>Generates substantial construction-phase and operational employment over the concession period. Local hiring, procurement, and training obligations can be built into the concession agreement.</td><td>High — contractually mandatable</td></tr>
+              <tr><td><strong>BOO</strong></td><td>Moderate to High</td><td>Creates construction and operational employment. Local benefit depends on the private owner's staffing and procurement practices and any contractual community obligations.</td><td>Moderate to High</td></tr>
+              <tr><td><strong>DBFOT</strong></td><td>High to Very High</td><td>Large-scale construction and sustained operational employment. Local hiring, skill development, vendor participation, and community-use obligations can be embedded in concession conditions.</td><td>Very High</td></tr>
+              <tr><td><strong>Lease-Develop-Operate</strong></td><td>High to Very High</td><td>Generates jobs in development, construction, and long-term operations. Local benefit depends on operator's hiring policies and the terms of the lease-develop-operate arrangement.</td><td>High to Very High</td></tr>
+              <tr><td><strong>Storage-as-a-Service</strong></td><td>Moderate</td><td>Generates technical employment during installation and O&amp;M. Broader local employment depends on associated project activities and contractual hiring requirements.</td><td>Moderate</td></tr>
+              <tr><td><strong>Hybrid RE + Gravity</strong></td><td>Very High</td><td>Combines construction and operational jobs from multiple components. Enables provisions for local enterprises, skilled workers, and community-linked support services.</td><td>Very High / Most Suitable</td></tr>
+            </tbody>
+          </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Combined Comparison: Revenue, Profitability, and Livelihood</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following combined comparison brings together three important dimensions of project structuring: revenue potential, owner-side financial benefit, and local livelihood generation. It provides a consolidated view of how each implementation model performs across commercial, institutional, and community-development perspectives. This matrix is intended to support balanced decision-making where the objective extends beyond financial return to include sustainable site reuse and long-term local economic benefit.</p>
+          <p class="spv-body-text">Gravity battery projects can be attractive for mine-closure livelihood because they require civil works, mechanical erection, electrical works, hoist operations, safety supervision, monitoring, security, facility management, access maintenance, fabrication, and periodic inspection. Mine-shaft systems may also allow partial reskilling of mining workers familiar with hoisting, mechanical maintenance, electrical systems, and mine safety.</p>
+          <div class="tbl-scroll">
+          <table class="spv-table">
+            <thead><tr>
+              <th>Model</th>
+              <th>Main Revenue / Value Source</th>
+              <th>Owner Profitability</th>
+              <th>Local Job Potential</th>
+              <th>Overall Comment</th>
+            </tr></thead>
+            <tbody>
+              <tr><td><strong>EPC</strong></td><td>Peak shifting, renewable storage, captive savings, grid-service value, reliability value</td><td>High — owner retains full value; requires high upfront investment</td><td>Moderate</td><td>Suitable where owner has funds and wants full control</td></tr>
+              <tr><td><strong>EPC + O&amp;M / FM</strong></td><td>Same as EPC, with specialist operation and facility management</td><td>High — owner retains most benefit after O&amp;M charges</td><td>Very High</td><td>Most suitable where objective is to combine ownership, profitability, safety control, and local livelihood</td></tr>
+              <tr><td><strong>BOOT</strong></td><td>Storage revenue, service fee, hybrid dispatch, grid support during concession</td><td>Moderate — owner benefit deferred through transfer, lease, or concession fee</td><td>High</td><td>Suitable for PPP-style development where upfront owner funding is limited</td></tr>
+              <tr><td><strong>BOO</strong></td><td>Long-term storage-related revenue by private developer</td><td>Low to Moderate — most operating value goes to developer</td><td>Moderate to High</td><td>Suitable where private ownership is acceptable and owner wants site monetization</td></tr>
+              <tr><td><strong>DBFOT</strong></td><td>Contracted storage capacity, availability payments, grid services, renewable hybrid dispatch</td><td>Moderate — through concession value, transfer, and negotiated share</td><td>High</td><td>Suitable for structured concession where technology and financing risks are shifted</td></tr>
+              <tr><td><strong>Lease-Develop-Operate</strong></td><td>Lease rent, royalty, revenue share, developer storage revenue</td><td>Moderate — with low owner investment</td><td>High</td><td>Good where owner wants mine-asset monetization and local employment obligations</td></tr>
+              <tr><td><strong>Storage-as-a-Service</strong></td><td>Service fee, shared savings, demand reduction, managed dispatch</td><td>Low to Moderate — mainly through avoided CAPEX</td><td>Moderate</td><td>Suitable where owner wants benefits without technology ownership</td></tr>
+              <tr><td><strong>Hybrid RE + Gravity</strong></td><td>Renewable generation, storage-enabled peak sale, firm supply, captive savings</td><td>Moderate to High depending on ownership</td><td>Very High</td><td>Strong clean-energy redevelopment model for closed mine assets</td></tr>
+            </tbody>
+          </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="prism2-nav-row">
+        <button class="prism2-btn-prev" id="prism2-prev-I" onclick="prism2Prev()">&#8592; Previous</button>
+        <div class="prism2-progress-dots" style="display:flex;gap:5px;align-items:center;">
+          <span class="pdot" data-p="P"></span><span class="pdot" data-p="R"></span>
+          <span class="pdot active" data-p="I"></span><span class="pdot" data-p="S"></span><span class="pdot" data-p="M"></span>
+        </div>
+        <button class="prism2-btn-next" id="prism2-next-I" onclick="prism2Next()">Next pillar &#8594;</button>
+      </div>
+    </div><!-- /I -->
+
+    <!-- ── S PANEL ── -->
+    <div class="prism2-content-panel" id="prism2-panel-S" style="--pc:#5a3d9e;--pb:#edeaf8;--cb:#f6f4fc;">
+      <div class="prism2-panel-header">
+        <div class="prism2-panel-header-letter">S</div>
+        <div class="prism2-panel-header-text">
+          <div class="prism2-panel-eyebrow">STRATEGIC STRUCTURING</div>
+          <p class="prism2-panel-desc">Pre-RFP owner readiness checklist, post-award activities, and step-by-step implementation pathway for gravity battery development at closed coal mines.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Preparations Needed Before RFP</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following section identifies the key owner-side preparatory actions that should ideally be completed before issuing the first Request for Proposal. These actions are aimed at reducing uncertainty for prospective bidders, improving project bankability, clarifying site availability, identifying approval pathways and risks, and defining the technical and commercial scope of the project. Completing these preparatory steps before tendering can improve bid quality, attract credible responses, and reduce the risk of delays during project implementation.</p>
+          <p class="spv-body-text">Before issuing an RFP for a Gravity Battery / Gravity Energy Storage mine-repurposing project, the mine owner should prepare the following in priority order:</p>
+          <ol class="spv-list">
+            <li><strong>Mine closure and land-use confirmation</strong> — Confirm mine closure status, ownership / lease rights, approved Mine Closure Plan linkage, and permissibility of using the closed mine area for green energy / energy storage repurposing. The 2025 coal and lignite mine-closure guidelines specifically recognize repurposing for solar, green energy, recreation, waterbody conservation and similar post-mining uses.</li>
+            <li><strong>Mine asset inventory and no-go zone mapping</strong> — Prepare an inventory of shafts, incline entries, pits, underground galleries, dumps, substations, roads, workshops and unsafe zones, including highwalls, subsidence-prone areas, flooded workings and restricted infrastructure.</li>
+            <li><strong>Preliminary shaft / pit suitability screening</strong> — Assess shaft depth, diameter, lining condition, collar stability, water ingress, obstruction, ventilation condition, old hoisting system and accessibility to decide whether the site is suitable for mine-shaft gravity storage, UGES, surface gravity storage or hybrid storage.</li>
+            <li><strong>Safety, DGMS and closure-risk screening</strong> — Carry out preliminary screening for mine-safety risks, abandoned workings, gas, inundation, subsidence, slope instability, emergency access and public safety; the project should not proceed to RFP without a clearly marked safe-development envelope.</li>
+            <li><strong>Grid connectivity and electrical interface note</strong> — Identify nearest substation, voltage level, spare bay availability, evacuation route, metering requirement, protection requirement and whether the project is for captive use, renewable integration, grid support or storage service.</li>
+            <li><strong>Energy-storage use-case confirmation</strong> — Define the primary use case as renewable shifting, peak support, grid balancing, mine-area redevelopment support, backup for critical loads, or hybrid solar / FSPV + gravity storage.</li>
+            <li><strong>Preliminary technical concept and sizing basis</strong> — Prepare an indicative MW / MWh range based on available height, moving mass, shaft condition, operating cycle and technology route; the National Framework for Energy Storage Systems recognizes storage as a key element for renewable integration and grid flexibility.</li>
+            <li><strong>Environmental and statutory trigger screening</strong> — Screen requirements relating to SPCB, forest, wildlife, wetland, waterbody, CRZ / IPZ if applicable, land-use change, mine-closure obligations, contamination, drainage and waste-material reuse.</li>
+            <li><strong>Electrical safety and approval pathway</strong> — Prepare an approval map covering CEIG / Electrical Inspector, CEA safety requirements, grid interconnection, protection, metering, earthing, control room, emergency shutdown and energization permissions. The CEA safety regulations govern safety requirements for electrical supply installations.</li>
+            <li><strong>Commercial model and funding preference</strong> — Select the preferred model from EPC, EPC + O&amp;M / Facility Management, BOOT, BOO, DBFOT, Concession / Lease-Develop-Operate, Storage-as-a-Service or Hybrid Renewable + Gravity Storage.</li>
+            <li><strong>Local livelihood and just-transition plan</strong> — Identify local employment, reskilling, fabrication, security, facility management, monitoring, transport and maintenance opportunities; mine-closure policy now emphasizes community development, livelihood and just transformation.</li>
+            <li><strong>Draft RFP scope and bid evaluation framework</strong> — Prepare bidder obligations covering feasibility validation, shaft certification, technology design, safety compliance, electrical approvals, performance guarantee, O&amp;M plan, local employment, revenue sharing and decommissioning / handback obligations.</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Activities to be taken After Selecting the Agency</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following section lists the principal activities that may be undertaken by the selected contractor, developer, concessionaire, operator, or implementation agency after award of the project. These activities generally include detailed site investigations, engineering design, statutory submissions and approvals, equipment procurement, construction, commissioning, operational planning, staff training, and performance monitoring. The distinction between pre-RFP owner preparedness and post-award implementation responsibilities helps ensure an appropriate and efficient allocation of effort across the project development cycle.</p>
+          <p class="spv-body-text">After award, the selected concessionaire / contractor / O&amp;M agency / storage developer can take up the following activities in chronological order:</p>
+          <ol class="spv-list">
+            <li><strong>Detailed site and shaft investigation</strong> — Undertake detailed shaft survey, drone mapping, underground records review, geotechnical investigation, hydrogeological study, subsidence assessment, slope assessment and structural condition assessment.</li>
+            <li><strong>Detailed feasibility and technology confirmation</strong> — Confirm whether the project should use suspended-weight shaft storage, underground gravity energy storage, surface gravity storage, hybrid solar + gravity storage, or another technically suitable configuration.</li>
+            <li><strong>Detailed Project Report / DPR preparation</strong> — Prepare the DPR covering final MW / MWh sizing, shaft-use design, mechanical system, electrical system, grid interface, safety design, revenue model, statutory approval plan, construction schedule and O&amp;M plan.</li>
+            <li><strong>Mine safety, electrical and statutory approvals</strong> — Obtain required approvals from the mine owner / competent mining authority, DGMS where applicable, CEIG / Electrical Inspector, grid utility, SPCB, fire authority and other statutory bodies before construction or energization.</li>
+            <li><strong>Detailed engineering and design</strong> — Prepare final designs for hoist / lifting system, weights or storage medium, shaft guides, brakes, motor-generator, power electronics, transformer, switchgear, EMS / SCADA, foundations, control room and emergency systems.</li>
+            <li><strong>Grid interconnection and protection studies</strong> — Complete load-flow, short-circuit, relay coordination, metering, power-quality, earthing and synchronization studies in line with utility and CEA requirements.</li>
+            <li><strong>Procurement and fabrication</strong> — Procure or fabricate hoist equipment, ropes / cables, weights, motor-generators, drives, transformers, switchgear, control systems, sensors, communication systems, safety barriers and rescue equipment.</li>
+            <li><strong>Construction and installation</strong> — Execute civil works, shaft preparation, mechanical installation, electrical works, control-room setup, access improvement, fencing, lighting, drainage, signage and emergency-access development.</li>
+            <li><strong>EMS / SCADA and operational control setup</strong> — Install dispatch control, monitoring, emergency shutdown, overspeed protection, shaft safety interlocks, grid communication and remote monitoring systems.</li>
+            <li><strong>Recruitment, training and local livelihood integration</strong> — Recruit and train local workers for security, facility management, mechanical support, electrical support, monitoring, housekeeping, vegetation control, emergency response and routine O&amp;M.</li>
+            <li><strong>Testing, inspection and safety audit</strong> — Conduct mechanical load testing, brake testing, electrical testing, protection testing, mock drills, emergency shutdown testing, third-party safety audit and statutory inspection.</li>
+            <li><strong>Trial operation and performance validation</strong> — Run trial charging / discharging cycles, validate MW output, MWh capacity, response time, round-trip efficiency, safety interlocks, dispatch logic and grid synchronization.</li>
+            <li><strong>Commissioning and commercial operation</strong> — Commission the gravity storage project after statutory clearance, grid approval, safety certification, performance testing and owner acceptance.</li>
+            <li><strong>Regular O&amp;M and compliance monitoring</strong> — Carry out periodic shaft inspection, hoist maintenance, electrical testing, safety audits, environmental monitoring, incident reporting, local employment reporting and mine-closure compliance reporting.</li>
+            <li><strong>Phased expansion / hybrid integration</strong> — Expand capacity or integrate solar, FSPV, wind, pumped storage, industrial load support or grid-service participation based on performance, safety record, land availability and owner approval.</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Indicative Implementation Pathway</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following implementation pathway presents a practical high-level sequence for advancing the proposed repurposing concept from initial approval through to project execution and long-term operation. It outlines the broad stages of concept approval, preliminary studies, model selection, bid preparation, procurement, detailed design, statutory approvals, construction, commissioning, and ongoing operation. This pathway is indicative and should be adapted to reflect the specific complexity, regulatory requirements, financing structure, and site conditions applicable to the project.</p>
+          <ol class="spv-list">
+            <li>Concept approval and owner-side structuring</li>
+            <li>Confirmation of mine closure status and legal permissibility for repurposing</li>
+            <li>Identification of primary gravity storage use case and commercial objective</li>
+            <li>Shaft, land, geotechnical, hydrogeological, and mine-safety screening</li>
+            <li>Preliminary grid and renewable integration assessment</li>
+            <li>Technology option screening: mine-shaft weight system, UGES / sand system, surface gravity system, or hybrid</li>
+            <li>Selection of preferred implementation model: EPC, EPC + O&amp;M, BOOT, BOO, DBFOT, Lease-Develop-Operate, Storage-as-a-Service, or Hybrid</li>
+            <li>Preparation of feasibility report / DPR / technical scope / bid documents through internal team or PMC</li>
+            <li>Market sounding and pre-bid consultation with technology providers, hoist companies, electrical integrators, and developers</li>
+            <li>Issuance of RFP</li>
+            <li>Selection of contractor / developer / concessionaire / service provider</li>
+            <li>Detailed engineering, shaft certification, safety design, and approvals</li>
+            <li>Construction, installation, commissioning, grid synchronization, and trial operation</li>
+            <li>Long-term O&amp;M / facility management, monitoring, local employment reporting, and mine-closure compliance review</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="prism2-nav-row">
+        <button class="prism2-btn-prev" id="prism2-prev-S" onclick="prism2Prev()">&#8592; Previous</button>
+        <div class="prism2-progress-dots" style="display:flex;gap:5px;align-items:center;">
+          <span class="pdot" data-p="P"></span><span class="pdot" data-p="R"></span>
+          <span class="pdot" data-p="I"></span><span class="pdot active" data-p="S"></span><span class="pdot" data-p="M"></span>
+        </div>
+        <button class="prism2-btn-next" id="prism2-next-S" onclick="prism2Next()">Next pillar &#8594;</button>
+      </div>
+    </div><!-- /S -->
+
+    <!-- ── M PANEL ── -->
+    <div class="prism2-content-panel" id="prism2-panel-M" style="--pc:#1a7a5e;--pb:#e1f3ec;--cb:#f0faf5;">
+      <div class="prism2-panel-header">
+        <div class="prism2-panel-header-letter">M</div>
+        <div class="prism2-panel-header-text">
+          <div class="prism2-panel-eyebrow">MONITORING GUIDANCE</div>
+          <p class="prism2-panel-desc">Way forward for gravity battery development at closed coal mines — preferred models, key due-diligence considerations, and recommended next steps.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Way Forward</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following way forward summarizes the preferred development approach for the proposed repurposing option, based on the assessment presented in PRISM (Post Mining Repurposing Implementation and Strategy Models). It identifies the most suitable implementation models in order of preference, highlights key technical and due-diligence considerations, and outlines the recommended next steps and broad development logic. This section is intended to guide internal decision-making and support the project owner in progressing from concept-stage evaluation toward feasibility assessment, project structuring, regulatory approvals, and implementation planning.</p>
+          <ul class="spv-list">
+            <li>Availability and condition of mine shafts, pits, galleries, or other vertical-height assets</li>
+            <li>Mine closure status and legal permissibility of repurposing</li>
+            <li>Funding availability and owner's appetite for CAPEX</li>
+            <li>Intended use case and revenue logic</li>
+            <li>Grid connectivity and power evacuation conditions</li>
+            <li>Compatibility with solar, FSPV, wind, pumped storage, or other renewable projects</li>
+            <li>Technology maturity, vendor capability, and performance guarantee bankability</li>
+            <li>Local livelihood, reskilling, and just-transition expectations</li>
+            <li>Shaft safety, mine safety, environmental, and public-safety considerations</li>
+          </ul>
+          <p class="spv-body-text">Given the current maturity of mine-shaft gravity storage, the recommended first step should be a <strong>pre-feasibility and shaft-screening study</strong>, followed by a <strong>pilot or phased development model</strong>. For most mine owners, the most balanced model is likely to be <strong>EPC + O&amp;M / Facility Management</strong> where funding is available, or <strong>DBFOT / Lease-Develop-Operate</strong> where private financing and technology-risk transfer are preferred.</p>
+          <p class="spv-body-text">Where a floating solar or ground-mounted solar project is also under consideration, a combined <strong>Solar / FSPV + Gravity Battery</strong> pathway may be examined — storage can shift daytime solar generation to evening or peak periods, reduce intermittency, improve dispatchability, and strengthen the commercial viability of the overall clean-energy redevelopment strategy for the mine site.</p>
+        </div>
+      </div>
+
+      <div class="prism2-nav-row">
+        <button class="prism2-btn-prev" id="prism2-prev-M" onclick="prism2Prev()">&#8592; Previous</button>
+        <div class="prism2-progress-dots" style="display:flex;gap:5px;align-items:center;">
+          <span class="pdot" data-p="P"></span><span class="pdot" data-p="R"></span>
+          <span class="pdot" data-p="I"></span><span class="pdot" data-p="S"></span><span class="pdot active" data-p="M"></span>
+        </div>
+      </div>
+
+      <!-- Framework completion card -->
+      <div style="margin:8px 26px 28px;padding:16px 20px;border-radius:12px;background:#f4faf7;border:1.5px dashed #a8d5c2;display:flex;align-items:center;gap:14px;">
+        <div style="width:36px;height:36px;border-radius:50%;background:#d1ece2;border:1.5px solid #a8d5c2;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#1a7a5e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2.5 8 6 11.5 13.5 4"/></svg>
+        </div>
+        <div style="flex:1;min-width:0;">
+          <div style="font-size:.82rem;font-weight:700;color:#1a7a5e;letter-spacing:.01em;">PRISM Framework Complete</div>
+          <div style="font-size:.75rem;color:#4a7a6a;margin-top:2px;line-height:1.5;">All five pillars reviewed — explore case studies to see how similar projects were executed.</div>
+        </div>
+        <button onclick="showSPVTab('casestudies');setTimeout(function(){window.dispatchEvent(new Event('resize'))},30)" style="flex-shrink:0;font-size:.75rem;font-weight:600;padding:7px 14px;border-radius:8px;border:1.5px solid #a8d5c2;background:#fff;color:#1a7a5e;cursor:pointer;transition:background .2s,border-color .2s;" onmouseover="this.style.background='#e6f5ef'" onmouseout="this.style.background='#fff'">Case Studies &#8599;</button>
+      </div>
+
+      <!-- Download PRISM PDF -->
+      <div style="margin:0 26px 32px;padding:14px 18px;border-radius:12px;background:linear-gradient(120deg,#e8f4fc 0%,#daeafa 100%);border:1.5px solid #b8d4ef;display:flex;align-items:center;gap:14px;">
+        <div style="width:36px;height:36px;border-radius:50%;background:#c8e4f8;border:1.5px solid #b8d4ef;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#1a5ca8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v10M5 8l4 4 4-4"/><rect x="3" y="14" width="12" height="2" rx="1"/></svg>
+        </div>
+        <div style="flex:1;min-width:0;">
+          <div style="font-size:.82rem;font-weight:700;color:#1a5ca8;letter-spacing:.01em;">Download PRISM Framework</div>
+          <div style="font-size:.75rem;color:#3a6a98;margin-top:2px;line-height:1.5;">Save a print-ready PDF of all five pillars for offline reference.</div>
+        </div>
+        <button onclick="downloadPRISM()" style="flex-shrink:0;font-size:.75rem;font-weight:600;padding:8px 16px;border-radius:8px;border:1.5px solid #b8d4ef;background:#fff;color:#1a5ca8;cursor:pointer;transition:background .2s,border-color .2s;display:flex;align-items:center;gap:6px;" onmouseover="this.style.background='#daeafa'" onmouseout="this.style.background='#fff'">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 1v7M3.5 5.5l3 3 3-3"/><rect x="1.5" y="10" width="10" height="1.5" rx=".75"/></svg>
+          Download PDF
+        </button>
+      </div>
+
+    </div><!-- /M -->
+
+  </div><!-- /pr-content-wrap -->
+</div><!-- /pr-shell -->
+
+<script>
+function prNav(key) {
+  if (typeof prism2Show === 'function') prism2Show(key);
+  document.querySelectorAll('#spv-panel-prism .pr-nav-item').forEach(function(n) {
+    n.classList.toggle('active', n.dataset.key === key);
+  });
+  var hl = document.getElementById('pr-hl');
+  var active = document.querySelector('#spv-panel-prism .pr-nav-item[data-key="' + key + '"]');
+  if (hl && active) {
+    var accent = getComputedStyle(active).getPropertyValue('--pr-accent').trim();
+    hl.style.setProperty('--pr-hl', accent);
+    hl.style.top = active.offsetTop + 'px';
+    hl.style.height = active.offsetHeight + 'px';
+  }
+}
+</script>
+
+    </div>
+  </div><!-- /spv-panel-prism -->
+
+  <div id="spv-panel-casestudies" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+      
+   
+     <div class="lit-wrap">
+        <div class="lit-outer">
+          <div class="lit-track-clip">
+            <div class="lit-track" id="litTrack-all">
+
+              
+            
+              <!-- Card 1: Gravitricity GraviStore -->
+              <a class="lit-card" href="https://gravitricity.com/technology/" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#1a7a5e;--lit-glow:rgba(26,122,94,.18);--lit-tint:rgba(26,122,94,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Gravitricity GraviStore — 250 kW Mine-Shaft Gravity Energy Storage Demonstrator, Edinburgh (2022)</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Technology / Project</span></div>
+                    <div class="lit-card-source">Source: <span>Gravitricity, Edinburgh, UK</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/gb-hero-shaft.jpg" alt="Mine shaft headframe — Gravitricity GraviStore gravity energy storage demonstrator" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> View Link</div>
+              </a>
+
+              <!-- Card 2: Energy Vault EVx China -->
+              <a class="lit-card" href="https://www.energyvault.com/solutions" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#5a3d9e;--lit-glow:rgba(90,61,158,.18);--lit-tint:rgba(90,61,158,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Energy Vault EVx — 25 MW / 100 MWh Grid-Scale Gravity Storage, Rudong, China (2024)</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Commercial Deployment</span></div>
+                    <div class="lit-card-source">Source: <span>Energy Vault (NASDAQ: NRGV)</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs-agl-liddell-bess.jpg" alt="Large-scale grid energy storage at industrial site — Energy Vault EVx gravity storage platform" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> View Link</div>
+              </a>
+
+            </div><!-- /lit-track -->
+          </div><!-- /lit-track-clip -->
+
+          <div class="lit-nav">
+            <button class="lit-nav-btn" id="litPrev-all" aria-label="Previous" onclick="litMove('all',-1)">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <div class="lit-dots" id="litDots-all"></div>
+            <button class="lit-nav-btn" id="litNext-all" aria-label="Next" onclick="litMove('all',1)">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+          </div>
+        </div><!-- /lit-outer -->
+      </div><!-- /lit-wrap -->
+      <p style="font-size:0.72rem;color:var(--color-text-secondary);font-style:italic;margin-top:16px;">Links open external websites. Coal Controller Organisation does not endorse third-party content.</p>
+    </div>
+  </div><!-- /spv-panel-casestudies -->
+
+  <div id="spv-panel-tender" class="spv-panel" style="display:none;">
+  <div class="spv-content">
+
+  <div class="t5-wrap">
+    <div class="t5-topbar">
+      <div class="t5-pills">
+        <button class="t5-pill t5-pill--all active" onclick="t5Filter('all')">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          All Documents <span class="t5-pill-count" id="t5cnt-all">2</span>
+        </button>
+        <button class="t5-pill t5-pill--rfp" data-sec="rfp" onclick="t5Filter('rfp')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          RFP <span class="t5-pill-count" id="t5cnt-rfp">1</span>
+        </button>
+        <button class="t5-pill t5-pill--rpt" data-sec="rpt" onclick="t5Filter('rpt')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          Regulation &amp; Framework <span class="t5-pill-count" id="t5cnt-rpt">1</span>
+        </button>
+      </div>
+      <div class="t5-right">
+        <div class="t5-search-wrap">
+          <svg class="t5-search-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input id="t5SearchInput" class="t5-search" type="text" placeholder="Search documents…" oninput="t5Search(this.value)">
+        </div>
+        <span class="t5-counter" id="t5Counter"></span>
+      </div>
+    </div>
+
+    <div id="t5Sections">
+
+      <!-- RFP -->
+      <div class="t5-section" data-sec="rfp" style="animation-delay:0.05s">
+        <div class="t5-section-header">
+          <div class="t5-section-bar" style="background:#1a7a5e"></div>
+          <span class="t5-section-label" style="color:#1a7a5e">Requests for Proposal (RFP)</span>
+          <span class="t5-section-count">1 document</span>
+        </div>
+        <div class="t5-list">
+          <a class="t5-row t5-row--rfp" data-sec="rfp"
+             data-title="seci saras standalone energy storage rfp grid-scale gravity bess mnre offtake ppa mine land procurement"
+             href="https://seci.co.in/" target="_blank" rel="noopener">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">SECI Standalone Energy Storage System (SARAS) RFP — Grid-Scale Storage Procurement</div>
+              <div class="t5-sub">RFP / Bid Document · SECI / MNRE, Government of India · BESS &amp; Gravity Storage Eligible</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">RFP</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+        </div>
+      </div><!-- /rfp -->
+
+      <!-- Regulation & Framework -->
+      <div class="t5-section" data-sec="rpt" style="animation-delay:0.15s">
+        <div class="t5-section-header">
+          <div class="t5-section-bar" style="background:#1a5ca8"></div>
+          <span class="t5-section-label" style="color:#1a5ca8">Regulations &amp; Frameworks</span>
+          <span class="t5-section-count">1 document</span>
+        </div>
+        <div class="t5-list">
+          <a class="t5-row t5-row--rpt" data-sec="rpt"
+             data-title="cerc energy storage regulations 2022 tariff grid interconnection dispatch ancillary gravity battery bess scheduling"
+             href="https://cercind.gov.in/" target="_blank" rel="noopener">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Cerc Regulations for Energy Storage Systems in the Power Sector, 2022</div>
+              <div class="t5-sub">Regulatory Framework · Central Electricity Regulatory Commission (CERC) · Grid-Scale Storage</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">Regulation</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+        </div>
+      </div><!-- /rpt -->
+
+    </div><!-- /t5Sections -->
+  </div><!-- /t5-wrap -->
+
+  </div>
+  </div><!-- /spv-panel-tender -->
+
+  <div id="spv-panel-media" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+
+      <div class="media-stack">
+
+        <!-- Row 1: Gravitricity -->
+        <a class="media-row" href="https://gravitricity.com/" target="_blank" rel="noopener noreferrer" style="--mr-accent:#1a7a5e;--mr-tint:rgba(26,122,94,.1);">
+          <div class="media-row-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a7a5e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <div class="media-row-main">
+            <div class="media-row-tag">Technology Developer · Mine-Shaft GES</div>
+            <div class="media-row-title">Gravitricity — GraviStore Mine-Shaft Gravity Energy Storage System</div>
+            <div class="media-row-source"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><line x1="2" y1="8" x2="14" y2="8"/><path d="M8 2a10 10 0 010 12M8 2a10 10 0 000 12"/></svg> gravitricity.com</div>
+          </div>
+          <div class="media-row-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/></svg></div>
+        </a>
+
+        <!-- Row 2: Energy Vault -->
+        <a class="media-row" href="https://www.energyvault.com/solutions" target="_blank" rel="noopener noreferrer" style="--mr-accent:#5a3d9e;--mr-tint:rgba(90,61,158,.1);">
+          <div class="media-row-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5a3d9e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+          </div>
+          <div class="media-row-main">
+            <div class="media-row-tag">Technology Developer · Grid-Scale GES</div>
+            <div class="media-row-title">Energy Vault — EVx Gravity Storage Platform (25 MW / 100 MWh, Rudong, China)</div>
+            <div class="media-row-source"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><line x1="2" y1="8" x2="14" y2="8"/><path d="M8 2a10 10 0 010 12M8 2a10 10 0 000 12"/></svg> energy-vault.com</div>
+          </div>
+          <div class="media-row-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/></svg></div>
+        </a>
+
+        <!-- Row 3: IEA Grid-Scale Storage Report -->
+        <a class="media-row" href="https://www.iea.org/reports/grid-scale-storage" target="_blank" rel="noopener noreferrer" style="--mr-accent:#b06a10;--mr-tint:rgba(176,106,16,.1);">
+          <div class="media-row-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#b06a10" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg>
+          </div>
+          <div class="media-row-main">
+            <div class="media-row-tag">Report · International Energy Agency</div>
+            <div class="media-row-title">IEA Grid-Scale Storage — Technology, Cost &amp; Market Report</div>
+            <div class="media-row-source"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><line x1="2" y1="8" x2="14" y2="8"/><path d="M8 2a10 10 0 010 12M8 2a10 10 0 000 12"/></svg> iea.org</div>
+          </div>
+          <div class="media-row-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/></svg></div>
+        </a>
+
+        <!-- Row 4: IRENA Gravity Storage Innovations -->
+        <a class="media-row" href="https://www.irena.org/Innovation-landscape-for-smart-electrification/Power-sector/11-Gravity-energy-storage" target="_blank" rel="noopener noreferrer" style="--mr-accent:#1a5ca8;--mr-tint:rgba(26,92,168,.1);">
+          <div class="media-row-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a5ca8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <div class="media-row-main">
+            <div class="media-row-tag">Innovation Landscape · IRENA</div>
+            <div class="media-row-title">IRENA — Gravity Energy Storage Innovation in Smart Electrification</div>
+            <div class="media-row-source"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><line x1="2" y1="8" x2="14" y2="8"/><path d="M8 2a10 10 0 010 12M8 2a10 10 0 000 12"/></svg> irena.org</div>
+          </div>
+          <div class="media-row-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/></svg></div>
+        </a>
+
+        <!-- Row 5: MNRE Energy Storage Mission -->
+        <a class="media-row" href="https://mnre.gov.in/" target="_blank" rel="noopener noreferrer" style="--mr-accent:#C85000;--mr-tint:rgba(200,80,0,.1);">
+          <div class="media-row-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C85000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <div class="media-row-main">
+            <div class="media-row-tag">Government · MNRE</div>
+            <div class="media-row-title">Ministry of New &amp; Renewable Energy — Energy Storage Mission &amp; SARAS Programme</div>
+            <div class="media-row-source"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><line x1="2" y1="8" x2="14" y2="8"/><path d="M8 2a10 10 0 010 12M8 2a10 10 0 000 12"/></svg> mnre.gov.in</div>
+          </div>
+          <div class="media-row-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/></svg></div>
+        </a>
+
+      </div><!-- /media-stack -->
+
+      
+    </div>
+  </div><!-- /spv-panel-media -->
+
+  <div id="spv-panel-agencies" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+      <div class="agencies-logo-grid">
+ 
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img" style="background:#ffffff; border-radius:10px;">
+            <img src="../images/agencies/Afcons%20Infrastructure%20Ltd.png" alt="Afcons Infrastructure Ltd" style="max-width:100%; max-height:60px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">Afcons Infrastructure Ltd</div>
+          <div class="agency-logo-type">Shaft excavation, headframe tower civil construction &amp; structural works for gravity storage</div>
+        </div>
+ 
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img" style="background:#ffffff; border-radius:10px;">
+            <img src="../images/agencies/Rail%20Vikas%20Nigam%20Ltd%20(RVNL).svg" alt="Rail Vikas Nigam Ltd (RVNL)" style="max-width:100%; max-height:60px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">Rail Vikas Nigam Ltd (RVNL)</div>
+          <div class="agency-logo-type">Rail-based gravity storage: track civil, winch bay construction &amp; shaft lining</div>
+        </div>
+ 
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img agency-logo-inner--img--dark" style="background:#1a5ca8; border-radius:10px;">
+            <img src="../images/agencies/landt-logo.png" alt="Larsen &amp; Toubro Heavy Engineering" style="max-width:100%; max-height:60px; object-fit:contain; background: #1a5ca8; ">
+          </div>
+          <div class="agency-logo-name">Larsen &amp; Toubro Heavy Engineering</div>
+          <div class="agency-logo-type">Lifting mechanism fabrication, winch systems, heavy steel counterweight manufacture &amp; erection</div>
+        </div>
+ 
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img" style="background:#ffffff; border-radius:10px;">
+            <img src="../images/agencies/Tata%20Projects%20Ltd.webp" alt="Tata Projects Ltd" style="max-width:100%; max-height:60px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">Tata Projects Ltd</div>
+          <div class="agency-logo-type">Civil &amp; mechanical EPC for gravity storage tower &amp; shaft structures</div>
+        </div>
+ 
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img" style="background:#1a5ca8; border-radius:10px;">
+            <img src="../images/agencies/Simplex%20Infrastructures%20Ltd.png" alt="Simplex Infrastructures Ltd" style="max-width:100%; max-height:60px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">Simplex Infrastructures Ltd</div>
+          <div class="agency-logo-type">Tower, shaft &amp; underground civil structural works for gravity battery</div>
+        </div>
+ 
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img" style="background:#ffffff; border-radius:10px;">
+            <img src="../images/agencies/BEML%20Ltd.jpg" alt="BEML Ltd" style="max-width:100%; max-height:60px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">BEML Ltd</div>
+          <div class="agency-logo-type">Heavy mechanical systems, rail bogies &amp; lifting mechanism supply &amp; erection</div>
+        </div>
+ 
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img" style="background:#ffffff; border-radius:10px;">
+            <img src="../images/agencies/energyvault.png" alt="Energy Vault India (via India JV)" style="max-width:100%; max-height:60px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">Energy Vault India (via India JV)</div>
+          <div class="agency-logo-type">Proprietary block manufacture, crane system supply &amp; gravity battery plant commissioning</div>
+        </div>
+ 
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img" style="background:#ffffff; border-radius:10px;">
+            <img src="../images/agencies/Gammon%20India%20Ltd.gif" alt="Gammon India Ltd" style="max-width:100%; max-height:60px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">Gammon India Ltd</div>
+          <div class="agency-logo-type">Heavy civil: shaft sinking, retaining structures &amp; headframe civil build</div>
+        </div>
+ 
+      </div><!-- /agencies-logo-grid -->
+      
+         <!-- Disclaimer -->
+      <div style="margin-top:28px; padding:14px 18px; background:rgba(33,128,141,.05); border:1px solid rgba(33,128,141,.18); border-radius:8px; display:flex; gap:12px; align-items:flex-start;">
+        <svg style="flex-shrink:0; margin-top:2px;" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#21808d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <p style="margin:0; font-family:var(--font-sans); font-size:0.8rem; color:var(--color-text-secondary); line-height:1.65;">
+          <strong style="color:var(--color-text); font-weight:600;">Disclaimer:</strong>
+          Inclusion of an agency on this list does not constitute endorsement, empanelment, or recommendation by the Coal Controller Organisation or the Ministry of Coal, Government of India. Mine owners and project proponents are advised to conduct their own due diligence process before engaging any agency.
+        </p>
+      </div>
+      
+    </div>
+  </div><!-- /spv-panel-agencies -->
+
+  <div id="spv-panel-experts" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+      <div style="padding:60px 24px;text-align:center;color:#94a3b8;">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#cbd5e1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin:0 auto 18px;display:block;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <div style="font-size:1rem;font-weight:600;color:#64748b;margin-bottom:6px;">Experts — Coming Soon</div>
+        <div style="font-size:.875rem;color:#94a3b8;max-width:400px;margin:0 auto;line-height:1.65;">Domain experts in mine-shaft engineering, gravity storage technology, hoist systems, grid integration, mine safety, and clean-energy finance will be profiled here.</div>
+      </div>
+      <div style="margin-top:28px;padding:14px 18px;background:rgba(33,128,141,.05);border:1px solid rgba(33,128,141,.18);border-radius:8px;display:flex;gap:12px;align-items:flex-start;">
+        <svg style="flex-shrink:0;margin-top:2px;" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#21808d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <p style="margin:0;font-family:var(--font-sans);font-size:0.8rem;color:var(--color-text-secondary);line-height:1.65;"><strong style="color:var(--color-text);font-weight:600;">Disclaimer:</strong> Inclusion of an expert does not constitute endorsement, empanelment, or recommendation by the Coal Controller Organisation or the Ministry of Coal, Government of India. Users are advised to independently verify credentials and suitability before engaging any individual.</p>
+      </div>
+    </div>
+  </div><!-- /spv-panel-experts -->
+
+  <!-- Footer -->
+  <footer id="site-footer-sf">
+    &copy; 2026 Coal Controller Organisation, Ministry of Coal, Government of India.
+  </footer>
+
+</div><!-- /page -->
+
+<script>
+const PRISM2_COLORS = {P:'#C85000', R:'#1a5ca8', I:'#b06a10', S:'#5a3d9e', M:'#1a7a5e'};
+const PRISM2_BG     = {P:'#fff0e6', R:'#e4eef9', I:'#faedda', S:'#edeaf8', M:'#e1f3ec'};
+</script>
+
+<script src="./category.js"></script>
+
+<script>
+window.prism2Next = function() {
+  if (prism2Current < PRISM2_ORDER.length - 1) prNav(PRISM2_ORDER[prism2Current + 1]);
+};
+window.prism2Prev = function() {
+  if (prism2Current > 0) prNav(PRISM2_ORDER[prism2Current - 1]);
+};
+
+function downloadPRISM() {
+  var rawTitle = document.title || '';
+  var catName  = rawTitle.split('—')[0].split('-')[0].trim() || 'Category';
+
+  var PC = {P:'#C85000',R:'#1a5ca8',I:'#b06a10',S:'#5a3d9e',M:'#1a7a5e'};
+  var PB = {P:'#fff8f3',R:'#f3f7fd',I:'#fdf7f0',S:'#f7f5fd',M:'#f1faf6'};
+  var PN = {P:'Project Vision',R:'Repurposing Pathways',I:'Investment Dynamics',S:'Strategic Structuring',M:'Monitoring &amp; Management'};
+  var PE = {P:'POST-MINING',R:'REPURPOSING',I:'INVESTMENT',S:'STRATEGY',M:'MANAGEMENT'};
+
+  var introHeadEl = document.querySelector('.pr-intro-heading');
+  var introBodyEl = document.querySelector('.pr-intro-body');
+  var introHead   = introHeadEl ? introHeadEl.textContent : 'A structured framework for mine repurposing from concept to implementation';
+  var introBody   = introBodyEl ? introBodyEl.innerHTML   : '';
+
+  var pillarsHTML = '';
+  ['P','R','I','S','M'].forEach(function(k) {
+    var panel = document.getElementById('prism2-panel-' + k);
+    if (!panel) return;
+
+    var eyebrowEl   = panel.querySelector('.prism2-panel-eyebrow');
+    var titleEl     = panel.querySelector('.prism2-panel-title');
+    var descEl      = panel.querySelector('.prism2-panel-desc');
+    var eyebrow     = eyebrowEl  ? eyebrowEl.textContent  : PE[k];
+    var panelTitle  = titleEl    ? titleEl.textContent    : PN[k];
+    var descHTML    = descEl     ? descEl.innerHTML       : '';
+
+    var accHTML = '';
+    panel.querySelectorAll('.accordion-item').forEach(function(item) {
+      var spans = item.querySelectorAll('.accordion-btn span');
+      var btnText = '';
+      for (var s = 0; s < spans.length; s++) {
+        var t = spans[s].textContent.trim();
+        if (t && t !== '⥤' && t !== '˅') { btnText = t; break; }
+      }
+      var body = item.querySelector('.accordion-body');
+      if (!body) return;
+      var clone = body.cloneNode(true);
+      clone.style.display = '';
+      /* Remove scroll-wrapper overflow so tables span full width */
+      clone.querySelectorAll('.spv-table-wrap').forEach(function(w){w.style.overflowX='visible';});
+      accHTML += '<div class="acc-item">' +
+        '<div class="acc-heading">' + btnText + '</div>' +
+        '<div class="acc-body">' + clone.innerHTML + '</div>' +
+        '</div>';
+    });
+
+    pillarsHTML +=
+      '<div class="pillar" style="border-left-color:' + PC[k] + ';">' +
+        '<div class="pillar-hdr" style="background:' + PC[k] + '18;">' +
+          '<div class="pillar-letter" style="color:' + PC[k] + ';">' + k + '</div>' +
+          '<div class="pillar-info">' +
+            '<div class="pillar-eyebrow" style="color:' + PC[k] + ';">' + eyebrow + '</div>' +
+            '<div class="pillar-name">' + panelTitle + '</div>' +
+            (descHTML ? '<div class="pillar-desc">' + descHTML + '</div>' : '') +
+          '</div>' +
+        '</div>' +
+        '<div class="pillar-content">' + accHTML + '</div>' +
+      '</div>';
+  });
+
+  var css = [
+    '*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}',
+    'body{font-family:"Segoe UI",Arial,sans-serif;font-size:10pt;color:#1a1a1a;line-height:1.65;background:#fff}',
+    '@page{size:A4;margin:16mm 14mm}',
+    /* ── Cover ── */
+    '.cover{margin-bottom:28pt;padding-bottom:22pt;border-bottom:1.5pt solid #ddd}',
+    '.rainbow{height:5pt;border-radius:99pt;background:linear-gradient(to right,#7C3AB5,#4f6de0,#0ea5e9,#1D9E75,#3B6D11,#BA7517,#C85000,#A32D2D);margin-bottom:18pt}',
+    '.cover-eye{font-size:7.5pt;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#888;margin-bottom:7pt}',
+    '.cover-title{font-size:24pt;font-weight:800;color:#111;line-height:1.15;margin-bottom:5pt}',
+    '.cover-sub{font-size:11pt;font-weight:600;color:#444;margin-bottom:11pt}',
+    '.cover-body{font-size:9pt;color:#555;line-height:1.75}',
+    /* ── Pillars ── */
+    '.pillars{display:flex;flex-direction:column;gap:20pt}',
+    '.pillar{border-left:4pt solid #ccc;border-radius:6pt;overflow:hidden;page-break-inside:avoid}',
+    '.pillar-hdr{padding:13pt 15pt 11pt;display:flex;align-items:flex-start;gap:12pt}',
+    '.pillar-letter{font-size:30pt;font-weight:800;line-height:1;flex-shrink:0;width:38pt;opacity:.85}',
+    '.pillar-info{flex:1}',
+    '.pillar-eyebrow{font-size:7pt;font-weight:700;letter-spacing:.11em;text-transform:uppercase;margin-bottom:2pt}',
+    '.pillar-name{font-size:12.5pt;font-weight:700;color:#111;margin-bottom:3pt}',
+    '.pillar-desc{font-size:8.5pt;color:#555;line-height:1.6}',
+    /* ── Accordion ── */
+    '.pillar-content{background:#fff}',
+    '.acc-item{border-top:1pt solid #e8e8e0}',
+    '.acc-heading{font-size:9pt;font-weight:700;padding:8pt 13pt;color:#2a2a2a;background:#fafaf8}',
+    '.acc-body{font-size:8.5pt;line-height:1.75;color:#444;padding:9pt 13pt 11pt}',
+    /* ── Body content ── */
+    '.spv-body-text{margin-bottom:7pt}',
+    'p{margin-bottom:7pt}',
+    '.spv-list,.spv-list-unstyled{margin:5pt 0 7pt 16pt}',
+    'ul,ol{margin:5pt 0 7pt 16pt}',
+    '.spv-list li,ul li,ol li{margin-bottom:3pt}',
+    /* ── Tables ── */
+    '.spv-table-wrap{margin:7pt 0;overflow:visible}',
+    '.spv-table{width:100%;border-collapse:collapse;font-size:8pt}',
+    '.spv-table th{background:#f0f0ea;font-weight:700;text-align:left;padding:5pt 7pt;border:1pt solid #ccc;vertical-align:top}',
+    '.spv-table td{padding:4.5pt 7pt;border:1pt solid #ccc;vertical-align:top}',
+    '.spv-table tr:nth-child(even) td{background:#f9f9f7}',
+    /* ── Strong/em ── */
+    'strong{font-weight:700}',
+    'em{font-style:italic}',
+    /* ── Info/note boxes (if any) ── */
+    '.spv-note,.spv-info{background:#f5f5f0;border-left:3pt solid #aaa;padding:8pt 10pt;margin:6pt 0;font-size:8.5pt}'
+  ].join('\n');
+
+  var html = '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">' +
+    '<title>PRISM — ' + catName + '<\/title>' +
+    '<style>' + css + '<\/style><\/head><body>' +
+    '<div class="cover">' +
+      '<div class="rainbow"><\/div>' +
+      '<div class="cover-eye">PRISM Framework — Post-Mining Repurposing &amp; Implementation Strategy Models<\/div>' +
+      '<div class="cover-title">' + catName + '<\/div>' +
+      '<div class="cover-sub">' + introHead + '<\/div>' +
+      (introBody ? '<div class="cover-body">' + introBody + '<\/div>' : '') +
+    '<\/div>' +
+    '<div class="pillars">' + pillarsHTML + '<\/div>' +
+    '<\/body><\/html>';
+
+  var win = window.open('', '_blank', 'width=960,height=750');
+  if (!win) { alert('Please allow pop-ups for this site to download the PDF.'); return; }
+  win.document.write(html);
+  win.document.close();
+  win.focus();
+  setTimeout(function() { win.print(); }, 700);
+}
+
+(function() {
+  var panel = document.getElementById('spv-panel-prism');
+  if (!panel) return;
+  new MutationObserver(function() {
+    if (panel.style.display !== 'none') setTimeout(function() { prNav('P'); }, 10);
+  }).observe(panel, { attributes: true, attributeFilter: ['style'] });
+})();
+</script>
+
+<!-- browse-back-script -->
+<script>
+(function(){
+  if(new URLSearchParams(location.search).get('from')==='browse'){
+    var btn=document.querySelector('.back-btn');
+    if(btn){
+      btn.onclick=function(){window.location.href='../browse.html';};
+      btn.setAttribute('aria-label','Back to Browse');
+      for(var i=btn.childNodes.length-1;i>=0;i--){
+        var n=btn.childNodes[i];
+        if(n.nodeType===3&&n.textContent.trim()){n.textContent=' Back to Browse';break;}
+      }
+    }
+    var cr=document.querySelector('.sf-breadcrumb span:not(.sep)');
+    if(cr)cr.textContent='All Categories';
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,1575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Green Hydrogen Production &amp; Storage — SUVIKALP | Coal Controller Organisation</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="./category.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+@font-face{font-family:"Inter";font-weight:400;font-display:swap;src:url("../fonts/Inter_18pt-Regular.woff2") format("woff2"),url("../fonts/Inter_18pt-Regular.ttf") format("truetype");}
+@font-face{font-family:"Inter";font-weight:500;font-display:swap;src:url("../fonts/Inter_18pt-Medium.woff2") format("woff2"),url("../fonts/Inter_18pt-Medium.ttf") format("truetype");}
+@font-face{font-family:"Inter";font-weight:600;font-display:swap;src:url("../fonts/Inter_18pt-SemiBold.woff2") format("woff2"),url("../fonts/Inter_18pt-SemiBold.ttf") format("truetype");}
+@font-face{font-family:"Inter";font-weight:700;font-display:swap;src:url("../fonts/Inter_18pt-Bold.woff2") format("woff2"),url("../fonts/Inter_18pt-Bold.ttf") format("truetype");}
+:root{--font-sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;--font-devanagari:'Noto Sans Devanagari','Noto Sans',sans-serif;--fs-xs:.75rem;--fs-sm:.8125rem;--fs-base:.875rem;--fs-md:.9375rem;--fs-lg:1rem;--fs-xl:1.125rem;--fs-2xl:1.375rem;--lh-tight:1.35;--lh-base:1.6;--lh-loose:1.8;}
+html,body,button,input,select,textarea{font-family:var(--font-sans);}
+.hindi,.header-cco-hindi{font-family:var(--font-devanagari);}
+.spv-body-text{font-family:var(--font-sans);font-size:var(--fs-md);line-height:var(--lh-loose);color:var(--color-text);margin-bottom:14px;font-weight:400;}
+.spv-list{margin:8px 0 14px 22px;font-family:var(--font-sans);font-size:var(--fs-md);line-height:var(--lh-loose);color:var(--color-text);}
+.spv-list li{margin-bottom:6px;}
+.spv-section-title{font-family:var(--font-sans);font-weight:700;font-size:var(--fs-xl);color:var(--color-teal-600);border-bottom:2px solid var(--color-primary);padding-bottom:8px;margin-bottom:22px;letter-spacing:-.01em;}
+.accordion-btn{font-family:var(--font-sans);font-weight:600;font-size:var(--fs-base);}
+.accordion-body{font-family:var(--font-sans);font-size:var(--fs-md);}
+.spv-table,.spv-table thead tr th,.spv-table td,.spv-table td:first-child{font-family:var(--font-sans);}
+.spv-tab{font-family:var(--font-sans);font-weight:500;font-size:var(--fs-sm);}
+.spv-tab.active{font-weight:700;}
+.back-btn{font-family:var(--font-sans);font-weight:600;font-size:var(--fs-base);}
+.sf-breadcrumb{font-family:var(--font-sans);font-size:var(--fs-sm);}
+.agency-logo-name{font-family:var(--font-sans);font-weight:700;font-size:var(--fs-sm);}
+.agency-logo-type{font-family:var(--font-sans);font-size:.72rem;}
+.agency-logo-inner--img{display:flex;align-items:center;justify-content:center;padding:10px 14px;border-radius:8px;height:76px !important;box-sizing:border-box;}
+.agency-logo-inner--img img{max-width:100%;max-height:56px;width:auto;height:auto;object-fit:contain;}
+.about-hero-row{display:flex;gap:28px;align-items:stretch;margin-bottom:40px;min-height:300px;}
+.about-hero-slide-col{flex:0 0 40%;min-width:0;display:flex;flex-direction:column;}
+.about-hero-slide-col .proj-slideshow{flex:none;height:340px;}
+.about-hero-text-col{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center;}
+.about-hero-label{font-family:var(--font-sans);font-size:var(--fs-xs);font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin-bottom:0;}
+.about-hero-label-wrap{margin-bottom:12px;}
+.about-hero-label-bar{display:block;height:3px;width:48px;margin-top:7px;border-radius:99px;background:linear-gradient(90deg,#21808d 0%,#38bdf8 60%,transparent 100%);}
+.about-intro{display:flex;flex-direction:column;gap:14px;}
+.about-intro-block{padding:14px 18px;border-radius:10px;}
+.about-intro-primary{border-left:4px solid #21808d;background:rgba(33,128,141,.05);}
+.about-intro-secondary{border-left:4px solid rgba(33,128,141,.3);background:#fafafa;}
+.about-section{margin-bottom:40px;}
+.about-section-eyebrow{font-family:var(--font-sans);font-size:var(--fs-xs);font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin-bottom:4px;}
+.about-section-title{font-family:var(--font-sans);font-size:var(--fs-xl);font-weight:700;color:#0f172a;margin:0 0 20px;line-height:var(--lh-tight);}
+.schemes-outer{position:relative;margin:0 20px;}
+.schemes-nav-btn{position:absolute;top:50%;transform:translateY(-50%);z-index:10;width:36px;height:36px;border-radius:50%;background:#fff;border:1.5px solid #e2e8f0;box-shadow:0 2px 10px rgba(0,0,0,.10);cursor:pointer;display:flex;align-items:center;justify-content:center;color:#475569;transition:background .2s,color .2s,border-color .2s,box-shadow .2s;padding:0;}
+.schemes-nav-btn:hover{background:var(--teal,#0a9396);color:#fff;border-color:var(--teal,#0a9396);box-shadow:0 4px 14px rgba(10,147,150,.3);}
+.schemes-nav-btn.schemes-prev{left:-20px;}
+.schemes-nav-btn.schemes-next{right:-20px;}
+.schemes-ticker-wrap{overflow:hidden;position:relative;mask-image:linear-gradient(to right,transparent 0%,black 7%,black 93%,transparent 100%);-webkit-mask-image:linear-gradient(to right,transparent 0%,black 7%,black 93%,transparent 100%);}
+.schemes-ticker{display:flex;gap:16px;overflow-x:auto;-ms-overflow-style:none;scrollbar-width:none;padding:8px 4px;}
+.schemes-ticker::-webkit-scrollbar{display:none;}
+.scheme-card{flex:0 0 220px;background:#fff;border:1px solid #e8eaed;border-radius:12px;padding:18px 16px;box-shadow:0 2px 8px rgba(0,0,0,.05);transition:box-shadow .2s,transform .2s;}
+.scheme-card:hover{box-shadow:0 6px 20px rgba(0,0,0,.1);transform:translateY(-3px);}
+.scheme-card-icon{font-size:22px;margin-bottom:10px;}
+.scheme-card-tag{font-family:var(--font-sans);font-size:var(--fs-xs);font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--teal);margin-bottom:5px;}
+.scheme-card-title{font-family:var(--font-sans);font-size:var(--fs-base);font-weight:700;color:#1e293b;margin-bottom:8px;line-height:var(--lh-tight);}
+.scheme-card-desc{font-family:var(--font-sans);font-size:var(--fs-sm);color:#64748b;line-height:var(--lh-base);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
+.proj-slideshow{position:relative;border-radius:14px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,.15);background:#000;}
+.proj-slide-img{width:100%;height:100%;object-fit:cover;display:block;}
+.proj-slide-overlay{position:absolute;bottom:0;left:0;right:0;padding:12px 18px;background:linear-gradient(90deg,rgba(10,70,80,.95) 0%,rgba(33,128,141,.88) 100%);display:flex;align-items:center;z-index:1;}
+.proj-caption{font-family:var(--font-sans);font-size:var(--fs-base);font-weight:600;color:#fff;line-height:1.4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.pr-intro{padding:22px 24px 20px;background:rgba(33,128,141,.05);border:1px solid rgba(33,128,141,.15);border-radius:14px;margin-bottom:20px;}
+.pr-intro-eyebrow{font-size:15px;font-weight:700;color:#21808d;margin-bottom:8px;line-height:1.35;}
+.pr-intro-heading{font-size:16px;font-weight:700;color:#0f172a;margin-bottom:10px;line-height:1.35;}
+.pr-intro-body{font-size:13.5px;color:#374151;line-height:1.85;}
+.pr-shell{display:flex;border:1px solid #e2e8f0;border-radius:14px;overflow:clip;background:#fff;}
+.pr-sidebar{width:220px;flex-shrink:0;border-right:1px solid #e8edf2;padding:16px 0;background:#f8fafc;position:sticky;top:125px;align-self:flex-start;max-height:calc(100vh - 155px);overflow-y:auto;}
+.pr-sidebar-label{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#7a8a9a;padding:0 16px 14px;}
+.pr-nav-highlight{position:absolute;left:0;right:0;pointer-events:none;z-index:0;background:color-mix(in srgb,var(--pr-hl,#C85000) 9%,transparent);transition:top .4s cubic-bezier(.4,0,.2,1),height .4s cubic-bezier(.4,0,.2,1),background .38s ease;}
+.pr-nav-highlight::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--pr-hl,#C85000);border-radius:0 2px 2px 0;transition:background .38s ease;}
+.pr-nav-item{position:relative;z-index:1;display:flex;align-items:center;gap:12px;padding:13px 16px;cursor:pointer;opacity:0;animation:nav-slide-in .32s cubic-bezier(.4,0,.2,1) both;}
+@keyframes nav-slide-in{from{opacity:0;transform:translateX(-10px);}to{opacity:1;transform:translateX(0);}}
+.pr-nav-item:nth-child(3){animation-delay:.02s;}
+.pr-nav-item:nth-child(4){animation-delay:.07s;}
+.pr-nav-item:nth-child(5){animation-delay:.12s;}
+.pr-nav-item:nth-child(6){animation-delay:.17s;}
+.pr-nav-item:nth-child(7){animation-delay:.22s;}
+.pr-nav-badge{width:34px;height:34px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;border:1.5px solid #d1d5db;color:#9ca3af;background:#fff;position:relative;z-index:1;transition:background .35s cubic-bezier(.4,0,.2,1),color .3s,border-color .35s,transform .45s cubic-bezier(.34,1.56,.64,1),box-shadow .35s;}
+.pr-nav-item.active .pr-nav-badge{background:var(--pr-accent);color:#fff;border-color:var(--pr-accent);transform:scale(1.12);box-shadow:0 0 0 4px color-mix(in srgb,var(--pr-accent) 18%,transparent),0 3px 10px color-mix(in srgb,var(--pr-accent) 32%,transparent);}
+.pr-nav-letter{font-size:13px;font-weight:600;color:#374151;line-height:1.25;position:relative;z-index:1;transition:color .25s,font-weight .2s;}
+.pr-nav-item.active .pr-nav-letter{color:var(--pr-accent);font-weight:700;}
+.pr-content-wrap{flex:1;min-width:0;}
+.pr-content-wrap .prism2-content-panel{border-radius:0;box-shadow:none;}
+.prism2-content-panel .prism2-panel-header{background:color-mix(in srgb,var(--pc) 5%,#fff);}
+.prism2-panel-eyebrow{font-size:13px;font-weight:700;letter-spacing:.10em;text-transform:uppercase;color:var(--pc);margin-bottom:6px;}</style>
+</head>
+<body>
+
+<header id="site-header">
+  <div class="header-left">
+    <div class="header-tool-title"><span class="hindi">सुविकल्प:</span> Mine Repurposing Tool</div>
+    <div class="header-tool-sub">Select factors and sub-factors to discover suitable repurposing options for your mining site</div>
+  </div>
+  <div class="header-right">
+    <a href="https://coalcontroller.gov.in/" target="_blank" rel="noopener" title="CCO Home">
+    <div class="header-cco-lockup">
+      <img class="header-cco-logo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANAAAABHCAYAAAB2x8mPAAAAAXNSR0IArs4c6QAAAHhlWElmTU0AKgAAAAgABAEaAAUAAAABAAAAPgEbAAUAAAABAAAARgEoAAMAAAABAAIAAIdpAAQAAAABAAAATgAAAAAAAAH0AAAAAQAAAfQAAAABAAOgAQADAAAAAQABAACgAgAEAAAAAQAAANCgAwAEAAAAAQAAAEcAAAAA7cIEvwAAAAlwSFlzAABM5QAATOUBdc7wlQAABDBJREFUeAHtnQty2yAQQNXeJPdqkiP0Bj1Cj5IjNGmSJumkSZI2aZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIk" alt="Coal Controller Organisation emblem">
+      <div class="header-cco-text"></div>
+    </div>
+    </a>
+  </div>
+</header>
+
+<div class="page">
+
+  <div class="sf-backbar">
+    <button class="back-btn" onclick="window.location.href='../index.html'" aria-label="Back to results">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3L5 8l5 5"/></svg>
+      Back to Results
+    </button>
+    <span class="sf-breadcrumb">
+      <span>Final Recommendations</span>
+      <span class="sep">/</span>
+      <span style="color:var(--teal);font-weight:500;">Green Hydrogen Production &amp; Storage</span>
+    </span>
+  </div>
+
+  <div class="spv-hero-wrap">
+    <img src="../images/gh-hero-plant.jpg" alt="Green Hydrogen Production and Storage — solar-powered industrial plant on repurposed land" class="spv-hero-img">
+    <div class="spv-hero-overlay"></div>
+    <div class="spv-hero-title">Green Hydrogen Production &amp; Storage</div>
+  </div>
+
+  <nav class="spv-tabs" aria-label="Detail sections">
+    <button class="spv-tab active" data-tab="about"       onclick="showSPVTab('about')">About</button>
+    <button class="spv-tab"        data-tab="prism"        onclick="showSPVTab('prism')">P.R.I.S.M</button>
+    <button class="spv-tab"        data-tab="casestudies"  onclick="showSPVTab('casestudies');setTimeout(function(){window.dispatchEvent(new Event('resize'))},30)">Case Studies</button>
+    <button class="spv-tab"        data-tab="tender"       onclick="showSPVTab('tender')">Sample Tender Documents</button>
+    <button class="spv-tab"        data-tab="media"        onclick="showSPVTab('media')">Media/Web</button>
+    <button class="spv-tab"        data-tab="agencies"    onclick="showSPVTab('agencies')">Agencies</button>
+<!-- EXPERTS TAB HIDDEN (page not yet complete)
+<button class="spv-tab"        data-tab="experts"      onclick="showSPVTab('experts')">Experts</button>
+-->
+  </nav>
+
+  <!-- TAB 1: ABOUT -->
+  <div id="spv-panel-about" class="spv-panel">
+    <div class="spv-content">
+
+      <div class="about-hero-row">
+        <div class="about-hero-slide-col">
+          <div class="about-hero-label-wrap">
+            <div class="about-hero-label">Precedents</div>
+            <span class="about-hero-label-bar"></span>
+          </div>
+          <div class="proj-slideshow">
+            <img src="../images/ntpc-simhadri-gh2.jpg" alt="NTPC Simhadri Green Hydrogen Pilot Plant, Visakhapatnam — electrolyser and hydrogen production equipment at NTPC's thermal power station site" class="proj-slide-img" loading="lazy">
+            <div class="proj-slide-overlay">
+              <span class="proj-caption">NTPC Simhadri Green H₂ Pilot, Visakhapatnam, India</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-hero-text-col">
+          <div class="about-intro">
+            <div class="about-intro-block about-intro-primary">
+              This concept proposes the development of a <strong>Green Hydrogen Production &amp; Storage Facility</strong> on closed, reclaimed, or repurposed mine land as part of a sustainable mine-closure and post-mining land-use strategy. The objective is to convert under-utilized mine land into a <strong>clean energy production, storage, training, and industrial decarbonization asset</strong> by using renewable electricity and water electrolysis to produce hydrogen, followed by compression, storage, distribution, or conversion into downstream products. This aligns with India's <strong>National Green Hydrogen Mission</strong>, launched in January 2023 with a target to develop at least <strong>5 million metric tonnes per annum</strong> of green hydrogen production capacity by 2030.
+            </div>
+            <div class="about-intro-block about-intro-secondary">
+              Closed coal mine land can support this transition by providing large land parcels, existing power corridors, water-management infrastructure, roads, workshops, security systems, and a local workforce that can be reskilled for clean-energy employment. India's Green Hydrogen Standard defines green hydrogen as hydrogen with well-to-gate emissions not exceeding <strong>2 kg CO₂ equivalent per kg H₂</strong>, averaged over 12 months. Green hydrogen projects are technically promising but commercially sensitive — mine-repurposed projects should be developed only after confirming renewable power availability, water source, offtake, safety zone, and bankability. This aligns with CCO mine-closure handbooks <strong>A.R.T.H.A, L.I.V.E.S and R.E.C.L.A.I.M</strong>.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-section">
+        <div class="about-section-eyebrow">Relevant Schemes &amp; Standards</div>
+        <h3 class="about-section-title">Policy Levers driving Green Hydrogen Production &amp; Storage scale-up</h3>
+        <div class="schemes-outer">
+          <button class="schemes-nav-btn schemes-prev" onclick="schemesNav(-1)" aria-label="Previous">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <div class="schemes-ticker-wrap">
+            <div class="schemes-ticker" id="schemesTicker">
+
+              <div class="scheme-card">
+                <div class="scheme-card-icon">⚡</div>
+                <div class="scheme-card-tag">MNRE</div>
+                <div class="scheme-card-title">National Green Hydrogen Mission (NGHM)</div>
+                <div class="scheme-card-desc">₹19,744 crore outlay to develop 5 MMTPA green hydrogen capacity by 2030, with support for production, electrolysers, hubs, pilots, certification and R&amp;D.</div>
+              </div>
+
+              <div class="scheme-card">
+                <div class="scheme-card-icon">🏷️</div>
+                <div class="scheme-card-tag">MNRE</div>
+                <div class="scheme-card-title">Green Hydrogen Standard &amp; Certification Scheme</div>
+                <div class="scheme-card-desc">India's Green Hydrogen Standard sets the ≤2 kg CO₂eq/kg H₂ threshold. The Green Hydrogen Certification Scheme of India (GHCI) provides the national monitoring and certification framework.</div>
+              </div>
+
+              <div class="scheme-card">
+                <div class="scheme-card-icon">🏭</div>
+                <div class="scheme-card-tag">MoPNG / MNRE</div>
+                <div class="scheme-card-title">Green Hydrogen / Green Ammonia Policy</div>
+                <div class="scheme-card-desc">Ministry of Power's 2022 policy enables green hydrogen and green ammonia production with open access to transmission and distribution networks, waiver of charges, and banking of renewable energy.</div>
+              </div>
+
+              <div class="scheme-card">
+                <div class="scheme-card-icon">🏗️</div>
+                <div class="scheme-card-tag">MNRE</div>
+                <div class="scheme-card-title">Hydrogen Hub Scheme (SIGHT)</div>
+                <div class="scheme-card-desc">Strategic Interventions for Green Hydrogen Transition (SIGHT) programme provides incentives for domestic electrolyser manufacturing and green hydrogen production to reduce costs and build supply chains.</div>
+              </div>
+
+              <div class="scheme-card">
+                <div class="scheme-card-icon">⛏️</div>
+                <div class="scheme-card-tag">CCO / MoCoal</div>
+                <div class="scheme-card-title">Mine Closure Guidelines 2025</div>
+                <div class="scheme-card-desc">CCO handbooks A.R.T.H.A, L.I.V.E.S and R.E.C.L.A.I.M support clean-energy repurposing, skill transition and productive post-mining land use for closed coal mines.</div>
+              </div>
+
+              <div class="scheme-card">
+                <div class="scheme-card-icon">🔬</div>
+                <div class="scheme-card-tag">PESO / BIS</div>
+                <div class="scheme-card-title">Hydrogen Safety &amp; Storage Standards</div>
+                <div class="scheme-card-desc">PESO governs compressed gas storage and handling. BIS publishes Indian standards for hydrogen technologies. HAZID, HAZOP, QRA and NFPA 2 / ISO 19880 govern design safety.</div>
+              </div>
+
+              <div class="scheme-card">
+                <div class="scheme-card-icon">☀️</div>
+                <div class="scheme-card-tag">MNRE / SECI</div>
+                <div class="scheme-card-title">Renewable Energy Procurement &amp; Open Access</div>
+                <div class="scheme-card-desc">SECI tenders and open-access renewable energy policies enable captive or third-party renewable power supply for green hydrogen electrolysers at competitive cost.</div>
+              </div>
+
+              <div class="scheme-card">
+                <div class="scheme-card-icon">🌍</div>
+                <div class="scheme-card-tag">CSR / ESG</div>
+                <div class="scheme-card-title">CSR &amp; ESG Funding for Clean Energy Transition</div>
+                <div class="scheme-card-desc">Mine operators can channel CSR funds under the Companies Act toward green hydrogen pilot facilities, skill development, clean-energy infrastructure and community livelihood.</div>
+              </div>
+
+              <!-- Duplicates for seamless loop -->
+              <div class="scheme-card" aria-hidden="true"><div class="scheme-card-icon">⚡</div><div class="scheme-card-tag">MNRE</div><div class="scheme-card-title">National Green Hydrogen Mission (NGHM)</div><div class="scheme-card-desc">₹19,744 crore outlay to develop 5 MMTPA green hydrogen capacity by 2030, with support for production, electrolysers, hubs, pilots, certification and R&amp;D.</div></div>
+              <div class="scheme-card" aria-hidden="true"><div class="scheme-card-icon">🏷️</div><div class="scheme-card-tag">MNRE</div><div class="scheme-card-title">Green Hydrogen Standard &amp; Certification Scheme</div><div class="scheme-card-desc">India's Green Hydrogen Standard sets the ≤2 kg CO₂eq/kg H₂ threshold. GHCI provides the national monitoring and certification framework.</div></div>
+              <div class="scheme-card" aria-hidden="true"><div class="scheme-card-icon">🏭</div><div class="scheme-card-tag">MoPNG / MNRE</div><div class="scheme-card-title">Green Hydrogen / Green Ammonia Policy</div><div class="scheme-card-desc">Ministry of Power's 2022 policy enables green hydrogen and green ammonia production with open access to transmission and distribution networks.</div></div>
+              <div class="scheme-card" aria-hidden="true"><div class="scheme-card-icon">🏗️</div><div class="scheme-card-tag">MNRE</div><div class="scheme-card-title">Hydrogen Hub Scheme (SIGHT)</div><div class="scheme-card-desc">SIGHT programme provides incentives for domestic electrolyser manufacturing and green hydrogen production to reduce costs and build supply chains.</div></div>
+              <div class="scheme-card" aria-hidden="true"><div class="scheme-card-icon">⛏️</div><div class="scheme-card-tag">CCO / MoCoal</div><div class="scheme-card-title">Mine Closure Guidelines 2025</div><div class="scheme-card-desc">CCO handbooks A.R.T.H.A, L.I.V.E.S and R.E.C.L.A.I.M support clean-energy repurposing and productive post-mining land use for closed coal mines.</div></div>
+              <div class="scheme-card" aria-hidden="true"><div class="scheme-card-icon">🔬</div><div class="scheme-card-tag">PESO / BIS</div><div class="scheme-card-title">Hydrogen Safety &amp; Storage Standards</div><div class="scheme-card-desc">PESO governs compressed gas storage. BIS publishes Indian standards for hydrogen technologies. HAZID, HAZOP and QRA govern design safety.</div></div>
+              <div class="scheme-card" aria-hidden="true"><div class="scheme-card-icon">☀️</div><div class="scheme-card-tag">MNRE / SECI</div><div class="scheme-card-title">Renewable Energy Procurement &amp; Open Access</div><div class="scheme-card-desc">SECI tenders and open-access policies enable captive or third-party renewable power supply for green hydrogen electrolysers at competitive cost.</div></div>
+              <div class="scheme-card" aria-hidden="true"><div class="scheme-card-icon">🌍</div><div class="scheme-card-tag">CSR / ESG</div><div class="scheme-card-title">CSR &amp; ESG Funding for Clean Energy Transition</div><div class="scheme-card-desc">Mine operators can channel CSR funds toward green hydrogen pilot facilities, skill development, clean-energy infrastructure and community livelihood.</div></div>
+
+            </div>
+          </div>
+          <button class="schemes-nav-btn schemes-next" onclick="schemesNav(1)" aria-label="Next">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div><!-- /spv-panel-about -->
+
+  <!-- TAB 2: P.R.I.S.M -->
+  <div id="spv-panel-prism" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+
+<div class="pr-intro">
+  <div class="pr-intro-eyebrow">PRISM – Post-Mining Repurposing and Implementation Strategy Models</div>
+  <div class="pr-intro-heading">A structured framework for mine repurposing from concept to implementation</div>
+  <div class="pr-intro-body">PRISM is a structured framework designed to support identified post-mining repurposing opportunities by evaluating suitable implementation pathways, financial and revenue-generation models, and the implementation requirements, roles, and responsibilities of mine owners, developers, operators, and other stakeholders throughout the project lifecycle. Built around five integrated pillars, PRISM guides Green Hydrogen Production &amp; Storage projects from concept to operation.</div>
+</div>
+
+<div class="pr-shell">
+  <div class="pr-sidebar">
+    <div class="pr-sidebar-label">Pillars</div>
+    <div class="pr-nav-highlight" id="pr-hl"></div>
+    <div class="pr-nav-item active" style="--pr-accent:#C85000;" data-key="P" onclick="prNav('P')">
+      <div class="pr-nav-badge">P</div>
+      <div><div class="pr-nav-letter">Project vision</div></div>
+    </div>
+    <div class="pr-nav-item" style="--pr-accent:#1a5ca8;" data-key="R" onclick="prNav('R')">
+      <div class="pr-nav-badge">R</div>
+      <div><div class="pr-nav-letter">Repurposing pathways</div></div>
+    </div>
+    <div class="pr-nav-item" style="--pr-accent:#b06a10;" data-key="I" onclick="prNav('I')">
+      <div class="pr-nav-badge">I</div>
+      <div><div class="pr-nav-letter">Investment dynamics</div></div>
+    </div>
+    <div class="pr-nav-item" style="--pr-accent:#5a3d9e;" data-key="S" onclick="prNav('S')">
+      <div class="pr-nav-badge">S</div>
+      <div><div class="pr-nav-letter">Strategic structuring</div></div>
+    </div>
+    <div class="pr-nav-item" style="--pr-accent:#1a7a5e;" data-key="M" onclick="prNav('M')">
+      <div class="pr-nav-badge">M</div>
+      <div><div class="pr-nav-letter">Monitoring guidance</div></div>
+    </div>
+  </div>
+
+  <div class="pr-content-wrap">
+
+    <!-- P PANEL -->
+    <div class="prism2-content-panel active" id="prism2-panel-P" style="--pc:#C85000;--pb:#fff0e6;--cb:#fff8f3;">
+      <div class="prism2-panel-header">
+        <div class="prism2-panel-header-letter">P</div>
+        <div class="prism2-panel-header-text">
+          <div class="prism2-panel-eyebrow">PROJECT VISION</div>
+          <p class="prism2-panel-desc">Project concept, strategic rationale, site suitability assessment and indicative scales for green hydrogen production &amp; storage on closed coal mine land.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Project Overview</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">This concept proposes the development of a <strong>Green Hydrogen Production &amp; Storage Facility</strong> on closed, reclaimed, or repurposed coal mine land as part of a sustainable mine-closure and post-mining land-use strategy.</p>
+          <p class="spv-body-text">The objective is to convert under-utilised mine land into a <strong>clean energy production, storage, training, and industrial decarbonization asset</strong> using renewable electricity and water electrolysis to produce hydrogen, followed by compression, storage, distribution, or conversion into downstream products.</p>
+          <p class="spv-body-text">A Green Hydrogen Production &amp; Storage facility may include:</p>
+          <ul class="spv-list">
+            <li>Renewable power supply from solar, wind, hybrid renewable energy, or grid-connected renewable energy</li>
+            <li>Water treatment and demineralization plant</li>
+            <li>Electrolyser system (alkaline, PEM, or SOEC)</li>
+            <li>Hydrogen purification, drying, and compression system</li>
+            <li>Hydrogen storage system (low-pressure buffer to high-pressure cascade)</li>
+            <li>Oxygen handling or utilization system</li>
+            <li>Hydrogen dispensing or loading station</li>
+            <li>Safety, fire, leak detection, ventilation, and emergency systems</li>
+            <li>SCADA, metering, and digital monitoring system</li>
+            <li>Training and skill development facility</li>
+            <li>Downstream linkage with industry, transport, blending, fertilizer, refinery, steel, or energy users</li>
+          </ul>
+          <p class="spv-body-text">This concept aligns with India's <strong>National Green Hydrogen Mission (NGHM)</strong>, launched in January 2023 with an outlay of &#8377;19,744 crore and a target to develop at least <strong>5 million metric tonnes per annum</strong> of green hydrogen production capacity by 2030. India's Green Hydrogen Standard defines green hydrogen as hydrogen with well-to-gate emissions not exceeding <strong>2 kg CO&#8322;eq per kg H&#8322;</strong>, averaged over 12 months.</p>
+          <p class="spv-body-text">Closed coal mine land can support this transition by providing large land parcels, existing power corridors, water-management infrastructure, roads, workshops, security systems, and a local workforce that can be reskilled for clean-energy employment.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Strategic Rationale</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">Green Hydrogen Production &amp; Storage is particularly suitable for selected closed coal mine areas where land, renewable-energy potential, water availability, grid connectivity, industrial offtake, and safety buffers can be established.</p>
+          <ul class="spv-list">
+            <li>Converts post-mining land into a clean-energy production asset</li>
+            <li>Supports India's energy transition and decarbonization goals under the NGHM</li>
+            <li>Creates long-term skilled employment in renewable energy, electrolysis, mechanical systems, instrumentation, safety, and plant operation</li>
+            <li>Enables just transition for coal-dependent communities</li>
+            <li>Can reuse mine land, roads, substations, workshops, water reservoirs, administrative buildings, and security infrastructure</li>
+            <li>Supports green industrial development and downstream clean-fuel applications</li>
+            <li>Can integrate with solar parks, pumped storage, battery storage, industrial hubs, logistics parks, or green mobility corridors</li>
+            <li>Creates revenue through hydrogen sale, oxygen sale, storage charges, dispensing charges, renewable-energy services, carbon/ESG value, and training services</li>
+            <li>Supports domestic and export-oriented clean-energy value chains</li>
+            <li>Can be developed in modular phases, beginning with pilot-scale electrolysers and expanding to commercial-scale production</li>
+          </ul>
+          <p class="spv-body-text">The National Green Hydrogen Mission recognizes the need for hydrogen supply chains, including pipelines, tankers, intermediate storage facilities, and last-mile distribution networks. Globally, the IEA notes that installed water electrolyser capacity reached <strong>1.4 GW by the end of 2023</strong>, while announced projects could reach much higher capacity by 2030. Green hydrogen projects are technically promising but commercially sensitive — mine-repurposed projects should be developed only after confirming renewable power availability, water source, offtake, safety zone, and bankability.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Site Suitability &amp; Technical Specification Matrix</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following matrix provides a structured checklist for assessing the suitability of the proposed site for the selected repurposing option. It identifies the key physical, technical, environmental, infrastructure, legal, and owner-side readiness parameters that should be reviewed before the project is advanced to the next stage of development. The purpose of this matrix is to help the project owner understand existing site conditions, technical requirements, potential constraints, and preparatory actions required before feasibility studies, approvals, or tendering are initiated.</p>
+          <table class="spv-table">
+            <thead><tr><th>Category</th><th>What to Assess / Prepare</th><th>Why It Matters</th><th>Owner-Side Readiness</th></tr></thead>
+            <tbody>
+              <tr><td>Land status</td><td>Closure status, ownership, land-use permission, lease restrictions, statutory conditions</td><td>Legal viability of green hydrogen development</td><td>Land and closure-status note</td></tr>
+              <tr><td>Mine safety</td><td>Subsidence risk, slope stability, dump stability, voids, abandoned galleries, highwall safety</td><td>Ensures safe construction, storage, and operations</td><td>Mine safety zoning plan</td></tr>
+              <tr><td>Geotechnical condition</td><td>Bearing capacity, settlement risk, ground improvement needs, vibration sensitivity</td><td>Electrolysers, compressors, storage vessels, and pipe racks require stable foundations</td><td>Geotechnical report</td></tr>
+              <tr><td>Site area and buffers</td><td>Plant footprint, renewable energy area, hydrogen storage safety distance, road circulation, fire access</td><td>Hydrogen storage and handling require safe layout and separation distances</td><td>Land-use and safety buffer plan</td></tr>
+              <tr><td>Renewable energy availability</td><td>Solar, wind, hybrid renewable energy, open access renewable power, captive renewable power</td><td>Determines green hydrogen cost and carbon intensity</td><td>Renewable energy sourcing plan</td></tr>
+              <tr><td>Grid connectivity</td><td>Substation, transformer capacity, evacuation, open access, power quality, backup</td><td>Electrolysers require reliable and high-quality electricity</td><td>Power and grid-readiness report</td></tr>
+              <tr><td>Water availability</td><td>Raw water source, treatment requirement, seasonal availability, competing users</td><td>Electrolysis requires purified water and reliable supply</td><td>Water balance and source plan</td></tr>
+              <tr><td>Water quality</td><td>TDS, hardness, suspended solids, chemical impurities, treatment load</td><td>Affects demineralized water system and electrolyser life</td><td>Water quality test report</td></tr>
+              <tr><td>Product offtake</td><td>Industrial users, refinery, fertilizer, steel, mobility, blending, export, local hydrogen users</td><td>Determines commercial viability</td><td>Offtake and market assessment</td></tr>
+              <tr><td>Storage requirement</td><td>Daily production, buffer storage, compressed gas, liquid hydrogen, metal hydride, ammonia / derivative option</td><td>Determines CAPEX, safety, and logistics</td><td>Storage philosophy note</td></tr>
+              <tr><td>Technology selection</td><td>Alkaline, PEM, SOEC or other electrolyser type</td><td>Affects efficiency, flexibility, cost, water purity, and O&amp;M</td><td>Technology selection note</td></tr>
+              <tr><td>Hydrogen compression</td><td>Compressor type, pressure level, redundancy, cooling, safety</td><td>Required for storage, transport, and dispensing</td><td>Compression design basis</td></tr>
+              <tr><td>Storage pressure</td><td>Low-pressure buffer, 200 bar, 350 bar, 700 bar, tube trailers, cylinders, cascade storage</td><td>Determines application and safety systems</td><td>Storage design basis</td></tr>
+              <tr><td>Oxygen management</td><td>Venting, sale, medical / industrial use, safety handling</td><td>Electrolysis produces oxygen as a by-product</td><td>Oxygen utilization plan</td></tr>
+              <tr><td>Safety and hazard management</td><td>HAZID, HAZOP, QRA, leak detection, ventilation, fire protection, emergency response</td><td>Hydrogen is flammable and requires strict safety systems</td><td>Safety management plan</td></tr>
+              <tr><td>Digital control</td><td>SCADA, sensors, metering, energy management, leak alarms, remote monitoring</td><td>Enables safe and efficient operation</td><td>Control and automation plan</td></tr>
+              <tr><td>Certification and measurement</td><td>Green hydrogen certification, metering, emissions accounting, renewable-energy matching</td><td>Required for green hydrogen claim and market access</td><td>Certification-readiness note</td></tr>
+              <tr><td>Environmental compliance</td><td>Water discharge, noise, land restoration, hazardous chemicals, battery / storage systems</td><td>Ensures regulatory compliance</td><td>Environmental compliance note</td></tr>
+              <tr><td>Community linkage</td><td>Local workforce, technical training, safety awareness, emergency preparedness</td><td>Supports livelihood and social acceptance</td><td>Community and training plan</td></tr>
+            </tbody>
+          </table>
+          <p class="spv-body-text" style="margin-top:10px;">The Green Hydrogen Certification Scheme of India (GHCI) sets a national framework for monitoring and certifying green hydrogen, making metering, renewable-energy accounting, verification, and documentation important from the DPR stage itself.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Indicative Green Hydrogen Scale Matrix</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following matrix presents an indicative relationship between available site area, project scale, technical configuration, and likely development potential. It is intended to support preliminary planning by helping the project owner identify the appropriate scale and configuration for the proposed repurposing option. The values and recommendations are indicative and should be refined through detailed feasibility studies, site surveys, engineering assessments, and relevant technical and commercial evaluations.</p>
+          <table class="spv-table">
+            <thead><tr><th>Land Area</th><th>Recommended Scale</th><th>Configuration</th><th>Use Case</th></tr></thead>
+            <tbody>
+              <tr><td>1–5 ha</td><td>Pilot Green Hydrogen Demonstration Unit</td><td>0.5–2 MW electrolyser, small water treatment unit, compressor, buffer storage, training unit</td><td>Proof of concept, training, mine-owner demonstration, small mobility / blending pilot</td></tr>
+              <tr><td>5–20 ha</td><td>Mine-Level Green Hydrogen Unit</td><td>2–10 MW electrolyser, modular compression and storage, limited dispensing / local industrial offtake</td><td>Local clean-fuel supply, mine-equipment pilot, small industry, institutional learning</td></tr>
+              <tr><td>20–100 ha</td><td>Integrated Green Hydrogen Production &amp; Storage Hub</td><td>10–50 MW electrolyser, dedicated renewable power linkage, storage cascade, tube-trailer loading, control room</td><td>District-level hydrogen supply, industrial use, mobility corridor, pilot decarbonization cluster</td></tr>
+              <tr><td>100–500 ha</td><td>Commercial Green Hydrogen Park</td><td>50–200 MW electrolyser, large renewable-energy linkage, hydrogen storage, oxygen utilization, downstream units</td><td>Industrial decarbonization, steel/refinery/fertilizer linkage, green mobility, export preparation</td></tr>
+              <tr><td>500 ha+</td><td>Regional Green Hydrogen and Derivatives Hub</td><td>200 MW+ electrolyser, renewable energy park, storage, ammonia/methanol derivative option, pipeline/tanker logistics</td><td>Regional clean-energy flagship and just-transition anchor project</td></tr>
+            </tbody>
+          </table>
+          <p class="spv-body-text" style="margin-top:10px;">For closed coal mines, the practical starting model may be a pilot or mine-level unit integrated with solar power, water treatment, training, and limited offtake. Larger commercial hubs should be considered only where renewable power, land, water, offtake, safety buffers, and financing are clearly available. RMI notes that solar power typically requires around <strong>3–5 acres per MW</strong>, so large-scale green hydrogen projects may require several thousand acres depending on production scale and renewable-energy configuration.</p>
+        </div>
+      </div>
+
+      <div class="prism2-nav-row">
+        <button class="prism2-btn-prev" id="prism2-prev-P" onclick="prism2Prev()" disabled>&#8592; Previous</button>
+        <div class="prism2-progress-dots" style="display:flex;gap:5px;align-items:center;">
+          <span class="pdot active" data-p="P"></span><span class="pdot" data-p="R"></span>
+          <span class="pdot" data-p="I"></span><span class="pdot" data-p="S"></span><span class="pdot" data-p="M"></span>
+        </div>
+        <button class="prism2-btn-next" id="prism2-next-P" onclick="prism2Next()">Next pillar &#8594;</button>
+      </div>
+    </div><!-- /P -->
+
+    <!-- R PANEL -->
+    <div class="prism2-content-panel" id="prism2-panel-R" style="--pc:#1a5ca8;--pb:#e4eef9;--cb:#f3f7fd;">
+      <div class="prism2-panel-header">
+        <div class="prism2-panel-header-letter">R</div>
+        <div class="prism2-panel-header-text">
+          <div class="prism2-panel-eyebrow">REPURPOSING PATHWAYS</div>
+          <p class="prism2-panel-desc">Implementation models available for green hydrogen production &amp; storage and comparative assessment of suitability across technical, commercial, livelihood, and safety dimensions.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Implementation Options</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following table outlines the possible implementation models that may be considered for developing the proposed repurposing project. These models differ in terms of ownership structure, funding responsibility, private sector participation, operational control, and long-term risk allocation. The purpose of this table is to help the project owner compare broad development routes and select an implementation approach that aligns with its financial capacity, institutional preference, risk appetite, and long-term asset management objectives.</p>
+          <table class="spv-table">
+            <thead><tr><th>Main Group</th><th>Model</th><th>Core Feature</th><th>Broad Suitability</th></tr></thead>
+            <tbody>
+              <tr><td>Owner-Funded Infrastructure Model</td><td>EPC</td><td>Mine owner funds and procures the green hydrogen plant through an EPC contractor</td><td>Suitable for pilot or small demonstration projects where the mine owner wants full control over technology, safety, and learning outcomes</td></tr>
+              <tr><td>Owner-Controlled Operations Model</td><td>EPC + O&amp;M / Facility Management</td><td>Mine owner develops facility through EPC and appoints a qualified hydrogen technology / O&amp;M agency for plant operation, maintenance, safety, monitoring, and training</td><td>Highly suitable for early-stage mine-repurposing projects where owner control, safety, technology learning, and capacity building are important</td></tr>
+              <tr><td>Private-Financed Transfer Model</td><td>BOOT</td><td>Private developer finances, builds, owns, and operates the hydrogen facility and transfers assets to the mine owner at end of concession</td><td>Suitable where there is assured offtake, renewable power availability, water security, and bankable revenue from hydrogen sale or storage services</td></tr>
+              <tr><td>Private Commercial Hydrogen Model</td><td>BOO</td><td>Private developer builds, owns, and operates the green hydrogen facility without mandatory asset transfer</td><td>Suitable for commercially driven hydrogen projects with strong private offtake, but less preferred where mine-owner control and community benefit are central</td></tr>
+              <tr><td>Structured PPP Model</td><td>DBFOT</td><td>Private concessionaire designs, builds, finances, operates, and transfers the hydrogen production and storage facility under a structured concession agreement</td><td>Suitable for large hydrogen hubs requiring professional design, private finance, offtake agreements, safety obligations, and long-term performance monitoring</td></tr>
+              <tr><td>Land / Facility Concession Model</td><td>Concession / Lease-Develop-Operate</td><td>Mine owner retains land ownership and grants development and operation rights to a hydrogen developer, renewable-energy company, industrial gas company, or SPV</td><td>Very suitable for mine-closure repurposing where land is retained by the owner while commercial development, operation, offtake, and technology risk are handled by specialists</td></tr>
+              <tr><td>Multi-Stakeholder Partnership Model</td><td>Hybrid</td><td>Combines mine-owner land support, renewable-energy developer, hydrogen technology provider, industrial offtaker, government support, CSR, financial institution, and training partner</td><td>Most suitable for balancing clean-energy transition, commercial viability, safety, local livelihood, owner revenue, ESG value, and phased scale-up</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Comparative Assessment of Key Models</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following comparative assessment evaluates the major implementation models across key decision parameters such as investment requirement, ownership control, financing responsibility, contractual complexity, risk transfer, and long-term economic benefit. This matrix is intended to support early-stage decision-making by highlighting the relative strengths and limitations of each model. The final choice of model should be guided by the specific circumstances of the project, including its scale, commercial viability, applicable policy framework, and the owner's institutional preference.</p>
+          <table class="spv-table">
+            <thead><tr><th>Evaluation Parameter</th><th>EPC</th><th>EPC + O&amp;M</th><th>BOOT</th><th>BOO</th><th>DBFOT</th><th>Concession</th><th>Hybrid</th></tr></thead>
+            <tbody>
+              <tr><td>Upfront investment by Mine Owner</td><td>High</td><td>High to Moderate</td><td>Low to Moderate</td><td>Low</td><td>Low to Moderate</td><td>Low to Moderate</td><td>Variable</td></tr>
+              <tr><td>Need for private financing</td><td>Low</td><td>Low</td><td>High</td><td>High</td><td>High</td><td>Moderate to High</td><td>Variable</td></tr>
+              <tr><td>Ownership retained by Mine Owner</td><td>Yes</td><td>Yes</td><td>Land retained; assets transferred later</td><td>Limited</td><td>Land generally retained</td><td>Land retained</td><td>Usually retained</td></tr>
+              <tr><td>Long-term control over land use</td><td>High</td><td>High</td><td>Moderate</td><td>Low to Moderate</td><td>Moderate to High</td><td>Moderate to High</td><td>High if structured well</td></tr>
+              <tr><td>Suitability for welfare objective</td><td>Moderate</td><td>High</td><td>High if mandated</td><td>Moderate</td><td>High</td><td>High to Very High</td><td>Very High</td></tr>
+              <tr><td>Suitability for local livelihood</td><td>Moderate</td><td>High</td><td>High if mandated</td><td>Moderate</td><td>High to Very High</td><td>Very High</td><td>Very High</td></tr>
+              <tr><td>Suitability for clean-energy transition</td><td>High</td><td>High</td><td>High</td><td>High</td><td>Very High</td><td>Very High</td><td>Very High</td></tr>
+              <tr><td>Suitability for industrial decarbonization</td><td>Moderate</td><td>High</td><td>High</td><td>High</td><td>Very High</td><td>Very High</td><td>Very High</td></tr>
+              <tr><td>Suitability for local skill development</td><td>Moderate</td><td>High</td><td>High if mandated</td><td>Moderate</td><td>High</td><td>High</td><td>Very High</td></tr>
+              <tr><td>Suitability for long-term technical maintenance</td><td>Low to Moderate</td><td>High</td><td>High</td><td>High</td><td>Very High</td><td>Very High</td><td>Very High</td></tr>
+              <tr><td>Revenue potential</td><td>Low to Moderate</td><td>Moderate</td><td>High</td><td>High</td><td>High</td><td>Moderate to High</td><td>Variable to High</td></tr>
+              <tr><td>Owner revenue benefit</td><td>Low to Moderate</td><td>Moderate to High</td><td>Concession fee / revenue share</td><td>Lease rent / fixed charges</td><td>Concession fee / revenue share</td><td>Lease rent / revenue share</td><td>Variable to High</td></tr>
+              <tr><td>O&amp;M burden on owner</td><td>High</td><td>Moderate</td><td>Low</td><td>Low</td><td>Low</td><td>Low to Moderate</td><td>Shared</td></tr>
+              <tr><td>Contractual complexity</td><td>Low</td><td>Moderate</td><td>High</td><td>High</td><td>Very High</td><td>High</td><td>High</td></tr>
+              <tr><td>Suitability for sensitive mine land</td><td>High if owner controls</td><td>High</td><td>Moderate if regulated</td><td>Low to Moderate</td><td>High with safeguards</td><td>High with monitoring</td><td>Very High</td></tr>
+              <tr><td>Suitability for phased development</td><td>Moderate</td><td>High</td><td>Moderate</td><td>Moderate</td><td>High</td><td>Very High</td><td>Very High</td></tr>
+              <tr><td>Commercial bankability</td><td>Low to Moderate</td><td>Moderate</td><td>High if offtake exists</td><td>High if offtake exists</td><td>High</td><td>Moderate to High</td><td>Variable</td></tr>
+              <tr><td>Public accountability</td><td>High</td><td>High</td><td>Moderate</td><td>Low to Moderate</td><td>Moderate to High</td><td>Moderate to High</td><td>Very High</td></tr>
+              <tr><td>Risk to Mine Owner</td><td>High</td><td>Moderate</td><td>Low to Moderate</td><td>Low</td><td>Low to Moderate</td><td>Low to Moderate</td><td>Shared</td></tr>
+              <tr><td>Risk to private party</td><td>Low</td><td>Low to Moderate</td><td>High</td><td>High</td><td>High</td><td>Moderate to High</td><td>Shared</td></tr>
+              <tr><td><strong>Overall suitability</strong></td><td><strong>Moderate</strong></td><td><strong>High</strong></td><td><strong>High</strong></td><td><strong>Moderate</strong></td><td><strong>Very High</strong></td><td><strong>Very High</strong></td><td><strong>Very High / Most Suitable</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+            <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Model-Wise Responsibility Logic</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following table explains how major project responsibilities are typically allocated under different implementation models. It covers key functional areas such as site availability, financing, design and construction, regulatory approvals, operation and maintenance, revenue collection, asset ownership, and end-of-term transfer. This helps clarify the respective roles of the project owner, private developer, EPC contractor, operator, or concessionaire, and supports the preparation of tender documents and contractual structures.</p>
+        <div class="table-wrap">
+          <table class="spv-table">
+            <thead><tr><th>Responsibility Area</th><th>EPC</th><th>EPC + O&amp;M / FM</th><th>BOOT</th><th>BOO</th><th>DBFOT</th><th>Concession / LDO</th><th>Hybrid</th></tr></thead>
+            <tbody>
+              <tr><td>Site / Land Availability</td><td>Owner</td><td>Owner</td><td>Owner / authority</td><td>Owner / authority</td><td>Owner / authority</td><td>Owner</td><td>Variable</td></tr>
+              <tr><td>Financing (CAPEX)</td><td>Owner</td><td>Owner</td><td>Developer</td><td>Developer</td><td>Developer</td><td>Concessionaire</td><td>Shared</td></tr>
+              <tr><td>Electrolyzer &amp; Equipment Procurement</td><td>EPC contractor</td><td>EPC contractor</td><td>Developer</td><td>Developer</td><td>Developer</td><td>Concessionaire</td><td>Variable</td></tr>
+              <tr><td>Power Supply Arrangement</td><td>Owner</td><td>Owner</td><td>Developer / owner jointly</td><td>Developer</td><td>Developer</td><td>Concessionaire / owner</td><td>Shared</td></tr>
+              <tr><td>Engineering Design &amp; Construction</td><td>EPC contractor</td><td>EPC contractor</td><td>Developer / EPC</td><td>Developer / EPC</td><td>Developer / EPC</td><td>Concessionaire / contractor</td><td>Variable</td></tr>
+              <tr><td>Regulatory &amp; Safety Approvals</td><td>Owner (with contractor support)</td><td>Owner (with FM support)</td><td>Shared</td><td>Mostly developer</td><td>Mostly developer</td><td>Mostly concessionaire</td><td>Variable / shared</td></tr>
+              <tr><td>H₂ Storage, Compression &amp; Dispensing</td><td>Owner / EPC contractor</td><td>Owner / FM agency</td><td>Developer</td><td>Developer</td><td>Developer</td><td>Concessionaire</td><td>Shared</td></tr>
+              <tr><td>Offtake Agreement &amp; Distribution</td><td>Owner</td><td>Owner</td><td>Developer / owner jointly</td><td>Developer</td><td>Developer</td><td>Concessionaire / owner</td><td>Shared</td></tr>
+              <tr><td>O&amp;M (Electrolyzer, Storage, Safety)</td><td>Owner or separate agency</td><td>FM / O&amp;M contractor</td><td>Developer</td><td>Developer</td><td>Developer</td><td>Concessionaire</td><td>Shared / specialist</td></tr>
+              <tr><td>Revenue Collection</td><td>Owner</td><td>Owner</td><td>Developer during concession</td><td>Developer</td><td>Developer / concessionaire</td><td>Concessionaire</td><td>Shared per agreement</td></tr>
+              <tr><td>Asset Ownership During Term</td><td>Owner</td><td>Owner</td><td>Developer during concession</td><td>Developer</td><td>Developer during concession</td><td>Owner (land); concessionaire (plant)</td><td>Variable</td></tr>
+              <tr><td>Transfer at End of Term</td><td>No</td><td>No</td><td>Yes — to owner</td><td>No</td><td>Yes — to owner</td><td>Usually yes</td><td>Variable</td></tr>
+            </tbody>
+          </table>
+        </div>
+          <p class="spv-body-text" style="margin-top:16px;">In owner-led models such as EPC and EPC + O&amp;M, the project owner retains primary responsibility for financing and ownership, while technical functions are outsourced. In developer-led models such as BOOT, BOO, DBFOT, and Concession, financing, construction, operation, and revenue realisation are largely undertaken by the private developer or concessionaire. Hybrid structures allocate responsibilities according to the negotiated project arrangement.</p>
+        </div>
+      </div>
+
+<div class="prism2-nav-row">
+        <button class="prism2-btn-prev" id="prism2-prev-R" onclick="prism2Prev()">&#8592; Previous</button>
+        <div class="prism2-progress-dots" style="display:flex;gap:5px;align-items:center;">
+          <span class="pdot" data-p="P"></span><span class="pdot active" data-p="R"></span>
+          <span class="pdot" data-p="I"></span><span class="pdot" data-p="S"></span><span class="pdot" data-p="M"></span>
+        </div>
+        <button class="prism2-btn-next" id="prism2-next-R" onclick="prism2Next()">Next pillar &#8594;</button>
+      </div>
+    </div><!-- /R -->
+
+    <!-- I PANEL -->
+    <div class="prism2-content-panel" id="prism2-panel-I" style="--pc:#b06a10;--pb:#faedda;--cb:#fdf6ed;">
+      <div class="prism2-panel-header">
+        <div class="prism2-panel-header-letter">I</div>
+        <div class="prism2-panel-header-text">
+          <div class="prism2-panel-eyebrow">INVESTMENT DYNAMICS</div>
+          <p class="prism2-panel-desc">Funding logic, revenue generation, and livelihood potential by implementation model for green hydrogen production &amp; storage facilities on closed mine land.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Funding Logic by Model</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following table presents the broad funding logic for each implementation model. It explains who is expected to finance the project, the level of owner-side funding requirement, and the commercial rationale behind each structure. This section is intended to help the project owner assess whether the project is more suitable for owner-funded development, private investment, public-private partnership, lease or concession structure, or a hybrid funding arrangement.</p>
+          <table class="spv-table">
+            <thead><tr><th>Model</th><th>Funding Source</th><th>Owner Funding Requirement</th><th>Suitability</th></tr></thead>
+            <tbody>
+              <tr><td>EPC</td><td>Mine owner budget / mine closure fund / CSR / clean-energy budget / public support</td><td>High</td><td>Suitable for pilot electrolyser plant, training unit, small storage, and demonstration facility</td></tr>
+              <tr><td>EPC + O&amp;M / Facility Mgmt</td><td>Mine owner budget + O&amp;M budget + hydrogen sale + training revenue + CSR</td><td>High to Moderate</td><td>Strong fit where owner wants control over safety, technology learning, certification, and local skilling</td></tr>
+              <tr><td>BOOT</td><td>Private hydrogen developer capital + bank finance + government support + offtake agreement</td><td>Low to Moderate</td><td>Suitable where offtake is bankable and assets may transfer to mine owner after concession</td></tr>
+              <tr><td>BOO</td><td>Private developer / industrial gas company / renewable-energy company capital</td><td>Low</td><td>Suitable for purely commercial hydrogen production where owner provides land or lease rights</td></tr>
+              <tr><td>DBFOT</td><td>Private concessionaire + public support + VGF + institutional finance + offtake agreement</td><td>Low to Moderate</td><td>Suitable for large green hydrogen hubs with production, storage, dispensing, and industrial offtake</td></tr>
+              <tr><td>Concession / Lease-Develop-Operate</td><td>Hydrogen developer / renewable-energy company / industrial gas company / SPV / offtaker consortium</td><td>Low to Moderate</td><td>Very suitable where mine owner retains land and earns lease or revenue share while specialist partner manages technology and market risk</td></tr>
+              <tr><td>Hybrid</td><td>Mine owner + renewable-energy developer + hydrogen technology provider + industrial offtaker + government support + CSR + banks</td><td>Variable</td><td>Most suitable for balancing mine-closure goals, green-energy production, offtake security, local livelihood, and owner revenue</td></tr>
+            </tbody>
+          </table>
+          <p class="spv-body-text" style="margin-top:10px;">The National Green Hydrogen Mission includes support for green hydrogen production, electrolyser manufacturing, pilot projects, hydrogen hubs, standards, certification, and research, which can be considered during project structuring.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Revenue Generation by Model</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following table explains how revenue may be generated under different implementation models and identifies who is likely to receive the principal project income. It also describes the nature and extent of the financial benefit available to the project owner, whether through direct project revenue, cost savings, lease income, concession fees, revenue sharing, service charges, or eventual asset transfer. This comparison is intended to support the selection of a commercially appropriate model for the proposed repurposing project.</p>
+          <table class="spv-table">
+            <thead><tr><th>Model</th><th>How Revenue is Generated</th><th>Who Receives Main Revenue</th><th>Owner's Financial Benefit</th></tr></thead>
+            <tbody>
+              <tr><td>EPC</td><td>Sale of green hydrogen, oxygen by-product, storage charges, dispensing charges, training fees, renewable-energy services</td><td>Mine Owner</td><td>Full revenue retained by owner, but owner bears full CAPEX, O&amp;M, technology, safety, certification, and offtake risk</td></tr>
+              <tr><td>EPC + O&amp;M / FM</td><td>Hydrogen sale, oxygen sale, storage services, mobility fuel supply, industrial supply, training, certification-linked premium</td><td>Mine Owner after paying O&amp;M agency</td><td>Moderate to high benefit; owner retains land, asset, and revenue while outsourcing technical operations</td></tr>
+              <tr><td>BOOT</td><td>Developer earns from hydrogen sale, storage, dispensing, oxygen sale, industrial supply, mobility contracts, and service agreements during concession</td><td>Developer / concessionaire during concession</td><td>Lease rent, concession fee, revenue share, local economic uplift, and asset transfer at end</td></tr>
+              <tr><td>BOO</td><td>Long-term private revenue from green hydrogen production, storage, industrial supply, oxygen sale, mobility dispensing, and derivatives</td><td>Private developer</td><td>Limited direct benefit; typically lease rent, fixed charges, or premium payments</td></tr>
+              <tr><td>DBFOT</td><td>Structured revenue from hydrogen sale, storage, compression, dispensing, offtake contracts, oxygen sale, renewable-energy integration, and training</td><td>Concessionaire during concession</td><td>Concession fee, lease rent, revenue share, performance-linked payments, and transfer terms</td></tr>
+              <tr><td>Concession / LDO</td><td>Revenue from hydrogen production, land-linked services, storage, offtake contracts, dispensing, oxygen utilization, and clean-energy services</td><td>Concessionaire / operator</td><td>Lease rentals, revenue share, reduced O&amp;M burden, improved land value, and ESG benefits</td></tr>
+              <tr><td>Hybrid</td><td>Mixed revenue: hydrogen sale, oxygen sale, offtake contracts, storage, training, CSR/grants, renewable power integration, carbon/ESG value</td><td>Shared between owner, operator, renewable-energy partner, offtaker, SPV, or technology provider</td><td>Variable to high; owner benefits through revenue share, land value, ESG gains, local employment, and reduced transition risk</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Local Livelihood and Jobs by Model</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following table assesses the likely local livelihood and employment potential of each implementation model. It considers the extent to which each model can support construction-phase jobs, long-term operational employment, local procurement opportunities, skill development, community participation, and associated support services. This section is particularly relevant where the repurposing project is expected to contribute to post-mining or post-operational economic transition and sustained local community benefit.</p>
+          <table class="spv-table">
+            <thead><tr><th>Model</th><th>Local Job Potential</th><th>Why</th><th>Overall Suggestibility for Local Livelihood</th></tr></thead>
+            <tbody>
+              <tr><td>EPC</td><td>Moderate</td><td>Creates short-term jobs in civil works, electrical, piping, foundation, equipment installation, solar installation, and site preparation. Long-term jobs depend on owner-led operation.</td><td>Moderate</td></tr>
+              <tr><td>EPC + O&amp;M / FM</td><td>High</td><td>Supports sustained employment in plant operations, safety monitoring, maintenance, water treatment, electrical systems, security, administration, training, and facility management.</td><td>High</td></tr>
+              <tr><td>BOOT</td><td>High</td><td>Generates jobs during development and operation. Local employment can be strong if agreement mandates local hiring, apprenticeships, safety training, and local procurement.</td><td>High</td></tr>
+              <tr><td>BOO</td><td>Moderate</td><td>Can create technical jobs, but local livelihood depends mainly on private developer policy unless contractually mandated.</td><td>Moderate</td></tr>
+              <tr><td>DBFOT</td><td>High to Very High</td><td>Suitable for larger hydrogen hubs with electrolysis, storage, renewable-energy integration, control systems, logistics, and training centre operations.</td><td>High to Very High</td></tr>
+              <tr><td>Concession / LDO</td><td>Very High</td><td>Strong model for long-term local livelihood through operator commitments, technical skilling, plant jobs, safety services, logistics, and local maintenance contracts.</td><td>Very High</td></tr>
+              <tr><td>Hybrid</td><td>Very High</td><td>Best suited for combining mine-owner support, private technology expertise, renewable-energy developer, offtaker, training institute, CSR, and community benefit obligations.</td><td>Very High / Most Suitable</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+            <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Combined Comparison: Revenue, Profitability, and Livelihood</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following combined comparison brings together three important dimensions of project structuring: revenue potential, owner-side financial benefit, and local livelihood generation. It provides a consolidated view of how each implementation model performs across commercial, institutional, and community-development perspectives. This matrix is intended to support balanced decision-making where the objective extends beyond financial return to include sustainable site reuse and long-term local economic benefit.</p>
+        <div class="table-wrap">
+          <table class="spv-table">
+            <thead><tr><th>Model</th><th>Owner Profitability</th><th>Local Job Creation</th><th>Overall Comment</th></tr></thead>
+            <tbody>
+              <tr><td><strong>EPC</strong></td><td>High — owner retains full revenue after capital repayment</td><td>Moderate to High</td><td>Suitable where the owner has funding capacity and seeks full control over the asset</td></tr>
+              <tr><td><strong>EPC + O&amp;M / FM</strong></td><td>High — full revenue retained after O&amp;M / FM contract costs</td><td>High to Very High</td><td>Best for owners who want full control combined with professional facility management</td></tr>
+              <tr><td><strong>BOOT</strong></td><td>Moderate — income through lease, concession fee, or transfer value</td><td>High</td><td>Suitable where private financing is needed; owner benefits indirectly and gains the asset at end of concession</td></tr>
+              <tr><td><strong>BOO</strong></td><td>Low to Moderate — primarily through lease or royalty income</td><td>Moderate to High</td><td>Suitable where long-term private ownership is acceptable and the owner wishes to retain land rights</td></tr>
+              <tr><td><strong>DBFOT</strong></td><td>Moderate to High — through lease, concession fee, and transfer</td><td>High to Very High</td><td>Strong PPP structure for larger projects requiring private investment and structured public participation</td></tr>
+              <tr><td><strong>Concession / LDO</strong></td><td>Moderate — through concession fee and revenue-sharing arrangement</td><td>High to Very High</td><td>Highly suitable where the owner wants to retain land while outsourcing commercial activation</td></tr>
+              <tr><td><strong>Hybrid</strong></td><td>Variable to High — depends on structure and revenue-sharing terms</td><td>Very High</td><td>Most suitable where public value, community benefit, and commercial viability are all required</td></tr>
+            </tbody>
+          </table>
+        </div>
+        </div>
+      </div>
+
+<div class="prism2-nav-row">
+        <button class="prism2-btn-prev" id="prism2-prev-I" onclick="prism2Prev()">&#8592; Previous</button>
+        <div class="prism2-progress-dots" style="display:flex;gap:5px;align-items:center;">
+          <span class="pdot" data-p="P"></span><span class="pdot" data-p="R"></span>
+          <span class="pdot active" data-p="I"></span><span class="pdot" data-p="S"></span><span class="pdot" data-p="M"></span>
+        </div>
+        <button class="prism2-btn-next" id="prism2-next-I" onclick="prism2Next()">Next pillar &#8594;</button>
+      </div>
+    </div><!-- /I -->
+
+    <!-- S PANEL -->
+    <div class="prism2-content-panel" id="prism2-panel-S" style="--pc:#5a3d9e;--pb:#edeaf8;--cb:#f6f4fc;">
+      <div class="prism2-panel-header">
+        <div class="prism2-panel-header-letter">S</div>
+        <div class="prism2-panel-header-text">
+          <div class="prism2-panel-eyebrow">STRATEGIC STRUCTURING</div>
+          <p class="prism2-panel-desc">Pre-RFP readiness requirements and post-award actions for green hydrogen production &amp; storage projects on closed mine land.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Preparations Needed Before RFP</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">The following section identifies the key owner-side preparatory actions that should ideally be completed before issuing the first Request for Proposal. These actions are aimed at reducing uncertainty for prospective bidders, improving project bankability, clarifying site availability, identifying approval pathways and risks, and defining the technical and commercial scope of the project. Completing these preparatory steps before tendering can improve bid quality, attract credible responses, and reduce the risk of delays during project implementation.</p>
+          <p class="spv-body-text">Before issuing an RFP for a Green Hydrogen Production &amp; Storage-based mine repurposing project, the mine owner should prepare the following in priority order:</p>
+          <ol class="spv-list">
+            <li><strong>Land and mine-closure confirmation</strong> — Confirm land ownership, mine-closure status, post-mining land-use permissibility, and linkage of the proposed green hydrogen facility with the approved mine closure / repurposing plan.</li>
+            <li><strong>Legal, policy and concession screening</strong> — Review land-leasing rights, commercial hydrogen production rights, concession structure, revenue sharing, electricity procurement, water use, liability, insurance, and applicable Indian regulatory requirements.</li>
+            <li><strong>Safe and no-go zone mapping</strong> — Identify safe and unsafe zones, including unstable dumps, highwalls, subsidence-prone areas, abandoned galleries, restricted infrastructure, water bodies, and buffer areas required for hydrogen production and storage.</li>
+            <li><strong>Preliminary technical site assessment</strong> — Prepare topographic survey, geotechnical screening, bearing-capacity assessment, drainage review, access-road assessment, and preliminary layout suitability for electrolyser, compressor, storage, utilities, and emergency access.</li>
+            <li><strong>Renewable energy and grid-readiness assessment</strong> — Assess captive solar / hybrid renewable potential, open-access renewable power, substation capacity, grid connectivity, power quality, backup power, and alignment with the National Green Hydrogen Mission objective of renewable-energy-based hydrogen production.</li>
+            <li><strong>Water availability and treatment assessment</strong> — Confirm raw-water source, seasonal reliability, competing uses, water quality, demineralized-water requirement, wastewater handling, and statutory permissions for water abstraction or reuse.</li>
+            <li><strong>Green hydrogen standard and certification readiness</strong> — Prepare a preliminary emissions-accounting, metering, renewable-energy matching, documentation, and monitoring approach in line with India's Green Hydrogen Standard and the Green Hydrogen Certification Scheme of India.</li>
+            <li><strong>Technology and storage option assessment</strong> — Identify suitable electrolyser technology, hydrogen purification, compression pressure, storage mode, tube-trailer loading, dispensing requirement, oxygen handling, and future scalability.</li>
+            <li><strong>Safety, statutory and hazard-screening framework</strong> — Prepare preliminary HAZID, hazardous-area classification, fire-safety note, leak-detection approach, emergency-response concept, and check applicability of PESO requirements under the Gas Cylinders Rules / hydrogen storage provisions.</li>
+            <li><strong>Offtake and market assessment</strong> — Identify potential hydrogen users such as refineries, steel units, fertilizer plants, industrial clusters, mobility users, gas utilities, hydrogen hubs, research institutions, or pilot transport projects.</li>
+            <li><strong>Cost, phasing and implementation model selection</strong> — Prepare broad CAPEX, 5-year O&amp;M estimate, unit production-cost assumptions, phasing plan, and select a preferred model such as Hybrid, Concession / Lease-Develop-Operate, DBFOT, BOOT, or EPC + O&amp;M.</li>
+            <li><strong>Draft RFP scope, obligations and bid evaluation framework</strong> — Prepare bidder scope covering design, finance, construction, renewable power sourcing, certification, safety compliance, O&amp;M, local skilling, emergency response, reporting, and evaluation criteria for technical capability, hydrogen experience, safety record, financial capacity, offtake plan, and revenue proposal.</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Activities to be taken After Selecting the Agency</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">The following section lists the principal activities that may be undertaken by the selected contractor, developer, concessionaire, operator, or implementation agency after award of the project. These activities generally include detailed site investigations, engineering design, statutory submissions and approvals, equipment procurement, construction, commissioning, operational planning, staff training, and performance monitoring. The distinction between pre-RFP owner preparedness and post-award implementation responsibilities helps ensure an appropriate and efficient allocation of effort across the project development cycle.</p>
+          <p class="spv-body-text">After award, the selected concessionaire / contractor / O&amp;M agency / green hydrogen developer can take up the following activities in chronological order:</p>
+          <ol class="spv-list">
+            <li><strong>Detailed site investigation</strong> — Undertake detailed topographic survey, drone mapping, geotechnical investigation, foundation investigation, drainage study, safe-zone verification, and final plant-area demarcation.</li>
+            <li><strong>Detailed feasibility and DPR preparation</strong> — Prepare the detailed DPR covering final capacity, renewable-energy source, water system, electrolyser technology, compression, storage, safety systems, financial model, approvals plan, O&amp;M plan, and implementation schedule.</li>
+            <li><strong>Final master planning and plant layout</strong> — Prepare the final layout showing electrolyser block, water-treatment plant, electrical yard, compressor area, hydrogen storage, tube-trailer / dispensing area, oxygen handling, control room, utilities, safety buffers, and emergency routes.</li>
+            <li><strong>Approvals, licences and statutory clearances</strong> — Obtain applicable approvals for land use, electricity procurement, water use, environmental compliance, factory / labour requirements, PESO-related hydrogen storage permissions, and any dispensing or compressed-gas requirements.</li>
+            <li><strong>Renewable power and water tie-up</strong> — Finalize captive renewable project, open-access renewable power, PPA / energy-banking arrangement, grid interconnection, water source, and demineralized-water treatment scheme.</li>
+            <li><strong>Detailed engineering and safety studies</strong> — Prepare detailed engineering, HAZOP, QRA, hazardous-area classification, fire and gas detection design, emergency shutdown logic, ventilation plan, earthing, lightning protection, and hydrogen safety management system.</li>
+            <li><strong>Procurement of major equipment</strong> — Procure electrolyser package, rectifier / power electronics, water-treatment system, hydrogen purification unit, compressor, storage system, safety valves, sensors, SCADA, fire-safety system, and certified pressure equipment.</li>
+            <li><strong>Construction and installation</strong> — Construct foundations, roads, drainage, electrical systems, control room, pipe racks, storage foundations, utility systems, and install electrolysers, compressors, storage vessels / cascades, metering, and safety systems.</li>
+            <li><strong>Certification, metering and digital monitoring setup</strong> — Install metering, data logging, renewable-energy accounting, emissions-monitoring, SCADA, leak detection, audit trails, and documentation systems required for green hydrogen certification and operational reporting.</li>
+            <li><strong>Recruitment, training and emergency preparedness</strong> — Recruit and train operators, technicians, safety staff, local youth, fire-response teams, and maintenance personnel in hydrogen safety, PPE, SOPs, emergency shutdown, leak response, and first response.</li>
+            <li><strong>Testing, commissioning and safety validation</strong> — Conduct pre-commissioning checks, pressure testing, leak testing, interlock testing, trial electrolysis, compressor trials, storage validation, mock drills, third-party safety audit, and performance guarantee tests.</li>
+            <li><strong>Offtake finalization and commercial supply readiness</strong> — Finalize hydrogen sale agreements, oxygen utilization, tube-trailer logistics, dispensing protocols, billing systems, customer interface, product quality specifications, and delivery schedule.</li>
+            <li><strong>Commercial operation and compliance reporting</strong> — Commence commercial operations after safety clearance and performance validation, with regular reporting on hydrogen production, renewable-energy use, water consumption, emissions intensity, incidents, and O&amp;M performance.</li>
+            <li><strong>Monitoring, audit and phased expansion</strong> — Undertake periodic safety audits, certification audits, equipment inspection, environmental monitoring, community-safety review, and phased expansion based on offtake, safety record, certification status, and mine-owner approval.</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="prism2-nav-row">
+        <button class="prism2-btn-prev" id="prism2-prev-S" onclick="prism2Prev()">&#8592; Previous</button>
+        <div class="prism2-progress-dots" style="display:flex;gap:5px;align-items:center;">
+          <span class="pdot" data-p="P"></span><span class="pdot" data-p="R"></span>
+          <span class="pdot" data-p="I"></span><span class="pdot active" data-p="S"></span><span class="pdot" data-p="M"></span>
+        </div>
+        <button class="prism2-btn-next" id="prism2-next-S" onclick="prism2Next()">Next pillar &#8594;</button>
+      </div>
+    </div><!-- /S -->
+
+    <!-- M PANEL -->
+    <div class="prism2-content-panel" id="prism2-panel-M" style="--pc:#1a7a5e;--pb:#e1f3ec;--cb:#f0faf5;">
+      <div class="prism2-panel-header">
+        <div class="prism2-panel-header-letter">M</div>
+        <div class="prism2-panel-header-text">
+          <div class="prism2-panel-eyebrow">MONITORING GUIDANCE</div>
+          <p class="prism2-panel-desc">Indicative implementation pathway, preferred model sequence, references, and key abbreviations for green hydrogen production &amp; storage projects.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Indicative Implementation Pathway</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following implementation pathway presents a practical high-level sequence for advancing the proposed repurposing concept from initial approval through to project execution and long-term operation. It outlines the broad stages of concept approval, preliminary studies, model selection, bid preparation, procurement, detailed design, statutory approvals, construction, commissioning, and ongoing operation. This pathway is indicative and should be adapted to reflect the specific complexity, regulatory requirements, financing structure, and site conditions applicable to the project.</p>
+          <ol class="spv-list" style="list-style-type:decimal;padding-left:1.5em;">
+            <li>Concept approval and objective setting</li>
+            <li>Site suitability and mine safety screening</li>
+            <li>Renewable-energy, water, grid, and land assessment</li>
+            <li>Offtake and market assessment</li>
+            <li>Selection of production scale and storage option</li>
+            <li>Selection of implementation model</li>
+            <li>DPR and financial feasibility</li>
+            <li>RFP issuance and partner selection</li>
+            <li>Detailed engineering and statutory approvals</li>
+            <li>Renewable power and water-treatment setup</li>
+            <li>Electrolyser, compression, storage, and safety system installation</li>
+            <li>SCADA, metering, certification, and monitoring setup</li>
+            <li>Training and local livelihood integration</li>
+            <li>Trial operation, safety validation, and certification</li>
+            <li>Commercial operation, monitoring, and phased expansion</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Way Forward &amp; Preferred Model Sequence</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">The following way forward summarizes the preferred development approach for the proposed repurposing option, based on the assessment presented in PRISM (Post Mining Repurposing Implementation and Strategy Models). It identifies the most suitable implementation models in order of preference, highlights key technical and due-diligence considerations, and outlines the recommended next steps and broad development logic. This section is intended to guide internal decision-making and support the project owner in progressing from concept-stage evaluation toward feasibility assessment, project structuring, regulatory approvals, and implementation planning.</p>
+          <p class="spv-body-text">For Green Hydrogen Production &amp; Storage-based mine repurposing, the most practical approach is:</p>
+          <p class="spv-body-text"><strong>Preferred Models:</strong></p>
+          <ol class="spv-list" style="list-style-type:decimal;padding-left:1.5em;">
+            <li><strong>Hybrid Model</strong> — most suitable for balancing mine closure, clean energy, livelihood, safety, commercial viability, and ESG value</li>
+            <li><strong>Concession / Lease-Develop-Operate</strong> — very suitable where mine owner retains land while specialist partner manages technology and market risk</li>
+            <li><strong>DBFOT</strong> — suitable for large structured PPP hydrogen hubs requiring private finance and professional operation</li>
+          </ol>
+          <p class="spv-body-text"><strong>Secondary Option:</strong> EPC + O&amp;M / Facility Management for pilot or demonstration projects where the mine owner wants stronger control over safety, learning, and technology development.</p>
+          <p class="spv-body-text"><strong>Suggested Facility Positioning:</strong> For closed coal mine land, the facility should preferably be positioned as a <strong>Green Hydrogen Production, Storage and Clean Energy Transition Hub</strong> with renewable-energy supply, water treatment, electrolyser block, hydrogen purification and drying, compression, buffer and high-pressure storage cascade, tube-trailer loading, oxygen handling, safety and emergency control, SCADA, green hydrogen certification, training and skill development centre, local employment programme, research / demonstration zone, and future expansion space for ammonia, methanol, mobility, or industrial offtake.</p>
+          <p class="spv-body-text">The facility should be developed in a <strong>phased and demand-linked manner</strong>. A pilot project may be suitable for learning and capacity building, while larger hydrogen hubs should be pursued only where renewable power, water security, safety clearances, certification, offtake, and financing are clearly established.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>References</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <ol class="spv-list" style="list-style-type:decimal;padding-left:1.5em;font-size:.85rem;">
+            <li>Ministry of New and Renewable Energy, Government of India. (2023). <em>National Green Hydrogen Mission.</em></li>
+            <li>Ministry of New and Renewable Energy, Government of India. (2023). <em>Green Hydrogen Standard for India.</em></li>
+            <li>Ministry of New and Renewable Energy, Government of India. (2025). <em>Green Hydrogen Certification Scheme of India (GHCI).</em></li>
+            <li>Ministry of New and Renewable Energy, Government of India. (2024). <em>Scheme Guidelines for Setting up Hydrogen Hubs in India under the NGHM.</em></li>
+            <li>Ministry of New and Renewable Energy, Government of India. (2024). <em>Scheme Guidelines for Implementation of Strategic Interventions for Green Hydrogen Transition Programme (SIGHT).</em></li>
+            <li>Ministry of Power, Government of India. (2022). <em>Green Hydrogen / Green Ammonia Policy.</em></li>
+            <li>International Energy Agency. (2024). <em>Global Hydrogen Review 2024.</em> IEA, Paris.</li>
+            <li>International Energy Agency. (2025). <em>Global Hydrogen Review 2025.</em> IEA, Paris.</li>
+            <li>International Energy Agency. (2025). <em>Hydrogen Production and Infrastructure Projects Database.</em> IEA, Paris.</li>
+            <li>Council on Energy, Environment and Water. (2024). <em>Green Hydrogen Standards and Approval Systems in India.</em> CEEW, New Delhi.</li>
+            <li>Biswas, T., Yadav, D., Guhan, R., and Ganesan, K. (2020). <em>Green Hydrogen and Electrolyser Manufacturing: Opportunities for India.</em> CEEW, New Delhi.</li>
+            <li>Rocky Mountain Institute. (2025). <em>Green Hydrogen Production Pathways for India.</em> RMI.</li>
+            <li>NITI Aayog and Rocky Mountain Institute. (2022). <em>Harnessing Green Hydrogen: Opportunities for Deep Decarbonisation in India.</em> NITI Aayog, Government of India.</li>
+            <li>International Renewable Energy Agency. (2020). <em>Green Hydrogen Cost Reduction: Scaling up Electrolysers to Meet the 1.5&#176;C Climate Goal.</em> IRENA, Abu Dhabi.</li>
+            <li>International Renewable Energy Agency. (2022). <em>Global Hydrogen Trade to Meet the 1.5&#176;C Climate Goal: Technology Review of Hydrogen Carriers.</em> IRENA, Abu Dhabi.</li>
+            <li>International Renewable Energy Agency. (2022). <em>Geopolitics of the Energy Transformation: The Hydrogen Factor.</em> IRENA, Abu Dhabi.</li>
+            <li>Fuel Cells and Hydrogen Joint Undertaking. (2021). <em>Hydrogen Safety: Best Practice and Lessons Learnt.</em> European Commission, Brussels.</li>
+            <li>International Organization for Standardization. (2019). <em>ISO 19880-1: Gaseous Hydrogen — Fuelling Stations — Part 1: General Requirements.</em></li>
+            <li>National Fire Protection Association. (2023). <em>NFPA 2: Hydrogen Technologies Code.</em></li>
+            <li>International Electrotechnical Commission. (2022). <em>IEC 60079 Series: Explosive Atmospheres.</em></li>
+            <li>Bureau of Indian Standards. (2024). <em>Indian Standards Related to Hydrogen Technologies and Gas Cylinder Safety.</em></li>
+            <li>Petroleum and Explosives Safety Organisation. (2024). <em>Guidelines and Statutory Requirements for Compressed Gas Storage and Handling.</em></li>
+            <li>Ministry of Coal, Government of India. (2025). <em>Guidelines for Preparation of Mining Plan and Mine Closure Plan for Coal and Lignite Blocks, 2025.</em></li>
+            <li>Coal Controller Organisation, Government of India. (2025). <em>Mine Closure Handbooks: A.R.T.H.A., L.I.V.E.S. and R.E.C.L.A.I.M.</em> Ministry of Coal, Government of India.</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Abbreviations</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <table class="spv-table">
+            <thead><tr><th>Abbreviation</th><th>Full Form</th></tr></thead>
+            <tbody>
+              <tr><td>EPC</td><td>Engineering, Procurement and Construction</td></tr>
+              <tr><td>O&amp;M</td><td>Operation and Maintenance</td></tr>
+              <tr><td>FM</td><td>Facility Management</td></tr>
+              <tr><td>BOOT</td><td>Build, Own, Operate, Transfer</td></tr>
+              <tr><td>BOO</td><td>Build, Own, Operate</td></tr>
+              <tr><td>DBFOT</td><td>Design, Build, Finance, Operate, Transfer</td></tr>
+              <tr><td>PPP</td><td>Public-Private Partnership</td></tr>
+              <tr><td>CSR</td><td>Corporate Social Responsibility</td></tr>
+              <tr><td>RFP</td><td>Request for Proposal</td></tr>
+              <tr><td>DPR</td><td>Detailed Project Report</td></tr>
+              <tr><td>CAPEX</td><td>Capital Expenditure</td></tr>
+              <tr><td>ESG</td><td>Environmental, Social and Governance</td></tr>
+              <tr><td>SPV</td><td>Special Purpose Vehicle</td></tr>
+              <tr><td>VGF</td><td>Viability Gap Funding</td></tr>
+              <tr><td>MNRE</td><td>Ministry of New and Renewable Energy</td></tr>
+              <tr><td>NGHM</td><td>National Green Hydrogen Mission</td></tr>
+              <tr><td>GHCI</td><td>Green Hydrogen Certification Scheme of India</td></tr>
+              <tr><td>RE</td><td>Renewable Energy</td></tr>
+              <tr><td>H&#8322;</td><td>Hydrogen</td></tr>
+              <tr><td>O&#8322;</td><td>Oxygen</td></tr>
+              <tr><td>CO&#8322;</td><td>Carbon Dioxide</td></tr>
+              <tr><td>PEM</td><td>Proton Exchange Membrane</td></tr>
+              <tr><td>SOEC</td><td>Solid Oxide Electrolyser Cell</td></tr>
+              <tr><td>SCADA</td><td>Supervisory Control and Data Acquisition</td></tr>
+              <tr><td>HAZID</td><td>Hazard Identification</td></tr>
+              <tr><td>HAZOP</td><td>Hazard and Operability Study</td></tr>
+              <tr><td>QRA</td><td>Quantitative Risk Assessment</td></tr>
+              <tr><td>PPE</td><td>Personal Protective Equipment</td></tr>
+              <tr><td>SOP</td><td>Standard Operating Procedure</td></tr>
+              <tr><td>UPS</td><td>Uninterruptible Power Supply</td></tr>
+              <tr><td>VFD</td><td>Variable Frequency Drive</td></tr>
+              <tr><td>IoT</td><td>Internet of Things</td></tr>
+              <tr><td>PPA</td><td>Power Purchase Agreement</td></tr>
+              <tr><td>FID</td><td>Final Investment Decision</td></tr>
+              <tr><td>IEA</td><td>International Energy Agency</td></tr>
+              <tr><td>IRENA</td><td>International Renewable Energy Agency</td></tr>
+              <tr><td>SECI</td><td>Solar Energy Corporation of India</td></tr>
+              <tr><td>PESO</td><td>Petroleum and Explosives Safety Organisation</td></tr>
+              <tr><td>BIS</td><td>Bureau of Indian Standards</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="prism2-nav-row">
+        <button class="prism2-btn-prev" id="prism2-prev-M" onclick="prism2Prev()">&#8592; Previous</button>
+        <div class="prism2-progress-dots" style="display:flex;gap:5px;align-items:center;">
+          <span class="pdot" data-p="P"></span><span class="pdot" data-p="R"></span>
+          <span class="pdot" data-p="I"></span><span class="pdot" data-p="S"></span><span class="pdot active" data-p="M"></span>
+        </div>
+      </div>
+
+    <!-- Framework completion card -->
+    <div style="margin:8px 26px 28px;padding:16px 20px;border-radius:12px;background:#f4faf7;border:1.5px dashed #a8d5c2;display:flex;align-items:center;gap:14px;">
+      <div style="width:36px;height:36px;border-radius:50%;background:#d1ece2;border:1.5px solid #a8d5c2;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#1a7a5e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2.5 8 6 11.5 13.5 4"/></svg>
+      </div>
+      <div style="flex:1;min-width:0;">
+        <div style="font-size:.82rem;font-weight:700;color:#1a7a5e;letter-spacing:.01em;">PRISM Framework Complete</div>
+        <div style="font-size:.75rem;color:#4a7a6a;margin-top:2px;line-height:1.5;">All five pillars reviewed — explore case studies to see how similar projects were executed.</div>
+      </div>
+      <button onclick="showSPVTab('casestudies');setTimeout(function(){window.dispatchEvent(new Event('resize'))},30)" style="flex-shrink:0;font-size:.75rem;font-weight:600;padding:7px 14px;border-radius:8px;border:1.5px solid #a8d5c2;background:#fff;color:#1a7a5e;cursor:pointer;transition:background .2s,border-color .2s;" onmouseover="this.style.background='#e6f5ef'" onmouseout="this.style.background='#fff'">Case Studies &#8599;</button>
+    </div>
+
+    <!-- Download PRISM PDF -->
+    <div style="margin:0 26px 32px;padding:18px 22px;border-radius:12px;background:linear-gradient(135deg,#f0f7ff 0%,#e8f4fd 100%);border:1.5px solid #c5ddf5;display:flex;align-items:center;gap:16px;">
+      <div style="width:40px;height:40px;border-radius:50%;background:#daeafa;border:1.5px solid #b8d4ef;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#1a5ca8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v10M5 8l4 4 4-4"/><rect x="3" y="14" width="12" height="2" rx="1"/></svg>
+      </div>
+      <div style="flex:1;min-width:0;">
+        <div style="font-size:.82rem;font-weight:700;color:#1a5ca8;letter-spacing:.01em;">Download PRISM Framework</div>
+        <div style="font-size:.75rem;color:#3a6a98;margin-top:2px;line-height:1.5;">Save a print-ready PDF of all five pillars for offline reference.</div>
+      </div>
+      <button onclick="downloadPRISM()" style="flex-shrink:0;font-size:.75rem;font-weight:600;padding:8px 16px;border-radius:8px;border:1.5px solid #b8d4ef;background:#fff;color:#1a5ca8;cursor:pointer;transition:background .2s,border-color .2s;display:flex;align-items:center;gap:6px;" onmouseover="this.style.background='#daeafa'" onmouseout="this.style.background='#fff'">
+        <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 1v7M3.5 5.5l3 3 3-3"/><rect x="1.5" y="10" width="10" height="1.5" rx=".75"/></svg>
+        Download PDF
+      </button>
+    </div>
+
+    </div><!-- /M -->
+
+  </div><!-- /pr-content-wrap -->
+</div><!-- /pr-shell -->
+
+<script>
+function prNav(key) {
+  if (typeof prism2Show === 'function') prism2Show(key);
+  document.querySelectorAll('#spv-panel-prism .pr-nav-item').forEach(function(n) {
+    n.classList.toggle('active', n.dataset.key === key);
+  });
+  var hl = document.getElementById('pr-hl');
+  var active = document.querySelector('#spv-panel-prism .pr-nav-item[data-key="' + key + '"]');
+  if (hl && active) {
+    var accent = getComputedStyle(active).getPropertyValue('--pr-accent').trim();
+    hl.style.setProperty('--pr-hl', accent);
+    hl.style.top = active.offsetTop + 'px';
+    hl.style.height = active.offsetHeight + 'px';
+  }
+}
+</script>
+
+    </div>
+  </div><!-- /spv-panel-prism -->
+
+  <!-- TAB 3: CASE STUDIES -->
+  <div id="spv-panel-casestudies" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+      <div class="lit-wrap">
+        <div class="lit-outer">
+          <div class="lit-track-clip">
+            <div class="lit-track" id="litTrack-all">
+
+              <a class="lit-card" href="https://orca.cardiff.ac.uk/id/eprint/173457/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#1a7a5e;--lit-glow:rgba(26,122,94,.18);--lit-tint:rgba(26,122,94,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Carbon Pasts, Low Carbon Futures: Teaching Low Energy Architecture Through Adaptive Reuse of Heritage Sites in the South Wales Coalfield</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Conference Paper</span></div>
+                    <div class="lit-card-source">Source: <span>orca.cardiff.ac.uk</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs/cs-gh-1.jpg" alt="Solar panels on heritage building rooftop — low carbon adaptive reuse of South Wales coalfield site" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://nghm.mnre.gov.in/admin/uploads/1776247365_1006.pdf" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#C85000;--lit-glow:rgba(200,80,0,.18);--lit-tint:rgba(200,80,0,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">ABC Cleantech Karnataka Hydrogen Project</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Project Paper</span></div>
+                    <div class="lit-card-source">Source: <span>nghm.mnre.gov.in</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs/cs-gh-2.jpg" alt="Green hydrogen electrolyzer facility — ABC Cleantech Karnataka hydrogen project India" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://nghm.mnre.gov.in/admin/uploads/1001.pdf" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#1a5ca8;--lit-glow:rgba(26,92,168,.18);--lit-tint:rgba(26,92,168,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">ACME Bikaner Pilot Hydrogen Plant (Integrated Green Ammonia Project)</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Project Paper</span></div>
+                    <div class="lit-card-source">Source: <span>nghm.mnre.gov.in</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs/cs-gh-3.jpg" alt="Industrial hydrogen production plant — ACME Bikaner pilot green ammonia project Rajasthan" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://nghc.com/news/worlds-largest-green-hydrogen-plant-reaches-80-construction-completion-across-all-sites/" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#5a3d9e;--lit-glow:rgba(90,61,158,.18);--lit-tint:rgba(90,61,158,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">NEOM Green Hydrogen Company (NGHC) Reaches 80% Construction Completion Across All Sites</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Website Link</span></div>
+                    <div class="lit-card-source">Source: <span>nghc.com</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs/cs-gh-4.jpg" alt="Large-scale hydrogen electrolyzer array under construction — NEOM green hydrogen plant Saudi Arabia" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://www.reuters.com/sustainability/climate-energy/spains-moeve-teams-up-with-masdar-12-billion-green-hydrogen-project-2026-03-02/" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#b06a10;--lit-glow:rgba(176,106,16,.18);--lit-tint:rgba(176,106,16,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Spain's Moeve Teams Up with Masdar on $1.2 Billion Green Hydrogen Project</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Website Link</span></div>
+                    <div class="lit-card-source">Source: <span>reuters.com</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs/cs-gh-5.jpg" alt="Green hydrogen storage tanks at industrial energy facility — Spain Moeve Masdar 1.2 billion project" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://nghm.mnre.gov.in/admin/uploads/1185.pdf" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#d97706;--lit-glow:rgba(215,119,6,.18);--lit-tint:rgba(215,119,6,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Green Hydrogen Plant in Kandla</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Website Link</span></div>
+                    <div class="lit-card-source">Source: <span>nghm.mnre.gov.in</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs/cs-gh-6.jpg" alt="Hydrogen fuel cell and electrolysis equipment — green hydrogen plant Kandla Gujarat India" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://www.nature.com/articles/s41598-025-02295-2" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#0369a1;--lit-glow:rgba(3,105,161,.18);--lit-tint:rgba(3,105,161,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Integrating Green Hydrogen Storage into Mine Water Pumping Stations</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Report</span></div>
+                    <div class="lit-card-source">Source: <span>nature.com</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs/cs-gh-7.jpg" alt="Underground water pumping infrastructure at former mine — hydrogen energy storage integration" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://scijournals.onlinelibrary.wiley.com/doi/full/10.1002/ese3.1905" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#1a7a5e;--lit-glow:rgba(26,122,94,.18);--lit-tint:rgba(26,122,94,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Comprehensive Case Study on the Technical Feasibility of Green Hydrogen Production</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Report</span></div>
+                    <div class="lit-card-source">Source: <span>scijournals.onlinelibrary.wiley.com</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs/cs-gh-8.jpg" alt="Electrolysis equipment in hydrogen production facility — technical feasibility study green hydrogen" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://www.mdpi.com/1996-1073/18/13/3272" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#C85000;--lit-glow:rgba(200,80,0,.18);--lit-tint:rgba(200,80,0,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Case Study of a Greenfield Blue Hydrogen Plant: A Comparative Analysis of Production Methods</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Report</span></div>
+                    <div class="lit-card-source">Source: <span>mdpi.com</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs/cs-gh-9.jpg" alt="Hydrogen production plant piping and storage — greenfield blue hydrogen comparative production methods" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+            </div><!-- /lit-track -->
+          </div><!-- /lit-track-clip -->
+          <div class="lit-nav">
+            <button class="lit-nav-btn" id="litPrev-all" onclick="litMove('all',-1)" aria-label="Previous">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <div class="lit-dots" id="litDots-all"></div>
+            <button class="lit-nav-btn" id="litNext-all" onclick="litMove('all',1)" aria-label="Next">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+          </div>
+        </div><!-- /lit-outer -->
+      </div><!-- /lit-wrap -->
+    </div>
+  </div><!-- /spv-panel-casestudies -->
+
+  <!-- TAB 4: SAMPLE TENDER DOCUMENTS -->
+  <div id="spv-panel-tender" class="spv-panel" style="display:none;">
+  <div class="spv-content">
+  
+    <div class="t5-wrap">
+    <div class="t5-topbar">
+      <div class="t5-pills">
+        <button class="t5-pill t5-pill--all active" onclick="t5Filter('all')">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          All Documents <span class="t5-pill-count" id="t5cnt-all">10</span>
+        </button>
+        <button class="t5-pill--rfp t5-pill" data-sec="rfp" onclick="t5Filter('rfp')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          RFP <span class="t5-pill-count" id="t5cnt-rfp">7</span>
+        </button>
+        <button class="t5-pill--nit t5-pill" data-sec="nit" onclick="t5Filter('nit')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+          NIT <span class="t5-pill-count" id="t5cnt-nit">1</span>
+        </button>
+        <button class="t5-pill--rpt t5-pill" data-sec="rpt" onclick="t5Filter('rpt')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          Reports &amp; DPR <span class="t5-pill-count" id="t5cnt-rpt">2</span>
+        </button>
+      </div>
+      <div class="t5-right">
+        <div class="t5-search-wrap">
+          <svg class="t5-search-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input id="t5SearchInput" class="t5-search" type="text" placeholder="Search documents…" oninput="t5Search(this.value)">
+        </div>
+        <span class="t5-counter" id="t5Counter"></span>
+      </div>
+    </div>
+    <div id="t5Sections">
+      <div class="t5-section" data-sec="rfp" style="animation-delay:0.05s">
+        <div class="t5-section-header">
+          <div class="t5-section-bar" style="background:#0F6E56"></div>
+          <span class="t5-section-label" style="color:#0F6E56">Requests for Proposal (RFP)</span>
+          <span class="t5-section-count">7 documents</span>
+        </div>
+        <div class="t5-list">
+          <a class="t5-row t5-row--rfp" data-sec="rfp"
+             data-title="call for proposals (cfp) for “implementation of pilot projects for production of green hydrogen from biomass-based and other innovative technology-based interventions”"
+             href="https://birac.nic.in/webcontent/1766715350_RFP_GH.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0F6E56">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Call for Proposals (CFP) for “Implementation of Pilot Projects for Production of Green Hydrogen from Biomass-based and other Innovative Technology-based Interventions”</div>
+              <div class="t5-sub">birac.nic.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">CFP</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rfp" data-sec="rfp"
+             data-title="call for proposals (cfp) for selection of an executing agency(ies) for preparation of detailed project reports (dprs) for green hydrogen hubs in india under component-b1 of the national green hydrogen mission"
+             href="https://nghm.mnre.gov.in/admin/uploads/175879322088544CfP_for_DPR_for_Hydrogen_Hubs_Final.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0F6E56">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Call for Proposals (CFP) for Selection of an Executing Agency(ies) for Preparation of Detailed Project Reports (DPRs) for Green Hydrogen Hubs in India under Component-B1 of the National Green Hydrogen Mission</div>
+              <div class="t5-sub">nghm.mnre.gov.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">CFP</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rfp" data-sec="rfp"
+             data-title="request for proposal pilot projects for use of green hydrogen in the transport sector – phase ii by scheme implementation agency (sia) the automotive research association of india (arai)"
+             href="https://www.araiindia.com/wp-content/uploads/2025/11/MNRE-Call-for-Proposals-Hydrogen-Road-Trials_Phase-II-R1_12359.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0F6E56">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Request for Proposal Pilot Projects for use of Green Hydrogen in the Transport Sector – Phase II by Scheme Implementation Agency (SIA) the Automotive Research Association of India (ARAI)</div>
+              <div class="t5-sub">araiindia.com</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">RFP</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rfp" data-sec="rfp"
+             data-title="design, engineering, manufacturing, fabrication, packaging, testing, supplying, erection and commissioning including performance guarantee test run (pgtr) of water electrolyzer system for green hydrogen production including setting up of ground mounted solar power plant of 500 kwac capacity and five years of comprehensive o&amp;m of complete project at bhusawal, dist. jalgaon, maharashtra."
+             href="https://mahagenco.in/wp-content/uploads/2022/07/tender-document-for-green-H2-web-posting-1.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0F6E56">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Design, Engineering, Manufacturing, Fabrication, Packaging, Testing, Supplying, Erection and Commissioning Including Performance Guarantee Test Run (PGTR) of Water Electrolyzer System for Green Hydrogen Production Including Setting up of Ground Mounted Solar Power Plant of 500 Kwac Capacity and Five Years of Comprehensive O&amp;m of Complete Project at Bhusawal, Dist. Jalgaon, Maharashtra.</div>
+              <div class="t5-sub">mahagenco.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">RFP</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rfp" data-sec="rfp"
+             data-title="request for proposal for hydrogen injection in existing blast furnace and existing dri vertical shaft"
+             href="https://solarquarter.com/2024/10/15/ministry-of-steel-with-mnre-issues-rfp-for-hydrogen-injection-in-steel-production-under-national-green-hydrogen-mission/" target="_blank" rel="noopener"
+             style="--row-accent:#0F6E56">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Request for Proposal for Hydrogen Injection in Existing Blast Furnace and Existing DRI Vertical Shaft</div>
+              <div class="t5-sub">solarquarter.com</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">RFP</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rfp" data-sec="rfp"
+             data-title="call for proposal (cfp) for pilot project from start-ups developing innovative green hydrogen production/utilization technologies"
+             href="https://cdnbbsr.s3waas.gov.in/s3716e1b8c6cd17b771da77391355749f3/uploads/2025/09/202509121570581528.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0F6E56">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Call for Proposal (CFP) for Pilot Project from Start-ups developing innovative Green Hydrogen production/utilization technologies</div>
+              <div class="t5-sub">cdnbbsr.s3waas.gov.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">CFP</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rfp" data-sec="rfp"
+             data-title="request for selection (rfs) for selection of green hydrogen producers for setting up production facilities for green hydrogen in india under the strategic interventions for green hydrogen transition (sight) scheme (mode-1-tranche-i)"
+             href="https://www.seci.co.in/Upload/Tender/SECI000111-2344468-RfSforHydrogenProductionunderSIGHTprogram(Mode-1Tranche-I).pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0F6E56">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Request for Selection (RFS) for Selection of Green Hydrogen Producers for Setting up Production Facilities for Green Hydrogen in India under the Strategic Interventions for Green Hydrogen Transition (Sight) Scheme (Mode-1-Tranche-I)</div>
+              <div class="t5-sub">seci.co.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">RFS</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+        </div>
+      </div><!-- /rfp section -->
+      <div class="t5-section" data-sec="nit" style="animation-delay:0.10s">
+        <div class="t5-section-header">
+          <div class="t5-section-bar" style="background:#B45309"></div>
+          <span class="t5-section-label" style="color:#B45309">Notice Inviting Tender (NIT)</span>
+          <span class="t5-section-count">1 document</span>
+        </div>
+        <div class="t5-list">
+          <a class="t5-row t5-row--nit" data-sec="nit"
+             data-title="mahapreit invites offers from manufacturer and suppliers service provider / developer for setting up 1 mw green hydrogen plant integrated with ecosystem on boo basis."
+             href="https://mpbcdc.maharashtra.gov.in/Upload/PDF/H2_merged.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#B45309">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">MAHAPREIT invites offers from Manufacturer and suppliers Service Provider / Developer for setting up 1 MW Green Hydrogen Plant integrated with ecosystem on Boo basis.</div>
+              <div class="t5-sub">mpbcdc.maharashtra.gov.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">NIT</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+        </div>
+      </div><!-- /nit section -->
+      <div class="t5-section" data-sec="rpt" style="animation-delay:0.30s">
+        <div class="t5-section-header">
+          <div class="t5-section-bar" style="background:#0369a1"></div>
+          <span class="t5-section-label" style="color:#0369a1">Reports &amp; DPR</span>
+          <span class="t5-section-count">2 documents</span>
+        </div>
+        <div class="t5-list">
+          <a class="t5-row t5-row--rpt" data-sec="rpt"
+             data-title="feasibility study - green hydrogen production at the science museum group’s science and innovation park&#x27;"
+             href="https://kh.aquaenergyexpo.com/wp-content/uploads/2023/08/Feasibility-study-Green-Hydrogen-Production-at-the-Science-Museum-Groups-Science-and-Innovation-Park.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0369a1">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Feasibility study - Green Hydrogen Production at the Science Museum Group’s Science and Innovation Park&#x27;</div>
+              <div class="t5-sub">kh.aquaenergyexpo.com</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">Report</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rpt" data-sec="rpt"
+             data-title="stanwell hydrogen project"
+             href="https://arena.gov.au/assets/2021/05/stanwell-hydrogen-project-feasibility-study.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0369a1">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Stanwell Hydrogen Project</div>
+              <div class="t5-sub">arena.gov.au</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">Report</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+        </div>
+      </div><!-- /rpt section -->
+    </div><!-- /t5Sections -->
+  </div><!-- /t5-wrap -->
+  </div>
+  </div><!-- /spv-panel-tender -->
+
+  <!-- TAB 5: MEDIA / WEB -->
+  <div id="spv-panel-media" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+    <div class="media-stack">
+
+        <a class="media-row" href="https://www.youtube.com/watch?v=INiEVe0sCqQ" target="_blank" rel="noopener noreferrer" style="--mr-accent:#1a7a5e;--mr-tint:rgba(26,122,94,.1);">
+          <div class="media-row-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a7a5e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></div>
+          <div class="media-row-main">
+            <div class="media-row-tag">YouTube · Green Hydrogen · India</div>
+            <div class="media-row-title">Kandla Port Green Hydrogen Plant India</div>
+            <div class="media-row-source"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><line x1="2" y1="8" x2="14" y2="8"/><path d="M8 2a10 10 0 010 12M8 2a10 10 0 000 12"/></svg>youtube.com</div>
+          </div>
+          <div class="media-row-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/></svg></div>
+        </a>
+
+        <a class="media-row" href="https://www.youtube.com/watch?v=9xEMcessEOc" target="_blank" rel="noopener noreferrer" style="--mr-accent:#C85000;--mr-tint:rgba(200,80,0,.1);">
+          <div class="media-row-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C85000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></div>
+          <div class="media-row-main">
+            <div class="media-row-tag">YouTube · ACME · Odisha</div>
+            <div class="media-row-title">ACME Green Hydrogen Green Ammonia Odisha Gopalpur</div>
+            <div class="media-row-source"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><line x1="2" y1="8" x2="14" y2="8"/><path d="M8 2a10 10 0 010 12M8 2a10 10 0 000 12"/></svg>youtube.com</div>
+          </div>
+          <div class="media-row-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/></svg></div>
+        </a>
+
+        <a class="media-row" href="https://www.youtube.com/watch?v=s7AM-coRcaU" target="_blank" rel="noopener noreferrer" style="--mr-accent:#1a5ca8;--mr-tint:rgba(26,92,168,.1);">
+          <div class="media-row-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a5ca8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></div>
+          <div class="media-row-main">
+            <div class="media-row-tag">YouTube · Green Hydrogen Hub · India</div>
+            <div class="media-row-title">Pudimadaka: India's Largest Green Hydrogen Hub</div>
+            <div class="media-row-source"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><line x1="2" y1="8" x2="14" y2="8"/><path d="M8 2a10 10 0 010 12M8 2a10 10 0 000 12"/></svg>youtube.com</div>
+          </div>
+          <div class="media-row-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/></svg></div>
+        </a>
+
+        <a class="media-row" href="https://www.youtube.com/watch?v=EuumfZyNcGs" target="_blank" rel="noopener noreferrer" style="--mr-accent:#5a3d9e;--mr-tint:rgba(90,61,158,.1);">
+          <div class="media-row-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5a3d9e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></div>
+          <div class="media-row-main">
+            <div class="media-row-tag">YouTube · ACME · Bikaner</div>
+            <div class="media-row-title">World's First Green Hydrogen Plant in Bikaner by ACME Group</div>
+            <div class="media-row-source"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><line x1="2" y1="8" x2="14" y2="8"/><path d="M8 2a10 10 0 010 12M8 2a10 10 0 000 12"/></svg>youtube.com</div>
+          </div>
+          <div class="media-row-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/></svg></div>
+        </a>
+
+    </div>
+    </div>
+    <p style="font-size:0.72rem; color:var(--color-text-secondary); font-style:italic; margin-top:16px;">Links open external websites. Coal Controller Organisation does not endorse third-party content.</p>
+  </div><!-- /spv-panel-media -->
+
+  <!-- TAB 6: AGENCIES -->
+  <div id="spv-panel-agencies" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+      <div class="agencies-logo-grid">
+
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img agency-logo-inner--img--dark">
+            <img src="../images/agencies/landt-logo.png" alt="Larsen & Toubro Ltd – Green Hydrogen Div" style="background: #1a5ca8; max-width:100%;max-height:64px;object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">Larsen & Toubro Ltd – Green Hydrogen Div</div>
+          <div class="agency-logo-type">Electrolyser Manufacturing &amp; Green Hydrogen Technology</div>
+        </div>
+
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img" style="background:#fff;">
+            <img src="../images/agencies/NTPC-Green-Logo.png" alt="NTPC Green Energy Limited" style="max-width:100%;max-height:64px;object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">NTPC Green Energy Limited</div>
+          <div class="agency-logo-type">H2 plant support systems: heat exchangers, compressors, purification &amp; utility EPC</div>
+        </div>
+
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img" style="background:#fff;">
+            <img src="../images/agencies/Thermaax.png" alt="Thermax Ltd" style="max-width:100%;max-height:64px;object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">Thermax Ltd</div>
+          <div class="agency-logo-type">Renewable Energy Procurement &amp; SIGHT Programme</div>
+        </div>
+
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img" style="background:#fff;">
+            <img src="../images/agencies/adani-logo.svg" alt="Adani New Industries Ltd" style="max-width:100%;max-height:64px;object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">Adani New Industries Ltd</div>
+          <div class="agency-logo-type">NGHM Policy &amp; Green Hydrogen Standards</div>
+        </div>
+
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img" style="background:#fff;">
+            <img src="../images/agencies/inox_logo.png" alt="Inox Air Products Pvt Ltd" style="max-width:100%;max-height:64px;object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">Inox Air Products Pvt Ltd</div>
+          <div class="agency-logo-type">Green Hydrogen Production &amp; Electrolyser Manufacturing</div>
+        </div>
+
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img" style="background:#fff;">
+            <img src="../images/agencies/ACME-Logo-SVG.svg" alt="ACME Solar Holdings" style="max-width:100%;max-height:64px;object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">ACME Solar Holdings</div>
+          <div class="agency-logo-type">Green Hydrogen &amp; Clean Energy Project Developer</div>
+        </div>
+
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img" style="background:#fff;">
+            <img src="../images/agencies/renew.svg" alt="ReNew Power – H2 arm" style="max-width:100%;max-height:64px;object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">ReNew Power – H2 arm</div>
+          <div class="agency-logo-type">Electrolyser Technology &amp; Green Hydrogen Solutions</div>
+        </div>
+
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img" style="background:#fff;">
+            <img src="../images/agencies/kec_logo_71abd3eda5.png" alt="KEC International Ltd" style="max-width:100%;max-height:64px;object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">KEC International Ltd</div>
+          <div class="agency-logo-type">Green Hydrogen Cost &amp; Policy Research</div>
+        </div>
+        
+             <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img" style="background:#fff;">
+            <img src="../images/agencies/hydrogenpro-logo.svg" alt="HydrogenPro (India JV)" style="max-width:100%;max-height:64px;object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">HydrogenPro (India JV)</div>
+          <div class="agency-logo-type">Green Hydrogen Cost &amp; Policy Research</div>
+        </div>
+
+      </div>
+
+      <div style="margin-top:28px;padding:14px 18px;background:rgba(33,128,141,.05);border:1px solid rgba(33,128,141,.18);border-radius:8px;display:flex;gap:12px;align-items:flex-start;">
+        <svg style="flex-shrink:0;margin-top:2px;" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#21808d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <p style="margin:0;font-family:var(--font-sans);font-size:0.8rem;color:var(--color-text-secondary);line-height:1.65;">
+          <strong style="color:var(--color-text);font-weight:600;">Disclaimer:</strong>
+          Inclusion of an agency on this list does not constitute endorsement, empanelment, or recommendation by the Coal Controller Organisation or the Ministry of Coal, Government of India. Mine owners and project proponents are advised to conduct their own due diligence process before engaging any agency.
+        </p>
+      </div>
+    </div>
+  </div><!-- /spv-panel-agencies -->
+
+  <!-- TAB 7: EXPERTS -->
+  <div id="spv-panel-experts" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+      <p class="spv-body-text" style="margin-bottom:4px;font-size:var(--fs-sm);color:#64748b;font-style:italic;">This is an indicative list of domain areas and institutional profiles. Mine owners should engage qualified professionals with relevant certifications, verified track records, and appropriate institutional affiliations. This list does not constitute an endorsement.</p>
+      <div class="experts-grid">
+      </div>
+      <div style="margin-top:28px;padding:14px 18px;background:rgba(33,128,141,.05);border:1px solid rgba(33,128,141,.18);border-radius:8px;display:flex;gap:12px;align-items:flex-start;">
+        <svg style="flex-shrink:0;margin-top:2px;" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#21808d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <p style="margin:0;font-family:var(--font-sans);font-size:0.8rem;color:var(--color-text-secondary);line-height:1.65;"><strong style="color:var(--color-text);font-weight:600;">Disclaimer:</strong> Inclusion of an expert does not constitute endorsement, empanelment, or recommendation by the Coal Controller Organisation or the Ministry of Coal, Government of India. Users are advised to independently verify credentials and suitability before engaging any individual.</p>
+      </div>
+    </div>
+  </div><!-- /spv-panel-experts -->
+
+  <!-- Footer -->
+  <footer id="site-footer-sf">
+    &copy; 2026 Coal Controller Organisation, Ministry of Coal, Government of India.
+  </footer>
+
+</div><!-- /page -->
+
+<script>
+const PRISM2_COLORS = {P:'#C85000', R:'#1a5ca8', I:'#b06a10', S:'#5a3d9e', M:'#1a7a5e'};
+const PRISM2_BG     = {P:'#fff0e6', R:'#e4eef9', I:'#faedda', S:'#edeaf8', M:'#e1f3ec'};
+</script>
+
+<script src="./category.js"></script>
+
+<script>
+window.prism2Next = function() {
+  if (prism2Current < PRISM2_ORDER.length - 1) prNav(PRISM2_ORDER[prism2Current + 1]);
+};
+window.prism2Prev = function() {
+  if (prism2Current > 0) prNav(PRISM2_ORDER[prism2Current - 1]);
+};
+
+function downloadPRISM() {
+  var rawTitle = document.title || '';
+  var catName  = rawTitle.split('—')[0].split('-')[0].trim() || 'Category';
+
+  var PC = {P:'#C85000',R:'#1a5ca8',I:'#b06a10',S:'#5a3d9e',M:'#1a7a5e'};
+  var PB = {P:'#fff8f3',R:'#f3f7fd',I:'#fdf7f0',S:'#f7f5fd',M:'#f1faf6'};
+  var PN = {P:'Project Vision',R:'Repurposing Pathways',I:'Investment Dynamics',S:'Strategic Structuring',M:'Monitoring &amp; Management'};
+  var PE = {P:'POST-MINING',R:'REPURPOSING',I:'INVESTMENT',S:'STRATEGY',M:'MANAGEMENT'};
+
+  var introHeadEl = document.querySelector('.pr-intro-heading');
+  var introBodyEl = document.querySelector('.pr-intro-body');
+  var introHead   = introHeadEl ? introHeadEl.textContent : 'A structured framework for mine repurposing from concept to implementation';
+  var introBody   = introBodyEl ? introBodyEl.innerHTML   : '';
+
+  var pillarsHTML = '';
+  ['P','R','I','S','M'].forEach(function(k) {
+    var panel = document.getElementById('prism2-panel-' + k);
+    if (!panel) return;
+
+    var eyebrowEl   = panel.querySelector('.prism2-panel-eyebrow');
+    var titleEl     = panel.querySelector('.prism2-panel-title');
+    var descEl      = panel.querySelector('.prism2-panel-desc');
+    var eyebrow     = eyebrowEl  ? eyebrowEl.textContent  : PE[k];
+    var panelTitle  = titleEl    ? titleEl.textContent    : PN[k];
+    var descHTML    = descEl     ? descEl.innerHTML       : '';
+
+    var accHTML = '';
+    panel.querySelectorAll('.accordion-item').forEach(function(item) {
+      var spans = item.querySelectorAll('.accordion-btn span');
+      var btnText = '';
+      for (var s = 0; s < spans.length; s++) {
+        var t = spans[s].textContent.trim();
+        if (t && t !== '⥤' && t !== '˅') { btnText = t; break; }
+      }
+      var body = item.querySelector('.accordion-body');
+      if (!body) return;
+      var clone = body.cloneNode(true);
+      clone.style.display = '';
+      /* Remove scroll-wrapper overflow so tables span full width */
+      clone.querySelectorAll('.spv-table-wrap').forEach(function(w){w.style.overflowX='visible';});
+      accHTML += '<div class="acc-item">' +
+        '<div class="acc-heading">' + btnText + '</div>' +
+        '<div class="acc-body">' + clone.innerHTML + '</div>' +
+        '</div>';
+    });
+
+    pillarsHTML +=
+      '<div class="pillar" style="border-left-color:' + PC[k] + ';">' +
+        '<div class="pillar-hdr" style="background:' + PC[k] + '18;">' +
+          '<div class="pillar-letter" style="color:' + PC[k] + ';">' + k + '</div>' +
+          '<div class="pillar-info">' +
+            '<div class="pillar-eyebrow" style="color:' + PC[k] + ';">' + eyebrow + '</div>' +
+            '<div class="pillar-name">' + panelTitle + '</div>' +
+            (descHTML ? '<div class="pillar-desc">' + descHTML + '</div>' : '') +
+          '</div>' +
+        '</div>' +
+        '<div class="pillar-content">' + accHTML + '</div>' +
+      '</div>';
+  });
+
+  var css = [
+    '*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}',
+    'body{font-family:"Segoe UI",Arial,sans-serif;font-size:10pt;color:#1a1a1a;line-height:1.65;background:#fff}',
+    '@page{size:A4;margin:16mm 14mm}',
+    /* ── Cover ── */
+    '.cover{margin-bottom:28pt;padding-bottom:22pt;border-bottom:1.5pt solid #ddd}',
+    '.rainbow{height:5pt;border-radius:99pt;background:linear-gradient(to right,#7C3AB5,#4f6de0,#0ea5e9,#1D9E75,#3B6D11,#BA7517,#C85000,#A32D2D);margin-bottom:18pt}',
+    '.cover-eye{font-size:7.5pt;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#888;margin-bottom:7pt}',
+    '.cover-title{font-size:24pt;font-weight:800;color:#111;line-height:1.15;margin-bottom:5pt}',
+    '.cover-sub{font-size:11pt;font-weight:600;color:#444;margin-bottom:11pt}',
+    '.cover-body{font-size:9pt;color:#555;line-height:1.75}',
+    /* ── Pillars ── */
+    '.pillars{display:flex;flex-direction:column;gap:20pt}',
+    '.pillar{border-left:4pt solid #ccc;border-radius:6pt;overflow:hidden;page-break-inside:avoid}',
+    '.pillar-hdr{padding:13pt 15pt 11pt;display:flex;align-items:flex-start;gap:12pt}',
+    '.pillar-letter{font-size:30pt;font-weight:800;line-height:1;flex-shrink:0;width:38pt;opacity:.85}',
+    '.pillar-info{flex:1}',
+    '.pillar-eyebrow{font-size:7pt;font-weight:700;letter-spacing:.11em;text-transform:uppercase;margin-bottom:2pt}',
+    '.pillar-name{font-size:12.5pt;font-weight:700;color:#111;margin-bottom:3pt}',
+    '.pillar-desc{font-size:8.5pt;color:#555;line-height:1.6}',
+    /* ── Accordion ── */
+    '.pillar-content{background:#fff}',
+    '.acc-item{border-top:1pt solid #e8e8e0}',
+    '.acc-heading{font-size:9pt;font-weight:700;padding:8pt 13pt;color:#2a2a2a;background:#fafaf8}',
+    '.acc-body{font-size:8.5pt;line-height:1.75;color:#444;padding:9pt 13pt 11pt}',
+    /* ── Body content ── */
+    '.spv-body-text{margin-bottom:7pt}',
+    'p{margin-bottom:7pt}',
+    '.spv-list,.spv-list-unstyled{margin:5pt 0 7pt 16pt}',
+    'ul,ol{margin:5pt 0 7pt 16pt}',
+    '.spv-list li,ul li,ol li{margin-bottom:3pt}',
+    /* ── Tables ── */
+    '.spv-table-wrap{margin:7pt 0;overflow:visible}',
+    '.spv-table{width:100%;border-collapse:collapse;font-size:8pt}',
+    '.spv-table th{background:#f0f0ea;font-weight:700;text-align:left;padding:5pt 7pt;border:1pt solid #ccc;vertical-align:top}',
+    '.spv-table td{padding:4.5pt 7pt;border:1pt solid #ccc;vertical-align:top}',
+    '.spv-table tr:nth-child(even) td{background:#f9f9f7}',
+    /* ── Strong/em ── */
+    'strong{font-weight:700}',
+    'em{font-style:italic}',
+    /* ── Info/note boxes (if any) ── */
+    '.spv-note,.spv-info{background:#f5f5f0;border-left:3pt solid #aaa;padding:8pt 10pt;margin:6pt 0;font-size:8.5pt}'
+  ].join('\n');
+
+  var html = '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">' +
+    '<title>PRISM — ' + catName + '<\/title>' +
+    '<style>' + css + '<\/style><\/head><body>' +
+    '<div class="cover">' +
+      '<div class="rainbow"><\/div>' +
+      '<div class="cover-eye">PRISM Framework — Post-Mining Repurposing &amp; Implementation Strategy Models<\/div>' +
+      '<div class="cover-title">' + catName + '<\/div>' +
+      '<div class="cover-sub">' + introHead + '<\/div>' +
+      (introBody ? '<div class="cover-body">' + introBody + '<\/div>' : '') +
+    '<\/div>' +
+    '<div class="pillars">' + pillarsHTML + '<\/div>' +
+    '<\/body><\/html>';
+
+  var win = window.open('', '_blank', 'width=960,height=750');
+  if (!win) { alert('Please allow pop-ups for this site to download the PDF.'); return; }
+  win.document.write(html);
+  win.document.close();
+  win.focus();
+  setTimeout(function() { win.print(); }, 700);
+}
+
+(function() {
+  var panel = document.getElementById('spv-panel-prism');
+  if (!panel) return;
+  new MutationObserver(function() {
+    if (panel.style.display !== 'none') setTimeout(function() { prNav('P'); }, 10);
+  }).observe(panel, { attributes: true, attributeFilter: ['style'] });
+})();
+</script>
+
+<!-- browse-back-script -->
+<script>
+(function(){
+  if(new URLSearchParams(location.search).get('from')==='browse'){
+    var btn=document.querySelector('.back-btn');
+    if(btn){
+      btn.onclick=function(){window.location.href='../browse.html';};
+      btn.setAttribute('aria-label','Back to Browse');
+      for(var i=btn.childNodes.length-1;i>=0;i--){
+        var n=btn.childNodes[i];
+        if(n.nodeType===3&&n.textContent.trim()){n.textContent=' Back to Browse';break;}
+      }
+    }
+    var cr=document.querySelector('.sf-breadcrumb span:not(.sep)');
+    if(cr)cr.textContent='All Categories';
+  }
+})();
+</script>
+</body>
+
+</html>

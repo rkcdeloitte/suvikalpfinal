@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Testimonials — SUVIKALP | Coal Controller Organisation</title>
+<style>
+:root{
+  --teal-300:#32b8c6; --teal-400:#2da6b2; --teal-500:#21808d; --teal-600:#1d7480; --teal-700:#1a6873;
+  --cream-50:#fcfcf9; --cream-100:#fffffd; --slate-900:#13343b; --slate-500:#626c71;
+  --gold:#d97706;
+  --border:rgba(94,82,64,.18); --card-border:rgba(94,82,64,.12);
+  --teal-bg:rgba(33,128,141,.08); --teal-border:rgba(33,128,141,.2);
+  --success:#1a7a5e; --success-bg:#e6f5ef; --error:#c0152f; --error-bg:#fdeceb; --warn:#a84b2f; --warn-bg:#fdf3ea;
+  --shadow-md:0 4px 6px -1px rgba(0,0,0,.06),0 2px 4px -1px rgba(0,0,0,.04);
+  --shadow-lg:0 10px 15px -3px rgba(0,0,0,.08),0 4px 6px -2px rgba(0,0,0,.04);
+  --radius:8px; --radius-md:10px; --radius-lg:12px;
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+*{box-sizing:border-box;}
+body{margin:0;font-family:var(--font);color:var(--slate-900);background:var(--cream-50);}
+@media (prefers-reduced-motion: reduce){ *{ animation-duration:.001ms !important; animation-iteration-count:1 !important; } }
+
+/* ── Header — matches index.html's app-header exactly ── */
+header#site-header{background:#21808d;color:#fff;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 28px;position:sticky;top:0;z-index:300;box-shadow:0 1px 4px rgba(0,0,0,.15);}
+.brand-mark{display:flex;flex-direction:column;justify-content:center;gap:3px;}
+.header-title{font-size:1.45rem;font-weight:700;margin:0;line-height:1.15;letter-spacing:-0.01em;}
+.header-title .hindi{font-weight:700;}
+.header-sub{font-size:.78rem;opacity:.88;font-weight:400;}
+.header-right{display:flex;align-items:center;gap:14px;flex-shrink:0;}
+.header-right a{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border:1px solid rgba(255,255,255,.45);border-radius:20px;color:#fff;text-decoration:none;font-size:.78rem;font-weight:500;white-space:nowrap;transition:background .15s;}
+.header-right a:hover{background:rgba(255,255,255,.15);}
+.header-right a.logo-link{padding:0;border:none;border-radius:0;background:none !important;}
+.header-divider{width:1px;height:36px;background:rgba(255,255,255,.25);margin:0 4px;}
+@media (max-width:640px){ header#site-header{ height:auto; min-height:56px; padding:12px 16px; flex-wrap:wrap; gap:10px; } .header-sub{ display:none; } }
+
+/* ── Hero band ── */
+.hero{ position:relative; height:30vh; min-height:230px;
+  background:
+    linear-gradient(180deg, rgba(19,52,59,.2) 0%, rgba(19,52,59,.8) 100%),
+    url('images/industrial-hub-hero.jpg');
+  background-size:cover; background-position:center;
+}
+.hero-inner{ position:absolute; inset:0; display:flex; align-items:flex-end; padding:0 6vw 28px; }
+.hero-eyebrow{ font-size:.74rem; text-transform:uppercase; letter-spacing:.16em; font-weight:700; color:var(--teal-300); margin-bottom:12px; }
+.hero-headline{ font-size:clamp(1.7rem,3.4vw,2.7rem); line-height:1.12; font-weight:700; color:#fff; margin:0 0 10px; letter-spacing:-.01em; max-width:680px; transition:color .2s, font-size .2s; }
+.hero-sub{ font-size:.92rem; line-height:1.5; color:rgba(255,255,255,.88); max-width:520px; margin:0; transition:color .2s; }
+
+/* ── Signed-in "workspace" treatment: compact dot-grid bar replaces the
+   photo hero, so the composer reads as a distinct workspace rather than
+   the public marketing page ── */
+.hero.workspace{
+  height:auto; min-height:0;
+  background:
+    radial-gradient(rgba(33,128,141,.16) 1.3px, transparent 1.3px) 0 0/18px 18px,
+    var(--cream-50);
+}
+.hero.workspace .hero-inner{ position:static; align-items:center; padding:22px 6vw; }
+.hero.workspace .hero-headline{ font-size:1.25rem; color:var(--slate-900); margin:0 0 4px; }
+.hero.workspace .hero-sub{ font-size:.85rem; color:var(--slate-500); }
+
+/* ── v2: trust bar + centered carousel (mixes Synthesia trust-bar/takeaway-line
+   pattern with Phidata's controlled peeking carousel), kept inside our own
+   teal/cream identity ── */
+.trust-section{ padding:36px 6vw 8px; text-align:center; }
+.trust-bar{ display:inline-flex; align-items:center; gap:14px; padding:10px 20px; border:1px solid var(--card-border); border-radius:100px; background:var(--cream-100); box-shadow:var(--shadow-md); flex-wrap:wrap; justify-content:center; }
+.trust-stars{ color:var(--gold); font-size:.95rem; letter-spacing:1px; }
+.trust-rating{ font-weight:700; font-size:.95rem; }
+.trust-divider{ width:1px; height:16px; background:var(--card-border); }
+.trust-text{ font-size:.85rem; color:var(--slate-500); }
+.trust-text b{ color:var(--slate-900); }
+
+.wall-label{ padding:32px 6vw 0; font-size:.72rem; text-transform:uppercase; letter-spacing:.1em; color:var(--slate-500); font-weight:700; text-align:center; }
+
+.carousel{ position:relative; display:flex; align-items:center; justify-content:center; gap:0; padding:14px 6vw 8px; }
+.carousel-viewport{ overflow:hidden; width:100%; max-width:900px; }
+.carousel-rail{ display:flex; align-items:stretch; gap:22px; transition:transform 1.1s cubic-bezier(.65,0,.35,1); will-change:transform; }
+.tcard{ flex:0 0 min(520px,78vw); background:var(--cream-100); border:1px solid var(--card-border); border-top:4px solid var(--pc,var(--teal-500)); border-radius:18px; padding:34px 38px; box-shadow:var(--shadow-lg); text-align:left; transition:opacity 1.1s cubic-bezier(.65,0,.35,1), filter 1.1s cubic-bezier(.65,0,.35,1), transform 1.1s cubic-bezier(.65,0,.35,1); transform:scale(1); }
+.tcard.side{ opacity:.35; filter:blur(1px); transform:scale(.94); }
+.tcard .takeaway{ font-size:1.15rem; font-weight:700; line-height:1.4; margin:0 0 12px; letter-spacing:-.005em; }
+.tcard .stars{ font-size:.85rem; letter-spacing:2px; color:var(--gold); margin-bottom:10px; }
+.tcard .impact{ display:inline-block; font-size:.76rem; font-weight:600; color:var(--teal-700); background:var(--teal-bg); border:1px solid var(--teal-border); border-radius:20px; padding:4px 12px; margin-bottom:14px; }
+.tcard .quote{ font-size:.96rem; line-height:1.6; color:var(--slate-900); opacity:.86; margin:0 0 20px; }
+.tcard .who{ display:flex; align-items:center; gap:12px; border-top:1px solid var(--card-border); padding-top:16px; }
+.tcard .who-badge{ width:38px; height:38px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:.8rem; color:#fff; flex-shrink:0; background:var(--pc,var(--teal-500)); }
+.tcard .who b{ display:block; font-size:.92rem; }
+.tcard .who span{ font-size:.8rem; color:var(--slate-500); }
+.tcard .card-stars{ margin-left:auto; font-size:.8rem; color:var(--gold); letter-spacing:1px; }
+
+.nav-btn{ width:42px; height:42px; border-radius:50%; border:1px solid var(--card-border); background:var(--cream-100); color:var(--teal-700); display:flex; align-items:center; justify-content:center; cursor:pointer; flex-shrink:0; box-shadow:var(--shadow-md); transition:background .15s; z-index:2; }
+.nav-btn:hover{ background:var(--teal-bg); }
+.nav-btn:focus-visible{ outline:2px solid var(--teal-500); outline-offset:2px; }
+.nav-btn:disabled{ opacity:.4; cursor:not-allowed; }
+.nav-prev{ margin-right:-21px; }
+.nav-next{ margin-left:-21px; }
+@media (max-width:680px){
+  .nav-prev,.nav-next{ margin:0; }
+  .tcard.side{ display:none; }
+  /* Below 680px the two 42px arrow buttons + padding eat real horizontal
+     space from the carousel row, so the card must size off what's actually
+     left over — not a vw fraction of the whole window, or it overflows its
+     own viewport and never centers correctly. */
+  .tcard{ flex-basis: calc(100vw - 140px); }
+}
+
+.dots{ display:flex; gap:7px; justify-content:center; margin:22px 0 8px; }
+.dot{ width:7px; height:7px; border-radius:50%; background:var(--card-border); border:none; cursor:pointer; padding:0; }
+.dot.active{ background:var(--teal-500); width:20px; border-radius:4px; transition:width .2s; }
+
+.wall-nudge{ text-align:center; padding:0 6vw 36px; font-size:.85rem; color:var(--slate-500); }
+.empty-wall{ padding:20px 6vw 40px; color:var(--slate-500); font-size:.85rem; text-align:center; }
+
+/* ── CTA bar: compact prompt shown before the full form is revealed ── */
+.cta-bar{ background:var(--teal-bg); border-top:1px solid var(--teal-border); border-bottom:1px solid var(--teal-border); margin-top:8px; padding:20px 6vw; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px; }
+.cta-text{ font-size:.95rem; color:var(--slate-900); }
+.cta-text strong{ color:var(--teal-700); }
+
+/* ── Auth modal: opened from the CTA bar, closed on X / backdrop / Escape ── */
+.modal-overlay{ position:fixed; inset:0; z-index:100; background:rgba(19,52,59,.55); backdrop-filter:blur(3px); -webkit-backdrop-filter:blur(3px); display:flex; align-items:center; justify-content:center; padding:20px; }
+.modal-card{ position:relative; background:var(--cream-100); border-radius:16px; padding:38px 34px 30px; max-width:420px; width:100%; box-shadow:0 24px 48px -12px rgba(0,0,0,.35); animation:modal-in .2s cubic-bezier(.2,.8,.3,1); max-height:88vh; overflow-y:auto; }
+@keyframes modal-in{ from{ opacity:0; transform:translateY(8px) scale(.97); } to{ opacity:1; transform:translateY(0) scale(1); } }
+.modal-close{ position:absolute; top:16px; right:16px; width:32px; height:32px; border-radius:50%; border:none; background:transparent; color:var(--slate-500); display:flex; align-items:center; justify-content:center; cursor:pointer; }
+.modal-close:hover{ background:var(--teal-bg); color:var(--teal-700); }
+.modal-tabs{ display:flex; gap:8px; margin:6px 0 22px; }
+.modal-tab{ flex:1; padding:9px; border-radius:var(--radius); border:1.5px solid var(--border); background:#fff; font-weight:600; font-size:.86rem; cursor:pointer; color:var(--slate-500); font-family:var(--font); }
+.modal-tab.active{ border-color:var(--teal-500); color:var(--teal-500); background:var(--teal-bg); }
+.modal-footnote{ font-size:.76rem; color:var(--slate-500); text-align:center; margin:18px 0 0; }
+.btn-block{ width:100%; }
+
+/* ── Generic content cards below the wall ── */
+.page{max-width:980px;margin:0 auto;padding:20px 20px 36px;}
+.card{background:var(--cream-100);border:1px solid var(--border);border-radius:var(--radius-lg);padding:26px 28px;margin-bottom:24px;box-shadow:var(--shadow-md);}
+.card h2{margin:0 0 6px;font-size:1.15rem;color:var(--teal-700);}
+.card .sub{color:var(--slate-500);font-size:.85rem;margin-bottom:18px;}
+label,.field-label{display:block;font-size:.8rem;font-weight:600;margin:14px 0 5px;color:var(--slate-900);}
+.label-row{display:flex;justify-content:space-between;align-items:baseline;margin:14px 0 5px;}
+.label-row label{margin:0;}
+.link-btn{background:none;border:none;padding:0;font-family:var(--font);font-size:.78rem;font-weight:600;color:var(--teal-500);cursor:pointer;}
+.link-btn:hover{color:var(--teal-700);text-decoration:underline;}
+.char-count{font-size:.72rem;color:var(--slate-500);text-align:right;margin-top:4px;}
+.char-count.char-count-over{color:var(--error);font-weight:600;}
+input[type=text],input[type=email],input[type=password],select,textarea{
+  width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:var(--radius);font-family:var(--font);font-size:.9rem;color:var(--slate-900);background:#fff;
+}
+textarea{min-height:100px;resize:vertical;}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--teal-500);box-shadow:0 0 0 3px var(--teal-bg);}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 20px;border-radius:var(--radius);border:none;font-weight:600;font-size:.85rem;cursor:pointer;font-family:var(--font);}
+.btn-primary{background:var(--teal-500);color:#fff;}
+.btn-primary:hover{background:var(--teal-600);}
+.btn-outline{background:#fff;border:1.5px solid var(--teal-500);color:var(--teal-500);}
+.btn-outline:hover{background:var(--teal-bg);}
+.btn-google{background:#fff;border:1.5px solid var(--border);color:var(--slate-900);width:100%;}
+.btn-google:hover{background:#f5f5f5;}
+.btn:disabled{opacity:.55;cursor:not-allowed;}
+.row{display:flex;gap:14px;flex-wrap:wrap;}
+.row > div{flex:1;min-width:180px;}
+.divider{display:flex;align-items:center;gap:12px;color:var(--slate-500);font-size:.75rem;margin:18px 0;}
+.divider::before,.divider::after{content:"";flex:1;height:1px;background:var(--border);}
+.msg{padding:10px 14px;border-radius:var(--radius);font-size:.82rem;margin-top:12px;display:none;}
+.msg.error{background:var(--error-bg);color:var(--error);display:block;}
+.msg.success{background:var(--success-bg);color:var(--success);display:block;}
+.user-bar{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;background:var(--teal-bg);border:1px solid var(--teal-border);border-radius:var(--radius-md);padding:10px 16px;margin-bottom:20px;font-size:.85rem;}
+.user-bar b{color:var(--teal-700);}
+.status-pill{display:inline-block;padding:3px 10px;border-radius:20px;font-size:.7rem;font-weight:700;letter-spacing:.02em;text-transform:uppercase;}
+.status-pending{background:var(--warn-bg);color:var(--warn);}
+.status-approved{background:var(--success-bg);color:var(--success);}
+.status-rejected{background:var(--error-bg);color:var(--error);}
+.mysubs{list-style:none;padding:0;margin:14px 0 0;}
+.mysubs li{border:1px solid var(--border);border-radius:var(--radius);padding:12px 14px;margin-bottom:8px;font-size:.85rem;}
+.mysubs li .meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;}
+.withdraw-btn{display:block;margin-top:8px;}
+footer{text-align:center;font-size:.75rem;color:var(--slate-500);padding:20px;}
+.hidden{display:none !important;}
+
+/* ── Value-form specifics: star rating + prompt chips ── */
+.star-row{display:flex;gap:4px;margin-top:4px;}
+.star-btn{background:none;border:none;font-size:1.5rem;line-height:1;cursor:pointer;color:var(--border);padding:2px;}
+.star-btn[data-lit="true"]{color:var(--gold);}
+.chip-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;margin-bottom:14px;}
+.chip{font-size:.76rem;padding:6px 12px;border-radius:20px;border:1px solid var(--teal-border);background:var(--teal-bg);color:var(--teal-700);cursor:pointer;font-family:var(--font);}
+.chip:hover{background:var(--teal-border);}
+.chip.chip-active{background:var(--teal-500);border-color:var(--teal-500);color:#fff;}
+.field-hint{font-size:.74rem;color:var(--slate-500);margin-top:6px;}
+
+/* ── Grouped-sections form, two-column composer layout ── */
+.form-columns{display:grid;grid-template-columns:1fr 1.2fr;gap:22px;align-items:start;margin-top:24px;}
+@media (max-width:760px){ .form-columns{grid-template-columns:1fr;} }
+.form-col{display:flex;flex-direction:column;gap:20px;}
+.panel{background:#fff;border:1px solid var(--card-border);border-radius:var(--radius-md);padding:20px 22px 22px;}
+.panel-main{flex:1;}
+.panel-eyebrow{display:flex;align-items:center;gap:8px;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--teal-600);margin-bottom:16px;}
+.panel-eyebrow svg{width:15px;height:15px;flex-shrink:0;}
+.panel > .row:first-of-type,.panel > label:first-child,.panel > .field-label:first-child{margin-top:0;}
+
+/* Nicer testimonial textarea */
+#testimonialText{min-height:170px;font-size:.95rem;line-height:1.65;padding:16px 18px;border-radius:var(--radius-md);border:1.5px solid var(--card-border);background:var(--cream-50);box-shadow:inset 0 1px 2px rgba(19,52,59,.03);transition:border-color .15s,box-shadow .15s,background .15s;}
+#testimonialText:focus{background:#fff;border-color:var(--teal-500);box-shadow:0 0 0 3px var(--teal-bg);}
+#testimonialText::placeholder{color:var(--slate-500);opacity:.65;}
+</style>
+</head>
+<body>
+
+<header id="site-header">
+  <div class="brand-mark">
+    <h1 class="header-title"><span class="hindi">सुविकल्प:</span> Testimonials</h1>
+    <div class="header-sub">Share your experience with the mine repurposing tool</div>
+  </div>
+  <div class="header-right">
+    <a href="index.html">← Back to Tool</a>
+    <div class="header-divider"></div>
+    <a href="browse.html" target="_blank" rel="noopener">Explore Repurposing Projects</a>
+    <div class="header-divider"></div>
+    <a href="https://coalcontroller.gov.in/" target="_blank" rel="noopener" title="CCO Home" class="logo-link"><img src="./CCO.png" style="height:56px;"></a>
+  </div>
+</header>
+
+<div class="hero" id="heroBand">
+  <div class="hero-inner">
+    <div>
+      <h2 class="hero-headline" id="heroHeadline">What professionals are saying about SUVIKALP.</h2>
+      <p class="hero-sub" id="heroSub">Verified statements from registered practitioners who used the tool on real closed-mine repurposing projects.</p>
+    </div>
+  </div>
+</div>
+
+<div class="trust-section hidden" id="trustSection">
+  <div class="trust-bar">
+    <span class="trust-stars" id="trustStars">★★★★★</span>
+    <span class="trust-rating" id="statRating">–</span>
+    <span class="trust-divider"></span>
+    <span class="trust-text"><b id="statProfessionals">0</b> testimonials from <b id="statOrgs">0</b> organisations</span>
+  </div>
+</div>
+
+<div class="wall-label">Recent testimonials</div>
+<div class="carousel hidden" id="carousel">
+  <button class="nav-btn nav-prev" id="carouselPrev" aria-label="Previous testimonial">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 3L5 8l5 5"/></svg>
+  </button>
+  <div class="carousel-viewport" id="carouselViewport">
+    <div class="carousel-rail" id="carouselRail"></div>
+  </div>
+  <button class="nav-btn nav-next" id="carouselNext" aria-label="Next testimonial">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 3l5 5-5 5"/></svg>
+  </button>
+</div>
+<div class="dots hidden" id="carouselDots"></div>
+<div class="wall-nudge hidden" id="wallNudge"></div>
+<div class="empty-wall hidden" id="emptyWall">No testimonials yet — be the first to share yours below.</div>
+
+<!-- ═══ CTA BAR (default state when signed out) ═══ -->
+<div class="cta-bar" id="ctaBar">
+  <div class="cta-text">Used SUVIKALP on a project? <strong>Share your experience.</strong></div>
+  <button class="btn btn-primary" id="showAuthBtn">Share Your Testimonial →</button>
+</div>
+
+<!-- ═══ AUTH MODAL (opened on click) ═══ -->
+<div class="modal-overlay hidden" id="authModal">
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="authModalTitle">
+    <button class="modal-close" id="authModalClose" aria-label="Close">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 3l10 10M13 3L3 13"/></svg>
+    </button>
+
+    <div class="modal-tabs">
+      <button class="modal-tab active" id="tabLogin">Log In</button>
+      <button class="modal-tab" id="tabSignup">Register</button>
+    </div>
+
+    <button class="btn btn-google" id="googleBtn">
+      <svg width="18" height="18" viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.9 32.9 29.4 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34.6 6.5 29.6 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.7-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.6 15.9 18.9 13 24 13c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34.6 6.5 29.6 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.4 0 10.4-2.1 14.1-5.5l-6.5-5.5C29.6 34.9 27 36 24 36c-5.4 0-9.9-3.1-11.3-7.6l-6.5 5C9.6 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-1 3-3.1 5.4-5.7 6.9l6.5 5.5C39.6 37.6 44 31.5 44 24c0-1.3-.1-2.7-.4-3.5z"/></svg>
+      Continue with Google
+    </button>
+
+    <div class="divider">or use email</div>
+
+    <label for="authEmail">Email</label>
+    <input type="email" id="authEmail" placeholder="you@company.com">
+    <div class="label-row">
+      <label for="authPassword">Password</label>
+      <button type="button" class="link-btn hidden" id="forgotPasswordBtn">Forgot password?</button>
+    </div>
+    <input type="password" id="authPassword" placeholder="At least 6 characters">
+
+    <div style="margin-top:18px;">
+      <button class="btn btn-primary btn-block" id="authSubmitBtn">Log In</button>
+    </div>
+    <div class="msg" id="authMsg"></div>
+
+    <p class="modal-footnote">Reviewed before publishing. Takes about two minutes.</p>
+  </div>
+</div>
+
+<div class="page hidden" id="pageWrap">
+
+  <!-- ═══ SIGNED-IN AREA ═══ -->
+  <div id="appArea" class="hidden">
+    <div class="user-bar">
+      <div>Signed in as <b id="userEmailLabel"></b></div>
+      <button class="btn btn-outline" id="signOutBtn">Sign Out</button>
+    </div>
+
+    <!-- Testimonial submission — profile fields + testimonial in one continuous form -->
+    <div class="card hidden" id="submitCard">
+      <h2>Share Your Testimonial</h2>
+      <div class="sub" id="submitCardSub">Two minutes, reviewed by an admin before it goes public. Specific, outcome-focused testimonials help other professionals the most.</div>
+
+      <div class="form-columns">
+        <div class="form-col">
+          <div class="panel">
+            <div class="panel-eyebrow">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="8" cy="5" r="3"/><path d="M2.5 14c0-3 2.5-5 5.5-5s5.5 2 5.5 5"/></svg>
+              About You
+            </div>
+            <div class="row">
+              <div><label for="pfName">Full Name</label><input type="text" id="pfName" placeholder="Jane Doe"></div>
+              <div><label for="pfDesignation">Designation</label><input type="text" id="pfDesignation" placeholder="e.g. Project Manager"></div>
+            </div>
+            <div class="row">
+              <div><label for="pfCompany">Company</label><input type="text" id="pfCompany" placeholder="Company / Organisation name"></div>
+              <div>
+                <label for="pfCompanySize">Company Size</label>
+                <select id="pfCompanySize">
+                  <option value="">Select…</option>
+                  <option>1–10 employees</option>
+                  <option>11–50 employees</option>
+                  <option>51–200 employees</option>
+                  <option>201–500 employees</option>
+                  <option>500+ employees</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-eyebrow">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 13.5V9l3-2 3 2.5 3-4 3 3v5z"/></svg>
+              Your Experience
+            </div>
+            <label for="tSector">Which area did SUVIKALP help you with?</label>
+            <select id="tSector">
+              <option value="">Select a sector…</option>
+              <option>Renewable Energy</option>
+              <option>Industrial Hub</option>
+              <option>Logistics &amp; Warehousing</option>
+              <option>Agriculture &amp; Forestry</option>
+              <option>Tourism &amp; Recreation</option>
+              <option>Other</option>
+            </select>
+
+            <span class="field-label" id="ratingLabel">How would you rate the experience?</span>
+            <div class="star-row" id="starRow" role="radiogroup" aria-labelledby="ratingLabel">
+              <button type="button" class="star-btn" data-val="1" aria-label="1 star" aria-pressed="false">★</button>
+              <button type="button" class="star-btn" data-val="2" aria-label="2 stars" aria-pressed="false">★</button>
+              <button type="button" class="star-btn" data-val="3" aria-label="3 stars" aria-pressed="false">★</button>
+              <button type="button" class="star-btn" data-val="4" aria-label="4 stars" aria-pressed="false">★</button>
+              <button type="button" class="star-btn" data-val="5" aria-label="5 stars" aria-pressed="false">★</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-col">
+          <div class="panel panel-main">
+            <div class="panel-eyebrow">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 3.5h12M2 8h12M2 12.5h7"/></svg>
+              Your Testimonial
+            </div>
+            <label for="testimonialText">Your Testimonial</label>
+            <div class="chip-row">
+              <button type="button" class="chip" data-phrase="Saved us significant time on ">Saved time</button>
+              <button type="button" class="chip" data-phrase="Made stakeholder buy-in much easier because ">Stakeholder buy-in</button>
+              <button type="button" class="chip" data-phrase="Helped us make a more confident, data-backed decision on ">Better decisions</button>
+              <button type="button" class="chip" data-phrase="Reduced our need for external consulting on ">Cost savings</button>
+            </div>
+            <textarea id="testimonialText" maxlength="420" placeholder="e.g. Cut our site-selection timeline from 3 months to 2 weeks, and gave our board the confidence to greenlight the project."></textarea>
+            <div class="char-count" id="charCount">0 / 420</div>
+            <div class="field-hint">Tip: name a concrete outcome or number where you can — "3 weeks saved" lands better than "very helpful."</div>
+
+            <label for="tImpact">Measurable impact <span style="font-weight:400;color:var(--slate-500);">(optional)</span></label>
+            <input type="text" id="tImpact" placeholder="e.g. Planning time cut from 3 months to 2 weeks">
+
+            <div style="margin-top:16px;">
+              <button class="btn btn-primary" id="submitTestimonialBtn">Submit for Approval</button>
+            </div>
+            <div class="msg" id="submitMsg"></div>
+          </div>
+        </div>
+      </div>
+
+      <ul class="mysubs" id="mySubmissions"></ul>
+    </div>
+  </div>
+
+</div>
+
+<footer>&copy; 2026 Coal Controller Organisation, Ministry of Coal, Government of India.</footer>
+
+<!-- Firebase SDK (compat build — works with plain <script> tags, no bundler needed) -->
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="./firebase-config.js"></script>
+
+<script>
+const SECTOR_COLORS = {
+  'Renewable Energy': '#C85000',
+  'Industrial Hub': '#1a5ca8',
+  'Logistics & Warehousing': '#b06a10',
+  'Agriculture & Forestry': '#5a3d9e',
+  'Tourism & Recreation': '#1a7a5e',
+  'Other': '#626c71'
+};
+function sectorColor(sector){ return SECTOR_COLORS[sector] || '#21808d'; }
+
+let authMode = 'login'; // 'login' | 'signup'
+let currentUser = null;
+let selectedRating = 0;
+
+// ── Tab toggle (Log In / Register) ──────────────────────────
+document.getElementById('tabLogin').onclick = () => setAuthMode('login');
+document.getElementById('tabSignup').onclick = () => setAuthMode('signup');
+function setAuthMode(mode){
+  authMode = mode;
+  document.getElementById('tabLogin').classList.toggle('active', mode==='login');
+  document.getElementById('tabSignup').classList.toggle('active', mode==='signup');
+  document.getElementById('authSubmitBtn').textContent = mode==='login' ? 'Log In' : 'Create Account';
+  document.getElementById('forgotPasswordBtn').classList.toggle('hidden', mode!=='login');
+  hideMsg('authMsg');
+}
+setAuthMode('login'); // sync UI with the default active tab on page load
+
+// ── Forgot password ────────────────────────────────────────────
+document.getElementById('forgotPasswordBtn').onclick = () => {
+  const email = document.getElementById('authEmail').value.trim();
+  if (!email) { showMsg('authMsg', 'Enter your email above first, then click "Forgot password?".', 'error'); return; }
+  auth.sendPasswordResetEmail(email)
+    .then(() => showMsg('authMsg', 'Password reset email sent — check your inbox.', 'success'))
+    .catch(e => showMsg('authMsg', e.message, 'error'));
+};
+
+// ── Testimonial character counter ──────────────────────────────
+document.getElementById('testimonialText').addEventListener('input', (e) => {
+  const len = e.target.value.length;
+  const counter = document.getElementById('charCount');
+  counter.textContent = `${len} / 420`;
+  counter.classList.toggle('char-count-over', len >= 400);
+});
+
+// ── Small helper: disable a button while an async action runs (prevents double-submit).
+// Only dims/disables — never rewrites textContent, since some buttons (e.g. Google
+// sign-in) contain an icon child that textContent would silently destroy.
+async function withLoading(btn, action){
+  btn.disabled = true;
+  try {
+    await action();
+  } finally {
+    btn.disabled = false;
+  }
+}
+
+function showMsg(id, text, type){
+  const el = document.getElementById(id);
+  el.textContent = text;
+  el.className = 'msg ' + type;
+}
+function hideMsg(id){
+  const el = document.getElementById(id);
+  el.className = 'msg';
+  el.textContent = '';
+}
+
+// ── Star rating ──────────────────────────────────────────────
+document.querySelectorAll('.star-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    selectedRating = parseInt(btn.dataset.val, 10);
+    document.querySelectorAll('.star-btn').forEach(b => {
+      const lit = parseInt(b.dataset.val,10) <= selectedRating;
+      b.dataset.lit = lit ? 'true' : 'false';
+      b.setAttribute('aria-pressed', lit ? 'true' : 'false');
+    });
+  });
+});
+
+// ── Quick-insert value chips ─────────────────────────────────
+// Chips are a starter phrase, not a multi-select — clicking a second one swaps
+// out the first instead of stacking (stacking produced word-salad like "Saved
+// us significant time on Made stakeholder buy-in much easier because...").
+let activeChip = null;
+document.querySelectorAll('.chip').forEach(chip => {
+  chip.addEventListener('click', () => {
+    const ta = document.getElementById('testimonialText');
+    const phrase = chip.dataset.phrase;
+
+    // Clicking the already-active chip just removes its phrase.
+    if (activeChip === chip) {
+      if (ta.value.startsWith(phrase)) ta.value = ta.value.slice(phrase.length);
+      chip.classList.remove('chip-active');
+      activeChip = null;
+      ta.dispatchEvent(new Event('input'));
+      ta.focus();
+      return;
+    }
+
+    // Swap out any previously-inserted starter phrase for the new one,
+    // but only if the user hasn't edited it away already.
+    if (activeChip && ta.value.startsWith(activeChip.dataset.phrase)) {
+      ta.value = phrase + ta.value.slice(activeChip.dataset.phrase.length);
+    } else {
+      ta.value = phrase + ta.value;
+    }
+    if (activeChip) activeChip.classList.remove('chip-active');
+    chip.classList.add('chip-active');
+    activeChip = chip;
+    ta.dispatchEvent(new Event('input'));
+    ta.focus();
+  });
+});
+
+// ── Google sign-in ───────────────────────────────────────────
+document.getElementById('googleBtn').onclick = async () => {
+  const btn = document.getElementById('googleBtn');
+  hideMsg('authMsg');
+  await withLoading(btn, async () => {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    try { await auth.signInWithPopup(provider); }
+    catch (e) { showMsg('authMsg', e.message, 'error'); }
+  });
+};
+
+// ── Email/password login or signup ───────────────────────────
+document.getElementById('authSubmitBtn').onclick = async () => {
+  const email = document.getElementById('authEmail').value.trim();
+  const password = document.getElementById('authPassword').value;
+  if (!email || !password) { showMsg('authMsg', 'Enter both email and password.', 'error'); return; }
+  hideMsg('authMsg');
+  const btn = document.getElementById('authSubmitBtn');
+  const original = btn.textContent;
+  btn.textContent = authMode==='login' ? 'Logging in…' : 'Creating account…';
+  await withLoading(btn, async () => {
+    try {
+      if (authMode==='login') await auth.signInWithEmailAndPassword(email, password);
+      else await auth.createUserWithEmailAndPassword(email, password);
+    } catch (e) { showMsg('authMsg', e.message, 'error'); }
+  });
+  btn.textContent = original;
+};
+
+document.getElementById('signOutBtn').onclick = () => auth.signOut();
+
+// ── CTA bar → open the auth modal on demand ───────────────────
+function openAuthModal(){ document.getElementById('authModal').classList.remove('hidden'); }
+function closeAuthModal(){ document.getElementById('authModal').classList.add('hidden'); }
+
+document.getElementById('showAuthBtn').onclick = openAuthModal;
+document.getElementById('authModalClose').onclick = closeAuthModal;
+document.getElementById('authModal').addEventListener('click', (e) => {
+  if (e.target.id === 'authModal') closeAuthModal();
+});
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && !document.getElementById('authModal').classList.contains('hidden')) closeAuthModal();
+});
+
+// ── Auth state → show the right section ──────────────────────
+auth.onAuthStateChanged(async (user) => {
+  currentUser = user;
+  if (!user) {
+    document.getElementById('ctaBar').classList.remove('hidden');
+    closeAuthModal();
+    document.getElementById('appArea').classList.add('hidden');
+    document.getElementById('pageWrap').classList.add('hidden');
+    document.getElementById('heroBand').classList.remove('workspace');
+    document.getElementById('heroHeadline').textContent = 'What professionals are saying about SUVIKALP.';
+    document.getElementById('heroSub').textContent = 'Verified statements from registered practitioners who used the tool on real closed-mine repurposing projects.';
+    return;
+  }
+  document.getElementById('ctaBar').classList.add('hidden');
+  closeAuthModal();
+  document.getElementById('pageWrap').classList.remove('hidden');
+  document.getElementById('heroBand').classList.add('workspace');
+  document.getElementById('heroHeadline').textContent = 'Share Your Testimonial';
+  document.getElementById('heroSub').textContent = 'Two minutes — help other professionals see what\'s possible.';
+  document.getElementById('appArea').classList.remove('hidden');
+  document.getElementById('submitCard').classList.remove('hidden');
+  document.getElementById('userEmailLabel').textContent = user.email;
+
+  const profileSnap = await db.collection('users').doc(user.uid).get();
+  if (profileSnap.exists) {
+    const p = profileSnap.data();
+    document.getElementById('pfName').value = p.name || '';
+    document.getElementById('pfDesignation').value = p.designation || '';
+    document.getElementById('pfCompany').value = p.company || '';
+    document.getElementById('pfCompanySize').value = p.companySize || '';
+    document.getElementById('submitCardSub').textContent = 'Welcome back — your details are pre-filled below. Reviewed by an admin before it goes public.';
+  }
+  loadMySubmissions(user.uid);
+});
+
+// ── Submit a testimonial (also upserts the profile fields) ────
+document.getElementById('submitTestimonialBtn').onclick = async () => {
+  const name = document.getElementById('pfName').value.trim();
+  const designation = document.getElementById('pfDesignation').value.trim();
+  const company = document.getElementById('pfCompany').value.trim();
+  const companySize = document.getElementById('pfCompanySize').value;
+  const sector = document.getElementById('tSector').value;
+  const message = document.getElementById('testimonialText').value.trim();
+  const impact = document.getElementById('tImpact').value.trim();
+
+  if (!name || !designation || !company || !companySize) { showMsg('submitMsg', 'Please fill in your name, designation, company and company size.', 'error'); return; }
+  if (!sector) { showMsg('submitMsg', 'Please select a sector.', 'error'); return; }
+  if (!selectedRating) { showMsg('submitMsg', 'Please rate your experience.', 'error'); return; }
+  if (!message) { showMsg('submitMsg', 'Please write your testimonial first.', 'error'); return; }
+
+  const btn = document.getElementById('submitTestimonialBtn');
+  const original = btn.textContent;
+  btn.textContent = 'Submitting…';
+  await withLoading(btn, async () => {
+    try {
+      await db.collection('users').doc(currentUser.uid).set({
+        name, designation, company, companySize,
+        email: currentUser.email,
+        createdAt: firebase.firestore.FieldValue.serverTimestamp()
+      }, { merge: true });
+
+      await db.collection('testimonials').add({
+        uid: currentUser.uid,
+        name, designation, company, companySize,
+        sector,
+        rating: selectedRating,
+        impact: impact || null,
+        message,
+        status: 'pending',
+        createdAt: firebase.firestore.FieldValue.serverTimestamp()
+      });
+      document.getElementById('testimonialText').value = '';
+      document.getElementById('testimonialText').dispatchEvent(new Event('input'));
+      document.getElementById('tImpact').value = '';
+      document.getElementById('tSector').value = '';
+      selectedRating = 0;
+      document.querySelectorAll('.star-btn').forEach(b => { b.dataset.lit = 'false'; b.setAttribute('aria-pressed','false'); });
+      if (activeChip) { activeChip.classList.remove('chip-active'); activeChip = null; }
+      showMsg('submitMsg', 'Submitted! It will appear here once an admin approves it.', 'success');
+      loadMySubmissions(currentUser.uid);
+    } catch (e) {
+      showMsg('submitMsg', e.message, 'error');
+    }
+  });
+  btn.textContent = original;
+};
+
+// ── My past submissions with status ───────────────────────────
+async function loadMySubmissions(uid){
+  const list = document.getElementById('mySubmissions');
+  list.innerHTML = '';
+  const snap = await db.collection('testimonials').where('uid','==',uid).get();
+  const docs = snap.docs.sort((a,b) => (b.data().createdAt?.seconds||0) - (a.data().createdAt?.seconds||0));
+  if (docs.length === 0) return;
+  docs.forEach(doc => {
+    const d = doc.data();
+    const li = document.createElement('li');
+    li.innerHTML = `<div class="meta"><span class="status-pill status-${d.status}">${d.status}</span></div>${escapeHtml(d.message)}`;
+    // Only pending submissions can be withdrawn — once approved or rejected
+    // it's an admin decision, not something to quietly delete.
+    if (d.status === 'pending') {
+      const withdrawBtn = document.createElement('button');
+      withdrawBtn.type = 'button';
+      withdrawBtn.className = 'link-btn withdraw-btn';
+      withdrawBtn.textContent = 'Withdraw';
+      withdrawBtn.onclick = async () => {
+        if (!confirm('Withdraw this testimonial? This cannot be undone.')) return;
+        withdrawBtn.disabled = true;
+        try {
+          await db.collection('testimonials').doc(doc.id).delete();
+          loadMySubmissions(uid);
+        } catch (e) {
+          alert('Could not withdraw: ' + e.message);
+          withdrawBtn.disabled = false;
+        }
+      };
+      li.appendChild(withdrawBtn);
+    }
+    list.appendChild(li);
+  });
+}
+
+// ── Carousel state + centering (measures real widths, so it works at any
+// viewport size and with any number of cards) ─────────────────────────
+let carouselCards = [];
+let carouselCurrent = 0;
+const CAROUSEL_GAP = 22;
+
+function renderCarousel(){
+  const viewport = document.getElementById('carouselViewport');
+  const rail = document.getElementById('carouselRail');
+  const cardEls = Array.from(rail.children);
+  if (!cardEls.length) return;
+
+  cardEls.forEach((c,i) => c.classList.toggle('side', i !== carouselCurrent));
+  Array.from(document.getElementById('carouselDots').children).forEach((d,i) => d.classList.toggle('active', i === carouselCurrent));
+
+  const viewportWidth = viewport.offsetWidth;
+  const cardWidth = cardEls[carouselCurrent].offsetWidth;
+  const offsetToCard = carouselCurrent * (cardWidth + CAROUSEL_GAP);
+  const centeringOffset = (viewportWidth - cardWidth) / 2;
+  rail.style.transform = `translateX(${centeringOffset - offsetToCard}px)`;
+}
+
+document.getElementById('carouselPrev').onclick = () => {
+  if (!carouselCards.length) return;
+  carouselCurrent = (carouselCurrent - 1 + carouselCards.length) % carouselCards.length;
+  renderCarousel();
+  startCarouselAutoplay();
+};
+document.getElementById('carouselNext').onclick = () => {
+  if (!carouselCards.length) return;
+  carouselCurrent = (carouselCurrent + 1) % carouselCards.length;
+  renderCarousel();
+  startCarouselAutoplay();
+};
+window.addEventListener('resize', renderCarousel);
+
+// ── Auto-advance, slow motion, pauses on hover/manual interaction ─────
+// Respects prefers-reduced-motion: the interval itself is JS-driven (not a
+// CSS animation), so the site-wide reduced-motion CSS rule above doesn't
+// touch it — this check is the only thing that actually stops it.
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+let carouselAutoTimer = null;
+function startCarouselAutoplay(){
+  clearInterval(carouselAutoTimer);
+  if (prefersReducedMotion || carouselCards.length <= 1) return;
+  carouselAutoTimer = setInterval(() => {
+    carouselCurrent = (carouselCurrent + 1) % carouselCards.length;
+    renderCarousel();
+  }, 5000);
+}
+const carouselEl = document.getElementById('carousel');
+carouselEl.addEventListener('mouseenter', () => clearInterval(carouselAutoTimer));
+carouselEl.addEventListener('mouseleave', () => startCarouselAutoplay());
+
+// ── Trust bar + carousel, driven by live approved testimonials ────────
+db.collection('testimonials').where('status','==','approved')
+  .onSnapshot(snap => {
+    const carousel = document.getElementById('carousel');
+    const dotsWrap = document.getElementById('carouselDots');
+    const trustSection = document.getElementById('trustSection');
+    const nudge = document.getElementById('wallNudge');
+    const emptyWall = document.getElementById('emptyWall');
+
+    if (snap.empty) {
+      carousel.classList.add('hidden');
+      dotsWrap.classList.add('hidden');
+      trustSection.classList.add('hidden');
+      nudge.classList.add('hidden');
+      emptyWall.textContent = 'No testimonials yet — be the first to share yours below.';
+      emptyWall.classList.remove('hidden');
+      carouselCards = [];
+      return;
+    }
+    emptyWall.classList.add('hidden');
+
+    const docs = snap.docs.map(d => d.data());
+    document.getElementById('statProfessionals').textContent = docs.length;
+    document.getElementById('statOrgs').textContent = new Set(docs.map(d => d.company)).size;
+
+    const ratings = docs.map(d => d.rating).filter(r => typeof r === 'number');
+    if (ratings.length) {
+      const avg = ratings.reduce((a,b) => a+b, 0) / ratings.length;
+      const rounded = Math.round(avg);
+      document.getElementById('statRating').textContent = avg.toFixed(1);
+      document.getElementById('trustStars').textContent = '★'.repeat(rounded) + '☆'.repeat(5 - rounded);
+    } else {
+      document.getElementById('statRating').textContent = '–';
+      document.getElementById('trustStars').textContent = '';
+    }
+    trustSection.classList.remove('hidden');
+
+    const sorted = docs.slice().sort((a,b) => (b.createdAt?.seconds||0) - (a.createdAt?.seconds||0));
+    const featuredIndex = sorted.findIndex(d => d.featured === true);
+
+    carouselCards = sorted;
+    document.getElementById('carouselRail').innerHTML = sorted.map(renderCard).join('');
+    dotsWrap.innerHTML = sorted.map((_,i) => `<button class="dot" aria-label="Go to testimonial ${i+1}"></button>`).join('');
+    Array.from(dotsWrap.children).forEach((dot,i) => dot.onclick = () => { carouselCurrent = i; renderCarousel(); startCarouselAutoplay(); });
+
+    carouselCurrent = featuredIndex >= 0 ? featuredIndex : 0;
+    carousel.classList.remove('hidden');
+    dotsWrap.classList.toggle('hidden', sorted.length <= 1);
+    document.getElementById('carouselPrev').disabled = sorted.length <= 1;
+    document.getElementById('carouselNext').disabled = sorted.length <= 1;
+
+    // Card widths aren't known until the browser lays them out — measure next frame.
+    requestAnimationFrame(renderCarousel);
+    startCarouselAutoplay();
+
+    if (sorted.length < 4) {
+      const firstName = sorted[0].name ? sorted[0].name.split(' ')[0] : 'others';
+      nudge.textContent = sorted.length === 1
+        ? 'Only one voice so far — share yours below.'
+        : `Only a few voices so far — join ${firstName} and share yours below.`;
+      nudge.classList.remove('hidden');
+    } else {
+      nudge.classList.add('hidden');
+    }
+  }, err => {
+    document.getElementById('carousel').classList.add('hidden');
+    const emptyWall = document.getElementById('emptyWall');
+    emptyWall.textContent = 'Could not load testimonials.';
+    emptyWall.classList.remove('hidden');
+    console.error(err);
+  });
+
+function renderCard(d){
+  const color = sectorColor(d.sector);
+  const stars = d.rating ? '★'.repeat(d.rating) + '☆'.repeat(5 - d.rating) : '';
+  const takeaway = d.impact ? d.impact : truncateWords(d.message, 9);
+  // Skip the quote paragraph when the takeaway already IS the full quote
+  // (short messages with no separate impact field) — otherwise it repeats verbatim.
+  const showQuoteBelow = takeaway !== d.message;
+  return `<div class="tcard" style="--pc:${color};">
+    <div class="takeaway">"${escapeHtml(takeaway)}"</div>
+    ${showQuoteBelow ? `<p class="quote">${escapeHtml(d.message)}</p>` : ''}
+    <div class="who">
+      <div class="who-badge" style="background:${color};">${initials(d.name)}</div>
+      <div><b>${escapeHtml(d.name)}</b><span>${escapeHtml(d.designation)}, ${escapeHtml(d.company)}</span></div>
+      ${stars ? `<span class="card-stars">${stars}</span>` : ''}
+    </div>
+  </div>`;
+}
+
+function truncateWords(str, n){
+  const words = (str || '').trim().split(/\s+/);
+  return words.length <= n ? str : words.slice(0, n).join(' ') + '…';
+}
+
+function initials(name){
+  if (!name) return '?';
+  return name.trim().split(/\s+/).map(w => w[0].toUpperCase()).slice(0,2).join('');
+}
+
+function escapeHtml(str){
+  const div = document.createElement('div');
+  div.textContent = str || '';
+  return div.innerHTML;
+}
+</script>
+
+</body>
+</html>

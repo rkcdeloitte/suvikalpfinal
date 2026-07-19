@@ -1,0 +1,1890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- EDIT: Page title — format: "Category Name — SUVIKALP | Coal Controller Organisation" -->
+  <title>Small Modular Reactor (SMR) — SUVIKALP | Coal Controller Organisation</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="./category.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ── Local Inter font faces ─────────────────────────────── */
+@font-face { font-family:"Inter"; font-weight:400; font-display:swap; src:url("../fonts/Inter_18pt-Regular.woff2") format("woff2"),url("../fonts/Inter_18pt-Regular.ttf") format("truetype"); }
+@font-face { font-family:"Inter"; font-weight:500; font-display:swap; src:url("../fonts/Inter_18pt-Medium.woff2") format("woff2"),url("../fonts/Inter_18pt-Medium.ttf") format("truetype"); }
+@font-face { font-family:"Inter"; font-weight:600; font-display:swap; src:url("../fonts/Inter_18pt-SemiBold.woff2") format("woff2"),url("../fonts/Inter_18pt-SemiBold.ttf") format("truetype"); }
+@font-face { font-family:"Inter"; font-weight:700; font-display:swap; src:url("../fonts/Inter_18pt-Bold.woff2") format("woff2"),url("../fonts/Inter_18pt-Bold.ttf") format("truetype"); }
+
+/* ── Single unified font system ─────────────────────────── */
+:root {
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-devanagari: 'Noto Sans Devanagari', 'Noto Sans', sans-serif;
+  --fs-xs:   0.75rem;
+  --fs-sm:   0.8125rem;
+  --fs-base: 0.875rem;
+  --fs-md:   0.9375rem;
+  --fs-lg:   1rem;
+  --fs-xl:   1.125rem;
+  --fs-2xl:  1.375rem;
+  --lh-tight: 1.35;
+  --lh-base:  1.6;
+  --lh-loose: 1.8;
+}
+
+html, body, button, input, select, textarea { font-family: var(--font-sans); }
+.hindi, .header-cco-hindi { font-family: var(--font-devanagari); }
+
+.spv-body-text { font-family:var(--font-sans); font-size:var(--fs-md); line-height:var(--lh-loose); color:var(--color-text); margin-bottom:14px; font-weight:400; }
+.spv-list { margin:8px 0 14px 22px; font-family:var(--font-sans); font-size:var(--fs-md); line-height:var(--lh-loose); color:var(--color-text); }
+.spv-list li { margin-bottom:6px; }
+.spv-section-title { font-family:var(--font-sans); font-weight:700; font-size:var(--fs-xl); color:var(--color-teal-600); border-bottom:2px solid var(--color-primary); padding-bottom:8px; margin-bottom:22px; letter-spacing:-0.01em; }
+
+.accordion-btn { font-family:var(--font-sans); font-weight:600; font-size:var(--fs-base); }
+.accordion-body { font-family:var(--font-sans); font-size:var(--fs-md); }
+.spv-table, .spv-table thead tr th, .spv-table td, .spv-table td:first-child { font-family:var(--font-sans); }
+
+.spv-tab { font-family:var(--font-sans); font-weight:500; font-size:var(--fs-sm); }
+.spv-tab.active { font-weight:700; }
+.prism-label { font-family:var(--font-sans); font-size:0.7rem; line-height:1.3; }
+.prism-letter { font-family:var(--font-sans); font-weight:800; }
+
+.back-btn { font-family:var(--font-sans); font-weight:600; font-size:var(--fs-base); }
+.sf-breadcrumb { font-family:var(--font-sans); font-size:var(--fs-sm); }
+
+/* Tender tab styles are now self-contained inside spv-panel-tender */
+
+.cs-location { font-family:var(--font-sans); font-weight:700; font-size:var(--fs-base); }
+.cs-title { font-family:var(--font-sans); font-size:var(--fs-sm); line-height:var(--lh-base); }
+.cs-desc { font-family:var(--font-sans); font-size:var(--fs-sm); line-height:var(--lh-base); }
+.cs-subtab { font-family:var(--font-sans); font-size:var(--fs-md); font-weight:500; }
+.cs-subtab.active { font-weight:700; }
+
+/* Media/Web tab styles are now self-contained inside spv-panel-media */
+
+.agency-logo-name { font-family:var(--font-sans); font-weight:700; font-size:var(--fs-sm); }
+.agency-logo-type { font-family:var(--font-sans); font-size:0.72rem; }
+.agencies-intro-label { font-family:var(--font-sans); font-weight:700; display:none; }
+.agency-logo-inner--img { display:flex; align-items:center; justify-content:center; padding:10px 14px; border-radius:8px; height:76px !important; box-sizing:border-box; }
+.agency-logo-inner--img img { max-width:100%; max-height:56px; width:auto; height:auto; object-fit:contain; }
+.agencies-intro-text { font-family:var(--font-sans); font-size:var(--fs-md); line-height:var(--lh-base); }
+
+.expert-name { font-family:var(--font-sans); font-weight:700; font-size:var(--fs-lg); }
+.expert-role { font-family:var(--font-sans); font-size:var(--fs-sm); line-height:var(--lh-base); }
+.expert-bio { font-family:var(--font-sans); font-size:var(--fs-base); line-height:var(--lh-loose); }
+.expert-tag { font-family:var(--font-sans); font-size:0.7rem; font-weight:500; }
+.expert-contact a { font-family:var(--font-sans); font-size:var(--fs-base); font-weight:500; }
+.experts-intro-label { font-family:var(--font-sans); font-weight:700; }
+.experts-intro-text { font-family:var(--font-sans); font-size:var(--fs-md); line-height:var(--lh-base); }
+
+.impl-card-title { font-family:var(--font-sans); font-weight:600; font-size:var(--fs-base); }
+.impl-card-num { font-family:var(--font-sans); font-weight:700; }
+.banner-title { font-family:var(--font-sans); font-weight:700; }
+.banner-sub { font-family:var(--font-sans); font-size:var(--fs-base); line-height:var(--lh-base); }
+#site-footer-sf { font-family:var(--font-sans); font-size:var(--fs-xs); }
+
+/* ── About Tab ─────────────────────────────────────────── */
+.about-hero-row { display:flex; gap:28px; align-items:stretch; margin-bottom:40px; min-height:300px; }
+.about-hero-slide-col { flex:0 0 40%; min-width:0; display:flex; flex-direction:column; }
+.about-hero-slide-col .proj-slideshow { flex:none; height:340px; }
+.proj-static-img-wrap { position:relative; border-radius:14px; overflow:hidden; box-shadow:0 4px 24px rgba(0,0,0,.15); flex:none; height:340px; }
+.proj-static-img { width:100%; height:100%; object-fit:cover; display:block; }
+.about-hero-text-col { flex:1; min-width:0; display:flex; flex-direction:column; justify-content:center; }
+.about-hero-label { font-family:var(--font-sans); font-size:var(--fs-xs); font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--teal); margin-bottom:0; }
+.about-hero-label-wrap { margin-bottom:12px; }
+.about-hero-label-bar { display:block; height:3px; width:48px; margin-top:7px; border-radius:99px; background:linear-gradient(90deg,#21808d 0%,#38bdf8 60%,transparent 100%); }
+.about-intro { display:flex; flex-direction:column; gap:14px; }
+.about-intro-block { padding:14px 18px; border-radius:10px; }
+.about-intro-primary { border-left:4px solid #21808d; background:rgba(33,128,141,.05); }
+.about-intro-secondary { border-left:4px solid rgba(33,128,141,.3); background:#fafafa; }
+.about-section { margin-bottom:40px; }
+.about-section-eyebrow { font-family:var(--font-sans); font-size:var(--fs-xs); font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--teal); margin-bottom:4px; }
+.about-section-title { font-family:var(--font-sans); font-size:var(--fs-xl); font-weight:700; color:#0f172a; margin:0 0 20px; line-height:var(--lh-tight); }
+
+/* Schemes carousel */
+.schemes-outer { position:relative; margin:0 20px; }
+.schemes-nav-btn { position:absolute; top:50%; transform:translateY(-50%); z-index:10; width:36px; height:36px; border-radius:50%; background:#fff; border:1.5px solid #e2e8f0; box-shadow:0 2px 10px rgba(0,0,0,.10); cursor:pointer; display:flex; align-items:center; justify-content:center; color:#475569; transition:background .2s,color .2s,border-color .2s,box-shadow .2s; padding:0; }
+.schemes-nav-btn:hover { background:var(--teal,#0a9396); color:#fff; border-color:var(--teal,#0a9396); box-shadow:0 4px 14px rgba(10,147,150,.3); }
+.schemes-nav-btn.schemes-prev { left:-20px; }
+.schemes-nav-btn.schemes-next { right:-20px; }
+.schemes-ticker-wrap { overflow:hidden; position:relative; mask-image:linear-gradient(to right,transparent 0%,black 7%,black 93%,transparent 100%); -webkit-mask-image:linear-gradient(to right,transparent 0%,black 7%,black 93%,transparent 100%); }
+.schemes-ticker { display:flex; gap:16px; overflow-x:auto; -ms-overflow-style:none; scrollbar-width:none; padding:8px 4px; }
+.schemes-ticker::-webkit-scrollbar { display:none; }
+.scheme-card { flex:0 0 220px; scroll-snap-align:start; background:#fff; border:1px solid #e8eaed; border-radius:12px; padding:18px 16px; box-shadow:0 2px 8px rgba(0,0,0,.05); transition:box-shadow .2s,transform .2s; }
+.scheme-card:hover { box-shadow:0 6px 20px rgba(0,0,0,.1); transform:translateY(-3px); }
+.scheme-card-icon { font-size:22px; margin-bottom:10px; }
+.scheme-card-tag { font-family:var(--font-sans); font-size:var(--fs-xs); font-weight:700; letter-spacing:.09em; text-transform:uppercase; color:var(--teal); margin-bottom:5px; }
+.scheme-card-title { font-family:var(--font-sans); font-size:var(--fs-base); font-weight:700; color:#1e293b; margin-bottom:8px; line-height:var(--lh-tight); }
+.scheme-card-desc { font-family:var(--font-sans); font-size:var(--fs-sm); color:#64748b; line-height:var(--lh-base); display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
+
+/* Projects slideshow */
+.proj-slideshow { position:relative; border-radius:14px; overflow:hidden; box-shadow:0 4px 24px rgba(0,0,0,.15); background:#000; }
+.proj-slide { display:none; position:relative; height:100%; min-height:260px; }
+.proj-slide.active { display:block; animation:projFadeIn .5s ease; }
+@keyframes projFadeIn { from { opacity:0; transform:scale(1.03); } to { opacity:1; transform:scale(1); } }
+.proj-slide-img { width:100%; height:100%; object-fit:cover; display:block; }
+.proj-slide-overlay { position:absolute; bottom:0; left:0; right:0; padding:12px 18px; background:linear-gradient(90deg,rgba(10,70,80,.95) 0%,rgba(33,128,141,.88) 100%); display:flex; align-items:center; gap:0; z-index:1; }
+.proj-caption { font-family:var(--font-sans); font-size:var(--fs-base); font-weight:600; color:#fff; line-height:1.4; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.proj-ss-btn { position:absolute; top:50%; transform:translateY(-50%); width:36px; height:36px; border-radius:50%; background:rgba(255,255,255,.18); backdrop-filter:blur(6px); border:1px solid rgba(255,255,255,.28); color:#fff; font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:background .2s,opacity .25s; z-index:3; opacity:0; }
+.proj-slideshow:hover .proj-ss-btn { opacity:1; }
+.proj-ss-btn:hover { background:rgba(255,255,255,.38); }
+.proj-ss-prev { left:12px; }
+.proj-ss-next { right:12px; }
+.proj-ss-dots { display:none; }
+.proj-ss-counter { display:none; }
+.vibgyor-chips { display:none !important; }
+
+/* ── PRISM print support ────────────────────────────────── */
+@media print {
+  body * { visibility:hidden; }
+  #spv-panel-prism, #spv-panel-prism * { visibility:visible; }
+  #spv-panel-prism { position:absolute; left:0; top:0; width:100%; }
+  .pr-sidebar { display:none !important; }
+  .pr-shell { display:block !important; }
+  .pr-content-wrap { width:100% !important; max-height:none !important; overflow:visible !important; }
+  .prism2-content-panel { display:block !important; page-break-inside:avoid; margin-bottom:24px; }
+  .accordion-body { display:block !important; }
+  .prism2-nav-row, .prism2-btn-prev, .prism2-progress-dots { display:none !important; }
+  .pr-intro { page-break-after:avoid; }
+  @page { margin:18mm 14mm; }
+}
+  </style>
+</head>
+<body>
+
+<!-- FIXED SITE HEADER — do not edit -->
+<header id="site-header">
+  <div class="header-left">
+    <div class="header-tool-title">
+      <span class="hindi">सुविकल्प:</span> Mine Repurposing Tool
+    </div>
+    <div class="header-tool-sub">
+      Select factors and sub-factors to discover suitable repurposing options for your mining site
+    </div>
+  </div>
+  <div class="header-right">
+    <a href="https://coalcontroller.gov.in/" target="_blank" rel="noopener" title="CCO Home">
+    <div class="header-cco-lockup">
+      <img class="header-cco-logo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANAAAABHCAYAAAB2x8mPAAAAAXNSR0IArs4c6QAAAHhlWElmTU0AKgAAAAgABAEaAAUAAAABAAAAPgEbAAUAAAABAAAARgEoAAMAAAABAAIAAIdpAAQAAAABAAAATgAAAAAAAAH0AAAAAQAAAfQAAAABAAOgAQADAAAAAQABAACgAgAEAAAAAQAAANCgAwAEAAAAAQAAAEcAAAAA7cIEvwAAAAlwSFlzAABM5QAATOUBdc7wlQAANBZJREFUeAHtnQeYVUW2cJUoGUSRTIOgJFFUBAUMiDlhzgPmNI7ZMaAiYxizjo4RFcOYMDuKAVRQQUGCApIlB0mCCIKg/mudPnXfubdv3+7G9Hh/7+9bXXWqdqVde9c5N8Emm5RKqQVKLVBqgVILlFqg1AK/sQV++eWXsrDpb9xtaXelFkhZoEwq938sEwfOPixrq41tac4dKsPmUAMqQdmNbR2l892ILYDDlYcP4EnzG8tSmKvB0waegtEwAh6CzlBpQ9dBW/utChU2tI8/o93GOu8/w1a/+ZgYf2v4Ei6EjSKImGcTmAj3QRc4AO6Fr+BBaA7lSmos2tSFz+Cskrb9M/UT8z77z5zH/7djswE7gyf5nvC//vUQc7wMPs+cK9ft4W0YBh2hRAcC+nXA9n/ZmJyB+W4JA6HnxjTvIufKgsqAz+ZVoCbUA5/Za8XXptZVLLKz31mBORwIb0Gj33moX909c7wfHsrWEeXa8zaYAN2hxHeibP2Wlm24BX7NBjRn2Pbgc7n5BrASVsA6MHAmwXI2+s1NN930Z/K/SujHPqsV0skvlBd2hxlB3X/hKvq4llTdTMlsn3mdqZ/tOlubZNly7LA+a8P8YKhJ3WJowzy3yKZH2S1xeX/SE9EbT5pt3clxbZJ5bVkuKY5+Lp2VrHVttgGYs/OtBZlvYmXrL1tZ6DazLvM66GVLN0RXH/6Wddk2kl8TQBfRw7cwBxbANPCxYjk4kO9+GUjnwlhQ79fKznRwRiGdGFw650+F1Ft+ABjoyzJ0fGHtpiY33DIN5RqKK5uh6BxCkNin87Jf+7oBtFM28e54FTSFHcFAsX02J7PMg+tx+AyS8+YyGtM0We483JfirMf+XX+YN9kCkrm2TIWHKBieWRhf27drzTwktJ/zS+5hYfPWd31nMqwxzCezPSoFxHa2D20LKCQKQr8/UrYUnPcPob7IAOK0cFGV4Uci7/vQkHQVGBitwIk4wBewGpqDm1AHFsA+8BhEQp8GmthncLb8ytx/PZ0L25TrqRsG7+ToYjfqqsCbGTrHcd0OroUwHw8Ix3saiivXoDgK3oobuP4+4Ny+Ae/QhYn2/By0YwfQtuazicH4PhwPneCfkJRjudgBnE9Yz4XkPTiehKJEx+4LYd7Z9Den8Aa4EeZlUdB2hYnzHwNVEwo66k3wBiT3+AKul8MTkJRDuGgLN8eFBuVtoJ/ph7mkO5VdoE8upbiuOqn2vQO+hJ+haMHJ/RCyPhwEN8EZUBt8K9Rncd9aPRt8p6gn9IF2UBGOAfX/DpZfCRpoE1Lb7gJHgy+MDc4SC+2cn5+R+FqrHPh273lguZ+haNA0ocwX0ZnO5pxaw2LYPjQg/yrcHa6Lk6LvC3wDLxLyjcFH2CahrKgU3f1hHngA5RR0boD3MpUoawXZ1nNPpq7X6FaAauDJ7LX7vgSaeh2Ea/dWe1eHrWAp+K6gHxlo83JBd0NS2o8HD7OUcP0K3JsqiDOUXQ4eIpGQd9+1276hLJlS7hwD55L3zl2koKePuc722ZRzLbgFDc4GT60BYMT3hslgFE6ANVAPKkFFOBWeB08/9caD5Rolj0l4khwOW8JXcBr4jtNT3ImSt22KCxf0vXu5oIPB/h8G228G3kmsW4Dep/TrY2aQcOsO11GKzlfoLuJiP/giriygi45lNcFxHO972n4fl1fh2nklA1c9JaT5V7n/uh4PG226ir7N23d0ACVSstHaC+whc5pIu2+o3x/CegzIlG7cr2N4wnrH8/AYRLl30DAH00go926xN3hyL4XXQD/wbmWgNQLf3BjH+KvJFynoenhWQ/8b8q7POSbtZx+Wp+ZtQSyWJQ8Z16Juas7q0a/91YU8CH23Jp92J0HPdqHefoLUION1qAvlUVpgYnSkE7hh58IQ8ITzUcJg6QoNYTd4GWbDdOgB28ICcDADZBV8Bgaim9kXPoA2cAVGW8dYtr8aPiU/n3QV5TpmUeImPgZDwfFrwVo4CI6CeaDRPNEuoU/nUkCoc/1SDXQkAzyroOu6fGS4AJrBeniX8sdJG8OhoG18Bv8txUelXuAGO4ekfXbhOvU8nliPzu56VkBh4mtU9+1I8FDQfifA+TAVUkK/Zbg4B/4Kz4E202Gdy5Xgfmtz6x9G/2FsnuaglGeTAyg8Dv2TSfUx1+edxDWbV/THlFCnHazXsXOOga59GPTXgvsliusZQ3055hnKulPmIaIk+9U3XGtW0RApiQfsQIEbY+DUh/PivKfoJBgJOkkV0JleAjfrO9gVDKSx4MQ0UDtYAjPAIDEQfYyzviOMADfSPt8ExyhKeqMwicX3DIoag3x7OIpyPzdoSH4UvAsvQzbZhsIdYB/4Bhy/MNFJngbvqjeCQdQL9oA88I6qE/zW4h70BU/rMTAUgliWPO3DenSGxfDfoEj6SyJv9kQ4HfrBU7AczoE74AZwP0KbOuSvgeuw7V2knuyNSGpCUziM8hmUHUbe/hx3LhQlU1HQfh56rs3g8DC8GsJduzX56RBkOzKPQANwf3OJgfYgPAv/hLA/BtYxYF+Oq5wEx4HB4xrCwaSNFdsUkHIZJRrEThbAMGgBF4ELrQ0Gih3XgMlQDfaHpfA9uLku1usKoEGd/HqwL9t3Bp3Va/MXgwu7EHxNdRGbETaOonSh3n51lLvSayKDv2jwWE46F90ZZDtBYQHUjrqn4R44hjbzSHUOjVXGfEL2JK8NzkLPw0I9jf8xXEPZLVx/Qr48/JYykc6c46nwBuNcFzpnvBvJe2gF0SHCeo5Gd64V8XrKBaU4VU97zUqU34PuWq5vhkqJ8nrkdaRBibKQvZk+tLPyKej4zSEam7RQoZ3fEtFZH4Ev4CN4HvYDba0frIKk2K9z80CzPpfoJwbRPYzlAREJY5YlczQcQd7gN2j+BXtDObiUspWk2s6APtJ8Nkk5CYo2dDN0Ik81G/4EGs4BdIw1MB5c1Pbg5Ay2pjAJfHToCA2gGYyGKfG1d6wVoF4HqAHr4OD4uiKp424BucRgnA9NmLMvar3l20aDOl4klHkYNITZ+SVZ/w6jdBGMAF+A+n0x7WC7luD8gtQlMx3DRsETF2pw294RX7sxv6kwnuvtDc4102Gca1LCenxKyFzPtpSl1kO/30AqeFi3H4y75xPAA8R9N1WWgQekb4r4ho2+0ByczzgI4hj6lHe/4so9KOpDg+EU5jQPHoPb4HbKpoLjRULZQjJ/BX1A/8wlzl/7pQl92M492w30YQ/c4STaeQlUhCAeCMEOoSyVJjdgG0p1+snQAM6AV8AFNISm8Cl0AnXVewDOBe8gOuznsBY0rk7tRDvD7jAT6kEeVAU3ahYMAfU3hY/hKDaoPwv6gXwBofxn6m+k4ho4HrybHQEG0Drw1PCEOh/swzVkFfqaje6lVKqr0VzrVnAseAImN2gM1xei34J26ilDYQjXBTYpqv2N/tC/76j5yJHc2AK9ozcHvUuocD0VIKzHtmE/yP6PoK/Du2bvxodDY3gcLoIgc8jcBzquh4R9u++pA4N+tP9VMBD0jWIJc/YNhItRvh3cK30oKc4vTWjjmx3uefW0ioIXrn8pHIp+P9ol91M/DTeGqCX1vn77hIsVUUEx/iQDyMkYKDpyC9DZHdDOGsE8sG4lWHYoeHfxpHYyOlitmFGkGts+voYlYCRrDINtInii1wENYR+WNQU309PvB8gqLPR1FurmHQTlYTrMivMk0RsVvUhvQtd5FyrUP01frukAMNDt7xPQIZIO68Ya9FegfwPpLNqq94cIY3lQFCno/Sdez4Eoh/UMJ5+5ntDXdmROiHXHkl4E2sM0Evr00LqJi7PgcPDOMwi2hyBHkvEg9DVoSQ+UN2hnv30Y57TirBWdz9DPKeh48DyM0pkwmfxXpPpfLXDN+qkBlhLauMfFlmQAaby9QIMaKN+BzqwsAq+rwWrwRHKDqoITvBkMGANuHVjeCm6FVTAOtgEDzdNrB/BRzsk2hjawBOqDTrkccgoL9fOBN1GqQN63kg8jH05EA/N5eBKSYgC7tjSh/Wu0f4vCmvBD3N8+5FOnH2U/oHMNZf3gOniE67GUu74g6qfakHesrGOGBllS24R1ZKlOKwr9pxfmHzADKUyuZ2+uk3MLr42Op7wz3AO+JlrPupqRT5sD5e77XdRVIf0ZdMLLIfRTg2xf9MZaVhKhzU/0+w/avA0XkL+RsmBX55w27xx9O+fM/f03ZQ3gCngH9C19XJ+7mnEMqKIkzRZJ5dTE6GgNFd6mdfa5MRrSu4inn6exJ4/BMQdWwNHQGp6E8pAHTUB5CTTyeVAbvJ22AIPIQDNY3DjvNO+BG/Mx+PhmfZHi4uH7WNH5RHctygyG3qTrMjpRJ2xMWpW6sBhCf6YhH+lSp3NcCJ60t4DBn5RvuUj270m8FEpyImsfDxNtXZTo1K6pgBSynuTcNkHHMZ6CXuSfgzBP7e+8DZQ0QcePGrSzvhPpcG0/vmbRDzZIaDuNhjfCIaDPBXF9K8NFjtQ5aDftlxL6dc2XQT9oCDuC8z6XOv2tKNEG9htsk6ZfLnlFhyuJ/ucouxK+hC5QB+rCTHAyBkw1WAQa8jRw4QPBIKsJE6EynA9G77bwNfgYtxjawuZg0AwF2/kB3ADSDRUNNCk0pq8Cm0/df8DxiyPaocDGaXRs1Iu6g2AZJKU/F9MSBdbfBpl6CZUC2SmU3AOZwV9AkYLBMD5bRZYy78jZ1jMhi66ntPPWcQoTn0huB/3AYMxmb6tKIk+jPB8WJBq9QF6/K0q0l3abmqnI3LzLvBiTWV3UtWO7znnZFDNvd5EODrIdmQNhS1gI6q2HGWCdQWIkz4IQTAaMOluAi7HcDfOUdBK2bQevwFHgSWFwToBR8BYLdVNKpdQCG40F0u5AYdY48jiCaCbXV0FD8FTwVGoK3lIbg1FdFbx1GvWeGo1gKUyHJmC9keudx7YGomVfwq5QBbxb+fmGQVYqpRbYqCzgc2xh0oyKncBHiupQHrxjGAAGinecyeAdqisYVOp9ApXANwusV9dHtNbga6duYLD4qGMfrUqDByuUykZpgVwB5OOWj2I/Qa14dd5FfETzHRfvSJ1BHfHxTekAs8CyJeAjnHexZeBdy0C0H+9qQ6ARd7tNSUul1AIbnQWyPsLFq9gyTvNIfUwzEDYHA8DgMIi+Au9Ui8FAM0B8x847lXeZraAe+ALTO5l3r3HQArYG33jw9ZR3q7VQIiHwnE9obwD7GmopdzTnEkkcnEHPuTuOvyr0AMgqtPGOaRvFt7XTdKn34HGNBv5K6r8nLbbQ3kfa2uAjrH38AM5bm6UJutpMXe/qriusMRxYFLFB+d8O8HBTltCXe5QS6rWTffhuowebbexX2+eSaH3o6ivBJ5L67q3vzBVqA9r6elh7JtfgHFP7ZIfouT9hDe6R7wwXEPTsx/UovnOaZov84qg/fdSnnMLEb9OvtJI+nZ/7nin6y3eFjZErgOzIjc0DH70MlJAaKAaNr3Mmg07gZA00jaxRzWsgH+t0AgNoGnQB2xhAu4G6UmxhseGRsDuN2oOLN8DHwQswATSKhm4L+8IO4Eb6Gs2fULxDOhXDpDkaZcou0CPKMW90H0EvOUfXcz4YCB4Cg6BYQl8NUNwVdgdtWhbmwhDqBjDOWvLOXZta3w3UrwfWuTY/iR+Nrq9Hg/hO6YXgPP1ca1jGnA+lfHtYALeDcgLkmckhYX3a+GIok6GrL8xgvI9JpzBmypkpcw3u814Q1mBQuIbB1Be2Bqqjb0OMN5NFfDo6BvQv17IIson+oY8VJoOpeCuuPIK0VYaittTP9RfnujyjvvBLGuwHA8CN9d9WexD88NC8XwX3g0w/xX8W1Lsb/MFaH/AHeP7g7jx4HN6DN+AU+C98CP8Cv0zophRb0Pe7bwfASFDWgj9a87czyq12RuqPpw6HL0Dxg1D11FecQxdwk1PCte1egCDzyej0KeG6HoTxeqcqisjQZivQTivAT/f92MD8j+DcUuOQbwXa1To/3FQvjDmTvD8K8w4WCfmdIYg/D2kT6ky5fjGu9A2iaM2kH4H2WAP+vCSIY1ouV8XtW5J3zorzXgxLwA+xnZ8B4WGWEq5bg+Pan/0n1zCD67MgdYcg3xGCHJ7qKCODwumxkvNpmVGduqTu4YReWE8yvSEoozcw1nWerkuWgR/y+pWv86HAHapc6CBL6onSC7wLeXs26ueBt3zvLuLp4yn5OfhYNhq8EzWHOXAAeMJ6Us+GnWAKHAKeRNPhDSiJdEb5EdDZHPd1cF46k3eO8CjhXech8I44HF6FJdAYjoY94HE4Fpx3kE5knLenmyeQJ/9p0BeCuHbn7+anTtxQmS3F+NrgFugJPjb0hxGwDvLAcbWVzl6f5FHw1J4Pz8AkcI37wf7gyev+/QsU5yQGR0d4nH4u5NQcRl5xHMU9C/IgmXAC70zeU1g9+/ROrXwY/c3v27oK8AToH461OVwM3cDDYX/G9LBqwPVj4Fzcn2fBNVQF1yB3Qnm4DxTtHSSZD2UhdW8U1+KaC5Ow5mUo3AHJvXLuwxMNg64+2Scud60Hg/5yM/iE8yGkxA3IKhjB005DnQPbwAJYC05CJ3VAjeGmVwcH02jVoAxYr9PoLOZnwu4wFQyilvA0zICSyHEoO84SuAEGxXN1HgMh/DT5FPIGzyL4B3yAnietc54Jblpz0DhRAFGnUU8AdcbCKugMR1J3L+2/Jb+h4lg94savkTqnmfRJ19FrBB+vwiNCd/I6nk7UDxzbE7Ec+eHQCLaDUynrT9135JPiHnWAa6i/mPqJycpEfgB590on7AVHgM75GOhI2iPpdFxG4uPhc+biOe1Hthl41zPIf4B9wDm4hkfgPtr40+iwhsaUqR/WoE/9XmLfHtT6bxDz88NFIvVb6tHaLGO++q8+4rpaw4eQEheTS96j0o06FnTESjAUFkA30NhugAarGONk1dVAOmAd0DHqg7pbgyfHaniayWbbIKoKCovxtOoY1+jgb4b2pM5lmnXoGdA7m0dGwTvUu5GbkPrIMYDsJdAWOnNNcfR1lCZcHwTKs/ANeBcw2HcHHX9DRTt6d3YeTzBe6uAg7yZ9DEF2I6OttNuT1HtYOHdt5aPrQFL7c14eJpkBNJgy78b7whXoX05awM705z5Egs66kCf1K1JJZ0tURVkf57qQM8Bqg3ZTdMjQznrX4OnvGpaShjWMoP07XBpArcA1TIbfSzan4ytBHwkyjTn1DReJtGa8Nov06T3iOtvOifOpJGcAMYDPfy+g3RB0yJEwCOqBi58ABkojMFh0jrVQFzaDl+EwWA8LwQheARr8eZgGJRE3xLuD4klhv9mkAoVBbyF6zislXHt3dWOVamC/GugQaAg65FBQxyByvcfRJhWwXJdUqscNnIuOlktqxZUeTIuzKPpIpLjBYZ1RQfxH246Hv8ExMBtcZy4xGIIk86EsmR7JhUGubAH6gnbqB9+D4mGhFLaGufnV0RqqxPnfK6lMx3tldB7ml1Ec+XOfuFD7ujYPmndhBKRJzgBSE2ebheN4OlYC3yWayPUv5D2N3wKD5wBwkKPAk2Y6jIOnQYMaOM+Bdx+NtRieoC/7KYkYMItgG9iaaVSlj7BhUT+UuSY3zVPb03EbyqqgZ4BHwvVWZAwUxcD2xagO5uNhcB7zjmdwKXuD85/sRULSgjNRnpldEBfY33bwVaYCcyjDPO1vblxn0LnWz+Nr767Oz/bKStDemeLa74Gm4GPZWaBNfisxaLVtS9gMPGhug/8k9jQEuY7qGkZDJK6TTHINts+U4trVg68o0UbXQ9Lfwn5ktvUpxzvWlqCP2GYA3MnaPCTSRGcrjmiMz2BmrKwzarg1MBy862wL6lj3Nvh5w2qMNYN8ZfKTyRt0nog+UhW4HVKeU2jjHXEQSl2gDZzG9eukOkyluKws6WBQzzm5UT3Re4N0BdSBv4DGUZwL1b90It8eNJibcgIo9udmatAecAskxVt+42QBeT838PErKV9w4ZobwRm00aYG0XqoCzuBp5yb7dzPhcrwV3TvIJ0FrrEL7AuK9l4Q5dL/lNe+tLuJYvveLb36V1+9RA9DQBu5n9rMn3Y49yCu4WyoAr6DdSdpWENX8t1B+RQWRrn0P1vQJtOumZ+VbUqT+uj9mN50E586kmX65LugrVNCu9oZc7bOOV4PTeLUA2AxjIECUtwAcjK1QCdy4z31d4X3Qad0kxzkn+DjjhPejAm6QB3Wk1KZDpNglBcbKM/T7lDYES4BnX4+VIN28DlGGcTY/cnvBd79LgP1vXvpwPtBBfgYXkXXIDkRdFDn+CDoFIrpSeA4x6B7P6kB5dqUfcA7WlLcLOeZlLlcPAp/hz3gOhgH2tY5GUDDQSc09WDQOb2ru7ap4MlvAOlYrvl+1lronYW6Ucy3L3p3Q0tQwrzzrwr+zVUf6sbQ92v0PZvmHmTa+CKuJ1PuOpVPwDUcDck1uJau4JrDGtaQz5QTKHCtSenPxUeJAvftb6APJuVGLr6GMN/a5LX3T5CUkVy410lZFq+tCoXbwLlwGAyCV6HkgmGawIOwv61J/azkAzgYqsCV4Itxg6YN7AsdoAb42Y8nt+22hctgT683RGjr7aIHvA9+HqGsAe9OptfbL2kZOAH8+YGveRTrFT+PeBt0fnV9zJsH9nEruL5yCXQOPx+w/T5QC3xXTP1s3Ga/mYJuA7gHZoDt7NPPJRTvGHVDG/Lt4QVYBIp6tjEdC87JgI+E/I7g5zHqHJEo1w69YG5c9zlpcKygpg18N8y2PjU0T1XEGcq0ketXp1eoJ+/++u6an/X8AzLnNICyxaCE9q7BzxIz1+BnWfZfGKc4LvWupzAdy3eJ9f5dhN6ziXW8FuumApTrFjAsLjcNh1BoFn2OkLrIkfHk9tQrrw4RGjkTWTv0tK0OLWAiVARPjjfB08lb4BwIsj5kNiRlbNYRPbYto/1e4LieFj5GzoI3wDn6uuYFss59T2gGbq53z0kwGJ1PSZXN4BXwbuNzfPIdKTfMkycPPPE2hdXwKFQGxbKkfJK8CHn6NUhv4drHgY6wJZSB5TASUicpujrY9ZR5N/LOWhOcl7b0zvkeOsm7j4+xD4AyPT9J2eF5rsMezaWd68wUbeLd1f1JzSOhZJmntTZQN8gAMj511Afbuv/RvBhnNGvow/W+ENbgHde71EeQuYbFlDkHJdOmloVxJ5PPpfeNysgQ8GlBydbfqPyq6O9b/PWO6p0rEuY/lfnfyMX+cVGtOE0l2TpNVSYzdPQU17fT6RfkK5B/DsZzfS3X15LfGi4GB3kCrgTLDKb/ouc3F1qR7w5+JjOe9FcJ/Rk4bp6PNmvBZ99vSdMEPZ1HvUpgAM1HbzVpJHE/9qWkfZfOAuq1k48BOrvjfJe4JltAVtO/42SVuL+6VNpnWXDOzqnA4YJueep0zhBAvvvoY16aoFeOgs3jwhXoOM+UUO/afXxaT92yVEWcod5DRDsZXD7GpD3uUO887V9b+BpvDWkk1Nmv/Wsf2xokKaFef3ENNcBDwH3KNofkGlArING4ibkWUIgLnIN34zCvwvTWoOdeusfOzeD3tXvKhyh33e6T4tv7HnYpccJFCp1onGkx6u8IW8EYLxBPp0awCtw4jd8APIl2BqP6FdD4K2EW/GphMY7nvHJKbKTIUNkU437sK6tQr1N5wicl8zpZlzMf97cAJckp6Opw2iunzdAz+LzbZhXq3YvozpBNgXoDIhUUmTrUu6feIQoIde6pZBXqDaiZWSsThejlXENQRS/nXBN6OecV9EzpUx8uIJS77kLt6olRHPGu4rdyfS3hY8tBXoNf2bAPF/R1vDAdcRAY/ZNhKoR3VAyutNOJ61IptcBGa4HiBpB3qrIEi0HRCrqCdxSDqDF4QkfPjgRRyNvG29074ONMZ1DfE7U5lEqpBTZ6C+QMIALGoGnGKrtAW9geDoQtwEDxdYPXBlTUF/reoXYHH/Fago9/Prr52OedqhF0Qm9z+ydfKqUW2GgtUNRroA6srBsYKAbI5tAOPoP2MBF8bbEUtgSlATSB2aCuL8yagi+C68J0OBq8E/l25ss+GpIvsdC2No0Masc0oH2d8CX9pT3Poufc8iBTomdu9OdlVoRr2tp3a3DuHgS+DvDRdCbtfiZNE/R9Me5ho65rdD5peuhox63BOY+j3kfblFBfgws/g1BmUe9b2aFNfmn6X19cO6dI0K1KRru4D74J4eu1r9CZQVpA0PdAbBpX+EO2aUGJOtfvGwBFifbw7ertUNQG2cQ5pO01+nVQ1E/qgXaaCdrMp5WUoKf9PXzdM+t/SlWSoT65x1OpT3uxn9T9LfOFBhATcoP3A1//jIdnYF/w8etN0HmdtAbQKPVoo+HcLIPNoKoOOpLGcBOOhSehO+gQDWEF7d5gwTpTsQR971z2dQK48d71bO87a1Oof4L+XiMfZE8yvcNFIrXNt+h/TPpv2iwMdZTpxGeCr/e8mwan0NmXwV0wADJlfwqujwt1iL/AuPg6JB3I3Bpf+O7kDYytYwRpQ+aB+OIm0uehI/wzLstMRlJwuoX0tRPJZWAfVUD7R3OmTrs8xHWmXEDBoXHhAvSORs89U3qAdihKwjxdV2EB535NsCPGKEdyEhwHjcEnFfdDX5pEvf8+9kDyQbTrRaDOI/BvSEpXLq6LC/5GOiRZ+XvlXURhEiL+RxQ0yG6wJ7jRW4KntoGic1lfG/4K6ut8Gn4K+LpJ5zOgdgE3swJsCzp+Swz1OmmxBMPqEOfBhdAQPGEXgeVNoTm0Ra86/T5FXjFY20W5/HkbaOpXB0/MtpBHm7Np4xslzvk2OBg8ILyTuF4DQrtsA65lAKSEds5FZwtjWXciXGEmIY4bdOzP0/LuRH3VRL0HmGJZyyiXbz+znsKywAvGr0miA+/qNTIJ3I960AmWQFoA0cY7zMnQBBTH6AbhAHJfw7hkI3trO22RDHrXpORBM9C39A8dXvsp+oHztPwSOAf0He32DXgwhj3cDj2/6xhs7F0y2OwK6rzrhv2lKm2P3b8/RLIGEJPT4D2hEYwFN9my+TAd3AiNsi+4sYthBmhsjTouzrs56iqO9QPo9LapAjpHFcZ7DWNMJl8c0XEvB/vW6DreSHBTOoOnaQvw86mR9KsTuYlBdLBhoBMY6H+H7tAD+sNg0KGOBZ1iONwPU0Gn8cDYHRw7U3amoCs4nnbQMY5iHncxj2z6VEcBehk6fnbzuAWFyGeU94TGcBPobG/CsxD61tG7QAXoD9rGOetQu0IdxmGYtLv9UZQ3gp9AsW1P9PzszrJXwINQccxbQNtPh2shyOdx5jJS9/dS2AmWx/nVpDNA0X4Xgn41D+6CMaCP7AF/Aw/YPszDr2bZ7hcIog9Zp83C4ZusT+ZDm98lLRBATErHOhF0Kk+v28FTwhNgLKwF2zUBDakBJsBoWAlO3k1oC54YBsoQsA8DyPbeMY6AOvAdXMq4l2AM80XJSSg4ro7hZj4BK8B5Oz8D6RrYGnSOGyApfvgbbTZjug4dy7W66U0p00l6gsHjyX4x+MytA3h6GhS2d7xM6UWB/cyFgXAG5MEh0A+yievQNtfRt6fqS9mUKNPO3hV0LANImQKWBecPtreuFWwH7otMBE90dSJhPNd4MmizobAKDoBu0A50attNA0W93lEu/4nCsYP8GGfeI1VPH1Lc7zfge1gDivY1eNZDXxgA7r02/QIqwiXggdADDLAgYf7NKLgpttmHofKPTl1oplSmoAN8AuNhBXiKm34Ns8CFaphvQJ0P4FswcLxNa0zbG1iWaShPLANH53djdJQl4CY0Ajc8p2AsnbtTrLSU9AUcwk+dfwI/YV9M2bPgZjnH3UAJRje/E/10E/JHwoEWIjqhzmJQu3HKp+BdzO+HeXrbpiu0Bn9UppNFQr45mcPiy7dJbwXn45z/Qn0l0mzyPIXasQnciN4epGsgTeI1/kDhOgjrcc3+q0HBeSdTpwMr20NfeBIehcPBPUqKB4dBpqjzIGiHGnACbELfYQzHds/D2N7KHDtgO/XXWkbWg0FR30/w1WN50evkXaKa/G9hv0K5b1yEPdQWz4BjlYGw32Fc+30K3GP34Xb6bEvqmH+4lMsyYjXKNOC74N3D/HLwZG0PnoQGgYFh+URwMQ2hPpSHhaDeOGgGOuojYJuR4Cm6EmynjidOQwyhswbDU1RADIrKcalOY1Bnik4SbSap88+Uv1LguIrB7rx1yn7gHaweWK4scWPzs1lfxHtInBnX63AGnxv/Mrj+QXA87Ay7wvuQKQMpGAz3wjZg4L0K2kEHyhRtECSZt0x7XAK9YH8wqJuCjtYZ2mDjK1mTX/x0n04H92Q2DAXvslOgFfjoeSe6C8gHyRwvlBeVJtu5pkpxA50+2x4uozz4gX6XFNs/Dc7zetgB7oBR8IeLk8kUTySdcz04KRe7FGaDjl4daoIbo54nho5qeQvwNKgF1UBD6Kybg85lsA2Lr+3fDdPhdDY32Ta5RGd2HopjtIty6X924jIEzoy4KrmBztkxda5mYJ9Xg/9VoY8wy8EgVFrjROXys1H5ZPL2qaM732hz0dmC/PHgONr0fHgSwvy0YS/0kvOgKBLvNgPgn+BcnP+5kE2X4tThYD6cyuaDjCdzB5wMBsi/wcejJnAKtAHFoO4a5fLXcTv5+8G9UhrBYVFuw/4k5+a6grjeufFFXVLtmCkdKdDXlK/zk5Q9tIv79BA4X+/we0BP+MPFzc6UYECDRKMbBPIBeKJ+DgaD8gvoYBpIXJibFQLQxVqvEexXx/b6dXgF7FPn8g5gO41bqODgjvdSrFCZ1BeSu0Al8M2IPSgzGMKcHCNTdC4dScdSPIF9bTAnusoPnvfjvKebPwZz7mPgKhgHrksZkZ9E79Y1j/MeDLtCd9AJXZviHcEDJlPKMrZrfwCckw7REMIYZDF0/hrrkd0qKsj/U5VyPz5wfsr2cCbQ5aajSbWVgfkuKB46oX0v8h4A2tS70d4x2tXT33mc7LikxRJ0fUbbEpxnaKeP1bcMKjAv+3457tDx+1LuTzHcQ9ej3S4H2+lHr0GmaLMlFN4Kz4DBVh/+cNHRMuVjCnqCk/JkrQYngXcJFzw0zuvsTaAZfACe3FNBw5tfCluDm2YbA1KnaA/fguUGnUHVAD4CDVaUGBQHwuHQFfrBZLDvluDdQXkSQiBEBfGfGRjfb5TfyXU72BtO49p3e/w8yt+T3E1ZZ2gMl0I3mA+uwdPRNU4Ef4yno5wK2nImuPmuS9E5d4TeoC2Pg75QQBjXDyFvo8JgOLmAQv5rgesoD4eQKofCdjAKfHQz8K6G4+nrK9Jl4J7tBsoKmEZdU9LDLEAGwQMQAtY5nwhHgnPXxu9CccRAvAucR5u4gfv8KKyHs8C9eg72Aw8VA6YRTAHbu4ctQHkEhke5LH+wmb9xupYqxzggi8rvXpQtgBYyqqfQZrAYtoW54CS98/SCdfANzASdrBV8DQZGGVgL6u4ABtJI0KgaxrrmYDv7tt7y/hjEzcsp6PjjratQ0jncZB3I9jpARXDOnkq+dbySVHFOQXR+j2iN35usc2kCN3M9i/IvyY+FC+AK2AX2A+ddHirAcPgHzAHrfBxSXoQ34GcvYhlBehLkmTLGv0iT60zNjbH9vVAf6g2ig0CJ5ktaF3TmpOh42jWMp020QRfQ+X8E21cH9/VOmAWu2/1RHoQ3o9z//DHQDgF94HTm9D5zWx9XB58JaVwcJa5lV8iDsC7tZZniPLT9Qvq8jKx7ZSDrJy0h7KFzfQruRXcVqRL6S8tTP52+/k6hh1sYx37+EMk6ULyJ3ZjBBNCZdCqDSqO5ITqcJ+p30A6s80T2lHYzrWsGP8Gzcaqjt4WZMAncYANvH7gVdHj1iyXMsQaK20InaAqOOx2GmdJXCB4ff4IeVdEP6eaaodxN6QBunnl/1z+G1DrXWhs6gxvsBi0D7eEY0e+G0DN4XJdBMYj280jTBJ29KGgM2tsAqwKWKUNpMyM/m/8X/frk9gbn9Bn1fjLvGneHbOJvhN5GR2d1rdrWQ0WH/QFSdiG/Bg4E98hDwc/g1EkJ/XhQ9AD31Tp11lLu/A+HauAbLG+SpoR6fcN615dN/FeNloQK9LWpPuAeah/3fypoX58UvieNBN02ZLS18jZ1HuCRxPPS3zw4FAN+Tn729/2rQQoIE8qj8F7YHL4G5VtwgZ5OGkojW1YVtgGdS/Gk8g7lCbcUdFYDTj0N5omic3q6uTkG0z0s2L5KJMzTediP/SmO64+kfo6u4j+xns6l+DZrqp4627oWxbds7SMl1FfkQnRm1+9bsjpeJNTbNozv2AZSmmTohLb2qdif/aYJbVyX+xPVc+1awxrSdLnwLWDvNuFQsG/n5ZydT5pd6Cusx7eiDagCUphOovxn2oa1pNon6lNliUwB+6Af9tD5FphraItecp/S9lAd6rWVNlMK1OcX//Z/CwsgDe/pK54O98NC0OFXwmowkDwhloMTN4AMDg3hCVUpzpNEgWOfW3qBbAVD4BpYyUbYZ6mUWmCjs0A4OdMmjkN7Qvui1juIQWbAGADeXTzpDBRTCSedp5pEpx2pugaYdx37qAu1QPHu5DcC5kdXpX9KLbCRWiDrHSi5lvjWuQtlPquGxwoDTwwqb8EGnMHjXUfx1m4ASdBRzzbqzoYXCSDvXv+nBfs1YIGNYTTrLfDIU9LF05+HT32YTH8+Efx/LdijIQZoBKOwhwd6iSX28bq0n1vixsVp4ABQGfysxffqpRpUT1CDfM0Y8xLqw3UoC4FWnOHTdOhzB/ARMSVc+7Ua73A+C58J3VKVGRnqGkEfMKB/V2EMP/t4Cvysw0BKCdd+NnI0HAO+RiyWoNsRfMPAQ61Qob4TnAj+VzA+BWw0wnyLPNhdDHoN4D+gfevFZRXI7w8HwqHgy4Wcgo7/5MADKpH6fUi/iFysOXh3KFKITF9c+y/NrILvY3zd4sZ35NovQfrN2OUx5sXyUJcs899ScJHe1UoqV9GgT2hEHxruBWgfl31JOifOZ0u+o/BT8E6YJvTl993OSSv8dRctae6bI3fBwtAVY/i68l7Ii/Ht7WLtBfpjYQr4pkwBoR8Pu39Q0Qt8E2h3OAT+Vwhzy+mY1HdnonsXc7L6zyLQvqaK/TeF3qCdC3tHkKrUmw8+KfkLadu6X59BSnLN2UeqrEIj3wL19U1ZcIDwLonvlCi+c+RrIaNW5w23Px1zNfi4UhuclG3Uty/F/lyw0b6G1H+rzNdOxRH1utDuANoMJH85RP1Sth35U+A+cF7W6WgGmT/QGk76N/BA8BRvTf40sP1rMM1ryluQPgodoS3o/K5Je91PW79LdiF5/w25xaSOtQXJRaDT6uQPg7bYFa6A22AJetrxMugHw0Chm+jfsdPZjwPt9QRlI9Dfg/yh4COy4w2nTPsVJt59t4VzwT1wzpE+7RqSd9461Sf09TRll5L3f8nws5lTyX8Mm8FJYNunYDr0hXngOp+B/cAnAU/4B2nvvwF3Hnlt7b4PBdczhrqHqbPMep9KfNx6ltS1esjYh9+DfIx0G/DO0ZX0Fsq0u/b1DaiLoSaMhn6gnTrD3+FWWAY+xj0N2sG5z6atNtwbaoF7eTuodzboA0tBH3BvtI83indo59xOg83If0DZy+TTpEzaVfqFTuRGa6jeoDGcxNGgca+CY6EDHAMnQA+wfAdwMl1gTzgMroYjQL1roTloVBevcYor61G8E3qxKPsxAP8LlWAmGGB5oBwEn4L154PyITg/5S8QOSvpHKgYpwbPbPgANP5yGAwGk49QzUh3AsuDXELG6/vBoNkHnOt46A/fgWKAuZFuSLgrL6fPupTpIM/CK3AFZTVJF8F78AWcDkWJYw+n7yWk9uk89qAvnV1bT4EH4WDK3Dt94HDyrn1/+B7cqxEwBnqDTjwKjgTnYt+HwPugjYJtHUu9WXAo9IMe9O3eqONYA+FUypqQdgLlIfDLq/qBOh4sBulaCHI5GW3xABhc3eAn+BKegJXgSeRb8+at8yMA98A7VTN4BNpBe9gd7Mf+5oN7sg4+gu1B0RaubzD4lODBkyZOtjCpTUULWBEraIQtQMcfDatgKSg/gpOuBj/DYlDGgpPaGlyI7XUE21quwXSSMAbZIqUcGm7sS7AL3AUauiy4YMfeFBTn9zG4IeVB+Rqci/I8VIYLoCn8As5lEtiXQTUbBoCO9wocDgeDAeAaPB0dz+B6Dr4CHcu52Z/ONgVdbaT8AK6hqhcJcYMNMgN+KDjHetAZtgftZPApjqeDZJPlFNaJKxynOlwNBlMevADjwQDRgZ2zzqTDTwTHbQ5bgeONAceaCyNBBwt2/oS86BuK+2q/E2AGhL22vj3ob63AfhT7tb9xsAi0iWvT7tOwWbRG7BvauV/2PQQ6gPZ1j7VvtBfkkxJsVJZC7Wpb91ZbalPnPhleBX9SYX/TQR9WdoJdQVvUAvtJEydWmLjRRvcysKEb8SLoRG5qHlQAHdMJfQOroAU4ER2mEehITtqNfQ+6QmNwk+1rHrjRxRXH9LR8A05j0Rp+M3AtBnB9yMPooUyH0JDlY0fPI+8XHjWKm/UYfAXHgvPX0drCFuD8a0AeqPs+OPfDwPEjSRj+BApawgEwFrRNeeodP8hKMm+DXx3yDRE5kuvZ4NidYHdwLR4GB4LjzoK66FYh/Rn8P1Rrwb6QDMbXqfPLmUeRug/aaiYYANrqOGgNjqFDWb4QroGX4TtYAI49FD4A978p6ERbgv1a5rok7J/r9dp6lh2d/uo5X8dS7yP4ENx35+YHsrZx/9R1D7S/67Pejmw/E5y7AbgfjAHHKxe3J8vAvDkEbcjqX/4sXDvat3cmx3Ef7ddDZG9oAe6nr3/Vy4vztnecceBeepi49jSxQWEygorBMBvej/Nu3mfwCLwDT8A98CZMg5fgSfCTYI3oIg2aT2BqfP0Q6VswCCqD47iw4oob4JsV/kDLoFVGg+M3Asd1s2vDh6DxDeYh4AbtBjrNLqBDuCl1oT8sgnfhNLC9urNAA2/mmKRfgM6wBJJyOxeu5yxwLNfn4TMKUhLb5T4KhkMvOAV0rPlwCxhMB8FNYPtnwTJtr51d4/PQHhrCxWBZEOd7NewE54BrvDqeu302hjPgFfB1kPZ5Bux7AtdrSK+HDtATPBw9jDwYVkNn0A4fgrY2PxQU92YtzAOdTrFsPdwNq8D1tgb3fCSEPRxG3v7fhvJwNJSFINrGtZwJ+tQQWAxp9uW6Amgv/bYb1IEJMAWUL8ED4xNwj9wv9+05cB86wXzYGZ4A/WTHOL81aZpsmnaVcWE0U6SRyoCGxr75pyl1Rr6GiaLehOufLSfvV0tsF+ps61fQg36kQ5n9+p9KrSMtltC/BvLfL476txFlGtwNUSrmJ9FrI0//H722nXlS6x3XudiHbZXo6x9x/85PRzINNrD/feEMuJK+JpKmCW11NPt2fv4D/OZdd4H1Uee49q9EXyGizLFcnxLmo05Yn/sV+nId1aEH9GcMHTcS+lEvrNN5+1qA4rTyaI42oNx5aquoj/g62FG99ZS5NvuNvjbEdbCnZZGdE2WpdYcydBzHPl2jffjdumhd5PWbaF/VQxxLf3IPUoJOsewb6zkvxTWZp7toHdozuhvF43utjSxzz8I69Q/LnbP+q694t4x8mHyplMQCGNbPF/y3G/x8QQf504V5GBUh4P70+ZROoNQCOS2As1aEcNfIqVtaWWqBUguUWqDUAqUWKLVAqQV+Pwv8P7J6RKktv70HAAAAAElFTkSuQmCC" alt="Coal Controller Organisation emblem">
+      <div class="header-cco-text"></div>
+    </div>
+    </a>
+  </div>
+</header>
+
+<div class="page">
+
+  <!-- Back bar -->
+  <div class="sf-backbar">
+    <button class="back-btn" onclick="window.location.href='../index.html'" aria-label="Back to results">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M10 3L5 8l5 5"/>
+      </svg>
+      Back to Results
+    </button>
+    <span class="sf-breadcrumb">
+      <span>Final Recommendations</span>
+      <span class="sep">/</span>
+      <!-- EDIT: Breadcrumb category name (shown in teal) -->
+      <span style="color:var(--teal);font-weight:500;">Small Modular Reactor (SMR)</span>
+    </span>
+  </div>
+
+  <!-- Hero Image -->
+  <div class="spv-hero-wrap">
+    <!-- EDIT: Hero image — put file in ../images/ and update src and alt -->
+    <img src="../images/smr-hero.jpg" alt="Small Modular Reactor campus concept — advanced nuclear clean energy on repurposed coal mine land" class="spv-hero-img">
+    <div class="spv-hero-overlay"></div>
+    <!-- EDIT: Hero title text (shown over the hero image) -->
+    <div class="spv-hero-title">Small Modular Reactor (SMR)</div>
+  </div>
+
+  <!-- Main Tab navigation — do not change IDs or onclick values -->
+  <nav class="spv-tabs" aria-label="Detail sections">
+    <button class="spv-tab active" data-tab="about"       onclick="showSPVTab('about')">About</button>
+    <button class="spv-tab"        data-tab="prism"        onclick="showSPVTab('prism')">P.R.I.S.M</button>
+    <button class="spv-tab"        data-tab="casestudies"  onclick="showSPVTab('casestudies');setTimeout(function(){window.dispatchEvent(new Event('resize'))},30)">Case Studies</button>
+    <button class="spv-tab"        data-tab="tender"       onclick="showSPVTab('tender')">Sample Tender Documents</button>
+    <button class="spv-tab"        data-tab="media"        onclick="showSPVTab('media')">Media/Web</button>
+    <button class="spv-tab"        data-tab="agencies"     onclick="showSPVTab('agencies')">Agencies</button>
+    <button class="spv-tab"        data-tab="experts"      onclick="showSPVTab('experts')">Experts</button>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════════════
+       TAB 1: ABOUT
+       ═══════════════════════════════════════════════════════ -->
+  <div id="spv-panel-about" class="spv-panel">
+    <div class="spv-content">
+
+      <div class="about-hero-row">
+        <div class="about-hero-slide-col">
+          <div class="about-hero-label-wrap">
+            <!-- EDIT: Slideshow label (e.g. "Global Precedents") -->
+            <div class="about-hero-label">Global Precedent</div>
+            <span class="about-hero-label-bar"></span>
+          </div>
+          <!-- EDIT: Global Precedents static image — put file in ../images/ -->
+          <div class="proj-static-img-wrap">
+            <img src="../images/smr-precedent.jpg" alt="Coal-to-nuclear repowering concept — advanced SMR module on retired coal industrial land" class="proj-static-img" loading="lazy">
+            <div class="proj-slide-overlay">
+              <!-- EDIT: Caption shown at bottom of the image -->
+              <span class="proj-caption">Coal-to-Nuclear Repowering — U.S. Department of Energy Studies, 2024</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-hero-text-col">
+          <div class="about-intro">
+            <div class="about-intro-block about-intro-primary">
+              <strong>Small Modular Reactors (SMR)</strong> on closed or reclaimed coal mine land represent a highly selective but strategically significant clean-energy repurposing option. Where site conditions satisfy nuclear siting, geotechnical stability, cooling, grid, security and emergency-planning requirements, a closed mine or retired coal-industrial area can be transformed into a firm low-carbon power campus — replacing coal-based generation with advanced nuclear infrastructure that provides round-the-clock electricity, industrial heat, and grid stability.
+            </div>
+            <div class="about-intro-block about-intro-secondary">
+              This option is not a universal reuse strategy — it is nuclear-regulated, capital-intensive, security-sensitive and long-duration. It is most relevant where a retired coal-power or mine-power site offers existing transmission, access, cooling infrastructure, a trained energy workforce, and brownfield land that satisfies atomic-energy, radiation-safety and environmental requirements. Alignment with India's <strong>Nuclear Energy Mission</strong>, the <strong>Bharat Small Modular Reactor (BSMR)</strong> programme, and the CCO mine-repurposing framework makes this a visible just-transition flagship for select sites.
+            </div>
+          </div>
+        </div>
+      </div><!-- /about-hero-row -->
+
+      <div class="about-section">
+        <!-- EDIT: Schemes section eyebrow text -->
+        <div class="about-section-eyebrow">Policy &amp; Regulatory Support</div>
+        <!-- EDIT: Schemes section heading -->
+        <h3 class="about-section-title">Government Programmes &amp; Institutional Frameworks</h3>
+        <div class="schemes-outer">
+          <button class="schemes-nav-btn schemes-prev" onclick="schemesNav(-1)" aria-label="Previous">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <div class="schemes-ticker-wrap">
+            <div class="schemes-ticker" id="schemesTicker">
+
+              <!-- ── EDIT: Scheme cards — copy this block for each scheme.
+                   The ticker auto-scrolls; duplicate all cards below (aria-hidden="true") for seamless looping.
+                   Recommended: 6–8 unique cards. ── -->
+
+<!-- [CS:schemes] -->
+              <div class="scheme-card">
+                <div class="scheme-card-icon">⚛️</div>
+                <div class="scheme-card-tag">DAE / GoI</div>
+                <div class="scheme-card-title">Nuclear Energy Mission &amp; BSMR Programme</div>
+                <div class="scheme-card-desc">India's Nuclear Energy Mission targets 100 GW nuclear capacity by 2047. The Bharat Small Modular Reactor (BSMR) is under development by BARC for domestic deployment.</div>
+              </div>
+              <div class="scheme-card">
+                <div class="scheme-card-icon">🏛️</div>
+                <div class="scheme-card-tag">DAE / AERB</div>
+                <div class="scheme-card-title">Atomic Energy Act &amp; AERB Siting Regulations</div>
+                <div class="scheme-card-desc">Atomic Energy Act 1962 and AERB safety codes govern nuclear siting, construction, operation and decommissioning; all SMR projects require AERB site evaluation and consent.</div>
+              </div>
+              <div class="scheme-card">
+                <div class="scheme-card-icon">⚡</div>
+                <div class="scheme-card-tag">MoP / CEA</div>
+                <div class="scheme-card-title">National Electricity Plan — Firm Clean Power</div>
+                <div class="scheme-card-desc">CEA's National Electricity Plan identifies the need for firm, dispatchable low-carbon capacity to complement large-scale renewable expansion; SMR can fill this role.</div>
+              </div>
+              <div class="scheme-card">
+                <div class="scheme-card-icon">🔋</div>
+                <div class="scheme-card-tag">MoP / CEA</div>
+                <div class="scheme-card-title">Green Energy Corridor</div>
+                <div class="scheme-card-desc">Transmission network upgrades and grid integration support; coal-mine areas with existing switchyards and transmission corridors are well-positioned for SMR grid evacuation.</div>
+              </div>
+              <div class="scheme-card">
+                <div class="scheme-card-icon">🌿</div>
+                <div class="scheme-card-tag">MoC / CCO</div>
+                <div class="scheme-card-title">Mine Closure &amp; Repurposing Policy</div>
+                <div class="scheme-card-desc">CCO framework for productive post-mining land reuse; where legal and siting conditions are satisfied, SMR repurposing is a high-value clean-energy transition option for select sites.</div>
+              </div>
+              <div class="scheme-card">
+                <div class="scheme-card-icon">💧</div>
+                <div class="scheme-card-tag">MNRE / MoP</div>
+                <div class="scheme-card-title">National Green Hydrogen Mission</div>
+                <div class="scheme-card-desc">SMR can provide firm clean power and high-temperature process heat for co-located green hydrogen production, supporting India's hydrogen export and industrial decarbonisation goals.</div>
+              </div>
+              <div class="scheme-card" aria-hidden="true">
+                <div class="scheme-card-icon">⚛️</div>
+                <div class="scheme-card-tag">DAE / GoI</div>
+                <div class="scheme-card-title">Nuclear Energy Mission &amp; BSMR Programme</div>
+                <div class="scheme-card-desc">India's Nuclear Energy Mission targets 100 GW nuclear capacity by 2047. The Bharat Small Modular Reactor (BSMR) is under development by BARC for domestic deployment.</div>
+              </div>
+              <div class="scheme-card" aria-hidden="true">
+                <div class="scheme-card-icon">🏛️</div>
+                <div class="scheme-card-tag">DAE / AERB</div>
+                <div class="scheme-card-title">Atomic Energy Act &amp; AERB Siting Regulations</div>
+                <div class="scheme-card-desc">Atomic Energy Act 1962 and AERB safety codes govern nuclear siting, construction, operation and decommissioning; all SMR projects require AERB site evaluation and consent.</div>
+              </div>
+              <div class="scheme-card" aria-hidden="true">
+                <div class="scheme-card-icon">⚡</div>
+                <div class="scheme-card-tag">MoP / CEA</div>
+                <div class="scheme-card-title">National Electricity Plan — Firm Clean Power</div>
+                <div class="scheme-card-desc">CEA's National Electricity Plan identifies the need for firm, dispatchable low-carbon capacity to complement large-scale renewable expansion; SMR can fill this role.</div>
+              </div>
+              <div class="scheme-card" aria-hidden="true">
+                <div class="scheme-card-icon">🔋</div>
+                <div class="scheme-card-tag">MoP / CEA</div>
+                <div class="scheme-card-title">Green Energy Corridor</div>
+                <div class="scheme-card-desc">Transmission network upgrades and grid integration support; coal-mine areas with existing switchyards and transmission corridors are well-positioned for SMR grid evacuation.</div>
+              </div>
+              <div class="scheme-card" aria-hidden="true">
+                <div class="scheme-card-icon">🌿</div>
+                <div class="scheme-card-tag">MoC / CCO</div>
+                <div class="scheme-card-title">Mine Closure &amp; Repurposing Policy</div>
+                <div class="scheme-card-desc">CCO framework for productive post-mining land reuse; where legal and siting conditions are satisfied, SMR repurposing is a high-value clean-energy transition option for select sites.</div>
+              </div>
+              <div class="scheme-card" aria-hidden="true">
+                <div class="scheme-card-icon">💧</div>
+                <div class="scheme-card-tag">MNRE / MoP</div>
+                <div class="scheme-card-title">National Green Hydrogen Mission</div>
+                <div class="scheme-card-desc">SMR can provide firm clean power and high-temperature process heat for co-located green hydrogen production, supporting India's hydrogen export and industrial decarbonisation goals.</div>
+              </div>
+<!-- [CE:schemes] -->
+            </div><!-- /schemes-ticker -->
+          </div><!-- /schemes-ticker-wrap -->
+          <button class="schemes-nav-btn schemes-next" onclick="schemesNav(1)" aria-label="Next">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div><!-- /spv-panel-about -->
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       TAB 2: P.R.I.S.M
+       ═══════════════════════════════════════════════════════ -->
+  <div id="spv-panel-prism" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+
+<style>
+  .pr-intro { padding:22px 24px 20px; background:rgba(33,128,141,.05); border:1px solid rgba(33,128,141,.15); border-radius:14px; margin-bottom:20px; }
+  .pr-intro-eyebrow { font-size:15px; font-weight:700; letter-spacing:.01em; text-transform:none; color:#21808d; margin-bottom:8px; font-style:normal; line-height:1.35; }
+  .pr-intro-heading { font-size:16px; font-weight:700; color:#0f172a; margin-bottom:10px; line-height:1.35; font-style:normal; }
+  .pr-intro-body { font-size:13.5px; color:#374151; line-height:1.85; font-style:normal; }
+  .pr-shell { display:flex; border:1px solid #e2e8f0; border-radius:14px; overflow:clip; background:#fff; }
+  .pr-sidebar { width:220px; flex-shrink:0; border-right:1px solid #e8edf2; padding:16px 0 16px; background:#f8fafc; position:sticky; top:125px; align-self:flex-start; max-height:calc(100vh - 155px); overflow-y:auto; overflow-x:visible; }
+  .pr-sidebar-label { font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:#7a8a9a; padding:0 16px 14px; font-style:normal; }
+  .pr-nav-highlight { position:absolute; left:0; right:0; pointer-events:none; z-index:0; will-change:top,height; background:color-mix(in srgb, var(--pr-hl,#C85000) 9%,transparent); transition:top .4s cubic-bezier(.4,0,.2,1),height .4s cubic-bezier(.4,0,.2,1),background .38s ease; }
+  .pr-nav-highlight::before { content:''; position:absolute; left:0; top:0; bottom:0; width:3px; background:var(--pr-hl,#C85000); border-radius:0 2px 2px 0; transition:background .38s ease; }
+  .pr-nav-item { position:relative; z-index:1; display:flex; align-items:center; gap:12px; padding:13px 16px; cursor:pointer; font-style:normal; }
+  .pr-nav-item::after { display:none; }
+  .pr-nav-item:hover, .pr-nav-item.active { background:transparent; transform:none; }
+  .pr-nav-badge { width:34px; height:34px; border-radius:50%; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:800; border:1.5px solid #d1d5db; color:#9ca3af; background:#fff; position:relative; z-index:1; transition:background .35s cubic-bezier(.4,0,.2,1),color .3s ease,border-color .35s ease,transform .45s cubic-bezier(.34,1.56,.64,1),box-shadow .35s ease; }
+  .pr-nav-item.active .pr-nav-badge { background:var(--pr-accent); color:#fff; border-color:var(--pr-accent); transform:scale(1.12); box-shadow:0 0 0 4px color-mix(in srgb,var(--pr-accent) 18%,transparent),0 3px 10px color-mix(in srgb,var(--pr-accent) 32%,transparent); }
+  .pr-nav-item:hover:not(.active) .pr-nav-badge { border-color:var(--pr-accent); color:var(--pr-accent); background:color-mix(in srgb,var(--pr-accent) 7%,#fff); transform:scale(1.07); }
+  .pr-nav-letter { font-size:13px; font-weight:600; color:#374151; line-height:1.25; font-style:normal; position:relative; z-index:1; transition:color .25s ease,font-weight .2s; }
+  .pr-nav-item.active .pr-nav-letter { color:var(--pr-accent); font-weight:700; }
+  .pr-nav-item:hover:not(.active) .pr-nav-letter { color:var(--pr-accent); }
+  @keyframes nav-slide-in { from { opacity:0; transform:translateX(-10px); } to { opacity:1; transform:translateX(0); } }
+  .pr-nav-item { opacity:0; animation:nav-slide-in .32s cubic-bezier(.4,0,.2,1) both; }
+  .pr-nav-item:nth-child(3) { animation-delay:.02s; }
+  .pr-nav-item:nth-child(4) { animation-delay:.07s; }
+  .pr-nav-item:nth-child(5) { animation-delay:.12s; }
+  .pr-nav-item:nth-child(6) { animation-delay:.17s; }
+  .pr-nav-item:nth-child(7) { animation-delay:.22s; }
+  .pr-content-wrap { flex:1; min-width:0; }
+  .pr-content-wrap .prism2-content-panel { border-radius:0; box-shadow:none; }
+  .prism2-content-panel .prism2-panel-header { background:color-mix(in srgb,var(--pc) 5%,#fff); }
+  .prism2-panel-eyebrow { font-size:13px; font-weight:700; letter-spacing:.10em; text-transform:uppercase; color:var(--pc); margin-bottom:6px; opacity:1; }
+</style>
+
+<!-- PRISM intro banner -->
+<div class="pr-intro">
+  <div class="pr-intro-eyebrow">PRISM – Post-Mining Repurposing and Implementation Strategy Models</div>
+  <div class="pr-intro-heading">A structured framework for mine repurposing from concept to implementation</div>
+  <div class="pr-intro-body">PRISM is a structured framework designed to support identified post-mining repurposing opportunities by evaluating suitable implementation pathways, financial and revenue-generation models, and the implementation requirements, roles, and responsibilities of mine owners, developers, operators, and other stakeholders throughout the project lifecycle. Built around five integrated pillars, PRISM guides small modular reactor projects from concept to operation.</div>
+</div>
+
+<!-- PRISM sidebar + content shell -->
+<div class="pr-shell">
+  <div class="pr-sidebar">
+    <div class="pr-sidebar-label">Pillars</div>
+    <div class="pr-nav-highlight" id="pr-hl"></div>
+    <!-- EDIT: The --pr-accent colour per pillar can stay the same across categories or be adjusted.
+         Default palette: P=#C85000  R=#1a5ca8  I=#b06a10  S=#5a3d9e  M=#1a7a5e -->
+    <div class="pr-nav-item active" style="--pr-accent:#C85000;" data-key="P" onclick="prNav('P')">
+      <div class="pr-nav-badge">P</div>
+      <div><div class="pr-nav-letter">Project vision</div></div>
+    </div>
+    <div class="pr-nav-item" style="--pr-accent:#1a5ca8;" data-key="R" onclick="prNav('R')">
+      <div class="pr-nav-badge">R</div>
+      <div><div class="pr-nav-letter">Repurposing pathways</div></div>
+    </div>
+    <div class="pr-nav-item" style="--pr-accent:#b06a10;" data-key="I" onclick="prNav('I')">
+      <div class="pr-nav-badge">I</div>
+      <div><div class="pr-nav-letter">Investment dynamics</div></div>
+    </div>
+    <div class="pr-nav-item" style="--pr-accent:#5a3d9e;" data-key="S" onclick="prNav('S')">
+      <div class="pr-nav-badge">S</div>
+      <div><div class="pr-nav-letter">Strategic structuring</div></div>
+    </div>
+    <div class="pr-nav-item" style="--pr-accent:#1a7a5e;" data-key="M" onclick="prNav('M')">
+      <div class="pr-nav-badge">M</div>
+      <div><div class="pr-nav-letter">Monitoring guidance</div></div>
+    </div>
+  </div><!-- /pr-sidebar -->
+
+  <div class="pr-content-wrap">
+
+    <!-- ══════════════════════════════════════
+         P PANEL — Project Vision
+         EDIT: --pc colour matches sidebar --pr-accent for P
+         ══════════════════════════════════════ -->
+    <div class="prism2-content-panel active" id="prism2-panel-P" style="--pc:#C85000;--pb:#fff0e6;--cb:#fff8f3;">
+      <div class="prism2-panel-header">
+        <div class="prism2-panel-header-letter">P</div>
+        <div class="prism2-panel-header-text">
+          <div class="prism2-panel-eyebrow">PROJECT VISION</div>
+          <!-- EDIT: Panel description — 2–3 sentences on what this pillar covers for the category -->
+          <p class="prism2-panel-desc">This pillar covers the project concept, strategic rationale, critical siting requirements, site suitability assessment matrix, and indicative scale matrix for SMR development on closed mine or retired coal-industrial land. Nuclear safety, geological stability, regulatory approval and authorized institutional capacity are the core foundations.</p>
+        </div>
+      </div>
+
+<!-- [CS:prism_P] -->
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Project Overview</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">This concept proposes the development of a <strong>Small Modular Reactor (SMR) based clean-energy campus</strong> within or around a closed, reclaimed, or repurposed coal mine area as part of a broader post-mining land-use, energy-transition, industrial-repowering and regional economic diversification strategy.</p>
+          <p class="spv-body-text">The objective is to transform suitable closed mine land, retired coal-industrial land, associated power-plant areas, workshops, substations, transmission corridors, water infrastructure, rail/road logistics and controlled industrial buffers into a nuclear-energy repurposing asset that supports <strong>firm low-carbon power, grid reliability, industrial heat, clean hydrogen, data-centre power, desalination/water treatment</strong> where feasible, skilled employment, long-term concession revenue and a visible transition from coal-based extraction to advanced clean-energy infrastructure.</p>
+          <p class="spv-body-text"><strong>This is a highly selective, regulator-led repurposing option — not a universal one.</strong> A closed coal mine is suitable for an SMR project only where it can satisfy critical requirements relating to nuclear siting acceptability; geotechnical stability, subsidence control and seismic suitability; adequate land area, controlled boundary and emergency-planning feasibility; cooling-water availability or technically acceptable dry/hybrid cooling; grid evacuation; access for heavy equipment and nuclear-grade components; compliance with atomic-energy, radiation-safety, nuclear-security and environmental regulations; spent-fuel, radioactive-waste and decommissioning arrangements; environmental clearance, public consultation and social acceptance; and long-term institutional capability through authorized nuclear entities and licensed operators.</p>
+          <p class="spv-body-text">SMRs are increasingly relevant because large renewable-energy deployment requires firm, dispatchable and low-carbon power. Unlike solar and wind, SMRs can provide <strong>high-capacity-factor electricity</strong> and may support industrial decarbonisation, round-the-clock power, process heat and grid stability.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Strategic Rationale</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">An SMR project can be a strong repurposing option where a closed coal mine/coal-industrial site offers a combination of:</p>
+          <ul class="spv-list">
+            <li>Existing energy-sector land with controlled access and industrial buffers</li>
+            <li>Retired coal-power or mine-power infrastructure with potential for reuse</li>
+            <li>High-voltage transmission lines, switchyards or substations</li>
+            <li>Industrial roads, rail connectivity and heavy-equipment logistics</li>
+            <li>Access to cooling water, treated wastewater, mine water or dry-cooling feasibility</li>
+            <li>Local workforce familiar with energy, mechanical, electrical, maintenance and safety systems</li>
+            <li>Regional need for firm low-carbon power to complement variable renewables</li>
+            <li>Potential industrial demand from steel, cement, chemicals, data centres, hydrogen or mining-related clusters</li>
+            <li>Opportunity to replace lost coal-sector employment with advanced energy-sector jobs</li>
+            <li>Potential to reuse selected non-contaminated industrial land while avoiding unstable mine voids</li>
+            <li>Strong alignment with energy transition, just transition and clean firm power planning</li>
+          </ul>
+          <p class="spv-body-text">Research and policy literature supports the possibility of repowering retired coal-energy sites with advanced nuclear technologies where siting, safety and regulatory conditions are satisfied. <strong>Coal-to-nuclear studies</strong> highlight that existing transmission, cooling systems, roads, workforce and community identity as an energy-producing region may reduce some development barriers. However, closed mines introduce additional concerns such as subsidence, underground voids, slope instability, mine-water contamination, seismicity, public trust and emergency-planning constraints.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Site Suitability &amp; Technical Assessment Matrix</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+            <p class="spv-body-text">The following matrix provides a structured checklist for assessing the suitability of the proposed site for the selected repurposing option. It identifies the key physical, technical, environmental, infrastructure, legal, and owner-side readiness parameters that should be reviewed before the project is advanced to the next stage of development. The purpose of this matrix is to help the project owner understand existing site conditions, technical requirements, potential constraints, and preparatory actions required before feasibility studies, approvals, or tendering are initiated.</p>
+          <div class="table-wrap">
+          <table class="spv-table">
+          <thead><tr><th>Main Category</th><th>Sub-category</th><th>What to Assess / Prepare</th><th>Why It Matters for SMR</th><th>Typical Owner-Side Readiness</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Land / Area</strong></td><td>Total land area</td><td>Gross land, usable nuclear campus area, exclusion/controlled zones, switchyard, cooling system, emergency facilities, security buffer and expansion area</td><td>Determines whether nuclear island, balance-of-plant, cooling, access and safety zones can be accommodated</td><td>Land map and usable-area estimate</td></tr>
+              <tr><td><strong>Land / Area</strong></td><td>Mine void separation</td><td>Distance from underground workings, pits, shafts, galleries, subsidence zones, abandoned tunnels and highwalls</td><td>Nuclear facilities require stable land and must avoid mine-instability risks</td><td>Mine-void and no-go zone map</td></tr>
+              <tr><td><strong>Land / Area</strong></td><td>Geotechnical stability</td><td>Rock/soil strength, settlement, bearing capacity, liquefaction potential, old workings, slope stability and foundation condition</td><td>Reactor and safety-related structures require high geotechnical reliability</td><td>Geotechnical screening plan</td></tr>
+              <tr><td><strong>Land / Area</strong></td><td>Seismic suitability</td><td>Regional seismicity, fault proximity, ground-motion parameters and historical events</td><td>Nuclear siting requires conservative seismic assessment</td><td>Seismic-screening note</td></tr>
+              <tr><td><strong>Land / Area</strong></td><td>Flood and drainage safety</td><td>Flood level, stormwater routing, mine-water overflow, drainage channels, waterlogging and extreme rainfall</td><td>Flooding can affect nuclear safety, access and emergency systems</td><td>Flood and drainage-risk note</td></tr>
+              <tr><td><strong>Site Context</strong></td><td>Grid proximity</td><td>Transmission lines, substations, switchyard, voltage level, evacuation capacity and grid stability</td><td>SMR viability depends on reliable power evacuation and grid integration</td><td>Grid-evacuation feasibility note</td></tr>
+              <tr><td><strong>Site Context</strong></td><td>Cooling-water context</td><td>River, reservoir, mine water, treated wastewater, cooling pond, dry-cooling or hybrid-cooling feasibility</td><td>Cooling approach affects siting, cost, water impact and approvals</td><td>Cooling-water feasibility note</td></tr>
+              <tr><td><strong>Site Context</strong></td><td>Population and settlement</td><td>Nearby villages, towns, schools, hospitals, industries and emergency-response access</td><td>Nuclear siting requires careful population and emergency planning</td><td>Population-interface note</td></tr>
+              <tr><td><strong>Nuclear &amp; Technical</strong></td><td>Nuclear island siting</td><td>Reactor building, containment, safety systems, auxiliary systems and restricted zone</td><td>Core safety-related systems need secure, stable and compliant siting</td><td>Nuclear-island screening</td></tr>
+              <tr><td><strong>Nuclear &amp; Technical</strong></td><td>Fuel and waste interface</td><td>Fuel receipt, spent-fuel storage, radioactive waste, transport and safeguards as per law</td><td>Nuclear fuel and waste are strictly regulated</td><td>Fuel/waste compliance note</td></tr>
+              <tr><td><strong>Nuclear &amp; Technical</strong></td><td>Security systems</td><td>Physical protection, surveillance, access control, barriers and response coordination</td><td>Nuclear facilities require high security standards</td><td>Security concept note</td></tr>
+              <tr><td><strong>Nuclear &amp; Technical</strong></td><td>Emergency systems</td><td>Emergency control centre, alarms, backup systems, evacuation coordination and public communication</td><td>Required for nuclear emergency preparedness</td><td>Emergency-readiness concept</td></tr>
+              <tr><td><strong>Safety &amp; Compliance</strong></td><td>Nuclear safety</td><td>Defence-in-depth, passive safety, safety analysis and regulator-approved design basis</td><td>Central requirement for project approval and operation</td><td>Nuclear-safety screening</td></tr>
+              <tr><td><strong>Safety &amp; Compliance</strong></td><td>Radiation protection</td><td>Shielding, monitoring, controlled access, worker dose management and environmental monitoring</td><td>Protects workers, public and environment</td><td>Radiation-protection concept</td></tr>
+              <tr><td><strong>Safety &amp; Compliance</strong></td><td>Emergency planning</td><td>On-site and off-site plans, evacuation routes, medical support and district coordination</td><td>Public confidence and regulatory approval depend on readiness</td><td>Emergency-planning pathway</td></tr>
+              <tr><td><strong>Environmental &amp; Social</strong></td><td>Mine contamination</td><td>Coal dust, hydrocarbons, heavy metals, acid mine drainage, contaminated soil and mine water</td><td>Nuclear siting should not be combined with unresolved contamination risks</td><td>Contamination-screening note</td></tr>
+              <tr><td><strong>Environmental &amp; Social</strong></td><td>Community acceptance</td><td>Public perception, safety concerns, employment expectations, trust and grievance mechanisms</td><td>Nuclear projects require strong social licence</td><td>Stakeholder consultation note</td></tr>
+              <tr><td><strong>Legal / Approvals</strong></td><td>Nuclear approvals</td><td>Atomic-energy authorization, siting consent, construction consent, commissioning and operating licence</td><td>Core legal requirement for SMR development</td><td>Nuclear-approval pathway</td></tr>
+              <tr><td><strong>Legal / Approvals</strong></td><td>Mine closure status</td><td>Closure-plan compliance, reclamation obligations, restricted zones and post-mining end-use permissibility</td><td>Determines whether nuclear-energy reuse is legally possible</td><td>Closure-linkage note</td></tr>
+            </tbody>
+          </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Indicative SMR Scale Matrix</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+            <p class="spv-body-text">The following matrix presents an indicative relationship between available site area, project scale, technical configuration, and likely development potential. It is intended to support preliminary planning by helping the project owner identify the appropriate scale and configuration for the proposed repurposing option. The values and recommendations are indicative and should be refined through detailed feasibility studies, site surveys, engineering assessments, and relevant technical and commercial evaluations.</p>
+          <div class="table-wrap">
+          <table class="spv-table">
+          <thead><tr><th>Land Area</th><th>Indicative Scale</th><th>Recommended Project Scale</th><th>Likely Configuration</th><th>Typical Use Case</th></tr></thead>
+            <tbody>
+              <tr><td><strong>10–25 ha</strong></td><td>Nuclear-readiness / demonstration support campus</td><td>No reactor in first phase; training, monitoring, research, emergency-awareness and non-nuclear support facilities</td><td>Nuclear training centre, energy-transition education centre, environmental monitoring lab and grid-study support</td><td>Early-stage preparation, community awareness, workforce transition and feasibility support</td></tr>
+              <tr><td><strong>25–75 ha</strong></td><td>Micro / small SMR enabling campus</td><td>Up to about 50–100 MWe class, subject to approved technology and regulator acceptance</td><td>Single small module, compact balance-of-plant, switchyard, dry/hybrid cooling and strict security zone</td><td>Captive industrial power, remote industrial load, demonstration project or research-linked deployment</td></tr>
+              <tr><td><strong>75–150 ha</strong></td><td>Small mine-area SMR project</td><td>About 100–300 MWe class, or one BSMR-type module where legally approved</td><td>Reactor module, turbine island, cooling system, switchyard, training centre and emergency facilities</td><td>Grid supply, industrial repowering, data-centre supply or clean industrial power</td></tr>
+              <tr><td><strong>150–300 ha</strong></td><td>Medium multi-module SMR campus</td><td>300–600 MWe phased development</td><td>Two or more modules, shared cooling, shared control/support facilities, high-voltage evacuation and industrial integration</td><td>Coal-to-nuclear repowering, regional grid support and clean industrial energy hub</td></tr>
+              <tr><td><strong>300 ha+</strong></td><td>Flagship nuclear clean-energy park</td><td>600 MWe+ phased multi-module development with industrial co-location</td><td>Multi-module SMR park with grid, hydrogen, data centre, industrial heat or clean-energy cluster</td><td>State-level clean firm power, industrial decarbonisation and just-transition anchor</td></tr>
+            </tbody>
+          </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nav row — do not change IDs or onclick -->
+<!-- [CE:prism_P] -->
+      <div class="prism2-nav-row">
+        <button class="prism2-btn-prev" id="prism2-prev-P" onclick="prism2Prev()" disabled>&#8592; Previous</button>
+        <div class="prism2-progress-dots" style="display:flex;gap:5px;align-items:center;">
+          <span class="pdot active" data-p="P"></span><span class="pdot" data-p="R"></span>
+          <span class="pdot" data-p="I"></span><span class="pdot" data-p="S"></span><span class="pdot" data-p="M"></span>
+        </div>
+        <button class="prism2-btn-next" id="prism2-next-P" onclick="prism2Next()">Next pillar &#8594;</button>
+      </div>
+    </div><!-- /prism2-panel-P -->
+
+
+    <!-- ══════════════════════════════════════
+         R PANEL — Repurposing Pathways
+         ══════════════════════════════════════ -->
+    <div class="prism2-content-panel" id="prism2-panel-R" style="--pc:#1a5ca8;--pb:#e4eef9;--cb:#f3f7fd;">
+      <div class="prism2-panel-header">
+        <div class="prism2-panel-header-letter">R</div>
+        <div class="prism2-panel-header-text">
+          <div class="prism2-panel-eyebrow">REPURPOSING PATHWAYS</div>
+          <!-- EDIT: Panel description -->
+          <p class="prism2-panel-desc">This pillar presents the implementation options for SMR mine-area projects, their comparative assessment across key decision parameters, and the model-wise responsibility and risk allocation logic. Nuclear law determines which models are legally permissible; institutional capability and authorized nuclear entity involvement are essential in all cases.</p>
+        </div>
+      </div>
+
+<!-- [CS:prism_R] -->
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Implementation Options</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+            <p class="spv-body-text">The following table outlines the possible implementation models that may be considered for developing the proposed repurposing project. These models differ in terms of ownership structure, funding responsibility, private sector participation, operational control, and long-term risk allocation. The purpose of this table is to help the project owner compare broad development routes and select an implementation approach that aligns with its financial capacity, institutional preference, risk appetite, and long-term asset management objectives.</p>
+          <div class="table-wrap">
+          <table class="spv-table">
+          <thead><tr><th>Main Group</th><th>Model</th><th>Core Feature</th><th>Broad Suitability</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Owner-led</strong></td><td>EPC</td><td>The authorized nuclear owner funds, develops and retains ownership while qualified contractors undertake design, engineering, procurement and construction under nuclear regulatory control</td><td>Suitable only where an authorized nuclear entity has full funding, licensing capability, technical governance and long-term operating responsibility</td></tr>
+              <tr><td><strong>Owner-led</strong></td><td>EPC + O&amp;M / Facility Management</td><td>Authorized owner funds and owns the SMR; specialized nuclear O&amp;M, security, maintenance and facility-management agencies support operation under licensed oversight</td><td>Suitable where owner retains strategic control but requires specialist nuclear operations, maintenance, security and support services</td></tr>
+              <tr><td><strong>Developer-led / PPP</strong></td><td>BOOT</td><td>Qualified developer finances, builds, owns and operates the SMR during a concession period and transfers at end, subject to nuclear law</td><td>Suitable only if national law permits and the developer is an authorized nuclear entity or works under an authorized structure</td></tr>
+              <tr><td><strong>Developer-led / PPP</strong></td><td>BOO</td><td>Qualified nuclear developer finances, develops, owns and operates the SMR long-term without mandatory transfer</td><td>Suitable only where long-term private/institutional nuclear ownership is legally permitted and safety responsibility is clearly licensed</td></tr>
+              <tr><td><strong>Developer-led / PPP</strong></td><td>DBFOT</td><td>Concessionaire designs, builds, finances, operates and transfers the SMR under a structured PPP arrangement with nuclear-regulatory approvals</td><td>Potentially suitable for large SMR parks if the legal framework permits private participation under authorized nuclear oversight</td></tr>
+              <tr><td><strong>Developer-led / PPP</strong></td><td>Concession / Lease-Develop-Operate</td><td>Mine owner provides land, access and selected enabling infrastructure; authorized nuclear developer develops, operates and commercialises the SMR under defined concession terms</td><td>Suitable where mine owner wants to retain land control but cannot directly own or operate nuclear assets</td></tr>
+              <tr><td><strong>Mixed</strong></td><td>Hybrid</td><td>Mine owner supports land, grid, access, water, community transition and enabling works; authorized nuclear entity / public agency / approved developer undertakes nuclear development and operation</td><td>Particularly suitable — nuclear projects require public oversight, specialized licensing, long-term safety control and risk sharing</td></tr>
+            </tbody>
+          </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Comparative Assessment of Key Models</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+            <p class="spv-body-text">The following comparative assessment evaluates the major implementation models across key decision parameters such as investment requirement, ownership control, financing responsibility, contractual complexity, risk transfer, and long-term economic benefit. This matrix is intended to support early-stage decision-making by highlighting the relative strengths and limitations of each model. The final choice of model should be guided by the specific circumstances of the project, including its scale, commercial viability, applicable policy framework, and the owner's institutional preference.</p>
+          <div class="table-wrap">
+          <table class="spv-table">
+          <thead><tr><th>Evaluation Parameter</th><th>EPC</th><th>EPC+O&amp;M</th><th>BOOT</th><th>BOO</th><th>DBFOT</th><th>Concession / LDO</th><th>Hybrid</th></tr></thead>
+            <tbody>
+              <tr><td>Upfront investment by Mine Owner</td><td>Very High (if authorized)</td><td>Very High (if authorized)</td><td>Low to Moderate</td><td>Low</td><td>Low to Moderate</td><td>Low to Moderate</td><td>Varies</td></tr>
+              <tr><td>Need for private financing</td><td>Low</td><td>Low</td><td>High</td><td>High</td><td>High</td><td>Moderate to High</td><td>Varies</td></tr>
+              <tr><td>Long-term control over SMR asset</td><td>High (if authorized)</td><td>High (if authorized)</td><td>Moderate (improves after transfer)</td><td>Low</td><td>Moderate to High</td><td>Moderate through concession terms</td><td>High through authorized nuclear structure</td></tr>
+              <tr><td>Contractual complexity</td><td>High</td><td>Very High</td><td>Very High</td><td>Very High</td><td>Very High</td><td>Very High</td><td>Very High</td></tr>
+              <tr><td>Nuclear safety responsibility</td><td>Licensed owner/operator</td><td>Licensed owner/operator</td><td>Licensed developer/operator</td><td>Licensed developer/operator</td><td>Licensed concessionaire</td><td>Licensed concessionaire</td><td>Licensed nuclear entity</td></tr>
+              <tr><td>Need for nuclear operations expertise</td><td>Extremely High</td><td>Extremely High</td><td>Extremely High</td><td>Extremely High</td><td>Extremely High</td><td>Extremely High</td><td>Extremely High</td></tr>
+              <tr><td>Suitability for phased modular expansion</td><td>Moderate</td><td>High</td><td>High</td><td>High</td><td>High</td><td>High</td><td>Very High</td></tr>
+              <tr><td>Construction / implementation timeline risk</td><td>Very High</td><td>Very High</td><td>Very High</td><td>Very High</td><td>Very High</td><td>Very High</td><td>Very High</td></tr>
+              <tr><td>Suitability for local employment and service ecosystem</td><td>High</td><td>Very High</td><td>High</td><td>Moderate to High</td><td>High to Very High</td><td>High to Very High</td><td>Very High</td></tr>
+              <tr><td>Overall suitability for mine-area SMR</td><td>Limited / conditional</td><td>High (if authorized structure exists)</td><td>Conditional</td><td>Conditional</td><td>High but legally complex</td><td>Very High (if legally permitted)</td><td>Very High / Most practical</td></tr>
+            </tbody>
+          </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Model-Wise Responsibility Logic</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+            <p class="spv-body-text">The following table explains how major project responsibilities are typically allocated under different implementation models. It covers key functional areas such as site availability, financing, design and construction, regulatory approvals, operation and maintenance, revenue collection, asset ownership, and end-of-term transfer. This helps clarify the respective roles of the project owner, private developer, EPC contractor, operator, or concessionaire, and supports the preparation of tender documents and contractual structures.</p>
+          <div class="table-wrap">
+          <table class="spv-table">
+          <thead><tr><th>Responsibility Area</th><th>EPC</th><th>EPC+O&amp;M</th><th>BOOT</th><th>DBFOT</th><th>Concession / LDO</th><th>Hybrid</th></tr></thead>
+            <tbody>
+              <tr><td>Site / Land Availability</td><td>Owner</td><td>Owner</td><td>Usually owner / authority</td><td>Usually owner / authority</td><td>Owner / authority</td><td>Variable</td></tr>
+              <tr><td>Mine Closure Compatibility</td><td>Owner</td><td>Owner</td><td>Shared</td><td>Shared</td><td>Shared</td><td>Shared</td></tr>
+              <tr><td>Nuclear Legal Eligibility</td><td>Owner / authorized nuclear entity</td><td>Owner / authorized entity</td><td>Developer / authorized entity</td><td>Concessionaire / authorized entity</td><td>Authorized concessionaire</td><td>Authorized nuclear partner</td></tr>
+              <tr><td>Financing</td><td>Owner</td><td>Owner</td><td>Private / authorized developer</td><td>Private / public concessionaire</td><td>Concessionaire, sometimes with owner support</td><td>Shared / variable</td></tr>
+              <tr><td>Nuclear Licensing</td><td>Authorized owner/operator</td><td>Authorized owner/operator</td><td>Authorized developer/operator</td><td>Authorized concessionaire</td><td>Authorized concessionaire</td><td>Authorized nuclear entity</td></tr>
+              <tr><td>Operations</td><td>Licensed owner</td><td>Licensed operator / O&amp;M agency under regulatory oversight</td><td>Developer during concession</td><td>Concessionaire during concession</td><td>Concessionaire / operator</td><td>Licensed nuclear entity</td></tr>
+              <tr><td>Waste and Spent-Fuel Management</td><td>Licensed owner / national framework</td><td>Licensed owner / operator</td><td>Licensed developer / national framework</td><td>Concessionaire / national framework</td><td>Concessionaire / national framework</td><td>Authorized nuclear entity</td></tr>
+              <tr><td>Revenue Realization</td><td>Owner</td><td>Owner or operator as per contract</td><td>Developer during concession</td><td>Concessionaire during concession</td><td>Concessionaire as per concession</td><td>Shared as per agreement</td></tr>
+              <tr><td>Transfer at End of Term</td><td>No</td><td>No</td><td>Yes (if legally permitted)</td><td>Yes</td><td>As agreed and legally permitted</td><td>As agreed</td></tr>
+            </tbody>
+          </table>
+          </div>
+        </div>
+      </div>
+
+<!-- [CE:prism_R] -->
+      <div class="prism2-nav-row">
+        <button class="prism2-btn-prev" id="prism2-prev-R" onclick="prism2Prev()">&#8592; Previous</button>
+        <div class="prism2-progress-dots" style="display:flex;gap:5px;align-items:center;">
+          <span class="pdot" data-p="P"></span><span class="pdot active" data-p="R"></span>
+          <span class="pdot" data-p="I"></span><span class="pdot" data-p="S"></span><span class="pdot" data-p="M"></span>
+        </div>
+        <button class="prism2-btn-next" id="prism2-next-R" onclick="prism2Next()">Next pillar &#8594;</button>
+      </div>
+    </div><!-- /prism2-panel-R -->
+
+
+    <!-- ══════════════════════════════════════
+         I PANEL — Investment Dynamics
+         ══════════════════════════════════════ -->
+    <div class="prism2-content-panel" id="prism2-panel-I" style="--pc:#b06a10;--pb:#faedda;--cb:#fdf7f0;">
+      <div class="prism2-panel-header">
+        <div class="prism2-panel-header-letter">I</div>
+        <div class="prism2-panel-header-text">
+          <div class="prism2-panel-eyebrow">INVESTMENT DYNAMICS</div>
+          <!-- EDIT: Panel description -->
+          <p class="prism2-panel-desc">This pillar presents the funding logic, revenue generation mechanisms, and local livelihood potential for SMR mine-area projects under different implementation models. Given the very high CAPEX and long project life, revenue certainty through PPAs, capacity contracts or regulated tariffs is critical. The Hybrid model generates the strongest community and employment outcomes.</p>
+        </div>
+      </div>
+
+<!-- [CS:prism_I] -->
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Funding Logic by Model</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+            <p class="spv-body-text">The following table presents the broad funding logic for each implementation model. It explains who is expected to finance the project, the level of owner-side funding requirement, and the commercial rationale behind each structure. This section is intended to help the project owner assess whether the project is more suitable for owner-funded development, private investment, public-private partnership, lease or concession structure, or a hybrid funding arrangement.</p>
+          <div class="table-wrap">
+          <table class="spv-table">
+          <thead><tr><th>Model</th><th>Primary Funding Source</th><th>Owner Funding Requirement</th><th>Commercial Logic</th></tr></thead>
+            <tbody>
+              <tr><td><strong>EPC</strong></td><td>Authorized owner's budget, sovereign support, nuclear-sector funding, institutional debt, green finance</td><td>Very High</td><td>Authorized owner directly finances and develops the SMR, retains full ownership and captures long-term strategic and commercial benefits. Suitable only where owner has legal eligibility, capital strength, nuclear governance and operating capability.</td></tr>
+              <tr><td><strong>EPC + O&amp;M</strong></td><td>Authorized owner's budget, nuclear-sector funding, public-sector support, regulated tariff recovery; O&amp;M funded through power revenue or capacity payments</td><td>Very High</td><td>Owner finances and retains ownership while specialized nuclear O&amp;M and facility agencies support safe operation under licensed oversight.</td></tr>
+              <tr><td><strong>BOOT</strong></td><td>Qualified developer equity, project finance, strategic investors, sovereign support, utility contracts, industrial offtake, green finance</td><td>Low to Moderate</td><td>Developer finances, builds, owns and operates during concession, recovering investment through power sales, capacity charges, industrial power contracts and grid services before transferring the asset.</td></tr>
+              <tr><td><strong>BOO</strong></td><td>Qualified nuclear developer equity, private/institutional debt, utility investment, strategic investors, industrial offtake</td><td>Low</td><td>Developer finances, owns and operates long-term. Mine owner benefits mainly through land lease, concession charge, infrastructure-use fee and local economic activity.</td></tr>
+              <tr><td><strong>DBFOT</strong></td><td>Qualified concessionaire equity, project finance, sovereign or state support, utility offtake, industrial users, clean-energy finance</td><td>Low to Moderate</td><td>Private/public concessionaire designs, builds, finances, operates and transfers the SMR. Investment recovery through regulated tariff, PPA, capacity payments, industrial contracts and grid services.</td></tr>
+              <tr><td><strong>Concession / LDO</strong></td><td>Qualified nuclear concessionaire investment, authorized nuclear entity, utility/industrial anchor, institutional finance</td><td>Low to Moderate</td><td>Mine owner provides land, access, grid/water facilitation and development rights; authorized developer invests in siting, licensing, construction and commercialisation. Owner benefits through lease rentals, concession fees, milestone payments and revenue share.</td></tr>
+              <tr><td><strong>Hybrid</strong></td><td>Shared funding from mine owner, authorized nuclear entity, government, utility, industrial offtaker, green finance and private investment where legally permitted</td><td>Variable</td><td>Mine owner supports land, closure-linkage, infrastructure, transmission facilitation and community engagement; nuclear partner funds reactor technology, licensing, construction and operation. Particularly suitable where strategic clean-energy value is high but nuclear risk must remain with authorized specialists.</td></tr>
+            </tbody>
+          </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Revenue Generation by Model</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+            <p class="spv-body-text">The following table explains how revenue may be generated under different implementation models and identifies who is likely to receive the principal project income. It also describes the nature and extent of the financial benefit available to the project owner, whether through direct project revenue, cost savings, lease income, concession fees, revenue sharing, service charges, or eventual asset transfer. This comparison is intended to support the selection of a commercially appropriate model for the proposed repurposing project.</p>
+          <div class="table-wrap">
+          <table class="spv-table">
+          <thead><tr><th>Model</th><th>How Revenue is Generated</th><th>Who Receives Main Revenue</th><th>Owner's Financial Benefit</th></tr></thead>
+            <tbody>
+              <tr><td><strong>EPC</strong></td><td>Owner-led sale of electricity, regulated tariff, capacity charge, industrial power supply, clean firm power contracts, grid services, process heat, hydrogen support or data-centre power</td><td>Authorized owner</td><td>Full financial benefit from operational revenues, subject to owner bearing full capital cost, licensing risk, construction risk, operating responsibility, nuclear liability and long-term decommissioning burden</td></tr>
+              <tr><td><strong>EPC + O&amp;M</strong></td><td>Electricity sale, capacity payments, PPA, industrial offtake, clean-energy supply, grid services and process-heat revenue, net of O&amp;M/facility-management payments</td><td>Authorized owner (after O&amp;M payments)</td><td>High financial benefit — owner retains core revenue rights and asset ownership while paying specialist agencies for operation, maintenance, safety and facility support</td></tr>
+              <tr><td><strong>BOOT</strong></td><td>PPA, capacity charge, industrial power contracts, grid services, firm clean power and data-centre power during concession term</td><td>Developer / concessionaire during concession</td><td>Financial benefit generally indirect — through lease rent, concession fee, revenue share, local economic uplift and transfer of the SMR asset at end of concession where legally permitted</td></tr>
+              <tr><td><strong>BOO</strong></td><td>Long-term private/institutional operation including electricity sale, industrial contracts, capacity payments and clean-energy supply</td><td>Developer / private owner</td><td>Limited direct financial benefit — generally through land lease, fixed concession charges, annual fee, negotiated local benefits or infrastructure-use payments</td></tr>
+              <tr><td><strong>DBFOT</strong></td><td>Structured concession revenue including regulated tariff, PPA, capacity payment, industrial offtake, grid support and permitted clean-energy monetisation</td><td>Developer / concessionaire during concession</td><td>Benefit through concession fee, lease income, revenue sharing, possible performance-linked payments and transfer of asset at end of concession where legally permitted</td></tr>
+              <tr><td><strong>Concession / LDO</strong></td><td>Lease/concession-based SMR operation including power sales, PPA, industrial supply, grid services, clean firm power and process-heat contracts</td><td>Concessionaire / operator as per agreement</td><td>Financial benefit through lease rentals, concession fee, development premium, annual payment, revenue share, enhanced land value and broader regional economic benefits</td></tr>
+              <tr><td><strong>Hybrid</strong></td><td>Combination of power sale, capacity payment, industrial offtake, public support, clean-energy contracts, grid services and shared commercial income</td><td>Shared as per agreement</td><td>Variable financial benefit depending on ownership, funding, offtake, risk allocation, public support, nuclear operator role and commercial terms</td></tr>
+            </tbody>
+          </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Local Livelihood and Jobs by Model</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+            <p class="spv-body-text">The following table assesses the likely local livelihood and employment potential of each implementation model. It considers the extent to which each model can support construction-phase jobs, long-term operational employment, local procurement opportunities, skill development, community participation, and associated support services. This section is particularly relevant where the repurposing project is expected to contribute to post-mining or post-operational economic transition and sustained local community benefit.</p>
+          <div class="table-wrap">
+          <table class="spv-table">
+          <thead><tr><th>Model</th><th>Local Job Potential</th><th>Why</th><th>Overall Suggestibility for Local Livelihood</th></tr></thead>
+            <tbody>
+              <tr><td><strong>EPC</strong></td><td>High</td><td>Construction can generate employment in civil works, electrical systems, security, transport, logistics, utilities and support services. Long-term jobs arise in operations support, maintenance, security, emergency services and administration, though many nuclear roles require advanced certification.</td><td>High</td></tr>
+              <tr><td><strong>EPC + O&amp;M</strong></td><td>High to Very High</td><td>Supports construction jobs and sustained long-term technical and support roles under owner control, including training pathways for local youth, mine workers, technicians and service providers where safety and qualification requirements are met.</td><td>Very High</td></tr>
+              <tr><td><strong>BOOT</strong></td><td>High</td><td>Developer-led construction and operation can create long-term jobs during the concession period. Local benefits can be strong if concession terms require local training, apprenticeships, vendor inclusion and transition of eligible mine/power workers.</td><td>High</td></tr>
+              <tr><td><strong>BOO</strong></td><td>Moderate to High</td><td>Can create significant jobs, but local livelihood depends heavily on private operator staffing policies, automation level, security protocols and contractual local-employment obligations.</td><td>Moderate to High</td></tr>
+              <tr><td><strong>DBFOT</strong></td><td>High to Very High</td><td>Formal PPP structure can include local hiring, training, apprenticeship, vendor participation, emergency-response capacity, technical scholarships and community-development obligations.</td><td>Very High</td></tr>
+              <tr><td><strong>Concession / LDO</strong></td><td>High to Very High</td><td>Supports local employment through construction, maintenance, transport, security, facility services, emergency support, training centres and local supply chains, provided concession terms mandate local inclusion.</td><td>Very High</td></tr>
+              <tr><td><strong>Hybrid</strong></td><td>Very High</td><td>Can combine public transition objectives with authorized nuclear expertise, allowing explicit provisions for worker retraining, technical education, women's employment, local services, scholarships, emergency-response training and regional industrial development.</td><td>Very High / Highly Suitable</td></tr>
+            </tbody>
+          </table>
+          </div>
+        </div>
+      </div>
+
+<!-- [CE:prism_I] -->
+            <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Combined Comparison: Revenue, Profitability, and Livelihood</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following combined comparison brings together three important dimensions of project structuring: revenue potential, owner-side financial benefit, and local livelihood generation. It provides a consolidated view of how each implementation model performs across commercial, institutional, and community-development perspectives. This matrix is intended to support balanced decision-making where the objective extends beyond financial return to include sustainable site reuse and long-term local economic benefit.</p>
+        <div class="table-wrap">
+          <table class="spv-table">
+            <thead><tr><th>Model</th><th>Owner Profitability</th><th>Local Job Creation</th><th>Overall Comment</th></tr></thead>
+            <tbody>
+              <tr><td><strong>EPC</strong></td><td>High — owner retains full revenue after capital repayment</td><td>Moderate to High</td><td>Suitable where the owner has funding capacity and seeks full control over the asset</td></tr>
+              <tr><td><strong>EPC + O&amp;M</strong></td><td>High — strong ongoing revenue net of O&amp;M costs</td><td>High to Very High</td><td>Best for owners who can fund development and want sustained control with professional management</td></tr>
+              <tr><td><strong>BOOT</strong></td><td>Moderate — income through lease, concession fee, or transfer value</td><td>High</td><td>Suitable where private financing is needed; owner benefits indirectly and gains the asset at end of concession</td></tr>
+              <tr><td><strong>BOO</strong></td><td>Low to Moderate — primarily through lease or royalty income</td><td>Moderate to High</td><td>Suitable where long-term private ownership is acceptable and the owner wishes to retain land rights</td></tr>
+              <tr><td><strong>DBFOT</strong></td><td>Moderate to High — through lease, concession fee, and transfer</td><td>High to Very High</td><td>Strong PPP structure for larger projects requiring private investment and structured public participation</td></tr>
+              <tr><td><strong>Concession / LDO</strong></td><td>Moderate — through concession fee and revenue-sharing arrangement</td><td>High to Very High</td><td>Highly suitable where the owner wants to retain land while outsourcing commercial activation</td></tr>
+              <tr><td><strong>Hybrid</strong></td><td>Variable to High — depends on structure and revenue-sharing terms</td><td>Very High</td><td>Most suitable where public value, community benefit, and commercial viability are all required</td></tr>
+            </tbody>
+          </table>
+        </div>
+        </div>
+      </div>
+
+<div class="prism2-nav-row">
+        <button class="prism2-btn-prev" id="prism2-prev-I" onclick="prism2Prev()">&#8592; Previous</button>
+        <div class="prism2-progress-dots" style="display:flex;gap:5px;align-items:center;">
+          <span class="pdot" data-p="P"></span><span class="pdot" data-p="R"></span>
+          <span class="pdot active" data-p="I"></span><span class="pdot" data-p="S"></span><span class="pdot" data-p="M"></span>
+        </div>
+        <button class="prism2-btn-next" id="prism2-next-I" onclick="prism2Next()">Next pillar &#8594;</button>
+      </div>
+    </div><!-- /prism2-panel-I -->
+
+
+    <!-- ══════════════════════════════════════
+         S PANEL — Strategic Structuring
+         ══════════════════════════════════════ -->
+    <div class="prism2-content-panel" id="prism2-panel-S" style="--pc:#5a3d9e;--pb:#edeaf8;--cb:#f7f5fd;">
+      <div class="prism2-panel-header">
+        <div class="prism2-panel-header-letter">S</div>
+        <div class="prism2-panel-header-text">
+          <div class="prism2-panel-eyebrow">STRATEGIC STRUCTURING</div>
+          <!-- EDIT: Panel description -->
+          <p class="prism2-panel-desc">This pillar identifies the critical owner-side preparatory actions that must be completed before issuing the first RFP, and the principal post-award activities to be undertaken by the selected developer, concessionaire or EPC contractor. Nuclear siting, regulatory pathway, mine-safety mapping and geotechnical screening are absolute pre-requisites before any bid process can begin.</p>
+        </div>
+      </div>
+
+<!-- [CS:prism_S] -->
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Preparations Needed Before RFP</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following section identifies the key owner-side preparatory actions that should ideally be completed before issuing the first Request for Proposal. These actions are aimed at reducing uncertainty for prospective bidders, improving project bankability, clarifying site availability, identifying approval pathways and risks, and defining the technical and commercial scope of the project. Completing these preparatory steps before tendering can improve bid quality, attract credible responses, and reduce the risk of delays during project implementation.</p>
+          <p class="spv-body-text">Before issuing an RFP for an SMR-based mine-repurposing project, the mine owner should prepare the following in priority order:</p>
+          <ol class="spv-list" style="list-style:decimal;padding-left:1.4em;">
+            <li><strong>Land, mine-closure and permissibility confirmation</strong> — Confirm land ownership, mine-closure status, post-mining land-use permissibility, nuclear-energy land-use permissibility, leaseability and restrictions under applicable law.</li>
+            <li><strong>Mine-safety and no-go zone mapping</strong> — Map pits, highwalls, underground workings, shafts, galleries, subsidence zones, unstable dumps, unsafe water bodies and restricted mine infrastructure.</li>
+            <li><strong>Preliminary nuclear siting screening</strong> — Assess site suitability for nuclear use, including land area, stability, flood safety, seismic context, population interface, access, cooling, grid and emergency planning.</li>
+            <li><strong>Geotechnical, seismic and subsidence screening</strong> — Prepare initial studies on foundation condition, old mine workings, settlement, slope stability, seismic hazard and long-term ground reliability.</li>
+            <li><strong>Cooling-water and water-quality assessment</strong> — Identify river, reservoir, treated wastewater, mine-water treatment, cooling tower, dry-cooling or hybrid-cooling feasibility and environmental implications.</li>
+            <li><strong>Grid connectivity and evacuation assessment</strong> — Confirm nearest substation, transmission capacity, voltage level, grid reliability, system studies and scope for clean firm power injection.</li>
+            <li><strong>Environmental, contamination and land-risk screening</strong> — Assess coal dust, hydrocarbon contamination, heavy metals, acid mine drainage, soil quality, groundwater, biodiversity, air, water and noise baseline.</li>
+            <li><strong>Population, emergency and social-acceptance screening</strong> — Identify nearby settlements, evacuation routes, hospitals, district emergency capacity, public perception, community concerns and communication strategy.</li>
+            <li><strong>Nuclear regulatory and legal pathway note</strong> — Identify applicable atomic-energy, nuclear safety, radiation protection, environmental, security, safeguards, fuel, waste and liability requirements.</li>
+            <li><strong>Market, offtake and revenue assessment</strong> — Assess potential revenue through grid PPA, capacity payments, industrial supply, data-centre power, hydrogen, process heat, regulated tariff or government-backed procurement.</li>
+            <li><strong>Implementation model and risk-allocation decision</strong> — Select preferred model (Hybrid, Concession/LDO, DBFOT, BOOT or EPC+O&amp;M) based on legal feasibility, CAPEX, nuclear eligibility, offtake and risk appetite.</li>
+            <li><strong>Draft RFP scope and bid framework</strong> — Prepare bidder scope covering siting studies, regulatory pathway, technology qualification, design, finance, construction, operation, security, emergency planning, community engagement, local employment, decommissioning and handback obligations.</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Activities to be taken After Selecting the Agency</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following section lists the principal activities that may be undertaken by the selected contractor, developer, concessionaire, operator, or implementation agency after award of the project. These activities generally include detailed site investigations, engineering design, statutory submissions and approvals, equipment procurement, construction, commissioning, operational planning, staff training, and performance monitoring. The distinction between pre-RFP owner preparedness and post-award implementation responsibilities helps ensure an appropriate and efficient allocation of effort across the project development cycle.</p>
+          <p class="spv-body-text">After award, the selected concessionaire / developer / EPC contractor / O&amp;M agency can take up the following activities in chronological order:</p>
+          <ol class="spv-list" style="list-style:decimal;padding-left:1.4em;">
+            <li><strong>Detailed site investigation and nuclear siting studies</strong> — Geotechnical drilling, seismic study, hydrology, flood modelling, subsidence modelling, environmental baseline, population assessment and emergency-planning review.</li>
+            <li><strong>Detailed mine-stability and contamination studies</strong> — Subsurface mine-void assessment, ground-improvement plan, contamination remediation plan, mine-water treatment plan and long-term land-stability assurance.</li>
+            <li><strong>Technology selection and licensing preparation</strong> — Finalise approved SMR technology, reactor class, safety case approach, licensing documents, regulator engagement plan and design-basis assumptions.</li>
+            <li><strong>Statutory approvals and clearances</strong> — Obtain nuclear siting approval, construction approval, environmental clearance, water permission, grid connectivity, security approvals, radiation-safety permissions and other state/central approvals.</li>
+            <li><strong>Final master planning and engineering design</strong> — Finalise reactor area, turbine island, cooling system, switchyard, security perimeter, access routes, emergency facilities, administration, training centre and support infrastructure.</li>
+            <li><strong>Financial closure and offtake arrangement</strong> — Finalise equity, debt, public support, regulated tariff, PPA, capacity contract, industrial offtake, grid-service arrangement or government-backed procurement.</li>
+            <li><strong>Procurement and construction preparation</strong> — Procure nuclear-grade components, civil packages, turbines, generators, transformers, cooling systems, control systems, safety systems, security equipment and balance-of-plant systems.</li>
+            <li><strong>Construction of nuclear, civil, grid and support works</strong> — Construct foundations, reactor building, turbine island, cooling systems, switchyard, access roads, water systems, security systems, emergency facilities and support buildings.</li>
+            <li><strong>Installation of control, electrical and safety systems</strong> — Install instrumentation, control systems, protection, communications, cybersecurity systems, emergency systems, monitoring systems and grid-dispatch interface.</li>
+            <li><strong>Safety systems, operating procedures and staffing</strong> — Prepare operating manuals, emergency plans, security plans, radiation-protection procedures, O&amp;M manuals, training programmes and licensed staff deployment.</li>
+            <li><strong>Local livelihood and vendor integration</strong> — Engage eligible local workers, service providers, transport operators, security staff, maintenance support, emergency-response trainees and technical apprentices under strict qualification and safety requirements.</li>
+            <li><strong>Testing, commissioning and regulatory readiness</strong> — Equipment testing, system validation, emergency drills, regulator inspections, grid synchronisation tests and commissioning activities as permitted by the regulator.</li>
+            <li><strong>Commercial operation and compliance monitoring</strong> — Begin operation only after statutory readiness; continue nuclear safety monitoring, radiation monitoring, environmental compliance, security, maintenance, emergency preparedness and annual performance review.</li>
+            <li><strong>Phased expansion or optimisation</strong> — Add future modules, industrial integration, hydrogen production, data-centre linkage or additional grid services only after stable operation, regulator approval, safety validation and owner/authority approval.</li>
+          </ol>
+        </div>
+      </div>
+
+<!-- [CE:prism_S] -->
+      <div class="prism2-nav-row">
+        <button class="prism2-btn-prev" id="prism2-prev-S" onclick="prism2Prev()">&#8592; Previous</button>
+        <div class="prism2-progress-dots" style="display:flex;gap:5px;align-items:center;">
+          <span class="pdot" data-p="P"></span><span class="pdot" data-p="R"></span>
+          <span class="pdot" data-p="I"></span><span class="pdot active" data-p="S"></span><span class="pdot" data-p="M"></span>
+        </div>
+        <button class="prism2-btn-next" id="prism2-next-S" onclick="prism2Next()">Next pillar &#8594;</button>
+      </div>
+    </div><!-- /prism2-panel-S -->
+
+
+    <!-- ══════════════════════════════════════
+         M PANEL — Monitoring Guidance
+         ══════════════════════════════════════ -->
+    <div class="prism2-content-panel" id="prism2-panel-M" style="--pc:#1a7a5e;--pb:#e1f3ec;--cb:#f1faf6;">
+      <div class="prism2-panel-header">
+        <div class="prism2-panel-header-letter">M</div>
+        <div class="prism2-panel-header-text">
+          <div class="prism2-panel-eyebrow">MONITORING GUIDANCE</div>
+          <!-- EDIT: Panel description -->
+          <p class="prism2-panel-desc">This pillar presents the indicative implementation pathway, recommended way forward with preferred models, key references, and glossary of abbreviations for SMR mine-area repurposing projects. The Hybrid model is recommended as the primary approach, followed by Concession/LDO and DBFOT, reflecting the unique nuclear safety, regulatory and institutional requirements of this category.</p>
+        </div>
+      </div>
+
+<!-- [CS:prism_M] -->
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Indicative Implementation Pathway</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following implementation pathway presents a practical high-level sequence for advancing the proposed repurposing concept from initial approval through to project execution and long-term operation. It outlines the broad stages of concept approval, preliminary studies, model selection, bid preparation, procurement, detailed design, statutory approvals, construction, commissioning, and ongoing operation. This pathway is indicative and should be adapted to reflect the specific complexity, regulatory requirements, financing structure, and site conditions applicable to the project.</p>
+          <ol class="spv-list" style="list-style:decimal;padding-left:1.4em;">
+            <li>Concept approval and owner-side structuring</li>
+            <li>Screening of closed mine / coal-industrial sites for SMR suitability</li>
+            <li>Land, closure-plan, mine-safety, geotechnical, seismic, flood, cooling, grid and access studies</li>
+            <li>Preliminary nuclear siting and legal-pathway screening</li>
+            <li>Environmental, contamination and social-acceptance screening</li>
+            <li>Market sounding with authorized nuclear entities, utilities, industrial offtakers, technology providers, state agencies and regulators</li>
+            <li>Concept planning and phasing strategy</li>
+            <li>Identification of owner-side enabling scope (land, access, grid, water, safety works and community engagement)</li>
+            <li>Selection of preferred implementation model</li>
+            <li>Preparation of pre-feasibility report, siting terms, bid documents and concession / partnership structure</li>
+            <li>Issuance of RFQ / RFP only where legally permissible</li>
+            <li>Selection of authorized concessionaire / developer / nuclear partner</li>
+            <li>Detailed siting studies, licensing, clearances, grid connectivity and financial closure</li>
+            <li>Detailed design, construction and nuclear-grade installation</li>
+            <li>Testing, commissioning, regulator approvals, grid synchronisation and trial operation</li>
+            <li>Commercial operation, safety monitoring, security, compliance reporting and phased expansion where feasible</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Way Forward — Preferred Models</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following way forward summarizes the preferred development approach for the proposed repurposing option, based on the assessment presented in PRISM (Post Mining Repurposing Implementation and Strategy Models). It identifies the most suitable implementation models in order of preference, highlights key technical and due-diligence considerations, and outlines the recommended next steps and broad development logic. This section is intended to guide internal decision-making and support the project owner in progressing from concept-stage evaluation toward feasibility assessment, project structuring, regulatory approvals, and implementation planning.</p>
+          <p class="spv-body-text"><strong>Preferred Models (in order of suitability):</strong></p>
+          <ol class="spv-list" style="list-style:decimal;padding-left:1.4em;">
+            <li><strong>Hybrid</strong></li>
+            <li><strong>Concession / Lease-Develop-Operate</strong></li>
+            <li><strong>DBFOT</strong></li>
+          </ol>
+          <p class="spv-body-text" style="margin-top:10px;"><strong>Why Hybrid is preferred:</strong> An SMR project in a closed mine area requires a combination of mine-owner land control, public oversight, authorized nuclear technical capability, regulatory approval, long-term safety governance, grid integration and community transition planning. The mine owner can provide land, closure-linkage, access, enabling infrastructure and local transition support, while an authorized nuclear entity / utility / qualified developer carries nuclear design, licensing, construction, operation and compliance responsibility.</p>
+          <p class="spv-body-text"><strong>Concession / LDO</strong> is also suitable where the mine owner wants to retain land control but allow an authorized nuclear developer or utility to invest, build, operate and commercialise the SMR under strict concession conditions.</p>
+          <p class="spv-body-text"><strong>DBFOT</strong> is suitable for larger SMR parks where long-term concession structuring, private/public finance, industrial offtake, grid integration and eventual transfer are legally and institutionally feasible.</p>
+          <p class="spv-body-text"><strong>Secondary option:</strong> EPC + O&amp;M may be used only where the owner itself is an authorized nuclear entity or where a public-sector nuclear owner develops the project with specialist operations and facility-management support.</p>
+          <p class="spv-body-text"><strong>Recommended knockout screening:</strong> Apply knockout criteria first — legal permissibility, authorized nuclear partner, stable land, mine-hazard separation, cooling feasibility, grid evacuation, emergency-planning feasibility, environmental acceptability and community acceptance. Only passing sites should move to nuclear pre-feasibility, regulator engagement, market sounding and implementation structuring.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>References</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <ol class="spv-list" style="list-style:decimal;padding-left:1.4em;">
+            <li>International Atomic Energy Agency. 2024. <em>Small Modular Reactors: Advances in SMR Developments 2024</em>. Vienna: IAEA.</li>
+            <li>International Atomic Energy Agency. 2025. <em>IAEA Platform on Small Modular Reactors and Their Applications: Annual Report 2025</em>. Vienna: IAEA.</li>
+            <li>Press Information Bureau, Government of India. 2026. <em>Parliament Question: Development of Small Modular Reactors</em>. New Delhi: Department of Atomic Energy.</li>
+            <li>Press Information Bureau, Government of India. 2026. <em>Deployment of Small Modular Reactors</em>. New Delhi: Department of Atomic Energy.</li>
+            <li>Department of Atomic Energy, Government of India. 2025. <em>Nuclear Energy Mission and Bharat Small Modular Reactor Development Information</em>. New Delhi: GoI.</li>
+            <li>U.S. Department of Energy, Office of Nuclear Energy. 2024. <em>Coal-to-Nuclear Transitions: An Information Guide</em>. Washington, DC: U.S. DOE.</li>
+            <li>U.S. Department of Energy, Office of Nuclear Energy. 2024. <em>Coal-to-Nuclear Transitions: Repowering Coal Sites with Advanced Nuclear Energy</em>. Washington, DC: U.S. DOE.</li>
+            <li>National Association of State Energy Officials. 2023. <em>Coal to Nuclear Repowering: Considerations for States and Communities</em>. Arlington: NASEO.</li>
+            <li>NuScale Power. 2025. <em>NuScale Power Module Technical Information and Standard Design Approval Information</em>. Corvallis: NuScale Power Corporation.</li>
+            <li>U.S. Nuclear Regulatory Commission. 2023. <em>Final Rule: NuScale Small Modular Reactor Design Certification</em>. Washington, DC: U.S. NRC.</li>
+            <li>U.S. Nuclear Regulatory Commission. 2025. <em>Standard Design Approval for the 77 MWe NuScale Power Module</em>. Washington, DC: U.S. NRC.</li>
+            <li>World Nuclear Association. 2025. <em>Small Nuclear Power Reactors</em>. London: WNA.</li>
+            <li>OECD Nuclear Energy Agency. 2023. <em>The NEA Small Modular Reactor Dashboard</em>. Paris: OECD NEA.</li>
+            <li>Momin, R. 2023. "Physics-Driven Cost Optimization and Advanced Research and Development Strategies for Small Modular Reactors in Leading Nuclear Energy Nations." <em>arXiv Preprint</em>, arXiv:2307.12989.</li>
+            <li>Sun, Y., and Kurosaki, K. 2025. "Technical Overview of Recent Developments in Small Modular Reactors in the United States." <em>arXiv Preprint</em>, arXiv:2504.02599.</li>
+            <li>World Bank. 2024. <em>Repurposing Coal Mining Lands for a Just Transition</em>. Washington, DC: World Bank.</li>
+            <li>Ministry of Coal, Government of India. 2025. <em>RECLAIM: A Community Development Framework</em>. New Delhi: Ministry of Coal and Coal Controller Organisation.</li>
+            <li>Bureau of Indian Standards. 2016. <em>National Building Code of India 2016, Part 4: Fire and Life Safety</em>. New Delhi: BIS.</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Abbreviations</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <table class="spv-table">
+            <thead><tr><th>Abbreviation</th><th>Full Form</th></tr></thead>
+            <tbody>
+              <tr><td>SMR</td><td>Small Modular Reactor</td></tr>
+              <tr><td>BSMR</td><td>Bharat Small Modular Reactor</td></tr>
+              <tr><td>MWe</td><td>Megawatt Electric</td></tr>
+              <tr><td>MWt</td><td>Megawatt Thermal</td></tr>
+              <tr><td>PPA</td><td>Power Purchase Agreement</td></tr>
+              <tr><td>EPC</td><td>Engineering, Procurement and Construction</td></tr>
+              <tr><td>O&amp;M</td><td>Operation and Maintenance</td></tr>
+              <tr><td>FM</td><td>Facility Management</td></tr>
+              <tr><td>BOOT</td><td>Build, Own, Operate, Transfer</td></tr>
+              <tr><td>BOO</td><td>Build, Own, Operate</td></tr>
+              <tr><td>DBFOT</td><td>Design, Build, Finance, Operate, Transfer</td></tr>
+              <tr><td>PPP</td><td>Public-Private Partnership</td></tr>
+              <tr><td>RFQ</td><td>Request for Qualification</td></tr>
+              <tr><td>RFP</td><td>Request for Proposal</td></tr>
+              <tr><td>DPR</td><td>Detailed Project Report</td></tr>
+              <tr><td>CAPEX</td><td>Capital Expenditure</td></tr>
+              <tr><td>OPEX</td><td>Operating Expenditure</td></tr>
+              <tr><td>RoW</td><td>Right of Way</td></tr>
+              <tr><td>I&amp;C</td><td>Instrumentation and Control</td></tr>
+              <tr><td>TDS</td><td>Total Dissolved Solids</td></tr>
+              <tr><td>OHS</td><td>Occupational Health and Safety</td></tr>
+              <tr><td>PPE</td><td>Personal Protective Equipment</td></tr>
+              <tr><td>BARC</td><td>Bhabha Atomic Research Centre</td></tr>
+              <tr><td>NPCIL</td><td>Nuclear Power Corporation of India Limited</td></tr>
+              <tr><td>DAE</td><td>Department of Atomic Energy</td></tr>
+              <tr><td>AERB</td><td>Atomic Energy Regulatory Board</td></tr>
+              <tr><td>CCO</td><td>Coal Controller Organisation</td></tr>
+              <tr><td>IAEA</td><td>International Atomic Energy Agency</td></tr>
+              <tr><td>NRC</td><td>Nuclear Regulatory Commission (U.S.)</td></tr>
+              <tr><td>DOE</td><td>Department of Energy (U.S.)</td></tr>
+              <tr><td>NASEO</td><td>National Association of State Energy Officials</td></tr>
+              <tr><td>NEA</td><td>Nuclear Energy Agency (OECD)</td></tr>
+              <tr><td>OECD</td><td>Organisation for Economic Co-operation and Development</td></tr>
+              <tr><td>ESG</td><td>Environmental, Social and Governance</td></tr>
+              <tr><td>CSR</td><td>Corporate Social Responsibility</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+<!-- [CE:prism_M] -->
+      <div class="prism2-nav-row">
+        <button class="prism2-btn-prev" id="prism2-prev-M" onclick="prism2Prev()">&#8592; Previous</button>
+        <div class="prism2-progress-dots" style="display:flex;gap:5px;align-items:center;">
+          <span class="pdot" data-p="P"></span><span class="pdot" data-p="R"></span>
+          <span class="pdot" data-p="I"></span><span class="pdot" data-p="S"></span><span class="pdot active" data-p="M"></span>
+        </div>
+      </div>
+
+      <!-- Framework completion card — do not edit -->
+      <div style="margin:0 26px 16px;padding:16px 20px;border-radius:12px;background:#f4faf7;border:1.5px dashed #a8d5c2;display:flex;align-items:center;gap:14px;">
+        <div style="width:36px;height:36px;border-radius:50%;background:#d1ece2;border:1.5px solid #a8d5c2;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#1a7a5e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2.5 8 6 11.5 13.5 4"/></svg>
+        </div>
+        <div style="flex:1;min-width:0;">
+          <div style="font-size:.82rem;font-weight:700;color:#1a7a5e;letter-spacing:.01em;">PRISM Framework Complete</div>
+          <div style="font-size:.75rem;color:#4a7a6a;margin-top:2px;line-height:1.5;">All five pillars reviewed — explore case studies to see how similar projects were executed.</div>
+        </div>
+        <button onclick="showSPVTab('casestudies');setTimeout(function(){window.dispatchEvent(new Event('resize'))},30)" style="flex-shrink:0;font-size:.75rem;font-weight:600;padding:7px 14px;border-radius:8px;border:1.5px solid #a8d5c2;background:#fff;color:#1a7a5e;cursor:pointer;transition:background .2s,border-color .2s;" onmouseover="this.style.background='#e6f5ef'" onmouseout="this.style.background='#fff'">Case Studies &#8599;</button>
+      </div>
+
+      <!-- Download PRISM PDF card — do not edit -->
+      <div style="margin:0 26px 28px;padding:18px 22px;border-radius:12px;background:linear-gradient(135deg,#f0f7ff 0%,#e8f4fd 100%);border:1.5px solid #c5ddf5;display:flex;align-items:center;gap:16px;">
+        <div style="width:40px;height:40px;border-radius:50%;background:#daeafa;border:1.5px solid #b8d4ef;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#1a5ca8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v10M5 8l4 4 4-4"/><rect x="3" y="14" width="12" height="2" rx="1"/></svg>
+        </div>
+        <div style="flex:1;min-width:0;">
+          <div style="font-size:.82rem;font-weight:700;color:#1a5ca8;letter-spacing:.01em;">Download PRISM Framework</div>
+          <div style="font-size:.75rem;color:#3a6a98;margin-top:2px;line-height:1.5;">Save a print-ready PDF of all five pillars for offline reference.</div>
+        </div>
+        <button onclick="downloadPRISM()" style="flex-shrink:0;font-size:.75rem;font-weight:600;padding:8px 16px;border-radius:8px;border:1.5px solid #b8d4ef;background:#fff;color:#1a5ca8;cursor:pointer;transition:background .2s,border-color .2s;display:flex;align-items:center;gap:6px;" onmouseover="this.style.background='#daeafa'" onmouseout="this.style.background='#fff'">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 1v7M3.5 5.5l3 3 3-3"/><rect x="1.5" y="10" width="10" height="1.5" rx=".75"/></svg>
+          Download PDF
+        </button>
+      </div>
+
+    </div><!-- /prism2-panel-M -->
+
+    </div><!-- /pr-content-wrap -->
+  </div><!-- /pr-shell -->
+
+<script>
+function prNav(key) {
+  if (typeof prism2Show === 'function') prism2Show(key);
+  document.querySelectorAll('#spv-panel-prism .pr-nav-item').forEach(function(n) {
+    n.classList.toggle('active', n.dataset.key === key);
+  });
+  var hl = document.getElementById('pr-hl');
+  var active = document.querySelector('#spv-panel-prism .pr-nav-item[data-key="' + key + '"]');
+  if (hl && active) {
+    var accent = getComputedStyle(active).getPropertyValue('--pr-accent').trim();
+    hl.style.setProperty('--pr-hl', accent);
+    hl.style.top = active.offsetTop + 'px';
+    hl.style.height = active.offsetHeight + 'px';
+  }
+}
+</script>
+
+    </div>
+  </div><!-- /spv-panel-prism -->
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       TAB 3: CASE STUDIES
+       ═══════════════════════════════════════════════════════ -->
+  <div id="spv-panel-casestudies" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+      <div class="lit-wrap">
+        <div class="lit-outer">
+          <div class="lit-track-clip">
+            <div class="lit-track" id="litTrack-all">
+
+              <!-- ── EDIT: Literature / case study cards ──────────────────────
+                   Copy one <a class="lit-card"> block per card.
+                   Accent colours to cycle through (pick one per card):
+                     #1a7a5e  #C85000  #1a5ca8  #5a3d9e  #b06a10  #d97706  #0369a1
+                   ──────────────────────────────────────────────────────────── -->
+
+<!-- [CS:casestudies] -->
+
+              <a class="lit-card" href="https://orfme.org/research/big-aspirations-for-small-modular-reactors-understanding-indias-strategy-on-smrs/" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#C85000;--lit-glow:rgba(200,80,0,.18);--lit-tint:rgba(200,80,0,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Big Aspirations for Small Modular Reactors: Understanding India's Strategy on SMRs</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Research Article</span></div>
+                    <div class="lit-card-source">Source: <span>ORF Middle East</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img lit-card-img-blank"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 120" width="100%" height="100%"><rect width="200" height="120" fill="#fff0e6"/><rect x="85" y="35" width="30" height="25" rx="3" fill="#e87040"/><rect x="80" y="60" width="40" height="28" rx="3" fill="#f5c8a8"/><circle cx="130" cy="42" r="8" fill="#e87040"/></svg></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://idsa.in/publisher/issuebrief/small-modular-reactors-and-india-institutional-drivers-and-challenges" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#1a5ca8;--lit-glow:rgba(26,92,168,.18);--lit-tint:rgba(26,92,168,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Small Modular Reactors and India: Institutional Drivers and Challenges</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Issue Brief</span></div>
+                    <div class="lit-card-source">Source: <span>IDSA — Manohar Parrikar Institute for Defence Studies</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img lit-card-img-blank"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 120" width="100%" height="100%"><rect width="200" height="120" fill="#e8f0fb"/><rect x="85" y="35" width="30" height="25" rx="3" fill="#6b9ee8"/><rect x="80" y="60" width="40" height="28" rx="3" fill="#c5d8f5"/><circle cx="130" cy="42" r="8" fill="#6b9ee8"/></svg></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://www.informaticsjournals.co.in/index.php/2meoga/article/download/51399/35722/120277" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#b06a10;--lit-glow:rgba(176,106,16,.18);--lit-tint:rgba(176,106,16,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Small Modular Nuclear Reactors — A Techno-Commercial Overview, Prospects, and Challenges</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Open Access Article</span></div>
+                    <div class="lit-card-source">Source: <span>Informatics Journals</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img lit-card-img-blank"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 120" width="100%" height="100%"><rect width="200" height="120" fill="#fdf3e8"/><rect x="85" y="35" width="30" height="25" rx="3" fill="#d8a060"/><rect x="80" y="60" width="40" height="28" rx="3" fill="#f0d5a8"/><circle cx="130" cy="42" r="8" fill="#d8a060"/></svg></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://nucleus.iaea.org/sites/smr/Shared%20Documents/IAEA%20SMR%20Platform%20Annual%20Report%202025.pdf" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#5a3d9e;--lit-glow:rgba(90,61,158,.18);--lit-tint:rgba(90,61,158,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">IAEA Platform on Small Modular Reactors and Their Applications — Annual Report 2025</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Annual Report</span></div>
+                    <div class="lit-card-source">Source: <span>IAEA — International Atomic Energy Agency</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img lit-card-img-blank"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 120" width="100%" height="100%"><rect width="200" height="120" fill="#f0ecfc"/><rect x="85" y="35" width="30" height="25" rx="3" fill="#a088d8"/><rect x="80" y="60" width="40" height="28" rx="3" fill="#d4c8f0"/><circle cx="130" cy="42" r="8" fill="#a088d8"/></svg></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://world-nuclear.org/information-library/nuclear-power-reactors/small-modular-reactors/small-modular-reactors" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#1a7a5e;--lit-glow:rgba(26,122,94,.18);--lit-tint:rgba(26,122,94,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Small Modular Reactors — World Nuclear Association</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Reference Article</span></div>
+                    <div class="lit-card-source">Source: <span>World Nuclear Association</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img lit-card-img-blank"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 120" width="100%" height="100%"><rect width="200" height="120" fill="#e8f5f0"/><rect x="85" y="35" width="30" height="25" rx="3" fill="#6bc4a0"/><rect x="80" y="60" width="40" height="28" rx="3" fill="#c0e8d8"/><circle cx="130" cy="42" r="8" fill="#6bc4a0"/></svg></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://www.niti.gov.in/sites/default/files/2023-06/The-Role-of-Small-Modular-Reactors-in-the-Energy-Transition-05162023.pdf" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#0369a1;--lit-glow:rgba(3,105,161,.18);--lit-tint:rgba(3,105,161,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">A Report on the Role of Small Modular Reactors in the Energy Transition</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Government Report</span></div>
+                    <div class="lit-card-source">Source: <span>NITI Aayog — Government of India</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img lit-card-img-blank"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 120" width="100%" height="100%"><rect width="200" height="120" fill="#e8f4fb"/><rect x="85" y="35" width="30" height="25" rx="3" fill="#6090c8"/><rect x="80" y="60" width="40" height="28" rx="3" fill="#b8d4ec"/><circle cx="130" cy="42" r="8" fill="#6090c8"/></svg></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <!-- EDIT: Add more lit-card blocks following the same pattern above -->
+<!-- [CE:casestudies] -->
+
+            </div><!-- /lit-track -->
+          </div><!-- /lit-track-clip -->
+          <div class="lit-nav">
+            <button class="lit-nav-btn" id="litPrev-all" onclick="litMove('all',-1)" aria-label="Previous">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <div class="lit-dots" id="litDots-all"></div>
+            <button class="lit-nav-btn" id="litNext-all" onclick="litMove('all',1)" aria-label="Next">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+          </div>
+        </div><!-- /lit-outer -->
+      </div><!-- /lit-wrap -->
+    </div>
+  </div><!-- /spv-panel-casestudies -->
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       TAB 4: SAMPLE TENDER DOCUMENTS
+       ═══════════════════════════════════════════════════════ -->
+  <div id="spv-panel-tender" class="spv-panel" style="display:none;">
+  <div class="spv-content">
+
+  <style>
+    /* ── Tender documents tab — t5 system (matches solar-pv.html) ── */
+    .t5-wrap{padding:4px 0 48px}
+    .t5-topbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:36px}
+    .t5-pills{display:flex;flex-wrap:wrap;gap:8px;flex:1}
+    .t5-pill{display:inline-flex;align-items:center;gap:7px;padding:8px 16px;border-radius:40px;font-family:var(--font-sans,"Inter",sans-serif);font-size:.82rem;font-weight:600;cursor:pointer;border:1.5px solid transparent;background:#fff;transition:all .22s cubic-bezier(.34,1.3,.64,1);white-space:nowrap}
+    .t5-pill-count{font-size:.72rem;font-weight:500;opacity:.7;background:rgba(0,0,0,.08);border-radius:20px;padding:1px 7px;line-height:1.6}
+    .t5-pill.active .t5-pill-count{background:rgba(255,255,255,.25);opacity:1}
+    .t5-pill--all{border-color:#a2d9dd;color:#0a7377} .t5-pill--rfp{border-color:#7AC9A8;color:#0c5240} .t5-pill--nit{border-color:#F4B96A;color:#8c4100} .t5-pill--ppa{border-color:#A5B4FC;color:#3730a3} .t5-pill--eoi{border-color:#67e8f9;color:#0a5b5e} .t5-pill--agr{border-color:#f9a8d4;color:#9d174d} .t5-pill--rpt{border-color:#93c5fd;color:#1e40af}
+    .t5-pill.active.t5-pill--all{background:#0a9396;color:#fff;border-color:#0a9396;box-shadow:0 4px 14px rgba(10,147,150,.35)}
+    .t5-pill.active.t5-pill--rfp{background:#0F6E56;color:#fff;border-color:#0F6E56;box-shadow:0 4px 14px rgba(15,110,86,.35)}
+    .t5-pill.active.t5-pill--nit{background:#B45309;color:#fff;border-color:#B45309;box-shadow:0 4px 14px rgba(180,83,9,.35)}
+    .t5-pill.active.t5-pill--ppa{background:#4338CA;color:#fff;border-color:#4338CA;box-shadow:0 4px 14px rgba(67,56,202,.35)}
+    .t5-pill.active.t5-pill--eoi{background:#0a7377;color:#fff;border-color:#0a7377;box-shadow:0 4px 14px rgba(10,115,119,.35)}
+    .t5-pill.active.t5-pill--agr{background:#be185d;color:#fff;border-color:#be185d;box-shadow:0 4px 14px rgba(190,24,93,.35)}
+    .t5-pill.active.t5-pill--rpt{background:#0369a1;color:#fff;border-color:#0369a1;box-shadow:0 4px 14px rgba(3,105,161,.35)}
+    .t5-right{display:flex;align-items:center;gap:12px;flex-shrink:0}
+    .t5-search-wrap{position:relative}
+    .t5-search-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:#94a3b8;pointer-events:none}
+    .t5-search{padding:9px 14px 9px 36px;width:210px;background:#f8fafb;border:1.5px solid #e2e8f0;border-radius:40px;font-size:.82rem;font-family:var(--font-sans,"Inter",sans-serif);color:#374151;outline:none;box-sizing:border-box;transition:border-color .2s,box-shadow .2s,width .25s,background .2s}
+    .t5-search::placeholder{color:#94a3b8}
+    .t5-search:focus{border-color:#0a9396;box-shadow:0 0 0 3px rgba(10,147,150,.12);background:#fff;width:250px}
+    .t5-counter{font-size:.8rem;font-weight:700;color:#94a3b8;white-space:nowrap}
+    .t5-section{margin-bottom:72px;animation:t5-pop .38s cubic-bezier(.34,1.3,.64,1) both}
+    .t5-section:last-child{margin-bottom:0}
+    .t5-section + .t5-section{padding-top:36px}
+    .t5-section-header{display:flex;align-items:center;gap:12px;margin-bottom:16px;padding:10px 16px;position:sticky;top:130px;z-index:10;background:#fcfcf9;border-top:1px solid #e8edf3;border-bottom:2px solid #e8edf3;box-shadow:0 4px 12px rgba(0,0,0,.07)}
+    .t5-section-bar{width:4px;height:22px;border-radius:4px;flex-shrink:0}
+    .t5-section-label{font-size:.82rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;flex:1}
+    .t5-section-count{font-size:.75rem;font-weight:700;color:#94a3b8;background:#f1f5f9;border:1px solid #e2e8f0;border-radius:20px;padding:2px 10px;white-space:nowrap}
+    .t5-list{display:flex;flex-direction:column;gap:10px}
+    .t5-row{display:flex;align-items:center;gap:16px;background:#fff;border:1px solid #e8edf3;border-left:4px solid transparent;border-radius:12px;padding:16px 18px;text-decoration:none;color:inherit;cursor:pointer;transition:box-shadow .22s ease,border-color .22s ease,transform .22s cubic-bezier(.34,1.3,.64,1)}
+    .t5-row--rfp{--row-accent:#0F6E56} .t5-row--nit{--row-accent:#B45309} .t5-row--ppa{--row-accent:#4338CA} .t5-row--eoi{--row-accent:#0a7377} .t5-row--agr{--row-accent:#be185d} .t5-row--rpt{--row-accent:#0369a1}
+    .t5-row:hover{border-left-color:var(--row-accent);box-shadow:0 4px 18px rgba(0,0,0,.08);transform:translateX(2px)}
+    .t5-icon-box{width:40px;height:40px;border-radius:10px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:color-mix(in srgb,var(--row-accent) 10%,#fff);border:1px solid color-mix(in srgb,var(--row-accent) 20%,transparent);transition:background .2s}
+    .t5-row:hover .t5-icon-box{background:color-mix(in srgb,var(--row-accent) 18%,#fff)}
+    .t5-text{flex:1;min-width:0}
+    .t5-title{font-size:.92rem;font-weight:400;color:#0f172a;line-height:1.4;margin-bottom:3px;transition:color .2s}
+    .t5-row:hover .t5-title{color:var(--row-accent)}
+    .t5-sub{font-size:.78rem;color:#64748b;line-height:1.4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .t5-right-side{display:flex;align-items:center;gap:10px;flex-shrink:0}
+    .t5-badge{display:inline-flex;align-items:center;font-size:.7rem;font-weight:700;letter-spacing:.05em;padding:4px 11px;border-radius:20px;background:color-mix(in srgb,var(--row-accent) 10%,#fff);color:var(--row-accent);border:1px solid color-mix(in srgb,var(--row-accent) 30%,transparent);white-space:nowrap}
+    .t5-ext-btn{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;border:1px solid #e2e8f0;background:#f8fafc;color:#94a3b8;text-decoration:none;transition:background .2s,color .2s,border-color .2s;flex-shrink:0}
+    .t5-row:hover .t5-ext-btn{background:color-mix(in srgb,var(--row-accent) 8%,#fff);border-color:color-mix(in srgb,var(--row-accent) 30%,transparent);color:var(--row-accent)}
+    .t5-empty{text-align:center;padding:40px 20px;color:#94a3b8;font-size:.85rem}
+    @keyframes t5-pop{from{opacity:0;transform:translateY(12px) scale(.98)}to{opacity:1;transform:none}}
+  </style>
+
+  <div class="t5-wrap">
+    <!-- ── Filter pills + search bar ──────────────────────────────────────
+         EDIT: Update pill counts (t5cnt-*) to match your actual document totals.
+         Add/remove pill buttons to match the document types you have.
+         Available types: rfp · nib · nit · eoi · ppa · agr · rpt
+         ──────────────────────────────────────────────────────────────── -->
+    <div class="t5-topbar">
+      <div class="t5-pills">
+        <button class="t5-pill t5-pill--all active" onclick="t5Filter('all')">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          All Documents <span class="t5-pill-count" id="t5cnt-all">3</span>
+        </button>
+        <button class="t5-pill t5-pill--rfp" data-sec="rfp" onclick="t5Filter('rfp')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          RFP <span class="t5-pill-count" id="t5cnt-rfp">1</span>
+        </button>
+        <button class="t5-pill t5-pill--nit" data-sec="nib" onclick="t5Filter('nib')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+          NIB / IFB <span class="t5-pill-count" id="t5cnt-nib">0</span><!-- EDIT -->
+        </button>
+        <button class="t5-pill t5-pill--nit" data-sec="nit" onclick="t5Filter('nit')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+          NIT <span class="t5-pill-count" id="t5cnt-nit">0</span><!-- EDIT -->
+        </button>
+        <button class="t5-pill t5-pill--eoi" data-sec="eoi" onclick="t5Filter('eoi')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          EOI <span class="t5-pill-count" id="t5cnt-eoi">1</span>
+        </button>
+        <button class="t5-pill t5-pill--ppa" data-sec="ppa" onclick="t5Filter('ppa')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          PPA <span class="t5-pill-count" id="t5cnt-ppa">0</span><!-- EDIT -->
+        </button>
+        <button class="t5-pill t5-pill--agr" data-sec="agr" onclick="t5Filter('agr')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          Agreements <span class="t5-pill-count" id="t5cnt-agr">0</span><!-- EDIT -->
+        </button>
+        <button class="t5-pill t5-pill--rpt" data-sec="rpt" onclick="t5Filter('rpt')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          Reports &amp; DPR <span class="t5-pill-count" id="t5cnt-rpt">1</span>
+        </button>
+      </div>
+      <div class="t5-right">
+        <div class="t5-search-wrap">
+          <svg class="t5-search-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input id="t5SearchInput" class="t5-search" type="text" placeholder="Search documents…" oninput="t5Search(this.value)">
+        </div>
+        <span class="t5-counter" id="t5Counter"></span>
+      </div>
+    </div>
+
+    <!-- ── Document sections ───────────────────────────────────────────────
+         HOW TO ADD A DOCUMENT ROW:
+         1. Copy a <a class="t5-row …"> block below into the right section.
+         2. Set the correct  t5-row--TYPE  and  data-sec="TYPE"  (rfp/nib/nit/eoi/ppa/agr/rpt).
+         3. Fill in  data-title  (lowercase — used for search).
+         4. Set  href  to the PDF path or external URL.
+         5. Update the  t5-title  and  t5-sub  (e.g. "EPC + O&M · CAPEX").
+         6. Update the  t5-badge  text.
+         7. Update the pill counts at the top.
+
+         HOW TO REMOVE A SECTION:
+         Delete the entire  <div class="t5-section" data-sec="…">…</div>  block
+         and remove its corresponding pill button above.
+         ──────────────────────────────────────────────────────────────── -->
+    <div id="t5Sections">
+
+      <!-- ═══ SECTION: RFP ═══════════════════════════════════════════ -->
+      <div class="t5-section" data-sec="rfp" style="animation-delay:0.05s">
+        <div class="t5-section-header">
+          <div class="t5-section-bar" style="background:#0F6E56"></div>
+          <span class="t5-section-label" style="color:#0F6E56">Requests for Proposal (RFP)</span>
+          <!-- EDIT: update count below -->
+          <span class="t5-section-count">1 document</span>
+        </div>
+        <div class="t5-list">
+
+          <!-- [CS:tender_rfp] -->
+          <a class="t5-row t5-row--rfp" data-sec="rfp"
+             data-title="request for proposal for 220 mwe phwr bharat small reactors bsr brown green field sites"
+             href="https://www.npcil.nic.in/writereaddata/CMS/202412300511513510127RFP_Document_31122024_01.pdf" target="_blank" rel="noopener">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Request for Proposal for 220 MWe PHWR Bharat Small Reactors (BSRs) in Brown/Green Field Sites Offered by Industries</div>
+              <div class="t5-sub">RFP · NPCIL · npcil.nic.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">RFP</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <!-- [CE:tender_rfp] -->
+
+          <!-- ── EDIT: Paste RFP rows here ──
+               Row template:
+          <a class="t5-row t5-row--rfp" data-sec="rfp"
+             data-title="EDIT: full title in lowercase for search"
+             href="EDIT: ../tender/filename.pdf" target="_blank" rel="noopener">
+            <div class="t5-icon-box">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            </div>
+            <div class="t5-text">
+              <div class="t5-title">Edit: Document Title in Title Case</div>
+              <div class="t5-sub">EDIT: Contract Type · CAPEX or OPEX</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">RFP</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          ── -->
+
+        </div>
+      </div><!-- /rfp section -->
+
+      <!-- ═══ SECTION: NIB / IFB ══════════════════════════════════════ -->
+      <div class="t5-section" data-sec="nib" style="animation-delay:0.10s">
+        <div class="t5-section-header">
+          <div class="t5-section-bar" style="background:#B45309"></div>
+          <span class="t5-section-label" style="color:#B45309">Notice Inviting Bid / Invitation for Bids</span>
+          <span class="t5-section-count">0 documents</span><!-- EDIT -->
+        </div>
+        <div class="t5-list">
+          <!-- [CS:tender_nib] -->
+          <!-- [CE:tender_nib] -->
+
+          <!-- ── EDIT: Paste NIB rows here (use t5-row--nit + data-sec="nib") ── -->
+        </div>
+      </div><!-- /nib section -->
+
+      <!-- ═══ SECTION: NIT ════════════════════════════════════════════ -->
+      <div class="t5-section" data-sec="nit" style="animation-delay:0.15s">
+        <div class="t5-section-header">
+          <div class="t5-section-bar" style="background:#B45309"></div>
+          <span class="t5-section-label" style="color:#B45309">Notice Inviting Tender (NIT)</span>
+          <span class="t5-section-count">0 documents</span><!-- EDIT -->
+        </div>
+        <div class="t5-list">
+          <!-- [CS:tender_nit] -->
+          <!-- [CE:tender_nit] -->
+
+          <!-- ── EDIT: Paste NIT rows here (use t5-row--nit + data-sec="nit") ── -->
+        </div>
+      </div><!-- /nit section -->
+
+      <!-- ═══ SECTION: EOI ════════════════════════════════════════════ -->
+      <div class="t5-section" data-sec="eoi" style="animation-delay:0.20s">
+        <div class="t5-section-header">
+          <div class="t5-section-bar" style="background:#0a7377"></div>
+          <span class="t5-section-label" style="color:#0a7377">Expression of Interest (EOI)</span>
+          <span class="t5-section-count">1 document</span>
+        </div>
+        <div class="t5-list">
+          <!-- [CS:tender_eoi] -->
+          <a class="t5-row t5-row--eoi" data-sec="eoi"
+             data-title="expression of interest nuclear pilot project small modular reactors smr ongc facilities"
+             href="https://ongcindia.com/documents/77751/2660534/EOI_SMR.pdf/ad8c1979-d715-8761-e4bb-a51f21ebea4b" target="_blank" rel="noopener">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Expression of Interest (EOI) — Nuclear Pilot Project | Small Modular Reactors (SMR) at ONGC Facilities</div>
+              <div class="t5-sub">EOI · ONGC · ongcindia.com</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">EOI</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <!-- [CE:tender_eoi] -->
+        </div>
+      </div><!-- /eoi section -->
+
+      <!-- ═══ SECTION: PPA ════════════════════════════════════════════ -->
+      <div class="t5-section" data-sec="ppa" style="animation-delay:0.25s">
+        <div class="t5-section-header">
+          <div class="t5-section-bar" style="background:#4338CA"></div>
+          <span class="t5-section-label" style="color:#4338CA">Power Purchase Agreements (PPA)</span>
+          <span class="t5-section-count">0 documents</span><!-- EDIT -->
+        </div>
+        <div class="t5-list">
+          <!-- [CS:tender_ppa] -->
+          <!-- [CE:tender_ppa] -->
+
+          <!-- ── EDIT: Paste PPA rows here (use t5-row--ppa + data-sec="ppa") ── -->
+        </div>
+      </div><!-- /ppa section -->
+
+      <!-- ═══ SECTION: AGREEMENTS ═════════════════════════════════════ -->
+      <div class="t5-section" data-sec="agr" style="animation-delay:0.30s">
+        <div class="t5-section-header">
+          <div class="t5-section-bar" style="background:#be185d"></div>
+          <span class="t5-section-label" style="color:#be185d">Agreements &amp; Contracts</span>
+          <span class="t5-section-count">0 documents</span><!-- EDIT -->
+        </div>
+        <div class="t5-list">
+          <!-- [CS:tender_agr] -->
+          <!-- [CE:tender_agr] -->
+
+          <!-- ── EDIT: Paste Agreement rows here (use t5-row--agr + data-sec="agr") ── -->
+        </div>
+      </div><!-- /agr section -->
+
+      <!-- ═══ SECTION: REPORTS & DPR ══════════════════════════════════ -->
+      <div class="t5-section" data-sec="rpt" style="animation-delay:0.35s">
+        <div class="t5-section-header">
+          <div class="t5-section-bar" style="background:#0369a1"></div>
+          <span class="t5-section-label" style="color:#0369a1">Reports &amp; DPR</span>
+          <span class="t5-section-count">1 document</span>
+        </div>
+        <div class="t5-list">
+          <!-- [CS:tender_rpt] -->
+          <a class="t5-row t5-row--rpt" data-sec="rpt"
+             data-title="status of small modular reactor development and deployment in the world eria"
+             href="https://www.eria.org/uploads/media/Research-Project-Report/2021-07-Small-Modular-Reactor-/9_Ch.3-Status-SMR-world.pdf" target="_blank" rel="noopener">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Status of Small Modular Reactor Development and Deployment in the World</div>
+              <div class="t5-sub">Research Project Report · ERIA · eria.org</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">Report</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <!-- [CE:tender_rpt] -->
+
+          <!-- ── EDIT: Paste Report rows here (use t5-row--rpt + data-sec="rpt") ── -->
+        </div>
+      </div><!-- /rpt section -->
+
+    </div><!-- /t5Sections -->
+  </div><!-- /t5-wrap -->
+
+  </div>
+  </div><!-- /spv-panel-tender -->
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       TAB 5: MEDIA / WEB
+       ═══════════════════════════════════════════════════════ -->
+  <div id="spv-panel-media" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+
+    <style>
+      /* ── Media/Web tab — matches solar-pv.html ── */
+      .media-stack { display:flex; flex-direction:column; gap:12px; }
+
+      .media-row {
+        position: relative;
+        display: flex; align-items: center; gap: 14px;
+        padding: 15px 16px;
+        background: #fff;
+        border-radius: 12px;
+        border: 1px solid #e8eaed;
+        border-left: 3px solid var(--mr-accent);
+        text-decoration: none; color: inherit;
+        overflow: hidden;
+        transition:
+          box-shadow  0.28s cubic-bezier(0.34,1.3,0.64,1),
+          transform   0.28s cubic-bezier(0.34,1.3,0.64,1),
+          border-color 0.22s ease;
+      }
+
+      /* Animated accent line sweeps across bottom on hover */
+      .media-row::after {
+        content: '';
+        position: absolute;
+        bottom: 0; left: 0;
+        height: 2px; width: 0;
+        background: var(--mr-accent);
+        border-radius: 0 2px 2px 0;
+        transition: width 0.38s cubic-bezier(0.34,1.3,0.64,1);
+      }
+
+      .media-row:hover {
+        transform: translateY(-5px);
+        border-color: var(--mr-accent);
+        box-shadow:
+          0 10px 32px rgba(19,52,59,.13),
+          0 2px  8px  rgba(19,52,59,.06);
+      }
+      .media-row:hover::after { width: 100%; }
+
+      /* Icon chip */
+      .media-row-icon {
+        width: 42px; height: 42px; border-radius: 10px;
+        background: var(--mr-tint);
+        display: flex; align-items: center; justify-content: center;
+        flex-shrink: 0;
+        transition: background 0.25s ease, box-shadow 0.25s ease;
+      }
+      .media-row-icon svg { transition: filter 0.25s ease; }
+      .media-row:hover .media-row-icon {
+        background: var(--mr-accent);
+        box-shadow: 0 4px 12px rgba(0,0,0,.18);
+      }
+      .media-row:hover .media-row-icon svg { filter: brightness(0) invert(1); }
+
+      /* Text block */
+      .media-row-main { flex:1; min-width:0; }
+      .media-row-tag {
+        font-size: 10px; font-weight: 700; letter-spacing: .07em;
+        text-transform: uppercase; color: var(--mr-accent); margin-bottom: 4px;
+      }
+      .media-row-title {
+        font-size: 13.5px; font-weight: 600; color: #1e293b;
+        line-height: 1.4; margin-bottom: 3px;
+        transition: color 0.2s ease;
+      }
+      .media-row:hover .media-row-title { color: var(--mr-accent); }
+      .media-row-source {
+        font-size: 11px; color: #94a3b8;
+        display: flex; align-items: center; gap: 4px;
+      }
+
+      /* Arrow */
+      .media-row-arrow {
+        flex-shrink: 0; color: #d1dae0;
+        transition: color 0.22s ease, transform 0.28s cubic-bezier(0.34,1.3,0.64,1);
+      }
+      .media-row:hover .media-row-arrow {
+        color: var(--mr-accent);
+        transform: translate(3px, -3px);
+      }
+    </style>
+
+    <!--
+    ══════════════════════════════════════════════════════════════════
+    HOW TO ADD A MEDIA ROW
+    ══════════════════════════════════════════════════════════════════
+    1. Copy one <a class="media-row …"> block below.
+    2. Set  --mr-accent  (the colour) and  --mr-tint  (accent at ~10% opacity).
+       Suggested palette:
+         Green-teal   #0F6E56  rgba(15,110,86,.1)
+         Blue         #185FA5  rgba(24,95,165,.1)
+         Amber        #BA7517  rgba(186,117,23,.1)
+         Emerald      #1D9E75  rgba(29,158,117,.1)
+         Indigo       #534AB7  rgba(83,74,183,.1)
+         Red          #C81414  rgba(200,20,20,.1)
+         Orange       #C85000  rgba(200,80,0,.1)
+    3. Set the  href  to the URL.
+    4. Update  media-row-tag  (e.g. "Case Study · Germany"), title, and source domain.
+    5. Choose an appropriate SVG icon for  media-row-icon  (stroke colour = --mr-accent).
+
+    ICON IDEAS (copy the <svg> you need):
+      Globe/website  → <circle cx="12" cy="12" r="10"/> + grid lines
+      Document/report→ <path d="M14 2H6…"/> (file icon)
+      Location/map   → <path d="M12 2C8.13 2…"/> (pin icon)
+      Chart/data     → <polyline points="22 12 18 12 15 21…"/> (pulse)
+      Book/policy    → <path d="M2 3h6a4 4 0 0 1 4 4v14…"/> (book)
+      News           → <rect x="3" y="3" width="18" height="18" rx="2"/> (grid)
+    ══════════════════════════════════════════════════════════════════
+    -->
+
+    <div class="media-stack">
+
+<!-- [CS:media] -->
+      <a class="media-row" href="https://www.iaea.org/topics/small-modular-reactors" target="_blank" rel="noopener noreferrer"
+         style="--mr-accent:#1a5ca8;--mr-tint:rgba(26,92,168,.1);">
+        <div class="media-row-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a5ca8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
+        <div class="media-row-main">
+          <div class="media-row-tag">Platform · IAEA</div>
+          <div class="media-row-title">IAEA Platform on Small Modular Reactors and Their Applications</div>
+          <div class="media-row-source">
+            <svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><line x1="2" y1="8" x2="14" y2="8"/><path d="M8 2a10 10 0 010 12M8 2a10 10 0 000 12"/></svg>
+            iaea.org
+          </div>
+        </div>
+        <div class="media-row-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/></svg></div>
+      </a>
+
+      <a class="media-row" href="https://www.energy.gov/ne/coal-to-nuclear" target="_blank" rel="noopener noreferrer"
+         style="--mr-accent:#C85000;--mr-tint:rgba(200,80,0,.1);">
+        <div class="media-row-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C85000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        </div>
+        <div class="media-row-main">
+          <div class="media-row-tag">Coal-to-Nuclear · U.S. DOE</div>
+          <div class="media-row-title">Coal-to-Nuclear Transition — Information and Guidance Resources</div>
+          <div class="media-row-source">
+            <svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><line x1="2" y1="8" x2="14" y2="8"/><path d="M8 2a10 10 0 010 12M8 2a10 10 0 000 12"/></svg>
+            energy.gov
+          </div>
+        </div>
+        <div class="media-row-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/></svg></div>
+      </a>
+
+      <a class="media-row" href="https://www.worldnuclear.org/information-library/nuclear-fuel-cycle/nuclear-power-reactors/small-nuclear-power-reactors.aspx" target="_blank" rel="noopener noreferrer"
+         style="--mr-accent:#1a7a5e;--mr-tint:rgba(26,122,94,.1);">
+        <div class="media-row-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a7a5e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <div class="media-row-main">
+          <div class="media-row-tag">Reference · World Nuclear Association</div>
+          <div class="media-row-title">Small Nuclear Power Reactors — Global Technology and Status</div>
+          <div class="media-row-source">
+            <svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><line x1="2" y1="8" x2="14" y2="8"/><path d="M8 2a10 10 0 010 12M8 2a10 10 0 000 12"/></svg>
+            worldnuclear.org
+          </div>
+        </div>
+        <div class="media-row-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/></svg></div>
+      </a>
+
+      <a class="media-row" href="https://www.oecd-nea.org/jcms/pl_82660/the-nea-small-modular-reactor-dashboard" target="_blank" rel="noopener noreferrer"
+         style="--mr-accent:#5a3d9e;--mr-tint:rgba(90,61,158,.1);">
+        <div class="media-row-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5a3d9e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        </div>
+        <div class="media-row-main">
+          <div class="media-row-tag">Dashboard · OECD NEA</div>
+          <div class="media-row-title">The NEA Small Modular Reactor Dashboard — Global SMR Status Tracker</div>
+          <div class="media-row-source">
+            <svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><line x1="2" y1="8" x2="14" y2="8"/><path d="M8 2a10 10 0 010 12M8 2a10 10 0 000 12"/></svg>
+            oecd-nea.org
+          </div>
+        </div>
+        <div class="media-row-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/></svg></div>
+      </a>
+
+      <a class="media-row" href="https://www.npcil.nic.in" target="_blank" rel="noopener noreferrer"
+         style="--mr-accent:#b06a10;--mr-tint:rgba(176,106,16,.1);">
+        <div class="media-row-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#b06a10" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="21"/></svg>
+        </div>
+        <div class="media-row-main">
+          <div class="media-row-tag">Nodal Agency · India</div>
+          <div class="media-row-title">Nuclear Power Corporation of India Limited (NPCIL) — Official Portal</div>
+          <div class="media-row-source">
+            <svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><line x1="2" y1="8" x2="14" y2="8"/><path d="M8 2a10 10 0 010 12M8 2a10 10 0 000 12"/></svg>
+            npcil.nic.in
+          </div>
+        </div>
+        <div class="media-row-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/></svg></div>
+      </a>
+
+      <a class="media-row" href="https://www.dae.gov.in" target="_blank" rel="noopener noreferrer"
+         style="--mr-accent:#185FA5;--mr-tint:rgba(24,95,165,.1);">
+        <div class="media-row-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#185FA5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <div class="media-row-main">
+          <div class="media-row-tag">Regulatory · India</div>
+          <div class="media-row-title">Department of Atomic Energy (DAE) — Nuclear Energy Mission and BSMR Programme</div>
+          <div class="media-row-source">
+            <svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><line x1="2" y1="8" x2="14" y2="8"/><path d="M8 2a10 10 0 010 12M8 2a10 10 0 000 12"/></svg>
+            dae.gov.in
+          </div>
+        </div>
+        <div class="media-row-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/></svg></div>
+      </a>
+
+<!-- [CE:media] -->
+
+    </div><!-- /media-stack -->
+
+    <p style="font-size:0.72rem; color:var(--color-text-secondary); font-style:italic; margin-top:16px;">Links open external websites. Coal Controller Organisation does not endorse third-party content.</p>
+
+    </div>
+  </div><!-- /spv-panel-media -->
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       TAB 6: AGENCIES
+       ═══════════════════════════════════════════════════════ -->
+  <div id="spv-panel-agencies" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+
+      <div class="agencies-logo-grid">
+
+<!-- [CS:agencies] -->
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img">
+            <img src="../images/agencies/NPCIL (Nuclear Power Corp. of India Ltd).gif" alt="NPCIL" style="max-width:100%; max-height:64px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">NPCIL (Nuclear Power Corp. of India Ltd)</div>
+          <div class="agency-logo-type">Sole licensed nuclear facility constructor in India — reactor civil, containment &amp; commissioning</div>
+        </div>
+
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img">
+            <img src="../images/agencies/bhel.png" alt="BHEL" style="max-width:100%; max-height:64px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">BHEL</div>
+          <div class="agency-logo-type">Reactor pressure vessels, steam generators, turbine islands &amp; heavy nuclear component fabrication</div>
+        </div>
+
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img">
+            <img src="../images/agencies/L&T Construction – Nuclear Div..webp" alt="L&T Construction – Nuclear Div." style="max-width:100%; max-height:64px; object-fit:contain;background: #1a5ca8;">
+          </div>
+          <div class="agency-logo-name">L&amp;T Construction – Nuclear Div.</div>
+          <div class="agency-logo-type">Seismic-grade nuclear civil: containment building, reactor building &amp; auxiliary structures</div>
+        </div>
+
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img">
+            <img src="../images/agencies/Larsen & Toubro Heavy Engineering.webp" alt="Larsen & Toubro Heavy Engineering" style="max-width:100%; max-height:64px; object-fit:contain;background: #1a5ca8;">
+          </div>
+          <div class="agency-logo-name">Larsen &amp; Toubro Heavy Engineering</div>
+          <div class="agency-logo-type">Reactor pressure vessel, steam generator &amp; critical nuclear component manufacturing</div>
+        </div>
+
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img">
+            <img src="../images/agencies/Gammon India Ltd.gif" alt="Gammon India Ltd" style="max-width:100%; max-height:64px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">Gammon India Ltd</div>
+          <div class="agency-logo-type">Nuclear plant civil: containment shell, cooling tower &amp; auxiliary building construction</div>
+        </div>
+
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img">
+            <img src="../images/agencies/Godrej Construction Projects.svg" alt="Godrej & Boyce – Precision Engineering" style="max-width:100%; max-height:64px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">Godrej &amp; Boyce – Precision Engineering</div>
+          <div class="agency-logo-type">Precision nuclear component machining &amp; fabrication</div>
+        </div>
+
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img">
+            <img src="../images/agencies/Tata Consulting Engineers.png" alt="Tata Consulting Engineers (TCE)" style="max-width:100%; max-height:64px; object-fit:contain;background: #1a5ca8;">
+          </div>
+          <div class="agency-logo-name">Tata Consulting Engineers (TCE)</div>
+          <div class="agency-logo-type">Nuclear plant engineering design, civil specification &amp; construction management</div>
+        </div>
+
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img">
+            <img src="../images/agencies/BHAVINI.svg" alt="BHAVINI" style="max-width:100%; max-height:64px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">BHAVINI</div>
+          <div class="agency-logo-type">Fast breeder &amp; advanced reactor facility design-build (government nuclear constructor)</div>
+        </div>
+<!-- [CE:agencies] -->
+
+      </div><!-- /agencies-logo-grid -->
+
+      <!-- Disclaimer — do not edit -->
+      <div style="margin-top:28px; padding:14px 18px; background:rgba(33,128,141,.05); border:1px solid rgba(33,128,141,.18); border-radius:8px; display:flex; gap:12px; align-items:flex-start;">
+        <svg style="flex-shrink:0; margin-top:2px;" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#21808d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <p style="margin:0; font-family:var(--font-sans); font-size:0.8rem; color:var(--color-text-secondary); line-height:1.65;">
+          <strong style="color:var(--color-text); font-weight:600;">Disclaimer:</strong>
+          Inclusion of an agency on this list does not constitute endorsement, empanelment, or recommendation by the Coal Controller Organisation or the Ministry of Coal, Government of India. Mine owners and project proponents are advised to conduct their own due diligence process before engaging any agency.
+        </p>
+      </div>
+
+    </div>
+  </div><!-- /spv-panel-agencies -->
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       TAB 7: EXPERTS
+       ═══════════════════════════════════════════════════════ -->
+  <div id="spv-panel-experts" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+      <div class="experts-grid">
+
+        <!-- [CS:experts] -->
+        
+
+        
+
+        
+
+        
+<!-- [CE:experts] -->
+
+      </div><!-- /experts-grid -->
+      <div style="margin-top:28px;padding:14px 18px;background:rgba(33,128,141,.05);border:1px solid rgba(33,128,141,.18);border-radius:8px;display:flex;gap:12px;align-items:flex-start;">
+        <svg style="flex-shrink:0;margin-top:2px;" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#21808d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <p style="margin:0;font-family:var(--font-sans);font-size:0.8rem;color:var(--color-text-secondary);line-height:1.65;"><strong style="color:var(--color-text);font-weight:600;">Disclaimer:</strong> Inclusion of an expert does not constitute endorsement, empanelment, or recommendation by the Coal Controller Organisation or the Ministry of Coal, Government of India. Users are advised to independently verify credentials and suitability before engaging any individual.</p>
+      </div>
+    </div>
+  </div><!-- /spv-panel-experts -->
+
+  <!-- Footer -->
+  <footer id="site-footer-sf">
+    &copy; 2026 Coal Controller Organisation, Ministry of Coal, Government of India.
+  </footer>
+
+</div><!-- /page -->
+
+<!-- ═══════════════════════════════════════════════════════
+     SCRIPTS — edit only the PRISM2_COLORS and PRISM2_BG values
+     ═══════════════════════════════════════════════════════ -->
+
+<!-- EDIT: PRISM colour config — each letter maps to a hex colour.
+     P, R, I, S, M accent colours must match the --pc values in each panel above.
+     PRISM2_BG is the light tint background for each panel header. -->
+<script>
+const PRISM2_COLORS = {P:'#C85000', R:'#1a5ca8', I:'#b06a10', S:'#5a3d9e', M:'#1a7a5e'};
+const PRISM2_BG     = {P:'#fff0e6', R:'#e4eef9', I:'#faedda', S:'#edeaf8', M:'#e1f3ec'};
+</script>
+
+<!-- Shared category JS — do not change this path -->
+<script src="./category.js"></script>
+
+<!-- PRISM navigation wiring — do not edit -->
+<script>
+window.prism2Next = function() {
+  if (prism2Current < PRISM2_ORDER.length - 1) prNav(PRISM2_ORDER[prism2Current + 1]);
+};
+window.prism2Prev = function() {
+  if (prism2Current > 0) prNav(PRISM2_ORDER[prism2Current - 1]);
+};
+
+function downloadPRISM() {
+  ['P','R','I','S','M'].forEach(function(k) {
+    var panel = document.getElementById('prism2-panel-' + k);
+    if (panel) panel.querySelectorAll('.accordion-body').forEach(function(body) {
+      body.style.display = 'block';
+      var btn = body.previousElementSibling;
+      if (btn) btn.classList.add('open');
+    });
+  });
+  window.print();
+}
+
+(function() {
+  var panel = document.getElementById('spv-panel-prism');
+  if (!panel) return;
+  new MutationObserver(function() {
+    if (panel.style.display !== 'none') setTimeout(function() { prNav('P'); }, 10);
+  }).observe(panel, { attributes: true, attributeFilter: ['style'] });
+})();
+
+/* ── Tender t5 filter + search ── */
+(function(){
+  var activeFilter="all", searchQuery="";
+  function render(){
+    var sections=document.querySelectorAll("#spv-panel-tender .t5-section");
+    var vis=0;
+    sections.forEach(function(sec){
+      var secKey=sec.getAttribute("data-sec");
+      var showSec=(activeFilter==="all"||activeFilter===secKey);
+      var secVis=0;
+      sec.querySelectorAll(".t5-row").forEach(function(row){
+        var titleMatch=!searchQuery||row.getAttribute("data-title").indexOf(searchQuery)!==-1;
+        var show=showSec&&titleMatch;
+        row.style.display=show?"":"none";
+        if(show){secVis++;vis++;}
+      });
+      sec.style.display=secVis>0?"":"none";
+    });
+    var counter=document.getElementById("t5Counter");
+    if(counter) counter.textContent=vis+" document"+(vis===1?"":"s");
+    var empty=document.getElementById("t5Empty");
+    if(empty) empty.style.display=vis===0?"":"none";
+  }
+  window.t5Filter=function(type){
+    activeFilter=type;
+    document.querySelectorAll("#spv-panel-tender .t5-pill").forEach(function(p){
+      var m=(p.getAttribute("onclick")||"").match(/t5Filter\('?(\w+)'?\)/);
+      if(m) p.classList.toggle("active",m[1]===type);
+    });
+    render();
+  };
+  window.t5Search=function(val){ searchQuery=val.trim().toLowerCase(); render(); };
+  render();
+})();
+</script>
+
+<!-- browse-back-script -->
+<script>
+(function(){
+  if(new URLSearchParams(location.search).get('from')==='browse'){
+    var btn=document.querySelector('.back-btn');
+    if(btn){
+      btn.onclick=function(){window.location.href='../browse.html';};
+      btn.setAttribute('aria-label','Back to Browse');
+      for(var i=btn.childNodes.length-1;i>=0;i--){
+        var n=btn.childNodes[i];
+        if(n.nodeType===3&&n.textContent.trim()){n.textContent=' Back to Browse';break;}
+      }
+    }
+    var cr=document.querySelector('.sf-breadcrumb span:not(.sep)');
+    if(cr)cr.textContent='All Categories';
+  }
+})();
+</script>
+</body>
+</html>

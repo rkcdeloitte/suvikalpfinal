@@ -1,0 +1,1816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Preservation Centre — SUVIKALP | Coal Controller Organisation</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="./category.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+/* Per-page custom overrides */
+    .phs-ticker-wrap { overflow:hidden; border-radius:8px; margin:1rem 0 1.5rem; }
+    .phs-ticker-inner { display:flex; gap:10px; animation:phsScroll 30s linear infinite; width:max-content; }
+    .phs-ticker-inner:hover { animation-play-state:paused; }
+    @keyframes phsScroll { from { transform:translateX(0); } to { transform:translateX(-50%); } }
+    .phs-chip { white-space:nowrap; font-size:.75rem; font-weight:600; color:var(--color-primary,#21808d); padding:.25rem .75rem; background:rgba(33,128,141,.1); border:1px solid rgba(33,128,141,.2); border-radius:999px; }
+    .tender-card { border:1px solid #e5e7eb; border-radius:10px; padding:1rem 1.1rem; margin-bottom:.7rem; background:#fff; display:flex; gap:.85rem; align-items:flex-start; box-shadow:0 1px 4px rgba(0,0,0,.04); transition:box-shadow .2s,transform .2s; }
+    .tender-card:hover { box-shadow:0 4px 14px rgba(0,0,0,.08); transform:translateY(-2px); }
+    .tender-icon { font-size:1.4rem; flex-shrink:0; margin-top:.15rem; }
+    .tender-title { font-size:.9rem; font-weight:700; color:var(--color-teal-600,#21808d); margin-bottom:.25rem; }
+    .tender-desc { font-size:.8rem; color:#6b7280; line-height:1.65; }
+</style>
+</head>
+<body>
+<header id="site-header">
+  <div class="header-left">
+    <div class="header-tool-title">
+      <span class="hindi">सुविकल्प:</span> Mine Repurposing Tool
+    </div>
+    <div class="header-tool-sub">
+      Select factors and sub-factors to discover suitable repurposing options for your mining site
+    </div>
+  </div>
+  <div class="header-right">
+    <a href="https://coalcontroller.gov.in/" target="_blank" rel="noopener" title="CCO Home">
+    <div class="header-cco-lockup">
+      <img class="header-cco-logo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANAAAABHCAYAAAB2x8mPAAAAAXNSR0IArs4c6QAAAHhlWElmTU0AKgAAAAgABAEaAAUAAAABAAAAPgEbAAUAAAABAAAARgEoAAMAAAABAAIAAIdpAAQAAAABAAAATgAAAAAAAAH0AAAAAQAAAfQAAAABAAOgAQADAAAAAQABAACgAgAEAAAAAQAAANCgAwAEAAAAAQAAAEcAAAAA7cIEvwAAAAlwSFlzAABM5QAATOUBdc7wlQAANBZJREFUeAHtnQeYVUW2cJUoGUSRTIOgJFFUBAUMiDlhzgPmNI7ZMaAiYxizjo4RFcOYMDuKAVRQQUGCApIlB0mCCIKg/mudPnXfubdv3+7G9Hh/7+9bXXWqdqVde9c5N8Emm5RKqQVKLVBqgVILlFqg1AK/sQV++eWXsrDpb9xtaXelFkhZoEwq938sEwfOPixrq41tac4dKsPmUAMqQdmNbR2l892ILYDDlYcP4EnzG8tSmKvB0waegtEwAh6CzlBpQ9dBW/utChU2tI8/o93GOu8/w1a/+ZgYf2v4Ei6EjSKImGcTmAj3QRc4AO6Fr+BBaA7lSmos2tSFz+Cskrb9M/UT8z77z5zH/7djswE7gyf5nvC//vUQc7wMPs+cK9ft4W0YBh2hRAcC+nXA9n/ZmJyB+W4JA6HnxjTvIufKgsqAz+ZVoCbUA5/Za8XXptZVLLKz31mBORwIb0Gj33moX909c7wfHsrWEeXa8zaYAN2hxHeibP2Wlm24BX7NBjRn2Pbgc7n5BrASVsA6MHAmwXI2+s1NN930Z/K/SujHPqsV0skvlBd2hxlB3X/hKvq4llTdTMlsn3mdqZ/tOlubZNly7LA+a8P8YKhJ3WJowzy3yKZH2S1xeX/SE9EbT5pt3clxbZJ5bVkuKY5+Lp2VrHVttgGYs/OtBZlvYmXrL1tZ6DazLvM66GVLN0RXH/6Wddk2kl8TQBfRw7cwBxbANPCxYjk4kO9+GUjnwlhQ79fKznRwRiGdGFw650+F1Ft+ABjoyzJ0fGHtpiY33DIN5RqKK5uh6BxCkNin87Jf+7oBtFM28e54FTSFHcFAsX02J7PMg+tx+AyS8+YyGtM0We483JfirMf+XX+YN9kCkrm2TIWHKBieWRhf27drzTwktJ/zS+5hYfPWd31nMqwxzCezPSoFxHa2D20LKCQKQr8/UrYUnPcPob7IAOK0cFGV4Uci7/vQkHQVGBitwIk4wBewGpqDm1AHFsA+8BhEQp8GmthncLb8ytx/PZ0L25TrqRsG7+ToYjfqqsCbGTrHcd0OroUwHw8Ix3saiivXoDgK3oobuP4+4Ny+Ae/QhYn2/By0YwfQtuazicH4PhwPneCfkJRjudgBnE9Yz4XkPTiehKJEx+4LYd7Z9Den8Aa4EeZlUdB2hYnzHwNVEwo66k3wBiT3+AKul8MTkJRDuGgLN8eFBuVtoJ/ph7mkO5VdoE8upbiuOqn2vQO+hJ+haMHJ/RCyPhwEN8EZUBt8K9Rncd9aPRt8p6gn9IF2UBGOAfX/DpZfCRpoE1Lb7gJHgy+MDc4SC+2cn5+R+FqrHPh273lguZ+haNA0ocwX0ZnO5pxaw2LYPjQg/yrcHa6Lk6LvC3wDLxLyjcFH2CahrKgU3f1hHngA5RR0boD3MpUoawXZ1nNPpq7X6FaAauDJ7LX7vgSaeh2Ea/dWe1eHrWAp+K6gHxlo83JBd0NS2o8HD7OUcP0K3JsqiDOUXQ4eIpGQd9+1276hLJlS7hwD55L3zl2koKePuc722ZRzLbgFDc4GT60BYMT3hslgFE6ANVAPKkFFOBWeB08/9caD5Rolj0l4khwOW8JXcBr4jtNT3ImSt22KCxf0vXu5oIPB/h8G228G3kmsW4Dep/TrY2aQcOsO11GKzlfoLuJiP/giriygi45lNcFxHO972n4fl1fh2nklA1c9JaT5V7n/uh4PG226ir7N23d0ACVSstHaC+whc5pIu2+o3x/CegzIlG7cr2N4wnrH8/AYRLl30DAH00go926xN3hyL4XXQD/wbmWgNQLf3BjH+KvJFynoenhWQ/8b8q7POSbtZx+Wp+ZtQSyWJQ8Z16Juas7q0a/91YU8CH23Jp92J0HPdqHefoLUION1qAvlUVpgYnSkE7hh58IQ8ITzUcJg6QoNYTd4GWbDdOgB28ICcDADZBV8Bgaim9kXPoA2cAVGW8dYtr8aPiU/n3QV5TpmUeImPgZDwfFrwVo4CI6CeaDRPNEuoU/nUkCoc/1SDXQkAzyroOu6fGS4AJrBeniX8sdJG8OhoG18Bv8txUelXuAGO4ekfXbhOvU8nliPzu56VkBh4mtU9+1I8FDQfifA+TAVUkK/Zbg4B/4Kz4E202Gdy5Xgfmtz6x9G/2FsnuaglGeTAyg8Dv2TSfUx1+edxDWbV/THlFCnHazXsXOOga59GPTXgvsliusZQ3055hnKulPmIaIk+9U3XGtW0RApiQfsQIEbY+DUh/PivKfoJBgJOkkV0JleAjfrO9gVDKSx4MQ0UDtYAjPAIDEQfYyzviOMADfSPt8ExyhKeqMwicX3DIoag3x7OIpyPzdoSH4UvAsvQzbZhsIdYB/4Bhy/MNFJngbvqjeCQdQL9oA88I6qE/zW4h70BU/rMTAUgliWPO3DenSGxfDfoEj6SyJv9kQ4HfrBU7AczoE74AZwP0KbOuSvgeuw7V2knuyNSGpCUziM8hmUHUbe/hx3LhQlU1HQfh56rs3g8DC8GsJduzX56RBkOzKPQANwf3OJgfYgPAv/hLA/BtYxYF+Oq5wEx4HB4xrCwaSNFdsUkHIZJRrEThbAMGgBF4ELrQ0Gih3XgMlQDfaHpfA9uLku1usKoEGd/HqwL9t3Bp3Va/MXgwu7EHxNdRGbETaOonSh3n51lLvSayKDv2jwWE46F90ZZDtBYQHUjrqn4R44hjbzSHUOjVXGfEL2JK8NzkLPw0I9jf8xXEPZLVx/Qr48/JYykc6c46nwBuNcFzpnvBvJe2gF0SHCeo5Gd64V8XrKBaU4VU97zUqU34PuWq5vhkqJ8nrkdaRBibKQvZk+tLPyKej4zSEam7RQoZ3fEtFZH4Ev4CN4HvYDba0frIKk2K9z80CzPpfoJwbRPYzlAREJY5YlczQcQd7gN2j+BXtDObiUspWk2s6APtJ8Nkk5CYo2dDN0Ik81G/4EGs4BdIw1MB5c1Pbg5Ay2pjAJfHToCA2gGYyGKfG1d6wVoF4HqAHr4OD4uiKp424BucRgnA9NmLMvar3l20aDOl4klHkYNITZ+SVZ/w6jdBGMAF+A+n0x7WC7luD8gtQlMx3DRsETF2pw294RX7sxv6kwnuvtDc4102Gca1LCenxKyFzPtpSl1kO/30AqeFi3H4y75xPAA8R9N1WWgQekb4r4ho2+0ByczzgI4hj6lHe/4so9KOpDg+EU5jQPHoPb4HbKpoLjRULZQjJ/BX1A/8wlzl/7pQl92M492w30YQ/c4STaeQlUhCAeCMEOoSyVJjdgG0p1+snQAM6AV8AFNISm8Cl0AnXVewDOBe8gOuznsBY0rk7tRDvD7jAT6kEeVAU3ahYMAfU3hY/hKDaoPwv6gXwBofxn6m+k4ho4HrybHQEG0Drw1PCEOh/swzVkFfqaje6lVKqr0VzrVnAseAImN2gM1xei34J26ilDYQjXBTYpqv2N/tC/76j5yJHc2AK9ozcHvUuocD0VIKzHtmE/yP6PoK/Du2bvxodDY3gcLoIgc8jcBzquh4R9u++pA4N+tP9VMBD0jWIJc/YNhItRvh3cK30oKc4vTWjjmx3uefW0ioIXrn8pHIp+P9ol91M/DTeGqCX1vn77hIsVUUEx/iQDyMkYKDpyC9DZHdDOGsE8sG4lWHYoeHfxpHYyOlitmFGkGts+voYlYCRrDINtInii1wENYR+WNQU309PvB8gqLPR1FurmHQTlYTrMivMk0RsVvUhvQtd5FyrUP01frukAMNDt7xPQIZIO68Ya9FegfwPpLNqq94cIY3lQFCno/Sdez4Eoh/UMJ5+5ntDXdmROiHXHkl4E2sM0Evr00LqJi7PgcPDOMwi2hyBHkvEg9DVoSQ+UN2hnv30Y57TirBWdz9DPKeh48DyM0pkwmfxXpPpfLXDN+qkBlhLauMfFlmQAaby9QIMaKN+BzqwsAq+rwWrwRHKDqoITvBkMGANuHVjeCm6FVTAOtgEDzdNrB/BRzsk2hjawBOqDTrkccgoL9fOBN1GqQN63kg8jH05EA/N5eBKSYgC7tjSh/Wu0f4vCmvBD3N8+5FOnH2U/oHMNZf3gOniE67GUu74g6qfakHesrGOGBllS24R1ZKlOKwr9pxfmHzADKUyuZ2+uk3MLr42Op7wz3AO+JlrPupqRT5sD5e77XdRVIf0ZdMLLIfRTg2xf9MZaVhKhzU/0+w/avA0XkL+RsmBX55w27xx9O+fM/f03ZQ3gCngH9C19XJ+7mnEMqKIkzRZJ5dTE6GgNFd6mdfa5MRrSu4inn6exJ4/BMQdWwNHQGp6E8pAHTUB5CTTyeVAbvJ22AIPIQDNY3DjvNO+BG/Mx+PhmfZHi4uH7WNH5RHctygyG3qTrMjpRJ2xMWpW6sBhCf6YhH+lSp3NcCJ60t4DBn5RvuUj270m8FEpyImsfDxNtXZTo1K6pgBSynuTcNkHHMZ6CXuSfgzBP7e+8DZQ0QcePGrSzvhPpcG0/vmbRDzZIaDuNhjfCIaDPBXF9K8NFjtQ5aDftlxL6dc2XQT9oCDuC8z6XOv2tKNEG9htsk6ZfLnlFhyuJ/ucouxK+hC5QB+rCTHAyBkw1WAQa8jRw4QPBIKsJE6EynA9G77bwNfgYtxjawuZg0AwF2/kB3ADSDRUNNCk0pq8Cm0/df8DxiyPaocDGaXRs1Iu6g2AZJKU/F9MSBdbfBpl6CZUC2SmU3AOZwV9AkYLBMD5bRZYy78jZ1jMhi66ntPPWcQoTn0huB/3AYMxmb6tKIk+jPB8WJBq9QF6/K0q0l3abmqnI3LzLvBiTWV3UtWO7znnZFDNvd5EODrIdmQNhS1gI6q2HGWCdQWIkz4IQTAaMOluAi7HcDfOUdBK2bQevwFHgSWFwToBR8BYLdVNKpdQCG40F0u5AYdY48jiCaCbXV0FD8FTwVGoK3lIbg1FdFbx1GvWeGo1gKUyHJmC9keudx7YGomVfwq5QBbxb+fmGQVYqpRbYqCzgc2xh0oyKncBHiupQHrxjGAAGinecyeAdqisYVOp9ApXANwusV9dHtNbga6duYLD4qGMfrUqDByuUykZpgVwB5OOWj2I/Qa14dd5FfETzHRfvSJ1BHfHxTekAs8CyJeAjnHexZeBdy0C0H+9qQ6ARd7tNSUul1AIbnQWyPsLFq9gyTvNIfUwzEDYHA8DgMIi+Au9Ui8FAM0B8x847lXeZraAe+ALTO5l3r3HQArYG33jw9ZR3q7VQIiHwnE9obwD7GmopdzTnEkkcnEHPuTuOvyr0AMgqtPGOaRvFt7XTdKn34HGNBv5K6r8nLbbQ3kfa2uAjrH38AM5bm6UJutpMXe/qriusMRxYFLFB+d8O8HBTltCXe5QS6rWTffhuowebbexX2+eSaH3o6ivBJ5L67q3vzBVqA9r6elh7JtfgHFP7ZIfouT9hDe6R7wwXEPTsx/UovnOaZov84qg/fdSnnMLEb9OvtJI+nZ/7nin6y3eFjZErgOzIjc0DH70MlJAaKAaNr3Mmg07gZA00jaxRzWsgH+t0AgNoGnQB2xhAu4G6UmxhseGRsDuN2oOLN8DHwQswATSKhm4L+8IO4Eb6Gs2fULxDOhXDpDkaZcou0CPKMW90H0EvOUfXcz4YCB4Cg6BYQl8NUNwVdgdtWhbmwhDqBjDOWvLOXZta3w3UrwfWuTY/iR+Nrq9Hg/hO6YXgPP1ca1jGnA+lfHtYALeDcgLkmckhYX3a+GIok6GrL8xgvI9JpzBmypkpcw3u814Q1mBQuIbB1Be2Bqqjb0OMN5NFfDo6BvQv17IIson+oY8VJoOpeCuuPIK0VYaittTP9RfnujyjvvBLGuwHA8CN9d9WexD88NC8XwX3g0w/xX8W1Lsb/MFaH/AHeP7g7jx4HN6DN+AU+C98CP8Cv0zophRb0Pe7bwfASFDWgj9a87czyq12RuqPpw6HL0Dxg1D11FecQxdwk1PCte1egCDzyej0KeG6HoTxeqcqisjQZivQTivAT/f92MD8j+DcUuOQbwXa1To/3FQvjDmTvD8K8w4WCfmdIYg/D2kT6ky5fjGu9A2iaM2kH4H2WAP+vCSIY1ouV8XtW5J3zorzXgxLwA+xnZ8B4WGWEq5bg+Pan/0n1zCD67MgdYcg3xGCHJ7qKCODwumxkvNpmVGduqTu4YReWE8yvSEoozcw1nWerkuWgR/y+pWv86HAHapc6CBL6onSC7wLeXs26ueBt3zvLuLp4yn5OfhYNhq8EzWHOXAAeMJ6Us+GnWAKHAKeRNPhDSiJdEb5EdDZHPd1cF46k3eO8CjhXech8I44HF6FJdAYjoY94HE4Fpx3kE5knLenmyeQJ/9p0BeCuHbn7+anTtxQmS3F+NrgFugJPjb0hxGwDvLAcbWVzl6f5FHw1J4Pz8AkcI37wf7gyev+/QsU5yQGR0d4nH4u5NQcRl5xHMU9C/IgmXAC70zeU1g9+/ROrXwY/c3v27oK8AToH461OVwM3cDDYX/G9LBqwPVj4Fzcn2fBNVQF1yB3Qnm4DxTtHSSZD2UhdW8U1+KaC5Ow5mUo3AHJvXLuwxMNg64+2Scud60Hg/5yM/iE8yGkxA3IKhjB005DnQPbwAJYC05CJ3VAjeGmVwcH02jVoAxYr9PoLOZnwu4wFQyilvA0zICSyHEoO84SuAEGxXN1HgMh/DT5FPIGzyL4B3yAnietc54Jblpz0DhRAFGnUU8AdcbCKugMR1J3L+2/Jb+h4lg94savkTqnmfRJ19FrBB+vwiNCd/I6nk7UDxzbE7Ec+eHQCLaDUynrT9135JPiHnWAa6i/mPqJycpEfgB590on7AVHgM75GOhI2iPpdFxG4uPhc+biOe1Hthl41zPIf4B9wDm4hkfgPtr40+iwhsaUqR/WoE/9XmLfHtT6bxDz88NFIvVb6tHaLGO++q8+4rpaw4eQEheTS96j0o06FnTESjAUFkA30NhugAarGONk1dVAOmAd0DHqg7pbgyfHaniayWbbIKoKCovxtOoY1+jgb4b2pM5lmnXoGdA7m0dGwTvUu5GbkPrIMYDsJdAWOnNNcfR1lCZcHwTKs/ANeBcw2HcHHX9DRTt6d3YeTzBe6uAg7yZ9DEF2I6OttNuT1HtYOHdt5aPrQFL7c14eJpkBNJgy78b7whXoX05awM705z5Egs66kCf1K1JJZ0tURVkf57qQM8Bqg3ZTdMjQznrX4OnvGpaShjWMoP07XBpArcA1TIbfSzan4ytBHwkyjTn1DReJtGa8Nov06T3iOtvOifOpJGcAMYDPfy+g3RB0yJEwCOqBi58ABkojMFh0jrVQFzaDl+EwWA8LwQheARr8eZgGJRE3xLuD4klhv9mkAoVBbyF6zislXHt3dWOVamC/GugQaAg65FBQxyByvcfRJhWwXJdUqscNnIuOlktqxZUeTIuzKPpIpLjBYZ1RQfxH246Hv8ExMBtcZy4xGIIk86EsmR7JhUGubAH6gnbqB9+D4mGhFLaGufnV0RqqxPnfK6lMx3tldB7ml1Ec+XOfuFD7ujYPmndhBKRJzgBSE2ebheN4OlYC3yWayPUv5D2N3wKD5wBwkKPAk2Y6jIOnQYMaOM+Bdx+NtRieoC/7KYkYMItgG9iaaVSlj7BhUT+UuSY3zVPb03EbyqqgZ4BHwvVWZAwUxcD2xagO5uNhcB7zjmdwKXuD85/sRULSgjNRnpldEBfY33bwVaYCcyjDPO1vblxn0LnWz+Nr767Oz/bKStDemeLa74Gm4GPZWaBNfisxaLVtS9gMPGhug/8k9jQEuY7qGkZDJK6TTHINts+U4trVg68o0UbXQ9Lfwn5ktvUpxzvWlqCP2GYA3MnaPCTSRGcrjmiMz2BmrKwzarg1MBy862wL6lj3Nvh5w2qMNYN8ZfKTyRt0nog+UhW4HVKeU2jjHXEQSl2gDZzG9eukOkyluKws6WBQzzm5UT3Re4N0BdSBv4DGUZwL1b90It8eNJibcgIo9udmatAecAskxVt+42QBeT838PErKV9w4ZobwRm00aYG0XqoCzuBp5yb7dzPhcrwV3TvIJ0FrrEL7AuK9l4Q5dL/lNe+tLuJYvveLb36V1+9RA9DQBu5n9rMn3Y49yCu4WyoAr6DdSdpWENX8t1B+RQWRrn0P1vQJtOumZ+VbUqT+uj9mN50E586kmX65LugrVNCu9oZc7bOOV4PTeLUA2AxjIECUtwAcjK1QCdy4z31d4X3Qad0kxzkn+DjjhPejAm6QB3Wk1KZDpNglBcbKM/T7lDYES4BnX4+VIN28DlGGcTY/cnvBd79LgP1vXvpwPtBBfgYXkXXIDkRdFDn+CDoFIrpSeA4x6B7P6kB5dqUfcA7WlLcLOeZlLlcPAp/hz3gOhgH2tY5GUDDQSc09WDQOb2ru7ap4MlvAOlYrvl+1lronYW6Ucy3L3p3Q0tQwrzzrwr+zVUf6sbQ92v0PZvmHmTa+CKuJ1PuOpVPwDUcDck1uJau4JrDGtaQz5QTKHCtSenPxUeJAvftb6APJuVGLr6GMN/a5LX3T5CUkVy410lZFq+tCoXbwLlwGAyCV6HkgmGawIOwv61J/azkAzgYqsCV4Itxg6YN7AsdoAb42Y8nt+22hctgT683RGjr7aIHvA9+HqGsAe9OptfbL2kZOAH8+YGveRTrFT+PeBt0fnV9zJsH9nEruL5yCXQOPx+w/T5QC3xXTP1s3Ga/mYJuA7gHZoDt7NPPJRTvGHVDG/Lt4QVYBIp6tjEdC87JgI+E/I7g5zHqHJEo1w69YG5c9zlpcKygpg18N8y2PjU0T1XEGcq0ketXp1eoJ+/++u6an/X8AzLnNICyxaCE9q7BzxIz1+BnWfZfGKc4LvWupzAdy3eJ9f5dhN6ziXW8FuumApTrFjAsLjcNh1BoFn2OkLrIkfHk9tQrrw4RGjkTWTv0tK0OLWAiVARPjjfB08lb4BwIsj5kNiRlbNYRPbYto/1e4LieFj5GzoI3wDn6uuYFss59T2gGbq53z0kwGJ1PSZXN4BXwbuNzfPIdKTfMkycPPPE2hdXwKFQGxbKkfJK8CHn6NUhv4drHgY6wJZSB5TASUicpujrY9ZR5N/LOWhOcl7b0zvkeOsm7j4+xD4AyPT9J2eF5rsMezaWd68wUbeLd1f1JzSOhZJmntTZQN8gAMj511Afbuv/RvBhnNGvow/W+ENbgHde71EeQuYbFlDkHJdOmloVxJ5PPpfeNysgQ8GlBydbfqPyq6O9b/PWO6p0rEuY/lfnfyMX+cVGtOE0l2TpNVSYzdPQU17fT6RfkK5B/DsZzfS3X15LfGi4GB3kCrgTLDKb/ouc3F1qR7w5+JjOe9FcJ/Rk4bp6PNmvBZ99vSdMEPZ1HvUpgAM1HbzVpJHE/9qWkfZfOAuq1k48BOrvjfJe4JltAVtO/42SVuL+6VNpnWXDOzqnA4YJueep0zhBAvvvoY16aoFeOgs3jwhXoOM+UUO/afXxaT92yVEWcod5DRDsZXD7GpD3uUO887V9b+BpvDWkk1Nmv/Wsf2xokKaFef3ENNcBDwH3KNofkGlArING4ibkWUIgLnIN34zCvwvTWoOdeusfOzeD3tXvKhyh33e6T4tv7HnYpccJFCp1onGkx6u8IW8EYLxBPp0awCtw4jd8APIl2BqP6FdD4K2EW/GphMY7nvHJKbKTIUNkU437sK6tQr1N5wicl8zpZlzMf97cAJckp6Opw2iunzdAz+LzbZhXq3YvozpBNgXoDIhUUmTrUu6feIQoIde6pZBXqDaiZWSsThejlXENQRS/nXBN6OecV9EzpUx8uIJS77kLt6olRHPGu4rdyfS3hY8tBXoNf2bAPF/R1vDAdcRAY/ZNhKoR3VAyutNOJ61IptcBGa4HiBpB3qrIEi0HRCrqCdxSDqDF4QkfPjgRRyNvG29074ONMZ1DfE7U5lEqpBTZ6C+QMIALGoGnGKrtAW9geDoQtwEDxdYPXBlTUF/reoXYHH/Fago9/Prr52OedqhF0Qm9z+ydfKqUW2GgtUNRroA6srBsYKAbI5tAOPoP2MBF8bbEUtgSlATSB2aCuL8yagi+C68J0OBq8E/l25ss+GpIvsdC2No0Masc0oH2d8CX9pT3Poufc8iBTomdu9OdlVoRr2tp3a3DuHgS+DvDRdCbtfiZNE/R9Me5ho65rdD5peuhox63BOY+j3kfblFBfgws/g1BmUe9b2aFNfmn6X19cO6dI0K1KRru4D74J4eu1r9CZQVpA0PdAbBpX+EO2aUGJOtfvGwBFifbw7ertUNQG2cQ5pO01+nVQ1E/qgXaaCdrMp5WUoKf9PXzdM+t/SlWSoT65x1OpT3uxn9T9LfOFBhATcoP3A1//jIdnYF/w8etN0HmdtAbQKPVoo+HcLIPNoKoOOpLGcBOOhSehO+gQDWEF7d5gwTpTsQR971z2dQK48d71bO87a1Oof4L+XiMfZE8yvcNFIrXNt+h/TPpv2iwMdZTpxGeCr/e8mwan0NmXwV0wADJlfwqujwt1iL/AuPg6JB3I3Bpf+O7kDYytYwRpQ+aB+OIm0uehI/wzLstMRlJwuoX0tRPJZWAfVUD7R3OmTrs8xHWmXEDBoXHhAvSORs89U3qAdihKwjxdV2EB535NsCPGKEdyEhwHjcEnFfdDX5pEvf8+9kDyQbTrRaDOI/BvSEpXLq6LC/5GOiRZ+XvlXURhEiL+RxQ0yG6wJ7jRW4KntoGic1lfG/4K6ut8Gn4K+LpJ5zOgdgE3swJsCzp+Swz1OmmxBMPqEOfBhdAQPGEXgeVNoTm0Ra86/T5FXjFY20W5/HkbaOpXB0/MtpBHm7Np4xslzvk2OBg8ILyTuF4DQrtsA65lAKSEds5FZwtjWXciXGEmIY4bdOzP0/LuRH3VRL0HmGJZyyiXbz+znsKywAvGr0miA+/qNTIJ3I960AmWQFoA0cY7zMnQBBTH6AbhAHJfw7hkI3trO22RDHrXpORBM9C39A8dXvsp+oHztPwSOAf0He32DXgwhj3cDj2/6xhs7F0y2OwK6rzrhv2lKm2P3b8/RLIGEJPT4D2hEYwFN9my+TAd3AiNsi+4sYthBmhsjTouzrs56iqO9QPo9LapAjpHFcZ7DWNMJl8c0XEvB/vW6DreSHBTOoOnaQvw86mR9KsTuYlBdLBhoBMY6H+H7tAD+sNg0KGOBZ1iONwPU0Gn8cDYHRw7U3amoCs4nnbQMY5iHncxj2z6VEcBehk6fnbzuAWFyGeU94TGcBPobG/CsxD61tG7QAXoD9rGOetQu0IdxmGYtLv9UZQ3gp9AsW1P9PzszrJXwINQccxbQNtPh2shyOdx5jJS9/dS2AmWx/nVpDNA0X4Xgn41D+6CMaCP7AF/Aw/YPszDr2bZ7hcIog9Zp83C4ZusT+ZDm98lLRBATErHOhF0Kk+v28FTwhNgLKwF2zUBDakBJsBoWAlO3k1oC54YBsoQsA8DyPbeMY6AOvAdXMq4l2AM80XJSSg4ro7hZj4BK8B5Oz8D6RrYGnSOGyApfvgbbTZjug4dy7W66U0p00l6gsHjyX4x+MytA3h6GhS2d7xM6UWB/cyFgXAG5MEh0A+yievQNtfRt6fqS9mUKNPO3hV0LANImQKWBecPtreuFWwH7otMBE90dSJhPNd4MmizobAKDoBu0A50attNA0W93lEu/4nCsYP8GGfeI1VPH1Lc7zfge1gDivY1eNZDXxgA7r02/QIqwiXggdADDLAgYf7NKLgpttmHofKPTl1oplSmoAN8AuNhBXiKm34Ns8CFaphvQJ0P4FswcLxNa0zbG1iWaShPLANH53djdJQl4CY0Ajc8p2AsnbtTrLSU9AUcwk+dfwI/YV9M2bPgZjnH3UAJRje/E/10E/JHwoEWIjqhzmJQu3HKp+BdzO+HeXrbpiu0Bn9UppNFQr45mcPiy7dJbwXn45z/Qn0l0mzyPIXasQnciN4epGsgTeI1/kDhOgjrcc3+q0HBeSdTpwMr20NfeBIehcPBPUqKB4dBpqjzIGiHGnACbELfYQzHds/D2N7KHDtgO/XXWkbWg0FR30/w1WN50evkXaKa/G9hv0K5b1yEPdQWz4BjlYGw32Fc+30K3GP34Xb6bEvqmH+4lMsyYjXKNOC74N3D/HLwZG0PnoQGgYFh+URwMQ2hPpSHhaDeOGgGOuojYJuR4Cm6EmynjidOQwyhswbDU1RADIrKcalOY1Bnik4SbSap88+Uv1LguIrB7rx1yn7gHaweWK4scWPzs1lfxHtInBnX63AGnxv/Mrj+QXA87Ay7wvuQKQMpGAz3wjZg4L0K2kEHyhRtECSZt0x7XAK9YH8wqJuCjtYZ2mDjK1mTX/x0n04H92Q2DAXvslOgFfjoeSe6C8gHyRwvlBeVJtu5pkpxA50+2x4uozz4gX6XFNs/Dc7zetgB7oBR8IeLk8kUTySdcz04KRe7FGaDjl4daoIbo54nho5qeQvwNKgF1UBD6Kybg85lsA2Lr+3fDdPhdDY32Ta5RGd2HopjtIty6X924jIEzoy4KrmBztkxda5mYJ9Xg/9VoY8wy8EgVFrjROXys1H5ZPL2qaM732hz0dmC/PHgONr0fHgSwvy0YS/0kvOgKBLvNgPgn+BcnP+5kE2X4tThYD6cyuaDjCdzB5wMBsi/wcejJnAKtAHFoO4a5fLXcTv5+8G9UhrBYVFuw/4k5+a6grjeufFFXVLtmCkdKdDXlK/zk5Q9tIv79BA4X+/we0BP+MPFzc6UYECDRKMbBPIBeKJ+DgaD8gvoYBpIXJibFQLQxVqvEexXx/b6dXgF7FPn8g5gO41bqODgjvdSrFCZ1BeSu0Al8M2IPSgzGMKcHCNTdC4dScdSPIF9bTAnusoPnvfjvKebPwZz7mPgKhgHrksZkZ9E79Y1j/MeDLtCd9AJXZviHcEDJlPKMrZrfwCckw7REMIYZDF0/hrrkd0qKsj/U5VyPz5wfsr2cCbQ5aajSbWVgfkuKB46oX0v8h4A2tS70d4x2tXT33mc7LikxRJ0fUbbEpxnaKeP1bcMKjAv+3457tDx+1LuTzHcQ9ej3S4H2+lHr0GmaLMlFN4Kz4DBVh/+cNHRMuVjCnqCk/JkrQYngXcJFzw0zuvsTaAZfACe3FNBw5tfCluDm2YbA1KnaA/fguUGnUHVAD4CDVaUGBQHwuHQFfrBZLDvluDdQXkSQiBEBfGfGRjfb5TfyXU72BtO49p3e/w8yt+T3E1ZZ2gMl0I3mA+uwdPRNU4Ef4yno5wK2nImuPmuS9E5d4TeoC2Pg75QQBjXDyFvo8JgOLmAQv5rgesoD4eQKofCdjAKfHQz8K6G4+nrK9Jl4J7tBsoKmEZdU9LDLEAGwQMQAtY5nwhHgnPXxu9CccRAvAucR5u4gfv8KKyHs8C9eg72Aw8VA6YRTAHbu4ctQHkEhke5LH+wmb9xupYqxzggi8rvXpQtgBYyqqfQZrAYtoW54CS98/SCdfANzASdrBV8DQZGGVgL6u4ABtJI0KgaxrrmYDv7tt7y/hjEzcsp6PjjratQ0jncZB3I9jpARXDOnkq+dbySVHFOQXR+j2iN35usc2kCN3M9i/IvyY+FC+AK2AX2A+ddHirAcPgHzAHrfBxSXoQ34GcvYhlBehLkmTLGv0iT60zNjbH9vVAf6g2ig0CJ5ktaF3TmpOh42jWMp020QRfQ+X8E21cH9/VOmAWu2/1RHoQ3o9z//DHQDgF94HTm9D5zWx9XB58JaVwcJa5lV8iDsC7tZZniPLT9Qvq8jKx7ZSDrJy0h7KFzfQruRXcVqRL6S8tTP52+/k6hh1sYx37+EMk6ULyJ3ZjBBNCZdCqDSqO5ITqcJ+p30A6s80T2lHYzrWsGP8Gzcaqjt4WZMAncYANvH7gVdHj1iyXMsQaK20InaAqOOx2GmdJXCB4ff4IeVdEP6eaaodxN6QBunnl/1z+G1DrXWhs6gxvsBi0D7eEY0e+G0DN4XJdBMYj280jTBJ29KGgM2tsAqwKWKUNpMyM/m/8X/frk9gbn9Bn1fjLvGneHbOJvhN5GR2d1rdrWQ0WH/QFSdiG/Bg4E98hDwc/g1EkJ/XhQ9AD31Tp11lLu/A+HauAbLG+SpoR6fcN615dN/FeNloQK9LWpPuAeah/3fypoX58UvieNBN02ZLS18jZ1HuCRxPPS3zw4FAN+Tn729/2rQQoIE8qj8F7YHL4G5VtwgZ5OGkojW1YVtgGdS/Gk8g7lCbcUdFYDTj0N5omic3q6uTkG0z0s2L5KJMzTediP/SmO64+kfo6u4j+xns6l+DZrqp4627oWxbds7SMl1FfkQnRm1+9bsjpeJNTbNozv2AZSmmTohLb2qdif/aYJbVyX+xPVc+1awxrSdLnwLWDvNuFQsG/n5ZydT5pd6Cusx7eiDagCUphOovxn2oa1pNon6lNliUwB+6Af9tD5FphraItecp/S9lAd6rWVNlMK1OcX//Z/CwsgDe/pK54O98NC0OFXwmowkDwhloMTN4AMDg3hCVUpzpNEgWOfW3qBbAVD4BpYyUbYZ6mUWmCjs0A4OdMmjkN7Qvui1juIQWbAGADeXTzpDBRTCSedp5pEpx2pugaYdx37qAu1QPHu5DcC5kdXpX9KLbCRWiDrHSi5lvjWuQtlPquGxwoDTwwqb8EGnMHjXUfx1m4ASdBRzzbqzoYXCSDvXv+nBfs1YIGNYTTrLfDIU9LF05+HT32YTH8+Efx/LdijIQZoBKOwhwd6iSX28bq0n1vixsVp4ABQGfysxffqpRpUT1CDfM0Y8xLqw3UoC4FWnOHTdOhzB/ARMSVc+7Ua73A+C58J3VKVGRnqGkEfMKB/V2EMP/t4Cvysw0BKCdd+NnI0HAO+RiyWoNsRfMPAQ61Qob4TnAj+VzA+BWw0wnyLPNhdDHoN4D+gfevFZRXI7w8HwqHgy4Wcgo7/5MADKpH6fUi/iFysOXh3KFKITF9c+y/NrILvY3zd4sZ35NovQfrN2OUx5sXyUJcs899ScJHe1UoqV9GgT2hEHxruBWgfl31JOifOZ0u+o/BT8E6YJvTl993OSSv8dRctae6bI3fBwtAVY/i68l7Ii/Ht7WLtBfpjYQr4pkwBoR8Pu39Q0Qt8E2h3OAT+Vwhzy+mY1HdnonsXc7L6zyLQvqaK/TeF3qCdC3tHkKrUmw8+KfkLadu6X59BSnLN2UeqrEIj3wL19U1ZcIDwLonvlCi+c+RrIaNW5w23Px1zNfi4UhuclG3Uty/F/lyw0b6G1H+rzNdOxRH1utDuANoMJH85RP1Sth35U+A+cF7W6WgGmT/QGk76N/BA8BRvTf40sP1rMM1ryluQPgodoS3o/K5Je91PW79LdiF5/w25xaSOtQXJRaDT6uQPg7bYFa6A22AJetrxMugHw0Chm+jfsdPZjwPt9QRlI9Dfg/yh4COy4w2nTPsVJt59t4VzwT1wzpE+7RqSd9461Sf09TRll5L3f8nws5lTyX8Mm8FJYNunYDr0hXngOp+B/cAnAU/4B2nvvwF3Hnlt7b4PBdczhrqHqbPMep9KfNx6ltS1esjYh9+DfIx0G/DO0ZX0Fsq0u/b1DaiLoSaMhn6gnTrD3+FWWAY+xj0N2sG5z6atNtwbaoF7eTuodzboA0tBH3BvtI83indo59xOg83If0DZy+TTpEzaVfqFTuRGa6jeoDGcxNGgca+CY6EDHAMnQA+wfAdwMl1gTzgMroYjQL1roTloVBevcYor61G8E3qxKPsxAP8LlWAmGGB5oBwEn4L154PyITg/5S8QOSvpHKgYpwbPbPgANP5yGAwGk49QzUh3AsuDXELG6/vBoNkHnOt46A/fgWKAuZFuSLgrL6fPupTpIM/CK3AFZTVJF8F78AWcDkWJYw+n7yWk9uk89qAvnV1bT4EH4WDK3Dt94HDyrn1/+B7cqxEwBnqDTjwKjgTnYt+HwPugjYJtHUu9WXAo9IMe9O3eqONYA+FUypqQdgLlIfDLq/qBOh4sBulaCHI5GW3xABhc3eAn+BKegJXgSeRb8+at8yMA98A7VTN4BNpBe9gd7Mf+5oN7sg4+gu1B0RaubzD4lODBkyZOtjCpTUULWBEraIQtQMcfDatgKSg/gpOuBj/DYlDGgpPaGlyI7XUE21quwXSSMAbZIqUcGm7sS7AL3AUauiy4YMfeFBTn9zG4IeVB+Rqci/I8VIYLoCn8As5lEtiXQTUbBoCO9wocDgeDAeAaPB0dz+B6Dr4CHcu52Z/ONgVdbaT8AK6hqhcJcYMNMgN+KDjHetAZtgftZPApjqeDZJPlFNaJKxynOlwNBlMevADjwQDRgZ2zzqTDTwTHbQ5bgeONAceaCyNBBwt2/oS86BuK+2q/E2AGhL22vj3ob63AfhT7tb9xsAi0iWvT7tOwWbRG7BvauV/2PQQ6gPZ1j7VvtBfkkxJsVJZC7Wpb91ZbalPnPhleBX9SYX/TQR9WdoJdQVvUAvtJEydWmLjRRvcysKEb8SLoRG5qHlQAHdMJfQOroAU4ER2mEehITtqNfQ+6QmNwk+1rHrjRxRXH9LR8A05j0Rp+M3AtBnB9yMPooUyH0JDlY0fPI+8XHjWKm/UYfAXHgvPX0drCFuD8a0AeqPs+OPfDwPEjSRj+BApawgEwFrRNeeodP8hKMm+DXx3yDRE5kuvZ4NidYHdwLR4GB4LjzoK66FYh/Rn8P1Rrwb6QDMbXqfPLmUeRug/aaiYYANrqOGgNjqFDWb4QroGX4TtYAI49FD4A978p6ERbgv1a5rok7J/r9dp6lh2d/uo5X8dS7yP4ENx35+YHsrZx/9R1D7S/67Pejmw/E5y7AbgfjAHHKxe3J8vAvDkEbcjqX/4sXDvat3cmx3Ef7ddDZG9oAe6nr3/Vy4vztnecceBeepi49jSxQWEygorBMBvej/Nu3mfwCLwDT8A98CZMg5fgSfCTYI3oIg2aT2BqfP0Q6VswCCqD47iw4oob4JsV/kDLoFVGg+M3Asd1s2vDh6DxDeYh4AbtBjrNLqBDuCl1oT8sgnfhNLC9urNAA2/mmKRfgM6wBJJyOxeu5yxwLNfn4TMKUhLb5T4KhkMvOAV0rPlwCxhMB8FNYPtnwTJtr51d4/PQHhrCxWBZEOd7NewE54BrvDqeu302hjPgFfB1kPZ5Bux7AtdrSK+HDtATPBw9jDwYVkNn0A4fgrY2PxQU92YtzAOdTrFsPdwNq8D1tgb3fCSEPRxG3v7fhvJwNJSFINrGtZwJ+tQQWAxp9uW6Amgv/bYb1IEJMAWUL8ED4xNwj9wv9+05cB86wXzYGZ4A/WTHOL81aZpsmnaVcWE0U6SRyoCGxr75pyl1Rr6GiaLehOufLSfvV0tsF+ps61fQg36kQ5n9+p9KrSMtltC/BvLfL476txFlGtwNUSrmJ9FrI0//H722nXlS6x3XudiHbZXo6x9x/85PRzINNrD/feEMuJK+JpKmCW11NPt2fv4D/OZdd4H1Uee49q9EXyGizLFcnxLmo05Yn/sV+nId1aEH9GcMHTcS+lEvrNN5+1qA4rTyaI42oNx5aquoj/g62FG99ZS5NvuNvjbEdbCnZZGdE2WpdYcydBzHPl2jffjdumhd5PWbaF/VQxxLf3IPUoJOsewb6zkvxTWZp7toHdozuhvF43utjSxzz8I69Q/LnbP+q694t4x8mHyplMQCGNbPF/y3G/x8QQf504V5GBUh4P70+ZROoNQCOS2As1aEcNfIqVtaWWqBUguUWqDUAqUWKLVAqQV+Pwv8P7J6RKktv70HAAAAAElFTkSuQmCC" alt="Coal Controller Organisation emblem">
+      <div class="header-cco-text"></div>
+    </div>
+    </a>
+  </div>
+</header>
+
+<div class="page">
+
+  <!-- Back bar -->
+  <div class="sf-backbar">
+    <button class="back-btn" onclick="window.location.href='../index.html'" aria-label="Back to results">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M10 3L5 8l5 5"/>
+      </svg>
+      Back to Results
+    </button>
+    <span class="sf-breadcrumb">
+      <span>Final Recommendations</span>
+      <span class="sep">/</span>
+      <span style="color:var(--teal);font-weight:500;">Preservation Centre — Cold Chain &amp; Cold Storage</span>
+    </span>
+  </div>
+
+  <!-- Hero Image -->
+  <div class="spv-hero-wrap">
+    <img src="../images/pc-hero.jpg" alt="Temperature-controlled cold chain facility — numbered loading bays of a large cold storage and preservation warehouse" class="spv-hero-img">
+    <div class="spv-hero-overlay"></div>
+    <div class="spv-hero-title">Preservation Centre</div>
+  </div>
+
+  <!-- Main Tab navigation -->
+  <nav class="spv-tabs" aria-label="Detail sections">
+    <button class="spv-tab active" data-tab="about"       onclick="showSPVTab('about')">About</button>
+    <button class="spv-tab"        data-tab="prism"        onclick="showSPVTab('prism');prNav(PRISM2_ORDER[prism2Current])">P.R.I.S.M</button>
+    <button class="spv-tab"        data-tab="casestudies"  onclick="showSPVTab('casestudies');setTimeout(function(){window.dispatchEvent(new Event('resize'))},30)">Case Studies</button>
+    <button class="spv-tab"        data-tab="tender"       onclick="showSPVTab('tender')">Sample Tender Documents</button>
+    <button class="spv-tab"        data-tab="media"        onclick="showSPVTab('media')">Media/Web</button>
+    <button class="spv-tab"        data-tab="agencies"    onclick="showSPVTab('agencies')">Agencies</button>
+<!-- EXPERTS TAB HIDDEN (page not yet complete)
+<button class="spv-tab"        data-tab="experts"      onclick="showSPVTab('experts')">Experts</button>
+-->
+  </nav>
+
+  <!-- TAB: About -->
+  <div id="spv-panel-about" class="spv-panel">
+    <div class="spv-content">
+    <div class="about-hero-row">
+      <div class="about-hero-slide-col">
+        <div class="about-hero-label-wrap">
+          <div class="about-hero-label">Global Precedents</div>
+          <span class="about-hero-label-bar"></span>
+        </div>
+        <div class="proj-slideshow">
+          <img src="../images/pc-about.jpg" alt="Industrial banana ripening and cold storage facility — temperature-controlled preservation chambers and pack house" class="proj-slide-img" loading="lazy">
+          <div class="proj-slide-overlay"><span class="proj-caption">Banana Ripening Cold Chain Facility, Isfahan, Iran</span></div>
+        </div>
+      </div>
+      <div class="about-hero-text-col">
+        <div class="about-intro">
+          <div class="about-intro-block about-intro-primary">
+            <p class="spv-body-text" style="margin:0;">
+              A <strong>Preservation Centre / Cold Chain Facility</strong> on closed coal mine land is a temperature-controlled storage, handling, processing, and distribution hub for perishable and temperature-sensitive products — fruits, vegetables, dairy, meat, fish, frozen food, medicines, vaccines, and pharmaceutical items.
+            </p>
+          </div>
+          <div class="about-intro-block about-intro-secondary">
+            <p class="spv-body-text" style="margin:0;">
+              This model converts under-utilised mine land or reusable mine infrastructure into a <strong>cold-chain and preservation hub</strong> that supports food security, post-harvest loss reduction, medical supply resilience, rural livelihoods, agri-business, and regional logistics. It is especially suitable where road connectivity, power, and proximity to farming areas or hospitals exist.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-section">
+      <div class="about-section-eyebrow">Policy &amp; Support</div>
+      <h3 class="about-section-title">Policy Levers enabling Preservation Centre &amp; Cold Chain development on mine land</h3>
+      <div class="schemes-outer">
+        <button class="schemes-nav-btn schemes-prev" onclick="schemesNav(-1)" aria-label="Previous">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <div class="schemes-ticker-wrap">
+          <div class="schemes-ticker" id="schemesTicker">
+            <div class="scheme-card">
+              <div class="scheme-card-icon">&#10052;</div>
+              <div class="scheme-card-tag">MoFPI</div>
+              <div class="scheme-card-title">Integrated Cold Chain &amp; Value Addition Infrastructure</div>
+              <div class="scheme-card-desc">MoFPI scheme supporting end-to-end cold chain from farm gate to consumer — multi-temperature cold storage, CA storage, IQF, blast freezing, pack house, reefer vans, and mobile cooling.</div>
+            </div>
+            <div class="scheme-card">
+              <div class="scheme-card-icon">&#127858;</div>
+              <div class="scheme-card-tag">MoFPI</div>
+              <div class="scheme-card-title">PM Formalisation of Micro Food Processing Enterprises (PM-FME)</div>
+              <div class="scheme-card-desc">Credit-linked subsidy and technical support for micro food processing units; supports FPO/SHG-based cold storage and value addition on repurposed land.</div>
+            </div>
+            <div class="scheme-card">
+              <div class="scheme-card-icon">&#127981;</div>
+              <div class="scheme-card-tag">NABARD</div>
+              <div class="scheme-card-title">NABARD Cold Storage &amp; Cold Chain Finance</div>
+              <div class="scheme-card-desc">NABARD model bankable project guidance and refinance for cold storage and cold chain infrastructure, including FPO-linked preservation centres and warehouse-linked finance.</div>
+            </div>
+            <div class="scheme-card">
+              <div class="scheme-card-icon">&#127807;</div>
+              <div class="scheme-card-tag">DAC&amp;FW / SFAC</div>
+              <div class="scheme-card-title">FPO Promotion &amp; Farmer-Linked Cold Chain</div>
+              <div class="scheme-card-desc">SFAC/DAC&FW FPO equity grant and NABARD/NCDC support for farmer-producer-organisation-linked cold storage, pack house, and market linkage infrastructure.</div>
+            </div>
+            <div class="scheme-card">
+              <div class="scheme-card-icon">&#128138;</div>
+              <div class="scheme-card-tag">MoHFW / CDSCO</div>
+              <div class="scheme-card-title">Pharma Cold Chain &amp; Vaccine Storage Support</div>
+              <div class="scheme-card-desc">Central and state government cold chain expansion for vaccine and medical cold-chain infrastructure, including GoI immunisation cold chain guidelines and WHO/GoI standard equipment.</div>
+            </div>
+            <div class="scheme-card">
+              <div class="scheme-card-icon">&#9981;</div>
+              <div class="scheme-card-tag">MoC / CCO</div>
+              <div class="scheme-card-title">Mine Repurposing Policy — MoC</div>
+              <div class="scheme-card-desc">CCO framework mandating productive reuse of closed mine land; Preservation Centre / Cold Chain is an eligible repurposing category supporting food security, livelihood, and just transition.</div>
+            </div>
+            <!-- duplicates for seamless loop -->
+            <div class="scheme-card" aria-hidden="true">
+              <div class="scheme-card-icon">&#10052;</div>
+              <div class="scheme-card-tag">MoFPI</div>
+              <div class="scheme-card-title">Integrated Cold Chain &amp; Value Addition Infrastructure</div>
+              <div class="scheme-card-desc">MoFPI scheme supporting end-to-end cold chain from farm gate to consumer — multi-temperature cold storage, CA storage, IQF, blast freezing, pack house, reefer vans, and mobile cooling.</div>
+            </div>
+            <div class="scheme-card" aria-hidden="true">
+              <div class="scheme-card-icon">&#127858;</div>
+              <div class="scheme-card-tag">MoFPI</div>
+              <div class="scheme-card-title">PM Formalisation of Micro Food Processing Enterprises (PM-FME)</div>
+              <div class="scheme-card-desc">Credit-linked subsidy and technical support for micro food processing units; supports FPO/SHG-based cold storage and value addition on repurposed land.</div>
+            </div>
+            <div class="scheme-card" aria-hidden="true">
+              <div class="scheme-card-icon">&#127981;</div>
+              <div class="scheme-card-tag">NABARD</div>
+              <div class="scheme-card-title">NABARD Cold Storage &amp; Cold Chain Finance</div>
+              <div class="scheme-card-desc">NABARD model bankable project guidance and refinance for cold storage and cold chain infrastructure.</div>
+            </div>
+            <div class="scheme-card" aria-hidden="true">
+              <div class="scheme-card-icon">&#127807;</div>
+              <div class="scheme-card-tag">DAC&amp;FW / SFAC</div>
+              <div class="scheme-card-title">FPO Promotion &amp; Farmer-Linked Cold Chain</div>
+              <div class="scheme-card-desc">SFAC/DAC&FW FPO equity grant and NABARD/NCDC support for farmer-linked cold storage, pack house, and market linkage infrastructure.</div>
+            </div>
+            <div class="scheme-card" aria-hidden="true">
+              <div class="scheme-card-icon">&#128138;</div>
+              <div class="scheme-card-tag">MoHFW / CDSCO</div>
+              <div class="scheme-card-title">Pharma Cold Chain &amp; Vaccine Storage Support</div>
+              <div class="scheme-card-desc">Central and state government cold chain expansion for vaccine and medical cold-chain infrastructure.</div>
+            </div>
+            <div class="scheme-card" aria-hidden="true">
+              <div class="scheme-card-icon">&#9981;</div>
+              <div class="scheme-card-tag">MoC / CCO</div>
+              <div class="scheme-card-title">Mine Repurposing Policy — MoC</div>
+              <div class="scheme-card-desc">CCO framework mandating productive reuse of closed mine land; Preservation Centre / Cold Chain is an eligible repurposing category.</div>
+            </div>
+          </div>
+        </div>
+        <button class="schemes-nav-btn schemes-next" onclick="schemesNav(1)" aria-label="Next">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
+    </div>
+
+    </div>
+  </div>
+
+  <!-- TAB: P.R.I.S.M -->
+  <div id="spv-panel-prism" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+
+<style>
+.pr-intro { padding:22px 24px 20px; background:rgba(33,128,141,.05); border:1px solid rgba(33,128,141,.15); border-radius:14px; margin-bottom:20px; }
+  .pr-intro-badges { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:16px; }
+  .pr-intro-badge { display:inline-flex; flex-direction:column; align-items:center; gap:3px; padding:6px 10px 7px; border-radius:8px; border:1px solid; min-width:48px; }
+  .pr-intro-badge-letter { font-size:16px; font-weight:800; line-height:1; }
+  .pr-intro-badge-word { font-size:8.5px; font-weight:600; letter-spacing:.04em; text-transform:uppercase; line-height:1; opacity:.8; }
+  .pr-intro-eyebrow { font-size:15px; font-weight:700; letter-spacing:.01em; text-transform:none; color:#21808d; margin-bottom:8px; font-style:normal; line-height:1.35; }
+  .pr-intro-heading { font-size:16px; font-weight:700; color:#0f172a; margin-bottom:10px; line-height:1.35; font-style:normal; }
+  .pr-intro-body { font-size:13.5px; color:#374151; line-height:1.85; font-style:normal; }
+  .pr-shell { display:flex; border:1px solid #e2e8f0; border-radius:14px; overflow:clip; background:#fff; }
+  .pr-sidebar { width:220px; flex-shrink:0; border-right:1px solid #e8edf2; padding:16px 0 16px; background:#f8fafc; position:sticky; top:125px; align-self:flex-start; max-height:calc(100vh - 155px); overflow-y:auto; overflow-x:visible; }
+  .pr-sidebar-label { font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:#7a8a9a; padding:0 16px 14px; font-style:normal; }
+  .pr-nav-highlight { position:absolute; left:0; right:0; pointer-events:none; z-index:0; will-change:top,height; background:color-mix(in srgb,var(--pr-hl,#C85000) 9%,transparent); transition:top .4s cubic-bezier(.4,0,.2,1),height .4s cubic-bezier(.4,0,.2,1),background .38s ease; }
+  .pr-nav-highlight::before { content:''; position:absolute; left:0; top:0; bottom:0; width:3px; background:var(--pr-hl,#C85000); border-radius:0 2px 2px 0; transition:background .38s ease; }
+  .pr-nav-item { position:relative; z-index:1; display:flex; align-items:center; gap:12px; padding:13px 16px; cursor:pointer; font-style:normal; }
+  .pr-nav-item::after { display:none; }
+  .pr-nav-item:hover,.pr-nav-item.active { background:transparent; transform:none; }
+  .pr-nav-badge { width:34px; height:34px; border-radius:50%; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:800; border:1.5px solid #d1d5db; color:#9ca3af; background:#fff; position:relative; z-index:1; transition:background .35s cubic-bezier(.4,0,.2,1),color .3s ease,border-color .35s ease,transform .45s cubic-bezier(.34,1.56,.64,1),box-shadow .35s ease; }
+  .pr-nav-item.active .pr-nav-badge { background:var(--pr-accent); color:#fff; border-color:var(--pr-accent); transform:scale(1.12); box-shadow:0 0 0 4px color-mix(in srgb,var(--pr-accent) 18%,transparent),0 3px 10px color-mix(in srgb,var(--pr-accent) 32%,transparent); }
+  .pr-nav-item:hover:not(.active) .pr-nav-badge { border-color:var(--pr-accent); color:var(--pr-accent); background:color-mix(in srgb,var(--pr-accent) 7%,#fff); transform:scale(1.07); }
+  .pr-nav-letter { font-size:13px; font-weight:600; color:#374151; line-height:1.25; font-style:normal; position:relative; z-index:1; transition:color .25s ease,font-weight .2s; }
+  .pr-nav-sub { font-size:10px; color:#9ca3af; margin-top:2px; font-style:normal; line-height:1.3; position:relative; z-index:1; transition:color .25s ease; }
+  .pr-nav-item.active .pr-nav-letter { color:var(--pr-accent); font-weight:700; }
+  .pr-nav-item:hover:not(.active) .pr-nav-letter { color:var(--pr-accent); }
+  .pr-nav-item.active .pr-nav-sub { color:var(--pr-accent); opacity:.7; }
+  @keyframes nav-slide-in { from { opacity:0; transform:translateX(-10px); } to { opacity:1; transform:translateX(0); } }
+  .pr-nav-item { opacity:0; animation:nav-slide-in .32s cubic-bezier(.4,0,.2,1) both; }
+  .pr-nav-item:nth-child(3) { animation-delay:.02s; }
+  .pr-nav-item:nth-child(4) { animation-delay:.07s; }
+  .pr-nav-item:nth-child(5) { animation-delay:.12s; }
+  .pr-nav-item:nth-child(6) { animation-delay:.17s; }
+  .pr-nav-item:nth-child(7) { animation-delay:.22s; }
+  .pr-content-wrap { flex:1; min-width:0; }
+  .pr-content-wrap .prism2-content-panel { border-radius:0; box-shadow:none; }
+  .prism2-content-panel .prism2-panel-header { background:color-mix(in srgb,var(--pc) 5%,#fff); }</style>
+
+<div class="pr-intro">
+  <div class="pr-intro-eyebrow">PRISM – Post-Mining Repurposing and Implementation Strategy Models</div>
+  <div class="pr-intro-heading">A structured framework for mine repurposing from concept to implementation</div>
+  <div class="pr-intro-body">PRISM is a structured framework designed to support identified post-mining repurposing opportunities by evaluating suitable implementation pathways, financial and revenue-generation models, and the implementation requirements, roles, and responsibilities of mine owners, developers, operators, and other stakeholders throughout the project lifecycle. Built around five integrated pillars, PRISM guides Preservation Centre / Cold Chain &amp; Temperature-Controlled Facility projects from concept to operation.</div>
+</div>
+
+<div class="pr-shell">
+  <div class="pr-sidebar">
+    <div class="pr-sidebar-label">Pillars</div>
+    <div class="pr-nav-highlight" id="pr-hl"></div>
+    <div class="pr-nav-item active" style="--pr-accent:#C85000;" data-key="P" onclick="prNav('P')">
+      <div class="pr-nav-badge">P</div>
+      <div><div class="pr-nav-letter">Project vision</div></div>
+    </div>
+    <div class="pr-nav-item" style="--pr-accent:#1a5ca8;" data-key="R" onclick="prNav('R')">
+      <div class="pr-nav-badge">R</div>
+      <div><div class="pr-nav-letter">Repurposing pathways</div></div>
+    </div>
+    <div class="pr-nav-item" style="--pr-accent:#b06a10;" data-key="I" onclick="prNav('I')">
+      <div class="pr-nav-badge">I</div>
+      <div><div class="pr-nav-letter">Investment dynamics</div></div>
+    </div>
+    <div class="pr-nav-item" style="--pr-accent:#5a3d9e;" data-key="S" onclick="prNav('S')">
+      <div class="pr-nav-badge">S</div>
+      <div><div class="pr-nav-letter">Strategic structuring</div></div>
+    </div>
+    <div class="pr-nav-item" style="--pr-accent:#1a7a5e;" data-key="M" onclick="prNav('M')">
+      <div class="pr-nav-badge">M</div>
+      <div><div class="pr-nav-letter">Monitoring guidance</div></div>
+    </div>
+  </div><!-- /pr-sidebar -->
+
+  <div class="pr-content-wrap">
+
+  <!-- ── P Panel ── -->
+  <div class="prism2-content-panel active" id="prism2-panel-P" style="--pc:#C85000;--pb:#fff0e6;--cb:#fff8f3;">
+    <div class="prism2-panel-header">
+      <div class="prism2-panel-header-letter">P</div>
+      <div class="prism2-panel-header-text">
+        <div class="prism2-panel-eyebrow">PROJECT VISION</div>
+        <p class="prism2-panel-desc">Post-mining site context, suitability criteria, scale matrix, and owner-side readiness needed before committing to a Preservation Centre project.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">
+        <span>Project Overview</span>
+        <span class="accordion-chevron">&#8964;</span>
+      </button>
+      <div class="accordion-body" style="display:none;">
+        <p>This concept proposes the development of a <strong>Preservation Centre / Cold Chain Preservation Facility</strong> on closed, reclaimed, or repurposed coal mine land as part of a sustainable mine-closure and post-mining land-use strategy.</p>
+        <p>A Preservation Centre, in this context, refers to a <strong>temperature-controlled storage, handling, processing, and distribution facility</strong> for preserving perishable and temperature-sensitive products such as:</p>
+        <ul style="padding-left:1.4rem;line-height:1.9;">
+          <li>Fruits and vegetables; grains and seeds requiring controlled storage</li>
+          <li>Dairy products; meat and poultry; fish and marine products</li>
+          <li>Frozen foods; ready-to-eat and processed food products</li>
+          <li>Flowers and horticulture products</li>
+          <li>Vaccines and biological products; medicines and pharmaceuticals; diagnostic samples</li>
+        </ul>
+        <p>The objective is to convert under-utilized mine land or suitable mine infrastructure into a <strong>cold-chain and preservation hub</strong> that supports food security, post-harvest loss reduction, medical supply resilience, rural livelihoods, agri-business, local employment, and regional logistics.</p>
+        <p>This model is particularly suitable for closed coal mine areas where the site has available land, road connectivity, proximity to farming areas, markets, hospitals, industrial areas, or logistics routes; existing power infrastructure; scope for solar integration; available buildings that can be adapted; and local workforce requiring post-mining livelihood opportunities.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">
+        <span>Strategic Rationale</span>
+        <span class="accordion-chevron">&#8964;</span>
+      </button>
+      <div class="accordion-body" style="display:none;">
+        <p>A Preservation Centre is suitable for selected closed coal mine areas because cold-chain infrastructure can generate long-term livelihood, reduce waste, support farmers, improve medical supply reliability, and create a productive post-mining land-use model.</p>
+        <p><strong>Key Benefits:</strong></p>
+        <ul style="padding-left:1.4rem;line-height:1.9;">
+          <li>Converts closed mine land into productive preservation and logistics infrastructure</li>
+          <li>Reduces post-harvest losses by extending shelf life of perishable produce</li>
+          <li>Supports farmers, FPOs, traders, processors, hospitals, pharmacies, and local entrepreneurs</li>
+          <li>Creates skilled and semi-skilled jobs in cold storage operations, refrigeration maintenance, loading, sorting, grading, packing, logistics, quality control, and facility management</li>
+          <li>Enables multi-commodity and multi-temperature storage</li>
+          <li>Supports food processing, value addition, and market linkage</li>
+          <li>Supports vaccine, medicine, and medical-item preservation where regulatory requirements are met</li>
+          <li>Can integrate with pack houses, reefer transport, ripening chambers, blast freezers, IQF units, and food-processing units</li>
+          <li>Can reuse suitable mine buildings, workshops, yards, roads, substations, and administrative infrastructure</li>
+          <li>Supports climate-resilient and energy-efficient infrastructure through solar power, thermal storage, efficient refrigeration, and natural / low-GWP refrigerants</li>
+          <li>Generates revenue from storage charges, handling charges, processing charges, logistics, leasing, user fees, and value-added services</li>
+        </ul>
+        <p>The National Centre for Cold Chain Development has issued engineering guidelines and minimum system standards for cold-chain components. For vaccines, standard refrigerated storage is maintained at <strong>+2°C to +8°C</strong>, and temperature monitoring is essential per WHO immunisation guidance.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">
+        <span>Site Suitability and Technical Specification Matrix</span>
+        <span class="accordion-chevron">&#8964;</span>
+      </button>
+      <div class="accordion-body" style="display:none;">
+        <div class="spv-table-wrap">
+          <p class="spv-body-text">The following matrix provides a structured checklist for assessing the suitability of the proposed site for the selected repurposing option. It identifies the key physical, technical, environmental, infrastructure, legal, and owner-side readiness parameters that should be reviewed before the project is advanced to the next stage of development. The purpose of this matrix is to help the project owner understand existing site conditions, technical requirements, potential constraints, and preparatory actions required before feasibility studies, approvals, or tendering are initiated.</p>
+          <table class="spv-table">
+            <thead><tr><th>Category</th><th>What to Assess / Prepare</th><th>Why it Matters</th><th>Owner-Side Readiness</th></tr></thead>
+            <tbody>
+              <tr><td>Land status</td><td>Closure status, land ownership, permissible post-mining use, lease restrictions</td><td>Legal viability of cold-chain development</td><td>Land and closure-status note</td></tr>
+              <tr><td>Mine safety</td><td>Subsidence risk, slope stability, dump stability, voids, abandoned structures, restricted zones</td><td>Ensures safe construction and operations</td><td>Mine safety zoning plan</td></tr>
+              <tr><td>Ground condition</td><td>Bearing capacity, settlement risk, ground improvement requirement</td><td>Cold stores require stable floors for racking, forklifts, insulated panels, and heavy loads</td><td>Geotechnical report</td></tr>
+              <tr><td>Site access</td><td>Road width, truck access, turning radius, loading bays, highway / mandi / hospital connectivity</td><td>Critical for inbound and outbound logistics</td><td>Access and mobility plan</td></tr>
+              <tr><td>Power availability</td><td>Grid supply, sanctioned load, transformer capacity, backup power, solar feasibility</td><td>Refrigeration systems require reliable power</td><td>Power availability report</td></tr>
+              <tr><td>Water availability</td><td>Cleaning, processing, sanitation, ice production, staff use, firefighting</td><td>Required for food hygiene and facility operations</td><td>Water source and quality plan</td></tr>
+              <tr><td>Drainage</td><td>Stormwater, wastewater, floor wash water, monsoon runoff, low-lying areas</td><td>Prevents contamination, flooding, and damage to cold rooms</td><td>Drainage and wastewater plan</td></tr>
+              <tr><td>Product catchment</td><td>Fruits, vegetables, dairy, fish, meat, poultry, pharma, vaccines, medical supplies</td><td>Determines chamber design and temperature zones</td><td>Demand and catchment study</td></tr>
+              <tr><td>Temperature zones</td><td>Chilled, frozen, deep frozen, controlled atmosphere, vaccine / pharma zones</td><td>Different products need different temperature and humidity ranges</td><td>Temperature zoning plan</td></tr>
+              <tr><td>Food safety</td><td>FSSAI registration / licence, hygiene zoning, pest control, cleaning protocols</td><td>Required for food storage and processing</td><td>Food safety compliance plan</td></tr>
+              <tr><td>Medical storage suitability</td><td>Vaccine / medicine storage needs, temperature monitoring, segregation, traceability</td><td>Required for medical and pharmaceutical preservation</td><td>Pharma / medical compliance note</td></tr>
+              <tr><td>Refrigeration system</td><td>Ammonia / CO₂ / HFC / low-GWP refrigerant, compressors, condensers, evaporators, controls</td><td>Core technical system for preservation</td><td>Refrigeration design brief</td></tr>
+              <tr><td>Insulation</td><td>PUF / PIR panels, vapour barrier, insulated flooring, doors, dock seals</td><td>Reduces energy loss and maintains temperature</td><td>Building envelope plan</td></tr>
+              <tr><td>Material handling</td><td>Palletization, forklifts, racking, conveyor, dock levellers, crates</td><td>Improves throughput and reduces damage</td><td>Material handling plan</td></tr>
+              <tr><td>Pre-cooling and pack house</td><td>Sorting, grading, washing, drying, pre-cooling, packing</td><td>Essential for fruits, vegetables, flowers, and perishables</td><td>Pack-house plan</td></tr>
+              <tr><td>Blast freezing / IQF</td><td>Rapid freezing of food products</td><td>Supports fish, meat, poultry, processed food, and export value chains</td><td>Freezing technology plan</td></tr>
+              <tr><td>Monitoring and automation</td><td>Temperature sensors, data loggers, SCADA, IoT, alarms, CCTV, access control</td><td>Ensures quality, traceability, and regulatory compliance</td><td>Digital monitoring plan</td></tr>
+              <tr><td>Fire and safety</td><td>Fire detection, emergency exits, ammonia safety, PPE, ventilation, emergency response</td><td>Protects workers, products, and assets</td><td>Fire and emergency plan</td></tr>
+              <tr><td>Energy efficiency</td><td>Solar rooftop, thermal storage, VFDs, efficient compressors, LED, insulation quality</td><td>Reduces operating cost and carbon footprint</td><td>Energy management plan</td></tr>
+              <tr><td>Community linkage</td><td>Farmers, FPOs, SHGs, hospitals, pharmacies, traders, processors, local youth</td><td>Ensures livelihood and utilization</td><td>Beneficiary mapping</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">
+        <span>Indicative Project Scale and Configuration Matrix</span>
+        <span class="accordion-chevron">&#8964;</span>
+      </button>
+      <div class="accordion-body" style="display:none;">
+        <div class="spv-table-wrap">
+          <p class="spv-body-text">The following matrix presents an indicative relationship between available site area, project scale, technical configuration, and likely development potential. It is intended to support preliminary planning by helping the project owner identify the appropriate scale and configuration for the proposed repurposing option. The values and recommendations are indicative and should be refined through detailed feasibility studies, site surveys, engineering assessments, and relevant technical and commercial evaluations.</p>
+          <table class="spv-table">
+            <thead><tr><th>Land Area</th><th>Recommended Scale</th><th>Configuration</th><th>Use Case</th></tr></thead>
+            <tbody>
+              <tr><td>0.5–2 ha</td><td>Pilot Cold Storage / Preservation Unit</td><td>500–2,000 MT cold storage, small pack house, pre-cooling room, loading bay, basic backup power</td><td>Local farmer support, SHG / FPO linkage, pilot mine-repurposing model</td></tr>
+              <tr><td>2–5 ha</td><td>Community Preservation Centre</td><td>2,000–5,000 MT multi-commodity cold storage, pack house, grading line, reefer dock, small frozen chamber</td><td>Cluster-level food preservation and local market linkage</td></tr>
+              <tr><td>5–15 ha</td><td>Integrated Cold Chain Hub</td><td>5,000–15,000 MT storage, multi-temperature chambers, ripening chamber, blast freezer / IQF, pack house, reefer parking</td><td>District-level agri-logistics, dairy, fish, meat, and pharma support</td></tr>
+              <tr><td>15–40 ha</td><td>Regional Preservation and Distribution Centre</td><td>15,000–50,000 MT storage, controlled atmosphere storage, processing units, reefer fleet base, pharma/vaccine zone, testing lab</td><td>Regional cold-chain and food-processing hub</td></tr>
+              <tr><td>40 ha+</td><td>Large Multi-Product Preservation Park</td><td>Multi-user cold-chain park, food-processing units, warehousing, logistics, solar plant, training centre, quality lab, medical cold-chain zone</td><td>Just-transition flagship and regional agri-medical logistics hub</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="font-size:.85rem;color:#6b7280;margin-top:10px;">For mine-closure repurposing, a <strong>5–15 ha integrated cold-chain hub</strong> is often a practical starting scale. Smaller projects may begin with modular cold rooms and pack-house facilities, while larger projects can be developed in phases.</p>
+      </div>
+    </div>
+
+    <div class="prism2-nav-row">
+      <button class="prism2-btn-prev" id="prism2-prev-P" onclick="prism2Prev()" disabled>&#8592; Previous</button>
+      <div class="prism2-progress-dots" style="display:flex;gap:5px;align-items:center;">
+        <span class="pdot active" data-p="P"></span>
+        <span class="pdot" data-p="R"></span>
+        <span class="pdot" data-p="I"></span>
+        <span class="pdot" data-p="S"></span>
+        <span class="pdot" data-p="M"></span>
+      </div>
+      <button class="prism2-btn-next" id="prism2-next-P" onclick="prism2Next()">Next pillar &#8594;</button>
+    </div>
+  </div><!-- /P panel -->
+
+  <!-- ── R Panel ── -->
+  <div class="prism2-content-panel" id="prism2-panel-R" style="--pc:#1a5ca8;--pb:#e4eef9;--cb:#f3f7fd;">
+    <div class="prism2-panel-header">
+      <div class="prism2-panel-header-letter">R</div>
+      <div class="prism2-panel-header-text">
+        <div class="prism2-panel-eyebrow">REPURPOSING PATHWAYS</div>
+        <p class="prism2-panel-desc">Implementation models, comparative assessment, and model-wise responsibility logic for mine-area Preservation Centre development.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">
+        <span>Implementation Options</span>
+        <span class="accordion-chevron">&#8964;</span>
+      </button>
+      <div class="accordion-body" style="display:none;">
+        <div class="spv-table-wrap">
+          <p class="spv-body-text">The following table outlines the possible implementation models that may be considered for developing the proposed repurposing project. These models differ in terms of ownership structure, funding responsibility, private sector participation, operational control, and long-term risk allocation. The purpose of this table is to help the project owner compare broad development routes and select an implementation approach that aligns with its financial capacity, institutional preference, risk appetite, and long-term asset management objectives.</p>
+          <table class="spv-table">
+            <thead><tr><th>Main Group</th><th>Model</th><th>Core Feature</th><th>Broad Suitability</th></tr></thead>
+            <tbody>
+              <tr><td>Owner-Funded Infrastructure</td><td>EPC</td><td>Mine owner funds and procures cold storage buildings, insulated chambers, refrigeration system, pack house, loading bays, power backup, and basic utilities through a contractor.</td><td>Suitable for pilot or small preservation centres where the mine owner wants full control over infrastructure and future operations.</td></tr>
+              <tr><td>Owner-Controlled Operations</td><td>EPC + O&amp;M / Facility Management</td><td>Mine owner develops the facility through EPC and appoints a professional cold-chain operator for refrigeration, food safety, inventory, loading, unloading, billing, maintenance, and customer service.</td><td>Highly suitable where owner control, local livelihood, food-safety compliance, and sustained technical operation are important.</td></tr>
+              <tr><td>Private-Financed Transfer</td><td>BOOT</td><td>Private developer finances, builds, owns, and operates the preservation centre for a defined concession period and transfers assets to the mine owner at the end.</td><td>Suitable for commercially viable cold-chain hubs with assured demand from farmers, traders, processors, hospitals, pharma distributors, or anchor tenants.</td></tr>
+              <tr><td>Private Commercial</td><td>BOO</td><td>Private developer builds, owns, and operates the cold-chain facility without mandatory transfer, subject to land-use rights and agreement terms.</td><td>Suitable for commercial cold-chain projects, but less preferred where mine-owner control and community benefit are central.</td></tr>
+              <tr><td>Structured PPP</td><td>DBFOT</td><td>Private concessionaire designs, builds, finances, operates, and transfers the cold-chain hub under a structured concession agreement.</td><td>Suitable for large integrated preservation centres requiring professional design, private finance, long-term operation, and performance obligations.</td></tr>
+              <tr><td>Land / Facility Concession</td><td>Concession / Lease-Develop-Operate</td><td>Mine owner retains land ownership and grants development and operation rights to a cold-chain operator, FPO federation, logistics company, cooperative, or SPV.</td><td>Very suitable for mine-closure repurposing because land is retained while operations, investment, and market linkage are professionally managed.</td></tr>
+              <tr><td>Multi-Stakeholder Partnership</td><td>Hybrid</td><td>Combines mine-owner land/building support, private cold-chain operator, FPOs, SHGs, CSR, government schemes, banks, hospitals, pharma distributors, and food processors.</td><td>Most suitable for balancing livelihood, food preservation, medical cold-chain needs, owner revenue, ESG value, and commercial sustainability.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">
+        <span>Comparative Assessment of Key Models</span>
+        <span class="accordion-chevron">&#8964;</span>
+      </button>
+      <div class="accordion-body" style="display:none;">
+        <div class="spv-table-wrap">
+          <p class="spv-body-text">The following comparative assessment evaluates the major implementation models across key decision parameters such as investment requirement, ownership control, financing responsibility, contractual complexity, risk transfer, and long-term economic benefit. This matrix is intended to support early-stage decision-making by highlighting the relative strengths and limitations of each model. The final choice of model should be guided by the specific circumstances of the project, including its scale, commercial viability, applicable policy framework, and the owner's institutional preference.</p>
+          <table class="spv-table">
+            <thead><tr><th>Evaluation Parameter</th><th>EPC</th><th>EPC+O&amp;M</th><th>BOOT</th><th>BOO</th><th>DBFOT</th><th>Concession</th><th>Hybrid</th></tr></thead>
+            <tbody>
+              <tr><td>Upfront investment by Mine Owner</td><td>High</td><td>High–Moderate</td><td>Low–Moderate</td><td>Low</td><td>Low–Moderate</td><td>Low–Moderate</td><td>Variable</td></tr>
+              <tr><td>Need for private financing</td><td>Low</td><td>Low</td><td>High</td><td>High</td><td>High</td><td>Moderate–High</td><td>Variable</td></tr>
+              <tr><td>Ownership retained by Mine Owner</td><td>Yes</td><td>Yes</td><td>Land retained; assets transferred later</td><td>Limited</td><td>Land generally retained</td><td>Land retained</td><td>Usually retained</td></tr>
+              <tr><td>Suitability for welfare objective</td><td>High</td><td>Very High</td><td>High if mandated</td><td>Moderate</td><td>High</td><td>Very High</td><td>Very High</td></tr>
+              <tr><td>Suitability for local livelihood</td><td>Moderate</td><td>Very High</td><td>High</td><td>Moderate</td><td>High–Very High</td><td>Very High</td><td>Very High</td></tr>
+              <tr><td>Suitability for food preservation</td><td>Moderate</td><td>High</td><td>High</td><td>High</td><td>Very High</td><td>Very High</td><td>Very High</td></tr>
+              <tr><td>Suitability for medical / pharma preservation</td><td>Low–Moderate</td><td>High if compliant</td><td>High if compliant</td><td>High if compliant</td><td>Very High if compliant</td><td>High–Very High</td><td>Very High if compliant</td></tr>
+              <tr><td>Suitability for FPO / SHG integration</td><td>Moderate</td><td>High</td><td>Moderate–High</td><td>Low–Moderate</td><td>High if mandated</td><td>Very High</td><td>Very High</td></tr>
+              <tr><td>Revenue potential</td><td>Moderate</td><td>Moderate–High</td><td>High</td><td>High</td><td>High</td><td>Moderate–High</td><td>Variable–High</td></tr>
+              <tr><td>O&amp;M burden on owner</td><td>High</td><td>Moderate</td><td>Low</td><td>Low</td><td>Low</td><td>Low–Moderate</td><td>Shared</td></tr>
+              <tr><td>Commercial bankability</td><td>Low–Moderate</td><td>Moderate</td><td>High</td><td>High</td><td>High</td><td>Moderate–High</td><td>Variable</td></tr>
+              <tr><td>Risk to Mine Owner</td><td>High</td><td>Moderate</td><td>Low–Moderate</td><td>Low</td><td>Low–Moderate</td><td>Low–Moderate</td><td>Shared</td></tr>
+              <tr><td>Overall suitability for Preservation Centre</td><td>Moderate</td><td>Very High</td><td>High</td><td>Moderate</td><td>Very High</td><td>Very High</td><td>Very High / Most Suitable</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">
+        <span>Model-Wise Responsibility Logic</span>
+        <span class="accordion-chevron">&#8964;</span>
+      </button>
+      <div class="accordion-body" style="display:none;">
+        <div class="spv-table-wrap">
+          <p class="spv-body-text">The following table explains how major project responsibilities are typically allocated under different implementation models. It covers key functional areas such as site availability, financing, design and construction, regulatory approvals, operation and maintenance, revenue collection, asset ownership, and end-of-term transfer. This helps clarify the respective roles of the project owner, private developer, EPC contractor, operator, or concessionaire, and supports the preparation of tender documents and contractual structures.</p>
+          <table class="spv-table">
+            <thead><tr><th>Responsibility Area</th><th>EPC</th><th>EPC+O&amp;M</th><th>BOOT</th><th>BOO</th><th>DBFOT</th><th>Concession</th><th>Hybrid</th></tr></thead>
+            <tbody>
+              <tr><td>Site / land availability</td><td>Mine Owner</td><td>Mine Owner</td><td>Mine Owner / authority</td><td>Mine Owner / developer</td><td>Mine Owner / authority</td><td>Mine Owner / authority</td><td>Mine Owner / shared</td></tr>
+              <tr><td>Land ownership</td><td>Mine Owner</td><td>Mine Owner</td><td>Mine Owner retains land</td><td>As structured</td><td>Mine Owner retains land</td><td>Mine Owner retains land</td><td>Mine Owner generally retains</td></tr>
+              <tr><td>Geotechnical screening</td><td>Mine Owner / consultant</td><td>Mine Owner + O&amp;M agency</td><td>Shared</td><td>Shared</td><td>Shared</td><td>Shared</td><td>Shared</td></tr>
+              <tr><td>Demand assessment</td><td>Mine Owner / consultant</td><td>Mine Owner + O&amp;M agency</td><td>Developer</td><td>Developer</td><td>Concessionaire</td><td>Concessionaire / operator</td><td>Shared</td></tr>
+              <tr><td>Temperature-zone planning</td><td>Mine Owner / consultant</td><td>Mine Owner + O&amp;M agency</td><td>Developer / refrigeration expert</td><td>Developer</td><td>Concessionaire</td><td>Operator / refrigeration expert</td><td>Shared</td></tr>
+              <tr><td>Building and insulation works</td><td>EPC contractor</td><td>EPC contractor</td><td>Developer</td><td>Developer</td><td>Concessionaire</td><td>Operator</td><td>Shared</td></tr>
+              <tr><td>Refrigeration system</td><td>EPC contractor / vendor</td><td>EPC contractor + O&amp;M agency</td><td>Developer</td><td>Developer</td><td>Concessionaire</td><td>Operator</td><td>Shared</td></tr>
+              <tr><td>Pack house and grading line</td><td>EPC contractor</td><td>EPC contractor + O&amp;M agency</td><td>Developer</td><td>Developer</td><td>Concessionaire</td><td>Operator</td><td>Shared</td></tr>
+              <tr><td>Power backup and solar</td><td>EPC contractor</td><td>EPC contractor + O&amp;M agency</td><td>Developer</td><td>Developer</td><td>Concessionaire</td><td>Operator</td><td>Shared</td></tr>
+              <tr><td>Food safety compliance</td><td>Mine Owner</td><td>Mine Owner + O&amp;M agency</td><td>Developer</td><td>Developer</td><td>Concessionaire</td><td>Operator</td><td>Shared</td></tr>
+              <tr><td>Temperature monitoring</td><td>Mine Owner</td><td>O&amp;M agency</td><td>Developer</td><td>Developer</td><td>Concessionaire</td><td>Operator</td><td>Shared</td></tr>
+              <tr><td>Day-to-day operations</td><td>Mine Owner</td><td>O&amp;M agency</td><td>Developer</td><td>Developer</td><td>Concessionaire</td><td>Operator</td><td>Operator / FPO / SPV</td></tr>
+              <tr><td>Community mobilization</td><td>Mine Owner</td><td>Mine Owner + O&amp;M agency</td><td>Developer if mandated</td><td>Developer if mandated</td><td>Concessionaire if mandated</td><td>Operator + FPO / NGO</td><td>Core feature</td></tr>
+              <tr><td>Local employment</td><td>Mine Owner-controlled</td><td>Mine Owner-controlled through contract</td><td>Contract-based</td><td>Developer policy</td><td>Contract-based</td><td>Contract-based</td><td>Strongly configurable</td></tr>
+              <tr><td>FPO / SHG participation</td><td>Mine Owner-controlled</td><td>Mine Owner + O&amp;M agency</td><td>Contract-based</td><td>Optional unless mandated</td><td>Contract-based</td><td>Strong contractual role</td><td>Core feature</td></tr>
+              <tr><td>Revenue collection</td><td>Mine Owner</td><td>Mine Owner / operator on behalf of owner</td><td>Developer during concession</td><td>Developer</td><td>Concessionaire</td><td>Operator / shared</td><td>Shared</td></tr>
+              <tr><td>O&amp;M risk</td><td>Mine Owner</td><td>O&amp;M agency, with owner oversight</td><td>Developer</td><td>Developer</td><td>Concessionaire</td><td>Operator</td><td>Shared</td></tr>
+              <tr><td>Asset transfer at end</td><td>No</td><td>No</td><td>Yes</td><td>No</td><td>Yes</td><td>As agreed</td><td>As agreed</td></tr>
+              <tr><td>Best suited role</td><td>Basic preservation facility creator</td><td>Owner-controlled cold-chain operator</td><td>Commercial developer-operator</td><td>Private cold-chain owner</td><td>Structured PPP concessionaire</td><td>Long-term preservation operator</td><td>Multi-party livelihood + commercial platform</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="prism2-nav-row">
+      <button class="prism2-btn-prev" id="prism2-prev-R" onclick="prism2Prev()">&#8592; Previous</button>
+      <div class="prism2-progress-dots" style="display:flex;gap:5px;align-items:center;">
+        <span class="pdot" data-p="P"></span>
+        <span class="pdot active" data-p="R"></span>
+        <span class="pdot" data-p="I"></span>
+        <span class="pdot" data-p="S"></span>
+        <span class="pdot" data-p="M"></span>
+      </div>
+      <button class="prism2-btn-next" id="prism2-next-R" onclick="prism2Next()">Next pillar &#8594;</button>
+    </div>
+  </div><!-- /R panel -->
+
+  <!-- ── I Panel ── -->
+  <div class="prism2-content-panel" id="prism2-panel-I" style="--pc:#b06a10;--pb:#faedda;--cb:#fdf7f0;">
+    <div class="prism2-panel-header">
+      <div class="prism2-panel-header-letter">I</div>
+      <div class="prism2-panel-header-text">
+        <div class="prism2-panel-eyebrow">INVESTMENT DYNAMICS</div>
+        <p class="prism2-panel-desc">Funding logic, revenue generation, local livelihood potential, and combined comparison across all implementation models.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">
+        <span>Funding Logic</span>
+        <span class="accordion-chevron">&#8964;</span>
+      </button>
+      <div class="accordion-body" style="display:none;">
+        <div class="spv-table-wrap">
+          <p class="spv-body-text">The following table presents the broad funding logic for each implementation model. It explains who is expected to finance the project, the level of owner-side funding requirement, and the commercial rationale behind each structure. This section is intended to help the project owner assess whether the project is more suitable for owner-funded development, private investment, public-private partnership, lease or concession structure, or a hybrid funding arrangement.</p>
+          <table class="spv-table">
+            <thead><tr><th>Model</th><th>Funding Source</th><th>Owner Funding Requirement</th><th>Suitability</th></tr></thead>
+            <tbody>
+              <tr><td>EPC</td><td>Mine owner budget / mine closure fund / CSR / food-processing infrastructure support</td><td>High</td><td>Suitable for basic cold storage, pack house, loading bay, power backup</td></tr>
+              <tr><td>EPC + O&amp;M</td><td>Mine owner budget + O&amp;M budget + storage charges + CSR</td><td>High to Moderate</td><td>Strong fit where owner wants control over livelihood, cold storage tariff, food safety, and operations</td></tr>
+              <tr><td>BOOT</td><td>Private cold-chain operator capital + bank finance + possible grant / subsidy / VGF</td><td>Low to Moderate</td><td>Suitable for commercially viable hubs with assured produce, market, or institutional demand</td></tr>
+              <tr><td>BOO</td><td>Private cold-chain company capital</td><td>Low</td><td>Suitable for private commercial cold storage; less preferred where community access is important</td></tr>
+              <tr><td>DBFOT</td><td>Private concessionaire + public / CSR support + possible VGF + institutional finance</td><td>Low to Moderate</td><td>Suitable for large integrated preservation centres with multi-temperature storage and processing units</td></tr>
+              <tr><td>Concession / Lease-Develop-Operate</td><td>Private operator / FPO federation / cooperative / logistics company / food processor / pharma distributor</td><td>Low to Moderate</td><td>Very suitable for mine-owned land where professional operation and market linkage are needed</td></tr>
+              <tr><td>Hybrid</td><td>Mine owner + CSR + government schemes + bank finance + FPO / SHG + private cold-chain operator + hospital / pharma anchor users</td><td>Variable</td><td>Most suitable for balancing livelihood, food preservation, medical supply support, owner revenue, and ESG outcomes</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="font-size:.85rem;color:#6b7280;margin-top:10px;">The MoFPI Integrated Cold Chain and Value Addition Infrastructure scheme supports end-to-end cold-chain infrastructure from farm gate to consumer, including multi-temperature cold storage, CA storage, IQF, blast freezing, packing, reefer vans, and mobile cooling units.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">
+        <span>Revenue Generation by Model</span>
+        <span class="accordion-chevron">&#8964;</span>
+      </button>
+      <div class="accordion-body" style="display:none;">
+        <div class="spv-table-wrap">
+          <p class="spv-body-text">The following table explains how revenue may be generated under different implementation models and identifies who is likely to receive the principal project income. It also describes the nature and extent of the financial benefit available to the project owner, whether through direct project revenue, cost savings, lease income, concession fees, revenue sharing, service charges, or eventual asset transfer. This comparison is intended to support the selection of a commercially appropriate model for the proposed repurposing project.</p>
+          <table class="spv-table">
+            <thead><tr><th>Model</th><th>How Revenue is Generated</th><th>Who Receives Main Revenue</th><th>Owner's Financial Benefit</th></tr></thead>
+            <tbody>
+              <tr><td>EPC</td><td>Storage charges, loading/unloading, sorting and grading fees, pack-house charges, freezing charges, ripening charges, reefer parking, medical cold-room rental, power/service charges</td><td>Mine Owner</td><td>Full revenue retained by owner, but owner bears full CAPEX, O&amp;M, refrigeration risk, product-loss risk, and market risk</td></tr>
+              <tr><td>EPC + O&amp;M</td><td>Same revenue streams: storage, handling, pack house, grading, freezing, blast freezing, IQF, medical cold-chain services, logistics support</td><td>Mine Owner after paying O&amp;M agency</td><td>High benefit; owner retains revenue while outsourcing technical operations and maintenance</td></tr>
+              <tr><td>BOOT</td><td>Developer earns from cold storage rentals, processing charges, reefer services, pharma/medical cold-room leasing, pack-house operations, logistics, and user fees during concession</td><td>Developer / concessionaire during concession</td><td>Lease rent, concession fee, revenue share, local economic uplift, and asset transfer at end</td></tr>
+              <tr><td>BOO</td><td>Long-term revenue from commercial cold storage, frozen-food storage, medical cold-chain leasing, logistics, processing, and distribution services</td><td>Private developer</td><td>Limited direct benefit; typically lease rent, fixed charges, or premium payments</td></tr>
+              <tr><td>DBFOT</td><td>Structured revenue from multi-product storage, CA storage, frozen storage, processing, packing, reefer logistics, medical cold-chain services, and user charges</td><td>Concessionaire during concession</td><td>Concession fee, lease rent, revenue share, performance-linked payments, and transfer terms</td></tr>
+              <tr><td>Concession</td><td>Revenue from preservation operations, storage rental, pack house, grading, ripening, freezing, medical cold-chain leasing, logistics support, and user charges</td><td>Concessionaire / operator as per agreement</td><td>Lease rentals, revenue share, reduced O&amp;M burden, improved land value, and socio-economic benefits</td></tr>
+              <tr><td>Hybrid</td><td>Mixed revenue: storage charges, farmer/FPO service charges, CSR/grants, medical cold-chain contracts, logistics, processing, solar power savings, training fees</td><td>Shared between owner, operator, FPO/SHG, cooperative, hospital/pharma partner, or SPV</td><td>Variable to high; owner benefits through revenue share, ESG gains, reduced O&amp;M burden, and enhanced land value</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">
+        <span>Which Model is Better for Local Livelihood and Jobs</span>
+        <span class="accordion-chevron">&#8964;</span>
+      </button>
+      <div class="accordion-body" style="display:none;">
+        <div class="spv-table-wrap">
+          <p class="spv-body-text">The following table assesses the likely local livelihood and employment potential of each implementation model. It considers the extent to which each model can support construction-phase jobs, long-term operational employment, local procurement opportunities, skill development, community participation, and associated support services. This section is particularly relevant where the repurposing project is expected to contribute to post-mining or post-operational economic transition and sustained local community benefit.</p>
+          <table class="spv-table">
+            <thead><tr><th>Model</th><th>Local Job Potential</th><th>Why</th><th>Overall Suggestibility</th></tr></thead>
+            <tbody>
+              <tr><td>EPC</td><td>Moderate</td><td>Creates short-term jobs in construction, insulation works, electrical installation, refrigeration installation, flooring, and site preparation. Long-term jobs depend on owner-led operations.</td><td>Moderate</td></tr>
+              <tr><td>EPC + O&amp;M</td><td>High to Very High</td><td>Supports sustained employment in refrigeration operations, loading, unloading, sorting, grading, packing, inventory, security, cleaning, quality control, and facility management.</td><td>Very High</td></tr>
+              <tr><td>BOOT</td><td>High</td><td>Generates jobs during development and operation. Local employment can be strong if the agreement mandates local hiring, FPO/SHG participation, training, and local procurement.</td><td>High</td></tr>
+              <tr><td>BOO</td><td>Moderate</td><td>Can create cold-chain and logistics jobs, but local livelihood depends mainly on private developer policy unless contractually mandated.</td><td>Moderate</td></tr>
+              <tr><td>DBFOT</td><td>High to Very High</td><td>Suitable for large integrated hubs with cold storage, pack houses, frozen-food units, reefer logistics, processing, and medical cold-chain services.</td><td>High to Very High</td></tr>
+              <tr><td>Concession</td><td>Very High</td><td>Strong model for long-term local livelihood through FPO/SHG participation, farmer services, loading contracts, packing units, logistics, and facility operations.</td><td>Very High</td></tr>
+              <tr><td>Hybrid</td><td>Very High</td><td>Best suited for combining mine-owner support, private technical expertise, FPO/SHG participation, CSR, government schemes, hospitals, pharma users, and community benefit obligations.</td><td>Very High / Most Suitable</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">
+        <span>Combined Comparison: Revenue, Profitability, and Livelihood</span>
+        <span class="accordion-chevron">&#8964;</span>
+      </button>
+      <div class="accordion-body" style="display:none;">
+        <div class="spv-table-wrap">
+          <p class="spv-body-text">The following combined comparison brings together three important dimensions of project structuring: revenue potential, owner-side financial benefit, and local livelihood generation. It provides a consolidated view of how each implementation model performs across commercial, institutional, and community-development perspectives. This matrix is intended to support balanced decision-making where the objective extends beyond financial return to include sustainable site reuse and long-term local economic benefit.</p>
+          <table class="spv-table">
+            <thead><tr><th>Model</th><th>Main Revenue Source</th><th>Owner Profitability</th><th>Local Job Creation</th><th>Overall Comment</th></tr></thead>
+            <tbody>
+              <tr><td>EPC</td><td>Storage, handling, pack house, grading, freezing, medical cold-room rental, utility charges</td><td>Moderate to High, but owner bears full CAPEX, O&amp;M, refrigeration, product-loss, and market risk</td><td>Moderate</td><td>Useful for initial facility setup, but weak for long-term technical operations unless followed by structured O&amp;M</td></tr>
+              <tr><td>EPC + O&amp;M</td><td>Storage rentals, handling charges, pack-house fees, freezing fees, pharma/medical storage, logistics services</td><td>High, as owner retains revenue after O&amp;M payments</td><td>High to Very High</td><td>Strong where owner wants control, welfare impact, and sustained employment</td></tr>
+              <tr><td>BOOT</td><td>Commercial cold storage, processing, packing, logistics, pharma/medical cold-chain services</td><td>Moderate through concession fee, lease rent, revenue share, and eventual asset transfer</td><td>High</td><td>Suitable for commercial preservation hub with mandatory livelihood and service obligations</td></tr>
+              <tr><td>BOO</td><td>Long-term private revenue from storage, frozen food, medical cold-chain leasing, logistics, processing</td><td>Low to Moderate, mostly from lease rent, fixed charges, or premium</td><td>Moderate</td><td>Use cautiously where community benefit and owner control are not primary</td></tr>
+              <tr><td>DBFOT</td><td>Multi-temperature storage, CA storage, IQF, blast freezing, logistics, pharma/medical cold-chain, processing</td><td>Moderate to High through concession fee, lease rent, revenue share, and transfer terms</td><td>High to Very High</td><td>Good for large structured PPP projects needing private finance and professional operation</td></tr>
+              <tr><td>Concession</td><td>Storage, pack house, farmer services, reefer logistics, medical cold-chain leasing, processing, user charges</td><td>Moderate to High through lease rent, concession fee, revenue share, and improved land value</td><td>Very High</td><td>Very suitable for community-linked preservation centre with livelihood obligations</td></tr>
+              <tr><td>Hybrid</td><td>Mixed revenue from storage, processing, logistics, medical cold-chain contracts, grants, CSR, FPO services, training</td><td>Variable to High depending on revenue-sharing and support structure</td><td>Very High</td><td>Most suitable for balancing mine closure, livelihood, food preservation, medical supply support, and commercial viability</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="prism2-nav-row">
+      <button class="prism2-btn-prev" id="prism2-prev-I" onclick="prism2Prev()">&#8592; Previous</button>
+      <div class="prism2-progress-dots" style="display:flex;gap:5px;align-items:center;">
+        <span class="pdot" data-p="P"></span>
+        <span class="pdot" data-p="R"></span>
+        <span class="pdot active" data-p="I"></span>
+        <span class="pdot" data-p="S"></span>
+        <span class="pdot" data-p="M"></span>
+      </div>
+      <button class="prism2-btn-next" id="prism2-next-I" onclick="prism2Next()">Next pillar &#8594;</button>
+    </div>
+  </div><!-- /I panel -->
+
+  <!-- ── S Panel ── -->
+  <div class="prism2-content-panel" id="prism2-panel-S" style="--pc:#5a3d9e;--pb:#edeaf8;--cb:#f7f5fd;">
+    <div class="prism2-panel-header">
+      <div class="prism2-panel-header-letter">S</div>
+      <div class="prism2-panel-header-text">
+        <div class="prism2-panel-eyebrow">STRATEGIC STRUCTURING</div>
+        <p class="prism2-panel-desc">Pre-RFP readiness checklist, post-award scope, and the 15-step implementation pathway for mine-area Preservation Centre development.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">
+        <span>Preparations Needed Before RFP</span>
+        <span class="accordion-chevron">&#8964;</span>
+      </button>
+      <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">The following section identifies the key owner-side preparatory actions that should ideally be completed before issuing the first Request for Proposal. These actions are aimed at reducing uncertainty for prospective bidders, improving project bankability, clarifying site availability, identifying approval pathways and risks, and defining the technical and commercial scope of the project. Completing these preparatory steps before tendering can improve bid quality, attract credible responses, and reduce the risk of delays during project implementation.</p>
+        <p class="spv-body-text">Before issuing an RFP for a Preservation Centre / Cold Chain-based mine repurposing project, the mine owner should prepare the following in priority order:</p>
+        <ol class="spv-list">
+          <li>Land and closure confirmation — Confirm land ownership, closure status, mine-closure linkage and permissibility of using the closed mine land for cold storage, food preservation, medical storage, logistics and value-addition activities.</li>
+          <li>Legal and land-use screening — Review land-use restrictions, lease / concession rights, commercial rights, user charges, revenue-sharing permissibility, produce liability, storage liability and insurance requirements.</li>
+          <li>Mine safety and no-go zone mapping — Identify safe and unsafe zones, including unstable dumps, subsidence-prone areas, highwalls, unsafe water bodies, abandoned structures, active mine interfaces and restricted infrastructure.</li>
+          <li>Preliminary technical site assessment — Prepare topographic survey, geotechnical screening, foundation suitability note, drainage review, flood-risk assessment, road-access assessment and truck-movement feasibility.</li>
+          <li>Power, water and utility readiness — Assess grid power availability, connected load, transformer capacity, backup power, solar feasibility, potable water, cleaning water, firefighting water and wastewater disposal requirements.</li>
+          <li>Commodity and demand assessment — Identify likely users and products such as fruits, vegetables, dairy, fish, meat, frozen food, seeds, processed food, vaccines, pharmaceuticals, diagnostics and other temperature-sensitive medical items.</li>
+          <li>Temperature-zone and capacity planning — Prepare preliminary capacity in MT and define chamber requirements such as chilled storage, frozen storage, controlled ambient storage, blast freezing, ripening chamber, pre-cooling unit and medical cold room.</li>
+          <li>Regulatory and compliance screening — Identify applicable requirements such as FSSAI licensing / registration, Food Safety and Standards regulations, Legal Metrology requirements, fire NOC, factory / labour compliance, environmental consent and biomedical / pharmaceutical storage norms where applicable.</li>
+          <li>Cold-chain standards and technology note — Prepare a preliminary technology note in line with NCCD cold-chain guidance covering refrigeration system, insulation, material handling, energy efficiency, digital monitoring, reefer interface and temperature recording. NCCD is the Government of India body for promoting integrated cold-chain infrastructure for agriculture and allied perishables.</li>
+          <li>Food safety and medical cold-chain protocol — Prepare separate protocols for food products and medical items, including hygiene zoning, pest control, cleaning SOPs, temperature mapping, data loggers, alarm systems, product segregation and recall procedure. WHO guidance treats storage and transport of time- and temperature-sensitive pharmaceutical products as a controlled process requiring documented temperature conditions and monitoring.</li>
+          <li>Community and stakeholder consultation — Consult farmers, FPOs, SHGs, traders, food processors, dairy / fisheries stakeholders, hospitals, pharmacies, district administration, agriculture / horticulture departments, health department and logistics operators.</li>
+          <li>Cost and implementation model selection — Prepare broad CAPEX and 5-year O&amp;M estimates covering civil works, insulation, refrigeration, power backup, solar, WMS, IoT monitoring, pack-house, loading dock, manpower and maintenance; then select a preferred model such as Hybrid, Concession / LDOT, DBFOT or EPC + O&amp;M.</li>
+          <li>Draft RFP scope and obligations — Prepare bidder scope covering design, construction, refrigeration installation, operation, food safety compliance, medical cold-chain compliance, energy performance, local employment, FPO / SHG linkage, tariff structure, reporting and handover obligations.</li>
+          <li>Bid evaluation framework — Define evaluation criteria covering cold-chain experience, refrigeration technical capability, food / pharma handling experience, safety record, financial capacity, energy-efficiency proposal, O&amp;M plan, local livelihood integration and revenue proposal.</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">
+        <span>Activities to be taken After Selecting the Agency</span>
+        <span class="accordion-chevron">&#8964;</span>
+      </button>
+      <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">The following section lists the principal activities that may be undertaken by the selected contractor, developer, concessionaire, operator, or implementation agency after award of the project. These activities generally include detailed site investigations, engineering design, statutory submissions and approvals, equipment procurement, construction, commissioning, operational planning, staff training, and performance monitoring. The distinction between pre-RFP owner preparedness and post-award implementation responsibilities helps ensure an appropriate and efficient allocation of effort across the project development cycle.</p>
+        <p class="spv-body-text">After award, the selected concessionaire / contractor / O&amp;M agency / cold-chain operator can take up the following activities in chronological order:</p>
+        <ol class="spv-list">
+          <li>Detailed site investigation — Undertake detailed topographic survey, geotechnical investigation, foundation design inputs, drainage assessment, flood-risk study, truck-circulation study, utility survey and building-condition assessment where existing structures are reused.</li>
+          <li>Detailed demand and product-mix finalization — Validate commodity flow, user demand, seasonality, medical storage requirement, farmer / FPO linkage, institutional demand and chamber-wise utilization assumptions.</li>
+          <li>Final master planning — Prepare the final preservation-centre layout showing cold rooms, frozen rooms, controlled ambient area, pack-house, ripening chamber, blast freezer, loading docks, reefer parking, utility block, office, quality room, worker amenities and emergency access.</li>
+          <li>Detailed engineering and refrigeration design — Prepare detailed designs for insulated envelope, floor insulation, refrigeration plant, evaporators, condensers, compressors, electrical systems, backup power, solar integration, fire safety, drainage and wastewater systems.</li>
+          <li>Detailed Project Report — The selected concessionaire / operator shall prepare the DPR, including detailed surveys, final capacity, chamber-wise design, refrigeration technology, financial model, statutory approvals plan, food safety plan, medical cold-chain plan, O&amp;M plan and implementation schedule, for approval by the mine owner.</li>
+          <li>Approvals, licences and insurance — Obtain applicable approvals such as FSSAI licence / registration, fire NOC, consent from pollution control authority where required, factory / labour registrations, Legal Metrology compliance, electrical safety approval, insurance cover and medical storage permissions where applicable.</li>
+          <li>Procurement of equipment and systems — Procure refrigeration plant, insulated panels, insulated doors, dock shelters, forklifts, pallets, racks, data loggers, IoT sensors, WMS, CCTV, fire systems, PPE, cleaning systems and backup-power equipment.</li>
+          <li>Construction and installation — Develop the cold-storage building, pack-house, loading docks, drainage, roads, reefer parking, refrigeration plant room, utilities, worker facilities, office, quality-control room and safety systems.</li>
+          <li>Preparation of operating procedures — Prepare SOPs for product receipt, grading, storage, temperature monitoring, cleaning, pest control, equipment maintenance, product recall, emergency response, power failure, medical item handling and incident reporting.</li>
+          <li>Recruitment and training — Recruit and train refrigeration technicians, warehouse operators, quality-control staff, WMS operators, loaders, safety staff, security staff and local youth for cold-chain operations.</li>
+          <li>FPO / SHG and institutional onboarding — Onboard farmers, FPOs, SHGs, traders, processors, hospitals, pharmacies, diagnostic centres and logistics partners through service agreements, tariff terms and operating protocols.</li>
+          <li>Trial operation and validation — Conduct dry runs, chamber pull-down tests, temperature mapping, alarm testing, backup-power testing, WMS testing, mock product movement and emergency drills before commercial operation.</li>
+          <li>Commissioning and commercial opening — Commission the Preservation Centre after successful validation, safety clearance, staff readiness, licence compliance and approval by the mine owner.</li>
+          <li>Regular operation and monitoring — Carry out routine O&amp;M, temperature monitoring, energy monitoring, food safety checks, medical cold-chain records, equipment maintenance, utilization reporting, incident reporting and compliance reporting.</li>
+          <li>Phased expansion — Expand storage capacity, product categories, reefer fleet, pack-house services, processing, medical storage, solar power and value-added services based on demand, revenue, compliance record and owner approval.</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">
+        <span>Indicative Implementation Pathway</span>
+        <span class="accordion-chevron">&#8964;</span>
+      </button>
+      <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">The following implementation pathway presents a practical high-level sequence for advancing the proposed repurposing concept from initial approval through to project execution and long-term operation. It outlines the broad stages of concept approval, preliminary studies, model selection, bid preparation, procurement, detailed design, statutory approvals, construction, commissioning, and ongoing operation. This pathway is indicative and should be adapted to reflect the specific complexity, regulatory requirements, financing structure, and site conditions applicable to the project.</p>
+        <ol style="padding-left:1.4rem;line-height:1.9;">
+          <li>Concept approval and objective setting</li>
+          <li>Site suitability and mine safety screening</li>
+          <li>Demand and product catchment assessment</li>
+          <li>Power, water, road, and logistics feasibility</li>
+          <li>Selection of product mix and temperature zones</li>
+          <li>Selection of implementation model</li>
+          <li>DPR and financial feasibility</li>
+          <li>RFP issuance and partner selection</li>
+          <li>Detailed engineering and statutory approvals</li>
+          <li>Civil works and insulated chamber construction</li>
+          <li>Refrigeration, power backup, monitoring, and safety installation</li>
+          <li>Pack house, pre-cooling, freezing, and logistics infrastructure setup</li>
+          <li>Training and local livelihood integration</li>
+          <li>Trial operation and temperature validation</li>
+          <li>Commercial operation, monitoring, and phased expansion</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="prism2-nav-row">
+      <button class="prism2-btn-prev" id="prism2-prev-S" onclick="prism2Prev()">&#8592; Previous</button>
+      <div class="prism2-progress-dots" style="display:flex;gap:5px;align-items:center;">
+        <span class="pdot" data-p="P"></span>
+        <span class="pdot" data-p="R"></span>
+        <span class="pdot" data-p="I"></span>
+        <span class="pdot active" data-p="S"></span>
+        <span class="pdot" data-p="M"></span>
+      </div>
+      <button class="prism2-btn-next" id="prism2-next-S" onclick="prism2Next()">Next pillar &#8594;</button>
+    </div>
+  </div><!-- /S panel -->
+
+  <!-- ── M Panel ── -->
+  <div class="prism2-content-panel" id="prism2-panel-M" style="--pc:#1a7a5e;--pb:#e1f3ec;--cb:#f0faf9;">
+    <div class="prism2-panel-header">
+      <div class="prism2-panel-header-letter">M</div>
+      <div class="prism2-panel-header-text">
+        <div class="prism2-panel-eyebrow">MONITORING GUIDANCE</div>
+        <p class="prism2-panel-desc">Way forward, preferred models, positioning strategy, references, and abbreviations for mine-area Preservation Centre development.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">
+        <span>Way Forward</span>
+        <span class="accordion-chevron">&#8964;</span>
+      </button>
+      <div class="accordion-body" style="display:none;">
+        <p>For Preservation Centre-based mine repurposing, the most practical approach is:</p>
+        <p><strong>Preferred Models</strong></p>
+        <p class="spv-body-text">The following way forward summarizes the preferred development approach for the proposed repurposing option, based on the assessment presented in PRISM (Post Mining Repurposing Implementation and Strategy Models). It identifies the most suitable implementation models in order of preference, highlights key technical and due-diligence considerations, and outlines the recommended next steps and broad development logic. This section is intended to guide internal decision-making and support the project owner in progressing from concept-stage evaluation toward feasibility assessment, project structuring, regulatory approvals, and implementation planning.</p>
+        <ol style="padding-left:1.4rem;line-height:1.9;">
+          <li><strong>Hybrid Model</strong></li>
+          <li><strong>Concession / Lease-Develop-Operate</strong></li>
+          <li><strong>EPC + O&amp;M / Facility Management</strong></li>
+        </ol>
+        <p><strong>Secondary Option:</strong> DBFOT for large regional cold-chain hubs requiring private finance, advanced refrigeration, multi-temperature storage, food processing, medical cold-chain zones, and professional operation.</p>
+        <p><strong>Suggested Preservation Centre Positioning</strong></p>
+        <p>For closed coal mine land, the facility should preferably be positioned as a <strong>Multi-Product Cold Chain and Preservation Centre</strong> with the following modules:</p>
+        <ul style="padding-left:1.4rem;line-height:1.9;">
+          <li>Multi-temperature cold storage (chilled, frozen, deep-freezer, controlled atmosphere)</li>
+          <li>Pre-cooling unit; pack house with sorting, grading, and packing</li>
+          <li>Ripening chamber for fruits, where required</li>
+          <li>Blast freezer / IQF unit, where required</li>
+          <li>Reefer vehicle loading and docking area</li>
+          <li>Medical / vaccine cold-room zone, where compliant and demand exists</li>
+          <li>Food safety and quality testing room</li>
+          <li>Inventory and digital monitoring room (IoT / SCADA)</li>
+          <li>Solar rooftop and energy-management system</li>
+          <li>Training room for local youth, SHGs, FPOs, and operators</li>
+          <li>Farmer service centre; administrative and billing office</li>
+          <li>Maintenance workshop; fire safety and emergency control system</li>
+        </ul>
+        <p>The preservation centre should be structured not only as a cold storage warehouse, but as an <strong>integrated cold-chain livelihood and logistics platform</strong> supporting food preservation, medical supply reliability, local enterprise, farmer income, and responsible post-mining land reuse.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">
+        <span>References</span>
+        <span class="accordion-chevron">&#8964;</span>
+      </button>
+      <div class="accordion-body" style="display:none;">
+        <ol style="padding-left:1.4rem;line-height:1.9;font-size:.875rem;">
+          <li>Ministry of Food Processing Industries, Government of India. (2026). <em>Integrated Cold Chain and Value Addition Infrastructure Scheme.</em></li>
+          <li>Ministry of Food Processing Industries, Government of India. (2022). <em>Scheme Guidelines for Integrated Cold Chain and Value Addition Infrastructure.</em></li>
+          <li>Ministry of Food Processing Industries, Government of India. (2024). <em>Operational Scheme Guidelines for Setting Up of Multi-Product Food Irradiation Units under Cold Chain Scheme.</em></li>
+          <li>National Centre for Cold Chain Development. (2025). <em>Engineering Guidelines and Minimum System Standards for Implementation in Cold Chain Components.</em> Ministry of Agriculture and Farmers Welfare, Government of India.</li>
+          <li>National Centre for Cold Chain Development. (2015). <em>Cold Chain System Guidelines.</em> Ministry of Agriculture and Farmers Welfare, Government of India.</li>
+          <li>Food Safety and Standards Authority of India. (2017). <em>Safe Storage, Distribution and Transportation of Food: Food Safety Training Manual.</em></li>
+          <li>Food Safety and Standards Authority of India. (2011, updated). <em>Food Safety and Standards Regulations.</em></li>
+          <li>Ministry of Health and Family Welfare, Government of India. (2016). <em>Immunization Handbook for Medical Officers: Cold Chain and Logistics Management.</em></li>
+          <li>World Health Organization. (2015). <em>Immunization in Practice: A Practical Guide for Health Staff.</em> WHO, Geneva.</li>
+          <li>World Health Organization. (2024). <em>Immunization Supply Chain Guidance and Tools.</em> WHO, Geneva.</li>
+          <li>Centers for Disease Control and Prevention. (2024). <em>Vaccine Storage and Handling of Immunobiologics.</em> U.S. DHHS, Atlanta.</li>
+          <li>Bureau of Energy Efficiency, World Bank, ESMAP, and AEEE. (2021). <em>Cold Chain Energy Efficiency in India: Analysis of Packhouses and Cold Storage.</em> BEE, Government of India.</li>
+          <li>Ozone Cell, Ministry of Environment, Forest and Climate Change. (2024). <em>Guidebook on Sustainable Technologies for Cold Chain Sector.</em> Government of India.</li>
+          <li>Department of Agriculture and Farmers Welfare, Government of India. (2021–22). <em>Requirement and Availability of Cold Chain for Fruits and Vegetables in the Country.</em></li>
+          <li>National Bank for Agriculture and Rural Development. (2023). <em>Cold Storage and Cold Chain Infrastructure: Model Bankable Project Guidance.</em> NABARD, Mumbai.</li>
+          <li>International Institute of Refrigeration. (2021). <em>The Role of Refrigeration in Worldwide Nutrition.</em> IIR, Paris.</li>
+          <li>Food and Agriculture Organization of the United Nations. (2019). <em>The State of Food and Agriculture: Moving Forward on Food Loss and Waste Reduction.</em> FAO, Rome.</li>
+          <li>United Nations Environment Programme. (2021). <em>Cold Chains and Sustainable Cooling.</em> UNEP, Nairobi.</li>
+          <li>Ministry of Coal, Government of India. (2025). <em>Guidelines for Preparation of Mining Plan and Mine Closure Plan for Coal and Lignite Blocks, 2025.</em></li>
+          <li>Coal Controller Organisation, Government of India. (2025). <em>Mine Closure Handbooks: A.R.T.H.A., L.I.V.E.S. and R.E.C.L.A.I.M.</em> Ministry of Coal, Government of India.</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">
+        <span>Abbreviations</span>
+        <span class="accordion-chevron">&#8964;</span>
+      </button>
+      <div class="accordion-body" style="display:none;">
+        <div class="spv-table-wrap">
+          <table class="spv-table">
+            <thead><tr><th>Abbreviation</th><th>Full Form</th></tr></thead>
+            <tbody>
+              <tr><td>EPC</td><td>Engineering, Procurement and Construction</td></tr>
+              <tr><td>O&amp;M</td><td>Operation and Maintenance</td></tr>
+              <tr><td>FM</td><td>Facility Management</td></tr>
+              <tr><td>BOOT</td><td>Build, Own, Operate, Transfer</td></tr>
+              <tr><td>BOO</td><td>Build, Own, Operate</td></tr>
+              <tr><td>DBFOT</td><td>Design, Build, Finance, Operate, Transfer</td></tr>
+              <tr><td>PPP</td><td>Public-Private Partnership</td></tr>
+              <tr><td>CSR</td><td>Corporate Social Responsibility</td></tr>
+              <tr><td>RFP</td><td>Request for Proposal</td></tr>
+              <tr><td>DPR</td><td>Detailed Project Report</td></tr>
+              <tr><td>CAPEX</td><td>Capital Expenditure</td></tr>
+              <tr><td>ESG</td><td>Environmental, Social and Governance</td></tr>
+              <tr><td>FPO</td><td>Farmer Producer Organization</td></tr>
+              <tr><td>SHG</td><td>Self-Help Group</td></tr>
+              <tr><td>SPV</td><td>Special Purpose Vehicle</td></tr>
+              <tr><td>VGF</td><td>Viability Gap Funding</td></tr>
+              <tr><td>FSSAI</td><td>Food Safety and Standards Authority of India</td></tr>
+              <tr><td>NCCD</td><td>National Centre for Cold Chain Development</td></tr>
+              <tr><td>MT</td><td>Metric Tonne</td></tr>
+              <tr><td>IQF</td><td>Individual Quick Freezing</td></tr>
+              <tr><td>CA</td><td>Controlled Atmosphere</td></tr>
+              <tr><td>PUF</td><td>Polyurethane Foam</td></tr>
+              <tr><td>PIR</td><td>Polyisocyanurate</td></tr>
+              <tr><td>HVAC</td><td>Heating, Ventilation and Air Conditioning</td></tr>
+              <tr><td>VFD</td><td>Variable Frequency Drive</td></tr>
+              <tr><td>IoT</td><td>Internet of Things</td></tr>
+              <tr><td>SCADA</td><td>Supervisory Control and Data Acquisition</td></tr>
+              <tr><td>UPS</td><td>Uninterruptible Power Supply</td></tr>
+              <tr><td>DG</td><td>Diesel Generator</td></tr>
+              <tr><td>PPE</td><td>Personal Protective Equipment</td></tr>
+              <tr><td>SOP</td><td>Standard Operating Procedure</td></tr>
+              <tr><td>WHO</td><td>World Health Organization</td></tr>
+              <tr><td>NABARD</td><td>National Bank for Agriculture and Rural Development</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+     <div class="prism2-nav-row">
+      <button class="prism2-btn-prev" id="prism2-prev-M" onclick="prism2Prev()">&#8592; Previous</button>
+      <div class="prism2-progress-dots" style="display:flex;gap:5px;align-items:center;">
+        <span class="pdot" data-p="P"></span>
+        <span class="pdot" data-p="R"></span>
+        <span class="pdot" data-p="I"></span>
+        <span class="pdot" data-p="S"></span>
+        <span class="pdot active" data-p="M"></span>
+      </div>
+    </div>
+    
+    
+    <!-- Framework completion card -->
+    <div style="margin:8px 26px 28px;padding:16px 20px;border-radius:12px;background:#f4faf7;border:1.5px dashed #a8d5c2;display:flex;align-items:center;gap:14px;">
+      <div style="width:36px;height:36px;border-radius:50%;background:#d1ece2;border:1.5px solid #a8d5c2;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#1a7a5e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2.5 8 6 11.5 13.5 4"/></svg>
+      </div>
+      <div style="flex:1;min-width:0;">
+        <div style="font-size:.82rem;font-weight:700;color:#1a7a5e;letter-spacing:.01em;">PRISM Framework Complete</div>
+        <div style="font-size:.75rem;color:#4a7a6a;margin-top:2px;line-height:1.5;">All five pillars reviewed — explore case studies to see how similar projects were executed.</div>
+      </div>
+      <button onclick="showSPVTab('casestudies');setTimeout(function(){window.dispatchEvent(new Event('resize'))},30)" style="flex-shrink:0;font-size:.75rem;font-weight:600;padding:7px 14px;border-radius:8px;border:1.5px solid #a8d5c2;background:#fff;color:#1a7a5e;cursor:pointer;transition:background .2s,border-color .2s;" onmouseover="this.style.background='#e6f5ef'" onmouseout="this.style.background='#fff'">Case Studies &#8599;</button>
+    </div>
+
+    <!-- Download PRISM PDF -->
+    <div style="margin:0 26px 32px;padding:18px 22px;border-radius:12px;background:linear-gradient(135deg,#f0f7ff 0%,#e8f4fd 100%);border:1.5px solid #c5ddf5;display:flex;align-items:center;gap:16px;">
+      <div style="width:40px;height:40px;border-radius:50%;background:#daeafa;border:1.5px solid #b8d4ef;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#1a5ca8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v10M5 8l4 4 4-4"/><rect x="3" y="14" width="12" height="2" rx="1"/></svg>
+      </div>
+      <div style="flex:1;min-width:0;">
+        <div style="font-size:.82rem;font-weight:700;color:#1a5ca8;letter-spacing:.01em;">Download PRISM Framework</div>
+        <div style="font-size:.75rem;color:#3a6a98;margin-top:2px;line-height:1.5;">Save a print-ready PDF of all five pillars for offline reference.</div>
+      </div>
+      <button onclick="downloadPRISM()" style="flex-shrink:0;font-size:.75rem;font-weight:600;padding:8px 16px;border-radius:8px;border:1.5px solid #b8d4ef;background:#fff;color:#1a5ca8;cursor:pointer;transition:background .2s,border-color .2s;display:flex;align-items:center;gap:6px;" onmouseover="this.style.background='#daeafa'" onmouseout="this.style.background='#fff'">
+        <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 1v7M3.5 5.5l3 3 3-3"/><rect x="1.5" y="10" width="10" height="1.5" rx=".75"/></svg>
+        Download PDF
+      </button>
+    </div>
+
+    
+    
+    
+  </div><!-- /M panel -->
+
+  </div><!-- /pr-content-wrap -->
+</div><!-- /pr-shell -->
+
+    </div>
+  </div>
+
+  <!-- TAB: Case Studies -->
+  <div id="spv-panel-casestudies" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+      <div class="lit-wrap">
+        <div class="lit-outer">
+          <div class="lit-track-clip">
+            <div class="lit-track" id="litTrack-all">
+
+<a class="lit-card" href="https://www.researchgate.net/publication/401545667_Cold_Storage_and_Preservation_Techniques" target="_blank" rel="noopener noreferrer"
+   style="--lit-accent:#1a7a5e;--lit-glow:rgba(26,122,94,.18);--lit-tint:rgba(26,122,94,.06);">
+  <div class="lit-card-body">
+    <div class="lit-card-title">Cold Storage and Preservation Techniques</div>
+    <div class="lit-card-meta">
+      <div class="lit-card-type"><span>Research Paper</span></div>
+      <div class="lit-card-source">Source: <span>ResearchGate</span></div>
+    </div>
+  </div>
+  <div class="lit-card-img"><img src="../images/cs/cs-pc-1.jpg" alt="Dairy and chilled products in supermarket refrigerated section — cold storage preservation techniques" loading="lazy"></div>
+  <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+</a>
+
+<a class="lit-card" href="https://ventac.in/cost-for-cold-storage-room-installation" target="_blank" rel="noopener noreferrer"
+   style="--lit-accent:#C85000;--lit-glow:rgba(200,80,0,.18);--lit-tint:rgba(200,80,0,.06);">
+  <div class="lit-card-body">
+    <div class="lit-card-title">Actual Cost for Cold Storage Room Installation</div>
+    <div class="lit-card-meta">
+      <div class="lit-card-type"><span>Article</span></div>
+      <div class="lit-card-source">Source: <span>ventac.in</span></div>
+    </div>
+  </div>
+  <div class="lit-card-img"><img src="../images/cs/cs-pc-2.jpg" alt="Spacious warehouse interior with empty metal racks and high ceiling — cold storage room installation cost" loading="lazy"></div>
+  <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg> View</div>
+</a>
+
+<a class="lit-card" href="https://www.scribd.com/document/50043656/case-study-cold-storage" target="_blank" rel="noopener noreferrer"
+   style="--lit-accent:#1a5ca8;--lit-glow:rgba(26,92,168,.18);--lit-tint:rgba(26,92,168,.06);">
+  <div class="lit-card-body">
+    <div class="lit-card-title">Cold Storage Industry in India: A Case Study</div>
+    <div class="lit-card-meta">
+      <div class="lit-card-type"><span>Case Study</span></div>
+      <div class="lit-card-source">Source: <span>Scribd</span></div>
+    </div>
+  </div>
+  <div class="lit-card-img"><img src="../images/cs/cs-pc-3.jpg" alt="Large warehouse with organised shelves and stacked pallets — cold storage industry India" loading="lazy"></div>
+  <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg> View</div>
+</a>
+
+<a class="lit-card" href="https://www.caas-initiative.org/wp-content/uploads/2023/03/Koel_Fresh_Case_Study.pdf" target="_blank" rel="noopener noreferrer"
+   style="--lit-accent:#5a3d9e;--lit-glow:rgba(90,61,158,.18);--lit-tint:rgba(90,61,158,.06);">
+  <div class="lit-card-body">
+    <div class="lit-card-title">Case Study: Transforming Rural Livelihoods with Accessible Cold Storage</div>
+    <div class="lit-card-meta">
+      <div class="lit-card-type"><span>Case Study</span></div>
+      <div class="lit-card-source">Source: <span>CAAS Initiative</span></div>
+    </div>
+  </div>
+  <div class="lit-card-img"><img src="../images/cs/cs-pc-4.jpg" alt="Worker sorting lychee fruits in warehouse facility — rural livelihoods accessible cold storage" loading="lazy"></div>
+  <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+</a>
+
+<a class="lit-card" href="https://www.researchgate.net/publication/338240590_The_Study_of_Cold_Storage_and_Temperature_Controlled_Transportation_a_Case_Study_of_a_Chain_Restaurant_in_Thailand" target="_blank" rel="noopener noreferrer"
+   style="--lit-accent:#b06a10;--lit-glow:rgba(176,106,16,.18);--lit-tint:rgba(176,106,16,.06);">
+  <div class="lit-card-body">
+    <div class="lit-card-title">The Study of Cold Storage and Temperature Controlled Transportation: A Case Study of a Chain Restaurant in Thailand</div>
+    <div class="lit-card-meta">
+      <div class="lit-card-type"><span>Research Paper</span></div>
+      <div class="lit-card-source">Source: <span>ResearchGate</span></div>
+    </div>
+  </div>
+  <div class="lit-card-img"><img src="../images/cs/cs-pc-5.jpg" alt="Refrigerated trucks parked at industrial lot — temperature controlled transportation cold chain" loading="lazy"></div>
+  <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+</a>
+
+<a class="lit-card" href="https://www.dialight.com/wp-content/uploads/2017/04/Case_Study_Zero_Mountain_Cold_Storage.pdf" target="_blank" rel="noopener noreferrer"
+   style="--lit-accent:#d97706;--lit-glow:rgba(217,119,6,.18);--lit-tint:rgba(217,119,6,.06);">
+  <div class="lit-card-body">
+    <div class="lit-card-title">Case Study: Zero Mountain, Arkansas, Cold Storage Facility</div>
+    <div class="lit-card-meta">
+      <div class="lit-card-type"><span>Case Study</span></div>
+      <div class="lit-card-source">Source: <span>Dialight</span></div>
+    </div>
+  </div>
+  <div class="lit-card-img"><img src="../images/cs/cs-pc-6.jpg" alt="Large warehouse interior with docked truck — Zero Mountain Arkansas cold storage facility" loading="lazy"></div>
+  <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+</a>
+
+<a class="lit-card" href="https://arcticrefrigerations.com/global-projects/case-study/" target="_blank" rel="noopener noreferrer"
+   style="--lit-accent:#0369a1;--lit-glow:rgba(3,105,161,.18);--lit-tint:rgba(3,105,161,.06);">
+  <div class="lit-card-body">
+    <div class="lit-card-title">Setting up an Integrated Cold Chain &#8220;Freon&#8221; Based Solution</div>
+    <div class="lit-card-meta">
+      <div class="lit-card-type"><span>Case Study</span></div>
+      <div class="lit-card-source">Source: <span>arcticrefrigerations.com</span></div>
+    </div>
+  </div>
+  <div class="lit-card-img"><img src="../images/cs/cs-pre-4.png" alt="Industrial warehouse ceiling with stacked shelves — integrated cold chain Freon-based refrigeration solution" loading="lazy"></div>
+  <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg> View</div>
+</a>
+
+<a class="lit-card" href="https://www.coolingindia.in/a-case-study-of-bhusari-cold-storage/" target="_blank" rel="noopener noreferrer"
+   style="--lit-accent:#1a7a5e;--lit-glow:rgba(26,122,94,.18);--lit-tint:rgba(26,122,94,.06);">
+  <div class="lit-card-body">
+    <div class="lit-card-title">A Case Study of Bhusari Cold Storage</div>
+    <div class="lit-card-meta">
+      <div class="lit-card-type"><span>Article</span></div>
+      <div class="lit-card-source">Source: <span>coolingindia.in</span></div>
+    </div>
+  </div>
+  <div class="lit-card-img"><img src="../images/cs/cs-pc-8.jpg" alt="Passage between colourful plastic storage boxes and pallets — Bhusari cold storage facility India" loading="lazy"></div>
+  <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg> View</div>
+</a>
+
+<a class="lit-card" href="https://rinac.com/blog/seed-storage-cold-chain-solutions-in-india-preserving-viability-with-modern-technology/" target="_blank" rel="noopener noreferrer"
+   style="--lit-accent:#C85000;--lit-glow:rgba(200,80,0,.18);--lit-tint:rgba(200,80,0,.06);">
+  <div class="lit-card-body">
+    <div class="lit-card-title">Seed Storage Cold Chain Solutions in India: Preserving Viability with Modern Technology</div>
+    <div class="lit-card-meta">
+      <div class="lit-card-type"><span>Article</span></div>
+      <div class="lit-card-source">Source: <span>rinac.com</span></div>
+    </div>
+  </div>
+  <div class="lit-card-img"><img src="../images/cs/cs-pre-3.png" alt="Frosted apple in refrigerator cold storage — seed storage cold chain solutions India viability" loading="lazy"></div>
+  <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg> View</div>
+</a>
+
+<a class="lit-card" href="https://www.investindia.gov.in/blogs/cold-chain-infrastructure-india-and-its-future-potential" target="_blank" rel="noopener noreferrer"
+   style="--lit-accent:#1a5ca8;--lit-glow:rgba(26,92,168,.18);--lit-tint:rgba(26,92,168,.06);">
+  <div class="lit-card-body">
+    <div class="lit-card-title">Cold Chain Infrastructure in India and its Future Potential</div>
+    <div class="lit-card-meta">
+      <div class="lit-card-type"><span>Article</span></div>
+      <div class="lit-card-source">Source: <span>Invest India</span></div>
+    </div>
+  </div>
+  <div class="lit-card-img"><img src="../images/cs/cs-pre-2.png" alt="Delivery truck unloading at warehouse — cold chain infrastructure India future potential" loading="lazy"></div>
+  <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg> View</div>
+</a>
+
+<a class="lit-card" href="https://spo.nmfs.noaa.gov/sites/default/files/legacy-pdfs/leaflet427.pdf" target="_blank" rel="noopener noreferrer"
+   style="--lit-accent:#5a3d9e;--lit-glow:rgba(90,61,158,.18);--lit-tint:rgba(90,61,158,.06);">
+  <div class="lit-card-body">
+    <div class="lit-card-title">Cold Storage Design and Refrigeration Equipment</div>
+    <div class="lit-card-meta">
+      <div class="lit-card-type"><span>Technical Report</span></div>
+      <div class="lit-card-source">Source: <span>NOAA</span></div>
+    </div>
+  </div>
+  <div class="lit-card-img"><img src="../images/cs/cs-pre-1.png" alt="Industrial refrigerator storage — cold storage design and refrigeration equipment" loading="lazy"></div>
+  <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+</a>
+
+<a class="lit-card" href="https://www.slideshare.net/slideshow/overview-of-indias-cold-storage-sector-recent-case-study-with-nh3/175969373" target="_blank" rel="noopener noreferrer"
+   style="--lit-accent:#b06a10;--lit-glow:rgba(176,106,16,.18);--lit-tint:rgba(176,106,16,.06);">
+  <div class="lit-card-body">
+    <div class="lit-card-title">Overview of India&#39;s Cold Storage Sector</div>
+    <div class="lit-card-meta">
+      <div class="lit-card-type"><span>Presentation</span></div>
+      <div class="lit-card-source">Source: <span>SlideShare</span></div>
+    </div>
+  </div>
+  <div class="lit-card-img"><img src="../images/cs/cs-pc-12.jpg" alt="Modern warehouse with organised shelves and pallets — overview of India's cold storage sector" loading="lazy"></div>
+  <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg> View</div>
+</a>
+                        </div><!-- /lit-track -->
+          </div><!-- /lit-track-clip -->
+          <div class="lit-nav">
+            <button class="lit-nav-btn" id="litPrev-all" onclick="litMove('all',-1)" aria-label="Previous">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <div class="lit-dots" id="litDots-all"></div>
+            <button class="lit-nav-btn" id="litNext-all" onclick="litMove('all',1)" aria-label="Next">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+          </div>
+        </div><!-- /lit-outer -->
+      </div><!-- /lit-wrap -->
+    </div>
+  </div>
+
+  <!-- TAB: Tender Documents -->
+  <div id="spv-panel-tender" class="spv-panel" style="display:none;">
+  <div class="spv-content">
+
+  <style>
+    /* ── Tender documents tab — t5 system ── */
+    .t5-wrap{padding:4px 0 48px}
+    .t5-topbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:36px}
+    .t5-pills{display:flex;flex-wrap:wrap;gap:8px;flex:1}
+    .t5-pill{display:inline-flex;align-items:center;gap:7px;padding:8px 16px;border-radius:40px;font-family:var(--font-sans,"Inter",sans-serif);font-size:.82rem;font-weight:600;cursor:pointer;border:1.5px solid transparent;background:#fff;transition:all .22s cubic-bezier(.34,1.3,.64,1);white-space:nowrap}
+    .t5-pill-count{font-size:.72rem;font-weight:500;opacity:.7;background:rgba(0,0,0,.08);border-radius:20px;padding:1px 7px;line-height:1.6}
+    .t5-pill.active .t5-pill-count{background:rgba(255,255,255,.25);opacity:1}
+    .t5-pill--all{border-color:#a2d9dd;color:#0a7377} .t5-pill--rfp{border-color:#7AC9A8;color:#0c5240} .t5-pill--nit{border-color:#F4B96A;color:#8c4100} .t5-pill--ppa{border-color:#A5B4FC;color:#3730a3} .t5-pill--eoi{border-color:#67e8f9;color:#0a5b5e} .t5-pill--agr{border-color:#f9a8d4;color:#9d174d} .t5-pill--rpt{border-color:#93c5fd;color:#1e40af}
+    .t5-pill.active.t5-pill--all{background:#0a9396;color:#fff;border-color:#0a9396;box-shadow:0 4px 14px rgba(10,147,150,.35)}
+    .t5-pill.active.t5-pill--rfp{background:#0F6E56;color:#fff;border-color:#0F6E56;box-shadow:0 4px 14px rgba(15,110,86,.35)}
+    .t5-pill.active.t5-pill--nit{background:#B45309;color:#fff;border-color:#B45309;box-shadow:0 4px 14px rgba(180,83,9,.35)}
+    .t5-pill.active.t5-pill--ppa{background:#4338CA;color:#fff;border-color:#4338CA;box-shadow:0 4px 14px rgba(67,56,202,.35)}
+    .t5-pill.active.t5-pill--eoi{background:#0a7377;color:#fff;border-color:#0a7377;box-shadow:0 4px 14px rgba(10,115,119,.35)}
+    .t5-pill.active.t5-pill--agr{background:#be185d;color:#fff;border-color:#be185d;box-shadow:0 4px 14px rgba(190,24,93,.35)}
+    .t5-pill.active.t5-pill--rpt{background:#0369a1;color:#fff;border-color:#0369a1;box-shadow:0 4px 14px rgba(3,105,161,.35)}
+    .t5-right{display:flex;align-items:center;gap:12px;flex-shrink:0}
+    .t5-search-wrap{position:relative}
+    .t5-search-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:#94a3b8;pointer-events:none}
+    .t5-search{padding:9px 14px 9px 36px;width:210px;background:#f8fafb;border:1.5px solid #e2e8f0;border-radius:40px;font-size:.82rem;font-family:var(--font-sans,"Inter",sans-serif);color:#374151;outline:none;box-sizing:border-box;transition:border-color .2s,box-shadow .2s,width .25s,background .2s}
+    .t5-search::placeholder{color:#94a3b8}
+    .t5-search:focus{border-color:#0a9396;box-shadow:0 0 0 3px rgba(10,147,150,.12);background:#fff;width:250px}
+    .t5-counter{font-size:.8rem;font-weight:700;color:#94a3b8;white-space:nowrap}
+    .t5-section{margin-bottom:72px;animation:t5-pop .38s cubic-bezier(.34,1.3,.64,1) both}
+    .t5-section:last-child{margin-bottom:0}
+    .t5-section + .t5-section{padding-top:36px}
+    .t5-section-header{display:flex;align-items:center;gap:12px;margin-bottom:16px;padding:10px 16px;position:sticky;top:130px;z-index:10;background:#fcfcf9;border-top:1px solid #e8edf3;border-bottom:2px solid #e8edf3;box-shadow:0 4px 12px rgba(0,0,0,.07)}
+    .t5-section-bar{width:4px;height:22px;border-radius:4px;flex-shrink:0}
+    .t5-section-label{font-size:.82rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;flex:1}
+    .t5-section-count{font-size:.75rem;font-weight:700;color:#94a3b8;background:#f1f5f9;border:1px solid #e2e8f0;border-radius:20px;padding:2px 10px;white-space:nowrap}
+    .t5-list{display:flex;flex-direction:column;gap:10px}
+    .t5-row{display:flex;align-items:center;gap:16px;background:#fff;border:1px solid #e8edf3;border-left:4px solid transparent;border-radius:12px;padding:16px 18px;text-decoration:none;color:inherit;cursor:pointer;transition:box-shadow .22s ease,border-color .22s ease,transform .22s cubic-bezier(.34,1.3,.64,1)}
+    .t5-row--rfp{--row-accent:#0F6E56} .t5-row--nit{--row-accent:#B45309} .t5-row--ppa{--row-accent:#4338CA} .t5-row--eoi{--row-accent:#0a7377} .t5-row--agr{--row-accent:#be185d} .t5-row--rpt{--row-accent:#0369a1}
+    .t5-row:hover{border-left-color:var(--row-accent);box-shadow:0 4px 18px rgba(0,0,0,.08);transform:translateX(2px)}
+    .t5-icon-box{width:40px;height:40px;border-radius:10px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:color-mix(in srgb,var(--row-accent) 10%,#fff);border:1px solid color-mix(in srgb,var(--row-accent) 20%,transparent);transition:background .2s}
+    .t5-row:hover .t5-icon-box{background:color-mix(in srgb,var(--row-accent) 18%,#fff)}
+    .t5-text{flex:1;min-width:0}
+    .t5-title{font-size:.92rem;font-weight:400;color:#0f172a;line-height:1.4;margin-bottom:3px;transition:color .2s}
+    .t5-row:hover .t5-title{color:var(--row-accent)}
+    .t5-sub{font-size:.78rem;color:#64748b;line-height:1.4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .t5-right-side{display:flex;align-items:center;gap:10px;flex-shrink:0}
+    .t5-badge{display:inline-flex;align-items:center;font-size:.7rem;font-weight:700;letter-spacing:.05em;padding:4px 11px;border-radius:20px;background:color-mix(in srgb,var(--row-accent) 10%,#fff);color:var(--row-accent);border:1px solid color-mix(in srgb,var(--row-accent) 30%,transparent);white-space:nowrap}
+    .t5-ext-btn{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;border:1px solid #e2e8f0;background:#f8fafc;color:#94a3b8;text-decoration:none;transition:background .2s,color .2s,border-color .2s;flex-shrink:0}
+    .t5-row:hover .t5-ext-btn{background:color-mix(in srgb,var(--row-accent) 8%,#fff);border-color:color-mix(in srgb,var(--row-accent) 30%,transparent);color:var(--row-accent)}
+    .t5-empty{text-align:center;padding:40px 20px;color:#94a3b8;font-size:.85rem}
+    @keyframes t5-pop{from{opacity:0;transform:translateY(12px) scale(.98)}to{opacity:1;transform:none}}
+  </style>
+
+  <div class="t5-wrap">
+    <div class="t5-topbar">
+      <div class="t5-pills">
+        <button class="t5-pill t5-pill--all active" onclick="t5Filter('all')">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          All Documents <span class="t5-pill-count" id="t5cnt-all">15</span>
+        </button>
+        <button class="t5-pill--rfp t5-pill" data-sec="rfp" onclick="t5Filter('rfp')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          RFP <span class="t5-pill-count" id="t5cnt-rfp">6</span>
+        </button>
+        <button class="t5-pill--eoi t5-pill" data-sec="eoi" onclick="t5Filter('eoi')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          EOI <span class="t5-pill-count" id="t5cnt-eoi">1</span>
+        </button>
+        <button class="t5-pill--rpt t5-pill" data-sec="rpt" onclick="t5Filter('rpt')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          Reports &amp; DPR <span class="t5-pill-count" id="t5cnt-rpt">8</span>
+        </button>
+      </div>
+      <div class="t5-right">
+        <div class="t5-search-wrap">
+          <svg class="t5-search-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input id="t5SearchInput" class="t5-search" type="text" placeholder="Search documents…" oninput="t5Search(this.value)">
+        </div>
+        <span class="t5-counter" id="t5Counter"></span>
+      </div>
+    </div>
+    <div id="t5Sections">
+      <div class="t5-section" data-sec="rfp" style="animation-delay:0.05s">
+        <div class="t5-section-header">
+          <div class="t5-section-bar" style="background:#0F6E56"></div>
+          <span class="t5-section-label" style="color:#0F6E56">Requests for Proposal (RFP)</span>
+          <span class="t5-section-count">6 documents</span>
+        </div>
+        <div class="t5-list">
+          <a class="t5-row t5-row--rfp" data-sec="rfp"
+             data-title="selection of independent engineer &amp; auditor (ie&amp;a) to oversee/supervise operation and maintenance of silos on design, build, finance, own &amp; operate (&quot;dbfoo&quot;) basis for storage of food grain"
+             href="https://bidplus.gem.gov.in/bidding/bid/downloadBuyerDoc/9194534/17754793507915.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0F6E56">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Selection of Independent Engineer &amp; Auditor (Ie&amp;a) to Oversee/supervise Operation and Maintenance of Silos on Design, Build, Finance, Own &amp; Operate (&quot;dbfoo&quot;) Basis for Storage of Food Grain</div>
+              <div class="t5-sub">bidplus.gem.gov.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">RFP</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rfp" data-sec="rfp"
+             data-title="development of cold storage at kudra, dist kaimur, bihar on rdfot (renovate, design, finance, operate and transfer) basis under ppp mode for bihar rajya beej nigam limited"
+             href="https://www.idabihar.com/DataFiles/CMS/file/tender/a/RFP%20Volume%20I%20PIM.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0F6E56">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Development of Cold Storage at Kudra, Dist Kaimur, Bihar on Rdfot (Renovate, Design, Finance, Operate and Transfer) basis under PPP mode for Bihar Rajya Beej Nigam Limited</div>
+              <div class="t5-sub">idabihar.com</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">RFP</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rfp" data-sec="rfp"
+             data-title="request for proposal to operate, run and maintain cold storage/ primary processing centre (cs/ ppc) in kinfra small industrial parks at mazhuvannoor and kalpetta"
+             href="https://kinfra.org/wp-content/uploads/2013/04/Cold-Storage-RFP-Docs.docx" target="_blank" rel="noopener"
+             style="--row-accent:#0F6E56">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Request for Proposal to Operate, Run and Maintain Cold Storage/ Primary Processing Centre (Cs/ Ppc) in Kinfra Small Industrial Parks at Mazhuvannoor and Kalpetta</div>
+              <div class="t5-sub">kinfra.org</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">RFP</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rfp" data-sec="rfp"
+             data-title="development, operation, management and maintenance of the warehousing facility at mawkhanu, new shillong under design, build, finance, operate and transfer (dbfot) mode on public private partnership"
+             href="https://meghalayaswc.nic.in/tenders/RFP_Warehouse_Meghalaya.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0F6E56">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Development, Operation, Management and Maintenance of the Warehousing Facility at Mawkhanu, New Shillong under Design, Build, Finance, Operate and Transfer (DBFOT) Mode on Public Private Partnership</div>
+              <div class="t5-sub">meghalayaswc.nic.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">RFP</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rfp" data-sec="rfp"
+             data-title="request for proposal (rfp) for engagement of firms for marketing, operation &amp; maintenance of food &amp;agro processing facility at panipat"
+             href="https://www.hsiidc.org.in/uploads/advertisements/174845159522RFP_Panipat.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0F6E56">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Request for Proposal (RFP) for Engagement of Firms for Marketing, Operation &amp; Maintenance of Food &amp;Agro Processing Facility at Panipat</div>
+              <div class="t5-sub">hsiidc.org.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">RFP</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rfp" data-sec="rfp"
+             data-title="development of the warehousing facility through ppp under dbfot model at 36 locations across india"
+             href="https://cewacor.nic.in/Document/2025/November/Work_Documents/Applicant_Recno1//ATCDBFOT36Locations_06d8176e-09a6-4e2c-b4d7-b311fc6c5719.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0F6E56">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Development of the Warehousing Facility through PPP under DBFOT model at 36 locations across India</div>
+              <div class="t5-sub">cewacor.nic.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">RFP</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+        </div>
+      </div><!-- /rfp section -->
+      <div class="t5-section" data-sec="eoi" style="animation-delay:0.15s">
+        <div class="t5-section-header">
+          <div class="t5-section-bar" style="background:#0a7377"></div>
+          <span class="t5-section-label" style="color:#0a7377">Expression of Interest (EOI)</span>
+          <span class="t5-section-count">1 document</span>
+        </div>
+        <div class="t5-list">
+          <a class="t5-row t5-row--eoi" data-sec="eoi"
+             data-title="establishment of cold chain including ca/ma storagecapacity, for onion &amp; other perishable agriproduces in vacant land and / or godown/ warehouse compartment (s) through new construction or by retrofittingat any or all the given locations of cwc on built operate transfer (bot) basis"
+             href="https://cewacor.nic.in/CppTender/pdf_View?FilePath=G%3A%5CFCI_FTP%5CWebSite%5CDocument%5C2021%5CMay%5CWork_Documents%5CApplicant_Recno1%5CWork_Documents1_V1.37.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0a7377">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Establishment of Cold Chain Including Ca/ma Storagecapacity, for Onion &amp; Other Perishable Agriproduces in Vacant Land and / or Godown/ Warehouse Compartment (S) through New Construction or by Retrofittingat Any or All the Given Locations of Cwc on Built Operate Transfer (BOT) Basis</div>
+              <div class="t5-sub">cewacor.nic.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">EOI</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+        </div>
+      </div><!-- /eoi section -->
+      <div class="t5-section" data-sec="rpt" style="animation-delay:0.30s">
+        <div class="t5-section-header">
+          <div class="t5-section-bar" style="background:#0369a1"></div>
+          <span class="t5-section-label" style="color:#0369a1">Reports &amp; DPR</span>
+          <span class="t5-section-count">8 documents</span>
+        </div>
+        <div class="t5-list">
+          <a class="t5-row t5-row--rpt" data-sec="rpt"
+             data-title="project profile: high-altitude seed bank &amp; distribution centre"
+             href="https://duy-heduk.org/downloads/project-profiles/High-Altitude_Seed_Bank_&amp;_Distribution_Centre.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0369a1">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Project Profile: High-Altitude Seed Bank &amp; Distribution Centre</div>
+              <div class="t5-sub">duy-heduk.org</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">DPR</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rpt" data-sec="rpt"
+             data-title="model detailed project report establishment of integrated cold storage unit under uttar poorva transformative industrialization scheme (unnati), 2024"
+             href="https://industries.mizoram.gov.in/uploads/attachments/2024/12/c473fd9d90ca778ca22abcb186a05c52/pages-173-model-dpr-integrated-cold-storage.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0369a1">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Model Detailed Project Report Establishment of Integrated Cold Storage Unit under Uttar Poorva Transformative Industrialization Scheme (Unnati), 2024</div>
+              <div class="t5-sub">industries.mizoram.gov.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">DPR</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rpt" data-sec="rpt"
+             data-title="dpr on cold storage of 3000mt capacity"
+             href="https://mkuy.apicol.nic.in/Content/ReferenceProject/Horticulture/COLD%20STORAGE%20(3000%20MT).pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0369a1">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">DPR on Cold Storage of 3000mt Capacity</div>
+              <div class="t5-sub">mkuy.apicol.nic.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">DPR</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rpt" data-sec="rpt"
+             data-title="dpr on cold storage of 500mt capacity"
+             href="https://mkuy.apicol.nic.in/Content/ReferenceProject/Horticulture/500MT%20Cold%20storage.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0369a1">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">DPR on Cold Storage of 500MT Capacity</div>
+              <div class="t5-sub">mkuy.apicol.nic.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">DPR</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rpt" data-sec="rpt"
+             data-title="model template for capital investment subsidy scheme for construction/ expansion/ modernization of cold storage and storages for horticulture products."
+             href="https://nhb.gov.in/NHBDPR/Cold_Storage_Type1_DPR.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0369a1">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Model Template for Capital Investment Subsidy Scheme for Construction/ Expansion/ Modernization of Cold Storage and Storages for Horticulture Products.</div>
+              <div class="t5-sub">nhb.gov.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">DPR</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rpt" data-sec="rpt"
+             data-title="detailed project report for phase ii strategic storage program for crude oil"
+             href="https://environmentclearance.nic.in/writereaddata/Online/TOR/22_Nov_2019_15415392086W4M5N4Annexure-PFR.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0369a1">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Detailed Project Report for Phase II Strategic Storage Program for Crude Oil</div>
+              <div class="t5-sub">environmentclearance.nic.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">DPR</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rpt" data-sec="rpt"
+             data-title="project report on warehouse for storage ofagriculture produce"
+             href="https://keralaagriculture.gov.in/wp-content/uploads/2022/04/II-DPR-merged-new.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0369a1">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Project Report on Warehouse for storage ofAgriculture Produce</div>
+              <div class="t5-sub">keralaagriculture.gov.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">DPR</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rpt" data-sec="rpt"
+             data-title="pre-feasibility report for proposed grass root petroleum storage terminal"
+             href="https://environmentclearance.nic.in/writereaddata/Online/TOR/12_Oct_2017_1721549877N5AX3FRPFR121017.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0369a1">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Pre-Feasibility Report for Proposed Grass Root Petroleum Storage Terminal</div>
+              <div class="t5-sub">environmentclearance.nic.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">Report</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rpt" data-sec="rpt"
+             data-title="pre-feasibility study for (storage &amp; distribution) logistics architecture in karnataka"
+             href="https://idd.karnataka.gov.in/storage/pdf-files/19.Prefea_Storage.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0369a1">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Pre-feasibility Study for (Storage &amp; Distribution) Logistics Architecture in Karnataka</div>
+              <div class="t5-sub">idd.karnataka.gov.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">Report</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+        </div>
+      </div><!-- /rpt section -->
+    </div><!-- /t5Sections -->
+  </div><!-- /t5-wrap -->
+
+  </div>
+  </div><!-- /spv-panel-tender -->
+
+  <!-- TAB: Media/Web -->
+  <div id="spv-panel-media" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+  <div class="media-stack">
+
+    <a class="media-row" href="https://youtube.com/shorts/JuWphIWUC04?si=5D4EgKvy1BI2Xg4E" target="_blank" rel="noopener noreferrer" style="--mr-accent:#1a7a5e;--mr-tint:rgba(26,122,94,.1);">
+      <div class="media-row-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a7a5e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+      <div class="media-row-main">
+        <div class="media-row-tag">Video</div>
+        <div class="media-row-title">From Mine to Mega Cold Storage Using COOL-FIT</div>
+        <div class="media-row-source"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><line x1="2" y1="8" x2="14" y2="8"/><path d="M8 2a10 10 0 010 12M8 2a10 10 0 000 12"/></svg>youtube.com</div>
+      </div>
+      <div class="media-row-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/></svg></div>
+    </a>
+
+    <a class="media-row" href="https://youtu.be/-iUqkiikGR0?si=UF7YNycSVgKHgivK" target="_blank" rel="noopener noreferrer" style="--mr-accent:#C85000;--mr-tint:rgba(200,80,0,.1);">
+      <div class="media-row-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C85000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+      <div class="media-row-main">
+        <div class="media-row-tag">Video</div>
+        <div class="media-row-title">Rising Risks: Abandoned Coal Mines Being Turned into Heating and Cooling Hubs</div>
+        <div class="media-row-source"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><line x1="2" y1="8" x2="14" y2="8"/><path d="M8 2a10 10 0 010 12M8 2a10 10 0 000 12"/></svg>youtube.com</div>
+      </div>
+      <div class="media-row-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/></svg></div>
+    </a>
+
+    <a class="media-row" href="https://www.pib.gov.in/PressReleseDetailm.aspx?PRID=2042243&reg=48&lang=2" target="_blank" rel="noopener noreferrer" style="--mr-accent:#1a5ca8;--mr-tint:rgba(26,92,168,.1);">
+      <div class="media-row-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a5ca8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+      <div class="media-row-main">
+        <div class="media-row-tag">Press Release</div>
+        <div class="media-row-title">Cold Storage Units</div>
+        <div class="media-row-source"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><line x1="2" y1="8" x2="14" y2="8"/><path d="M8 2a10 10 0 010 12M8 2a10 10 0 000 12"/></svg>pib.gov.in</div>
+      </div>
+      <div class="media-row-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/></svg></div>
+    </a>
+
+    <a class="media-row" href="https://www.transworld.com/blogs/a-comprehensive-look-at-cold-chain-storage-in-india/" target="_blank" rel="noopener noreferrer" style="--mr-accent:#5a3d9e;--mr-tint:rgba(90,61,158,.1);">
+      <div class="media-row-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5a3d9e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+      <div class="media-row-main">
+        <div class="media-row-tag">Article</div>
+        <div class="media-row-title">A Comprehensive Look at Cold Chain Storage in India</div>
+        <div class="media-row-source"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><line x1="2" y1="8" x2="14" y2="8"/><path d="M8 2a10 10 0 010 12M8 2a10 10 0 000 12"/></svg>transworld.com</div>
+      </div>
+      <div class="media-row-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/></svg></div>
+    </a>
+
+    <a class="media-row" href="https://www.vietnam-briefing.com/doing-business-guide/vietnam/sector-insights/vietnam-s-cold-storage-industry-drivers-challenges-and-market-entry" target="_blank" rel="noopener noreferrer" style="--mr-accent:#b06a10;--mr-tint:rgba(176,106,16,.1);">
+      <div class="media-row-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#b06a10" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+      <div class="media-row-main">
+        <div class="media-row-tag">Article</div>
+        <div class="media-row-title">Vietnam&#39;s Cold Storage Industry: Drivers, Challenges and Market Entry</div>
+        <div class="media-row-source"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><line x1="2" y1="8" x2="14" y2="8"/><path d="M8 2a10 10 0 010 12M8 2a10 10 0 000 12"/></svg>vietnam-briefing.com</div>
+      </div>
+      <div class="media-row-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/></svg></div>
+    </a>
+
+  </div>
+  <p style="font-size:0.72rem; color:var(--color-text-secondary); font-style:italic; margin-top:16px;">Links open external websites. Coal Controller Organisation does not endorse third-party content.</p>
+    </div>
+  </div>
+
+  <!-- TAB: Agencies -->
+  <div id="spv-panel-agencies" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+  <div class="agencies-logo-grid">
+
+    <div class="agency-logo-card">
+      <div class="agency-logo-inner agency-logo-inner--img" style="background:#f5f5f5; border-radius:10px;">
+        <img src="../images/agencies/bluestar.png" alt="Blue Star Ltd" style="max-width:100%; max-height:60px; object-fit:contain;">
+      </div>
+      <div class="agency-logo-name">Blue Star Ltd</div>
+      <div class="agency-logo-type">Precision cold room, climate-controlled storage HVAC &amp; humidity systems design &amp; installation</div>
+    </div>
+
+    <div class="agency-logo-card">
+      <div class="agency-logo-inner agency-logo-inner--img" style="background:#f5f5f5; border-radius:10px;">
+        <img src="../images/agencies/Daikin%20India.png" alt="Daikin India Pvt Ltd" style="max-width:100%; max-height:60px; object-fit:contain;">
+      </div>
+      <div class="agency-logo-name">Daikin India Pvt Ltd</div>
+      <div class="agency-logo-type">Cold room &amp; precision climate control system supply &amp; installation from scratch</div>
+    </div>
+
+    <div class="agency-logo-card">
+      <div class="agency-logo-inner agency-logo-inner--img" style="background:#f5f5f5; border-radius:10px;">
+        <img src="../images/agencies/Voltas-beko-logo-svg.svg" alt="Voltas Ltd" style="max-width:100%; max-height:60px; object-fit:contain;">
+      </div>
+      <div class="agency-logo-name">Voltas Ltd</div>
+      <div class="agency-logo-type">Refrigeration, cold storage &amp; controlled-environment plant supply &amp; commissioning</div>
+    </div>
+
+    <div class="agency-logo-card">
+      <div class="agency-logo-inner agency-logo-inner--img" style="background:#f5f5f5; border-radius:10px;">
+        <img src="../images/agencies/carrier-corp-logo.avif" alt="Carrier India Pvt Ltd" style="max-width:100%; max-height:60px; object-fit:contain;">
+      </div>
+      <div class="agency-logo-name">Carrier India Pvt Ltd</div>
+      <div class="agency-logo-type">Chiller, precision air &amp; cold room systems installation for preservation facilities</div>
+    </div>
+
+    <div class="agency-logo-card">
+      <div class="agency-logo-inner agency-logo-inner--img agency-logo-inner--img--dark" style="background:#1a5ca8; border-radius:10px;">
+        <img src="../images/agencies/landt-logo.png" alt="Larsen &amp; Toubro Construction" style="max-width:100%; max-height:60px; object-fit:contain;">
+      </div>
+      <div class="agency-logo-name">Larsen &amp; Toubro Construction</div>
+      <div class="agency-logo-type">Controlled-environment building civil, insulation, MEP &amp; climate infrastructure build</div>
+    </div>
+
+    <div class="agency-logo-card">
+      <div class="agency-logo-inner agency-logo-inner--img" style="background:#f5f5f5; border-radius:10px;">
+        <img src="../images/agencies/godrej_properties_logo.svg" alt="Godrej &amp; Boyce – Storage Systems Div." style="max-width:100%; max-height:60px; object-fit:contain;">
+      </div>
+      <div class="agency-logo-name">Godrej &amp; Boyce – Storage Systems Div.</div>
+      <div class="agency-logo-type">Shelving, racking, vault storage systems &amp; archival furniture supply &amp; installation</div>
+    </div>
+
+    <div class="agency-logo-card">
+      <div class="agency-logo-inner agency-logo-inner--img" style="background:#f5f5f5; border-radius:10px;">
+        <img src="../images/agencies/Godrej%20Construction%20Projects.svg" alt="Godrej Construction Projects" style="max-width:100%; max-height:60px; object-fit:contain;">
+      </div>
+      <div class="agency-logo-name">Godrej Construction Projects</div>
+      <div class="agency-logo-type">Civil build for institutional storage &amp; controlled-environment buildings</div>
+    </div>
+
+    <div class="agency-logo-card">
+      <div class="agency-logo-inner agency-logo-inner--img" style="background:#f5f5f5; border-radius:10px;">
+        <img src="../images/agencies/Tata%20Projects%20Ltd.webp" alt="Tata Projects Ltd" style="max-width:100%; max-height:60px; object-fit:contain;">
+      </div>
+      <div class="agency-logo-name">Tata Projects Ltd</div>
+      <div class="agency-logo-type">Turnkey civil &amp; MEP for controlled-environment preservation buildings</div>
+    </div>
+
+  </div>
+
+  <div style="margin-top:28px; padding:14px 18px; background:rgba(33,128,141,.05); border:1px solid rgba(33,128,141,.18); border-radius:8px; display:flex; gap:12px; align-items:flex-start;">
+    <svg style="flex-shrink:0; margin-top:2px;" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#21808d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+    <p style="margin:0; font-family:var(--font-sans); font-size:0.8rem; color:var(--color-text-secondary); line-height:1.65;">
+      <strong style="color:var(--color-text); font-weight:600;">Disclaimer:</strong>
+      Inclusion of an agency on this list does not constitute endorsement, empanelment, or recommendation by the Coal Controller Organisation or the Ministry of Coal, Government of India. Mine owners and project proponents are advised to conduct their own due diligence process before engaging any agency.
+    </p>
+  </div>
+
+    </div>
+  </div>
+
+  <!-- TAB: Experts -->
+  <div id="spv-panel-experts" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+      <div class="experts-grid">
+      </div>
+
+      <div style="margin-top:28px;padding:14px 18px;background:rgba(33,128,141,.05);border:1px solid rgba(33,128,141,.18);border-radius:8px;display:flex;gap:12px;align-items:flex-start;">
+        <svg style="flex-shrink:0;margin-top:2px;" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#21808d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <p style="margin:0;font-family:var(--font-sans);font-size:0.8rem;color:var(--color-text-secondary);line-height:1.65;"><strong style="color:var(--color-text);font-weight:600;">Disclaimer:</strong> Inclusion of an expert does not constitute endorsement, empanelment, or recommendation by the Coal Controller Organisation or the Ministry of Coal, Government of India. Users are advised to independently verify credentials and suitability before engaging any individual.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer id="site-footer-sf">
+    &copy; 2026 Coal Controller Organisation, Ministry of Coal, Government of India.
+  </footer>
+
+</div><!-- /page -->
+
+<script>
+const PRISM2_COLORS = {P:'#C85000', R:'#1a5ca8', I:'#b06a10', S:'#5a3d9e', M:'#1a7a5e'};
+const PRISM2_BG     = {P:'#fff0e6', R:'#e4eef9', I:'#faedda', S:'#edeaf8', M:'#e1f3ec'};
+</script>
+<script src="./category.js"></script>
+<script>
+function prNav(key) {
+  prism2Show(key);
+  document.querySelectorAll('#spv-panel-prism .pr-nav-item').forEach(function(n) {
+    n.classList.toggle('active', n.dataset.key === key);
+  });
+  var hl = document.getElementById('pr-hl');
+  var activeItem = document.querySelector('#spv-panel-prism .pr-nav-item[data-key="' + key + '"]');
+  if (hl && activeItem) {
+    var accent = getComputedStyle(activeItem).getPropertyValue('--pr-accent').trim();
+    hl.style.setProperty('--pr-hl', accent);
+    hl.style.top    = activeItem.offsetTop + 'px';
+    hl.style.height = activeItem.offsetHeight + 'px';
+  }
+  document.querySelectorAll('#spv-panel-prism .pdot').forEach(function(d) {
+    d.classList.toggle('active', d.dataset.p === key);
+  });
+}
+function prism2Next() {
+  if (prism2Current < PRISM2_ORDER.length - 1)
+    prNav(PRISM2_ORDER[prism2Current + 1]);
+}
+function prism2Prev() {
+  if (prism2Current > 0)
+    prNav(PRISM2_ORDER[prism2Current - 1]);
+}
+
+function downloadPRISM() {
+  var rawTitle = document.title || '';
+  var catName  = rawTitle.split('—')[0].split('-')[0].trim() || 'Category';
+
+  var PC = {P:'#C85000',R:'#1a5ca8',I:'#b06a10',S:'#5a3d9e',M:'#1a7a5e'};
+  var PB = {P:'#fff8f3',R:'#f3f7fd',I:'#fdf7f0',S:'#f7f5fd',M:'#f1faf6'};
+  var PN = {P:'Project Vision',R:'Repurposing Pathways',I:'Investment Dynamics',S:'Strategic Structuring',M:'Monitoring &amp; Management'};
+  var PE = {P:'POST-MINING',R:'REPURPOSING',I:'INVESTMENT',S:'STRATEGY',M:'MANAGEMENT'};
+
+  var introHeadEl = document.querySelector('.pr-intro-heading');
+  var introBodyEl = document.querySelector('.pr-intro-body');
+  var introHead   = introHeadEl ? introHeadEl.textContent : 'A structured framework for mine repurposing from concept to implementation';
+  var introBody   = introBodyEl ? introBodyEl.innerHTML   : '';
+
+  var pillarsHTML = '';
+  ['P','R','I','S','M'].forEach(function(k) {
+    var panel = document.getElementById('prism2-panel-' + k);
+    if (!panel) return;
+
+    var eyebrowEl   = panel.querySelector('.prism2-panel-eyebrow');
+    var titleEl     = panel.querySelector('.prism2-panel-title');
+    var descEl      = panel.querySelector('.prism2-panel-desc');
+    var eyebrow     = eyebrowEl  ? eyebrowEl.textContent  : PE[k];
+    var panelTitle  = titleEl    ? titleEl.textContent    : PN[k];
+    var descHTML    = descEl     ? descEl.innerHTML       : '';
+
+    var accHTML = '';
+    panel.querySelectorAll('.accordion-item').forEach(function(item) {
+      var spans = item.querySelectorAll('.accordion-btn span');
+      var btnText = '';
+      for (var s = 0; s < spans.length; s++) {
+        var t = spans[s].textContent.trim();
+        if (t && t !== '⥤' && t !== '˅') { btnText = t; break; }
+      }
+      var body = item.querySelector('.accordion-body');
+      if (!body) return;
+      var clone = body.cloneNode(true);
+      clone.style.display = '';
+      /* Remove scroll-wrapper overflow so tables span full width */
+      clone.querySelectorAll('.spv-table-wrap').forEach(function(w){w.style.overflowX='visible';});
+      accHTML += '<div class="acc-item">' +
+        '<div class="acc-heading">' + btnText + '</div>' +
+        '<div class="acc-body">' + clone.innerHTML + '</div>' +
+        '</div>';
+    });
+
+    pillarsHTML +=
+      '<div class="pillar" style="border-left-color:' + PC[k] + ';">' +
+        '<div class="pillar-hdr" style="background:' + PC[k] + '18;">' +
+          '<div class="pillar-letter" style="color:' + PC[k] + ';">' + k + '</div>' +
+          '<div class="pillar-info">' +
+            '<div class="pillar-eyebrow" style="color:' + PC[k] + ';">' + eyebrow + '</div>' +
+            '<div class="pillar-name">' + panelTitle + '</div>' +
+            (descHTML ? '<div class="pillar-desc">' + descHTML + '</div>' : '') +
+          '</div>' +
+        '</div>' +
+        '<div class="pillar-content">' + accHTML + '</div>' +
+      '</div>';
+  });
+
+  var css = [
+    '*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}',
+    'body{font-family:"Segoe UI",Arial,sans-serif;font-size:10pt;color:#1a1a1a;line-height:1.65;background:#fff}',
+    '@page{size:A4;margin:16mm 14mm}',
+    /* ── Cover ── */
+    '.cover{margin-bottom:28pt;padding-bottom:22pt;border-bottom:1.5pt solid #ddd}',
+    '.rainbow{height:5pt;border-radius:99pt;background:linear-gradient(to right,#7C3AB5,#4f6de0,#0ea5e9,#1D9E75,#3B6D11,#BA7517,#C85000,#A32D2D);margin-bottom:18pt}',
+    '.cover-eye{font-size:7.5pt;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#888;margin-bottom:7pt}',
+    '.cover-title{font-size:24pt;font-weight:800;color:#111;line-height:1.15;margin-bottom:5pt}',
+    '.cover-sub{font-size:11pt;font-weight:600;color:#444;margin-bottom:11pt}',
+    '.cover-body{font-size:9pt;color:#555;line-height:1.75}',
+    /* ── Pillars ── */
+    '.pillars{display:flex;flex-direction:column;gap:20pt}',
+    '.pillar{border-left:4pt solid #ccc;border-radius:6pt;overflow:hidden;page-break-inside:avoid}',
+    '.pillar-hdr{padding:13pt 15pt 11pt;display:flex;align-items:flex-start;gap:12pt}',
+    '.pillar-letter{font-size:30pt;font-weight:800;line-height:1;flex-shrink:0;width:38pt;opacity:.85}',
+    '.pillar-info{flex:1}',
+    '.pillar-eyebrow{font-size:7pt;font-weight:700;letter-spacing:.11em;text-transform:uppercase;margin-bottom:2pt}',
+    '.pillar-name{font-size:12.5pt;font-weight:700;color:#111;margin-bottom:3pt}',
+    '.pillar-desc{font-size:8.5pt;color:#555;line-height:1.6}',
+    /* ── Accordion ── */
+    '.pillar-content{background:#fff}',
+    '.acc-item{border-top:1pt solid #e8e8e0}',
+    '.acc-heading{font-size:9pt;font-weight:700;padding:8pt 13pt;color:#2a2a2a;background:#fafaf8}',
+    '.acc-body{font-size:8.5pt;line-height:1.75;color:#444;padding:9pt 13pt 11pt}',
+    /* ── Body content ── */
+    '.spv-body-text{margin-bottom:7pt}',
+    'p{margin-bottom:7pt}',
+    '.spv-list,.spv-list-unstyled{margin:5pt 0 7pt 16pt}',
+    'ul,ol{margin:5pt 0 7pt 16pt}',
+    '.spv-list li,ul li,ol li{margin-bottom:3pt}',
+    /* ── Tables ── */
+    '.spv-table-wrap{margin:7pt 0;overflow:visible}',
+    '.spv-table{width:100%;border-collapse:collapse;font-size:8pt}',
+    '.spv-table th{background:#f0f0ea;font-weight:700;text-align:left;padding:5pt 7pt;border:1pt solid #ccc;vertical-align:top}',
+    '.spv-table td{padding:4.5pt 7pt;border:1pt solid #ccc;vertical-align:top}',
+    '.spv-table tr:nth-child(even) td{background:#f9f9f7}',
+    /* ── Strong/em ── */
+    'strong{font-weight:700}',
+    'em{font-style:italic}',
+    /* ── Info/note boxes (if any) ── */
+    '.spv-note,.spv-info{background:#f5f5f0;border-left:3pt solid #aaa;padding:8pt 10pt;margin:6pt 0;font-size:8.5pt}'
+  ].join('\n');
+
+  var html = '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">' +
+    '<title>PRISM — ' + catName + '<\/title>' +
+    '<style>' + css + '<\/style><\/head><body>' +
+    '<div class="cover">' +
+      '<div class="rainbow"><\/div>' +
+      '<div class="cover-eye">PRISM Framework — Post-Mining Repurposing &amp; Implementation Strategy Models<\/div>' +
+      '<div class="cover-title">' + catName + '<\/div>' +
+      '<div class="cover-sub">' + introHead + '<\/div>' +
+      (introBody ? '<div class="cover-body">' + introBody + '<\/div>' : '') +
+    '<\/div>' +
+    '<div class="pillars">' + pillarsHTML + '<\/div>' +
+    '<\/body><\/html>';
+
+  var win = window.open('', '_blank', 'width=960,height=750');
+  if (!win) { alert('Please allow pop-ups for this site to download the PDF.'); return; }
+  win.document.write(html);
+  win.document.close();
+  win.focus();
+  setTimeout(function() { win.print(); }, 700);
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  prNav('P');
+});
+
+/* ── Tender t5 filter + search ── */
+(function(){
+  var activeFilter="all", searchQuery="";
+  function render(){
+    var sections=document.querySelectorAll("#spv-panel-tender .t5-section");
+    var vis=0;
+    sections.forEach(function(sec){
+      var secKey=sec.getAttribute("data-sec");
+      var showSec=(activeFilter==="all"||activeFilter===secKey);
+      var secVis=0;
+      sec.querySelectorAll(".t5-row").forEach(function(row){
+        var titleMatch=!searchQuery||row.getAttribute("data-title").indexOf(searchQuery)!==-1;
+        var show=showSec&&titleMatch;
+        row.style.display=show?"":"none";
+        if(show){secVis++;vis++;}
+      });
+      sec.style.display=secVis>0?"":"none";
+    });
+    var counter=document.getElementById("t5Counter");
+    if(counter) counter.textContent=vis+" document"+(vis===1?"":"s");
+    var empty=document.getElementById("t5Empty");
+    if(empty) empty.style.display=vis===0?"":"none";
+  }
+  window.t5Filter=function(type){
+    activeFilter=type;
+    document.querySelectorAll("#spv-panel-tender .t5-pill").forEach(function(p){
+      var m=(p.getAttribute("onclick")||"").match(/t5Filter\('?(\w+)'?\)/);
+      if(m) p.classList.toggle("active",m[1]===type);
+    });
+    render();
+  };
+  window.t5Search=function(val){ searchQuery=val.trim().toLowerCase(); render(); };
+  render();
+})();
+</script>
+
+<!-- browse-back-script -->
+<script>
+(function(){
+  if(new URLSearchParams(location.search).get('from')==='browse'){
+    var btn=document.querySelector('.back-btn');
+    if(btn){
+      btn.onclick=function(){window.location.href='../browse.html';};
+      btn.setAttribute('aria-label','Back to Browse');
+      for(var i=btn.childNodes.length-1;i>=0;i--){
+        var n=btn.childNodes[i];
+        if(n.nodeType===3&&n.textContent.trim()){n.textContent=' Back to Browse';break;}
+      }
+    }
+    var cr=document.querySelector('.sf-breadcrumb span:not(.sep)');
+    if(cr)cr.textContent='All Categories';
+  }
+})();
+</script>
+</body>
+</html>
