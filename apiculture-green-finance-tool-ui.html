@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Green Finance — Agroforestry | SUVIKALP</title>
+  <title>Green Finance — Apiculture | SUVIKALP</title>
   <link rel="stylesheet" href="../style.css">
   <link rel="stylesheet" href="./category.css">
   <style>
@@ -51,7 +51,7 @@
       line-height: 1.5;
       color: var(--color-text-secondary);
     }
-    .sgft-side-panel .sgft-grid { grid-template-columns: 1fr 1fr; gap: 10px; align-items: stretch; }
+    .sgft-side-panel .sgft-grid { grid-template-columns: 1fr; gap: 10px; align-items: stretch; }
     .sgft-side-panel .sgft-result { padding: 12px 13px; }
     .sgft-side-panel .sgft-result h3 { font-size: 0.9rem; }
     .sgft-side-panel .sgft-result .reason { font-size: 0.8rem; }
@@ -292,7 +292,7 @@
     @media (max-width: 720px) {
       .sgft-layout { flex-direction: column; }
       .sgft-side-panel { width: 100%; position: static; }
-      .sgft-side-panel .sgft-grid { grid-template-columns: 1fr 1fr; }
+      .sgft-side-panel .sgft-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -300,7 +300,7 @@
   <header id="site-header">
     <div class="header-left">
       <div class="header-tool-title"><span class="hindi">सुविकल्प:</span> Mine Repurposing Tool</div>
-      <div class="header-tool-sub">Agroforestry — Preliminary Green Finance Screening</div>
+      <div class="header-tool-sub">Apiculture — Preliminary Green Finance Screening</div>
     </div>
   <div class="header-right">
     <div class="header-cco-lockup">
@@ -313,14 +313,14 @@
   <div class="page">
 
     <div class="sf-backbar">
-      <button class="back-btn" onclick="window.location.href='./agroforestry.html'" aria-label="Back to Agroforestry">
+      <button class="back-btn" onclick="window.location.href='./apiculture.html'" aria-label="Back to Apiculture">
         <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M10 3L5 8l5 5"/>
         </svg>
-        Back to Agroforestry
+        Back to Apiculture
       </button>
       <span class="sf-breadcrumb">
-        <span>Agroforestry</span>
+        <span>Apiculture</span>
         <span class="sep">/</span>
         <span style="color:var(--color-primary);font-weight:500;">Green Finance</span>
       </span>
@@ -329,9 +329,9 @@
     <div class="sgft-content">
       <h1 class="spv-section-title">Green Finance</h1>
       <div class="sgft-intro">
-        <p>Answer all <strong>7 questions</strong>. The result updates live in the panel
+        <p>Answer all <strong>6 questions</strong>. The result updates live in the panel
           on the right as you go, showing a preliminary eligibility status for Green Bonds,
-          Carbon Credit, GCF and Green Loans, based on the Agroforestry financing criteria.</p>
+          Carbon Credit, GCF and Green Loans, based on the Apiculture financing criteria.</p>
       </div>
 
       <section id="page-questions">
@@ -342,15 +342,16 @@
               <div class="sgft-row active" data-q="q1">
                 <button type="button" class="sgft-row-head">
                   <span class="sgft-row-check"><span class="sgft-row-num">1</span><svg class="sgft-row-checkmark" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l3.5 3.5L13 5"/></svg></span>
-                  <span class="sgft-row-title">Does the project broadly align with the host country's national climate strategy and plans or NDC?</span>
+                  <span class="sgft-row-title">Is the project required by any existing law, regulation or legally binding mandate?</span>
                   <span class="sgft-row-pill"></span>
                 </button>
                 <div class="sgft-row-body">
-                  <p class="sgft-clause-inline"><span class="sgft-clause-icon">i</span><span>Proposals not aligned with national climate priorities may not receive NDA endorsement.</span></p>
+                  <p class="sgft-clause-inline"><span class="sgft-clause-icon">i</span><span>Being legally mandated doesn't hurt green bond/loan/GCF eligibility, but carbon credits require additionality beyond legal compliance.</span></p>
                   <select class="sgft-select answer" data-q="q1">
                     <option value="">Select</option>
                     <option value="yes">Yes</option>
                     <option value="no">No</option>
+                    <option value="partially">Partially</option>
                   </select>
                 </div>
               </div>
@@ -374,16 +375,15 @@
               <div class="sgft-row" data-q="q3">
                 <button type="button" class="sgft-row-head">
                   <span class="sgft-row-check"><span class="sgft-row-num">3</span><svg class="sgft-row-checkmark" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l3.5 3.5L13 5"/></svg></span>
-                  <span class="sgft-row-title">Will the project comply with the governing environmental and social laws and standards?</span>
+                  <span class="sgft-row-title">Does the project broadly align with the host country's national climate strategy and plans or NDC?</span>
                   <span class="sgft-row-pill"></span>
                 </button>
                 <div class="sgft-row-body">
-                  <p class="sgft-clause-inline"><span class="sgft-clause-icon">i</span><span>Covers Minimum Social Safeguards and whether project activities uphold ethical, inclusive social practices.</span></p>
+                  <p class="sgft-clause-inline"><span class="sgft-clause-icon">i</span><span>Proposals not aligned with national climate priorities may not receive NDA endorsement.</span></p>
                   <select class="sgft-select answer" data-q="q3">
                     <option value="">Select</option>
                     <option value="yes">Yes</option>
                     <option value="no">No</option>
-                    <option value="partially">Partially</option>
                   </select>
                 </div>
               </div>
@@ -408,11 +408,11 @@
               <div class="sgft-row" data-q="q5">
                 <button type="button" class="sgft-row-head">
                   <span class="sgft-row-check"><span class="sgft-row-num">5</span><svg class="sgft-row-checkmark" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l3.5 3.5L13 5"/></svg></span>
-                  <span class="sgft-row-title">Is the project required by any existing law, regulation or legally binding mandate?</span>
+                  <span class="sgft-row-title">Is a use-of-proceeds Monitoring and Evaluation (M&amp;E) plan included or planned for the project?</span>
                   <span class="sgft-row-pill"></span>
                 </button>
                 <div class="sgft-row-body">
-                  <p class="sgft-clause-inline"><span class="sgft-clause-icon">i</span><span>Being legally mandated doesn't hurt green bond/loan/GCF eligibility, but carbon credits require additionality beyond legal compliance.</span></p>
+                  <p class="sgft-clause-inline"><span class="sgft-clause-icon">i</span><span>GCF and Carbon Credit both require a results-based M&amp;E framework; the GBP requires transparent tracking of proceeds.</span></p>
                   <select class="sgft-select answer" data-q="q5">
                     <option value="">Select</option>
                     <option value="yes">Yes</option>
@@ -425,29 +425,12 @@
               <div class="sgft-row" data-q="q6">
                 <button type="button" class="sgft-row-head">
                   <span class="sgft-row-check"><span class="sgft-row-num">6</span><svg class="sgft-row-checkmark" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l3.5 3.5L13 5"/></svg></span>
-                  <span class="sgft-row-title">Is a use-of-proceeds Monitoring and Evaluation (M&amp;E) plan included or planned for the project?</span>
+                  <span class="sgft-row-title">Is enhancing biodiversity a key objective of this project?</span>
                   <span class="sgft-row-pill"></span>
                 </button>
                 <div class="sgft-row-body">
-                  <p class="sgft-clause-inline"><span class="sgft-clause-icon">i</span><span>GCF and Carbon Credit both require a results-based M&amp;E framework; the GBP requires transparent tracking of proceeds.</span></p>
+                  <p class="sgft-clause-inline"><span class="sgft-clause-icon">i</span><span>Avoid activities that could disrupt local ecosystems.</span></p>
                   <select class="sgft-select answer" data-q="q6">
-                    <option value="">Select</option>
-                    <option value="yes">Yes</option>
-                    <option value="no">No</option>
-                    <option value="partially">Partially</option>
-                  </select>
-                </div>
-              </div>
-
-              <div class="sgft-row" data-q="q7">
-                <button type="button" class="sgft-row-head">
-                  <span class="sgft-row-check"><span class="sgft-row-num">7</span><svg class="sgft-row-checkmark" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l3.5 3.5L13 5"/></svg></span>
-                  <span class="sgft-row-title">Is this same project or piece of land currently signed up with any other carbon credit or greenhouse gas program?</span>
-                  <span class="sgft-row-pill"></span>
-                </button>
-                <div class="sgft-row-body">
-                  <p class="sgft-clause-inline"><span class="sgft-clause-icon">i</span><span>Only one carbon credit programme per project — a tonne of CO2 reduction can only be issued as a credit once.</span></p>
-                  <select class="sgft-select answer" data-q="q7">
                     <option value="">Select</option>
                     <option value="yes">Yes</option>
                     <option value="no">No</option>
@@ -460,7 +443,7 @@
 
             <div class="sgft-actions">
               <button id="show-result" class="sgft-btn sgft-btn-primary" type="button" disabled>See Final Result</button>
-              <a href="./agroforestry.html" class="sgft-btn sgft-btn-secondary">Back to Agroforestry Page</a>
+              <a href="./apiculture.html" class="sgft-btn sgft-btn-secondary">Back to Apiculture Page</a>
             </div>
           </div>
 
@@ -478,7 +461,7 @@
 
         <section id="final-result" class="sgft-final-result" hidden>
           <h2 class="sgft-final-result-title">Final Result</h2>
-          <p class="sgft-final-result-sub">Combined eligibility across all 7 answers.</p>
+          <p class="sgft-final-result-sub">Combined eligibility across all 6 answers.</p>
           <div id="final-verdict-container"></div>
           <div class="sgft-grid" id="final-result-grid"></div>
         </section>
@@ -507,82 +490,9 @@
     // If an instrument key is left out for an answer, that question just doesn't
     // affect that instrument (e.g. Carbon Credit isn't touched by Q1 at all).
     // "reason" explains the tier, "reco" is what to do about it — both come
-    // straight from the Agroforestry criteria sheet, nothing invented.
+    // straight from the Apiculture criteria sheet, nothing invented.
     const RULES = {
       q1: {
-        yes: { gb: "high", gcf: "high", gl: "high" },
-        no: {
-          gb: "ineligible", gcf: "ineligible", gl: "ineligible",
-          reco: {
-            gb: "Project owners need to refer the Climate Transition Finance Handbook for climate change mitigation.\nGreen Expenditures must have alignment with the objectives of National Conservation Strategy and Policy Statement on Environment and Development and the National Environment Policy, 2006.\nExpenditures must also be in agreement with respective state's environmental and social objectives",
-            gcf: "Review the country's NDC, national renewable energy plan, or sector strategy\nAdjust project scope or target beneficiaries to match prioritised sectors in the NDC\nEngage the NDA to understand what Agroforestry contributions are explicitly planned and endorsed",
-            gl: "Project owners need to refer the Climate Transition Finance Handbook for climate change mitigation.\nGreen Expenditures must have alignment with the objectives of National Conservation Strategy and Policy Statement on Environment and Development and the National Environment Policy, 2006.\nExpenditures must also be in agreement with respective state's environmental and social objectives"
-          }
-        }
-      },
-      q2: {
-        yes: {
-          gb: "high", cc: "high", gcf: "high", gl: "high",
-          reason: { cc: "The project developer must have the legal authority to implement the project and demonstrate ownership or control over the project area through valid land rights, leases, permits, or agreements." }
-        },
-        no: {
-          gb: "ineligible", cc: "ineligible", gcf: "ineligible", gl: "ineligible",
-          reason: { cc: "The project developer cannot demonstrate legal authority to operate the project or claim ownership of the carbon benefits. Without legal rights to the land or carbon benefits, ownership of the emission reductions is uncertain." },
-          reco: {
-            gb: "Issuers are encouraged to seek through their processes to identify mitigants to known and likely risks of material negative social and/or environmental impacts from the project(s).\nIssuer should refer remediation plan guided by IFC, Equator Principles or other international social standards and ensure full legal and social compliance is documented and verified by an external reviewer.",
-            cc: "Enhancement Measures: Obtain legal ownership or land-use rights. Secure contracts transferring carbon rights to the project developer. Resolve land tenure or ownership disputes prior to project validation.",
-            gcf: "The project must secure legal land-use rights and obtain required community/Indigenous consent (FPIC) before it can qualify for green financing.",
-            gl: "Issuers are encouraged to seek through their processes to identify mitigants to known and likely risks of material negative social and/or environmental impacts from the project(s).\nIssuer should refer remediation plan guided by IFC, Equator Principles or other international social standards and ensure full legal and social compliance is documented and verified by an external reviewer."
-          }
-        }
-      },
-      q3: {
-        yes: {
-          gb: "high", gcf: "high", gl: "high",
-          reason: { gcf: "Must comply with IFC-aligned safeguards to prevent harm." },
-          reco: { gcf: "GCF requires compliance with its ESS (IFC Performance Standards). Commission a scoping-level ESIA before concept note submission, identify a qualified E&S consultant with IFC PS experience, and document the E&S risk category (A/B/C)." }
-        },
-        no: {
-          gb: "ineligible", gcf: "ineligible", gl: "ineligible",
-          reco: {
-            gb: "Projects must meet two critical pillars: Do No Significant Harm (the project must not undermine other environmental goals) and Minimum Social Safeguards (adhere to human rights and labor standards). Appoint an External Reviewer to confirm alignment.",
-            gl: "Projects must meet two critical pillars: Do No Significant Harm (the project must not undermine other environmental goals) and Minimum Social Safeguards (adhere to human rights and labor standards). Appoint an External Reviewer to confirm alignment."
-          }
-        },
-        partially: { gb: "ineligible", gcf: "ineligible", gl: "ineligible" }
-      },
-      q4: {
-        commercial: {
-          gb: "high", cc: "ineligible", gcf: "ineligible", gl: "high",
-          reason: {
-            cc: "The project would proceed regardless of carbon credits, so it is not additional — carbon finance isn't the deciding factor.",
-            gcf: "GCF will not fund projects that can attract commercial finance on their own terms — this would crowd out private investment."
-          },
-          reco: {
-            cc: "Redesign the project to include voluntary activities beyond business-as-usual. Identify additional measures that only become feasible with carbon finance.",
-            gcf: "Document the specific financing barriers (e.g. high perceived risk, currency mismatch, tenor mismatch), prepare a financial model demonstrating the funding gap with and without GCF support, and consider re-scoping to underserved segments.",
-            gl: "Project is financially attractive on it's own"
-          }
-        },
-        concessional: {
-          gb: "moderate", cc: "moderate", gcf: "high", gl: "moderate",
-          reason: { cc: "Only part of the project depends on carbon finance — some activities may already be financially viable while others require carbon revenue." },
-          reco: {
-            gb: "Project is not financially attractive on it's own; green bonds used to bridge investment gaps for projects that are not yet commercially attractive on their own.",
-            cc: "Conduct a financial analysis showing carbon revenue improves project viability, demonstrate investment/technology barriers, and clearly identify activities that rely on carbon finance.",
-            gl: "Project is NOT financially attractive on it's own"
-          }
-        },
-        carbon: {
-          gb: "moderate", cc: "high", gcf: "moderate", gl: "moderate",
-          reason: { cc: "Carbon finance is necessary for the project to proceed." },
-          reco: {
-            gb: "Project is not financially attractive on it's own; green bonds used to bridge investment gaps for projects that are not yet commercially attractive on their own.",
-            gl: "Project is NOT financially attractive on it's own"
-          }
-        }
-      },
-      q5: {
         yes: {
           gb: "high", cc: "ineligible", gcf: "high", gl: "high",
           reason: {
@@ -618,7 +528,65 @@
           }
         }
       },
-      q6: {
+      q2: {
+        yes: {
+          gb: "high", cc: "high", gcf: "high", gl: "high",
+          reason: { cc: "The project developer must have the legal authority to implement the project and demonstrate ownership or control over the project area through valid land rights, leases, permits, or agreements." }
+        },
+        no: {
+          gb: "ineligible", cc: "ineligible", gcf: "ineligible", gl: "ineligible",
+          reason: { cc: "The project developer cannot demonstrate legal authority to operate the project or claim ownership of the carbon benefits. Without legal rights to the land or carbon benefits, ownership of the emission reductions is uncertain." },
+          reco: {
+            gb: "Issuers are encouraged to seek through their processes to identify mitigants to known and likely risks of material negative social and/or environmental impacts from the project(s).\nIssuer should refer remediation plan guided by IFC, Equator Principles or other international social standards and ensure full legal and social compliance is documented and verified by an external reviewer.",
+            cc: "Enhancement Measures: Obtain legal ownership or land-use rights. Secure contracts transferring carbon rights to the project developer. Resolve land tenure or ownership disputes prior to project validation.",
+            gcf: "The project must secure legal land-use rights and obtain required community/Indigenous consent (FPIC) before it can qualify for green financing.",
+            gl: "Issuers are encouraged to seek through their processes to identify mitigants to known and likely risks of material negative social and/or environmental impacts from the project(s).\nIssuer should refer remediation plan guided by IFC, Equator Principles or other international social standards and ensure full legal and social compliance is documented and verified by an external reviewer."
+          }
+        }
+      },
+      q3: {
+        yes: { gb: "high", gcf: "high", gl: "high" },
+        no: {
+          gb: "ineligible", gcf: "ineligible", gl: "ineligible",
+          reco: {
+            gb: "Project owners need to refer the Climate Transition Finance Handbook for climate change mitigation.\nGreen Expenditures must have alignment with the objectives of National Conservation Strategy and Policy Statement on Environment and Development and the National Environment Policy, 2006.\nExpenditures must also be in agreement with respective state's environmental and social objectives",
+            gcf: "Review the country's NDC, national renewable energy plan, or sector strategy\nAdjust project scope or target beneficiaries to match prioritised sectors in the NDC\nEngage the NDA to understand what apiculture contributions are explicitly planned and endorsed",
+            gl: "Project owners need to refer the Climate Transition Finance Handbook for climate change mitigation.\nGreen Expenditures must have alignment with the objectives of National Conservation Strategy and Policy Statement on Environment and Development and the National Environment Policy, 2006.\nExpenditures must also be in agreement with respective state's environmental and social objectives"
+          }
+        }
+      },
+      q4: {
+        commercial: {
+          gb: "high", cc: "ineligible", gcf: "ineligible", gl: "high",
+          reason: {
+            cc: "The project would proceed regardless of carbon credits, so it is not additional — carbon finance isn't the deciding factor.",
+            gcf: "GCF will not fund projects that can attract commercial finance on their own terms — this would crowd out private investment."
+          },
+          reco: {
+            cc: "Redesign the project to include voluntary activities beyond business-as-usual. Identify additional measures that only become feasible with carbon finance.",
+            gcf: "Document the specific financing barriers (e.g. high perceived risk, currency mismatch, tenor mismatch), prepare a financial model demonstrating the funding gap with and without GCF support, and consider re-scoping to underserved segments.",
+            gl: "Project is financially attractive on it's own"
+          }
+        },
+        concessional: {
+          gb: "moderate", cc: "moderate", gcf: "high", gl: "moderate",
+          reason: { cc: "Only part of the project depends on carbon finance — some activities may already be financially viable while others require carbon revenue." },
+          reco: {
+            gb: "Project is not financially attractive on it's own; green bonds used to bridge investment gaps for projects that are not yet commercially attractive on their own.",
+            cc: "Conduct a financial analysis showing carbon revenue improves project viability, demonstrate investment/technology barriers, and clearly identify activities that rely on carbon finance.",
+            gl: "Project is NOT financially attractive on it's own"
+          }
+        },
+        carbon: {
+          gb: "moderate", cc: "high", gcf: "moderate", gl: "moderate",
+          reason: { cc: "Carbon finance is necessary for the project to proceed." },
+          reco: {
+            gb: "Project is not financially attractive on it's own; green bonds used to bridge investment gaps for projects that are not yet commercially attractive on their own.",
+            gl: "Project is NOT financially attractive on it's own"
+          }
+        }
+      },
+      q5: {
         yes: {
           gb: "high", cc: "high", gcf: "high", gl: "high",
           reason: {
@@ -643,24 +611,23 @@
           reco: { cc: "Develop a Monitoring, Reporting and Verification (MRV) plan, install necessary monitoring equipment, assign monitoring responsibilities, and establish data management procedures." }
         }
       },
-      q7: {
+      q6: {
         yes: {
-          gb: "ineligible", cc: "ineligible", gl: "ineligible",
-          reason: { cc: "The project is currently active under another carbon credit program — the same emission reductions cannot receive carbon credits twice (double counting)." },
-          reco: {
-            gb: "Only be included if they run no risk of double-counting through any other mechanism or financing instrument.",
-            cc: "Withdraw the project from the other program, and ensure previous credits are cancelled or the project is officially inactive before applying.",
-            gl: "Only be included if they run no risk of double-counting through any other mechanism or financing instrument."
-          }
+          gb: "high", gl: "high"
         },
         no: {
-          gb: "high", cc: "high", gl: "high",
-          reason: { cc: "The project is not registered or applying under any other carbon credit program." }
+          gb: "ineligible", gl: "ineligible",
+          reco: {
+            gb: "Need to ensure enhancing biodiversity as a primary objective of pollinator garden.",
+            gl: "Need to ensure enhancing biodiversity as a primary objective of pollinator garden."
+          }
         },
         partially: {
-          cc: "moderate",
-          reason: { cc: "Previously registered, but now inactive or being withdrawn. The project may become eligible if evidence is provided that no further credits will be issued elsewhere." },
-          reco: { cc: "Obtain official withdrawal/de-registration from the other program, demonstrate that no duplicate carbon credits have been issued, and maintain documentation proving exclusive ownership of emission reductions." }
+          gb: "moderate", gl: "moderate",
+          reco: {
+            gb: "Need to ensure enhancing biodiversity as a primary objective of pollinator garden.",
+            gl: "Need to ensure enhancing biodiversity as a primary objective of pollinator garden."
+          }
         }
       }
     };
@@ -687,7 +654,7 @@
       });
     }
 
-    const QUESTION_IDS = ["q1", "q2", "q3", "q4", "q5", "q6", "q7"];
+    const QUESTION_IDS = ["q1", "q2", "q3", "q4", "q5", "q6"];
     const rows = {};
     QUESTION_IDS.forEach((q) => { rows[q] = document.querySelector(`.sgft-row[data-q="${q}"]`); });
     let activeQ = "q1";
@@ -824,7 +791,7 @@
       renderVerdict(verdictContainer, tierCounts, touched.length, "This question doesn't affect any instrument");
     }
 
-    // final result combines all 7 answers: worst tier wins per instrument,
+    // final result combines all 6 answers: worst tier wins per instrument,
     // and every reason/reco that landed on that worst tier gets listed
     // (deduped, so repeated text only shows once)
     function buildFinalResult() {
