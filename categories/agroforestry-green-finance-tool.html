@@ -51,11 +51,25 @@
       line-height: 1.5;
       color: var(--color-text-secondary);
     }
-    .sgft-side-panel .sgft-grid { grid-template-columns: 1fr 1fr; gap: 10px; align-items: stretch; }
-    .sgft-side-panel .sgft-result { padding: 12px 13px; }
-    .sgft-side-panel .sgft-result h3 { font-size: 0.9rem; }
-    .sgft-side-panel .sgft-result .reason { font-size: 0.8rem; }
-    .sgft-side-panel .sgft-result .reco { font-size: 0.78rem; }
+    .sgft-live-groups { display: flex; flex-direction: column; gap: 14px; }
+    .sgft-live-group-label { margin: 0 0 6px; font-family: var(--font-sans); font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; }
+    .sgft-live-row { display: flex; align-items: flex-start; gap: 10px; padding: 9px 10px; border-radius: var(--radius); margin-bottom: 4px; }
+    .sgft-live-row:last-child { margin-bottom: 0; }
+    .sgft-live-row.sgft-low  { background: #fef2f2; }
+    .sgft-live-row.sgft-mid  { background: #fffbeb; }
+    .sgft-live-row.sgft-high { background: #ecfdf5; }
+    .sgft-live-icon {
+      width: 26px; height: 26px; border-radius: 50%; background: var(--color-surface);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+      font-family: var(--font-sans); font-size: 0.62rem; font-weight: 700;
+    }
+    .sgft-live-row.sgft-low  .sgft-live-icon { color: var(--color-red-500); }
+    .sgft-live-row.sgft-mid  .sgft-live-icon { color: #92400e; }
+    .sgft-live-row.sgft-high .sgft-live-icon { color: #166534; }
+    .sgft-live-row-body { flex: 1; min-width: 0; }
+    .sgft-live-name { margin: 0; font-family: var(--font-sans); font-size: var(--fs-sm); font-weight: 600; color: var(--color-text); }
+    .sgft-live-text { margin: 4px 0 0; font-family: var(--font-sans); font-size: 0.78rem; color: var(--color-text-secondary); line-height: 1.5; }
+    .sgft-live-text.reco { color: var(--color-teal-700); }
 
     .sgft-checklist { display: flex; flex-direction: column; gap: 24px; }
 
@@ -292,7 +306,6 @@
     @media (max-width: 720px) {
       .sgft-layout { flex-direction: column; }
       .sgft-side-panel { width: 100%; position: static; }
-      .sgft-side-panel .sgft-grid { grid-template-columns: 1fr 1fr; }
     }
   </style>
 </head>
@@ -362,7 +375,7 @@
                   <span class="sgft-row-pill"></span>
                 </button>
                 <div class="sgft-row-body">
-                  <p class="sgft-clause-inline"><span class="sgft-clause-icon">i</span><span>Project needs to adhere to Minimum Social Safeguards and uphold ethical, inclusive social practices.</span></p>
+                  <p class="sgft-clause-inline"><span class="sgft-clause-icon">i</span><span>1. Project need to adhere to Minimum Social Safeguards (MSS) also uphold ethical and inclusive social practices<br>2. Project activities should contribute to environmental goals</span></p>
                   <select class="sgft-select answer" data-q="q2">
                     <option value="">Select</option>
                     <option value="yes">Yes</option>
@@ -378,7 +391,7 @@
                   <span class="sgft-row-pill"></span>
                 </button>
                 <div class="sgft-row-body">
-                  <p class="sgft-clause-inline"><span class="sgft-clause-icon">i</span><span>Covers Minimum Social Safeguards and whether project activities uphold ethical, inclusive social practices.</span></p>
+                  <p class="sgft-clause-inline"><span class="sgft-clause-icon">i</span><span>Compliance with environmental and social safeguards are key prerequisite for eligibility.</span></p>
                   <select class="sgft-select answer" data-q="q3">
                     <option value="">Select</option>
                     <option value="yes">Yes</option>
@@ -395,7 +408,7 @@
                   <span class="sgft-row-pill"></span>
                 </button>
                 <div class="sgft-row-body">
-                  <p class="sgft-clause-inline"><span class="sgft-clause-icon">i</span><span>Financiers won't fund a project that would go ahead anyway without their support.</span></p>
+                  <p class="sgft-clause-inline"><span class="sgft-clause-icon">i</span><span>Bankability of the project determines the Green Finance Eligbility. For GCF fully bankable projects without a funding gap do not qualify.</span></p>
                   <select class="sgft-select answer" data-q="q4">
                     <option value="">Select</option>
                     <option value="commercial">No</option>
@@ -412,7 +425,7 @@
                   <span class="sgft-row-pill"></span>
                 </button>
                 <div class="sgft-row-body">
-                  <p class="sgft-clause-inline"><span class="sgft-clause-icon">i</span><span>Being legally mandated doesn't hurt green bond/loan/GCF eligibility, but carbon credits require additionality beyond legal compliance.</span></p>
+                  <p class="sgft-clause-inline"><span class="sgft-clause-icon">i</span><span>Project implementation a legal obligation or required by law</span></p>
                   <select class="sgft-select answer" data-q="q5">
                     <option value="">Select</option>
                     <option value="yes">Yes</option>
@@ -429,7 +442,7 @@
                   <span class="sgft-row-pill"></span>
                 </button>
                 <div class="sgft-row-body">
-                  <p class="sgft-clause-inline"><span class="sgft-clause-icon">i</span><span>GCF and Carbon Credit both require a results-based M&amp;E framework; the GBP requires transparent tracking of proceeds.</span></p>
+                  <p class="sgft-clause-inline"><span class="sgft-clause-icon">i</span><span>Required to track the use of proceeds and impact of project as per compliance</span></p>
                   <select class="sgft-select answer" data-q="q6">
                     <option value="">Select</option>
                     <option value="yes">Yes</option>
@@ -446,7 +459,7 @@
                   <span class="sgft-row-pill"></span>
                 </button>
                 <div class="sgft-row-body">
-                  <p class="sgft-clause-inline"><span class="sgft-clause-icon">i</span><span>Only one carbon credit programme per project — a tonne of CO2 reduction can only be issued as a credit once.</span></p>
+                  <p class="sgft-clause-inline"><span class="sgft-clause-icon">i</span><span>Only 1 carbon credit programme per project</span></p>
                   <select class="sgft-select answer" data-q="q7">
                     <option value="">Select</option>
                     <option value="yes">Yes</option>
@@ -471,7 +484,7 @@
                 <p>Updated as you answer each question.</p>
               </div>
               <div id="verdict-container"></div>
-              <div class="sgft-grid" id="result-grid"></div>
+              <div class="sgft-live-groups" id="result-grid"></div>
             </div>
           </aside>
         </div>
@@ -740,10 +753,10 @@
     });
 
     const INSTRUMENTS = [
-      { id: "gb", title: "Green Bonds" },
-      { id: "cc", title: "Carbon Credit" },
-      { id: "gcf", title: "GCF Funding" },
-      { id: "gl", title: "Green Loans" }
+      { id: "gb", title: "Green Bonds", abbr: "GB" },
+      { id: "cc", title: "Carbon Credit", abbr: "CC" },
+      { id: "gcf", title: "GCF Funding", abbr: "GCF" },
+      { id: "gl", title: "Green Loans", abbr: "GL" }
     ];
 
     // live preview only ever looks at the question you just answered —
@@ -792,33 +805,46 @@
       </div>`;
     }
 
+    // groups shown worst tier first, so the instruments that need
+    // attention surface before the ones that are already fine
+    const TIER_ORDER = ["ineligible", "moderate", "high"];
+    const TIER_GROUP_LABEL = { ineligible: "Ineligible", moderate: "Moderately eligible", high: "Highly eligible" };
+    const TIER_GROUP_COLOR = { ineligible: "var(--color-red-500)", moderate: "#92400e", high: "#166534" };
+
     function buildPreliminaryResult(qid) {
       const resultGrid = document.getElementById("result-grid");
       const verdictContainer = document.getElementById("verdict-container");
       const rule = qid && RULES[qid] && RULES[qid][answers[qid]];
 
       if (!rule) {
-        resultGrid.innerHTML = INSTRUMENTS.map(({ title }) => `<article class="sgft-result"><h3>${title}</h3></article>`).join("");
+        resultGrid.innerHTML = "";
         renderVerdict(verdictContainer, {}, 0, "Answer a question to see its eligibility result");
         return;
       }
 
-      resultGrid.innerHTML = INSTRUMENTS.map(({ id, title }) => {
-        const tier = rule[id];
-        if (tier === undefined) {
-          return `<article class="sgft-result"><h3>${title}</h3></article>`;
-        }
-        const reason = (rule.reason && rule.reason[id]) || "";
-        const reco = (rule.reco && rule.reco[id]) || "";
-        return `<article class="sgft-result ${TIER_CLASS[tier]}">
-          <h3>${title}</h3>
-          <p class="status">${TIER_LABEL[tier]}</p>
-          ${reason ? `<p class="reason">${reason}</p>` : ""}
-          ${reco ? `<p class="reco">${reco}</p>` : ""}
-        </article>`;
+      const touched = INSTRUMENTS.filter(({ id }) => rule[id] !== undefined);
+
+      resultGrid.innerHTML = TIER_ORDER.map((tier) => {
+        const items = touched.filter(({ id }) => rule[id] === tier);
+        if (!items.length) return "";
+        const rows = items.map(({ id, title, abbr }) => {
+          const reason = (rule.reason && rule.reason[id]) || "";
+          const reco = (rule.reco && rule.reco[id]) || "";
+          return `<div class="sgft-live-row ${TIER_CLASS[tier]}">
+            <span class="sgft-live-icon">${abbr}</span>
+            <div class="sgft-live-row-body">
+              <p class="sgft-live-name">${title}</p>
+              ${reason ? `<p class="sgft-live-text">${reason}</p>` : ""}
+              ${reco ? `<p class="sgft-live-text reco">${reco}</p>` : ""}
+            </div>
+          </div>`;
+        }).join("");
+        return `<div class="sgft-live-group">
+          <p class="sgft-live-group-label" style="color:${TIER_GROUP_COLOR[tier]};">${TIER_GROUP_LABEL[tier]} &middot; ${items.length}</p>
+          ${rows}
+        </div>`;
       }).join("");
 
-      const touched = INSTRUMENTS.filter(({ id }) => rule[id] !== undefined);
       const tierCounts = { high: 0, moderate: 0, ineligible: 0 };
       touched.forEach(({ id }) => { tierCounts[rule[id]] += 1; });
       renderVerdict(verdictContainer, tierCounts, touched.length, "This question doesn't affect any instrument");
