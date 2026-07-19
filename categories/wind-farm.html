@@ -1,0 +1,1787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wind Farms — SUVIKALP | Coal Controller Organisation</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="./category.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+/* ── Local Inter font faces ─────────────────────────────── */
+@font-face { font-family:"Inter"; font-weight:400; font-display:swap; src:url("../fonts/Inter_18pt-Regular.woff2") format("woff2"),url("../fonts/Inter_18pt-Regular.ttf") format("truetype"); }
+@font-face { font-family:"Inter"; font-weight:500; font-display:swap; src:url("../fonts/Inter_18pt-Medium.woff2") format("woff2"),url("../fonts/Inter_18pt-Medium.ttf") format("truetype"); }
+@font-face { font-family:"Inter"; font-weight:600; font-display:swap; src:url("../fonts/Inter_18pt-SemiBold.woff2") format("woff2"),url("../fonts/Inter_18pt-SemiBold.ttf") format("truetype"); }
+@font-face { font-family:"Inter"; font-weight:700; font-display:swap; src:url("../fonts/Inter_18pt-Bold.woff2") format("woff2"),url("../fonts/Inter_18pt-Bold.ttf") format("truetype"); }
+
+/* ── Single unified font system ─────────────────────────── */
+:root {
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-devanagari: 'Noto Sans Devanagari', 'Noto Sans', sans-serif;
+  --fs-xs:   0.75rem;
+  --fs-sm:   0.8125rem;
+  --fs-base: 0.875rem;
+  --fs-md:   0.9375rem;
+  --fs-lg:   1rem;
+  --fs-xl:   1.125rem;
+  --fs-2xl:  1.375rem;
+  --lh-tight: 1.35;
+  --lh-base:  1.6;
+  --lh-loose: 1.8;
+}
+
+html, body, button, input, select, textarea { font-family: var(--font-sans); }
+.hindi, .header-cco-hindi { font-family: var(--font-devanagari); }
+
+.spv-body-text { font-family:var(--font-sans); font-size:var(--fs-md); line-height:var(--lh-loose); color:var(--color-text); margin-bottom:14px; font-weight:400; }
+.spv-list { margin:8px 0 14px 22px; font-family:var(--font-sans); font-size:var(--fs-md); line-height:var(--lh-loose); color:var(--color-text); }
+.spv-list li { margin-bottom:6px; }
+.spv-section-title { font-family:var(--font-sans); font-weight:700; font-size:var(--fs-xl); color:var(--color-teal-600); border-bottom:2px solid var(--color-primary); padding-bottom:8px; margin-bottom:22px; letter-spacing:-0.01em; }
+
+.accordion-btn { font-family:var(--font-sans); font-weight:600; font-size:var(--fs-base); }
+.accordion-body { font-family:var(--font-sans); font-size:var(--fs-md); }
+.spv-table, .spv-table thead tr th, .spv-table td, .spv-table td:first-child { font-family:var(--font-sans); }
+
+.spv-tab { font-family:var(--font-sans); font-weight:500; font-size:var(--fs-sm); }
+.spv-tab.active { font-weight:700; }
+.prism-label { font-family:var(--font-sans); font-size:0.7rem; line-height:1.3; }
+.prism-letter { font-family:var(--font-sans); font-weight:800; }
+
+.back-btn { font-family:var(--font-sans); font-weight:600; font-size:var(--fs-base); }
+.sf-breadcrumb { font-family:var(--font-sans); font-size:var(--fs-sm); }
+
+/* Tender tab styles are now self-contained inside spv-panel-tender */
+
+.cs-location { font-family:var(--font-sans); font-weight:700; font-size:var(--fs-base); }
+.cs-title { font-family:var(--font-sans); font-size:var(--fs-sm); line-height:var(--lh-base); }
+.cs-desc { font-family:var(--font-sans); font-size:var(--fs-sm); line-height:var(--lh-base); }
+.cs-subtab { font-family:var(--font-sans); font-size:var(--fs-md); font-weight:500; }
+.cs-subtab.active { font-weight:700; }
+
+/* Media/Web tab styles are now self-contained inside spv-panel-media */
+
+.agency-logo-name { font-family:var(--font-sans); font-weight:700; font-size:var(--fs-sm); }
+.agency-logo-type { font-family:var(--font-sans); font-size:0.72rem; }
+.agencies-intro-label { font-family:var(--font-sans); font-weight:700; display:none; }
+.agency-logo-inner--img { display:flex; align-items:center; justify-content:center; padding:10px 14px; border-radius:8px; height:76px !important; box-sizing:border-box; }
+.agency-logo-inner--img img { max-width:100%; max-height:56px; width:auto; height:auto; object-fit:contain; }
+.agencies-intro-text { font-family:var(--font-sans); font-size:var(--fs-md); line-height:var(--lh-base); }
+
+.expert-name { font-family:var(--font-sans); font-weight:700; font-size:var(--fs-lg); }
+.expert-role { font-family:var(--font-sans); font-size:var(--fs-sm); line-height:var(--lh-base); }
+.expert-bio { font-family:var(--font-sans); font-size:var(--fs-base); line-height:var(--lh-loose); }
+.expert-tag { font-family:var(--font-sans); font-size:0.7rem; font-weight:500; }
+.expert-contact a { font-family:var(--font-sans); font-size:var(--fs-base); font-weight:500; }
+.experts-intro-label { font-family:var(--font-sans); font-weight:700; }
+.experts-intro-text { font-family:var(--font-sans); font-size:var(--fs-md); line-height:var(--lh-base); }
+
+.impl-card-title { font-family:var(--font-sans); font-weight:600; font-size:var(--fs-base); }
+.impl-card-num { font-family:var(--font-sans); font-weight:700; }
+.banner-title { font-family:var(--font-sans); font-weight:700; }
+.banner-sub { font-family:var(--font-sans); font-size:var(--fs-base); line-height:var(--lh-base); }
+#site-footer-sf { font-family:var(--font-sans); font-size:var(--fs-xs); }
+
+/* ── About Tab ─────────────────────────────────────────── */
+.about-hero-row { display:flex; gap:28px; align-items:stretch; margin-bottom:40px; min-height:300px; }
+.about-hero-slide-col { flex:0 0 40%; min-width:0; display:flex; flex-direction:column; }
+.about-hero-slide-col .proj-slideshow { flex:none; height:340px; }
+.proj-static-img-wrap { position:relative; border-radius:14px; overflow:hidden; box-shadow:0 4px 24px rgba(0,0,0,.15); flex:none; height:340px; }
+.proj-static-img { width:100%; height:100%; object-fit:cover; display:block; }
+.about-hero-text-col { flex:1; min-width:0; display:flex; flex-direction:column; justify-content:center; }
+.about-hero-label { font-family:var(--font-sans); font-size:var(--fs-xs); font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--teal); margin-bottom:0; }
+.about-hero-label-wrap { margin-bottom:12px; }
+.about-hero-label-bar { display:block; height:3px; width:48px; margin-top:7px; border-radius:99px; background:linear-gradient(90deg,#21808d 0%,#38bdf8 60%,transparent 100%); }
+.about-intro { display:flex; flex-direction:column; gap:14px; }
+.about-intro-block { padding:14px 18px; border-radius:10px; }
+.about-intro-primary { border-left:4px solid #21808d; background:rgba(33,128,141,.05); }
+.about-intro-secondary { border-left:4px solid rgba(33,128,141,.3); background:#fafafa; }
+.about-section { margin-bottom:40px; }
+.about-section-eyebrow { font-family:var(--font-sans); font-size:var(--fs-xs); font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--teal); margin-bottom:4px; }
+.about-section-title { font-family:var(--font-sans); font-size:var(--fs-xl); font-weight:700; color:#0f172a; margin:0 0 20px; line-height:var(--lh-tight); }
+
+/* Schemes carousel */
+.schemes-outer { position:relative; margin:0 20px; }
+.schemes-nav-btn { position:absolute; top:50%; transform:translateY(-50%); z-index:10; width:36px; height:36px; border-radius:50%; background:#fff; border:1.5px solid #e2e8f0; box-shadow:0 2px 10px rgba(0,0,0,.10); cursor:pointer; display:flex; align-items:center; justify-content:center; color:#475569; transition:background .2s,color .2s,border-color .2s,box-shadow .2s; padding:0; }
+.schemes-nav-btn:hover { background:var(--teal,#0a9396); color:#fff; border-color:var(--teal,#0a9396); box-shadow:0 4px 14px rgba(10,147,150,.3); }
+.schemes-nav-btn.schemes-prev { left:-20px; }
+.schemes-nav-btn.schemes-next { right:-20px; }
+.schemes-ticker-wrap { overflow:hidden; position:relative; mask-image:linear-gradient(to right,transparent 0%,black 7%,black 93%,transparent 100%); -webkit-mask-image:linear-gradient(to right,transparent 0%,black 7%,black 93%,transparent 100%); }
+.schemes-ticker { display:flex; gap:16px; overflow-x:auto; -ms-overflow-style:none; scrollbar-width:none; padding:8px 4px; }
+.schemes-ticker::-webkit-scrollbar { display:none; }
+.scheme-card { flex:0 0 220px; scroll-snap-align:start; background:#fff; border:1px solid #e8eaed; border-radius:12px; padding:18px 16px; box-shadow:0 2px 8px rgba(0,0,0,.05); transition:box-shadow .2s,transform .2s; }
+.scheme-card:hover { box-shadow:0 6px 20px rgba(0,0,0,.1); transform:translateY(-3px); }
+.scheme-card-icon { font-size:22px; margin-bottom:10px; }
+.scheme-card-tag { font-family:var(--font-sans); font-size:var(--fs-xs); font-weight:700; letter-spacing:.09em; text-transform:uppercase; color:var(--teal); margin-bottom:5px; }
+.scheme-card-title { font-family:var(--font-sans); font-size:var(--fs-base); font-weight:700; color:#1e293b; margin-bottom:8px; line-height:var(--lh-tight); }
+.scheme-card-desc { font-family:var(--font-sans); font-size:var(--fs-sm); color:#64748b; line-height:var(--lh-base); display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
+
+/* Projects slideshow */
+.proj-slideshow { position:relative; border-radius:14px; overflow:hidden; box-shadow:0 4px 24px rgba(0,0,0,.15); background:#000; }
+.proj-slide { display:none; position:relative; height:100%; min-height:260px; }
+.proj-slide.active { display:block; animation:projFadeIn .5s ease; }
+@keyframes projFadeIn { from { opacity:0; transform:scale(1.03); } to { opacity:1; transform:scale(1); } }
+.proj-slide-img { width:100%; height:100%; object-fit:cover; display:block; }
+.proj-slide-overlay { position:absolute; bottom:0; left:0; right:0; padding:12px 18px; background:linear-gradient(90deg,rgba(10,70,80,.95) 0%,rgba(33,128,141,.88) 100%); display:flex; align-items:center; gap:0; z-index:1; }
+.proj-caption { font-family:var(--font-sans); font-size:var(--fs-base); font-weight:600; color:#fff; line-height:1.4; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.proj-ss-btn { position:absolute; top:50%; transform:translateY(-50%); width:36px; height:36px; border-radius:50%; background:rgba(255,255,255,.18); backdrop-filter:blur(6px); border:1px solid rgba(255,255,255,.28); color:#fff; font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:background .2s,opacity .25s; z-index:3; opacity:0; }
+.proj-slideshow:hover .proj-ss-btn { opacity:1; }
+.proj-ss-btn:hover { background:rgba(255,255,255,.38); }
+.proj-ss-prev { left:12px; }
+.proj-ss-next { right:12px; }
+.proj-ss-dots { display:none; }
+.proj-ss-counter { display:none; }
+.vibgyor-chips { display:none !important; }
+</style>
+</head>
+<body>
+<header id="site-header">
+  <div class="header-left">
+    <div class="header-tool-title">
+      <span class="hindi">सुविकल्प:</span> Mine Repurposing Tool
+    </div>
+    <div class="header-tool-sub">
+      Select factors and sub-factors to discover suitable repurposing options for your mining site
+    </div>
+  </div>
+  <div class="header-right">
+    <a href="https://coalcontroller.gov.in/" target="_blank" rel="noopener" title="CCO Home">
+    <div class="header-cco-lockup">
+      <img class="header-cco-logo" src="data:image/png;base64,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" alt="Coal Controller Organisation emblem">
+      <div class="header-cco-text"></div>
+    </div>
+    </a>
+  </div>
+</header>
+
+<div class="page">
+
+  <!-- Back bar -->
+  <div class="sf-backbar">
+    <button class="back-btn" onclick="window.location.href='../index.html'" aria-label="Back to results">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M10 3L5 8l5 5"/>
+      </svg>
+      Back to Results
+    </button>
+    <span class="sf-breadcrumb">
+      <span>Final Recommendations</span>
+      <span class="sep">/</span>
+      <span style="color:var(--teal);font-weight:500;">Wind Farm</span>
+    </span>
+  </div>
+
+  <!-- Hero Image -->
+  <div class="spv-hero-wrap">
+    <img src="../images/wf-about.jpg" alt="Wind turbine at sunset against mountain landscape — large-scale wind energy infrastructure" class="spv-hero-img">
+    <div class="spv-hero-overlay"></div>
+    <div class="spv-hero-title">Wind Farms</div>
+  </div>
+
+  <!-- Tab navigation -->
+  <nav class="spv-tabs" aria-label="Detail sections">
+    <button class="spv-tab active" data-tab="about"       onclick="showSPVTab('about')">About</button>
+    <button class="spv-tab"        data-tab="prism"        onclick="showSPVTab('prism')">P.R.I.S.M</button>
+    <button class="spv-tab"        data-tab="casestudies"  onclick="showSPVTab('casestudies');setTimeout(function(){window.dispatchEvent(new Event('resize'))},30)">Case Studies</button>
+    <button class="spv-tab"        data-tab="tender"       onclick="showSPVTab('tender')">Sample Tender Documents</button>
+    <button class="spv-tab"        data-tab="media"        onclick="showSPVTab('media')">Media/Web</button>
+    <button class="spv-tab"        data-tab="agencies"    onclick="showSPVTab('agencies')">Agencies</button>
+<!-- EXPERTS TAB HIDDEN (page not yet complete)
+<button class="spv-tab"        data-tab="experts"      onclick="showSPVTab('experts')">Experts</button>
+-->
+  </nav>
+
+  <div id="spv-panel-about" class="spv-panel">
+    <div class="spv-content">
+
+      <div class="about-hero-row">
+        <div class="about-hero-slide-col">
+          <div class="about-hero-label-wrap">
+            <div class="about-hero-label">Precedents</div>
+            <span class="about-hero-label-bar"></span>
+          </div>
+          <div class="proj-static-img-wrap">
+            <img src="../images/wf-hero.jpg" alt="Jaisalmer Wind Park, Rajasthan — large-scale wind turbines on arid semi-arid terrain, one of India's largest wind energy installations at over 1,000 MW capacity" class="proj-static-img" loading="lazy">
+            <div class="proj-slide-overlay">
+              <span class="proj-caption">Jaisalmer Wind Park, Rajasthan — 1,000+ MW</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-hero-text-col">
+          <div class="about-intro">
+            <div class="about-intro-block about-intro-primary">
+              <strong>Wind Farm / Renewable Energy Park</strong> development on closed coal mine land transforms suitable overburden dumps, ridgelines, reclaimed plateaus, and haul-road corridors into productive clean-power infrastructure. India's cumulative wind-power capacity reached <strong>56,094.84 MW</strong> as on 31 March 2026, with an estimated national potential of <strong>695.50 GW at 120 m</strong> and <strong>1,163.9 GW at 150 m</strong> above ground level — supporting wind as a compelling repurposing option where mine lands overlap with viable wind corridors.
+            </div>
+            <div class="about-intro-block about-intro-secondary">
+              Wind farm repurposing is most relevant for mines in high-wind-resource states across India. The CCO's <strong>A.R.T.H.A.</strong> framework identifies closed mines as potential green-energy hubs by leveraging existing land, industrial access, and grid connectivity. Unlike tourism or social-infrastructure reuse, this option is <strong>resource-dependent, infrastructure-led, and commercially sensitive</strong> — requiring confirmed wind speed, grid evacuation capacity, and geotechnical stability before procurement begins.
+            </div>
+          </div>
+        </div>
+      </div><!-- /about-hero-row -->
+
+      <div class="about-section">
+        <div class="about-section-eyebrow">Relevant Schemes &amp; Standards</div>
+        <h3 class="about-section-title">Policy Levers driving Wind Farm scale-up</h3>
+        <div class="schemes-outer">
+          <button class="schemes-nav-btn schemes-prev" onclick="schemesNav(-1)" aria-label="Previous">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <div class="schemes-ticker-wrap">
+            <div class="schemes-ticker" id="schemesTicker">
+              <div class="scheme-card">
+                <div class="scheme-card-icon">💨</div>
+                <div class="scheme-card-tag">MNRE</div>
+                <div class="scheme-card-title">National Wind-Solar Hybrid Policy 2018</div>
+                <div class="scheme-card-desc">Enables co-location of wind and solar on the same land parcel, increasing CUF and reducing evacuation infrastructure cost — directly applicable to mine-land repurposing.</div>
+              </div>
+              <div class="scheme-card">
+                <div class="scheme-card-icon">⚡</div>
+                <div class="scheme-card-tag">MNRE / NIWE</div>
+                <div class="scheme-card-title">National Wind Resource Assessment</div>
+                <div class="scheme-card-desc">NIWE's Wind Potential Atlas at 120 m and 150 m provides the primary screening tool for identifying mine sites in viable wind corridors.</div>
+              </div>
+              <div class="scheme-card">
+                <div class="scheme-card-icon">🏭</div>
+                <div class="scheme-card-tag">Ministry of Coal / CCO</div>
+                <div class="scheme-card-title">A.R.T.H.A. Green Finance Framework</div>
+                <div class="scheme-card-desc">Supports closed mines as green-energy hubs using existing land, infrastructure, and grid connectivity for renewable-energy development.</div>
+              </div>
+              <div class="scheme-card">
+                <div class="scheme-card-icon">🔋</div>
+                <div class="scheme-card-tag">MNRE</div>
+                <div class="scheme-card-title">PM-KUSUM Component C — Feeder-Level Solarisation</div>
+                <div class="scheme-card-desc">Provides a precedent for developer-led renewable installations on government / PSU land with RESCO and BOOT structuring, applicable to mine-land wind concessions.</div>
+              </div>
+              <div class="scheme-card">
+                <div class="scheme-card-icon">📋</div>
+                <div class="scheme-card-tag">CEA / MoP</div>
+                <div class="scheme-card-title">Green Energy Open Access Rules 2022</div>
+                <div class="scheme-card-desc">Simplifies open-access approvals for renewable projects above 100 kW, enabling mine-area wind farms to supply power to DISCOMs, industries, and corporate offtakers under open-access or group-captive structures.</div>
+              </div>
+              <div class="scheme-card">
+                <div class="scheme-card-icon">🌱</div>
+                <div class="scheme-card-tag">MoEFCC / CPCB</div>
+                <div class="scheme-card-title">Mine Closure & Reclamation Guidelines</div>
+                <div class="scheme-card-desc">Defines post-closure land-use permissibility and reclamation standards that wind-farm developers must satisfy before infrastructure installation on overburden dumps and reclaimed areas.</div>
+              </div>
+
+              <!-- duplicates for seamless loop -->
+              <div class="scheme-card" aria-hidden="true">
+                <div class="scheme-card-icon">💨</div>
+                <div class="scheme-card-tag">MNRE</div>
+                <div class="scheme-card-title">National Wind-Solar Hybrid Policy 2018</div>
+                <div class="scheme-card-desc">Enables co-location of wind and solar on the same land parcel, increasing CUF and reducing evacuation infrastructure cost — directly applicable to mine-land repurposing.</div>
+              </div>
+              <div class="scheme-card" aria-hidden="true">
+                <div class="scheme-card-icon">⚡</div>
+                <div class="scheme-card-tag">MNRE / NIWE</div>
+                <div class="scheme-card-title">National Wind Resource Assessment</div>
+                <div class="scheme-card-desc">NIWE's Wind Potential Atlas at 120 m and 150 m provides the primary screening tool for identifying mine sites in viable wind corridors.</div>
+              </div>
+              <div class="scheme-card" aria-hidden="true">
+                <div class="scheme-card-icon">🏭</div>
+                <div class="scheme-card-tag">Ministry of Coal / CCO</div>
+                <div class="scheme-card-title">A.R.T.H.A. Green Finance Framework</div>
+                <div class="scheme-card-desc">Supports closed mines as green-energy hubs using existing land, infrastructure, and grid connectivity for renewable-energy development.</div>
+              </div>
+              <div class="scheme-card" aria-hidden="true">
+                <div class="scheme-card-icon">🔋</div>
+                <div class="scheme-card-tag">MNRE</div>
+                <div class="scheme-card-title">PM-KUSUM Component C — Feeder-Level Solarisation</div>
+                <div class="scheme-card-desc">Provides a precedent for developer-led renewable installations on government / PSU land with RESCO and BOOT structuring, applicable to mine-land wind concessions.</div>
+              </div>
+              <div class="scheme-card" aria-hidden="true">
+                <div class="scheme-card-icon">📋</div>
+                <div class="scheme-card-tag">CEA / MoP</div>
+                <div class="scheme-card-title">Green Energy Open Access Rules 2022</div>
+                <div class="scheme-card-desc">Simplifies open-access approvals for renewable projects above 100 kW, enabling mine-area wind farms to supply power to DISCOMs, industries, and corporate offtakers under open-access or group-captive structures.</div>
+              </div>
+              <div class="scheme-card" aria-hidden="true">
+                <div class="scheme-card-icon">🌱</div>
+                <div class="scheme-card-tag">MoEFCC / CPCB</div>
+                <div class="scheme-card-title">Mine Closure & Reclamation Guidelines</div>
+                <div class="scheme-card-desc">Defines post-closure land-use permissibility and reclamation standards that wind-farm developers must satisfy before infrastructure installation on overburden dumps and reclaimed areas.</div>
+              </div>
+            </div><!-- /schemes-ticker -->
+          </div><!-- /schemes-ticker-wrap -->
+          <button class="schemes-nav-btn schemes-next" onclick="schemesNav(1)" aria-label="Next">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div><!-- /spv-panel-about -->
+
+  <div id="spv-panel-prism" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+
+<style>
+.pr-intro { padding:22px 24px 20px; background:rgba(33,128,141,.05); border:1px solid rgba(33,128,141,.15); border-radius:14px; margin-bottom:20px; }
+  .pr-intro-eyebrow { font-size:15px; font-weight:700; letter-spacing:.01em; text-transform:none; color:#21808d; margin-bottom:8px; font-style:normal; line-height:1.35; }
+  .pr-intro-heading { font-size:16px; font-weight:700; color:#0f172a; margin-bottom:10px; line-height:1.35; font-style:normal; }
+  .pr-intro-body { font-size:13.5px; color:#374151; line-height:1.85; font-style:normal; }
+  .pr-shell { display:flex; border:1px solid #e2e8f0; border-radius:14px; overflow:clip; background:#fff; }
+  .pr-sidebar { width:220px; flex-shrink:0; border-right:1px solid #e8edf2; padding:16px 0 16px; background:#f8fafc; position:sticky; top:125px; align-self:flex-start; max-height:calc(100vh - 155px); overflow-y:auto; overflow-x:visible; }
+  .pr-sidebar-label { font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:#7a8a9a; padding:0 16px 14px; font-style:normal; }
+  .pr-nav-highlight { position:absolute; left:0; right:0; pointer-events:none; z-index:0; will-change:top,height; background:color-mix(in srgb, var(--pr-hl,#C85000) 9%,transparent); transition:top .4s cubic-bezier(.4,0,.2,1),height .4s cubic-bezier(.4,0,.2,1),background .38s ease; }
+  .pr-nav-highlight::before { content:''; position:absolute; left:0; top:0; bottom:0; width:3px; background:var(--pr-hl,#C85000); border-radius:0 2px 2px 0; transition:background .38s ease; }
+  .pr-nav-item { position:relative; z-index:1; display:flex; align-items:center; gap:12px; padding:13px 16px; cursor:pointer; font-style:normal; }
+  .pr-nav-item::after { display:none; }
+  .pr-nav-item:hover, .pr-nav-item.active { background:transparent; transform:none; }
+  .pr-nav-badge { width:34px; height:34px; border-radius:50%; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:800; border:1.5px solid #d1d5db; color:#9ca3af; background:#fff; position:relative; z-index:1; transition:background .35s cubic-bezier(.4,0,.2,1),color .3s ease,border-color .35s ease,transform .45s cubic-bezier(.34,1.56,.64,1),box-shadow .35s ease; }
+  .pr-nav-item.active .pr-nav-badge { background:var(--pr-accent); color:#fff; border-color:var(--pr-accent); transform:scale(1.12); box-shadow:0 0 0 4px color-mix(in srgb,var(--pr-accent) 18%,transparent),0 3px 10px color-mix(in srgb,var(--pr-accent) 32%,transparent); }
+  .pr-nav-item:hover:not(.active) .pr-nav-badge { border-color:var(--pr-accent); color:var(--pr-accent); background:color-mix(in srgb,var(--pr-accent) 7%,#fff); transform:scale(1.07); }
+  .pr-nav-letter { font-size:13px; font-weight:600; color:#374151; line-height:1.25; font-style:normal; position:relative; z-index:1; transition:color .25s ease,font-weight .2s; }
+  .pr-nav-item.active .pr-nav-letter { color:var(--pr-accent); font-weight:700; }
+  .pr-nav-item:hover:not(.active) .pr-nav-letter { color:var(--pr-accent); }
+  @keyframes nav-slide-in { from { opacity:0; transform:translateX(-10px); } to { opacity:1; transform:translateX(0); } }
+  .pr-nav-item { opacity:0; animation:nav-slide-in .32s cubic-bezier(.4,0,.2,1) both; }
+  .pr-nav-item:nth-child(3) { animation-delay:.02s; }
+  .pr-nav-item:nth-child(4) { animation-delay:.07s; }
+  .pr-nav-item:nth-child(5) { animation-delay:.12s; }
+  .pr-nav-item:nth-child(6) { animation-delay:.17s; }
+  .pr-nav-item:nth-child(7) { animation-delay:.22s; }
+  .pr-content-wrap { flex:1; min-width:0; }
+  .pr-content-wrap .prism2-content-panel { border-radius:0; box-shadow:none; }
+  .prism2-content-panel .prism2-panel-header { background:color-mix(in srgb,var(--pc) 5%,#fff); }
+  .prism2-panel-eyebrow { font-size:13px; font-weight:700; letter-spacing:.10em; text-transform:uppercase; color:var(--pc); margin-bottom:6px; opacity:1; }
+</style>
+
+<!-- PRISM intro banner -->
+<div class="pr-intro">
+  <div class="pr-intro-eyebrow">PRISM – Post-Mining Repurposing and Implementation Strategy Models</div>
+  <div class="pr-intro-heading">A structured framework for mine repurposing from concept to implementation</div>
+  <div class="pr-intro-body">PRISM is a structured framework designed to support identified post-mining repurposing opportunities by evaluating suitable implementation pathways, financial and revenue-generation models, and the implementation requirements, roles, and responsibilities of mine owners, developers, operators, and other stakeholders throughout the project lifecycle. Built around five integrated pillars, PRISM guides Wind Farm projects from concept to operation.</div>
+</div>
+
+<!-- PRISM sidebar + content shell -->
+<div class="pr-shell">
+  <div class="pr-sidebar">
+    <div class="pr-sidebar-label">Pillars</div>
+    <div class="pr-nav-highlight" id="pr-hl"></div>
+    <div class="pr-nav-item active" style="--pr-accent:#C85000;" data-key="P" onclick="prNav('P')">
+      <div class="pr-nav-badge">P</div>
+      <div><div class="pr-nav-letter">Project vision</div></div>
+    </div>
+    <div class="pr-nav-item" style="--pr-accent:#1a5ca8;" data-key="R" onclick="prNav('R')">
+      <div class="pr-nav-badge">R</div>
+      <div><div class="pr-nav-letter">Repurposing pathways</div></div>
+    </div>
+    <div class="pr-nav-item" style="--pr-accent:#b06a10;" data-key="I" onclick="prNav('I')">
+      <div class="pr-nav-badge">I</div>
+      <div><div class="pr-nav-letter">Investment dynamics</div></div>
+    </div>
+    <div class="pr-nav-item" style="--pr-accent:#5a3d9e;" data-key="S" onclick="prNav('S')">
+      <div class="pr-nav-badge">S</div>
+      <div><div class="pr-nav-letter">Strategic structuring</div></div>
+    </div>
+    <div class="pr-nav-item" style="--pr-accent:#1a7a5e;" data-key="M" onclick="prNav('M')">
+      <div class="pr-nav-badge">M</div>
+      <div><div class="pr-nav-letter">Monitoring guidance</div></div>
+    </div>
+  </div><!-- /pr-sidebar -->
+
+  <div class="pr-content-wrap">
+
+      <div class="prism2-content-panel active" id="prism2-panel-P" style="--pc:#C85000;--pb:#fff0e6;--cb:#fff8f3;">
+      <div class="prism2-panel-header">
+        <div class="prism2-panel-header-letter">P</div>
+        <div class="prism2-panel-header-text">
+          <div class="prism2-panel-eyebrow">PROJECT VISION</div>
+          <p class="prism2-panel-desc">Defines the project concept, strategic rationale, site suitability criteria, and indicative scale options for wind-farm development on closed coal mine land.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Project Overview</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">A <strong>Wind Farm / Renewable Energy Park</strong> on closed coal mine land converts suitable overburden dumps, ridgelines, reclaimed plateaus, and haul-road corridors into clean-power infrastructure. The proposed project may include:</p>
+          <ul class="spv-list">
+            <li>Wind turbine generator (WTG) blocks</li>
+            <li>Wind mast / LiDAR / SoDAR wind-resource measurement systems</li>
+            <li>Turbine foundations, crane pads, and erection platforms</li>
+            <li>Internal access roads and heavy-haul logistics corridors</li>
+            <li>Electrical pooling substation and 33 kV / 66 kV collection network</li>
+            <li>Grid evacuation line and grid interconnection bay</li>
+            <li>SCADA, forecasting, and remote monitoring systems</li>
+            <li>O&amp;M building, spare-parts storage, and maintenance workshop</li>
+            <li>Solar-wind hybrid blocks and BESS, where commercially justified</li>
+            <li>Vegetation management, slope protection, and erosion-control systems</li>
+            <li>Community training, local vendor-support, and safety facilities</li>
+          </ul>
+          <p class="spv-body-text">This is a <strong>selective repurposing option</strong> — not a universal one. A closed mine is suitable only where wind resource, land availability, geotechnical stability, grid evacuation, access logistics, environmental sensitivity, statutory permissibility, and community acceptance can all be satisfied.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Strategic Rationale</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <ul class="spv-list">
+            <li>Productive reuse of closed-mine land for long-term renewable-energy generation</li>
+            <li>Utilisation of existing roads, substations, utility corridors, and industrial buffers</li>
+            <li>Support for India's renewable-energy and net-zero transition (695.50 GW potential at 120 m)</li>
+            <li>Reduction of idle land and post-closure maintenance burden</li>
+            <li>Creation of construction, civil, electrical, logistics, security, and O&amp;M-support jobs</li>
+            <li>Training and transition pathways for local youth in renewable-energy trades</li>
+            <li>Green-power supply to DISCOMs, industries, or corporate offtakers</li>
+            <li>Long-term lease rent, concession fee, revenue share, or green-power benefit for the mine owner</li>
+            <li>Visible alignment with mine-closure, reclamation, and green-transition objectives</li>
+          </ul>
+          <p class="spv-body-text"><strong>Critical constraint:</strong> Land availability alone does not make a wind project bankable. Wind speed, turbulence, grid capacity, access logistics, geotechnical stability, and community acceptance are decisive — advance only where measured wind resource and grid evacuation are strong enough.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Site Suitability and Technical Specification Matrix</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following matrix provides a structured checklist for assessing the suitability of the proposed site for the selected repurposing option. It identifies the key physical, technical, environmental, infrastructure, legal, and owner-side readiness parameters that should be reviewed before the project is advanced to the next stage of development. The purpose of this matrix is to help the project owner understand existing site conditions, technical requirements, potential constraints, and preparatory actions required before feasibility studies, approvals, or tendering are initiated.</p>
+          <table class="spv-table">
+            <thead><tr><th>Category</th><th>Sub-category</th><th>What to Assess / Prepare</th><th>Why It Matters</th><th>Owner-side Readiness</th></tr></thead>
+            <tbody>
+              <tr><td>Land / Area</td><td>Total land area</td><td>Gross area, usable area, exclusion zones, turbine setback areas, crane-pad space, substation land, access-road corridors</td><td>Determines possible number of turbines, spacing, layout, and evacuation route</td><td>Land map and usable-area estimate</td></tr>
+              <tr><td>Land / Area</td><td>Land contiguity</td><td>Fragmentation, encumbrances, internal mine barriers, public pathways, inaccessible patches, restricted zones</td><td>Turbine locations and access rights must be secured</td><td>Parcel continuity and right-of-way note</td></tr>
+              <tr><td>Land / Area</td><td>Topography / grading</td><td>Ridges, elevated dumps, plateau edges, slope, cut-fill requirement, road gradient, platform levels</td><td>Affects wind flow, turbine logistics, crane movement, foundation cost, and safety</td><td>Topographic survey and slope map</td></tr>
+              <tr><td>Land / Area</td><td>Ground condition</td><td>Bearing capacity, reclaimed-fill quality, overburden dump stability, settlement, subsidence, underground voids, old workings</td><td>Turbine foundations are heavy dynamic structures; unstable ground creates safety and performance risks</td><td>Geotechnical, dump-stability, and subsidence investigation</td></tr>
+              <tr><td>Site Context</td><td>Wind resource</td><td>Wind speed, wind direction, wind shear, turbulence intensity, extreme wind, seasonal generation profile, long-term correction</td><td>Primary viability factor; small differences in wind speed significantly affect energy generation</td><td>Desktop wind atlas screening and wind-measurement plan</td></tr>
+              <tr><td>Site Context</td><td>Grid proximity</td><td>Existing substations, transmission lines, voltage level, spare bay, grid capacity, evacuation route, curtailment history</td><td>Determines whether generated energy can be evacuated and monetised</td><td>Grid-evacuation feasibility note</td></tr>
+              <tr><td>Site Context</td><td>Access</td><td>Road width, turning radius, bridge capacity, blade transport route, crane movement, last-mile road strengthening</td><td>Modern turbines require movement of long blades, heavy nacelles, towers, and large cranes</td><td>Access and logistics note</td></tr>
+              <tr><td>Environmental &amp; Social</td><td>Bird / bat sensitivity</td><td>Migratory routes, nesting areas, raptor activity, habitat sensitivity, collision risk</td><td>Wind farms can affect birds and bats; screening and mitigation are required</td><td>Avifauna and biodiversity screening note</td></tr>
+              <tr><td>Environmental &amp; Social</td><td>Noise / shadow flicker</td><td>Distance from settlements, receptors, turbine lighting, shadow-flicker modelling, visual corridors</td><td>Important for community acceptance and environmental approvals</td><td>Noise, shadow-flicker, and visual screening</td></tr>
+              <tr><td>Legal / Approvals</td><td>Mine closure status</td><td>Closure plan, reclamation status, hazardous areas, restricted zones, mine-safety permissions</td><td>Determines whether new infrastructure can be legally developed</td><td>Closure linkage note</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Indicative Project Scale and Configuration Matrix</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following matrix presents an indicative relationship between available site area, project scale, technical configuration, and likely development potential. It is intended to support preliminary planning by helping the project owner identify the appropriate scale and configuration for the proposed repurposing option. The values and recommendations are indicative and should be refined through detailed feasibility studies, site surveys, engineering assessments, and relevant technical and commercial evaluations.</p>
+          <table class="spv-table">
+            <thead><tr><th>Land Area</th><th>Scale</th><th>Project Size</th><th>Typical Configuration</th><th>Use Case</th></tr></thead>
+            <tbody>
+              <tr><td>10–25 ha</td><td>Pilot / demonstration</td><td>1–5 MW</td><td>1–2 turbines, met mast / LiDAR, compact evacuation</td><td>Demonstration project, mine-area green-power pilot, training asset</td></tr>
+              <tr><td>25–75 ha</td><td>Small wind project</td><td>5–15 MW</td><td>2–5 turbines, compact pooling system, O&amp;M cabin</td><td>Captive supply, local industrial supply, institutional green power</td></tr>
+              <tr><td>75–250 ha</td><td>Small to medium wind farm</td><td>15–50 MW</td><td>Multiple turbines, 33 kV collector system, pooling substation</td><td>Open access, group captive, DISCOM PPA, corporate PPA</td></tr>
+              <tr><td>250–750 ha</td><td>Medium wind / hybrid park</td><td>50–150 MW</td><td>Wind farm with dedicated substation, evacuation line, possible solar and BESS integration</td><td>Utility-scale wind, industrial decarbonisation, corporate offtake</td></tr>
+              <tr><td>750–1,500 ha</td><td>Large renewable-energy park</td><td>150–300 MW</td><td>Multi-phase wind-solar-storage park with high-voltage evacuation</td><td>Large PPA, PSU / DISCOM offtake, green industrial supply</td></tr>
+              <tr><td>1,500 ha+</td><td>Flagship mine-transition energy park</td><td>300 MW+</td><td>Multi-phase wind-solar-BESS with advanced forecasting and energy management</td><td>Regional green-energy hub, RTC renewable supply, industrial energy transition</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="prism2-nav-row">
+        <button class="prism2-btn-prev" id="prism2-prev-P" onclick="prism2Prev()" disabled>&#8592; Previous</button>
+        <div class="prism2-progress-dots" style="display:flex;gap:5px;align-items:center;">
+          <span class="pdot active" data-p="P"></span><span class="pdot" data-p="R"></span>
+          <span class="pdot" data-p="I"></span><span class="pdot" data-p="S"></span><span class="pdot" data-p="M"></span>
+        </div>
+        <button class="prism2-btn-next" id="prism2-next-P" onclick="prism2Next()">Next pillar &#8594;</button>
+      </div>
+    </div><!-- /prism2-panel-P -->
+
+      <div class="prism2-content-panel" id="prism2-panel-R" style="--pc:#1a5ca8;--pb:#e4eef9;--cb:#f3f7fd;">
+      <div class="prism2-panel-header">
+        <div class="prism2-panel-header-letter">R</div>
+        <div class="prism2-panel-header-text">
+          <div class="prism2-panel-eyebrow">REPURPOSING PATHWAYS</div>
+          <p class="prism2-panel-desc">Describes the eight implementation models available for wind-farm development on mine land and the key factors that determine model selection.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Implementation Options</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following table outlines the possible implementation models that may be considered for developing the proposed repurposing project. These models differ in terms of ownership structure, funding responsibility, private sector participation, operational control, and long-term risk allocation. The purpose of this table is to help the project owner compare broad development routes and select an implementation approach that aligns with its financial capacity, institutional preference, risk appetite, and long-term asset management objectives.</p>
+          <table class="spv-table">
+            <thead><tr><th>Model</th><th>Core Feature</th><th>Broad Suitability</th></tr></thead>
+            <tbody>
+              <tr><td>EPC</td><td>Owner funds, develops, and retains full ownership; EPC contractor designs, procures, constructs, and commissions</td><td>Suitable where owner wants full ownership, has funding capacity, and has a clear captive / strategic power demand</td></tr>
+              <tr><td>EPC + O&amp;M</td><td>Owner finances and owns the Wind Farm; specialist agencies manage turbine O&amp;M, BOP, SCADA, forecasting, substation, and reporting</td><td>Suitable where ownership and green-power benefit are important but owner does not want to operate wind assets directly</td></tr>
+              <tr><td>RESCO</td><td>RESCO finances, installs, owns, operates, and maintains the Wind Farm; owner may provide land and receive lease / commercial benefits</td><td>Suitable where owner wants renewable-energy benefit without upfront CAPEX, turbine-performance risk, or O&amp;M burden</td></tr>
+              <tr><td>BOOT</td><td>Developer finances, builds, owns, and operates during concession period; transfers asset back at the end of term</td><td>Suitable where owner wants to reduce upfront capital burden and eventually receive the asset</td></tr>
+              <tr><td>BOO</td><td>Developer finances, develops, owns, and operates on a long-term basis without mandatory transfer</td><td>Suitable where long-term private ownership is acceptable and owner benefit is through lease rent or revenue share</td></tr>
+              <tr><td>DBFOT</td><td>Private concessionaire designs, builds, finances, operates, and transfers under a structured PPP arrangement</td><td>Suitable for larger or more complex wind / hybrid projects requiring private finance and eventual transfer</td></tr>
+              <tr><td>Concession / Lease-Develop-Operate</td><td>Owner provides land and access rights; concessionaire develops, operates, and commercialises the Wind Farm</td><td>Very suitable where owner wants to retain land control but allow a specialist developer to manage investment, construction, offtake, and O&amp;M</td></tr>
+              <tr><td>Hybrid</td><td>Owner provides enabling works (land, roads, drainage, grid corridor, common substation); private parties invest in turbines, BOP, O&amp;M, and commercialisation</td><td>Suitable where the site has strategic mine-transition value but needs shared risk, phased development, and strong livelihood obligations</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Comparative Assessment of Key Models</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <div style="overflow-x:auto;">
+          <p class="spv-body-text">The following comparative assessment evaluates the major implementation models across key decision parameters such as investment requirement, ownership control, financing responsibility, contractual complexity, risk transfer, and long-term economic benefit. This matrix is intended to support early-stage decision-making by highlighting the relative strengths and limitations of each model. The final choice of model should be guided by the specific circumstances of the project, including its scale, commercial viability, applicable policy framework, and the owner's institutional preference.</p>
+          <table class="spv-table">
+            <thead><tr><th>Evaluation Parameter</th><th>EPC</th><th>EPC+O&amp;M</th><th>RESCO</th><th>BOOT</th><th>BOO</th><th>DBFOT</th><th>Concession / LDO</th><th>Hybrid</th></tr></thead>
+            <tbody>
+              <tr><td>Upfront investment by Mine Owner</td><td>High</td><td>High</td><td>Low</td><td>Low–Moderate</td><td>Low</td><td>Low–Moderate</td><td>Low–Moderate</td><td>Variable</td></tr>
+              <tr><td>Need for private financing</td><td>Low</td><td>Low</td><td>High</td><td>High</td><td>High</td><td>High</td><td>Moderate–High</td><td>Varies</td></tr>
+              <tr><td>Ownership retained by Mine Owner from start</td><td>Yes</td><td>Yes</td><td>No (unless buyout)</td><td>No</td><td>No</td><td>Usually no during concession</td><td>Land retained; dev rights granted</td><td>Varies</td></tr>
+              <tr><td>Land control retained by Mine Owner</td><td>High</td><td>High</td><td>High if lease/licence structured</td><td>High</td><td>Moderate–High</td><td>High</td><td>High</td><td>High</td></tr>
+              <tr><td>Long-term control over Wind Farm asset</td><td>High</td><td>High</td><td>Moderate through contract</td><td>Moderate, improves post-transfer</td><td>Low</td><td>Moderate–High through concession</td><td>Moderate</td><td>Varies</td></tr>
+              <tr><td>Owner exposure to wind-resource risk</td><td>High</td><td>High</td><td>Low–Moderate</td><td>Low–Moderate</td><td>Low</td><td>Low–Moderate</td><td>Low–Moderate</td><td>Shared</td></tr>
+              <tr><td>Owner exposure to O&amp;M risk</td><td>High</td><td>Moderate</td><td>Low</td><td>Low</td><td>Low</td><td>Low</td><td>Low</td><td>Shared / variable</td></tr>
+              <tr><td>Suitability where owner has funds</td><td>High</td><td>High</td><td>Moderate</td><td>Moderate</td><td>Low–Moderate</td><td>Moderate</td><td>Moderate</td><td>High</td></tr>
+              <tr><td>Suitability to reduce upfront CAPEX</td><td>Low</td><td>Low</td><td>Very High</td><td>High</td><td>High</td><td>High</td><td>High</td><td>High</td></tr>
+              <tr><td>Contractual complexity</td><td>Low–Moderate</td><td>Moderate</td><td>Moderate–High</td><td>High</td><td>High</td><td>Very High</td><td>High</td><td>High</td></tr>
+              <tr><td>Design &amp; development complexity mgmt</td><td>Owner-led</td><td>Owner-led with specialist</td><td>Developer / RESCO-led</td><td>Developer-led</td><td>Developer-led</td><td>Developer-led (formal PPP)</td><td>Concessionaire-led / shared</td><td>Shared</td></tr>
+              <tr><td>Need for specialised technical operations</td><td>High</td><td>Very High</td><td>Very High</td><td>Very High</td><td>Very High</td><td>Very High</td><td>Very High</td><td>Very High</td></tr>
+              <tr><td>Suitability for green-infrastructure objectives</td><td>High</td><td>Very High</td><td>High</td><td>High if contractually protected</td><td>Moderate</td><td>High if safeguarded</td><td>High if protected</td><td>Very High</td></tr>
+              <tr><td>Suitability for commercial / offtake-driven development</td><td>Moderate</td><td>High</td><td>Very High</td><td>High</td><td>High</td><td>Very High</td><td>Very High</td><td>High</td></tr>
+              <tr><td>Suitability for phased / modular development</td><td>Moderate</td><td>High</td><td>High</td><td>Moderate–High</td><td>Moderate–High</td><td>High</td><td>Very High</td><td>Very High</td></tr>
+              <tr><td>Construction / implementation timeline risk</td><td>Moderate</td><td>Moderate</td><td>Moderate–High</td><td>Moderate–High</td><td>Moderate–High</td><td>High</td><td>Moderate–High</td><td>Variable</td></tr>
+              <tr><td>Retention of long-term economic benefit by owner</td><td>High</td><td>High</td><td>Moderate (tariff savings / lease)</td><td>Deferred / partial</td><td>Low–Moderate</td><td>Deferred / shared</td><td>Moderate (lease / concession terms)</td><td>Variable</td></tr>
+              <tr><td>Suitability for PPP-style development</td><td>Low</td><td>Moderate</td><td>Moderate–High</td><td>High</td><td>Moderate</td><td>Very High</td><td>Very High</td><td>High</td></tr>
+              <tr><td>Suitability for owner-led strategic asset creation</td><td>High</td><td>High</td><td>Low–Moderate</td><td>Low</td><td>Low</td><td>Low–Moderate</td><td>Low–Moderate</td><td>Moderate–High</td></tr>
+              <tr><td>Suitability for local employment &amp; service ecosystem</td><td>Moderate–High</td><td>High</td><td>High</td><td>High</td><td>Moderate</td><td>High–Very High</td><td>High–Very High</td><td>Very High</td></tr>
+              <tr><td><strong>Overall suitability for mine-area Wind Farm</strong></td><td>Moderate</td><td>High</td><td>Very High</td><td>High</td><td>Moderate</td><td>Very High</td><td>Very High</td><td>Very High</td></tr>
+            </tbody>
+          </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Model-Wise Responsibility Logic</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <div style="overflow-x:auto;">
+          <p class="spv-body-text">The following table explains how major project responsibilities are typically allocated under different implementation models. It covers key functional areas such as site availability, financing, design and construction, regulatory approvals, operation and maintenance, revenue collection, asset ownership, and end-of-term transfer. This helps clarify the respective roles of the project owner, private developer, EPC contractor, operator, or concessionaire, and supports the preparation of tender documents and contractual structures.</p>
+          <table class="spv-table">
+            <thead><tr><th>Responsibility Area</th><th>EPC</th><th>EPC+O&amp;M</th><th>RESCO</th><th>BOOT</th><th>BOO</th><th>DBFOT</th><th>Concession / LDO</th><th>Hybrid</th></tr></thead>
+            <tbody>
+              <tr><td>Site / Land Availability</td><td>Owner</td><td>Owner</td><td>Owner / authority</td><td>Owner / authority</td><td>Owner / authority or developer</td><td>Owner / authority</td><td>Owner / authority</td><td>Variable</td></tr>
+              <tr><td>Land Lease / Development Rights</td><td>Owner retains</td><td>Owner retains</td><td>Owner grants lease / licence</td><td>Owner grants concession rights</td><td>Owner grants long-term rights</td><td>Owner grants PPP rights</td><td>Owner grants lease / concession</td><td>Shared</td></tr>
+              <tr><td>Financing</td><td>Owner</td><td>Owner</td><td>RESCO / developer</td><td>Private developer</td><td>Private developer</td><td>Private developer / concessionaire</td><td>Private concessionaire</td><td>Shared / variable</td></tr>
+              <tr><td>Concept &amp; Master Planning</td><td>Primarily owner</td><td>Owner with consultant</td><td>Shared, developer-refined</td><td>Shared / developer-led</td><td>Mostly developer-led</td><td>Shared</td><td>Shared</td><td>Shared</td></tr>
+              <tr><td>Wind-Resource Measurement &amp; Energy Yield</td><td>Owner / consultant</td><td>Owner / consultant with operator input</td><td>RESCO / developer validates</td><td>Developer</td><td>Developer</td><td>Developer / concessionaire</td><td>Concessionaire / developer</td><td>Shared</td></tr>
+              <tr><td>Detailed Design</td><td>EPC contractor</td><td>EPC contractor with O&amp;M input</td><td>RESCO / developer</td><td>Developer</td><td>Developer</td><td>Developer / concessionaire</td><td>Concessionaire / developer</td><td>Variable</td></tr>
+              <tr><td>Turbine Procurement</td><td>Owner / EPC contractor</td><td>Owner / EPC contractor</td><td>RESCO / developer</td><td>Developer</td><td>Developer</td><td>Developer / concessionaire</td><td>Concessionaire / developer</td><td>Variable</td></tr>
+              <tr><td>Construction / Development</td><td>EPC contractor</td><td>EPC contractor</td><td>RESCO / developer</td><td>Developer</td><td>Developer</td><td>Developer / concessionaire</td><td>Concessionaire / developer</td><td>Variable</td></tr>
+              <tr><td>Grid Evacuation / Connectivity</td><td>Owner</td><td>Owner with operator support</td><td>RESCO / developer, owner facilitates</td><td>Developer / shared</td><td>Developer / shared</td><td>Shared</td><td>Shared</td><td>Shared</td></tr>
+              <tr><td>SCADA / Forecasting / Control Systems</td><td>Owner-defined</td><td>Owner-defined with operator support</td><td>RESCO / developer</td><td>Developer / operator</td><td>Developer / operator</td><td>Developer / concessionaire</td><td>Concessionaire / operator</td><td>Shared</td></tr>
+              <tr><td>Statutory Approvals</td><td>Primarily owner</td><td>Primarily owner with contractor support</td><td>Shared; project by RESCO, land by owner</td><td>Shared</td><td>Shared / mostly developer</td><td>Shared</td><td>Shared</td><td>Variable</td></tr>
+              <tr><td>Operations</td><td>Owner</td><td>Specialist operator / FM agency</td><td>RESCO / developer</td><td>Developer during concession</td><td>Developer</td><td>Developer / concessionaire</td><td>Concessionaire / operator</td><td>Shared</td></tr>
+              <tr><td>Turbine Performance / Availability</td><td>Owner</td><td>Specialist O&amp;M agency</td><td>RESCO / developer</td><td>Developer / operator</td><td>Developer / operator</td><td>Developer / concessionaire</td><td>Concessionaire / operator</td><td>Shared</td></tr>
+              <tr><td>Power Sale / Offtake Management</td><td>Owner</td><td>Owner or specialist operator</td><td>As per RESCO / PPA / open-access agreement</td><td>Developer / operator</td><td>Developer / operator</td><td>Developer / concessionaire</td><td>Concessionaire as per agreement</td><td>Shared</td></tr>
+              <tr><td>Revenue Realisation</td><td>Owner</td><td>Owner after O&amp;M costs</td><td>RESCO receives revenue; owner gets lease / tariff benefit</td><td>Developer during concession</td><td>Developer</td><td>Developer / concessionaire</td><td>Concessionaire as per lease / concession</td><td>Shared as per agreement</td></tr>
+              <tr><td>Local Employment / Vendor Inclusion</td><td>Owner-controlled</td><td>Owner-controlled with operator support</td><td>Contract-based</td><td>Contract-based</td><td>Contract-based</td><td>Built into PPP terms</td><td>Built into concession terms</td><td>Strongly configurable</td></tr>
+              <tr><td>Asset Ownership During Term</td><td>Owner</td><td>Owner</td><td>RESCO / developer (unless structured otherwise)</td><td>Developer during concession</td><td>Developer</td><td>Usually reversionary public rights</td><td>As per agreement; land generally with owner</td><td>Variable</td></tr>
+              <tr><td>Transfer at End of Term</td><td>No</td><td>No</td><td>As agreed; may include buyout option</td><td>Yes</td><td>No</td><td>Yes</td><td>As agreed</td><td>As agreed</td></tr>
+            </tbody>
+          </table>
+          </div>
+        </div>
+      </div>
+      <div class="prism2-nav-row">
+        <button class="prism2-btn-prev" id="prism2-prev-R" onclick="prism2Prev()">&#8592; Previous</button>
+        <div class="prism2-progress-dots" style="display:flex;gap:5px;align-items:center;">
+          <span class="pdot" data-p="P"></span><span class="pdot active" data-p="R"></span>
+          <span class="pdot" data-p="I"></span><span class="pdot" data-p="S"></span><span class="pdot" data-p="M"></span>
+        </div>
+        <button class="prism2-btn-next" id="prism2-next-R" onclick="prism2Next()">Next pillar &#8594;</button>
+      </div>
+    </div><!-- /prism2-panel-R -->
+
+      <div class="prism2-content-panel" id="prism2-panel-I" style="--pc:#b06a10;--pb:#faedda;--cb:#fdf7f0;">
+      <div class="prism2-panel-header">
+        <div class="prism2-panel-header-letter">I</div>
+        <div class="prism2-panel-header-text">
+          <div class="prism2-panel-eyebrow">INVESTMENT DYNAMICS</div>
+          <p class="prism2-panel-desc">Covers funding logic by model, revenue generation pathways, and local livelihood and job creation potential for wind-farm development on mine land.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Funding Logic</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following table presents the broad funding logic for each implementation model. It explains who is expected to finance the project, the level of owner-side funding requirement, and the commercial rationale behind each structure. This section is intended to help the project owner assess whether the project is more suitable for owner-funded development, private investment, public-private partnership, lease or concession structure, or a hybrid funding arrangement.</p>
+          <table class="spv-table">
+            <thead><tr><th>Model</th><th>Primary Funding Source</th><th>Owner Funding Requirement</th><th>Commercial Logic</th></tr></thead>
+            <tbody>
+              <tr><td>EPC</td><td>Owner's budget, institutional support, debt raised by owner, or strategic public-sector funding</td><td>High</td><td>Owner directly finances and develops the Wind Farm, retains full ownership, and takes the long-term energy and commercial benefits</td></tr>
+              <tr><td>EPC + O&amp;M</td><td>Owner's budget, grants, debt raised by owner, or public-sector renewable-energy support</td><td>High</td><td>Owner finances and owns the Wind Farm; specialist O&amp;M agencies manage turbine availability, BOP maintenance, SCADA, forecasting, and reporting</td></tr>
+              <tr><td>RESCO</td><td>RESCO equity, project finance, renewable-energy debt, infrastructure funds, strategic investment</td><td>Low</td><td>RESCO finances, owns, operates, and maintains the project; mine owner avoids upfront CAPEX and technical operating risk</td></tr>
+              <tr><td>BOOT</td><td>Private developer equity, project finance, external debt, green infrastructure funds, viability-gap support where needed</td><td>Low–Moderate</td><td>Developer finances and operates during concession period, recovering investment through PPA / open-access revenue before transferring the asset</td></tr>
+              <tr><td>DBFOT</td><td>Private concessionaire equity, project finance, debt financing, public support, viability-gap or green-transition financing</td><td>Low–Moderate</td><td>Private party designs, builds, finances, operates, and transfers under PPP arrangement; investment recovery through long-term PPA and approved revenue streams</td></tr>
+              <tr><td>Concession / LDO</td><td>Private concessionaire investment, lease-based development finance, internal debt, partial owner-side enabling support</td><td>Low–Moderate</td><td>Owner provides land and rights; concessionaire invests in resource validation, turbines, civil works, BOP, grid evacuation, operations, and commercialisation</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Revenue Generation by Model</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following table explains how revenue may be generated under different implementation models and identifies who is likely to receive the principal project income. It also describes the nature and extent of the financial benefit available to the project owner, whether through direct project revenue, cost savings, lease income, concession fees, revenue sharing, service charges, or eventual asset transfer. This comparison is intended to support the selection of a commercially appropriate model for the proposed repurposing project.</p>
+          <table class="spv-table">
+            <thead><tr><th>Model</th><th>How Revenue is Generated</th><th>Who Receives Main Revenue</th><th>Owner's Financial Benefit</th></tr></thead>
+            <tbody>
+              <tr><td>EPC</td><td>Direct owner-led sale or captive use of wind power, DISCOM / PSU PPA, corporate PPA, open-access sale, green attributes</td><td>Owner</td><td>Full financial and energy benefit; owner bears full CAPEX, wind-resource risk, grid risk, O&amp;M responsibility, and repowering burden</td></tr>
+              <tr><td>EPC + O&amp;M</td><td>Owner power revenue / savings with specialist O&amp;M support; DISCOM / PSU PPA, open-access, green attributes</td><td>Owner, with agreed payments to O&amp;M / FM agency</td><td>High after O&amp;M costs, since ownership and revenue rights remain with owner</td></tr>
+              <tr><td>RESCO</td><td>RESCO power sale under PPA, captive / group captive, open access, DISCOM, corporate PPA, or hybrid arrangement</td><td>RESCO / developer, as per agreement</td><td>Lease rent, concession fee, revenue share, discounted power, green-power savings, or buyout option depending on contract structure</td></tr>
+              <tr><td>BOOT</td><td>Power sale during concession term through long-term PPA, open-access contracts, captive / group-captive supply, green attributes</td><td>Developer / concessionaire during concession term</td><td>Indirect benefit through lease rent, concession fee, revenue share, local economic uplift, and eventual transfer of the wind asset</td></tr>
+              <tr><td>DBFOT</td><td>Structured concession-based power sale, DISCOM / PSU PPA, private PPA, open-access, storage / hybrid services, green attributes</td><td>Developer / concessionaire during concession term</td><td>Benefit arises through concession fee, lease rate, revenue share, performance-linked payment, and transfer of the asset at end of concession</td></tr>
+              <tr><td>Concession / LDO</td><td>Lease-based or concession-based development and operation, PPA revenue, open-access sale, corporate offtake, green-power sale</td><td>Concessionaire / operator, as per agreement</td><td>Financial benefit through lease rentals, concession fee, revenue share, enhanced land value, green-power offtake, and broader regional economic benefits</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Which Model is Better for Local Livelihood and Jobs</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following table assesses the likely local livelihood and employment potential of each implementation model. It considers the extent to which each model can support construction-phase jobs, long-term operational employment, local procurement opportunities, skill development, community participation, and associated support services. This section is particularly relevant where the repurposing project is expected to contribute to post-mining or post-operational economic transition and sustained local community benefit.</p>
+          <table class="spv-table">
+            <thead><tr><th>Model</th><th>Local Job Potential</th><th>Why</th><th>Overall Suggestibility for Local Livelihood</th></tr></thead>
+            <tbody>
+              <tr><td>EPC</td><td>Moderate to High</td><td>Construction creates jobs in site preparation, road widening, crane pads, civil foundations, electrical works, cable laying, substation works, security, transport, and logistics</td><td>Moderate to High</td></tr>
+              <tr><td>EPC + O&amp;M</td><td>High</td><td>Supports sustained employment in turbine O&amp;M support, BOP maintenance, vegetation control, security, housekeeping, substation support, and road maintenance; owner can directly enforce local hiring</td><td>High / Very Suitable</td></tr>
+              <tr><td>RESCO</td><td>High</td><td>Contracts can include local hiring, apprenticeship, local vendor use, road maintenance, vegetation management, security, maintenance, and training obligations</td><td>High / Very Suitable</td></tr>
+              <tr><td>BOOT</td><td>High</td><td>Concession conditions can require local hiring, apprenticeship, safety training, local transport, civil maintenance, security, vegetation management, and vendor participation</td><td>High</td></tr>
+              <tr><td>BOO</td><td>Moderate</td><td>Employment is created during development and O&amp;M, but local livelihood benefits depend heavily on the private owner's hiring, outsourcing, and vendor policies; contractual obligations become critical</td><td>Moderate</td></tr>
+              <tr><td>DBFOT</td><td>High to Very High</td><td>Formal PPP structure allows local employment, training, apprenticeship, vendor inclusion, community benefit funds, and skill-development obligations to be built into concession documents</td><td>Very High</td></tr>
+              <tr><td>Concession / LDO</td><td>High to Very High</td><td>Concession terms can mandate local employment, local vendor use, civil maintenance contracts, vegetation management, security services, and community benefit measures</td><td>Very High</td></tr>
+              <tr><td>Hybrid</td><td>Very High</td><td>Combines public mine-transition objectives with private renewable-energy capability; allows explicit owner-side support for training, local contractors, transport operators, security personnel, and O&amp;M assistants</td><td>Very High / Highly Suitable</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Combined Comparison: Revenue, Profitability, and Livelihood</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">The following combined comparison brings together three important dimensions of project structuring: revenue potential, owner-side financial benefit, and local livelihood generation. It provides a consolidated view of how each implementation model performs across commercial, institutional, and community-development perspectives. This matrix is intended to support balanced decision-making where the objective extends beyond financial return to include sustainable site reuse and long-term local economic benefit.</p>
+          <div style="overflow-x:auto;">
+          <p class="spv-body-text">The following table assesses the likely local livelihood and employment potential of each implementation model. It considers the extent to which each model can support construction-phase jobs, long-term operational employment, local procurement opportunities, skill development, community participation, and associated support services. This section is particularly relevant where the repurposing project is expected to contribute to post-mining or post-operational economic transition and sustained local community benefit.</p>
+          <table class="spv-table">
+            <thead><tr><th>Model</th><th>Main Revenue Source</th><th>Owner Profitability</th><th>Local Job Creation Potential</th><th>Overall Comment</th></tr></thead>
+            <tbody>
+              <tr><td>EPC</td><td>Direct power sale or captive savings from owner-led wind-power generation</td><td>High, since owner retains full revenue rights and asset ownership, but only if generation, grid, and offtake are strong; owner bears full CAPEX and operating risk</td><td>Moderate to High</td><td>Suitable where owner has funding capacity, wants full control, and has a strong captive / strategic power use case</td></tr>
+              <tr><td>EPC + O&amp;M</td><td>Owner power revenue / savings with specialist O&amp;M support</td><td>High after O&amp;M costs, since ownership and revenue rights remain with owner</td><td>High</td><td>Good secondary option where ownership is important and specialist technical support is available</td></tr>
+              <tr><td>RESCO</td><td>PPA tariff, open-access sale, corporate PPA, captive / group-captive supply, DISCOM sale, or hybrid power supply</td><td>Moderate to High depending on lease rent, tariff savings, revenue share, discounted power, and negotiated terms</td><td>High</td><td>Very suitable where owner wants green-energy reuse without upfront CAPEX or technical operating burden</td></tr>
+              <tr><td>BOOT</td><td>Developer power revenue during concession through PPA, open access, captive / group-captive supply, merchant sale where permitted, and green attributes</td><td>Moderate, since owner benefit is usually indirect or deferred through lease rent, concession fee, revenue share, and transfer at end of concession</td><td>High</td><td>Suitable where owner wants to reduce upfront capital exposure while enabling long-term renewable-energy use with eventual transfer</td></tr>
+              <tr><td>BOO</td><td>Long-term commercial income from private wind-farm operation</td><td>Low to Moderate, since most operating revenue is retained by private owner; mine owner benefits through lease income, concession charges, discounted power, or negotiated returns</td><td>Moderate</td><td>Suitable where long-term private ownership is acceptable and direct owner revenue is not the primary objective</td></tr>
+              <tr><td>DBFOT</td><td>Structured concession-based revenue from power sale, open-access contracts, PPA, hybrid supply, storage-linked services, and approved green attributes</td><td>Moderate to High, depending on concession fee, revenue share, public support, and transfer terms</td><td>High to Very High</td><td>Strong for large formal PPP renewable-energy parks where professional development, finance, operation, and eventual transfer are desired</td></tr>
+              <tr><td>Concession / LDO</td><td>Developer revenue from power sale; owner receives lease / concession benefits</td><td>Moderate, generally through lease rentals, concession fee, revenue share, green-power access, and enhancement of land / grid value</td><td>High to Very High</td><td>Very suitable where owner wants to retain land control but outsource wind development, financing, offtake, construction, and O&amp;M</td></tr>
+              <tr><td>Hybrid</td><td>Combination of captive green power, PPA revenue, open-access sale, hybrid renewable supply, support payments, storage services, and shared income</td><td>Variable to High, depending on funding, ownership, revenue rights, public support, grid infrastructure, and operator participation</td><td>Very High</td><td>Highly suitable where project has both green-transition value and regional-development objectives and needs a flexible structure combining public oversight, livelihood promotion, and private efficiency</td></tr>
+            </tbody>
+          </table>
+          </div>
+        </div>
+      </div>
+      <div class="prism2-nav-row">
+        <button class="prism2-btn-prev" id="prism2-prev-I" onclick="prism2Prev()">&#8592; Previous</button>
+        <div class="prism2-progress-dots" style="display:flex;gap:5px;align-items:center;">
+          <span class="pdot" data-p="P"></span><span class="pdot" data-p="R"></span>
+          <span class="pdot active" data-p="I"></span><span class="pdot" data-p="S"></span><span class="pdot" data-p="M"></span>
+        </div>
+        <button class="prism2-btn-next" id="prism2-next-I" onclick="prism2Next()">Next pillar &#8594;</button>
+      </div>
+    </div><!-- /prism2-panel-I -->
+
+      <div class="prism2-content-panel" id="prism2-panel-S" style="--pc:#5a3d9e;--pb:#edeaf8;--cb:#f7f5fd;">
+      <div class="prism2-panel-header">
+        <div class="prism2-panel-header-letter">S</div>
+        <div class="prism2-panel-header-text">
+          <div class="prism2-panel-eyebrow">STRATEGIC STRUCTURING</div>
+          <p class="prism2-panel-desc">Describes what must be ready before the first RFP is issued, and the activities that the selected developer / concessionaire / RESCO may take up post-award.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Preparations Needed Before RFP</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">The following section identifies the key owner-side preparatory actions that should ideally be completed before issuing the first Request for Proposal. These actions are aimed at reducing uncertainty for prospective bidders, improving project bankability, clarifying site availability, identifying approval pathways and risks, and defining the technical and commercial scope of the project. Completing these preparatory steps before tendering can improve bid quality, attract credible responses, and reduce the risk of delays during project implementation.</p>
+          <p class="spv-body-text">Before issuing an RFP for a wind-farm-based mine repurposing project, the mine owner should prepare the following in priority order:</p>
+          <ol class="spv-list">
+            <li>Land and mine-closure confirmation — Confirm land ownership, closure status, mine-closure linkage, reclamation status, leaseability, and permissibility of renewable-energy / wind-power development on the proposed mine land.</li>
+            <li>Legal, commercial and land-use screening — Review land-use restrictions, concession / lease rights, power-sale rights, open-access possibility, revenue-sharing permissibility, decommissioning obligations, and insurance requirements.</li>
+            <li>Safety and no-go zone mapping — Identify unsafe or restricted zones, including unstable overburden dumps, highwalls, subsidence-prone areas, old underground workings, mine voids, unsafe water bodies, hazardous structures, and active / restricted mine infrastructure.</li>
+            <li>Preliminary wind-resource screening — Assess the site using NIWE wind atlas data, mesoscale wind data, nearby wind projects, local topography, wind direction, turbulence risk, and suitability for met mast / LiDAR / SoDAR measurement.</li>
+            <li>Preliminary technical site assessment — Prepare topographic survey, access-road review, geotechnical screening, dump-stability screening, slope assessment, drainage review, and preliminary turbine-siting constraints.</li>
+            <li>Grid-evacuation and connectivity screening — Identify nearest substation, voltage level, bay availability, transmission corridor, evacuation capacity, likely grid-connectivity route, and compliance implications under CEA grid-connectivity standards. CEA connectivity standards prescribe minimum technical requirements for renewable-energy plants to ensure safe, secure, and reliable grid operation.</li>
+            <li>Environmental and social screening — Assess forest / non-forest status, wildlife sensitivity, bird and bat risks, noise, shadow flicker, visual impact, settlement distance, grazing routes, community access, and possible environmental-clearance pathway.</li>
+            <li>Preliminary turbine layout and capacity estimate — Prepare an indicative turbine envelope, exclusion-zone map, estimated MW capacity, internal road concept, crane-pad locations, pooling-substation location, and broad phasing plan. MNRE's amended onshore wind guidelines place emphasis on optimized micro-siting using wind-flow modelling and layout optimization rather than only fixed turbine-spacing assumptions.</li>
+            <li>Market, offtake and revenue assessment — Assess possible commercial structures such as captive use, group captive, third-party open access, DISCOM PPA, corporate PPA, RESCO, concession, or hybrid model, along with tariff, CUF, curtailment, and revenue-share assumptions.</li>
+            <li>Cost and implementation model selection — Prepare broad CAPEX, OPEX, grid-cost, access-road, land-development, and decommissioning estimates, and shortlist the preferred model such as Concession / Lease-Develop-Operate, RESCO, DBFOT, Hybrid, or EPC + O&amp;M.</li>
+            <li>Draft RFP scope and obligations — Prepare bidder scope covering wind-resource validation, detailed design, turbine procurement, grid connectivity, construction, O&amp;M, SCADA, forecasting, safety, local employment, environmental safeguards, repowering, and decommissioning.</li>
+            <li>Bid evaluation framework — Define evaluation criteria covering wind-development experience, financial capacity, turbine / OEM arrangement, energy-yield methodology, grid strategy, safety record, O&amp;M plan, local livelihood plan, revenue proposal, and compliance with MNRE / CEA requirements.</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Activities to be taken After Selecting the Agency</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following section lists the principal activities that may be undertaken by the selected contractor, developer, concessionaire, operator, or implementation agency after award of the project. These activities generally include detailed site investigations, engineering design, statutory submissions and approvals, equipment procurement, construction, commissioning, operational planning, staff training, and performance monitoring. The distinction between pre-RFP owner preparedness and post-award implementation responsibilities helps ensure an appropriate and efficient allocation of effort across the project development cycle.</p>
+          <p class="spv-body-text">After award, the selected developer / concessionaire / RESCO agency / O&amp;M agency can take up the following activities in chronological order:</p>
+          <ol class="spv-list">
+            <li>Detailed site investigation — Undertake detailed topographic survey, drone mapping, geotechnical investigation, overburden-dump stability assessment, subsidence review, foundation investigation, drainage mapping, and access-road engineering.</li>
+            <li>Bankable wind-resource assessment — Install or validate met mast / LiDAR / SoDAR data, undertake long-term correlation, wind-flow modelling, turbulence assessment, wake-loss analysis, and bankable energy-yield estimation using NIWE / industry-accepted methods.</li>
+            <li>Detailed environmental and social planning — Prepare E&amp;S management plan, bird / bat study, noise and shadow-flicker assessment, community-safety plan, stakeholder-engagement plan, and site-specific mitigation measures. IFC's wind-energy EHS guidelines cover environmental, occupational health and safety, and community health and safety issues for wind projects.</li>
+            <li>Final micro siting and master planning — Prepare the final turbine layout, internal road network, crane-pad plan, cable route, pooling-substation location, no-go zones, buffer areas, emergency access, and phased expansion plan.</li>
+            <li>Detailed Project Report / project execution plan — The selected developer shall prepare the DPR / execution plan covering final surveys, wind-resource assessment, turbine selection, energy yield, civil and electrical design, grid plan, approvals plan, financial model, O&amp;M plan, safety plan, and implementation schedule.</li>
+            <li>Approvals, grid connectivity and agreements — Obtain project-specific approvals, land / lease documentation, grid connectivity, electrical inspectorate approvals, aviation / defence / telecom clearances if applicable, PPA / open-access agreements, insurance, and statutory registrations.</li>
+            <li>Detailed engineering and procurement — Finalize turbine model, OEM contract, foundation design, road and crane-pad design, electrical collector system, pooling substation, SCADA, forecasting system, metering, protection, and grid-compliance equipment.</li>
+            <li>Construction and installation — Develop access roads, turbine foundations, crane pads, cable trenches, pooling substation, evacuation line, control room, O&amp;M facilities, drainage works, safety signage, and then complete turbine erection and electrical installation.</li>
+            <li>Testing, synchronization and commissioning — Conduct pre-commissioning checks, protection testing, SCADA testing, grid-code compliance checks, trial generation, synchronization, performance testing, and commercial operation declaration as per applicable grid and contract requirements.</li>
+            <li>Operation, maintenance and compliance monitoring — Carry out routine turbine O&amp;M, BOP maintenance, SCADA monitoring, forecasting, generation reporting, safety inspections, environmental monitoring, community grievance redressal, and compliance reporting.</li>
+            <li>Local livelihood integration — Implement local hiring, technician training, security deployment, road-maintenance contracts, vegetation management, transport support, local vendor participation, and community-benefit commitments as per RFP / concession terms.</li>
+            <li>Performance review, hybridization and expansion — Review generation, CUF, curtailment, revenue, safety performance, and community impact before taking up phased expansion, solar hybridization, BESS integration, repowering, or additional renewable-energy uses.</li>
+          </ol>
+        </div>
+      </div>
+          <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Indicative Implementation Pathway</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following implementation pathway presents a practical high-level sequence for advancing the proposed repurposing concept from initial approval through to project execution and long-term operation. It outlines the broad stages of concept approval, preliminary studies, model selection, bid preparation, procurement, detailed design, statutory approvals, construction, commissioning, and ongoing operation. This pathway is indicative and should be adapted to reflect the specific complexity, regulatory requirements, financing structure, and site conditions applicable to the project.</p>
+          <ol class="spv-list">
+            <li>Concept approval and owner-side structuring</li>
+            <li>Screening of closed mine sites for wind-resource and grid suitability</li>
+            <li>Geotechnical, subsidence, dump-stability, drainage, access, and grid studies</li>
+            <li>Preliminary wind-resource assessment using NIWE / wind atlas / mesoscale data</li>
+            <li>Installation of met mast / LiDAR / SoDAR for wind-resource validation, where required</li>
+            <li>Market sounding with wind developers, RESCO developers, IPPs, turbine OEMs, DISCOMs, corporate offtakers, and state nodal agencies</li>
+            <li>Selection of preferred commercial and implementation model</li>
+            <li>Preliminary turbine layout and exclusion-zone mapping</li>
+            <li>Identification of owner-side enabling scope</li>
+            <li>Preparation of DPR / RFQ / RFP / concession documents / PPA term sheet</li>
+            <li>Issuance of RFQ / RFP</li>
+            <li>Selection of developer / concessionaire / RESCO agency</li>
+            <li>Detailed design, resource validation, approvals, grid connectivity, and financial closure</li>
+            <li>Construction of roads, foundations, substation, and evacuation line</li>
+            <li>Turbine erection, testing, synchronisation, and commissioning</li>
+            <li>Commercial operation under agreed model</li>
+            <li>Performance monitoring, local employment compliance, and community-benefit reporting</li>
+            <li>Phased expansion, hybridisation, repowering, transfer, or buyout as per agreement</li>
+          </ol>
+        </div>
+      </div>
+    <div class="prism2-nav-row">
+        <button class="prism2-btn-prev" id="prism2-prev-S" onclick="prism2Prev()">&#8592; Previous</button>
+        <div class="prism2-progress-dots" style="display:flex;gap:5px;align-items:center;">
+          <span class="pdot" data-p="P"></span><span class="pdot" data-p="R"></span>
+          <span class="pdot" data-p="I"></span><span class="pdot active" data-p="S"></span><span class="pdot" data-p="M"></span>
+        </div>
+        
+    <button class="prism2-btn-next" id="prism2-next-S" onclick="prism2Next()">Next pillar &#8594;</button>
+      </div>
+    </div><!-- /prism2-panel-S -->
+
+      <div class="prism2-content-panel" id="prism2-panel-M" style="--pc:#1a7a5e;--pb:#e1f3ec;--cb:#f1faf6;">
+      <div class="prism2-panel-header">
+        <div class="prism2-panel-header-letter">M</div>
+        <div class="prism2-panel-header-text">
+          <div class="prism2-panel-eyebrow">MONITORING GUIDANCE</div>
+          <p class="prism2-panel-desc">Covers the recommended way forward and preferred models, the 18-step indicative implementation pathway, key references, and abbreviations.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Way Forward</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">The following way forward summarizes the preferred development approach for the proposed repurposing option, based on the assessment presented in PRISM (Post Mining Repurposing Implementation and Strategy Models). It identifies the most suitable implementation models in order of preference, highlights key technical and due-diligence considerations, and outlines the recommended next steps and broad development logic. This section is intended to guide internal decision-making and support the project owner in progressing from concept-stage evaluation toward feasibility assessment, project structuring, regulatory approvals, and implementation planning.</p>
+          <p class="spv-body-text"><strong>Preferred models, in order:</strong></p>
+          <ul class="spv-list">
+            <li><strong>Concession / Lease-Develop-Operate</strong></li>
+            <li><strong>RESCO</strong></li>
+            <li><strong>DBFOT</strong></li>
+            <li><strong>Hybrid</strong></li>
+            <li><strong>EPC + O&amp;M</strong></li>
+          </ul>
+          <p class="spv-body-text" style="margin-top:10px;"><strong>Why preferred:</strong> Concession / Lease-Develop-Operate is preferred because wind projects are resource-dependent and require specialist measurement, turbine procurement, grid planning, and O&amp;M. The mine owner retains land control while transferring wind-resource and performance risk to the developer.</p>
+          <p class="spv-body-text"><strong>Secondary option:</strong> EPC + O&amp;M is suitable only where the owner wants full ownership and has a strong captive or strategic power case.</p>
+          <p class="spv-body-text"><strong>Recommended development logic:</strong> Start with wind mast / LiDAR measurement and grid screening. Develop only where wind resource, evacuation, and offtake are strong; hybridise with solar and BESS where practical.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>References</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <ul class="spv-list">
+            <li>Ministry of New and Renewable Energy, Government of India — Physical Progress (Wind), 31 March 2026. Cumulative wind-power capacity: 56,094.84 MW.</li>
+            <li>MNRE, Government of India — Wind Overview. India's estimated wind potential: 695.50 GW at 120 m and 1,163.9 GW at 150 m above ground level.</li>
+            <li>PIB, Government of India — India Records Historic Growth in Wind Energy, April 2026. Supports recent Indian wind-sector growth and the policy ambition to reach higher wind capacity by 2030 and 2036.</li>
+            <li>Coal Controller Organisation / Ministry of Coal — A.R.T.H.A. Green Finance for Coal Mines Repurposing. Supports closed mines as green-energy hubs.</li>
+            <li>IFC / World Bank Group — Environmental, Health, and Safety Guidelines for Wind Energy. EHS guidance for wind-energy development, construction, and operation.</li>
+            <li>World Bank / IFC — EHS Guidelines for Wind Energy, 2015. Detailed technical EHS guidance.</li>
+            <li>National Institute of Wind Energy (NIWE) — India Wind Potential Atlas at 150 m. Primary screening tool for wind-resource assessment.</li>
+            <li>Government of India / PIB — RESCO and Utility-led Models under PM Surya Ghar. Policy context for RESCO as a third-party investment model.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Abbreviations</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <table class="spv-table">
+            <thead><tr><th>Abbreviation</th><th>Full Form</th></tr></thead>
+            <tbody>
+              <tr><td>EPC</td><td>Engineering, Procurement and Construction</td></tr>
+              <tr><td>O&amp;M</td><td>Operation and Maintenance</td></tr>
+              <tr><td>BOOT</td><td>Build, Own, Operate, Transfer</td></tr>
+              <tr><td>BOO</td><td>Build, Own, Operate</td></tr>
+              <tr><td>DBFOT</td><td>Design, Build, Finance, Operate, Transfer</td></tr>
+              <tr><td>PPP</td><td>Public-Private Partnership</td></tr>
+              <tr><td>RESCO</td><td>Renewable Energy Service Company</td></tr>
+              <tr><td>RFP</td><td>Request for Proposal</td></tr>
+              <tr><td>RFQ</td><td>Request for Qualification</td></tr>
+              <tr><td>DPR</td><td>Detailed Project Report</td></tr>
+              <tr><td>PPA</td><td>Power Purchase Agreement</td></tr>
+              <tr><td>WTG</td><td>Wind Turbine Generator</td></tr>
+              <tr><td>OEM</td><td>Original Equipment Manufacturer</td></tr>
+              <tr><td>BOP</td><td>Balance of Plant</td></tr>
+              <tr><td>SCADA</td><td>Supervisory Control and Data Acquisition</td></tr>
+              <tr><td>LiDAR</td><td>Light Detection and Ranging</td></tr>
+              <tr><td>SoDAR</td><td>Sonic Detection and Ranging</td></tr>
+              <tr><td>BESS</td><td>Battery Energy Storage System</td></tr>
+              <tr><td>DISCOM</td><td>Distribution Company</td></tr>
+              <tr><td>IPP</td><td>Independent Power Producer</td></tr>
+              <tr><td>MNRE</td><td>Ministry of New and Renewable Energy</td></tr>
+              <tr><td>NIWE</td><td>National Institute of Wind Energy</td></tr>
+              <tr><td>CCO</td><td>Coal Controller Organisation</td></tr>
+              <tr><td>CUF</td><td>Capacity Utilisation Factor</td></tr>
+              <tr><td>RTC</td><td>Round-the-Clock</td></tr>
+              <tr><td>MW</td><td>Megawatt</td></tr>
+              <tr><td>GW</td><td>Gigawatt</td></tr>
+              <tr><td>kV</td><td>Kilovolt</td></tr>
+              <tr><td>CAPEX</td><td>Capital Expenditure</td></tr>
+              <tr><td>CSR</td><td>Corporate Social Responsibility</td></tr>
+              <tr><td>IFC</td><td>International Finance Corporation</td></tr>
+              <tr><td>EHS</td><td>Environmental, Health and Safety</td></tr>
+              <tr><td>PSU</td><td>Public Sector Undertaking</td></tr>
+              <tr><td>VGF</td><td>Viability Gap Funding</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="prism2-nav-row">
+        <button class="prism2-btn-prev" id="prism2-prev-M" onclick="prism2Prev()">&#8592; Previous</button>
+        <div class="prism2-progress-dots" style="display:flex;gap:5px;align-items:center;">
+          <span class="pdot" data-p="P"></span><span class="pdot" data-p="R"></span>
+          <span class="pdot" data-p="I"></span><span class="pdot" data-p="S"></span><span class="pdot active" data-p="M"></span>
+        </div>
+      </div>
+
+      <!-- Framework completion card -->
+      <div style="margin:0 26px 16px;padding:16px 20px;border-radius:12px;background:#f4faf7;border:1.5px dashed #a8d5c2;display:flex;align-items:center;gap:14px;">
+        <div style="width:36px;height:36px;border-radius:50%;background:#d1ece2;border:1.5px solid #a8d5c2;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#1a7a5e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2.5 8 6 11.5 13.5 4"/></svg>
+        </div>
+        <div style="flex:1;min-width:0;">
+          <div style="font-size:.82rem;font-weight:700;color:#1a7a5e;letter-spacing:.01em;">PRISM Framework Complete</div>
+          <div style="font-size:.75rem;color:#4a7a6a;margin-top:2px;line-height:1.5;">All five pillars reviewed — explore case studies to see how similar projects were executed.</div>
+        </div>
+        <button onclick="showSPVTab('casestudies');setTimeout(function(){window.dispatchEvent(new Event('resize'))},30)" style="flex-shrink:0;font-size:.75rem;font-weight:600;padding:7px 14px;border-radius:8px;border:1.5px solid #a8d5c2;background:#fff;color:#1a7a5e;cursor:pointer;transition:background .2s,border-color .2s;" onmouseover="this.style.background='#e6f5ef'" onmouseout="this.style.background='#fff'">Case Studies &#8599;</button>
+      </div>
+
+      <!-- Download PRISM PDF card -->
+      <div style="margin:0 26px 28px;padding:18px 22px;border-radius:12px;background:linear-gradient(135deg,#f0f7ff 0%,#e8f4fd 100%);border:1.5px solid #c5ddf5;display:flex;align-items:center;gap:16px;">
+        <div style="width:40px;height:40px;border-radius:50%;background:#daeafa;border:1.5px solid #b8d4ef;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#1a5ca8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v10M5 8l4 4 4-4"/><rect x="3" y="14" width="12" height="2" rx="1"/></svg>
+        </div>
+        <div style="flex:1;min-width:0;">
+          <div style="font-size:.82rem;font-weight:700;color:#1a5ca8;letter-spacing:.01em;">Download PRISM Framework</div>
+          <div style="font-size:.75rem;color:#3a6a98;margin-top:2px;line-height:1.5;">Save a print-ready PDF of all five pillars for offline reference.</div>
+        </div>
+        <button onclick="downloadPRISM()" style="flex-shrink:0;font-size:.75rem;font-weight:600;padding:8px 16px;border-radius:8px;border:1.5px solid #b8d4ef;background:#fff;color:#1a5ca8;cursor:pointer;transition:background .2s,border-color .2s;display:flex;align-items:center;gap:6px;" onmouseover="this.style.background='#daeafa'" onmouseout="this.style.background='#fff'">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 1v7M3.5 5.5l3 3 3-3"/><rect x="1.5" y="10" width="10" height="1.5" rx=".75"/></svg>
+          Download PDF
+        </button>
+      </div>
+
+    </div><!-- /prism2-panel-M -->
+
+    </div><!-- /pr-content-wrap -->
+  </div><!-- /pr-shell -->
+
+<script>
+function prNav(key) {
+  if (typeof prism2Show === 'function') prism2Show(key);
+  document.querySelectorAll('#spv-panel-prism .pr-nav-item').forEach(function(n) {
+    n.classList.toggle('active', n.dataset.key === key);
+  });
+  var hl = document.getElementById('pr-hl');
+  var active = document.querySelector('#spv-panel-prism .pr-nav-item[data-key="' + key + '"]');
+  if (hl && active) {
+    var accent = getComputedStyle(active).getPropertyValue('--pr-accent').trim();
+    hl.style.setProperty('--pr-hl', accent);
+    hl.style.top = active.offsetTop + 'px';
+    hl.style.height = active.offsetHeight + 'px';
+  }
+}
+</script>
+
+    </div>
+  </div><!-- /spv-panel-prism -->
+
+  <div id="spv-panel-casestudies" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+      <div class="lit-wrap">
+        <div class="lit-outer">
+          <div class="lit-track-clip">
+            <div class="lit-track" id="litTrack-all">
+
+              <a class="lit-card" href="https://semspub.epa.gov/work/HQ/176038.pdf" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#1a7a5e;--lit-glow:rgba(26,122,94,.18);--lit-tint:rgba(26,122,94,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">A Breath of Fresh Air for America's Abandoned Mine Lands</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Report</span></div>
+                    <div class="lit-card-source">Source: <span>semspub.epa.gov</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs/cs-wf-1.jpg" alt="Wind turbines on reclaimed mine land — abandoned mine lands renewable energy" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://www.iisd.org/system/files/2022-01/igf-case-study-post-mining-transition-renewable-energy.pdf" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#C85000;--lit-glow:rgba(200,80,0,.18);--lit-tint:rgba(200,80,0,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">IGF Case Study: Achieving a Successful Post-Mining Transition With Renewable Energy</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Case Study</span></div>
+                    <div class="lit-card-source">Source: <span>iisd.org</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs/cs-wf-2.jpg" alt="Wind farm renewable energy post-mining transition — IGF case study" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://www.nrc.gov/docs/ML0532/ML053210103.pdf" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#1a5ca8;--lit-glow:rgba(26,92,168,.18);--lit-tint:rgba(26,92,168,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">A Breath of Fresh Air for America's Abandoned Mine Lands: Alternative Energy Provides a Second Wind</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Report</span></div>
+                    <div class="lit-card-source">Source: <span>nrc.gov</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs/cs-wf-3.jpg" alt="Aerial wind turbines field — alternative energy second wind abandoned mine lands" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://energyforum.in/fileadmin/india/media_elements/publications/Repurposing_Options_for_Coal_Mines_in_India/Repurposing_Coal_Mines.pdf" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#5a3d9e;--lit-glow:rgba(90,61,158,.18);--lit-tint:rgba(90,61,158,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Repurposing Options for Coal Mines in India</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Report</span></div>
+                    <div class="lit-card-source">Source: <span>energyforum.in</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs/cs-wf-4.jpg" alt="Wind turbines India — repurposing coal mines for renewable energy India" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://internationalcopper.org/wp-content/uploads/2021/08/Cu0149_AN_Wind-Case-Study_v3-1.pdf" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#b06a10;--lit-glow:rgba(176,106,16,.18);--lit-tint:rgba(176,106,16,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Application Note: Wind Farm Development and Operation — A Case Study</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Application Note</span></div>
+                    <div class="lit-card-source">Source: <span>internationalcopper.org</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs/cs-wf-5.jpg" alt="Aerial drone wind farm development and operation case study" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://www.mdpi.com/2673-4591/55/1/11" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#d97706;--lit-glow:rgba(215,119,6,.18);--lit-tint:rgba(215,119,6,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">A Case Study of Wind Farm Re-Powering</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Open Access Article</span></div>
+                    <div class="lit-card-source">Source: <span>mdpi.com</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs/cs-wf-6.jpg" alt="Wind farm turbines modernisation re-powering case study" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://aiimafrica.com/media/case-study-detail/case-study-umoya-energy-wind-farm-umoya/" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#0369a1;--lit-glow:rgba(3,105,161,.18);--lit-tint:rgba(3,105,161,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Case Study: Umoya Energy Wind Farm (UMOYA)</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Case Study</span></div>
+                    <div class="lit-card-source">Source: <span>aiimafrica.com</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs/cs-wf-7.jpg" alt="Wind turbines at sunrise — Umoya Energy Wind Farm South Africa" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://www.oakland.edu/Assets/upload/docs/Energy/Workshop/06_Wind_Case_Studies_Jim_Leidel.pdf" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#1a7a5e;--lit-glow:rgba(26,122,94,.18);--lit-tint:rgba(26,122,94,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Wind Project Case Studies: Vestas V-82 College Installations</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Case Study</span></div>
+                    <div class="lit-card-source">Source: <span>oakland.edu</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs/cs-wf-8.jpg" alt="Wind turbine blade close-up — Vestas V-82 college installation project" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://www.apec.org/docs/default-source/Publications/2017/3/Case-Studies-on-the-Best-Practices-of-Wind-Energy-Development-in-APEC-Region/217_EWG_Consolidated-Wind-Case-Studies.pdf" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#C85000;--lit-glow:rgba(200,80,0,.18);--lit-tint:rgba(200,80,0,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Case Studies on the Best Practices of Wind Energy Development in APEC Region</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Case Study</span></div>
+                    <div class="lit-card-source">Source: <span>apec.org</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs/cs-wf-9.jpg" alt="Wind energy best practices APEC region turbines" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://tethys.pnnl.gov/publications/case-study-feasibility-optimization-wind-farm-deployment-india" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#1a5ca8;--lit-glow:rgba(26,92,168,.18);--lit-tint:rgba(26,92,168,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">A Case Study on the Feasibility and Optimization of Wind Farm Deployment in India</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Case Study</span></div>
+                    <div class="lit-card-source">Source: <span>tethys.pnnl.gov</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs/cs-wf-10.jpg" alt="Wind farm deployment India feasibility optimization" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://mining-report.de/english/wind-power-for-the-transition-at-coal-sites-prospects-and-problems/" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#5a3d9e;--lit-glow:rgba(90,61,158,.18);--lit-tint:rgba(90,61,158,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Wind Power for the Transition at Coal Sites – Prospects and Problems</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Article</span></div>
+                    <div class="lit-card-source">Source: <span>mining-report.de</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs/cs-wf-11.jpg" alt="Wind turbines on former coal site aerial view — transition prospects" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://index.ieomsociety.org/index.cfm/item/46342" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#b06a10;--lit-glow:rgba(176,106,16,.18);--lit-tint:rgba(176,106,16,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Wind Energy: A Case Study on Wind Power as an Alternative Source of Renewable Energy</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Conference Paper</span></div>
+                    <div class="lit-card-source">Source: <span>index.ieomsociety.org</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs/cs-wf-12.jpg" alt="Wind energy turbines alternative renewable power source" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://www.slrconsulting.com/insights/wind-energy-on-yesterday-s-mines-a-geotechnical-reality-check/" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#d97706;--lit-glow:rgba(215,119,6,.18);--lit-tint:rgba(215,119,6,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">What Lies Beneath: The Geotechnical Challenge of Building Wind Energy on Former Mines</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Article</span></div>
+                    <div class="lit-card-source">Source: <span>slrconsulting.com</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs/cs-wf-13.jpg" alt="Wind turbine on terrain — geotechnical challenge building wind energy on former mines" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+            </div><!-- /lit-track -->
+          </div><!-- /lit-track-clip -->
+          <div class="lit-nav">
+            <button class="lit-nav-btn" id="litPrev-all" onclick="litMove('all',-1)" aria-label="Previous">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <div class="lit-dots" id="litDots-all"></div>
+            <button class="lit-nav-btn" id="litNext-all" onclick="litMove('all',1)" aria-label="Next">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+          </div>
+        </div><!-- /lit-outer -->
+      </div><!-- /lit-wrap -->
+    </div>
+  </div><!-- /spv-panel-casestudies -->
+
+  <div id="spv-panel-tender" class="spv-panel" style="display:none;">
+  <div class="spv-content">
+
+  
+
+  <div class="t5-wrap">
+    <div class="t5-topbar">
+      <div class="t5-pills">
+        <button class="t5-pill t5-pill--all active" onclick="t5Filter('all')">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          All Documents <span class="t5-pill-count" id="t5cnt-all">10</span>
+        </button>
+        <button class="t5-pill--rfp t5-pill" data-sec="rfp" onclick="t5Filter('rfp')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          RFP <span class="t5-pill-count" id="t5cnt-rfp">5</span>
+        </button>
+        <button class="t5-pill--nit t5-pill" data-sec="nit" onclick="t5Filter('nit')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+          NIT <span class="t5-pill-count" id="t5cnt-nit">1</span>
+        </button>
+        <button class="t5-pill--ppa t5-pill" data-sec="ppa" onclick="t5Filter('ppa')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          PPA <span class="t5-pill-count" id="t5cnt-ppa">2</span>
+        </button>
+        <button class="t5-pill--rpt t5-pill" data-sec="rpt" onclick="t5Filter('rpt')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          Reports &amp; DPR <span class="t5-pill-count" id="t5cnt-rpt">2</span>
+        </button>
+      </div>
+      <div class="t5-right">
+        <div class="t5-search-wrap">
+          <svg class="t5-search-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input id="t5SearchInput" class="t5-search" type="text" placeholder="Search documents…" oninput="t5Search(this.value)">
+        </div>
+        <span class="t5-counter" id="t5Counter"></span>
+      </div>
+    </div>
+    <div id="t5Sections">
+      <div class="t5-section" data-sec="rfp" style="animation-delay:0.05s">
+        <div class="t5-section-header">
+          <div class="t5-section-bar" style="background:#0F6E56"></div>
+          <span class="t5-section-label" style="color:#0F6E56">Requests for Proposal (RFP)</span>
+          <span class="t5-section-count">5 documents</span>
+        </div>
+        <div class="t5-list">
+          <a class="t5-row t5-row--rfp" data-sec="rfp"
+             data-title="request for proposal (rfp) for appointment of consultant for project management consultancy (pmc) services for development of 14 mw capacity wind power project at palakkad, kerala"
+             href="https://inkel.in/wp-content/uploads/2023/04/20230413-PMC_R4-Publishing.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0F6E56">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Request for Proposal (RFP) for Appointment of Consultant for Project Management Consultancy (PMC) Services for Development of 14 MW Capacity Wind Power Project at Palakkad, Kerala</div>
+              <div class="t5-sub">inkel.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">RFP</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rfp" data-sec="rfp"
+             data-title="request for proposal for supply &amp; installation of hybrid solar-wind power plant"
+             href="https://mkp.gem.gov.in/uploaded_documents/51/16/877/OrderItem/BoqDocument/2024/5/3/0_all_documents_merged_2024-05-03-13-29-08_b304bcc93104039efb5a0adfc5b0c054.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0F6E56">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Request for Proposal for Supply &amp; Installation of Hybrid Solar-wind Power Plant</div>
+              <div class="t5-sub">mkp.gem.gov.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">RFP</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rfp" data-sec="rfp"
+             data-title="request for selection (rfs) document for selection of offshore wind power developer for setting up of 500 mw ists-connected offshore wind power project in india (tranche-i)"
+             href="https://www.seci.co.in/Upload/Tender/SECI000188-1526005-RfSfor500MWOffshoreWind-Gujarat-finalupload.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0F6E56">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Request for Selection (RFS) Document for Selection of Offshore Wind Power Developer for Setting up of 500 MW ISTS-connected Offshore Wind Power Project in India (Tranche-I)</div>
+              <div class="t5-sub">seci.co.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">RFP</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rfp" data-sec="rfp"
+             data-title="selection of consultant for feasibility study for setting up a wind and solar energy power projects at integrated manufacturing clusters , pudusserry-palakkad"
+             href="https://kinfra.org/wp-content/uploads/2022/05/RPF-for-Consultant-for-windmill-solar.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0F6E56">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Selection of Consultant for feasibility study for setting up a Wind and Solar Energy power projects at Integrated Manufacturing Clusters , Pudusserry-Palakkad</div>
+              <div class="t5-sub">kinfra.org</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">RFP</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rfp" data-sec="rfp"
+             data-title="procurement of renewable (wind) power on short-term basis through tariff based competitive bidding process"
+             href="https://www.krahejacorppower.com/data-content/pdf-management/d0702acb2a04ede25d1c7974ce01a1bc.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0F6E56">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Procurement of Renewable (Wind) Power on Short-term Basis through Tariff Based Competitive Bidding Process</div>
+              <div class="t5-sub">krahejacorppower.com</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">RFP</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+        </div>
+      </div><!-- /rfp section -->
+      <div class="t5-section" data-sec="nit" style="animation-delay:0.10s">
+        <div class="t5-section-header">
+          <div class="t5-section-bar" style="background:#B45309"></div>
+          <span class="t5-section-label" style="color:#B45309">Notice Inviting Tender (NIT)</span>
+          <span class="t5-section-count">1 document</span>
+        </div>
+        <div class="t5-list">
+          <a class="t5-row t5-row--nit" data-sec="nit"
+             data-title="setting up of about 15 mw wind energy farm for sale to utility in madhya pradesh on epc (bot) contract basis"
+             href="https://moil.nic.in/userfiles/tender%20doc%20windfarm%20MP.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#B45309">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Setting up of About 15 MW Wind Energy Farm for Sale to Utility in Madhya Pradesh on EPC (BOT) Contract Basis</div>
+              <div class="t5-sub">moil.nic.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">Tender</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+        </div>
+      </div><!-- /nit section -->
+      <div class="t5-section" data-sec="ppa" style="animation-delay:0.25s">
+        <div class="t5-section-header">
+          <div class="t5-section-bar" style="background:#4338CA"></div>
+          <span class="t5-section-label" style="color:#4338CA">Power Purchase / Facility Agreements</span>
+          <span class="t5-section-count">2 documents</span>
+        </div>
+        <div class="t5-list">
+          <a class="t5-row t5-row--ppa" data-sec="ppa"
+             data-title="power sale agreement for sale of wind power on long term basis between solar energy corporation of india limited and ________ [enter name of the buying entity"
+             href="https://www.seci.co.in/Upload/Tender/SECI000040-6211300-StandardSECI-PSA-Wind-Tranche-X1200MW_finalupload.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#4338CA">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Power Sale Agreement for Sale of Wind Power on Long Term Basis between Solar Energy Corporation of India Limited and ________ [Enter name of the Buying Entity</div>
+              <div class="t5-sub">seci.co.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">PPA</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--ppa" data-sec="ppa"
+             data-title="standard power purchase agreement for procurement of ….. mw wind power on long term basis between …………….. [insert name of wind power developer] and solar energy corporation of india limited"
+             href="https://www.seci.co.in/Upload/Tender/SECI000117-8364365-StandardSECI-PPA-Wind-Tranche-XV-1300MW.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#4338CA">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Standard Power Purchase Agreement for Procurement of ….. MW Wind Power on Long Term Basis between …………….. [Insert Name of Wind Power Developer] and Solar Energy Corporation of India Limited</div>
+              <div class="t5-sub">seci.co.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">PPA</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+        </div>
+      </div><!-- /ppa section -->
+      <div class="t5-section" data-sec="rpt" style="animation-delay:0.30s">
+        <div class="t5-section-header">
+          <div class="t5-section-bar" style="background:#0369a1"></div>
+          <span class="t5-section-label" style="color:#0369a1">Reports &amp; DPR</span>
+          <span class="t5-section-count">2 documents</span>
+        </div>
+        <div class="t5-list">
+          <a class="t5-row t5-row--rpt" data-sec="rpt"
+             data-title="detailed project report for 46.4mw wind energy power project in kondapalle rf and kuderu rf of anantapur district, andhra pradesh"
+             href="https://forestsclearance.nic.in/writereaddata/Addinfo/0_0_51119121512161GreenkoWindEnergiesDPR.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0369a1">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Detailed Project Report for 46.4mw Wind Energy Power Project in Kondapalle Rf and Kuderu Rf of Anantapur District, Andhra Pradesh</div>
+              <div class="t5-sub">forestsclearance.nic.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">DPR</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rpt" data-sec="rpt"
+             data-title="feasibility report for the proposed 100 mw wind power project in gujarat"
+             href="https://www.teriin.org/sites/default/files/2018-02/2008RT07-GSPCL_Feasibility_Report_Nov.08_Final.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0369a1">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Feasibility report for the proposed 100 MW wind power project in Gujarat</div>
+              <div class="t5-sub">teriin.org</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">Report</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+        </div>
+      </div><!-- /rpt section -->
+    </div><!-- /t5Sections -->
+  </div><!-- /t5-wrap -->
+
+  </div>
+  </div><!-- /spv-panel-tender -->
+
+  <div id="spv-panel-media" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+
+    <style>
+/* ── Media/Web tab — matches solar-pv.html ── */
+</style>
+
+    <!--
+    ══════════════════════════════════════════════════════════════════
+    HOW TO ADD A MEDIA ROW
+    ══════════════════════════════════════════════════════════════════
+    1. Copy one <a class="media-row …"> block below.
+    2. Set  --mr-accent  (the colour) and  --mr-tint  (accent at ~10% opacity).
+       Suggested palette:
+         Green-teal   #0F6E56  rgba(15,110,86,.1)
+         Blue         #185FA5  rgba(24,95,165,.1)
+         Amber        #BA7517  rgba(186,117,23,.1)
+         Emerald      #1D9E75  rgba(29,158,117,.1)
+         Indigo       #534AB7  rgba(83,74,183,.1)
+         Red          #C81414  rgba(200,20,20,.1)
+         Orange       #C85000  rgba(200,80,0,.1)
+    3. Set the  href  to the URL.
+    4. Update  media-row-tag  (e.g. "Case Study · Germany"), title, and source domain.
+    5. Choose an appropriate SVG icon for  media-row-icon  (stroke colour = --mr-accent).
+
+    ICON IDEAS (copy the <svg> you need):
+      Globe/website  → <circle cx="12" cy="12" r="10"/> + grid lines
+      Document/report→ <path d="M14 2H6…"/> (file icon)
+      Location/map   → <path d="M12 2C8.13 2…"/> (pin icon)
+      Chart/data     → <polyline points="22 12 18 12 15 21…"/> (pulse)
+      Book/policy    → <path d="M2 3h6a4 4 0 0 1 4 4v14…"/> (book)
+      News           → <rect x="3" y="3" width="18" height="18" rx="2"/> (grid)
+    ══════════════════════════════════════════════════════════════════
+
+    <div class="media-stack">
+
+        <a class="media-row" href="https://youtu.be/eTDPVcs3_y4?si=FPBr6HiabzfWie0t" target="_blank" rel="noopener noreferrer" style="--mr-accent:#1a7a5e;--mr-tint:rgba(26,122,94,.1);">
+          <div class="media-row-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a7a5e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></div>
+          <div class="media-row-main">
+            <div class="media-row-tag">YouTube · Coal Mine to Wind Farm</div>
+            <div class="media-row-title">Former Coal Mine Transformed into Thriving Wind Farm!</div>
+            <div class="media-row-source"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><line x1="2" y1="8" x2="14" y2="8"/><path d="M8 2a10 10 0 010 12M8 2a10 10 0 000 12"/></svg>youtu.be</div>
+          </div>
+          <div class="media-row-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/></svg></div>
+        </a>
+
+        <a class="media-row" href="https://youtu.be/V6UCe_zQfCo?si=po1sZvbK-MTmy9f2" target="_blank" rel="noopener noreferrer" style="--mr-accent:#C85000;--mr-tint:rgba(200,80,0,.1);">
+          <div class="media-row-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C85000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></div>
+          <div class="media-row-main">
+            <div class="media-row-tag">YouTube · South Africa · Wind Energy</div>
+            <div class="media-row-title">South Africa's Coal Belt Embraces Wind Power in Green Shift</div>
+            <div class="media-row-source"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><line x1="2" y1="8" x2="14" y2="8"/><path d="M8 2a10 10 0 010 12M8 2a10 10 0 000 12"/></svg>youtu.be</div>
+          </div>
+          <div class="media-row-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/></svg></div>
+        </a>
+
+        <a class="media-row" href="https://seritipower.com/news-media/announcements/2023/seriti-to-construct-155-mw-wind-farm-in-mpumalanga/" target="_blank" rel="noopener noreferrer" style="--mr-accent:#1a5ca8;--mr-tint:rgba(26,92,168,.1);">
+          <div class="media-row-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a5ca8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+          <div class="media-row-main">
+            <div class="media-row-tag">News · Seriti Power · South Africa</div>
+            <div class="media-row-title">Seriti to Construct 155 MW Wind Farm in Mpumalanga</div>
+            <div class="media-row-source"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><line x1="2" y1="8" x2="14" y2="8"/><path d="M8 2a10 10 0 010 12M8 2a10 10 0 000 12"/></svg>seritipower.com</div>
+          </div>
+          <div class="media-row-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/></svg></div>
+        </a>
+
+        <a class="media-row" href="https://www.mining.com/web/coal-miner-starts-building-south-africas-biggest-wind-farm/" target="_blank" rel="noopener noreferrer" style="--mr-accent:#5a3d9e;--mr-tint:rgba(90,61,158,.1);">
+          <div class="media-row-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5a3d9e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+          <div class="media-row-main">
+            <div class="media-row-tag">News · mining.com</div>
+            <div class="media-row-title">Coal Miner Starts Building South Africa's Biggest Wind Farm</div>
+            <div class="media-row-source"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><line x1="2" y1="8" x2="14" y2="8"/><path d="M8 2a10 10 0 010 12M8 2a10 10 0 000 12"/></svg>mining.com</div>
+          </div>
+          <div class="media-row-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/></svg></div>
+        </a>
+
+        <a class="media-row" href="https://www.chicagobooth.edu/magazine/mining-for-the-future" target="_blank" rel="noopener noreferrer" style="--mr-accent:#b06a10;--mr-tint:rgba(176,106,16,.1);">
+          <div class="media-row-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#b06a10" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+          <div class="media-row-main">
+            <div class="media-row-tag">Article · Chicago Booth Magazine</div>
+            <div class="media-row-title">Mining for the Future</div>
+            <div class="media-row-source"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><line x1="2" y1="8" x2="14" y2="8"/><path d="M8 2a10 10 0 010 12M8 2a10 10 0 000 12"/></svg>chicagobooth.edu</div>
+          </div>
+          <div class="media-row-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/></svg></div>
+        </a>
+
+        <a class="media-row" href="https://youtu.be/4YzYDb7XDxY?si=A6nIpBYK5c8hVXFr" target="_blank" rel="noopener noreferrer" style="--mr-accent:#d97706;--mr-tint:rgba(215,119,6,.1);">
+          <div class="media-row-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></div>
+          <div class="media-row-main">
+            <div class="media-row-tag">YouTube · Germany · Wind Farms</div>
+            <div class="media-row-title">Germany is Turning Open Cut Coal Mines into Massive Wind Farms</div>
+            <div class="media-row-source"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><line x1="2" y1="8" x2="14" y2="8"/><path d="M8 2a10 10 0 010 12M8 2a10 10 0 000 12"/></svg>youtu.be</div>
+          </div>
+          <div class="media-row-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/></svg></div>
+        </a>
+
+      </div><!-- /media-stack -->
+
+    <p style="font-size:0.72rem; color:var(--color-text-secondary); font-style:italic; margin-top:16px;">Links open external websites. Coal Controller Organisation does not endorse third-party content.</p>
+
+    </div>
+  </div><!-- /spv-panel-media -->
+
+  <div id="spv-panel-agencies" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+ 
+      <div class="agencies-logo-grid">
+ 
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img" style="background:#ffffff; border-radius:10px;">
+            <img src="../images/agencies/suzlon.png" alt="Suzlon Energy Ltd" style="max-width:100%; max-height:60px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">Suzlon Energy Ltd</div>
+          <div class="agency-logo-type">Turnkey wind farm EPC: turbine supply, WTG foundation, tower erection &amp; grid tie-in</div>
+        </div>
+ 
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img" style="background:#ffffff; border-radius:10px;">
+            <img src="../images/agencies/inoxwind.png" alt="Inox Wind Ltd" style="max-width:100%; max-height:60px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">Inox Wind Ltd</div>
+          <div class="agency-logo-type">Turbine manufacture, tower supply, civil foundation, erection &amp; wind farm commissioning</div>
+        </div>
+ 
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img" style="background:#ffffff; border-radius:10px;">
+            <img src="../images/agencies/vestas.png" alt="Vestas India Pvt Ltd" style="max-width:100%; max-height:60px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">Vestas India Pvt Ltd</div>
+          <div class="agency-logo-type">Turbine supply, foundation civil, tower &amp; nacelle erection &amp; commissioning</div>
+        </div>
+ 
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img agency-logo-inner--img--dark" style="background:#1a5ca8; border-radius:10px;">
+            <img src="../images/agencies/siemensgamesa.png" alt="Siemens Gamesa Renewable Energy India" style="max-width:100%; max-height:60px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">Siemens Gamesa Renewable Energy India</div>
+          <div class="agency-logo-type">WTG supply, civil foundation, electrical BOS &amp; full plant commissioning</div>
+        </div>
+ 
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img" style="background:#ffffff; border-radius:10px;">
+            <img src="../images/agencies/GE%20Vernova%20(Hydro%20India).svg" alt="GE Vernova (Wind India)" style="max-width:100%; max-height:60px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">GE Vernova (Wind India)</div>
+          <div class="agency-logo-type">Wind turbine supply, foundation civil specification &amp; erection</div>
+        </div>
+ 
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img" style="background:#ffffff; border-radius:10px;">
+            <img src="../images/agencies/kec_logo_71abd3eda5.png" alt="KEC International Ltd" style="max-width:100%; max-height:60px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">KEC International Ltd</div>
+          <div class="agency-logo-type">Wind farm transmission line, switchyard &amp; grid interconnect EPC</div>
+        </div>
+ 
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img" style="background:#ffffff; border-radius:10px;">
+            <img src="../images/agencies/Techno%20Electric%20&%20Engineering%20Co%20Ltd.png" alt="Techno Electric &amp; Engineering Co Ltd" style="max-width:100%; max-height:60px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">Techno Electric &amp; Engineering Co Ltd</div>
+          <div class="agency-logo-type">Wind farm electrical balance-of-plant, substation &amp; evacuation line EPC</div>
+        </div>
+ 
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img" style="background:#ffffff; border-radius:10px;">
+            <img src="../images/agencies/torrentpower.png" alt="Torrent Power Ltd – Wind EPC arm" style="max-width:100%; max-height:60px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">Torrent Power Ltd – Wind EPC arm</div>
+          <div class="agency-logo-type">Wind farm civil, electrical &amp; grid infrastructure construction</div>
+        </div>
+ 
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img" style="background:#ffffff; border-radius:10px;">
+            <img src="../images/agencies/renew.svg" alt="ReNew Power – EPC arm" style="max-width:100%; max-height:60px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">ReNew Power – EPC arm</div>
+          <div class="agency-logo-type">Wind farm civil, erection &amp; electrical EPC</div>
+        </div>
+ 
+      </div><!-- /agencies-logo-grid -->
+
+      <!-- Disclaimer -->
+      <div style="margin-top:28px; padding:14px 18px; background:rgba(33,128,141,.05); border:1px solid rgba(33,128,141,.18); border-radius:8px; display:flex; gap:12px; align-items:flex-start;">
+        <svg style="flex-shrink:0; margin-top:2px;" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#21808d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <p style="margin:0; font-family:var(--font-sans); font-size:0.8rem; color:var(--color-text-secondary); line-height:1.65;">
+          <strong style="color:var(--color-text); font-weight:600;">Disclaimer:</strong>
+          Inclusion of an agency on this list does not constitute endorsement, empanelment, or recommendation by the Coal Controller Organisation or the Ministry of Coal, Government of India. Mine owners and project proponents are advised to conduct their own due diligence process before engaging any agency.
+        </p>
+      </div>
+
+    </div>
+  </div><!-- /spv-panel-agencies -->
+
+  <div id="spv-panel-experts" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+      <div class="experts-grid">
+
+      </div><!-- /experts-grid -->
+      <div style="margin-top:28px;padding:14px 18px;background:rgba(33,128,141,.05);border:1px solid rgba(33,128,141,.18);border-radius:8px;display:flex;gap:12px;align-items:flex-start;">
+        <svg style="flex-shrink:0;margin-top:2px;" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#21808d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <p style="margin:0;font-family:var(--font-sans);font-size:0.8rem;color:var(--color-text-secondary);line-height:1.65;"><strong style="color:var(--color-text);font-weight:600;">Disclaimer:</strong> Inclusion of an expert does not constitute endorsement, empanelment, or recommendation by the Coal Controller Organisation or the Ministry of Coal, Government of India. Users are advised to independently verify credentials and suitability before engaging any individual.</p>
+      </div>
+    </div>
+  </div><!-- /spv-panel-experts -->
+
+  <!-- Footer -->
+  <footer id="site-footer-sf">
+    &copy; 2026 Coal Controller Organisation, Ministry of Coal, Government of India.
+  </footer>
+
+</div><!-- /page -->
+
+<!-- ═══════════════════════════════════════════════════════
+     SCRIPTS — edit only the PRISM2_COLORS and PRISM2_BG values
+     ═══════════════════════════════════════════════════════ -->
+<script>
+const PRISM2_COLORS = {P:'#C85000', R:'#1a5ca8', I:'#b06a10', S:'#5a3d9e', M:'#1a7a5e'};
+const PRISM2_BG     = {P:'#fff0e6', R:'#e4eef9', I:'#faedda', S:'#edeaf8', M:'#e1f3ec'};
+</script>
+<script src="./category.js"></script>
+<script>
+window.prism2Next = function() {
+  if (prism2Current < PRISM2_ORDER.length - 1) prNav(PRISM2_ORDER[prism2Current + 1]);
+};
+window.prism2Prev = function() {
+  if (prism2Current > 0) prNav(PRISM2_ORDER[prism2Current - 1]);
+};
+
+function downloadPRISM() {
+  var rawTitle = document.title || '';
+  var catName  = rawTitle.split('—')[0].split('-')[0].trim() || 'Category';
+
+  var PC = {P:'#C85000',R:'#1a5ca8',I:'#b06a10',S:'#5a3d9e',M:'#1a7a5e'};
+  var PB = {P:'#fff8f3',R:'#f3f7fd',I:'#fdf7f0',S:'#f7f5fd',M:'#f1faf6'};
+  var PN = {P:'Project Vision',R:'Repurposing Pathways',I:'Investment Dynamics',S:'Strategic Structuring',M:'Monitoring &amp; Management'};
+  var PE = {P:'POST-MINING',R:'REPURPOSING',I:'INVESTMENT',S:'STRATEGY',M:'MANAGEMENT'};
+
+  var introHeadEl = document.querySelector('.pr-intro-heading');
+  var introBodyEl = document.querySelector('.pr-intro-body');
+  var introHead   = introHeadEl ? introHeadEl.textContent : 'A structured framework for mine repurposing from concept to implementation';
+  var introBody   = introBodyEl ? introBodyEl.innerHTML   : '';
+
+  var pillarsHTML = '';
+  ['P','R','I','S','M'].forEach(function(k) {
+    var panel = document.getElementById('prism2-panel-' + k);
+    if (!panel) return;
+
+    var eyebrowEl   = panel.querySelector('.prism2-panel-eyebrow');
+    var titleEl     = panel.querySelector('.prism2-panel-title');
+    var descEl      = panel.querySelector('.prism2-panel-desc');
+    var eyebrow     = eyebrowEl  ? eyebrowEl.textContent  : PE[k];
+    var panelTitle  = titleEl    ? titleEl.textContent    : PN[k];
+    var descHTML    = descEl     ? descEl.innerHTML       : '';
+
+    var accHTML = '';
+    panel.querySelectorAll('.accordion-item').forEach(function(item) {
+      var spans = item.querySelectorAll('.accordion-btn span');
+      var btnText = '';
+      for (var s = 0; s < spans.length; s++) {
+        var t = spans[s].textContent.trim();
+        if (t && t !== '⥤' && t !== '˅') { btnText = t; break; }
+      }
+      var body = item.querySelector('.accordion-body');
+      if (!body) return;
+      var clone = body.cloneNode(true);
+      clone.style.display = '';
+      /* Remove scroll-wrapper overflow so tables span full width */
+      clone.querySelectorAll('.spv-table-wrap').forEach(function(w){w.style.overflowX='visible';});
+      accHTML += '<div class="acc-item">' +
+        '<div class="acc-heading">' + btnText + '</div>' +
+        '<div class="acc-body">' + clone.innerHTML + '</div>' +
+        '</div>';
+    });
+
+    pillarsHTML +=
+      '<div class="pillar" style="border-left-color:' + PC[k] + ';">' +
+        '<div class="pillar-hdr" style="background:' + PC[k] + '18;">' +
+          '<div class="pillar-letter" style="color:' + PC[k] + ';">' + k + '</div>' +
+          '<div class="pillar-info">' +
+            '<div class="pillar-eyebrow" style="color:' + PC[k] + ';">' + eyebrow + '</div>' +
+            '<div class="pillar-name">' + panelTitle + '</div>' +
+            (descHTML ? '<div class="pillar-desc">' + descHTML + '</div>' : '') +
+          '</div>' +
+        '</div>' +
+        '<div class="pillar-content">' + accHTML + '</div>' +
+      '</div>';
+  });
+
+  var css = [
+    '*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}',
+    'body{font-family:"Segoe UI",Arial,sans-serif;font-size:10pt;color:#1a1a1a;line-height:1.65;background:#fff}',
+    '@page{size:A4;margin:16mm 14mm}',
+    /* ── Cover ── */
+    '.cover{margin-bottom:28pt;padding-bottom:22pt;border-bottom:1.5pt solid #ddd}',
+    '.rainbow{height:5pt;border-radius:99pt;background:linear-gradient(to right,#7C3AB5,#4f6de0,#0ea5e9,#1D9E75,#3B6D11,#BA7517,#C85000,#A32D2D);margin-bottom:18pt}',
+    '.cover-eye{font-size:7.5pt;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#888;margin-bottom:7pt}',
+    '.cover-title{font-size:24pt;font-weight:800;color:#111;line-height:1.15;margin-bottom:5pt}',
+    '.cover-sub{font-size:11pt;font-weight:600;color:#444;margin-bottom:11pt}',
+    '.cover-body{font-size:9pt;color:#555;line-height:1.75}',
+    /* ── Pillars ── */
+    '.pillars{display:flex;flex-direction:column;gap:20pt}',
+    '.pillar{border-left:4pt solid #ccc;border-radius:6pt;overflow:hidden;page-break-inside:avoid}',
+    '.pillar-hdr{padding:13pt 15pt 11pt;display:flex;align-items:flex-start;gap:12pt}',
+    '.pillar-letter{font-size:30pt;font-weight:800;line-height:1;flex-shrink:0;width:38pt;opacity:.85}',
+    '.pillar-info{flex:1}',
+    '.pillar-eyebrow{font-size:7pt;font-weight:700;letter-spacing:.11em;text-transform:uppercase;margin-bottom:2pt}',
+    '.pillar-name{font-size:12.5pt;font-weight:700;color:#111;margin-bottom:3pt}',
+    '.pillar-desc{font-size:8.5pt;color:#555;line-height:1.6}',
+    /* ── Accordion ── */
+    '.pillar-content{background:#fff}',
+    '.acc-item{border-top:1pt solid #e8e8e0}',
+    '.acc-heading{font-size:9pt;font-weight:700;padding:8pt 13pt;color:#2a2a2a;background:#fafaf8}',
+    '.acc-body{font-size:8.5pt;line-height:1.75;color:#444;padding:9pt 13pt 11pt}',
+    /* ── Body content ── */
+    '.spv-body-text{margin-bottom:7pt}',
+    'p{margin-bottom:7pt}',
+    '.spv-list,.spv-list-unstyled{margin:5pt 0 7pt 16pt}',
+    'ul,ol{margin:5pt 0 7pt 16pt}',
+    '.spv-list li,ul li,ol li{margin-bottom:3pt}',
+    /* ── Tables ── */
+    '.spv-table-wrap{margin:7pt 0;overflow:visible}',
+    '.spv-table{width:100%;border-collapse:collapse;font-size:8pt}',
+    '.spv-table th{background:#f0f0ea;font-weight:700;text-align:left;padding:5pt 7pt;border:1pt solid #ccc;vertical-align:top}',
+    '.spv-table td{padding:4.5pt 7pt;border:1pt solid #ccc;vertical-align:top}',
+    '.spv-table tr:nth-child(even) td{background:#f9f9f7}',
+    /* ── Strong/em ── */
+    'strong{font-weight:700}',
+    'em{font-style:italic}',
+    /* ── Info/note boxes (if any) ── */
+    '.spv-note,.spv-info{background:#f5f5f0;border-left:3pt solid #aaa;padding:8pt 10pt;margin:6pt 0;font-size:8.5pt}'
+  ].join('\n');
+
+  var html = '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">' +
+    '<title>PRISM — ' + catName + '<\/title>' +
+    '<style>' + css + '<\/style><\/head><body>' +
+    '<div class="cover">' +
+      '<div class="rainbow"><\/div>' +
+      '<div class="cover-eye">PRISM Framework — Post-Mining Repurposing &amp; Implementation Strategy Models<\/div>' +
+      '<div class="cover-title">' + catName + '<\/div>' +
+      '<div class="cover-sub">' + introHead + '<\/div>' +
+      (introBody ? '<div class="cover-body">' + introBody + '<\/div>' : '') +
+    '<\/div>' +
+    '<div class="pillars">' + pillarsHTML + '<\/div>' +
+    '<\/body><\/html>';
+
+  var win = window.open('', '_blank', 'width=960,height=750');
+  if (!win) { alert('Please allow pop-ups for this site to download the PDF.'); return; }
+  win.document.write(html);
+  win.document.close();
+  win.focus();
+  setTimeout(function() { win.print(); }, 700);
+}
+
+(function() {
+  var panel = document.getElementById('spv-panel-prism');
+  if (!panel) return;
+  new MutationObserver(function() {
+    if (panel.style.display !== 'none') setTimeout(function() { prNav('P'); }, 10);
+  }).observe(panel, { attributes: true, attributeFilter: ['style'] });
+})();
+
+/* ── Tender t5 filter + search ── */
+(function(){
+  var activeFilter="all", searchQuery="";
+  function render(){
+    var sections=document.querySelectorAll("#spv-panel-tender .t5-section");
+    var vis=0;
+    sections.forEach(function(sec){
+      var secKey=sec.getAttribute("data-sec");
+      var showSec=(activeFilter==="all"||activeFilter===secKey);
+      var secVis=0;
+      sec.querySelectorAll(".t5-row").forEach(function(row){
+        var titleMatch=!searchQuery||row.getAttribute("data-title").indexOf(searchQuery)!==-1;
+        var show=showSec&&titleMatch;
+        row.style.display=show?"":"none";
+        if(show){secVis++;vis++;}
+      });
+      sec.style.display=secVis>0?"":"none";
+    });
+    var counter=document.getElementById("t5Counter");
+    if(counter) counter.textContent=vis+" document"+(vis===1?"":"s");
+    var empty=document.getElementById("t5Empty");
+    if(empty) empty.style.display=vis===0?"":"none";
+  }
+  window.t5Filter=function(type){
+    activeFilter=type;
+    document.querySelectorAll("#spv-panel-tender .t5-pill").forEach(function(p){
+      var m=(p.getAttribute("onclick")||"").match(/t5Filter\('?(\w+)'?\)/);
+      if(m) p.classList.toggle("active",m[1]===type);
+    });
+    render();
+  };
+  window.t5Search=function(val){ searchQuery=val.trim().toLowerCase(); render(); };
+  render();
+})();
+</script>
+
+<!-- browse-back-script -->
+<script>
+(function(){
+  if(new URLSearchParams(location.search).get('from')==='browse'){
+    var btn=document.querySelector('.back-btn');
+    if(btn){
+      btn.onclick=function(){window.location.href='../browse.html';};
+      btn.setAttribute('aria-label','Back to Browse');
+      for(var i=btn.childNodes.length-1;i>=0;i--){
+        var n=btn.childNodes[i];
+        if(n.nodeType===3&&n.textContent.trim()){n.textContent=' Back to Browse';break;}
+      }
+    }
+    var cr=document.querySelector('.sf-breadcrumb span:not(.sep)');
+    if(cr)cr.textContent='All Categories';
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,1685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mining Driving School — SUVIKALP | Coal Controller Organisation</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="./category.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+/* ── Local Inter font faces ─────────────────────────────── */
+@font-face { font-family:"Inter"; font-weight:400; font-display:swap; src:url("../fonts/Inter_18pt-Regular.woff2") format("woff2"),url("../fonts/Inter_18pt-Regular.ttf") format("truetype"); }
+@font-face { font-family:"Inter"; font-weight:500; font-display:swap; src:url("../fonts/Inter_18pt-Medium.woff2") format("woff2"),url("../fonts/Inter_18pt-Medium.ttf") format("truetype"); }
+@font-face { font-family:"Inter"; font-weight:600; font-display:swap; src:url("../fonts/Inter_18pt-SemiBold.woff2") format("woff2"),url("../fonts/Inter_18pt-SemiBold.ttf") format("truetype"); }
+@font-face { font-family:"Inter"; font-weight:700; font-display:swap; src:url("../fonts/Inter_18pt-Bold.woff2") format("woff2"),url("../fonts/Inter_18pt-Bold.ttf") format("truetype"); }
+
+/* ── Single unified font system ─────────────────────────── */
+:root {
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-devanagari: 'Noto Sans Devanagari', 'Noto Sans', sans-serif;
+  --fs-xs:   0.75rem;
+  --fs-sm:   0.8125rem;
+  --fs-base: 0.875rem;
+  --fs-md:   0.9375rem;
+  --fs-lg:   1rem;
+  --fs-xl:   1.125rem;
+  --fs-2xl:  1.375rem;
+  --lh-tight: 1.35;
+  --lh-base:  1.6;
+  --lh-loose: 1.8;
+}
+
+html, body, button, input, select, textarea { font-family: var(--font-sans); }
+.hindi, .header-cco-hindi { font-family: var(--font-devanagari); }
+
+.spv-body-text { font-family:var(--font-sans); font-size:var(--fs-md); line-height:var(--lh-loose); color:var(--color-text); margin-bottom:14px; font-weight:400; }
+.spv-list { margin:8px 0 14px 22px; font-family:var(--font-sans); font-size:var(--fs-md); line-height:var(--lh-loose); color:var(--color-text); }
+.spv-list li { margin-bottom:6px; }
+.spv-section-title { font-family:var(--font-sans); font-weight:700; font-size:var(--fs-xl); color:var(--color-teal-600); border-bottom:2px solid var(--color-primary); padding-bottom:8px; margin-bottom:22px; letter-spacing:-0.01em; }
+
+.accordion-btn { font-family:var(--font-sans); font-weight:600; font-size:var(--fs-base); }
+.accordion-body { font-family:var(--font-sans); font-size:var(--fs-md); }
+.spv-table, .spv-table thead tr th, .spv-table td, .spv-table td:first-child { font-family:var(--font-sans); }
+
+.spv-tab { font-family:var(--font-sans); font-weight:500; font-size:var(--fs-sm); }
+.spv-tab.active { font-weight:700; }
+.prism-label { font-family:var(--font-sans); font-size:0.7rem; line-height:1.3; }
+.prism-letter { font-family:var(--font-sans); font-weight:800; }
+
+.back-btn { font-family:var(--font-sans); font-weight:600; font-size:var(--fs-base); }
+.sf-breadcrumb { font-family:var(--font-sans); font-size:var(--fs-sm); }
+
+.td-title { font-family:var(--font-sans); font-weight:600; font-size:var(--fs-base); }
+.td-sub { font-family:var(--font-sans); font-size:var(--fs-sm); line-height:var(--lh-base); }
+.td-group-label { font-family:var(--font-sans); font-size:var(--fs-xs); font-weight:700; letter-spacing:0.09em; }
+.td-badge { font-family:var(--font-sans); font-size:0.68rem; font-weight:700; }
+
+.cs-location { font-family:var(--font-sans); font-weight:700; font-size:var(--fs-base); }
+.cs-title { font-family:var(--font-sans); font-size:var(--fs-sm); line-height:var(--lh-base); }
+.cs-desc { font-family:var(--font-sans); font-size:var(--fs-sm); line-height:var(--lh-base); }
+.cs-subtab { font-family:var(--font-sans); font-size:var(--fs-md); font-weight:500; }
+.cs-subtab.active { font-weight:700; }
+
+.media-link-title { font-family:var(--font-sans); font-weight:500; font-size:var(--fs-base); line-height:var(--lh-base); }
+.media-link-domain { font-family:var(--font-sans); font-size:0.72rem; }
+.media-section-label-text { font-family:var(--font-sans); font-weight:600; }
+
+.agency-logo-name { font-family:var(--font-sans); font-weight:700; font-size:var(--fs-sm); }
+.agency-logo-type { font-family:var(--font-sans); font-size:0.72rem; }
+.agencies-intro-label { font-family:var(--font-sans); font-weight:700; display:none; }
+.agency-logo-inner--img { display:flex; align-items:center; justify-content:center; padding:10px 14px; border-radius:8px; height:76px !important; box-sizing:border-box; }
+.agency-logo-inner--img img { max-width:100%; max-height:56px; width:auto; height:auto; object-fit:contain; }
+.agencies-intro-text { font-family:var(--font-sans); font-size:var(--fs-md); line-height:var(--lh-base); }
+
+.expert-name { font-family:var(--font-sans); font-weight:700; font-size:var(--fs-lg); }
+.expert-role { font-family:var(--font-sans); font-size:var(--fs-sm); line-height:var(--lh-base); }
+.expert-bio { font-family:var(--font-sans); font-size:var(--fs-base); line-height:var(--lh-loose); }
+.expert-tag { font-family:var(--font-sans); font-size:0.7rem; font-weight:500; }
+.expert-contact a { font-family:var(--font-sans); font-size:var(--fs-base); font-weight:500; }
+.experts-intro-label { font-family:var(--font-sans); font-weight:700; }
+.experts-intro-text { font-family:var(--font-sans); font-size:var(--fs-md); line-height:var(--lh-base); }
+
+.impl-card-title { font-family:var(--font-sans); font-weight:600; font-size:var(--fs-base); }
+.impl-card-num { font-family:var(--font-sans); font-weight:700; }
+.banner-title { font-family:var(--font-sans); font-weight:700; }
+.banner-sub { font-family:var(--font-sans); font-size:var(--fs-base); line-height:var(--lh-base); }
+#site-footer-sf { font-family:var(--font-sans); font-size:var(--fs-xs); }
+
+/* ── About Tab ─────────────────────────────────────────── */
+.about-hero-row { display:flex; gap:28px; align-items:stretch; margin-bottom:40px; min-height:300px; }
+.about-hero-slide-col { flex:0 0 40%; min-width:0; display:flex; flex-direction:column; }
+.about-hero-slide-col .proj-slideshow { flex:none; height:340px; }
+.about-hero-text-col { flex:1; min-width:0; display:flex; flex-direction:column; justify-content:center; }
+.about-hero-label { font-family:var(--font-sans); font-size:var(--fs-xs); font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--teal); margin-bottom:0; }
+.about-hero-label-wrap { margin-bottom:12px; }
+.about-hero-label-bar { display:block; height:3px; width:48px; margin-top:7px; border-radius:99px; background:linear-gradient(90deg,#21808d 0%,#38bdf8 60%,transparent 100%); }
+.about-intro { display:flex; flex-direction:column; gap:14px; }
+.about-intro-block { padding:14px 18px; border-radius:10px; }
+.about-intro-primary { border-left:4px solid #21808d; background:rgba(33,128,141,.05); }
+.about-intro-secondary { border-left:4px solid rgba(33,128,141,.3); background:#fafafa; }
+.about-section { margin-bottom:40px; }
+.about-section-eyebrow { font-family:var(--font-sans); font-size:var(--fs-xs); font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--teal); margin-bottom:4px; }
+.about-section-title { font-family:var(--font-sans); font-size:var(--fs-xl); font-weight:700; color:#0f172a; margin:0 0 20px; line-height:var(--lh-tight); }
+
+/* Schemes carousel */
+.schemes-outer { position:relative; margin:0 20px; }
+.schemes-nav-btn { position:absolute; top:50%; transform:translateY(-50%); z-index:10; width:36px; height:36px; border-radius:50%; background:#fff; border:1.5px solid #e2e8f0; box-shadow:0 2px 10px rgba(0,0,0,.10); cursor:pointer; display:flex; align-items:center; justify-content:center; color:#475569; transition:background .2s,color .2s,border-color .2s,box-shadow .2s; padding:0; }
+.schemes-nav-btn:hover { background:var(--teal,#0a9396); color:#fff; border-color:var(--teal,#0a9396); box-shadow:0 4px 14px rgba(10,147,150,.3); }
+.schemes-nav-btn.schemes-prev { left:-20px; }
+.schemes-nav-btn.schemes-next { right:-20px; }
+.schemes-ticker-wrap { overflow:hidden; position:relative; mask-image:linear-gradient(to right,transparent 0%,black 7%,black 93%,transparent 100%); -webkit-mask-image:linear-gradient(to right,transparent 0%,black 7%,black 93%,transparent 100%); }
+.schemes-ticker { display:flex; gap:16px; overflow-x:auto; -ms-overflow-style:none; scrollbar-width:none; padding:8px 4px; }
+.schemes-ticker::-webkit-scrollbar { display:none; }
+.scheme-card { flex:0 0 220px; scroll-snap-align:start; background:#fff; border:1px solid #e8eaed; border-radius:12px; padding:18px 16px; box-shadow:0 2px 8px rgba(0,0,0,.05); transition:box-shadow .2s,transform .2s; }
+.scheme-card:hover { box-shadow:0 6px 20px rgba(0,0,0,.1); transform:translateY(-3px); }
+.scheme-card-icon { font-size:22px; margin-bottom:10px; }
+.scheme-card-tag { font-family:var(--font-sans); font-size:var(--fs-xs); font-weight:700; letter-spacing:.09em; text-transform:uppercase; color:var(--teal); margin-bottom:5px; }
+.scheme-card-title { font-family:var(--font-sans); font-size:var(--fs-base); font-weight:700; color:#1e293b; margin-bottom:8px; line-height:var(--lh-tight); }
+.scheme-card-desc { font-family:var(--font-sans); font-size:var(--fs-sm); color:#64748b; line-height:var(--lh-base); display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
+
+/* Projects slideshow */
+.proj-slideshow { position:relative; border-radius:14px; overflow:hidden; box-shadow:0 4px 24px rgba(0,0,0,.15); background:#000; }
+.proj-slide { display:none; position:relative; height:100%; min-height:260px; }
+.proj-slide.active { display:block; animation:projFadeIn .5s ease; }
+@keyframes projFadeIn { from { opacity:0; transform:scale(1.03); } to { opacity:1; transform:scale(1); } }
+.proj-slide-img { width:100%; height:100%; object-fit:cover; display:block; }
+.proj-slide-overlay { position:absolute; bottom:0; left:0; right:0; padding:12px 18px; background:linear-gradient(90deg,rgba(10,70,80,.95) 0%,rgba(33,128,141,.88) 100%); display:flex; align-items:center; gap:0; z-index:1; }
+.proj-caption { font-family:var(--font-sans); font-size:var(--fs-base); font-weight:600; color:#fff; line-height:1.4; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.proj-ss-btn { position:absolute; top:50%; transform:translateY(-50%); width:36px; height:36px; border-radius:50%; background:rgba(255,255,255,.18); backdrop-filter:blur(6px); border:1px solid rgba(255,255,255,.28); color:#fff; font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:background .2s,opacity .25s; z-index:3; opacity:0; }
+.proj-slideshow:hover .proj-ss-btn { opacity:1; }
+.proj-ss-btn:hover { background:rgba(255,255,255,.38); }
+.proj-ss-prev { left:12px; }
+.proj-ss-next { right:12px; }
+.proj-ss-dots { display:none; }
+.proj-ss-counter { display:none; }
+.vibgyor-chips { display:none !important; }
+</style>
+</head>
+<body>
+<header id="site-header">
+  <div class="header-left">
+    <div class="header-tool-title">
+      <span class="hindi">सुविकल्प:</span> Mine Repurposing Tool
+    </div>
+    <div class="header-tool-sub">
+      Select factors and sub-factors to discover suitable repurposing options for your mining site
+    </div>
+  </div>
+  <div class="header-right">
+    <a href="https://coalcontroller.gov.in/" target="_blank" rel="noopener" title="CCO Home">
+    <div class="header-cco-lockup">
+      <img class="header-cco-logo" src="data:image/png;base64,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" alt="Coal Controller Organisation emblem">
+      <div class="header-cco-text"></div>
+    </div>
+    </a>
+  </div>
+</header>
+
+<div class="page">
+
+  <!-- Back bar -->
+  <div class="sf-backbar">
+    <button class="back-btn" onclick="window.location.href='../index.html'" aria-label="Back to results">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M10 3L5 8l5 5"/>
+      </svg>
+      Back to Results
+    </button>
+    <span class="sf-breadcrumb">
+      <span>Final Recommendations</span>
+      <span class="sep">/</span>
+      
+      <span style="color:var(--teal);font-weight:500;">Mining Driving School</span>
+    </span>
+  </div>
+
+  <!-- Hero Image -->
+  <div class="spv-hero-wrap">
+    <img src="../images/mds-hero-driving-track.png" alt="Aerial view of driving school track with painted road markings — HEMM operator training circuit" class="spv-hero-img">
+    <div class="spv-hero-overlay"></div>
+    <div class="spv-hero-title">Mining Driving School &amp; HEMM Operator Training</div>
+  </div>
+
+  <!-- Tab navigation -->
+  <nav class="spv-tabs" aria-label="Detail sections">
+    <button class="spv-tab active" data-tab="about"       onclick="showSPVTab('about')">About</button>
+    <button class="spv-tab"        data-tab="prism"        onclick="showSPVTab('prism')">P.R.I.S.M</button>
+    <button class="spv-tab"        data-tab="casestudies"  onclick="showSPVTab('casestudies');setTimeout(function(){window.dispatchEvent(new Event('resize'))},30)">Case Studies</button>
+    <button class="spv-tab"        data-tab="tender"       onclick="showSPVTab('tender')">Sample Tender Documents</button>
+    <button class="spv-tab"        data-tab="media"        onclick="showSPVTab('media')">Media/Web</button>
+    <button class="spv-tab"        data-tab="agencies"    onclick="showSPVTab('agencies')">Agencies</button>
+<!-- EXPERTS TAB HIDDEN (page not yet complete)
+<button class="spv-tab"        data-tab="experts"      onclick="showSPVTab('experts')">Experts</button>
+-->
+  </nav>
+
+  <div id="spv-panel-about" class="spv-panel">
+    <div class="spv-content">
+
+      <div class="about-hero-row">
+        <div class="about-hero-slide-col">
+          <div class="about-hero-label-wrap">
+            <div class="about-hero-label">Precedents</div>
+            <span class="about-hero-label-bar"></span>
+          </div>
+          <!-- Slideshow — only one image used (no JS carousel needed for single image) -->
+          <div class="proj-slideshow">
+            <img src="../images/ncl-singrauli-shovel-dumper.jpg" alt="NCL Coal India shovel loading dumper at Singrauli opencast mine — Heavy Earth Moving Machinery operations, Northern Coalfields Limited" class="proj-slide-img" loading="lazy">
+            <div class="proj-slide-overlay">
+              <span class="proj-caption">NCL CETI HEMM Training, Singrauli, India</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-hero-text-col">
+          <div class="about-intro">
+            <div class="about-intro-block about-intro-primary">
+              Mining Driving Schools at closed coal mines can support skill development, employment generation, and industrial training by utilizing existing mine roads, workshops, and infrastructure for heavy vehicle and mining equipment operation training. These centres can provide hands-on training for dumpers, excavators, loaders, and other mining machinery, creating livelihood opportunities for local youth and strengthening the skilled workforce for mining and infrastructure sectors.
+            </div>
+            <div class="about-intro-block about-intro-secondary">
+              Aligned with CCO's <strong>A.R.T.H.A.</strong> green-finance framework and the <strong>R.E.C.L.A.I.M.</strong> post-mining land-use handbook, this repurposing option is especially suitable in coal-belt states where mine closure leaves large, stable land parcels adjacent to active mining and logistics corridors. A 5–15 ha site supports a regional HEMM and HMV training campus; 15–40 ha enables a full-scale mine-safety and skills academy.
+            </div>
+          </div>
+        </div>
+      </div><!-- /about-hero-row -->
+
+      <div class="about-section">
+        <div class="about-section-eyebrow">Relevant Schemes &amp; Standards</div>
+        <h3 class="about-section-title">Policy Levers driving Mining Driving School scale-up</h3>
+        <div class="schemes-outer">
+          <button class="schemes-nav-btn schemes-prev" onclick="schemesNav(-1)" aria-label="Previous">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <div class="schemes-ticker-wrap">
+            <div class="schemes-ticker" id="schemesTicker">
+
+              <!-- SCHEME CARD 1 -->
+              <div class="scheme-card">
+                <div class="scheme-card-icon">⛏️</div>
+                <div class="scheme-card-tag">DGMS / MoC</div>
+                <div class="scheme-card-title">Mines Vocational Training Rules, 1966</div>
+                <div class="scheme-card-desc">Mandates structured vocational training for mine workers; a Mining Driving School directly fulfils operator and safety-training obligations under these rules.</div>
+              </div>
+
+              <!-- SCHEME CARD 2 -->
+              <div class="scheme-card">
+                <div class="scheme-card-icon">🎓</div>
+                <div class="scheme-card-tag">MoSD&amp;E / NSDC</div>
+                <div class="scheme-card-title">Pradhan Mantri Kaushal Vikas Yojana (PMKVY)</div>
+                <div class="scheme-card-desc">Funds short-term skill training including equipment operation; training centres on mine land can be empanelled as PMKVY training partners for local youth and project-affected families.</div>
+              </div>
+
+              <!-- SCHEME CARD 3 -->
+              <div class="scheme-card">
+                <div class="scheme-card-icon">🚛</div>
+                <div class="scheme-card-tag">MoRTH</div>
+                <div class="scheme-card-title">IDTR / RDTC Driver Training Scheme</div>
+                <div class="scheme-card-desc">MoRTH's Institute of Driving Training &amp; Research and Regional Driving Training Centre models (10-acre and 3-acre benchmarks) can be co-located with or modelled into a mine-land driving school.</div>
+              </div>
+
+              <!-- SCHEME CARD 4 -->
+              <div class="scheme-card">
+                <div class="scheme-card-icon">⚙️</div>
+                <div class="scheme-card-tag">SCMS / NSDC</div>
+                <div class="scheme-card-title">Skill Council for Mining Sector (SCMS)</div>
+                <div class="scheme-card-desc">Develops Qualification Packs and National Occupational Standards for HEMM operators, backhoe loader operators, excavator operators and mining-safety roles — the curriculum backbone for this repurposing category.</div>
+              </div>
+
+              <!-- SCHEME CARD 5 -->
+              <div class="scheme-card">
+                <div class="scheme-card-icon">🏗️</div>
+                <div class="scheme-card-tag">MoC / CCO</div>
+                <div class="scheme-card-title">A.R.T.H.A. Green Finance Framework</div>
+                <div class="scheme-card-desc">CCO's green-finance handbook supports blended-finance and PPP structures for post-mining repurposing; a HEMM training academy qualifies as a productive livelihood and safety-infrastructure asset under A.R.T.H.A.</div>
+              </div>
+
+              <!-- SCHEME CARD 6 -->
+              <div class="scheme-card">
+                <div class="scheme-card-icon">🌱</div>
+                <div class="scheme-card-tag">MoC / CCO</div>
+                <div class="scheme-card-title">R.E.C.L.A.I.M. Mine Closure Handbook</div>
+                <div class="scheme-card-desc">CCO's post-mining land-use handbook identifies training, livelihood and skill-development as priority repurposing categories; this directly enables mine owners to demonstrate productive land utilisation in closure plans.</div>
+              </div>
+
+              <!-- DUPLICATES for seamless loop -->
+              <div class="scheme-card" aria-hidden="true">
+                <div class="scheme-card-icon">⛏️</div>
+                <div class="scheme-card-tag">DGMS / MoC</div>
+                <div class="scheme-card-title">Mines Vocational Training Rules, 1966</div>
+                <div class="scheme-card-desc">Mandates structured vocational training for mine workers; a Mining Driving School directly fulfils operator and safety-training obligations under these rules.</div>
+              </div>
+              <div class="scheme-card" aria-hidden="true">
+                <div class="scheme-card-icon">🎓</div>
+                <div class="scheme-card-tag">MoSD&amp;E / NSDC</div>
+                <div class="scheme-card-title">Pradhan Mantri Kaushal Vikas Yojana (PMKVY)</div>
+                <div class="scheme-card-desc">Funds short-term skill training including equipment operation; training centres on mine land can be empanelled as PMKVY training partners for local youth and project-affected families.</div>
+              </div>
+              <div class="scheme-card" aria-hidden="true">
+                <div class="scheme-card-icon">🚛</div>
+                <div class="scheme-card-tag">MoRTH</div>
+                <div class="scheme-card-title">IDTR / RDTC Driver Training Scheme</div>
+                <div class="scheme-card-desc">MoRTH's Institute of Driving Training &amp; Research and Regional Driving Training Centre models can be co-located with or modelled into a mine-land driving school.</div>
+              </div>
+              <div class="scheme-card" aria-hidden="true">
+                <div class="scheme-card-icon">⚙️</div>
+                <div class="scheme-card-tag">SCMS / NSDC</div>
+                <div class="scheme-card-title">Skill Council for Mining Sector (SCMS)</div>
+                <div class="scheme-card-desc">Develops Qualification Packs and NOS for HEMM operators — the curriculum backbone for this repurposing category.</div>
+              </div>
+              <div class="scheme-card" aria-hidden="true">
+                <div class="scheme-card-icon">🏗️</div>
+                <div class="scheme-card-tag">MoC / CCO</div>
+                <div class="scheme-card-title">A.R.T.H.A. Green Finance Framework</div>
+                <div class="scheme-card-desc">CCO's green-finance handbook supports blended-finance and PPP structures for a HEMM training academy on closed mine land.</div>
+              </div>
+              <div class="scheme-card" aria-hidden="true">
+                <div class="scheme-card-icon">🌱</div>
+                <div class="scheme-card-tag">MoC / CCO</div>
+                <div class="scheme-card-title">R.E.C.L.A.I.M. Mine Closure Handbook</div>
+                <div class="scheme-card-desc">Identifies training and skill-development as priority repurposing categories; enables mine owners to demonstrate productive land utilisation in closure plans.</div>
+              </div>
+
+            </div><!-- /schemes-ticker -->
+          </div><!-- /schemes-ticker-wrap -->
+          <button class="schemes-nav-btn schemes-next" onclick="schemesNav(1)" aria-label="Next">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div><!-- /spv-panel-about -->
+
+  <div id="spv-panel-prism" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+
+<style>
+.pr-intro { padding:22px 24px 20px; background:rgba(33,128,141,.05); border:1px solid rgba(33,128,141,.15); border-radius:14px; margin-bottom:20px; }
+  .pr-intro-eyebrow { font-size:15px; font-weight:700; letter-spacing:.01em; text-transform:none; color:#21808d; margin-bottom:8px; font-style:normal; line-height:1.35; }
+  .pr-intro-heading { font-size:16px; font-weight:700; color:#0f172a; margin-bottom:10px; line-height:1.35; font-style:normal; }
+  .pr-intro-body { font-size:13.5px; color:#374151; line-height:1.85; font-style:normal; }
+  .pr-shell { display:flex; border:1px solid #e2e8f0; border-radius:14px; overflow:clip; background:#fff; }
+  .pr-sidebar { width:220px; flex-shrink:0; border-right:1px solid #e8edf2; padding:16px 0 16px; background:#f8fafc; position:sticky; top:125px; align-self:flex-start; max-height:calc(100vh - 155px); overflow-y:auto; overflow-x:visible; }
+  .pr-sidebar-label { font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:#7a8a9a; padding:0 16px 14px; font-style:normal; }
+  .pr-nav-highlight { position:absolute; left:0; right:0; pointer-events:none; z-index:0; will-change:top,height; background:color-mix(in srgb, var(--pr-hl,#C85000) 9%,transparent); transition:top .4s cubic-bezier(.4,0,.2,1),height .4s cubic-bezier(.4,0,.2,1),background .38s ease; }
+  .pr-nav-highlight::before { content:''; position:absolute; left:0; top:0; bottom:0; width:3px; background:var(--pr-hl,#C85000); border-radius:0 2px 2px 0; transition:background .38s ease; }
+  .pr-nav-item { position:relative; z-index:1; display:flex; align-items:center; gap:12px; padding:13px 16px; cursor:pointer; font-style:normal; }
+  .pr-nav-item::after { display:none; }
+  .pr-nav-item:hover, .pr-nav-item.active { background:transparent; transform:none; }
+  .pr-nav-badge { width:34px; height:34px; border-radius:50%; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:800; border:1.5px solid #d1d5db; color:#9ca3af; background:#fff; position:relative; z-index:1; transition:background .35s cubic-bezier(.4,0,.2,1),color .3s ease,border-color .35s ease,transform .45s cubic-bezier(.34,1.56,.64,1),box-shadow .35s ease; }
+  .pr-nav-item.active .pr-nav-badge { background:var(--pr-accent); color:#fff; border-color:var(--pr-accent); transform:scale(1.12); box-shadow:0 0 0 4px color-mix(in srgb,var(--pr-accent) 18%,transparent),0 3px 10px color-mix(in srgb,var(--pr-accent) 32%,transparent); }
+  .pr-nav-item:hover:not(.active) .pr-nav-badge { border-color:var(--pr-accent); color:var(--pr-accent); background:color-mix(in srgb,var(--pr-accent) 7%,#fff); transform:scale(1.07); }
+  .pr-nav-letter { font-size:13px; font-weight:600; color:#374151; line-height:1.25; font-style:normal; position:relative; z-index:1; transition:color .25s ease,font-weight .2s; }
+  .pr-nav-item.active .pr-nav-letter { color:var(--pr-accent); font-weight:700; }
+  .pr-nav-item:hover:not(.active) .pr-nav-letter { color:var(--pr-accent); }
+  @keyframes nav-slide-in { from { opacity:0; transform:translateX(-10px); } to { opacity:1; transform:translateX(0); } }
+  .pr-nav-item { opacity:0; animation:nav-slide-in .32s cubic-bezier(.4,0,.2,1) both; }
+  .pr-nav-item:nth-child(3) { animation-delay:.02s; }
+  .pr-nav-item:nth-child(4) { animation-delay:.07s; }
+  .pr-nav-item:nth-child(5) { animation-delay:.12s; }
+  .pr-nav-item:nth-child(6) { animation-delay:.17s; }
+  .pr-nav-item:nth-child(7) { animation-delay:.22s; }
+  .pr-content-wrap { flex:1; min-width:0; }
+  .pr-content-wrap .prism2-content-panel { border-radius:0; box-shadow:none; }
+  .prism2-content-panel .prism2-panel-header { background:color-mix(in srgb,var(--pc) 5%,#fff); }
+  .prism2-panel-eyebrow { font-size:13px; font-weight:700; letter-spacing:.10em; text-transform:uppercase; color:var(--pc); margin-bottom:6px; opacity:1; }
+</style>
+
+<!-- PRISM intro banner -->
+<div class="pr-intro">
+  <div class="pr-intro-eyebrow">PRISM – Post-Mining Repurposing and Implementation Strategy Models</div>
+  <div class="pr-intro-heading">A structured framework for mine repurposing from concept to implementation</div>
+  <div class="pr-intro-body">PRISM is a structured framework designed to support identified post-mining repurposing opportunities by evaluating suitable implementation pathways, financial and revenue-generation models, and the implementation requirements, roles, and responsibilities of mine owners, developers, operators, and other stakeholders throughout the project lifecycle. Built around five integrated pillars, PRISM guides Mining Driving School &amp; HEMM Operator Training projects from concept to operation.</div>
+</div>
+
+<!-- PRISM sidebar + content shell -->
+<div class="pr-shell">
+  <div class="pr-sidebar">
+    <div class="pr-sidebar-label">Pillars</div>
+    <div class="pr-nav-highlight" id="pr-hl"></div>
+    <div class="pr-nav-item active" style="--pr-accent:#C85000;" data-key="P" onclick="prNav('P')">
+      <div class="pr-nav-badge">P</div>
+      <div><div class="pr-nav-letter">Project vision</div></div>
+    </div>
+    <div class="pr-nav-item" style="--pr-accent:#1a5ca8;" data-key="R" onclick="prNav('R')">
+      <div class="pr-nav-badge">R</div>
+      <div><div class="pr-nav-letter">Repurposing pathways</div></div>
+    </div>
+    <div class="pr-nav-item" style="--pr-accent:#b06a10;" data-key="I" onclick="prNav('I')">
+      <div class="pr-nav-badge">I</div>
+      <div><div class="pr-nav-letter">Investment dynamics</div></div>
+    </div>
+    <div class="pr-nav-item" style="--pr-accent:#5a3d9e;" data-key="S" onclick="prNav('S')">
+      <div class="pr-nav-badge">S</div>
+      <div><div class="pr-nav-letter">Strategic structuring</div></div>
+    </div>
+    <div class="pr-nav-item" style="--pr-accent:#1a7a5e;" data-key="M" onclick="prNav('M')">
+      <div class="pr-nav-badge">M</div>
+      <div><div class="pr-nav-letter">Monitoring guidance</div></div>
+    </div>
+  </div><!-- /pr-sidebar -->
+
+  <div class="pr-content-wrap">
+
+      <div class="prism2-content-panel active" id="prism2-panel-P" style="--pc:#C85000;--pb:#fff0e6;--cb:#fff8f3;">
+      <div class="prism2-panel-header">
+        <div class="prism2-panel-header-letter">P</div>
+        <div class="prism2-panel-header-text">
+          <div class="prism2-panel-eyebrow">PROJECT VISION</div>
+          <p class="prism2-panel-desc">This pillar covers the project concept for a Mining Driving School and HEMM Operator Training Centre on closed coal mine land, the strategic rationale for this repurposing option, a site suitability and technical specification matrix, and indicative project scale configurations by land area.</p>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Project Overview</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">This concept proposes the development of <strong>Mining Driving Schools, HEMM Operator Training Centres and Mine-Safety Skill Development Campuses</strong> on closed, reclaimed, stabilised or repurposed coal mine land, as part of a sustainable mine-closure and post-mining land-use strategy.</p>
+          <p class="spv-body-text">The objective is to convert under-utilised mine land into a productive training, safety, livelihood and equipment-operation asset, centred on:</p>
+          <ul class="spv-list">
+            <li>Heavy Earth Moving Machinery (HEMM) operator training — dumpers, shovels, excavators, loaders, dozers, graders, drill machines</li>
+            <li>Simulator-based HEMM, haul-road and emergency-response training</li>
+            <li>Light motor vehicle (LMV) and heavy motor vehicle (HMV) driver training</li>
+            <li>Mine traffic management, haul-road safety and defensive driving</li>
+            <li>Equipment inspection, pre-start checks and basic maintenance training</li>
+            <li>Trainer-of-trainers, assessor training and mine vocational refresher courses</li>
+            <li>Road-safety, vehicle-fitness, first-aid, fire-safety and emergency-response modules</li>
+            <li>Women and youth employment-oriented operator training</li>
+            <li>Digital classroom, virtual reality and augmented-reality training labs</li>
+            <li>Test tracks, haul-road loops, slope sections, reversing areas and visibility-risk zones</li>
+            <li>Workshop, maintenance bay, tyre-safety and battery/EV awareness areas</li>
+            <li>Administrative, hostel, canteen, security and digital learning-management facilities</li>
+            <li>Green buffer, dust control, stormwater and drainage corridors</li>
+          </ul>
+          <p class="spv-body-text"><strong>Unlike heavy industrial reuse</strong>, a Mining Driving School uses large but low-intensity land parcels productively without requiring major manufacturing activity. It leverages existing mine roads, haul roads, workshops, yards, power and water supply, and industrial buffers — and can attract public, private and OEM participation through PPP, lease, concession, CSR and skill-development models. It aligns with India's mine-closure shift toward productive and community-oriented repurposing, as reflected in CCO's L.I.V.E.S, R.E.C.L.A.I.M and A.R.T.H.A frameworks.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Strategic Rationale</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">A Mining Driving School is particularly suited for closed coal mine areas where haul roads, equipment yards, workshop areas, industrial access roads, buffer distances, power supply, water availability and training-relevant terrain may already exist or can be upgraded.</p>
+          <ul class="spv-list">
+            <li>Converts closed mine land into productive safety, training and livelihood infrastructure</li>
+            <li>Supports skill development for mining, construction, road transport, logistics and infrastructure sectors</li>
+            <li>Reduces risk of abandoned land misuse, encroachment or unsafe occupation</li>
+            <li>Creates direct and indirect employment in training, equipment operation, maintenance, safety, hostel, canteen, security and facility management</li>
+            <li>Supports local youth, project-affected families, women candidates, ex-mine workers and contractor workforce</li>
+            <li>Can be developed in phases depending on land availability, equipment access and demand</li>
+            <li>Integrates classroom, simulator, workshop, test-track and live-equipment training into one campus</li>
+            <li>Supports safety, productivity, mechanisation and workforce-development objectives in SCMS Qualification Packs</li>
+            <li>Generates training fees, simulator charges, certification income, hostel fees, testing fees, OEM partnerships and service revenue</li>
+            <li>Can become a regional skill anchor for post-mining transition in coal-belt districts</li>
+            <li>MoRTH's IDTR and RDTC models provide a ready benchmark — 10-acre IDTR and 3-acre RDTC — adaptable to mine land of 5–40 ha</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Site Suitability and Technical Specification Matrix</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following matrix provides a structured checklist for assessing the suitability of the proposed site for the selected repurposing option. It identifies the key physical, technical, environmental, infrastructure, legal, and owner-side readiness parameters that should be reviewed before the project is advanced to the next stage of development. The purpose of this matrix is to help the project owner understand existing site conditions, technical requirements, potential constraints, and preparatory actions required before feasibility studies, approvals, or tendering are initiated.</p>
+          <table class="spv-table">
+            <thead><tr><th>Main Category</th><th>What to Assess / Prepare</th><th>Why It Matters</th><th>Owner-Side Readiness</th></tr></thead>
+            <tbody>
+              <tr><td>Land status</td><td>Closure status, ownership, lease conditions, land-use permissibility for training, vehicle movement, workshop and hostel use</td><td>Legal viability for developing and operating a Mining Driving School</td><td>Closure note and land-use permissibility note</td></tr>
+              <tr><td>Mine stability</td><td>Subsidence risk, dump stability, slope stability, void proximity, highwall safety and abandoned working risk</td><td>Ensures safe movement of trainees, vehicles, trainers and equipment</td><td>Geotechnical and mine-stability report</td></tr>
+              <tr><td>Landform</td><td>Flatness, grading requirement, platform levels, slope sections, practice track and equipment yard</td><td>Training tracks, classrooms, workshops and hostels need stable, safe platforms</td><td>Topographic survey and grading plan</td></tr>
+              <tr><td>Soil condition</td><td>Bearing capacity, compaction, settlement risk, contamination and dust potential</td><td>Required for HEMM movement, paved tracks, workshop floors and buildings</td><td>Soil testing and contamination screening</td></tr>
+              <tr><td>Drainage</td><td>Stormwater runoff, waterlogging, erosion, mine-water interaction and track flooding risk</td><td>Prevents skidding, track damage, equipment damage and training disruption</td><td>Drainage and erosion-control plan</td></tr>
+              <tr><td>Access</td><td>Highway access, approach-road width, trainee access, equipment movement, emergency access and public-transport connectivity</td><td>Determines ease of trainee movement, equipment mobilisation and emergency response</td><td>Access and traffic plan</td></tr>
+              <tr><td>Training catchment</td><td>Nearby mines, contractors, transporters, construction projects, ITIs, polytechnics and local youth population</td><td>Determines demand and revenue potential</td><td>Training-demand assessment</td></tr>
+              <tr><td>Utilities</td><td>Power, water, sewage, telecom, internet, lighting, CCTV and backup power</td><td>Required for simulators, classrooms, hostel, workshop and digital monitoring</td><td>Utility readiness plan</td></tr>
+              <tr><td>Training track</td><td>Haul-road loop, slope section, turning radius, reversing bay, parking bay, night-driving zone and visibility-risk zone</td><td>Determines practical training quality and safety</td><td>Track concept and circulation plan</td></tr>
+              <tr><td>Equipment yard</td><td>Parking, inspection bay, maintenance bay, tyre-safety zone, fuelling/charging zone and controlled access</td><td>Required for live-machine training and maintenance orientation</td><td>Equipment-yard plan</td></tr>
+              <tr><td>Simulator suitability</td><td>Simulator room, stable power, air conditioning, internet, instructor console and digital recording</td><td>Enables safe pre-field training and operator assessment</td><td>Simulator-room feasibility note</td></tr>
+              <tr><td>Workshop suitability</td><td>Maintenance bay, tool room, training cut-section, spare-parts area and basic repair demonstration zone</td><td>Supports equipment inspection, basic maintenance and mechanical awareness</td><td>Workshop concept plan</td></tr>
+              <tr><td>Hostel and trainee facilities</td><td>Hostel, toilets, canteen, changing rooms, medical room, rest area and women trainee facilities</td><td>Required for residential and regional training programmes</td><td>Trainee-facility plan</td></tr>
+              <tr><td>Environmental quality</td><td>Dust, air quality, noise, residual pollution and diesel-emission exposure</td><td>Affects trainee health, equipment performance and approvals</td><td>Environmental screening</td></tr>
+              <tr><td>Safety zoning</td><td>Buffer from unsafe mine areas, water bodies, dumps, highwalls, restricted zones and live traffic</td><td>Protects trainees and visitors from mine-related hazards</td><td>Zoning and barricading plan</td></tr>
+              <tr><td>Community interface</td><td>Nearby settlements, road-safety concerns, trainee selection, local employment expectations and women trainee safety</td><td>Critical for social acceptance and livelihood value</td><td>Stakeholder consultation note</td></tr>
+              <tr><td>Digital systems</td><td>Learning management system, simulator records, biometric attendance, CCTV, GPS tracking and assessment dashboard</td><td>Improves transparency, certification tracking and training quality</td><td>Digital training concept note</td></tr>
+              <tr><td>Security</td><td>Boundary, access control, CCTV, equipment security, hostel security and fire safety</td><td>Required for trainees, machines, simulators and insurance</td><td>Security and fire-safety plan</td></tr>
+              <tr><td>O&amp;M readiness</td><td>Track maintenance, simulator AMC, equipment upkeep, lighting, hostel, sanitation, security and drainage upkeep</td><td>Determines long-term sustainability</td><td>O&amp;M cost and staffing plan</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Indicative Project Scale and Configuration Matrix</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">The following matrix presents an indicative relationship between available site area, project scale, technical configuration, and likely development potential. It is intended to support preliminary planning by helping the project owner identify the appropriate scale and configuration for the proposed repurposing option. The values and recommendations are indicative and should be refined through detailed feasibility studies, site surveys, engineering assessments, and relevant technical and commercial evaluations.</p>
+          <p class="spv-body-text">The following scale matrix is indicative. Final sizing depends on land stability, approved post-closure land use, training demand, available safe track area, equipment, simulator procurement, funding, regulatory requirements and private-sector interest. For a mining-specific driving school, <strong>5–15 ha</strong> is suitable for most regional projects; <strong>15–40 ha</strong> may be considered where live HEMM training, multiple tracks, hostel and advanced simulator facilities are proposed.</p>
+          <table class="spv-table">
+            <thead><tr><th>Land Area</th><th>Recommended Scale</th><th>Configuration</th><th>Use Case</th></tr></thead>
+            <tbody>
+              <tr><td>2–3 ha</td><td>Basic Mine Driver Safety Training Centre</td><td>Classroom, small driving practice area, safety room, parking, toilets, first-aid room and admin block</td><td>Mine-area driver induction, contractor-driver orientation and refresher safety training</td></tr>
+              <tr><td>3–5 ha</td><td>Local Mining Driving School</td><td>Classrooms, HMV practice track, simulator room, inspection bay, parking, small workshop, canteen and trainee facilities</td><td>Local youth training, mine-road safety, HMV training and contractor workforce support</td></tr>
+              <tr><td>5–10 ha</td><td>Integrated Mine Driving and HEMM Training Centre</td><td>HEMM simulator lab, HMV track, reversing zone, slope section, equipment yard, workshop, classrooms, hostel and admin</td><td>Dumper operator pipeline, HEMM familiarisation and mine traffic safety training</td></tr>
+              <tr><td>10–15 ha</td><td>Regional Mining Driving School and Operator Training Institute</td><td>Multiple classrooms, simulator centre, haul-road loop, gradient section, night-driving area, workshop, hostel, auditorium and assessment room</td><td>Regional training hub for mines, contractors, transporters and infrastructure projects</td></tr>
+              <tr><td>15–25 ha</td><td>Advanced Mine Mobility and Equipment Training Campus</td><td>Multi-equipment yard, dumper/dozer/loader/excavator zones, emergency-response area, digital control room, hostel and trainer wing</td><td>Large regional HEMM, HMV, safety and maintenance-orientation campus</td></tr>
+              <tr><td>25–40 ha</td><td>Mining Skill, Safety and Equipment Training Academy</td><td>Multiple tracks, simulator centre, workshop, equipment inspection bay, safety gallery, women training wing, hostel and assessment centre</td><td>Multi-district/multi-company training academy with OEM and government participation</td></tr>
+              <tr><td>40 ha+</td><td>Flagship Mine Mobility, HEMM and Safety Skill Development Ecosystem</td><td>Multi-phase academy, advanced simulators, live-equipment zones, rescue-orientation area, road-safety centre, hostel township and incubation space</td><td>National-scale mining-skills and post-mining livelihood hub</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="prism2-nav-row">
+        <button class="prism2-btn-prev" id="prism2-prev-P" onclick="prism2Prev()" disabled>&#8592; Previous</button>
+        <div class="prism2-progress-dots" style="display:flex;gap:5px;align-items:center;">
+          <span class="pdot active" data-p="P"></span><span class="pdot" data-p="R"></span>
+          <span class="pdot" data-p="I"></span><span class="pdot" data-p="S"></span><span class="pdot" data-p="M"></span>
+        </div>
+        <button class="prism2-btn-next" id="prism2-next-P" onclick="prism2Next()">Next pillar &#8594;</button>
+      </div>
+    </div><!-- /prism2-panel-P -->
+
+      <div class="prism2-content-panel" id="prism2-panel-R" style="--pc:#1a5ca8;--pb:#e4eef9;--cb:#f3f7fd;">
+      <div class="prism2-panel-header">
+        <div class="prism2-panel-header-letter">R</div>
+        <div class="prism2-panel-header-text">
+          <div class="prism2-panel-eyebrow">REPURPOSING PATHWAYS</div>
+          <p class="prism2-panel-desc">This pillar covers seven implementation models for Mining Driving School and HEMM Operator Training Centre projects — from EPC to Hybrid — with a comparative assessment of 16 evaluation parameters and a model-wise responsibility matrix across 26 responsibility areas.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Implementation Options</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following table outlines the possible implementation models that may be considered for developing the proposed repurposing project. These models differ in terms of ownership structure, funding responsibility, private sector participation, operational control, and long-term risk allocation. The purpose of this table is to help the project owner compare broad development routes and select an implementation approach that aligns with its financial capacity, institutional preference, risk appetite, and long-term asset management objectives.</p>
+          <table class="spv-table">
+            <thead><tr><th>Main Group</th><th>Model</th><th>Core Feature</th><th>Broad Suitability</th></tr></thead>
+            <tbody>
+              <tr><td>Owner-led</td><td>EPC</td><td>Mine owner funds, develops and retains full ownership; EPC contractor undertakes engineering, procurement and construction</td><td>Suitable where the owner wants full control and wants to first create basic assets such as classrooms, tracks, workshop, boundary, drainage, lighting and utilities</td></tr>
+              <tr><td>Owner-led</td><td>EPC + O&amp;M / Facility Management</td><td>Mine owner funds and owns the centre; a specialised O&amp;M / training agency operates and maintains the facility</td><td>Suitable where the owner wants control over land, trainee selection and community benefits but does not want to directly manage training operations</td></tr>
+              <tr><td>Developer-led / PPP</td><td>BOOT</td><td>Private training developer / OEM / skill operator finances, builds, owns and operates the centre during the concession period, then transfers it back</td><td>Suitable where the owner wants private expertise and reduced upfront CAPEX, with eventual asset transfer</td></tr>
+              <tr><td>Developer-led / PPP</td><td>BOO</td><td>Private developer finances, develops, owns and operates the centre on a long-term basis without mandatory transfer</td><td>Suitable only where long-term private control is acceptable and owner benefit is mainly through lease rent or fixed charges</td></tr>
+              <tr><td>Developer-led / PPP</td><td>DBFOT</td><td>Concessionaire designs, builds, finances, operates and transfers the Mining Driving School under a structured PPP concession</td><td>Suitable for large training academies requiring private finance, professional training systems and long-term operation</td></tr>
+              <tr><td>Developer-led / PPP</td><td>Concession / Lease-Develop-Operate</td><td>Mine owner provides land or development rights; concessionaire leases, develops, operates and commercialises the Mining Driving School</td><td>Very suitable where the mine owner wants to retain land ownership and bring in an experienced training operator, OEM or skill-development agency</td></tr>
+              <tr><td>Mixed</td><td>Hybrid</td><td>Combines owner-side support (land, site preparation, access, utilities) with private / OEM / CSR / government support for simulators, equipment, curriculum and operations</td><td>Most suitable where mine closure, local livelihood, safety training, private expertise and phased implementation must be balanced</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Comparative Assessment of Key Models</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following comparative assessment evaluates the major implementation models across key decision parameters such as investment requirement, ownership control, financing responsibility, contractual complexity, risk transfer, and long-term economic benefit. This matrix is intended to support early-stage decision-making by highlighting the relative strengths and limitations of each model. The final choice of model should be guided by the specific circumstances of the project, including its scale, commercial viability, applicable policy framework, and the owner's institutional preference.</p>
+          <table class="spv-table">
+            <thead><tr><th>Evaluation Parameter</th><th>EPC</th><th>EPC+O&amp;M</th><th>BOOT</th><th>BOO</th><th>DBFOT</th><th>Concession</th><th>Hybrid</th></tr></thead>
+            <tbody>
+              <tr><td>Upfront investment by Mine Owner</td><td>High</td><td>High to Moderate</td><td>Low to Moderate</td><td>Low</td><td>Low to Moderate</td><td>Low to Moderate</td><td>Variable</td></tr>
+              <tr><td>Need for private financing</td><td>Low</td><td>Low to Moderate</td><td>High</td><td>High</td><td>High</td><td>Moderate to High</td><td>Variable</td></tr>
+              <tr><td>Ownership retained by Mine Owner</td><td>Yes</td><td>Yes</td><td>Land retained; asset may transfer later</td><td>Limited / as structured</td><td>Land retained with reversion rights</td><td>Land retained by owner</td><td>Usually retained by owner</td></tr>
+              <tr><td>Long-term land-use control</td><td>High</td><td>High</td><td>Moderate</td><td>Low to Moderate</td><td>Moderate to High</td><td>Moderate to High</td><td>High if structured well</td></tr>
+              <tr><td>Suitability for training infrastructure</td><td>Moderate</td><td>High</td><td>High</td><td>Moderate</td><td>Very High</td><td>Very High</td><td>Very High</td></tr>
+              <tr><td>Suitability for local livelihood</td><td>Moderate</td><td>High</td><td>High</td><td>Moderate</td><td>High to Very High</td><td>Very High</td><td>Very High</td></tr>
+              <tr><td>Suitability for HEMM / simulator training</td><td>Low to Moderate</td><td>High</td><td>High</td><td>High</td><td>Very High</td><td>Very High</td><td>Very High</td></tr>
+              <tr><td>Suitability for phased development</td><td>Moderate</td><td>High</td><td>High</td><td>Moderate</td><td>Very High</td><td>Very High</td><td>Very High</td></tr>
+              <tr><td>Revenue potential</td><td>Moderate</td><td>Moderate to High</td><td>High</td><td>High</td><td>High</td><td>Moderate to High</td><td>Variable to High</td></tr>
+              <tr><td>Owner revenue benefit</td><td>Moderate</td><td>Moderate to High</td><td>Moderate / deferred</td><td>Low to Moderate</td><td>Moderate to High</td><td>Moderate through lease / revenue share</td><td>Variable to High</td></tr>
+              <tr><td>O&amp;M burden on owner</td><td>High</td><td>Moderate</td><td>Low</td><td>Low</td><td>Low</td><td>Low to Moderate</td><td>Shared</td></tr>
+              <tr><td>Contractual complexity</td><td>Low</td><td>Moderate</td><td>High</td><td>High</td><td>Very High</td><td>High</td><td>High</td></tr>
+              <tr><td>Commercial bankability</td><td>Low to Moderate</td><td>Moderate</td><td>Moderate to High</td><td>Moderate to High</td><td>High</td><td>High</td><td>Variable to High</td></tr>
+              <tr><td>Risk to Mine Owner</td><td>High</td><td>Moderate</td><td>Low to Moderate</td><td>Low</td><td>Low to Moderate</td><td>Low to Moderate</td><td>Shared</td></tr>
+              <tr><td>Risk to private party</td><td>Low</td><td>Low to Moderate</td><td>High</td><td>High</td><td>High</td><td>Moderate to High</td><td>Shared</td></tr>
+              <tr><td>Overall suitability for Mining Driving School</td><td>Moderate</td><td>High</td><td>High</td><td>Moderate</td><td>Very High</td><td>Very High</td><td>Very High / Most Suitable</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Model-Wise Responsibility Logic</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following table explains how major project responsibilities are typically allocated under different implementation models. It covers key functional areas such as site availability, financing, design and construction, regulatory approvals, operation and maintenance, revenue collection, asset ownership, and end-of-term transfer. This helps clarify the respective roles of the project owner, private developer, EPC contractor, operator, or concessionaire, and supports the preparation of tender documents and contractual structures.</p>
+          <table class="spv-table">
+            <thead><tr><th>Responsibility Area</th><th>EPC</th><th>EPC+O&amp;M</th><th>BOOT</th><th>BOO</th><th>DBFOT</th><th>Concession</th><th>Hybrid</th></tr></thead>
+            <tbody>
+              <tr><td>Site / land availability</td><td>Mine Owner</td><td>Mine Owner</td><td>Mine Owner / authority</td><td>Mine Owner / developer</td><td>Mine Owner / authority</td><td>Mine Owner / authority</td><td>Mine Owner / shared</td></tr>
+              <tr><td>Land ownership</td><td>Mine Owner</td><td>Mine Owner</td><td>Mine Owner retains land; developer gets project rights</td><td>As structured</td><td>Mine Owner generally retains land</td><td>Mine Owner retains land</td><td>Mine Owner generally retains land</td></tr>
+              <tr><td>Mine closure linkage</td><td>Mine Owner</td><td>Mine Owner</td><td>Mine Owner + developer compliance</td><td>Mine Owner / developer</td><td>Mine Owner + concessionaire</td><td>Mine Owner + concessionaire</td><td>Mine Owner + partners</td></tr>
+              <tr><td>Safety zoning</td><td>Mine Owner</td><td>Mine Owner</td><td>Shared</td><td>Shared</td><td>Shared</td><td>Shared</td><td>Shared</td></tr>
+              <tr><td>Geotechnical screening</td><td>Mine Owner / consultant</td><td>Mine Owner / consultant</td><td>Shared</td><td>Shared</td><td>Shared</td><td>Shared</td><td>Mine Owner initially; shared later</td></tr>
+              <tr><td>Topographic survey and grading</td><td>Mine Owner / consultant</td><td>Mine Owner + O&amp;M agency</td><td>Developer-refined</td><td>Developer</td><td>Concessionaire</td><td>Concessionaire</td><td>Shared</td></tr>
+              <tr><td>Training-demand assessment</td><td>Mine Owner / consultant</td><td>Mine Owner + FM agency</td><td>Developer / training expert</td><td>Developer</td><td>Concessionaire</td><td>Concessionaire / expert agency</td><td>Shared</td></tr>
+              <tr><td>Training-campus master planning</td><td>Mine Owner / consultant</td><td>Mine Owner + FM agency</td><td>Shared / developer-refined</td><td>Developer-led</td><td>Shared</td><td>Shared</td><td>Shared</td></tr>
+              <tr><td>Track and yard development</td><td>EPC contractor</td><td>EPC contractor / FM agency</td><td>Developer</td><td>Developer</td><td>Concessionaire</td><td>Concessionaire / operator</td><td>Shared</td></tr>
+              <tr><td>Classroom and simulator block</td><td>EPC contractor</td><td>EPC contractor / FM agency</td><td>Developer</td><td>Developer</td><td>Concessionaire</td><td>Concessionaire / operator</td><td>Owner + operator / PPP partner</td></tr>
+              <tr><td>Workshop and equipment yard</td><td>EPC contractor</td><td>EPC contractor + FM agency</td><td>Developer</td><td>Developer</td><td>Concessionaire</td><td>Concessionaire / operator</td><td>Shared</td></tr>
+              <tr><td>Hostel and trainee facilities</td><td>EPC contractor</td><td>EPC contractor + FM agency</td><td>Developer</td><td>Developer</td><td>Concessionaire</td><td>Concessionaire / operator</td><td>Shared</td></tr>
+              <tr><td>Simulator procurement</td><td>Mine Owner</td><td>Mine Owner / FM agency</td><td>Developer</td><td>Developer</td><td>Concessionaire</td><td>Concessionaire / operator</td><td>Shared / OEM-supported</td></tr>
+              <tr><td>Training equipment</td><td>Mine Owner</td><td>Mine Owner / FM agency</td><td>Developer / OEM</td><td>Developer / OEM</td><td>Concessionaire / OEM</td><td>Concessionaire / OEM</td><td>Shared</td></tr>
+              <tr><td>Curriculum and certification interface</td><td>Mine Owner / consultant</td><td>Mine Owner + FM agency</td><td>Developer / training partner</td><td>Developer</td><td>Concessionaire</td><td>Concessionaire / training partner</td><td>Shared</td></tr>
+              <tr><td>Day-to-day facility operations</td><td>Mine Owner</td><td>O&amp;M / FM agency</td><td>Developer</td><td>Developer</td><td>Concessionaire</td><td>Concessionaire / operator</td><td>Operator / shared</td></tr>
+              <tr><td>Trainer recruitment</td><td>Mine Owner</td><td>FM / training agency</td><td>Developer</td><td>Developer</td><td>Concessionaire</td><td>Concessionaire / operator</td><td>Shared</td></tr>
+              <tr><td>Local employment</td><td>Mine Owner-controlled</td><td>Contract-controlled</td><td>Contract-based</td><td>Developer policy / contract-based</td><td>Contract-based</td><td>Strongly contract-based</td><td>Strongly configurable</td></tr>
+              <tr><td>Revenue collection</td><td>Mine Owner</td><td>Mine Owner / operator on behalf of owner</td><td>Developer during concession</td><td>Developer</td><td>Concessionaire</td><td>Concessionaire / shared</td><td>Shared</td></tr>
+              <tr><td>Revenue sharing with owner</td><td>Not applicable / owner receives all</td><td>Owner receives after agency payments</td><td>Concession fee / revenue share</td><td>Lease / fixed charges</td><td>Concession fee / revenue share</td><td>Lease rent / concession fee / revenue share</td><td>As structured</td></tr>
+              <tr><td>Approvals and permits</td><td>Mine Owner</td><td>Mine Owner with agency support</td><td>Shared</td><td>Shared / developer-led</td><td>Shared</td><td>Shared</td><td>Shared</td></tr>
+              <tr><td>Environmental compliance</td><td>Mine Owner</td><td>Mine Owner + FM agency</td><td>Developer during concession</td><td>Developer</td><td>Concessionaire</td><td>Concessionaire</td><td>Shared</td></tr>
+              <tr><td>Monitoring and reporting</td><td>Mine Owner</td><td>Mine Owner + FM agency</td><td>Mine Owner + developer</td><td>Developer / owner oversight</td><td>Independent monitoring + owner</td><td>Owner + concessionaire</td><td>Owner + independent agency</td></tr>
+              <tr><td>O&amp;M risk</td><td>Mine Owner</td><td>FM agency, with owner oversight</td><td>Developer</td><td>Developer</td><td>Concessionaire</td><td>Concessionaire / operator</td><td>Shared</td></tr>
+              <tr><td>Commercial risk</td><td>Mine Owner</td><td>Mostly Mine Owner</td><td>Developer</td><td>Developer</td><td>Concessionaire</td><td>Concessionaire</td><td>Shared</td></tr>
+              <tr><td>Asset transfer at end</td><td>No</td><td>No</td><td>Yes</td><td>No</td><td>Yes</td><td>As agreed</td><td>As agreed</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="prism2-nav-row">
+        <button class="prism2-btn-prev" id="prism2-prev-R" onclick="prism2Prev()">&#8592; Previous</button>
+        <div class="prism2-progress-dots" style="display:flex;gap:5px;align-items:center;">
+          <span class="pdot" data-p="P"></span><span class="pdot active" data-p="R"></span>
+          <span class="pdot" data-p="I"></span><span class="pdot" data-p="S"></span><span class="pdot" data-p="M"></span>
+        </div>
+        <button class="prism2-btn-next" id="prism2-next-R" onclick="prism2Next()">Next pillar &#8594;</button>
+      </div>
+    </div><!-- /prism2-panel-R -->
+
+      <div class="prism2-content-panel" id="prism2-panel-I" style="--pc:#b06a10;--pb:#faedda;--cb:#fdf7f0;">
+      <div class="prism2-panel-header">
+        <div class="prism2-panel-header-letter">I</div>
+        <div class="prism2-panel-header-text">
+          <div class="prism2-panel-eyebrow">INVESTMENT DYNAMICS</div>
+          <p class="prism2-panel-desc">This pillar covers funding logic by model, revenue generation streams, local livelihood and job potential by model, and a combined comparison of revenue, profitability and livelihood outcomes across all seven implementation models for a Mining Driving School.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Funding Logic</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following table presents the broad funding logic for each implementation model. It explains who is expected to finance the project, the level of owner-side funding requirement, and the commercial rationale behind each structure. This section is intended to help the project owner assess whether the project is more suitable for owner-funded development, private investment, public-private partnership, lease or concession structure, or a hybrid funding arrangement.</p>
+          <table class="spv-table">
+            <thead><tr><th>Model</th><th>Funding Source</th><th>Owner Funding Requirement</th><th>Suitability for Mining Driving School</th></tr></thead>
+            <tbody>
+              <tr><td>EPC</td><td>Mine owner budget / closure-linked fund / institutional funding / CSR / debt</td><td>High</td><td>Suitable for basic classrooms, tracks, boundary, workshop, utilities and simulator-ready rooms</td></tr>
+              <tr><td>EPC + O&amp;M / FM</td><td>Mine owner budget + O&amp;M budget + training revenue</td><td>High to Moderate</td><td>Strong fit where owner wants control over land, trainee eligibility, local benefit and training standards</td></tr>
+              <tr><td>BOOT</td><td>Private training developer / OEM capital + debt + possible grant / CSR / VGF support</td><td>Low to Moderate</td><td>Suitable for larger training campuses where developer recovers investment and transfers assets at the end</td></tr>
+              <tr><td>BOO</td><td>Private developer / OEM / skill operator capital</td><td>Low</td><td>Suitable only where long-term private control is acceptable and owner revenue is mainly lease-based</td></tr>
+              <tr><td>DBFOT</td><td>Private concessionaire + project finance + possible public support / VGF / CSR / skill-development funds</td><td>Low to Moderate</td><td>Strong fit for large PPP-based HEMM and mine-driving academies</td></tr>
+              <tr><td>Concession / Lease</td><td>Private training operator / OEM / skill agency / institutional investor / blended finance</td><td>Low to Moderate</td><td>Very suitable where mine owner provides land and receives lease rent, concession fee or revenue share</td></tr>
+              <tr><td>Hybrid</td><td>Mine owner + private operator + OEM + government skill support + CSR + grants + infrastructure finance</td><td>Variable</td><td>Most suitable for balancing mine-closure objectives, safety training, livelihood and phased investment</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Revenue Generation by Model</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following table explains how revenue may be generated under different implementation models and identifies who is likely to receive the principal project income. It also describes the nature and extent of the financial benefit available to the project owner, whether through direct project revenue, cost savings, lease income, concession fees, revenue sharing, service charges, or eventual asset transfer. This comparison is intended to support the selection of a commercially appropriate model for the proposed repurposing project.</p>
+          <table class="spv-table">
+            <thead><tr><th>Model</th><th>How Revenue is Generated</th><th>Who Receives Main Revenue</th><th>Owner's Financial Benefit</th></tr></thead>
+            <tbody>
+              <tr><td>EPC</td><td>HEMM training fees, HMV training fees, simulator charges, refresher courses, contractor-driver induction, hostel fees, classroom rental and workshop-demo fees</td><td>Mine Owner</td><td>Full revenue retained by owner, but owner bears full CAPEX, O&amp;M, trainer, simulator and demand risk</td></tr>
+              <tr><td>EPC + O&amp;M / FM</td><td>Same revenue streams: operator training, simulator use, refresher training, safety courses, hostel, canteen and assessment support</td><td>Mine Owner after paying O&amp;M / FM agency</td><td>High benefit; owner retains revenue while outsourcing facility operations</td></tr>
+              <tr><td>BOOT</td><td>Developer earns from training courses, simulator sessions, OEM programmes, hostel, assessment fees and corporate training during concession</td><td>Developer / concessionaire during concession</td><td>Lease rent, concession fee, revenue share, local economic uplift and asset transfer at end</td></tr>
+              <tr><td>BOO</td><td>Long-term private revenue from HEMM / HMV training, simulator lab, hostel, safety courses and corporate training</td><td>Private developer</td><td>Limited direct benefit; typically lease rent, fixed charges or premium payments</td></tr>
+              <tr><td>DBFOT</td><td>Structured revenue from HEMM training, simulator assessment, safety courses, contractor workforce training, hostel and OEM programmes</td><td>Concessionaire during concession</td><td>Concession fee, lease rent, revenue share, performance-linked payments and transfer at end</td></tr>
+              <tr><td>Concession</td><td>Revenue from training operations, simulator lab, operator courses, refresher training, corporate training, hostel, canteen and workshop services</td><td>Concessionaire / operator as per agreement</td><td>Lease rentals, revenue share, concession fee, improved land value and indirect socio-economic benefits</td></tr>
+              <tr><td>Hybrid</td><td>Mixed revenue from owner support, private courses, OEM support, CSR sponsorship, government schemes, hostel, simulator lab and shared income</td><td>Shared between owner, operator and partners as structured</td><td>Variable to high; owner benefits through revenue share, reduced O&amp;M burden, ESG gains and enhanced land value</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Which Model is Better for Local Livelihood and Jobs</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following table assesses the likely local livelihood and employment potential of each implementation model. It considers the extent to which each model can support construction-phase jobs, long-term operational employment, local procurement opportunities, skill development, community participation, and associated support services. This section is particularly relevant where the repurposing project is expected to contribute to post-mining or post-operational economic transition and sustained local community benefit.</p>
+          <table class="spv-table">
+            <thead><tr><th>Model</th><th>Local Job Potential</th><th>Why</th><th>Overall Suggestibility for Local Livelihood</th></tr></thead>
+            <tbody>
+              <tr><td>EPC</td><td>Moderate</td><td>Creates short-term jobs in site preparation, construction, fencing, track development, classroom construction and utilities. Long-term jobs depend on owner-led operation.</td><td>Moderate</td></tr>
+              <tr><td>EPC + O&amp;M / FM</td><td>High</td><td>Supports sustained jobs in training support, simulator operation, security, cleaning, hostel, canteen, vehicle maintenance, track maintenance and administration.</td><td>High</td></tr>
+              <tr><td>BOOT</td><td>High</td><td>Generates construction and operational jobs. Local benefit is strong if concession terms mandate local trainee intake, local hiring, training quotas and placement support.</td><td>High</td></tr>
+              <tr><td>BOO</td><td>Moderate</td><td>Can create jobs in training, equipment maintenance, hostel, transport and security, but local benefit depends on private policy unless mandated.</td><td>Moderate</td></tr>
+              <tr><td>DBFOT</td><td>High to Very High</td><td>Suitable for large academies with simulator labs, live-equipment yards, workshops, hostel, digital assessment and placement linkage.</td><td>High to Very High</td></tr>
+              <tr><td>Concession</td><td>Very High</td><td>Strong model for long-term livelihood through local trainee seats, operator jobs, vendor participation, canteen, maintenance contracts and skill development.</td><td>Very High</td></tr>
+              <tr><td>Hybrid</td><td>Very High</td><td>Best suited for combining mine-owner land, private training expertise, OEM support, CSR, government schemes and community benefit obligations.</td><td>Very High / Most Suitable</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Combined Comparison: Revenue, Profitability, and Livelihood</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">The following combined comparison brings together three important dimensions of project structuring: revenue potential, owner-side financial benefit, and local livelihood generation. It provides a consolidated view of how each implementation model performs across commercial, institutional, and community-development perspectives. This matrix is intended to support balanced decision-making where the objective extends beyond financial return to include sustainable site reuse and long-term local economic benefit.</p>
+          <p class="spv-body-text">The following table assesses the likely local livelihood and employment potential of each implementation model. It considers the extent to which each model can support construction-phase jobs, long-term operational employment, local procurement opportunities, skill development, community participation, and associated support services. This section is particularly relevant where the repurposing project is expected to contribute to post-mining or post-operational economic transition and sustained local community benefit.</p>
+          <table class="spv-table">
+            <thead><tr><th>Model</th><th>Main Revenue Source</th><th>Owner Profitability</th><th>Local Job Creation Potential</th><th>Overall Comment</th></tr></thead>
+            <tbody>
+              <tr><td>EPC</td><td>Training fees, simulator use, refresher courses, hostel charges, classroom rental, safety programmes and workshop-demo fees</td><td>Moderate to High, but owner bears full CAPEX, O&amp;M and demand risk</td><td>Moderate</td><td>Useful for initial infrastructure but weak for professional long-term operation unless followed by structured O&amp;M</td></tr>
+              <tr><td>EPC + O&amp;M / FM</td><td>Training fees, simulator charges, safety induction, corporate training, hostel, canteen, workshop and assessment support</td><td>High, as owner retains revenue after O&amp;M payments</td><td>High</td><td>Strong where owner wants control and sustained employment</td></tr>
+              <tr><td>BOOT</td><td>Commercial training operation, simulator lab, OEM courses, hostel, corporate training and assessment services</td><td>Moderate through concession fee, lease rent, revenue share and eventual asset transfer</td><td>High</td><td>Suitable for commercial training infrastructure with mandatory livelihood clauses</td></tr>
+              <tr><td>BOO</td><td>Long-term private revenue from training estate, HEMM / HMV courses, simulator lab, hostel and corporate programmes</td><td>Low to Moderate, mostly from lease rent or fixed charges</td><td>Moderate</td><td>Use cautiously where community benefit and owner control are not primary</td></tr>
+              <tr><td>DBFOT</td><td>HEMM training, simulator assessment, safety courses, hostel and OEM programmes</td><td>Moderate to High through concession fee, lease rent, revenue share and transfer terms</td><td>High to Very High</td><td>Strong formal PPP option for larger Mining Driving School campuses</td></tr>
+              <tr><td>Concession</td><td>Training operations, simulator lab, HEMM / HMV courses, refresher training, hostel, canteen and corporate training</td><td>Moderate to High through lease rent, concession fee, revenue share and improved land value</td><td>Very High</td><td>Very suitable for mine land where owner retains land and operator manages the training business</td></tr>
+              <tr><td>Hybrid</td><td>Mixed revenue from owner support, private operators, government schemes, CSR, OEM partnerships, hostel and simulator services</td><td>Variable to High depending on revenue-sharing and support structure</td><td>Very High</td><td>Most suitable for balancing mine closure, livelihood, safety, skill development and commercial objectives</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="prism2-nav-row">
+        <button class="prism2-btn-prev" id="prism2-prev-I" onclick="prism2Prev()">&#8592; Previous</button>
+        <div class="prism2-progress-dots" style="display:flex;gap:5px;align-items:center;">
+          <span class="pdot" data-p="P"></span><span class="pdot" data-p="R"></span>
+          <span class="pdot active" data-p="I"></span><span class="pdot" data-p="S"></span><span class="pdot" data-p="M"></span>
+        </div>
+        <button class="prism2-btn-next" id="prism2-next-I" onclick="prism2Next()">Next pillar &#8594;</button>
+      </div>
+    </div><!-- /prism2-panel-I -->
+
+      <div class="prism2-content-panel" id="prism2-panel-S" style="--pc:#5a3d9e;--pb:#edeaf8;--cb:#f7f5fd;">
+      <div class="prism2-panel-header">
+        <div class="prism2-panel-header-letter">S</div>
+        <div class="prism2-panel-header-text">
+          <div class="prism2-panel-eyebrow">STRATEGIC STRUCTURING</div>
+          <p class="prism2-panel-desc">This pillar covers what should be ready before the first RFP is issued for a Mining Driving School or HEMM Operator Training Centre project, what can be taken up post-award, and the indicative implementation pathway from concept approval to operational commissioning.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Preparations Needed Before RFP</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">The following section identifies the key owner-side preparatory actions that should ideally be completed before issuing the first Request for Proposal. These actions are aimed at reducing uncertainty for prospective bidders, improving project bankability, clarifying site availability, identifying approval pathways and risks, and defining the technical and commercial scope of the project. Completing these preparatory steps before tendering can improve bid quality, attract credible responses, and reduce the risk of delays during project implementation.</p>
+          <p class="spv-body-text">Before issuing an RFP for a Mining Driving School / HEMM Operator Training Centre as a mine-closure repurposing project, the mine owner should prepare the following in priority order:</p>
+          <ol class="spv-list">
+            <li>Land and mine-closure confirmation — Confirm land ownership, closure status, mine-closure linkage and permissibility for training, skill development, driver training, workshop, hostel and controlled equipment movement.</li>
+            <li>Legal and statutory screening — Review land-use restrictions, concession rights, liability, insurance, user charges, revenue sharing, hostel operation, commercial training rights and compatibility with mine-closure obligations.</li>
+            <li>DGMS and mine-training compliance review — Map the proposed centre with applicable DGMS requirements, especially the Mines Vocational Training Rules, 1966, which apply to mines covered under the Mines Act framework and provide the basis for mine vocational training.</li>
+            <li>Skill and curriculum alignment — Identify relevant NSQF / Qualification Pack / National Occupational Standards for mining equipment roles such as Backhoe Loader Operator, Excavator Operator, Crawler Crane Operator, HEMM Mechanic and related mining-equipment occupations.</li>
+            <li>Safety and no-go zone mapping — Identify safe and unsafe zones, including unstable dumps, highwalls, subsidence-prone areas, abandoned workings, unsafe water bodies, restricted infrastructure and live mine-interface areas.</li>
+            <li>Preliminary technical site assessment — Prepare topographic survey, geotechnical screening, slope-stability screening, soil-bearing assessment, drainage review, pavement feasibility and equipment-yard suitability note.</li>
+            <li>Training-track and simulator feasibility — Assess whether the site can support classroom training, simulator training, HMV track, haul-road loop, gradient section, reversing bay, parking bay, equipment inspection area and workshop demonstration zone.</li>
+            <li>MoRTH / driver-training interface review — Where LMV / HMV driver training or licence-linked training is proposed, review MoRTH-recognised formats such as IDTR, RDTC, DTC and ADTC, including accreditation and State Transport Authority interface where applicable. MoRTH information records IDTR and RDTC models, while ADTC accreditation may be granted by the State Transport Authority or authorised agency under CMVR-linked provisions.</li>
+            <li>Environmental and contamination screening — Assess dust, soil contamination, water quality, residual pollution, noise, diesel emissions, vegetation, drainage discharge and suitability for trainee and public use.</li>
+            <li>Training-demand and catchment assessment — Estimate demand from nearby mines, MDOs, contractors, transporters, construction agencies, ITIs, polytechnics, local youth, women candidates, project-affected families and ex-mine workers.</li>
+            <li>Preliminary campus zoning and facility plan — Prepare a basic layout covering entry gate, admin block, classrooms, simulator room, training track, haul-road loop, equipment yard, workshop, hostel, canteen, medical room, parking, utilities, green buffer and emergency route.</li>
+            <li>Cost, revenue and implementation model selection — Prepare broad CAPEX, simulator cost, equipment cost, 5-year O&amp;M estimate and revenue logic, then shortlist models such as Hybrid, Concession / Lease-Develop-Operate, DBFOT, BOOT or EPC + O&amp;M.</li>
+            <li>Draft RFP scope and obligations — Prepare bidder scope covering design, construction, training operations, simulator operation, trainer qualification, DGMS-aligned safety training, NSQF/QP alignment, local trainee quota, women/youth inclusion, equipment standards, hostel operation and reporting.</li>
+            <li>Bid evaluation framework — Define evaluation criteria covering mining-training experience, HEMM / HMV training capability, simulator capability, safety record, trainer strength, financial capacity, local livelihood plan, O&amp;M plan and revenue proposal.</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Activities to be taken After Selecting the Agency</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">The following section lists the principal activities that may be undertaken by the selected contractor, developer, concessionaire, operator, or implementation agency after award of the project. These activities generally include detailed site investigations, engineering design, statutory submissions and approvals, equipment procurement, construction, commissioning, operational planning, staff training, and performance monitoring. The distinction between pre-RFP owner preparedness and post-award implementation responsibilities helps ensure an appropriate and efficient allocation of effort across the project development cycle.</p>
+          <p class="spv-body-text">After award, the selected concessionaire / contractor / O&amp;M agency / training operator / OEM partner can take up the following activities in chronological order:</p>
+          <ol class="spv-list">
+            <li>Detailed site investigation — Undertake detailed topographic survey, drone mapping, geotechnical investigation, slope assessment, pavement investigation, drainage design inputs and safety-zone validation.</li>
+            <li>Final regulatory and compliance mapping — Prepare a compliance matrix covering DGMS mine-vocational training requirements, applicable State Transport requirements, CMVR / ADTC interface where relevant, fire safety, hostel permissions, labour compliance and insurance.</li>
+            <li>Detailed Project Report preparation — The selected operator shall prepare the DPR covering final master plan, engineering design, training model, simulator plan, equipment plan, financial model, statutory approvals plan, O&amp;M plan, safety plan and implementation schedule.</li>
+            <li>Final campus master planning — Prepare the final layout for classrooms, simulator centre, training tracks, haul-road loop, reversing bay, slope section, equipment yard, workshop, hostel, canteen, parking, emergency access and green buffer.</li>
+            <li>Curriculum and certification framework — Develop course modules aligned with DGMS vocational training needs, NSQF / QP standards, mine-road safety, HEMM operation, HMV training where applicable, refresher training and contractor-driver induction.</li>
+            <li>Detailed engineering and safety design — Prepare detailed designs for track pavement, turning radii, gradients, signage, barriers, lighting, workshop floors, simulator rooms, drainage, fire safety, CCTV, access control and emergency assembly points.</li>
+            <li>Approvals, insurance and operating permissions — Obtain required permissions, fire NOC, training-related approvals, insurance coverage, vehicle / equipment permissions, hostel approvals and State Transport interface approvals where licence-linked driver training is proposed.</li>
+            <li>Procurement of simulators, equipment and systems — Procure HEMM simulators, driver-training vehicles, PPE, communication systems, CCTV, biometric attendance, learning management system, first-aid equipment, workshop tools and training aids.</li>
+            <li>Construction and installation — Develop classrooms, simulator lab, training track, haul-road loop, equipment yard, workshop, hostel, canteen, utilities, signage, fencing, drainage, lighting and digital monitoring systems.</li>
+            <li>Trainer recruitment and capacity building — Recruit qualified trainers, simulator instructors, HEMM supervisors, safety trainers, first-aid trainers, workshop instructors, hostel staff and administrative staff, followed by trainer-of-trainers orientation.</li>
+            <li>SOPs and safety management system — Prepare SOPs for trainee induction, simulator training, live-equipment movement, pre-start inspection, track operation, fatigue management, emergency response, incident reporting and equipment maintenance.</li>
+            <li>Local livelihood integration — Implement local trainee quota, women/youth training provisions, project-affected-family preference, local vendor participation, canteen / housekeeping contracts and placement-linkage support.</li>
+            <li>Trial training and safety audit — Conduct dry runs, simulator calibration, trial batches, mock emergency drills, equipment checks, third-party safety audit and owner review before full-scale operation.</li>
+            <li>Commissioning and regular operation — Start phased training operations with attendance tracking, assessment records, safety reporting, O&amp;M monitoring, trainee feedback, placement records and periodic compliance reporting.</li>
+            <li>Performance review and phased expansion — Expand additional modules such as advanced HEMM operation, EV / battery safety, autonomous equipment awareness, mine-rescue orientation, maintenance training and regional skill partnerships based on demand and safety performance.</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Indicative Implementation Pathway</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following implementation pathway presents a practical high-level sequence for advancing the proposed repurposing concept from initial approval through to project execution and long-term operation. It outlines the broad stages of concept approval, preliminary studies, model selection, bid preparation, procurement, detailed design, statutory approvals, construction, commissioning, and ongoing operation. This pathway is indicative and should be adapted to reflect the specific complexity, regulatory requirements, financing structure, and site conditions applicable to the project.</p>
+          <ol class="spv-list" style="list-style:decimal;padding-left:1.4em;">
+            <li>Concept approval and owner-side structuring</li>
+            <li>Screening of closed mine sites for Mining Driving School / HEMM Operator Training Centre suitability</li>
+            <li>Geotechnical, subsidence, drainage, soil-bearing, contamination, access, power, water, telecom and safety-zone studies</li>
+            <li>Training-demand assessment and market sounding with mining companies, contractors, OEMs, simulator providers, transport departments, ITIs, polytechnics, skill councils and government agencies</li>
+            <li>Concept planning and phasing strategy for classrooms, simulator block, training tracks, haul-road loop, workshop, hostel, canteen, equipment yard and future expansion</li>
+            <li>Identification of owner-side enabling scope — land preparation, fencing, access road, drainage, utilities, safety buffers, power supply and basic site infrastructure</li>
+            <li>Selection of preferred implementation model (Hybrid, Concession / Lease-Develop-Operate, DBFOT, BOOT, or EPC + O&amp;M)</li>
+            <li>Preparation of DPR / bid documents / concession structure — land-use conditions, revenue model, local trainee obligations, women/youth inclusion, safety requirements and environmental safeguards</li>
+            <li>Issuance of RFQ / RFP</li>
+            <li>Selection of concessionaire / developer / training operator / OEM partner</li>
+            <li>Detailed design, statutory approvals, curriculum finalisation, trainer recruitment, commercial structuring and financial closure</li>
+            <li>Site grading, track development, classroom / simulator / workshop / hostel construction and installation of digital systems</li>
+            <li>Commissioning, trial training, trainee onboarding, simulator calibration and phased training operation</li>
+            <li>Operations, maintenance, monitoring, local employment implementation, placement support and phased expansion</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="prism2-nav-row">
+        <button class="prism2-btn-prev" id="prism2-prev-S" onclick="prism2Prev()">&#8592; Previous</button>
+        <div class="prism2-progress-dots" style="display:flex;gap:5px;align-items:center;">
+          <span class="pdot" data-p="P"></span><span class="pdot" data-p="R"></span>
+          <span class="pdot" data-p="I"></span><span class="pdot active" data-p="S"></span><span class="pdot" data-p="M"></span>
+        </div>
+        <button class="prism2-btn-next" id="prism2-next-S" onclick="prism2Next()">Next pillar &#8594;</button>
+      </div>
+    </div><!-- /prism2-panel-S -->
+
+      <div class="prism2-content-panel" id="prism2-panel-M" style="--pc:#1a7a5e;--pb:#e1f3ec;--cb:#f1faf6;">
+      <div class="prism2-panel-header">
+        <div class="prism2-panel-header-letter">M</div>
+        <div class="prism2-panel-header-text">
+          <div class="prism2-panel-eyebrow">MONITORING GUIDANCE</div>
+          <p class="prism2-panel-desc">This pillar covers the recommended way forward and preferred implementation models for a Mining Driving School on closed coal mine land, key references from MoC, DGMS, SCMS and MoRTH, and an abbreviations glossary.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Way Forward</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">The following way forward summarizes the preferred development approach for the proposed repurposing option, based on the assessment presented in PRISM (Post Mining Repurposing Implementation and Strategy Models). It identifies the most suitable implementation models in order of preference, highlights key technical and due-diligence considerations, and outlines the recommended next steps and broad development logic. This section is intended to guide internal decision-making and support the project owner in progressing from concept-stage evaluation toward feasibility assessment, project structuring, regulatory approvals, and implementation planning.</p>
+        <p class="spv-body-text"><strong>Preferred Models, in order:</strong> (1) Concession / Lease-Develop-Operate, (2) Hybrid, (3) DBFOT</p>
+        <p class="spv-body-text"><strong>Why preferred:</strong> Concession / Lease-Develop-Operate is preferred because HEMM and mine-driving training require equipment, simulators, trainers, certification and industry linkage. The mine owner can retain land control while the operator manages training, equipment and placement.</p>
+        <p class="spv-body-text"><strong>Secondary option:</strong> EPC + O&amp;M is suitable where the owner wants strong control over trainee eligibility, local youth inclusion, fees and training standards.</p>
+        <p class="spv-body-text"><strong>Suggestable technical care:</strong> Training track safety, simulator facilities, HEMM availability, trainer certification, emergency response, insurance, trainee selection, placement linkage and maintenance must be planned.</p>
+        <p class="spv-body-text"><strong>Recommended development logic:</strong> Start with driving track, simulator lab, safety classroom and basic equipment operation courses. Scale to regional HEMM academy only after trainee demand and industry absorption are proven.</p>
+        <p class="spv-body-text" style="font-style:italic; margin-top:1.2rem;"><strong>Disclaimer —</strong> All repurposing interventions proposed under P.R.I.S.M. shall remain subject to applicable mining laws, land-use regulations, environmental approvals, mine-closure conditions, forest and biodiversity regulations, groundwater permissions, and any other statutory approvals as may be applicable. Land ownership is proposed to remain with the mine owner / competent authority unless otherwise permitted under applicable law.</p>
+      </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>References</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <ul class="spv-list" >
+            <li>Coal Controller Organisation, Government of India. (2026). <em>Mine Closure Handbooks Portal</em>. Coal Controller Organisation, Ministry of Coal.</li>
+            <li>Coal Controller Organisation, Government of India. (2025). <em>L.I.V.E.S. Framework for Mine Closure</em>. Coal Controller Organisation, Ministry of Coal.</li>
+            <li>Coal Controller Organisation, Government of India. (2025). <em>A.R.T.H.A. – Green Finance for Coal Mines Repurposing</em>. Coal Controller Organisation, Ministry of Coal.</li>
+            <li>Directorate General of Mines Safety, Government of India. (1966). <em>The Mines Vocational Training Rules, 1966</em>. Directorate General of Mines Safety.</li>
+            <li>Directorate General of Mines Safety, Government of India. (n.d.). <em>DGMS Library: Statutory Acts, Rules and Regulations</em>. Directorate General of Mines Safety.</li>
+            <li>Skill Council for Mining Sector. (n.d.). <em>Objectives, Qualification Files and National Occupational Standards</em>. Skill Council for Mining Sector.</li>
+            <li>Skill Council for Mining Sector. (n.d.). <em>Qualification Files: Backhoe Loader Operator, Excavator Operator, Crawler Crane Operator and Related Mining Equipment Roles</em>. Skill Council for Mining Sector.</li>
+            <li>National Skill Development Corporation / Skill Council for Mining Sector. (n.d.). <em>HEMM Mechanic, Qualification Pack MIN/Q0433</em>. National Skill Development Corporation.</li>
+            <li>Ministry of Road Transport and Highways, Government of India. (2021). <em>Driver Training Institute</em>. Press Information Bureau, Government of India.</li>
+            <li>Ministry of Road Transport and Highways, Government of India. (2025). <em>Progress of Regional Driving Training Centres</em>. Press Information Bureau, Government of India.</li>
+            <li>Ministry of Road Transport and Highways, Government of India. (2019). <em>Drivers Training for Safe Driving</em>. Press Information Bureau, Government of India.</li>
+            <li>District Administration Chhindwara, Government of Madhya Pradesh. (n.d.). <em>Ashok Leyland and Institute of Driving Training Center, Chhindwara</em>. District Chhindwara Official Website.</li>
+            <li>Ashok Leyland. (n.d.). <em>Driving Training: LMV, HMV, Refresher Training, Hazardous Goods, Fuel Saving Techniques and Training of Trainers</em>. Ashok Leyland.</li>
+            <li>Ministry of Road Transport and Highways, Government of India. (2022). <em>Notification Issued Pertaining to Amendment to the Rules Related to Accredited Driver Training Centres</em>. Press Information Bureau, Government of India.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Abbreviations</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <table class="spv-table">
+            <thead><tr><th>Abbreviation</th><th>Full Form</th></tr></thead>
+            <tbody>
+              <tr><td>AMC</td><td>Annual Maintenance Contract</td></tr>
+              <tr><td>BOO</td><td>Build, Own, Operate</td></tr>
+              <tr><td>BOOT</td><td>Build, Own, Operate, Transfer</td></tr>
+              <tr><td>CAPEX</td><td>Capital Expenditure</td></tr>
+              <tr><td>CCTV</td><td>Closed-Circuit Television</td></tr>
+              <tr><td>CCO</td><td>Coal Controller Organisation</td></tr>
+              <tr><td>CSR</td><td>Corporate Social Responsibility</td></tr>
+              <tr><td>DBFOT</td><td>Design, Build, Finance, Operate, Transfer</td></tr>
+              <tr><td>DGMS</td><td>Directorate General of Mines Safety</td></tr>
+              <tr><td>DPR</td><td>Detailed Project Report</td></tr>
+              <tr><td>EPC</td><td>Engineering, Procurement and Construction</td></tr>
+              <tr><td>ESG</td><td>Environmental, Social and Governance</td></tr>
+              <tr><td>FM</td><td>Facility Management</td></tr>
+              <tr><td>HEMM</td><td>Heavy Earth Moving Machinery</td></tr>
+              <tr><td>HMV</td><td>Heavy Motor Vehicle</td></tr>
+              <tr><td>IDTR</td><td>Institute of Driving Training and Research</td></tr>
+              <tr><td>ITI</td><td>Industrial Training Institute</td></tr>
+              <tr><td>LMV</td><td>Light Motor Vehicle</td></tr>
+              <tr><td>LMS</td><td>Learning Management System</td></tr>
+              <tr><td>MoRTH</td><td>Ministry of Road Transport and Highways</td></tr>
+              <tr><td>NSDC</td><td>National Skill Development Corporation</td></tr>
+              <tr><td>OEM</td><td>Original Equipment Manufacturer</td></tr>
+              <tr><td>O&amp;M</td><td>Operation and Maintenance</td></tr>
+              <tr><td>PPP</td><td>Public-Private Partnership</td></tr>
+              <tr><td>RDTC</td><td>Regional Driving Training Centre</td></tr>
+              <tr><td>RFID</td><td>Radio Frequency Identification</td></tr>
+              <tr><td>RFP</td><td>Request for Proposal</td></tr>
+              <tr><td>RFQ</td><td>Request for Qualification</td></tr>
+              <tr><td>SCMS</td><td>Skill Council for Mining Sector</td></tr>
+              <tr><td>SOP</td><td>Standard Operating Procedure</td></tr>
+              <tr><td>VGF</td><td>Viability Gap Funding</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="prism2-nav-row">
+        <button class="prism2-btn-prev" id="prism2-prev-M" onclick="prism2Prev()">&#8592; Previous</button>
+        <div class="prism2-progress-dots" style="display:flex;gap:5px;align-items:center;">
+          <span class="pdot" data-p="P"></span><span class="pdot" data-p="R"></span>
+          <span class="pdot" data-p="I"></span><span class="pdot" data-p="S"></span><span class="pdot active" data-p="M"></span>
+        </div>
+      </div>
+
+      <!-- Framework completion card -->
+      <div style="margin:0 26px 16px;padding:16px 20px;border-radius:12px;background:#f4faf7;border:1.5px dashed #a8d5c2;display:flex;align-items:center;gap:14px;">
+        <div style="width:36px;height:36px;border-radius:50%;background:#d1ece2;border:1.5px solid #a8d5c2;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#1a7a5e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2.5 8 6 11.5 13.5 4"/></svg>
+        </div>
+        <div style="flex:1;min-width:0;">
+          <div style="font-size:.82rem;font-weight:700;color:#1a7a5e;letter-spacing:.01em;">PRISM Framework Complete</div>
+          <div style="font-size:.75rem;color:#4a7a6a;margin-top:2px;line-height:1.5;">All five pillars reviewed — explore case studies to see how similar projects were executed.</div>
+        </div>
+        <button onclick="showSPVTab('casestudies');setTimeout(function(){window.dispatchEvent(new Event('resize'))},30)" style="flex-shrink:0;font-size:.75rem;font-weight:600;padding:7px 14px;border-radius:8px;border:1.5px solid #a8d5c2;background:#fff;color:#1a7a5e;cursor:pointer;transition:background .2s,border-color .2s;" onmouseover="this.style.background='#e6f5ef'" onmouseout="this.style.background='#fff'">Case Studies &#8599;</button>
+      </div>
+
+      <!-- Download PRISM PDF card -->
+      <div style="margin:0 26px 28px;padding:18px 22px;border-radius:12px;background:linear-gradient(135deg,#f0f7ff 0%,#e8f4fd 100%);border:1.5px solid #c5ddf5;display:flex;align-items:center;gap:16px;">
+        <div style="width:40px;height:40px;border-radius:50%;background:#daeafa;border:1.5px solid #b8d4ef;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#1a5ca8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v10M5 8l4 4 4-4"/><rect x="3" y="14" width="12" height="2" rx="1"/></svg>
+        </div>
+        <div style="flex:1;min-width:0;">
+          <div style="font-size:.82rem;font-weight:700;color:#1a5ca8;letter-spacing:.01em;">Download PRISM Framework</div>
+          <div style="font-size:.75rem;color:#3a6a98;margin-top:2px;line-height:1.5;">Save a print-ready PDF of all five pillars for offline reference.</div>
+        </div>
+        <button onclick="downloadPRISM()" style="flex-shrink:0;font-size:.75rem;font-weight:600;padding:8px 16px;border-radius:8px;border:1.5px solid #b8d4ef;background:#fff;color:#1a5ca8;cursor:pointer;transition:background .2s,border-color .2s;display:flex;align-items:center;gap:6px;" onmouseover="this.style.background='#daeafa'" onmouseout="this.style.background='#fff'">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 1v7M3.5 5.5l3 3 3-3"/><rect x="1.5" y="10" width="10" height="1.5" rx=".75"/></svg>
+          Download PDF
+        </button>
+      </div>
+
+    </div><!-- /pr-content-wrap -->
+  </div><!-- /pr-shell -->
+
+<script>
+function prNav(key) {
+  if (typeof prism2Show === 'function') prism2Show(key);
+  document.querySelectorAll('#spv-panel-prism .pr-nav-item').forEach(function(n) {
+    n.classList.toggle('active', n.dataset.key === key);
+  });
+  var hl = document.getElementById('pr-hl');
+  var active = document.querySelector('#spv-panel-prism .pr-nav-item[data-key="' + key + '"]');
+  if (hl && active) {
+    var accent = getComputedStyle(active).getPropertyValue('--pr-accent').trim();
+    hl.style.setProperty('--pr-hl', accent);
+    hl.style.top = active.offsetTop + 'px';
+    hl.style.height = active.offsetHeight + 'px';
+  }
+}
+</script>
+      </div>
+    </div>
+  </div><!-- /spv-panel-prism -->
+
+  <div id="spv-panel-casestudies" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+      <div class="lit-wrap">
+        <div class="lit-outer">
+          <div class="lit-track-clip">
+            <div class="lit-track" id="litTrack-all">
+              <a class="lit-card" href="https://www.sciencedirect.com/science/article/pii/S2590123025012794" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#1a7a5e;--lit-glow:rgba(26,122,94,.18);--lit-tint:rgba(26,122,94,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Development and application of a generalized fatigue driving monitoring system for open-pit mining vehicles: A case study in a Myanmar copper mine</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Research Paper</span></div>
+                    <div class="lit-card-source">Source: <span>ScienceDirect</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs-mds-liebherr-haul.jpg" alt="Development and application of a generalized fatigue driving monitoring system for open-pit mining vehicles: A case study in a Myanmar copper mine — mining driving school" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11143282/" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#C85000;--lit-glow:rgba(200,80,0,.18);--lit-tint:rgba(200,80,0,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Autonomous Mining through Cooperative Driving and Operations Enabled by Parallel Intelligence</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Research Paper</span></div>
+                    <div class="lit-card-source">Source: <span>PMC / NCBI</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs-mds-mine-openpit.jpg" alt="Autonomous Mining through Cooperative Driving and Operations Enabled by Parallel Intelligence — mining driving school" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://www.researchgate.net/publication/2281597_Surface_Mine_Truck_Safety_Training_Scenario_Setup_for_a_VR_Driving_Simulator" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#0369a1;--lit-glow:rgba(3,105,161,.18);--lit-tint:rgba(3,105,161,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Surface Mine Truck Safety Training: Scenario Setup for a VR Driving Simulator</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Research Paper</span></div>
+                    <div class="lit-card-source">Source: <span>ResearchGate</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs-mds-dump-truck.jpg" alt="Surface Mine Truck Safety Training: Scenario Setup for a VR Driving Simulator — mining driving school" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://www.netsetsoftware.com/case-study/driving-school.php" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#7c3aed;--lit-glow:rgba(124,58,237,.18);--lit-tint:rgba(124,58,237,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Driving School Case Study</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Case Study</span></div>
+                    <div class="lit-card-source">Source: <span>Netset Software</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/mds-about.jpg" alt="Driving School Case Study — mining driving school" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://journals.sagepub.com/doi/10.1080/25726668.2023.2217669" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#be185d;--lit-glow:rgba(190,24,93,.18);--lit-tint:rgba(190,24,93,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Training of Load Haul Dump (LHD) Machine Operators: A Case Study at LKAB's Kiirunavaara Mine</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Research Paper</span></div>
+                    <div class="lit-card-source">Source: <span>SAGE Journals</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs-mds-cat-bulldozer.jpg" alt="Training of Load Haul Dump (LHD) Machine Operators: A Case Study at LKAB's Kiirunavaara Mine — mining driving school" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://www.scribd.com/document/484633997/DESIGN-AND-IMPLEMENTATION-OF-AN-ELECTRONIC-DRIVING-SCHOOL-SYSTEM-A-CASE-STUDY-OF-DIVINE-DRIVING-SCHOOL-ABAKALIKI-docx" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#b06a10;--lit-glow:rgba(176,106,16,.18);--lit-tint:rgba(176,106,16,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Driving School Management System Overview</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Case Study</span></div>
+                    <div class="lit-card-source">Source: <span>Scribd</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs-mds-cat-grader.jpg" alt="Driving School Management System Overview — mining driving school" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://www.researchgate.net/publication/389836414_Smart_driving_assistance_system_for_mining_operations_in_foggy_environments" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#16a34a;--lit-glow:rgba(22,163,74,.18);--lit-tint:rgba(22,163,74,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Smart Driving Assistance System for Mining Operations in Foggy Environments</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Research Paper</span></div>
+                    <div class="lit-card-source">Source: <span>ResearchGate</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs-mds-mine-blast.jpg" alt="Smart Driving Assistance System for Mining Operations in Foggy Environments — mining driving school" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://kttc.co.in/volvo-training-center-uttarpradesh.php" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#d97706;--lit-glow:rgba(217,119,6,.18);--lit-tint:rgba(217,119,6,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Krishna Technical Training Center UP — Volvo Mining Truck Driving</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Training Institute</span></div>
+                    <div class="lit-card-source">Source: <span>KTTC, Uttar Pradesh</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs-mds-bwe.jpg" alt="Krishna Technical Training Center UP — Volvo Mining Truck Driving — mining driving school" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://courses.iid.org.in/course/driver-special-vehicle-e" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#1a5ca8;--lit-glow:rgba(26,92,168,.18);--lit-tint:rgba(26,92,168,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Institute of Industrial Development — Driver Special Vehicle Course</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Training Institute</span></div>
+                    <div class="lit-card-source">Source: <span>IID, India</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs-mds-liebherr-haul.jpg" alt="Institute of Industrial Development — Driver Special Vehicle Course — mining driving school" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <div class="lit-card"
+                 style="--lit-accent:#0f766e;--lit-glow:rgba(15,118,110,.18);--lit-tint:rgba(15,118,110,.06);cursor:default;">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Star Technical Training Institute</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Training Institute</span></div>
+                    
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs-mds-mine-openpit.jpg" alt="Star Technical Training Institute — mining driving school" loading="lazy"></div>
+                <div class="lit-card-footer" style="opacity:.45;">Not yet linked</div>
+              </div>
+
+              <a class="lit-card" href="https://www.komatsu.eu/en/driving-academy" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#9333ea;--lit-glow:rgba(147,51,234,.18);--lit-tint:rgba(147,51,234,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Komatsu Operator Training: Driving Academy</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Training Academy</span></div>
+                    <div class="lit-card-source">Source: <span>Komatsu Europe</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs-mds-dump-truck.jpg" alt="Komatsu Operator Training: Driving Academy — mining driving school" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://performancedrivingaustralia.com.au/mine-site-training/" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#c2410c;--lit-glow:rgba(194,65,12,.18);--lit-tint:rgba(194,65,12,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Mine Site Driver Training</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Training Programme</span></div>
+                    <div class="lit-card-source">Source: <span>Performance Driving Australia</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/mds-about.jpg" alt="Mine Site Driver Training — mining driving school" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://upmsme.com/project-report/driving-school" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#0284c7;--lit-glow:rgba(2,132,199,.18);--lit-tint:rgba(2,132,199,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Driving School Project Report</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Project Report</span></div>
+                    <div class="lit-card-source">Source: <span>UP MSME</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs-mds-cat-bulldozer.jpg" alt="Driving School Project Report — mining driving school" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://vidyatec.com/blog/driving-safety-in-mining-through-risk-based-inspections-in-mining/" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#15803d;--lit-glow:rgba(21,128,61,.18);--lit-tint:rgba(21,128,61,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Driving Safety in Mining through Risk-based Inspections</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Industry Article</span></div>
+                    <div class="lit-card-source">Source: <span>Vidyatec</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs-mds-cat-grader.jpg" alt="Driving Safety in Mining through Risk-based Inspections — mining driving school" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <div class="lit-card"
+                 style="--lit-accent:#b45309;--lit-glow:rgba(180,83,9,.18);--lit-tint:rgba(180,83,9,.06);cursor:default;">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Mining Education / Training Centers</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Training Resource</span></div>
+                    
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs-mds-mine-blast.jpg" alt="Mining Education / Training Centers — mining driving school" loading="lazy"></div>
+                <div class="lit-card-footer" style="opacity:.45;">Not yet linked</div>
+              </div>
+
+              <a class="lit-card" href="https://link.springer.com/article/10.1007/s44291-025-00054-1" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#7c3aed;--lit-glow:rgba(124,58,237,.18);--lit-tint:rgba(124,58,237,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Simulation Based Mining Training Centers</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Research Paper</span></div>
+                    <div class="lit-card-source">Source: <span>Springer</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs-mds-bwe.jpg" alt="Simulation Based Mining Training Centers — mining driving school" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://www.mdpi.com/2076-3417/13/20/11597" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#1a7a5e;--lit-glow:rgba(26,122,94,.18);--lit-tint:rgba(26,122,94,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Research on the Comprehensive Evaluation Method of Driving Behavior of Mining Truck Drivers in an Open-Pit Mine</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Research Paper</span></div>
+                    <div class="lit-card-source">Source: <span>MDPI Applied Sciences</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs-mds-liebherr-haul.jpg" alt="Research on the Comprehensive Evaluation Method of Driving Behavior of Mining Truck Drivers in an Open-Pit Mine — mining driving school" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://www.suncor.com/-/media/project/suncor/files/contractors-and-suppliers/supplier-health-and-safety/fort%20hills/driving-in-the-mine-rms0006a-en.pdf" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#C85000;--lit-glow:rgba(200,80,0,.18);--lit-tint:rgba(200,80,0,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Driving in the Mine</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Safety Document</span></div>
+                    <div class="lit-card-source">Source: <span>Suncor Energy (Fort Hills)</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs-mds-mine-openpit.jpg" alt="Driving in the Mine — mining driving school" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> View PDF</div>
+              </a>
+
+            </div><!-- /lit-track -->
+          </div><!-- /lit-track-clip -->
+          <div class="lit-nav">
+            <button class="lit-nav-btn" id="litPrev-all" onclick="litMove('all',-1)" aria-label="Previous">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <div class="lit-dots" id="litDots-all"></div>
+            <button class="lit-nav-btn" id="litNext-all" onclick="litMove('all',1)" aria-label="Next">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+          </div>
+        </div><!-- /lit-outer -->
+      </div><!-- /lit-wrap -->
+    </div>
+  </div><!-- /spv-panel-casestudies -->
+
+  <div id="spv-panel-tender" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+  <div class="t5-wrap">
+    <div class="t5-topbar">
+      <div class="t5-pills">
+        <button class="t5-pill t5-pill--all active" onclick="t5Filter('all')">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          All Documents <span class="t5-pill-count" id="t5cnt-all">5</span>
+        </button>
+        <button class="t5-pill--rpt t5-pill" data-sec="rpt" onclick="t5Filter('rpt')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          Reports &amp; DPR <span class="t5-pill-count" id="t5cnt-rpt">5</span>
+        </button>
+      </div>
+      <div class="t5-right">
+        <div class="t5-search-wrap">
+          <svg class="t5-search-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input id="t5SearchInput" class="t5-search" type="text" placeholder="Search documents…" oninput="t5Search(this.value)">
+        </div>
+        <span class="t5-counter" id="t5Counter"></span>
+      </div>
+    </div>
+    <div id="t5Sections">
+      <div class="t5-section" data-sec="rpt" style="animation-delay:0.30s">
+        <div class="t5-section-header">
+          <div class="t5-section-bar" style="background:#0369a1"></div>
+          <span class="t5-section-label" style="color:#0369a1">Reports &amp; DPR</span>
+          <span class="t5-section-count">5 documents</span>
+        </div>
+        <div class="t5-list">
+          <a class="t5-row t5-row--rpt" data-sec="rpt"
+             data-title="krishna technical training center up"
+             href="https://kttc.co.in/volvo-training-center-uttarpradesh.php#:~:text=100%25%20Practical%20Driving%20in%20Mining,knowledge%20of%20Volvo%20Truck%20Driving" target="_blank" rel="noopener"
+             style="--row-accent:#0369a1">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Krishna Technical Training Center UP</div>
+              <div class="t5-sub">kttc.co.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">Resource</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rpt" data-sec="rpt"
+             data-title="institue of industrial development"
+             href="https://courses.iid.org.in/course/driver-special-vehicle-e" target="_blank" rel="noopener"
+             style="--row-accent:#0369a1">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Institue of Industrial Development</div>
+              <div class="t5-sub">courses.iid.org.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">Resource</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rpt" data-sec="rpt"
+             data-title="komatsu operator training: driving academy"
+             href="https://www.komatsu.eu/en/driving-academy" target="_blank" rel="noopener"
+             style="--row-accent:#0369a1">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Komatsu Operator Training: Driving Academy</div>
+              <div class="t5-sub">komatsu.eu</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">Resource</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rpt" data-sec="rpt"
+             data-title="mine site driver training"
+             href="https://performancedrivingaustralia.com.au/mine-site-training/" target="_blank" rel="noopener"
+             style="--row-accent:#0369a1">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Mine Site Driver Training</div>
+              <div class="t5-sub">performancedrivingaustralia.com.au</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">Resource</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rpt" data-sec="rpt"
+             data-title="driving school project report"
+             href="https://upmsme.com/project-report/driving-school" target="_blank" rel="noopener"
+             style="--row-accent:#0369a1">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Driving School Project Report</div>
+              <div class="t5-sub">upmsme.com</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">Resource</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+        </div>
+      </div><!-- /rpt section -->
+    </div><!-- /t5Sections -->
+  </div><!-- /t5-wrap -->
+    </div>
+  </div><!-- /spv-panel-tender -->
+
+  <div id="spv-panel-media" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+      
+      <div class="media-stack">
+        <a class="media-row" href="https://timesofindia.indiatimes.com/education/news/idtr-first-to-start-specialised-training-for-mining-construction-vehicles-driving/articleshow/94861521.cms" target="_blank" rel="noopener noreferrer" style="--mr-accent:#1a5ca8;--mr-tint:rgba(26,92,168,.1);">
+          <div class="media-row-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a5ca8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+          <div class="media-row-main">
+            <div class="media-row-tag">News Article · India</div>
+            <div class="media-row-title">IDTR First to Start Specialised Training for Mining &amp; Construction Vehicles Driving</div>
+            <div class="media-row-source"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><line x1="2" y1="8" x2="14" y2="8"/><path d="M8 2a10 10 0 010 12M8 2a10 10 0 000 12"/></svg>timesofindia.indiatimes.com</div>
+          </div>
+          <div class="media-row-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/></svg></div>
+        </a>
+        <a class="media-row" href="https://www.bhp.com/sustainability/communities/programs/2026/01/the-mining-school-of-excellence" target="_blank" rel="noopener noreferrer" style="--mr-accent:#C85000;--mr-tint:rgba(200,80,0,.1);">
+          <div class="media-row-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C85000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+          <div class="media-row-main">
+            <div class="media-row-tag">Corporate Initiative · BHP</div>
+            <div class="media-row-title">The Mining School of Excellence</div>
+            <div class="media-row-source"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><line x1="2" y1="8" x2="14" y2="8"/><path d="M8 2a10 10 0 010 12M8 2a10 10 0 000 12"/></svg>bhp.com</div>
+          </div>
+          <div class="media-row-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/></svg></div>
+        </a>
+        <a class="media-row" href="https://revistamineria.com.pe/english/impact-of-simulator-based-training-for-mine-drivers:-statistical-analysis-of-key-variables" target="_blank" rel="noopener noreferrer" style="--mr-accent:#1a7a5e;--mr-tint:rgba(26,122,94,.1);">
+          <div class="media-row-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a7a5e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+          <div class="media-row-main">
+            <div class="media-row-tag">Research Article · Revista Minería</div>
+            <div class="media-row-title">Impact of Simulator-Based Training for Mine Drivers: Statistical Analysis of Key Variables</div>
+            <div class="media-row-source"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><line x1="2" y1="8" x2="14" y2="8"/><path d="M8 2a10 10 0 010 12M8 2a10 10 0 000 12"/></svg>revistamineria.com.pe</div>
+          </div>
+          <div class="media-row-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/></svg></div>
+        </a>
+        <a class="media-row" href="https://mining-report.de/english/digital-media-in-mining-education/" target="_blank" rel="noopener noreferrer" style="--mr-accent:#7c3aed;--mr-tint:rgba(124,58,237,.1);">
+          <div class="media-row-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+          <div class="media-row-main">
+            <div class="media-row-tag">Industry Article · Mining Report</div>
+            <div class="media-row-title">Digital Media in Mining Education</div>
+            <div class="media-row-source"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><line x1="2" y1="8" x2="14" y2="8"/><path d="M8 2a10 10 0 010 12M8 2a10 10 0 000 12"/></svg>mining-report.de</div>
+          </div>
+          <div class="media-row-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/></svg></div>
+        </a>
+        <a class="media-row" href="https://australian4wd.com.au/why-4wd-driver-training-is-essential-for-the-mining-industry/" target="_blank" rel="noopener noreferrer" style="--mr-accent:#0369a1;--mr-tint:rgba(3,105,161,.1);">
+          <div class="media-row-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0369a1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+          <div class="media-row-main">
+            <div class="media-row-tag">Industry Article · Australian 4WD</div>
+            <div class="media-row-title">Why 4WD Driver Training is Essential for the Mining Industry</div>
+            <div class="media-row-source"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><line x1="2" y1="8" x2="14" y2="8"/><path d="M8 2a10 10 0 010 12M8 2a10 10 0 000 12"/></svg>australian4wd.com.au</div>
+          </div>
+          <div class="media-row-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/></svg></div>
+        </a>
+      </div><!-- /media-stack -->
+    </div>
+    <p style="font-size:0.72rem; color:var(--color-text-secondary); font-style:italic; margin-top:16px;">Links open external websites. Coal Controller Organisation does not endorse third-party content.</p>
+  </div><!-- /spv-panel-media -->
+
+  <div id="spv-panel-agencies" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+
+      <div class="agencies-logo-grid">
+
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img">
+            <img src="../images/agencies/Caterpillar India Pvt Ltd.png" alt="Caterpillar India Pvt Ltd" style="max-width:100%; max-height:64px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">Caterpillar India Pvt Ltd</div>
+          <div class="agency-logo-type">Heavy equipment simulator supply, training track design, shed construction &amp; centre commissioning</div>
+        </div>
+
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img agency-logo-inner--img--dark" style="background:#003087; border-radius:10px;">
+            <img src="../images/agencies/Komatsu India Pvt Ltd.png" alt="Komatsu India Pvt Ltd" style="max-width:100%; max-height:64px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">Komatsu India Pvt Ltd</div>
+          <div class="agency-logo-type">Mine equipment operator training facility setup, simulator installation &amp; training bay commissioning</div>
+        </div>
+
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img agency-logo-inner--img--dark">
+            <img src="../images/agencies/Volvo CE India Pvt Ltd.jpg" alt="Volvo CE India Pvt Ltd" style="max-width:100%; max-height:64px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">Volvo CE India Pvt Ltd</div>
+          <div class="agency-logo-type">Heavy equipment training centre setup, simulator &amp; outdoor training track layout</div>
+        </div>
+
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img">
+            <img src="../images/agencies/Tata Hitachi Construction Machinery.png" alt="Tata Hitachi Construction Machinery" style="max-width:100%; max-height:64px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">Tata Hitachi Construction Machinery</div>
+          <div class="agency-logo-type">Equipment-linked operator training facility, simulators &amp; training bay setup</div>
+        </div>
+
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img" style="background:#111; border-radius:10px;">
+            <img src="../images/agencies/BEML Ltd.jpg" alt="BEML Ltd" style="max-width:100%; max-height:64px; object-fit:contain; border-radius:6px;">
+          </div>
+          <div class="agency-logo-name">BEML Ltd</div>
+          <div class="agency-logo-type">Mine equipment supply, operator training bay setup &amp; facility commissioning</div>
+        </div>
+
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img">
+            <img src="../images/agencies/Sandvik India Pvt Ltd.svg" alt="Sandvik India Pvt Ltd" style="max-width:100%; max-height:64px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">Sandvik India Pvt Ltd</div>
+          <div class="agency-logo-type">Underground mining equipment training centre &amp; simulator commissioning</div>
+        </div>
+
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img">
+            <img src="../images/agencies/NCC Ltd (Nagarjuna Construction Co.).png" alt="NCC Ltd (Nagarjuna Construction)" style="max-width:100%; max-height:64px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">NCC Ltd (Nagarjuna Construction)</div>
+          <div class="agency-logo-type">Civil construction of training facility buildings, classrooms &amp; equipment bays</div>
+        </div>
+
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img agency-logo-inner--img--dark" style="background:#1D3461; border-radius:10px;">
+            <img src="../images/landt-logo.png" alt="L&amp;T Construction Equipment Div." style="max-width:100%; max-height:64px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">L&amp;T Construction Equipment Div.</div>
+          <div class="agency-logo-type">Operator training facility civil design, equipment yard &amp; simulator shed build</div>
+        </div>
+
+      </div><!-- /agencies-logo-grid -->
+
+      <!-- Disclaimer -->
+      <div style="margin-top:28px; padding:14px 18px; background:rgba(33,128,141,.05); border:1px solid rgba(33,128,141,.18); border-radius:8px; display:flex; gap:12px; align-items:flex-start;">
+        <svg style="flex-shrink:0; margin-top:2px;" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#21808d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <p style="margin:0; font-family:var(--font-sans); font-size:0.8rem; color:var(--color-text-secondary); line-height:1.65;">
+          <strong style="color:var(--color-text); font-weight:600;">Disclaimer:</strong>
+          Inclusion of an agency on this list does not constitute endorsement, empanelment, or recommendation by the Coal Controller Organisation or the Ministry of Coal, Government of India. Mine owners and project proponents are advised to conduct their own due diligence process before engaging any agency.
+        </p>
+      </div>
+
+    </div>
+  </div><!-- /spv-panel-agencies -->
+
+  <div id="spv-panel-experts" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+      <div class="experts-grid">
+
+       
+        
+        
+
+        
+
+        
+
+      </div><!-- /experts-grid -->
+      <div style="margin-top:28px;padding:14px 18px;background:rgba(33,128,141,.05);border:1px solid rgba(33,128,141,.18);border-radius:8px;display:flex;gap:12px;align-items:flex-start;">
+        <svg style="flex-shrink:0;margin-top:2px;" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#21808d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <p style="margin:0;font-family:var(--font-sans);font-size:0.8rem;color:var(--color-text-secondary);line-height:1.65;"><strong style="color:var(--color-text);font-weight:600;">Disclaimer:</strong> Inclusion of an expert does not constitute endorsement, empanelment, or recommendation by the Coal Controller Organisation or the Ministry of Coal, Government of India. Users are advised to independently verify credentials and suitability before engaging any individual.</p>
+      </div>
+    </div>
+  </div><!-- /spv-panel-experts -->
+
+  <!-- Footer -->
+  <footer id="site-footer-sf">
+    &copy; 2026 Coal Controller Organisation, Ministry of Coal, Government of India.
+  </footer>
+
+</div><!-- /page -->
+
+<!-- ═══════════════════════════════════════════════════════
+     SCRIPTS — edit only the PRISM2_COLORS and PRISM2_BG values
+     ═══════════════════════════════════════════════════════ -->
+<script>
+const PRISM2_COLORS = {P:'#C85000', R:'#1a5ca8', I:'#b06a10', S:'#5a3d9e', M:'#1a7a5e'};
+const PRISM2_BG     = {P:'#fff0e6', R:'#e4eef9', I:'#faedda', S:'#edeaf8', M:'#e1f3ec'};
+</script>
+<script src="./category.js"></script>
+<script>
+window.prism2Next = function() {
+  if (prism2Current < PRISM2_ORDER.length - 1) prNav(PRISM2_ORDER[prism2Current + 1]);
+};
+window.prism2Prev = function() {
+  if (prism2Current > 0) prNav(PRISM2_ORDER[prism2Current - 1]);
+};
+
+function downloadPRISM() {
+  var rawTitle = document.title || '';
+  var catName  = rawTitle.split('—')[0].split('-')[0].trim() || 'Category';
+
+  var PC = {P:'#C85000',R:'#1a5ca8',I:'#b06a10',S:'#5a3d9e',M:'#1a7a5e'};
+  var PB = {P:'#fff8f3',R:'#f3f7fd',I:'#fdf7f0',S:'#f7f5fd',M:'#f1faf6'};
+  var PN = {P:'Project Vision',R:'Repurposing Pathways',I:'Investment Dynamics',S:'Strategic Structuring',M:'Monitoring &amp; Management'};
+  var PE = {P:'POST-MINING',R:'REPURPOSING',I:'INVESTMENT',S:'STRATEGY',M:'MANAGEMENT'};
+
+  var introHeadEl = document.querySelector('.pr-intro-heading');
+  var introBodyEl = document.querySelector('.pr-intro-body');
+  var introHead   = introHeadEl ? introHeadEl.textContent : 'A structured framework for mine repurposing from concept to implementation';
+  var introBody   = introBodyEl ? introBodyEl.innerHTML   : '';
+
+  var pillarsHTML = '';
+  ['P','R','I','S','M'].forEach(function(k) {
+    var panel = document.getElementById('prism2-panel-' + k);
+    if (!panel) return;
+
+    var eyebrowEl   = panel.querySelector('.prism2-panel-eyebrow');
+    var titleEl     = panel.querySelector('.prism2-panel-title');
+    var descEl      = panel.querySelector('.prism2-panel-desc');
+    var eyebrow     = eyebrowEl  ? eyebrowEl.textContent  : PE[k];
+    var panelTitle  = titleEl    ? titleEl.textContent    : PN[k];
+    var descHTML    = descEl     ? descEl.innerHTML       : '';
+
+    var accHTML = '';
+    panel.querySelectorAll('.accordion-item').forEach(function(item) {
+      var spans = item.querySelectorAll('.accordion-btn span');
+      var btnText = '';
+      for (var s = 0; s < spans.length; s++) {
+        var t = spans[s].textContent.trim();
+        if (t && t !== '⥤' && t !== '˅') { btnText = t; break; }
+      }
+      var body = item.querySelector('.accordion-body');
+      if (!body) return;
+      var clone = body.cloneNode(true);
+      clone.style.display = '';
+      /* Remove scroll-wrapper overflow so tables span full width */
+      clone.querySelectorAll('.spv-table-wrap').forEach(function(w){w.style.overflowX='visible';});
+      accHTML += '<div class="acc-item">' +
+        '<div class="acc-heading">' + btnText + '</div>' +
+        '<div class="acc-body">' + clone.innerHTML + '</div>' +
+        '</div>';
+    });
+
+    pillarsHTML +=
+      '<div class="pillar" style="border-left-color:' + PC[k] + ';">' +
+        '<div class="pillar-hdr" style="background:' + PC[k] + '18;">' +
+          '<div class="pillar-letter" style="color:' + PC[k] + ';">' + k + '</div>' +
+          '<div class="pillar-info">' +
+            '<div class="pillar-eyebrow" style="color:' + PC[k] + ';">' + eyebrow + '</div>' +
+            '<div class="pillar-name">' + panelTitle + '</div>' +
+            (descHTML ? '<div class="pillar-desc">' + descHTML + '</div>' : '') +
+          '</div>' +
+        '</div>' +
+        '<div class="pillar-content">' + accHTML + '</div>' +
+      '</div>';
+  });
+
+  var css = [
+    '*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}',
+    'body{font-family:"Segoe UI",Arial,sans-serif;font-size:10pt;color:#1a1a1a;line-height:1.65;background:#fff}',
+    '@page{size:A4;margin:16mm 14mm}',
+    /* ── Cover ── */
+    '.cover{margin-bottom:28pt;padding-bottom:22pt;border-bottom:1.5pt solid #ddd}',
+    '.rainbow{height:5pt;border-radius:99pt;background:linear-gradient(to right,#7C3AB5,#4f6de0,#0ea5e9,#1D9E75,#3B6D11,#BA7517,#C85000,#A32D2D);margin-bottom:18pt}',
+    '.cover-eye{font-size:7.5pt;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#888;margin-bottom:7pt}',
+    '.cover-title{font-size:24pt;font-weight:800;color:#111;line-height:1.15;margin-bottom:5pt}',
+    '.cover-sub{font-size:11pt;font-weight:600;color:#444;margin-bottom:11pt}',
+    '.cover-body{font-size:9pt;color:#555;line-height:1.75}',
+    /* ── Pillars ── */
+    '.pillars{display:flex;flex-direction:column;gap:20pt}',
+    '.pillar{border-left:4pt solid #ccc;border-radius:6pt;overflow:hidden;page-break-inside:avoid}',
+    '.pillar-hdr{padding:13pt 15pt 11pt;display:flex;align-items:flex-start;gap:12pt}',
+    '.pillar-letter{font-size:30pt;font-weight:800;line-height:1;flex-shrink:0;width:38pt;opacity:.85}',
+    '.pillar-info{flex:1}',
+    '.pillar-eyebrow{font-size:7pt;font-weight:700;letter-spacing:.11em;text-transform:uppercase;margin-bottom:2pt}',
+    '.pillar-name{font-size:12.5pt;font-weight:700;color:#111;margin-bottom:3pt}',
+    '.pillar-desc{font-size:8.5pt;color:#555;line-height:1.6}',
+    /* ── Accordion ── */
+    '.pillar-content{background:#fff}',
+    '.acc-item{border-top:1pt solid #e8e8e0}',
+    '.acc-heading{font-size:9pt;font-weight:700;padding:8pt 13pt;color:#2a2a2a;background:#fafaf8}',
+    '.acc-body{font-size:8.5pt;line-height:1.75;color:#444;padding:9pt 13pt 11pt}',
+    /* ── Body content ── */
+    '.spv-body-text{margin-bottom:7pt}',
+    'p{margin-bottom:7pt}',
+    '.spv-list,.spv-list-unstyled{margin:5pt 0 7pt 16pt}',
+    'ul,ol{margin:5pt 0 7pt 16pt}',
+    '.spv-list li,ul li,ol li{margin-bottom:3pt}',
+    /* ── Tables ── */
+    '.spv-table-wrap{margin:7pt 0;overflow:visible}',
+    '.spv-table{width:100%;border-collapse:collapse;font-size:8pt}',
+    '.spv-table th{background:#f0f0ea;font-weight:700;text-align:left;padding:5pt 7pt;border:1pt solid #ccc;vertical-align:top}',
+    '.spv-table td{padding:4.5pt 7pt;border:1pt solid #ccc;vertical-align:top}',
+    '.spv-table tr:nth-child(even) td{background:#f9f9f7}',
+    /* ── Strong/em ── */
+    'strong{font-weight:700}',
+    'em{font-style:italic}',
+    /* ── Info/note boxes (if any) ── */
+    '.spv-note,.spv-info{background:#f5f5f0;border-left:3pt solid #aaa;padding:8pt 10pt;margin:6pt 0;font-size:8.5pt}'
+  ].join('\n');
+
+  var html = '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">' +
+    '<title>PRISM — ' + catName + '<\/title>' +
+    '<style>' + css + '<\/style><\/head><body>' +
+    '<div class="cover">' +
+      '<div class="rainbow"><\/div>' +
+      '<div class="cover-eye">PRISM Framework — Post-Mining Repurposing &amp; Implementation Strategy Models<\/div>' +
+      '<div class="cover-title">' + catName + '<\/div>' +
+      '<div class="cover-sub">' + introHead + '<\/div>' +
+      (introBody ? '<div class="cover-body">' + introBody + '<\/div>' : '') +
+    '<\/div>' +
+    '<div class="pillars">' + pillarsHTML + '<\/div>' +
+    '<\/body><\/html>';
+
+  var win = window.open('', '_blank', 'width=960,height=750');
+  if (!win) { alert('Please allow pop-ups for this site to download the PDF.'); return; }
+  win.document.write(html);
+  win.document.close();
+  win.focus();
+  setTimeout(function() { win.print(); }, 700);
+}
+
+(function() {
+  var panel = document.getElementById('spv-panel-prism');
+  if (!panel) return;
+  new MutationObserver(function() {
+    if (panel.style.display !== 'none') setTimeout(function() { prNav('P'); }, 10);
+  }).observe(panel, { attributes: true, attributeFilter: ['style'] });
+})();
+</script>
+
+<!-- browse-back-script -->
+<script>
+(function(){
+  if(new URLSearchParams(location.search).get('from')==='browse'){
+    var btn=document.querySelector('.back-btn');
+    if(btn){
+      btn.onclick=function(){window.location.href='../browse.html';};
+      btn.setAttribute('aria-label','Back to Browse');
+      for(var i=btn.childNodes.length-1;i>=0;i--){
+        var n=btn.childNodes[i];
+        if(n.nodeType===3&&n.textContent.trim()){n.textContent=' Back to Browse';break;}
+      }
+    }
+    var cr=document.querySelector('.sf-breadcrumb span:not(.sep)');
+    if(cr)cr.textContent='All Categories';
+  }
+})();
+</script>
+</body>
+</html>
