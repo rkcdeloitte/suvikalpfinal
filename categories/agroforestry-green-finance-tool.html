@@ -37,8 +37,8 @@
        flex:1 (not a fixed width) so the panel's right edge always lines
        up with the heading/intro above, whatever the viewport width. */
     .sgft-live-panel { flex: 1; min-width: 0; }
-    .sgft-live-title { margin: 0 0 2px; font-family: var(--font-sans); font-size: 0.95rem; font-weight: 700; color: var(--color-teal-700); }
-    .sgft-live-sub { margin: 0 0 14px; font-family: var(--font-sans); font-size: var(--fs-xs); color: var(--color-text-secondary); }
+    .sgft-live-title { margin: 0 0 2px; font-family: var(--font-sans); font-size: 1.05rem; font-weight: 700; color: var(--color-teal-700); }
+    .sgft-live-sub { margin: 0 0 14px; font-family: var(--font-sans); font-size: var(--fs-sm); color: var(--color-text-secondary); }
     .sgft-live-grid { display: flex; flex-direction: column; gap: 10px; }
     .sgft-live-empty { padding: 20px 16px; border-radius: var(--radius-lg); background: var(--color-gray-200); text-align: center; font-family: var(--font-sans); font-size: var(--fs-sm); color: var(--color-text-secondary); }
     .sgft-live-card {
@@ -58,8 +58,8 @@
     .sgft-live-card-ring-label { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: var(--font-sans); font-size: 0.56rem; font-weight: 700; }
     /* only the name/tier lines sit next to the ring, so only they need
        room reserved for it — the text below reclaims the full card width */
-    .sgft-live-card-name { margin: 0 0 2px; padding-right: 56px; font-family: var(--font-sans); font-size: 0.8rem; font-weight: 700; line-height: 1.25; color: var(--color-text); }
-    .sgft-live-card-tier { margin: 0 0 8px; padding-right: 56px; font-family: var(--font-sans); font-size: 0.7rem; font-weight: 700; }
+    .sgft-live-card-name { margin: 0 0 2px; padding-right: 56px; font-family: var(--font-sans); font-size: 0.92rem; font-weight: 700; line-height: 1.25; color: var(--color-text); }
+    .sgft-live-card-tier { margin: 0 0 8px; padding-right: 56px; font-family: var(--font-sans); font-size: 0.8rem; font-weight: 700; }
     .sgft-live-t-low  .sgft-live-card-tier { color: var(--color-red-500); }
     .sgft-live-t-mid  .sgft-live-card-tier { color: #92400e; }
     .sgft-live-t-high .sgft-live-card-tier { color: #166534; }
@@ -69,27 +69,30 @@
     .sgft-live-card-textwrap { max-height: 110px; overflow-y: auto; padding-right: 4px; }
     .sgft-live-card-textwrap::-webkit-scrollbar { width: 5px; }
     .sgft-live-card-textwrap::-webkit-scrollbar-thumb { background: var(--color-card-border); border-radius: var(--radius-full); }
-    .sgft-live-card-text { margin: 0 0 6px; font-family: var(--font-sans); font-size: 0.72rem; line-height: 1.55; color: var(--color-text-secondary); }
+    .sgft-live-card-text { margin: 0 0 6px; font-family: var(--font-sans); font-size: 0.85rem; line-height: 1.55; color: var(--color-text-secondary); }
     .sgft-live-card-text:last-child { margin-bottom: 0; }
     .sgft-live-card-reco { color: var(--color-teal-700); }
 
     /* abbreviations (NDA, GCF, etc.) get a custom tooltip instead of the
        native title="" one — the browser's built-in tooltip has a built-in
        ~1s delay before it appears that can't be shortened, this shows
-       instantly on hover/focus */
-    .sgft-abbr { position: relative; border-bottom: 1px dotted var(--color-text-secondary); cursor: help; }
-    .sgft-abbr-tip {
-      display: none; position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%);
-      margin-bottom: 6px; padding: 5px 9px; border-radius: var(--radius);
+       instantly on hover/focus. It's a single floating element positioned
+       by JS (like the old info-popover) rather than living inside the
+       abbr itself, because abbrs often sit inside the scrollable card
+       text — an absolutely-positioned tip there gets clipped/misplaced. */
+    .sgft-abbr { border-bottom: 1px dotted var(--color-text-secondary); cursor: help; }
+    #sgft-abbr-tip {
+      display: none; position: fixed; z-index: 200;
+      padding: 5px 9px; border-radius: var(--radius);
       background: var(--color-slate-900); color: #fff; font-family: var(--font-sans);
-      font-size: 0.7rem; font-weight: 500; white-space: nowrap; z-index: 60;
+      font-size: 0.7rem; font-weight: 500; white-space: nowrap;
       box-shadow: var(--shadow-md);
     }
-    .sgft-abbr:hover .sgft-abbr-tip, .sgft-abbr:focus .sgft-abbr-tip { display: block; }
+    #sgft-abbr-tip.open { display: block; }
 
     .sgft-live-overall { margin-top: 14px; padding: 10px 12px; border-radius: var(--radius); background: var(--color-gray-200); text-align: center; }
-    .sgft-live-overall-label { font-family: var(--font-sans); font-size: 0.62rem; color: var(--color-text-secondary); margin: 0 0 3px; text-transform: uppercase; letter-spacing: .04em; font-weight: 700; }
-    .sgft-live-overall-value { font-family: var(--font-sans); font-size: 0.82rem; font-weight: 700; margin: 0; }
+    .sgft-live-overall-label { font-family: var(--font-sans); font-size: 0.7rem; color: var(--color-text-secondary); margin: 0 0 3px; text-transform: uppercase; letter-spacing: .04em; font-weight: 700; }
+    .sgft-live-overall-value { font-family: var(--font-sans); font-size: 0.95rem; font-weight: 700; margin: 0; }
 
     .sgft-progress-head { padding: 16px 24px 14px; border-bottom: 1px solid var(--color-card-border); }
     .sgft-progress-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
@@ -195,8 +198,10 @@
 
     /* recommendation info (Final Result cards): teal wash — signals "do this",
        matching the teal used for recommendation text everywhere else in the tool */
-    .sgft-result .sgft-info-content { background: var(--color-teal-border); color: var(--color-teal-700); border: 1px solid rgba(33,128,141,.3); text-align: left; }
-    .sgft-result .sgft-info-content::before { background: var(--color-teal-700); }
+    .sgft-result .sgft-info-content,
+    .sgft-live-card .sgft-info-content { background: var(--color-teal-border); color: var(--color-teal-700); border: 1px solid rgba(33,128,141,.3); text-align: left; }
+    .sgft-result .sgft-info-content::before,
+    .sgft-live-card .sgft-info-content::before { background: var(--color-teal-700); }
 
     .sgft-verdict { display: flex; align-items: center; gap: 10px; margin: 0 0 20px; }
     .sgft-verdict-icon { width: 20px; height: 20px; flex-shrink: 0; }
@@ -416,6 +421,40 @@
     const answers = {};
     let step = 0;
 
+    // swaps native title="" tooltips for a custom one that shows instantly —
+    // call this after inserting any HTML that might contain <abbr> tags.
+    // one shared floating tip, positioned in JS, so it always escapes any
+    // scrollable or animated ancestor instead of getting clipped
+    const abbrTip = document.createElement("div");
+    abbrTip.id = "sgft-abbr-tip";
+    document.body.appendChild(abbrTip);
+
+    function showAbbrTip(el) {
+      abbrTip.textContent = el.dataset.full;
+      abbrTip.classList.add("open");
+      const rect = el.getBoundingClientRect();
+      let left = rect.left + rect.width / 2 - abbrTip.offsetWidth / 2;
+      const maxLeft = window.innerWidth - abbrTip.offsetWidth - 8;
+      if (left > maxLeft) left = maxLeft;
+      if (left < 8) left = 8;
+      abbrTip.style.left = left + "px";
+      abbrTip.style.top = (rect.top - abbrTip.offsetHeight - 6) + "px";
+    }
+    function hideAbbrTip() { abbrTip.classList.remove("open"); }
+
+    function enhanceAbbreviations() {
+      document.querySelectorAll("abbr[title]").forEach((el) => {
+        el.classList.add("sgft-abbr");
+        el.dataset.full = el.getAttribute("title");
+        el.removeAttribute("title");
+        el.setAttribute("tabindex", "0");
+        el.addEventListener("mouseenter", () => showAbbrTip(el));
+        el.addEventListener("mouseleave", hideAbbrTip);
+        el.addEventListener("focus", () => showAbbrTip(el));
+        el.addEventListener("blur", hideAbbrTip);
+      });
+    }
+
     const TIER_LABEL = { ineligible: "Ineligible", moderate: "Moderately Eligible", high: "Highly Eligible" };
     const TIER_CLASS = { ineligible: "sgft-low", moderate: "sgft-mid", high: "sgft-high" };
 
@@ -599,6 +638,23 @@
     const TIER_RING_COLOR = { ineligible: "var(--color-red-500)", moderate: "var(--gold)", high: "#166534" };
     const TIER_CARD_CLASS = { ineligible: "sgft-live-t-low", moderate: "sgft-live-t-mid", high: "sgft-live-t-high" };
 
+    // when a recommendation includes a separate "Enhancement Measures"
+    // step, that part goes behind its own click-to-reveal instead of
+    // always showing inline — keeps the always-visible part short while
+    // the follow-up action is still one click away, not hidden away
+    function renderRecoText(reco) {
+      if (!reco) return "";
+      const marker = "Enhancement Measures:";
+      const idx = reco.indexOf(marker);
+      if (idx === -1) {
+        return `<p class="sgft-live-card-text sgft-live-card-reco">${reco}</p>`;
+      }
+      const before = reco.slice(0, idx).trim();
+      const after = reco.slice(idx);
+      const beforeHtml = before ? `<p class="sgft-live-card-text sgft-live-card-reco">${before}</p>` : "";
+      return `${beforeHtml}<span class="sgft-info-wrap"><button type="button" class="sgft-info-btn" aria-label="Enhancement measures">Enhancement measures</button><span class="sgft-info-content">${after}</span></span>`;
+    }
+
     function buildLivePreview(qid) {
       const grid = document.getElementById("live-grid");
       const overall = document.getElementById("live-overall");
@@ -618,6 +674,7 @@
         grid.innerHTML = `<p class="sgft-live-empty">Answer a question to see its impact here.</p>`;
         overall.innerHTML = "";
         overall.style.display = "none";
+        enhanceAbbreviations();
         return;
       }
       overall.style.display = "";
@@ -641,7 +698,7 @@
           <p class="sgft-live-card-tier">${tierLabel}</p>
           ${(reason || reco) ? `<div class="sgft-live-card-textwrap">
             ${reason ? `<p class="sgft-live-card-text">${reason}</p>` : ""}
-            ${reco ? `<p class="sgft-live-card-text sgft-live-card-reco">${reco}</p>` : ""}
+            ${renderRecoText(reco)}
           </div>` : ""}
         </div>`;
       }).join("");
@@ -662,6 +719,7 @@
         color = counts.ineligible ? "var(--color-red-500)" : "var(--gold)";
       }
       overall.innerHTML = `<p class="sgft-live-overall-label">This answer's impact</p><p class="sgft-live-overall-value" style="color:${color};">${label}</p>`;
+      enhanceAbbreviations();
     }
 
     // shared by the final result — needs a tier count per instrument,
@@ -757,6 +815,7 @@
       const tierCounts = { high: 0, moderate: 0, ineligible: 0 };
       touched.forEach(({ id }) => { tierCounts[result[id].tier] += 1; });
       renderVerdict(document.getElementById("final-verdict-container"), tierCounts, touched.length, "No instruments affected");
+      enhanceAbbreviations();
     }
 
     // progress dots — one per question, sitting right on the fill track,
@@ -830,19 +889,10 @@
     });
 
     // "More info" opens the text right below itself (normal page flow, not
-    // a floating box) — hover for desktop, click still works too so touch
-    // and keyboard users aren't left out. Delegated on document so it works
-    // for the question-info button and the recommendation buttons that get
-    // rebuilt on every answer. mouseenter/mouseleave don't bubble, but
-    // capture-phase listeners still see them on the way down.
-    document.addEventListener("mouseenter", (e) => {
-      const btn = e.target.closest && e.target.closest(".sgft-info-btn");
-      if (btn) btn.nextElementSibling.classList.add("open");
-    }, true);
-    document.addEventListener("mouseleave", (e) => {
-      const btn = e.target.closest && e.target.closest(".sgft-info-btn");
-      if (btn) btn.nextElementSibling.classList.remove("open");
-    }, true);
+    // a floating box) — click only, so it doesn't pop open just from the
+    // mouse passing over it. Delegated on document so it works for the
+    // question-info button and the recommendation buttons that get rebuilt
+    // on every answer.
     document.addEventListener("click", (e) => {
       const btn = e.target.closest(".sgft-info-btn");
       if (btn) btn.nextElementSibling.classList.toggle("open");
