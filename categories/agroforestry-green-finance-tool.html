@@ -63,6 +63,28 @@
     .sgft-live-t-low  .sgft-live-card-tier { color: var(--color-red-500); }
     .sgft-live-t-mid  .sgft-live-card-tier { color: #92400e; }
     .sgft-live-t-high .sgft-live-card-tier { color: #166534; }
+
+    /* small pill link to the underlying procedure doc — quiet by default,
+       tinted to the card's tier so it reads as part of the card rather
+       than a bolted-on control */
+    .sgft-live-card-proc {
+      position: relative;
+      display: inline-flex; align-items: center; gap: 4px;
+      margin-top: 2px; padding: 4px 10px;
+      border-radius: var(--radius-full);
+      font-family: var(--font-sans); font-size: 0.74rem; font-weight: 600;
+      text-decoration: none;
+      background: rgba(255,255,255,.55);
+      border: 1px solid currentColor;
+      transition: background-color .15s ease, transform .1s ease;
+    }
+    .sgft-live-card-proc span { transition: transform .15s ease; }
+    .sgft-live-card-proc:hover { background: rgba(255,255,255,.9); transform: translateY(-1px); }
+    .sgft-live-card-proc:hover span { transform: translate(1px, -1px); }
+    .sgft-live-card-proc:active { transform: translateY(0); }
+    .sgft-live-t-low  .sgft-live-card-proc { color: var(--color-red-500); }
+    .sgft-live-t-mid  .sgft-live-card-proc { color: #92400e; }
+    .sgft-live-t-high .sgft-live-card-proc { color: #166534; }
     /* abbreviations (NDA, GCF, etc.) get a custom tooltip instead of the
        native title="" one — the browser's built-in tooltip has a built-in
        ~1s delay before it appears that can't be shortened, this shows
@@ -607,6 +629,14 @@
     const TIER_RING_COLOR = { ineligible: "var(--color-red-500)", moderate: "var(--gold)", high: "#166534" };
     const TIER_CARD_CLASS = { ineligible: "sgft-live-t-low", moderate: "sgft-live-t-mid", high: "sgft-live-t-high" };
 
+    // reference procedure docs for instruments that have one on file —
+    // GCF has no procedure doc yet, so it's simply left out
+    const PROCEDURE_LINKS = {
+      gb: "./procedure/Procedure_Green_Bonds.docx",
+      cc: "./procedure/india-carbon-credit-eligibility.html",
+      gl: "./procedure/Procedure_Green_Loans.docx"
+    };
+
     function buildLivePreview(qid) {
       const grid = document.getElementById("live-grid");
       const overall = document.getElementById("live-overall");
@@ -614,7 +644,7 @@
 
       const touched = INSTRUMENTS
         .map(({ id, title, abbr }) => ({
-          title, abbr,
+          id, title, abbr,
           tier: rule ? rule[id] : undefined,
           reason: (rule && rule.reason && rule.reason[id]) || "",
           reco: (rule && rule.reco && rule.reco[id]) || ""
@@ -633,11 +663,15 @@
 
       const r = 17;
       const circumference = 2 * Math.PI * r;
-      grid.innerHTML = touched.map(({ title, abbr, tier, reason, reco }) => {
+      grid.innerHTML = touched.map(({ id, title, abbr, tier, reason, reco }) => {
         const cardClass = TIER_CARD_CLASS[tier];
         const ringColor = TIER_RING_COLOR[tier];
         const offset = circumference * (1 - TIER_FRACTION[tier]);
         const tierLabel = TIER_LABEL[tier];
+        const procedureHref = PROCEDURE_LINKS[id];
+        const procedureLink = procedureHref
+          ? `<a class="sgft-live-card-proc" href="${procedureHref}" target="_blank" rel="noopener noreferrer">Explore Procedure <span aria-hidden="true">&nearr;</span></a>`
+          : "";
         return `<div class="sgft-live-card ${cardClass}">
           <div class="sgft-live-card-ring">
             <svg width="42" height="42" viewBox="0 0 42 42">
@@ -648,6 +682,7 @@
           </div>
           <p class="sgft-live-card-name">${title}</p>
           <p class="sgft-live-card-tier">${tierLabel}</p>
+          ${procedureLink}
         </div>`;
       }).join("");
 
