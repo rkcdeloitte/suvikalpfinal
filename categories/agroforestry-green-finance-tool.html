@@ -69,7 +69,6 @@
     .sgft-live-row-body { flex: 1; min-width: 0; }
     .sgft-live-name { margin: 0; font-family: var(--font-sans); font-size: var(--fs-sm); font-weight: 600; color: var(--color-text); }
     .sgft-live-text { margin: 4px 0 0; font-family: var(--font-sans); font-size: 0.78rem; color: var(--color-text-secondary); line-height: 1.5; }
-    .sgft-live-text.reco { color: var(--color-teal-700); }
 
     .sgft-checklist { display: flex; flex-direction: column; gap: 24px; }
 
@@ -145,35 +144,31 @@
       transition: max-height .35s ease, padding .35s ease, opacity .3s ease .05s;
     }
 
-    .sgft-clause-inline {
-      margin: 0 0 12px;
-      display: flex;
-      align-items: flex-start;
-      gap: 8px;
-      padding: 9px 11px;
-      border: 1px solid var(--color-card-border);
-      border-left: 3px solid var(--color-primary);
-      border-radius: 0 var(--radius) var(--radius) 0;
-      background: var(--color-gray-200);
-      color: var(--color-text-secondary);
-      font-family: var(--font-sans);
-      font-size: var(--fs-sm);
-      line-height: 1.6;
+
+    /* "More info" link that reveals extra text (question info, recommendations)
+       right under itself, in normal page flow — not a floating popover, so it
+       stays attached to the question/row instead of feeling like a detached
+       overlay. Opens on hover (mouse) and click (touch/keyboard). */
+    .sgft-info-wrap { display: inline; margin-left: 8px; }
+    .sgft-row-body > .sgft-info-wrap { margin: 0 0 4px; }
+    .sgft-info-btn {
+      border: none; background: none; padding: 0;
+      color: var(--color-primary); font-family: var(--font-sans);
+      font-size: 0.72rem; font-weight: 600; text-decoration: underline;
+      cursor: pointer; flex-shrink: 0; white-space: nowrap;
     }
-    .sgft-clause-icon {
-      width: 18px; height: 18px;
-      border-radius: 50%;
-      background: var(--color-teal-border);
-      color: var(--color-teal-700);
-      font-family: var(--font-sans);
-      font-size: 0.7rem;
-      font-weight: 700;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      margin-top: 1px;
+    .sgft-info-btn:hover, .sgft-info-btn.open { color: var(--color-teal-700); }
+    .sgft-info-content {
+      display: none;
+      margin: 6px 0 10px; padding: 9px 11px;
+      border: 1px solid var(--color-card-border); border-left: 3px solid var(--color-primary);
+      border-radius: 0 var(--radius) var(--radius) 0; background: var(--color-gray-200);
+      font-family: var(--font-sans); font-size: var(--fs-sm);
+      color: var(--color-text-secondary); line-height: 1.6; white-space: pre-line;
+      font-weight: 400;
     }
+    .sgft-info-content.open { display: block; }
+    .sgft-info-content ul { margin: 0; padding-left: 16px; }
 
     .sgft-select { display: none; }
     .sgft-options { display: flex; flex-wrap: wrap; gap: 8px; }
@@ -261,7 +256,7 @@
     .sgft-mid  .status { background: #fffbeb; color: #92400e; }
     .sgft-low  .status { background: #fef2f2; color: var(--color-red-500); }
 
-    .sgft-result .reason-list, .sgft-result .reco-list {
+    .sgft-result .reason-list {
       position: relative; list-style: none; margin: 0 0 8px; padding: 0;
     }
     .sgft-result .reason-list li {
@@ -271,16 +266,6 @@
     }
     .sgft-result .reason-list li::before { content: "•"; position: absolute; left: 0; }
     .sgft-result .reason-list li:last-child { margin-bottom: 0; }
-    .sgft-result .reco-list {
-      margin: 0; padding-top: 8px; border-top: 1px dashed var(--color-card-border);
-    }
-    .sgft-result .reco-list li {
-      position: relative; padding-left: 14px; margin-bottom: 6px;
-      font-family: var(--font-sans); font-size: var(--fs-sm);
-      color: var(--color-teal-700); line-height: 1.6;
-    }
-    .sgft-result .reco-list li::before { content: "•"; position: absolute; left: 0; }
-    .sgft-result .reco-list li:last-child { margin-bottom: 0; }
 
     .sgft-final-result { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--color-card-border); }
     .sgft-final-result-title { margin: 0 0 4px; font-family: var(--font-sans); font-size: var(--fs-lg); font-weight: 700; }
@@ -344,7 +329,7 @@
       <div class="sgft-intro">
         <p>Answer all <strong>7 questions</strong>. The result updates live in the panel
           on the right as you go, showing a preliminary eligibility status for Green Bonds,
-          Carbon Credit, GCF and Green Loans, based on the Agroforestry financing criteria.</p>
+          Carbon Credit, <abbr title="Green Climate Fund">GCF</abbr> and Green Loans, based on the Agroforestry financing criteria.</p>
       </div>
 
       <section id="page-questions">
@@ -355,11 +340,11 @@
               <div class="sgft-row active" data-q="q1">
                 <button type="button" class="sgft-row-head">
                   <span class="sgft-row-check"><span class="sgft-row-num">1</span><svg class="sgft-row-checkmark" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l3.5 3.5L13 5"/></svg></span>
-                  <span class="sgft-row-title">Does the project broadly align with the host country's national climate strategy and plans or NDC?</span>
+                  <span class="sgft-row-title">Does the project broadly align with the host country's national climate strategy and plans or <abbr title="Nationally Determined Contribution">NDC</abbr>?</span>
                   <span class="sgft-row-pill"></span>
                 </button>
                 <div class="sgft-row-body">
-                  <p class="sgft-clause-inline"><span class="sgft-clause-icon">i</span><span>Proposals not aligned with national climate priorities may not receive NDA endorsement.</span></p>
+                  <div class="sgft-info-wrap"><button type="button" class="sgft-info-btn" aria-label="More information">More info</button><span class="sgft-info-content">Proposals not aligned with national climate priorities may not receive <abbr title="National Designated Authority">NDA</abbr> endorsement.</span></div>
                   <select class="sgft-select answer" data-q="q1">
                     <option value="">Select</option>
                     <option value="yes">Yes</option>
@@ -375,7 +360,7 @@
                   <span class="sgft-row-pill"></span>
                 </button>
                 <div class="sgft-row-body">
-                  <p class="sgft-clause-inline"><span class="sgft-clause-icon">i</span><span>1. Project need to adhere to Minimum Social Safeguards (MSS) also uphold ethical and inclusive social practices<br>2. Project activities should contribute to environmental goals</span></p>
+                  <div class="sgft-info-wrap"><button type="button" class="sgft-info-btn" aria-label="More information">More info</button><span class="sgft-info-content">1. Project need to adhere to Minimum Social Safeguards (MSS) also uphold ethical and inclusive social practices<br>2. Project activities should contribute to environmental goals</span></div>
                   <select class="sgft-select answer" data-q="q2">
                     <option value="">Select</option>
                     <option value="yes">Yes</option>
@@ -391,7 +376,7 @@
                   <span class="sgft-row-pill"></span>
                 </button>
                 <div class="sgft-row-body">
-                  <p class="sgft-clause-inline"><span class="sgft-clause-icon">i</span><span>Compliance with environmental and social safeguards are key prerequisite for eligibility.</span></p>
+                  <div class="sgft-info-wrap"><button type="button" class="sgft-info-btn" aria-label="More information">More info</button><span class="sgft-info-content">Compliance with environmental and social safeguards are key prerequisite for eligibility.</span></div>
                   <select class="sgft-select answer" data-q="q3">
                     <option value="">Select</option>
                     <option value="yes">Yes</option>
@@ -408,7 +393,7 @@
                   <span class="sgft-row-pill"></span>
                 </button>
                 <div class="sgft-row-body">
-                  <p class="sgft-clause-inline"><span class="sgft-clause-icon">i</span><span>Bankability of the project determines the Green Finance Eligbility. For GCF fully bankable projects without a funding gap do not qualify.</span></p>
+                  <div class="sgft-info-wrap"><button type="button" class="sgft-info-btn" aria-label="More information">More info</button><span class="sgft-info-content">Bankability of the project determines the Green Finance Eligbility. For <abbr title="Green Climate Fund">GCF</abbr> fully bankable projects without a funding gap do not qualify.</span></div>
                   <select class="sgft-select answer" data-q="q4">
                     <option value="">Select</option>
                     <option value="commercial">No</option>
@@ -425,7 +410,7 @@
                   <span class="sgft-row-pill"></span>
                 </button>
                 <div class="sgft-row-body">
-                  <p class="sgft-clause-inline"><span class="sgft-clause-icon">i</span><span>Project implementation a legal obligation or required by law</span></p>
+                  <div class="sgft-info-wrap"><button type="button" class="sgft-info-btn" aria-label="More information">More info</button><span class="sgft-info-content">Project implementation a legal obligation or required by law</span></div>
                   <select class="sgft-select answer" data-q="q5">
                     <option value="">Select</option>
                     <option value="yes">Yes</option>
@@ -442,7 +427,7 @@
                   <span class="sgft-row-pill"></span>
                 </button>
                 <div class="sgft-row-body">
-                  <p class="sgft-clause-inline"><span class="sgft-clause-icon">i</span><span>Required to track the use of proceeds and impact of project as per compliance</span></p>
+                  <div class="sgft-info-wrap"><button type="button" class="sgft-info-btn" aria-label="More information">More info</button><span class="sgft-info-content">Required to track the use of proceeds and impact of project as per compliance</span></div>
                   <select class="sgft-select answer" data-q="q6">
                     <option value="">Select</option>
                     <option value="yes">Yes</option>
@@ -459,7 +444,7 @@
                   <span class="sgft-row-pill"></span>
                 </button>
                 <div class="sgft-row-body">
-                  <p class="sgft-clause-inline"><span class="sgft-clause-icon">i</span><span>Only 1 carbon credit programme per project</span></p>
+                  <div class="sgft-info-wrap"><button type="button" class="sgft-info-btn" aria-label="More information">More info</button><span class="sgft-info-content">Only 1 carbon credit programme per project</span></div>
                   <select class="sgft-select answer" data-q="q7">
                     <option value="">Select</option>
                     <option value="yes">Yes</option>
@@ -528,7 +513,7 @@
           gb: "ineligible", gcf: "ineligible", gl: "ineligible",
           reco: {
             gb: "Project owners need to refer the Climate Transition Finance Handbook for climate change mitigation.\nGreen Expenditures must have alignment with the objectives of National Conservation Strategy and Policy Statement on Environment and Development and the National Environment Policy, 2006.\nExpenditures must also be in agreement with respective state's environmental and social objectives",
-            gcf: "Review the country's NDC, national renewable energy plan, or sector strategy\nAdjust project scope or target beneficiaries to match prioritised sectors in the NDC\nEngage the NDA to understand what Agroforestry contributions are explicitly planned and endorsed",
+            gcf: "Review the country's <abbr title='Nationally Determined Contribution'>NDC</abbr>, national renewable energy plan, or sector strategy\nAdjust project scope or target beneficiaries to match prioritised sectors in the <abbr title='Nationally Determined Contribution'>NDC</abbr>\nEngage the <abbr title='National Designated Authority'>NDA</abbr> to understand what Agroforestry contributions are explicitly planned and endorsed",
             gl: "Project owners need to refer the Climate Transition Finance Handbook for climate change mitigation.\nGreen Expenditures must have alignment with the objectives of National Conservation Strategy and Policy Statement on Environment and Development and the National Environment Policy, 2006.\nExpenditures must also be in agreement with respective state's environmental and social objectives"
           }
         }
@@ -542,18 +527,18 @@
           gb: "ineligible", cc: "ineligible", gcf: "ineligible", gl: "ineligible",
           reason: { cc: "The project developer cannot demonstrate legal authority to operate the project or claim ownership of the carbon benefits. Without legal rights to the land or carbon benefits, ownership of the emission reductions is uncertain." },
           reco: {
-            gb: "Issuers are encouraged to seek through their processes to identify mitigants to known and likely risks of material negative social and/or environmental impacts from the project(s).\nIssuer should refer remediation plan guided by IFC, Equator Principles or other international social standards and ensure full legal and social compliance is documented and verified by an external reviewer.",
+            gb: "Issuers are encouraged to seek through their processes to identify mitigants to known and likely risks of material negative social and/or environmental impacts from the project(s).\nIssuer should refer remediation plan guided by <abbr title='International Finance Corporation'>IFC</abbr>, Equator Principles or other international social standards and ensure full legal and social compliance is documented and verified by an external reviewer.",
             cc: "Enhancement Measures: Obtain legal ownership or land-use rights. Secure contracts transferring carbon rights to the project developer. Resolve land tenure or ownership disputes prior to project validation.",
             gcf: "The project must secure legal land-use rights and obtain required community/Indigenous consent (FPIC) before it can qualify for green financing.",
-            gl: "Issuers are encouraged to seek through their processes to identify mitigants to known and likely risks of material negative social and/or environmental impacts from the project(s).\nIssuer should refer remediation plan guided by IFC, Equator Principles or other international social standards and ensure full legal and social compliance is documented and verified by an external reviewer."
+            gl: "Issuers are encouraged to seek through their processes to identify mitigants to known and likely risks of material negative social and/or environmental impacts from the project(s).\nIssuer should refer remediation plan guided by <abbr title='International Finance Corporation'>IFC</abbr>, Equator Principles or other international social standards and ensure full legal and social compliance is documented and verified by an external reviewer."
           }
         }
       },
       q3: {
         yes: {
           gb: "high", gcf: "high", gl: "high",
-          reason: { gcf: "Must comply with IFC-aligned safeguards to prevent harm." },
-          reco: { gcf: "GCF requires compliance with its ESS (IFC Performance Standards). Commission a scoping-level ESIA before concept note submission, identify a qualified E&S consultant with IFC PS experience, and document the E&S risk category (A/B/C)." }
+          reason: { gcf: "Must comply with <abbr title='International Finance Corporation'>IFC</abbr>-aligned safeguards to prevent harm." },
+          reco: { gcf: "<abbr title='Green Climate Fund'>GCF</abbr> requires compliance with its <abbr title='Environmental and Social Safeguards'>ESS</abbr> (<abbr title='International Finance Corporation'>IFC</abbr> Performance Standards). Commission a scoping-level <abbr title='Environmental and Social Impact Assessment'>ESIA</abbr> before concept note submission, identify a qualified E&S consultant with <abbr title='International Finance Corporation'>IFC</abbr> PS experience, and document the E&S risk category (A/B/C)." }
         },
         no: {
           gb: "ineligible", gcf: "ineligible", gl: "ineligible",
@@ -569,11 +554,11 @@
           gb: "high", cc: "ineligible", gcf: "ineligible", gl: "high",
           reason: {
             cc: "The project would proceed regardless of carbon credits, so it is not additional — carbon finance isn't the deciding factor.",
-            gcf: "GCF will not fund projects that can attract commercial finance on their own terms — this would crowd out private investment."
+            gcf: "<abbr title='Green Climate Fund'>GCF</abbr> will not fund projects that can attract commercial finance on their own terms — this would crowd out private investment."
           },
           reco: {
             cc: "Redesign the project to include voluntary activities beyond business-as-usual. Identify additional measures that only become feasible with carbon finance.",
-            gcf: "Document the specific financing barriers (e.g. high perceived risk, currency mismatch, tenor mismatch), prepare a financial model demonstrating the funding gap with and without GCF support, and consider re-scoping to underserved segments.",
+            gcf: "Document the specific financing barriers (e.g. high perceived risk, currency mismatch, tenor mismatch), prepare a financial model demonstrating the funding gap with and without <abbr title='Green Climate Fund'>GCF</abbr> support, and consider re-scoping to underserved segments.",
             gl: "Project is financially attractive on it's own"
           }
         },
@@ -637,18 +622,18 @@
           reason: {
             gb: "M&E is both a planned and required component for projects financed through green bonds.",
             cc: "Monitoring systems, responsible personnel, and data collection processes are already in place.",
-            gcf: "GCF requires a results-based M&E framework aligned with its Performance Measurement Framework.",
+            gcf: "<abbr title='Green Climate Fund'>GCF</abbr> requires a results-based M&E framework aligned with its Performance Measurement Framework.",
             gl: "M&E is both a planned and required component for projects financed through green loans."
           },
-          reco: { gcf: "Design an M&E plan with indicators tied to GCF core indicators, include gender-disaggregated data collection, and establish a results reporting schedule aligned with GCF requirements." }
+          reco: { gcf: "Design an M&E plan with indicators tied to <abbr title='Green Climate Fund'>GCF</abbr> core indicators, include gender-disaggregated data collection, and establish a results reporting schedule aligned with <abbr title='Green Climate Fund'>GCF</abbr> requirements." }
         },
         no: {
           gb: "ineligible", cc: "ineligible", gcf: "ineligible", gl: "ineligible",
           reason: { cc: "Verifiable monitoring is essential for calculating carbon credits — without reliable data, emission reductions cannot be verified." },
           reco: {
-            gb: "Monitoring is a regular part of the review and approval process for green projects. Adopt the ICMA Harmonised Framework for Impact Reporting.",
+            gb: "Monitoring is a regular part of the review and approval process for green projects. Adopt the <abbr title='International Capital Market Association'>ICMA</abbr> Harmonised Framework for Impact Reporting.",
             cc: "Develop a complete monitoring framework, procure monitoring equipment, train staff, and establish QA/QC procedures before project registration.",
-            gl: "Monitoring is a regular part of the review and approval process for green projects. Adopt the ICMA Harmonised Framework for Impact Reporting."
+            gl: "Monitoring is a regular part of the review and approval process for green projects. Adopt the <abbr title='International Capital Market Association'>ICMA</abbr> Harmonised Framework for Impact Reporting."
           }
         },
         partially: {
@@ -755,7 +740,7 @@
     const INSTRUMENTS = [
       { id: "gb", title: "Green Bonds", abbr: "GB" },
       { id: "cc", title: "Carbon Credit", abbr: "CC" },
-      { id: "gcf", title: "GCF Funding", abbr: "GCF" },
+      { id: "gcf", title: "<abbr title='Green Climate Fund'>GCF</abbr> Funding", abbr: "GCF" },
       { id: "gl", title: "Green Loans", abbr: "GL" }
     ];
 
@@ -830,12 +815,14 @@
         const rows = items.map(({ id, title, abbr }) => {
           const reason = (rule.reason && rule.reason[id]) || "";
           const reco = (rule.reco && rule.reco[id]) || "";
+          const recoBtn = reco
+            ? `<span class="sgft-info-wrap"><button type="button" class="sgft-info-btn" aria-label="Recommendation">More info</button><span class="sgft-info-content">${reco}</span></span>`
+            : "";
           return `<div class="sgft-live-row ${TIER_CLASS[tier]}">
             <span class="sgft-live-icon">${abbr}</span>
             <div class="sgft-live-row-body">
-              <p class="sgft-live-name">${title}</p>
+              <p class="sgft-live-name">${title}${recoBtn}</p>
               ${reason ? `<p class="sgft-live-text">${reason}</p>` : ""}
-              ${reco ? `<p class="sgft-live-text reco">${reco}</p>` : ""}
             </div>
           </div>`;
         }).join("");
@@ -888,11 +875,13 @@
       grid.innerHTML = INSTRUMENTS.map(({ id, title }) => {
         const st = result[id];
         if (!st) return `<article class="sgft-result"><h3>${title}</h3></article>`;
+        const recoBtn = st.recos.length
+          ? `<span class="sgft-info-wrap"><button type="button" class="sgft-info-btn" aria-label="Recommendation">More info</button><span class="sgft-info-content"><ul>${st.recos.map((r) => `<li>${r}</li>`).join("")}</ul></span></span>`
+          : "";
         return `<article class="sgft-result ${TIER_CLASS[st.tier]}">
-          <h3>${title}</h3>
+          <h3>${title}${recoBtn}</h3>
           <p class="status">${TIER_LABEL[st.tier]}</p>
           ${st.reasons.length ? `<ul class="reason-list">${st.reasons.map((r) => `<li>${r}</li>`).join("")}</ul>` : ""}
-          ${st.recos.length ? `<ul class="reco-list">${st.recos.map((r) => `<li>${r}</li>`).join("")}</ul>` : ""}
         </article>`;
       }).join("");
 
@@ -912,6 +901,25 @@
       const finalResult = document.getElementById("final-result");
       finalResult.hidden = false;
       finalResult.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+
+    // "More info" opens the text right below itself (normal page flow, not
+    // a floating box) — hover for desktop, click still works too so touch
+    // and keyboard users aren't left out. Delegated on document so it works
+    // for both the static question buttons and the recommendation buttons
+    // that get rebuilt on every answer. mouseenter/mouseleave don't bubble,
+    // but capture-phase listeners still see them on the way down.
+    document.addEventListener("mouseenter", (e) => {
+      const btn = e.target.closest && e.target.closest(".sgft-info-btn");
+      if (btn) btn.nextElementSibling.classList.add("open");
+    }, true);
+    document.addEventListener("mouseleave", (e) => {
+      const btn = e.target.closest && e.target.closest(".sgft-info-btn");
+      if (btn) btn.nextElementSibling.classList.remove("open");
+    }, true);
+    document.addEventListener("click", (e) => {
+      const btn = e.target.closest(".sgft-info-btn");
+      if (btn) btn.nextElementSibling.classList.toggle("open");
     });
 
     buildOptionButtons();
