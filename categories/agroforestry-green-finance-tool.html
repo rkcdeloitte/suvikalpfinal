@@ -7,150 +7,94 @@
   <link rel="stylesheet" href="../style.css">
   <link rel="stylesheet" href="./category.css">
   <style>
-    .sgft-content { max-width: 1280px; margin: 0 auto; padding: 32px 36px 60px; }
+    .sgft-content { max-width: 580px; margin: 0 auto; padding: 26px 24px 48px; }
 
-    .sgft-intro { margin: 0 0 26px; }
+    .sgft-intro { margin: 0 0 18px; }
     .sgft-intro p {
       font-family: var(--font-sans);
       font-size: var(--fs-md);
-      line-height: var(--lh-loose);
+      line-height: 1.55;
       color: var(--color-text-secondary);
     }
     .sgft-intro p strong { color: var(--color-text); font-weight: 600; }
 
-    .sgft-layout { display: flex; align-items: flex-start; gap: 28px; }
-    .sgft-main { flex: 1; min-width: 0; }
-    .sgft-side-panel {
-      width: 480px;
-      flex-shrink: 0;
-      position: sticky;
-      top: 20px;
-      align-self: start;
-    }
-    .sgft-side-panel-card {
-      background: var(--color-surface);
-      border: 1px solid var(--color-card-border);
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-sm);
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-    .sgft-side-panel-header h2 {
-      margin: 0 0 6px;
-      font-family: var(--font-sans);
-      font-size: var(--fs-lg);
-      font-weight: 700;
-      color: var(--color-teal-700);
-    }
-    .sgft-side-panel-header p {
-      margin: 0;
-      font-family: var(--font-sans);
-      font-size: var(--fs-sm);
-      line-height: 1.5;
-      color: var(--color-text-secondary);
-    }
-    .sgft-live-groups { display: flex; flex-direction: column; gap: 14px; }
-    .sgft-live-group-label { margin: 0 0 6px; font-family: var(--font-sans); font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; }
-    .sgft-live-row { display: flex; align-items: flex-start; gap: 10px; padding: 9px 10px; border-radius: var(--radius); margin-bottom: 4px; }
-    .sgft-live-row:last-child { margin-bottom: 0; }
-    .sgft-live-row.sgft-low  { background: #fef2f2; }
-    .sgft-live-row.sgft-mid  { background: #fffbeb; }
-    .sgft-live-row.sgft-high { background: #ecfdf5; }
-    .sgft-live-icon {
-      width: 26px; height: 26px; border-radius: 50%; background: var(--color-surface);
-      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-      font-family: var(--font-sans); font-size: 0.62rem; font-weight: 700;
-    }
-    .sgft-live-row.sgft-low  .sgft-live-icon { color: var(--color-red-500); }
-    .sgft-live-row.sgft-mid  .sgft-live-icon { color: #92400e; }
-    .sgft-live-row.sgft-high .sgft-live-icon { color: #166534; }
-    .sgft-live-row-body { flex: 1; min-width: 0; }
-    .sgft-live-name { margin: 0; font-family: var(--font-sans); font-size: var(--fs-sm); font-weight: 600; color: var(--color-text); }
-    .sgft-live-text { margin: 4px 0 0; font-family: var(--font-sans); font-size: 0.78rem; color: var(--color-text-secondary); line-height: 1.5; }
-
-    .sgft-checklist { display: flex; flex-direction: column; gap: 24px; }
-
-    .sgft-row {
-      border: 1.5px solid var(--color-card-border);
-      border-radius: var(--radius-lg);
-      background: var(--color-surface);
-      box-shadow: var(--shadow-sm);
-      transition: border-color .2s, box-shadow .25s, opacity .2s, transform .25s cubic-bezier(.34,1.56,.64,1);
-    }
-    .sgft-row:not(.is-answered):not(.active) { opacity: .55; }
-    .sgft-row.active {
-      border-color: var(--color-primary);
-      border-width: 2px;
-      box-shadow: 0 10px 28px rgba(15, 23, 42, 0.13);
-      transform: translateY(-3px) scale(1.012);
-    }
-    .sgft-row.is-answered:not(.active) { border-color: var(--color-teal-border); }
-
-    .sgft-row-head {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 18px 22px;
-      background: none;
-      border: none;
-      border-radius: var(--radius-lg);
-      cursor: pointer;
-      text-align: left;
-      font-family: var(--font-sans);
-      transition: background 0.15s;
-    }
-    .sgft-row.is-answered:not(.active) .sgft-row-head { background: var(--color-gray-200); border-radius: var(--radius-lg); }
-    .sgft-row.active .sgft-row-head { padding-bottom: 8px; border-radius: calc(var(--radius-lg) - 1.5px) calc(var(--radius-lg) - 1.5px) 0 0; }
-    .sgft-row-head:hover { background: var(--color-gray-200); }
-
-    .sgft-row-check {
-      width: 24px; height: 24px; border-radius: 50%;
-      display: inline-flex; align-items: center; justify-content: center;
-      flex-shrink: 0; font-family: var(--font-sans); font-weight: 700; font-size: 0.72rem;
-      border: 1.5px solid var(--color-border); color: var(--color-text-secondary);
-    }
-    .sgft-row.active .sgft-row-check { border-color: var(--color-primary); color: var(--color-primary); }
-    .sgft-row.is-answered .sgft-row-check { border-color: var(--color-primary); background: var(--color-primary); color: #fff; }
-    .sgft-row-checkmark { display: none; width: 13px; height: 13px; }
-    .sgft-row.is-answered .sgft-row-num { display: none; }
-    .sgft-row.is-answered .sgft-row-checkmark { display: block; }
-
-    .sgft-row-title { flex: 1; font-weight: 500; font-size: var(--fs-base); color: var(--color-text); line-height: 1.5; }
-    .sgft-row.active .sgft-row-title { font-weight: 600; font-size: var(--fs-lg); }
-
-    .sgft-row-pill {
-      display: none;
-      flex-shrink: 0;
-      font-size: 0.7rem; font-weight: 600; color: #fff;
-      background: var(--color-primary);
-      padding: 3px 10px; border-radius: var(--radius-full);
-    }
-    .sgft-row.is-answered:not(.active) .sgft-row-pill { display: inline-flex; }
-
-    .sgft-row-body {
-      max-height: 0;
+    /* everything about answering questions lives in one card: progress
+       header, the question itself, and prev/next — so it reads as a
+       single unit instead of separate floating pieces */
+    .sgft-qblock {
+      background: var(--color-surface); border: 1px solid var(--color-card-border);
+      border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);
       overflow: hidden;
-      padding: 0 20px 0 56px;
-      opacity: 0;
-      transition: max-height .35s ease, padding .35s ease, opacity .25s ease;
-    }
-    .sgft-row.active .sgft-row-body {
-      max-height: 600px;
-      padding: 16px 20px 22px 56px;
-      opacity: 1;
-      transition: max-height .35s ease, padding .35s ease, opacity .3s ease .05s;
     }
 
+    .sgft-progress-head { padding: 16px 24px 14px; border-bottom: 1px solid var(--color-card-border); }
+    .sgft-progress-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+    .sgft-progress-label { font-family: var(--font-sans); font-size: var(--fs-sm); font-weight: 600; color: var(--color-text); }
+    .sgft-progress-time { font-family: var(--font-sans); font-size: var(--fs-xs); color: var(--color-text-secondary); }
+
+    /* fill bar and dots share one track — a proper stepper line instead of
+       two stacked rows, which is both more compact and easier to read */
+    .sgft-progress-track { position: relative; height: 18px; display: flex; align-items: center; justify-content: space-between; }
+    .sgft-progress-track::before {
+      content: ""; position: absolute; left: 0; right: 0; top: 50%;
+      height: 4px; border-radius: var(--radius-full); background: var(--color-gray-200); transform: translateY(-50%);
+    }
+    .sgft-progress-fill {
+      position: absolute; left: 0; top: 50%; height: 4px; z-index: 1;
+      border-radius: var(--radius-full); background: var(--color-primary);
+      transform: translateY(-50%); transition: width .35s ease;
+    }
+    .sgft-progress-dot {
+      position: relative; z-index: 2; width: 14px; height: 14px; border-radius: 50%;
+      border: 2px solid var(--color-gray-200); background: var(--color-surface);
+      padding: 0; cursor: pointer; transition: border-color .2s, background .2s, transform .2s;
+    }
+    .sgft-progress-dot.done { border-color: var(--color-primary); background: var(--color-primary); }
+    .sgft-progress-dot.current { border-color: var(--color-primary); background: var(--color-surface); transform: scale(1.25); }
+    .sgft-progress-dot:hover { border-color: var(--color-teal-700); }
+
+    .sgft-qbody { padding: 26px 24px 8px; text-align: center; }
+    .sgft-qnum { margin: 0 0 10px; font-family: var(--font-sans); font-size: var(--fs-xs); font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--color-primary); }
+    .sgft-qtitle { margin: 0 0 6px; font-family: var(--font-sans); font-size: var(--fs-lg); font-weight: 600; line-height: 1.4; }
+    .sgft-qbody .sgft-info-wrap { display: block; margin: 0 0 18px; }
+    .sgft-qbody .sgft-info-content { max-width: 44ch; margin: 6px auto 0; text-align: left; }
+
+    .sgft-qoptions { display: flex; flex-direction: column; gap: 8px; max-width: 360px; margin: 0 auto; }
+    .sgft-qopt {
+      border: 1.5px solid var(--color-card-border); border-radius: var(--radius);
+      background: var(--color-surface); color: var(--color-text);
+      font-family: var(--font-sans); font-size: var(--fs-base); font-weight: 500;
+      padding: 12px 16px; cursor: pointer; transition: all .15s ease; text-align: left;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .sgft-qopt::before {
+      content: ""; width: 16px; height: 16px; border-radius: 50%; flex-shrink: 0;
+      border: 1.5px solid var(--color-border); transition: border-color .15s, background .15s;
+    }
+    .sgft-qopt:hover { border-color: var(--color-primary); background: var(--color-teal-border); }
+    .sgft-qopt.selected { border-color: var(--color-primary); background: var(--color-teal-border); color: var(--color-teal-700); font-weight: 600; }
+    .sgft-qopt.selected::before { border-color: var(--color-primary); border-width: 5px; }
+
+    .sgft-qnav { display: flex; justify-content: space-between; align-items: center; padding: 14px 24px 18px; }
+    .sgft-qnav-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      border: 1px solid var(--color-card-border); background: var(--color-surface); color: var(--color-text-secondary);
+      font-family: var(--font-sans); font-size: var(--fs-sm); font-weight: 600;
+      padding: 9px 16px; border-radius: var(--radius); cursor: pointer; transition: background .15s;
+    }
+    .sgft-qnav-btn:disabled { opacity: .4; cursor: not-allowed; }
+    .sgft-qnav-btn.primary { background: var(--color-primary); color: #fff; border-color: var(--color-primary); }
+    .sgft-qnav-btn.primary:hover:not(:disabled) { background: var(--color-teal-700); }
+    .sgft-qnav-btn.primary:disabled { background: var(--color-gray-200); color: var(--color-text-secondary); border-color: transparent; }
+
+    .sgft-back-link { display: block; text-align: center; margin-top: 14px; font-family: var(--font-sans); font-size: var(--fs-sm); color: var(--color-text-secondary); text-decoration: none; }
+    .sgft-back-link:hover { color: var(--color-primary); text-decoration: underline; }
 
     /* "More info" link that reveals extra text (question info, recommendations)
        right under itself, in normal page flow — not a floating popover, so it
        stays attached to the question/row instead of feeling like a detached
        overlay. Opens on hover (mouse) and click (touch/keyboard). */
     .sgft-info-wrap { display: inline; margin-left: 8px; }
-    .sgft-row-body > .sgft-info-wrap { margin: 0 0 4px; }
     .sgft-info-btn {
       border: none; background: none; padding: 0;
       color: var(--color-primary); font-family: var(--font-sans);
@@ -169,53 +113,6 @@
     }
     .sgft-info-content.open { display: block; }
     .sgft-info-content ul { margin: 0; padding-left: 16px; }
-
-    .sgft-select { display: none; }
-    .sgft-options { display: flex; flex-wrap: wrap; gap: 8px; }
-    .sgft-opt-btn {
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius);
-      background: var(--color-white);
-      color: var(--color-text);
-      font-family: var(--font-sans);
-      font-size: var(--fs-sm);
-      font-weight: 500;
-      padding: 8px 12px;
-      cursor: pointer;
-      transition: all 0.15s ease;
-    }
-    .sgft-opt-btn:hover { border-color: var(--color-primary); color: var(--color-teal-600); background: var(--color-teal-bg); }
-    .sgft-opt-btn.active { border-color: var(--color-primary); background: var(--color-primary); color: #fff; }
-
-    .sgft-radio-group { display: flex; gap: 12px; flex-wrap: wrap; }
-    .sgft-radio-option {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-family: var(--font-sans);
-      font-size: var(--fs-sm);
-      color: var(--color-text);
-      cursor: pointer;
-      padding: 7px 10px;
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius);
-      background: var(--color-white);
-      transition: border-color 0.15s;
-    }
-    .sgft-radio-option:has(input:checked) { border-color: var(--color-primary); background: var(--color-teal-bg); }
-    .sgft-radio-option input { accent-color: var(--color-primary); }
-
-    .sgft-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
-    .sgft-btn {
-      border: none; border-radius: var(--radius); padding: 11px 16px;
-      font-family: var(--font-sans); font-weight: 600; font-size: var(--fs-base); cursor: pointer;
-      transition: background 0.15s;
-    }
-    .sgft-btn-primary { background: var(--color-primary); color: #fff; }
-    .sgft-btn-primary:hover { background: var(--color-primary-hover); }
-    .sgft-btn-primary:disabled { background: var(--color-gray-200); color: var(--color-text-secondary); cursor: not-allowed; }
-    .sgft-btn-secondary { background: var(--color-teal-bg); color: var(--color-primary); text-decoration: none; display: inline-flex; align-items: center; }
-    .sgft-btn-secondary:hover { background: var(--color-teal-border); }
 
     .sgft-verdict { display: flex; align-items: center; gap: 10px; margin: 0 0 20px; }
     .sgft-verdict-icon { width: 20px; height: 20px; flex-shrink: 0; }
@@ -271,26 +168,11 @@
     .sgft-final-result-title { margin: 0 0 4px; font-family: var(--font-sans); font-size: var(--fs-lg); font-weight: 700; }
     .sgft-final-result-sub { margin: 0 0 20px; font-family: var(--font-sans); font-size: var(--fs-sm); color: var(--color-text-secondary); }
 
-    .sgft-detail-label {
-      font-family: var(--font-sans); font-size: var(--fs-xs); font-weight: 700;
-      letter-spacing: .07em; text-transform: uppercase; color: var(--color-text-secondary);
-      margin: 24px 0 12px; padding-top: 20px; border-top: 1px solid var(--color-card-border);
-    }
-    .sgft-flag {
-      display: flex; align-items: flex-start; gap: 9px;
-      padding: 9px 0;
-      border-bottom: 1px solid var(--color-card-border);
-      font-family: var(--font-sans); font-size: var(--fs-sm); color: var(--color-text);
-      line-height: 1.6;
-    }
-    .sgft-flag:last-child { border-bottom: none; }
-    .sgft-flag-icon { flex-shrink: 0; width: 15px; height: 15px; margin-top: 2px; }
-    .sgft-flag.blocker .sgft-flag-icon { color: var(--color-red-500); }
-    .sgft-flag.advisory .sgft-flag-icon { color: var(--gold); }
-
-    @media (max-width: 720px) {
-      .sgft-layout { flex-direction: column; }
-      .sgft-side-panel { width: 100%; position: static; }
+    @media (max-width: 560px) {
+      .sgft-content { padding: 20px 14px 40px; }
+      .sgft-qbody { padding: 22px 16px 6px; }
+      .sgft-progress-head { padding: 14px 16px 12px; }
+      .sgft-qnav { padding: 12px 16px 16px; }
     }
   </style>
 </head>
@@ -327,152 +209,39 @@
     <div class="sgft-content">
       <h1 class="spv-section-title">Green Finance</h1>
       <div class="sgft-intro">
-        <p>Answer all <strong>7 questions</strong>. The result updates live in the panel
-          on the right as you go, showing a preliminary eligibility status for Green Bonds,
-          Carbon Credit, <abbr title="Green Climate Fund">GCF</abbr> and Green Loans, based on the Agroforestry financing criteria.</p>
+        <p>Answer <strong>7 quick questions</strong> to see a preliminary eligibility status for
+          Green Bonds, Carbon Credit, <abbr title="Green Climate Fund">GCF</abbr> and Green Loans,
+          based on the Agroforestry financing criteria.</p>
       </div>
 
       <section id="page-questions">
-        <div class="sgft-layout">
-          <div class="sgft-main">
-            <div class="sgft-checklist" id="checklist">
-
-              <div class="sgft-row active" data-q="q1">
-                <button type="button" class="sgft-row-head">
-                  <span class="sgft-row-check"><span class="sgft-row-num">1</span><svg class="sgft-row-checkmark" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l3.5 3.5L13 5"/></svg></span>
-                  <span class="sgft-row-title">Does the project broadly align with the host country's national climate strategy and plans or <abbr title="Nationally Determined Contribution">NDC</abbr>?</span>
-                  <span class="sgft-row-pill"></span>
-                </button>
-                <div class="sgft-row-body">
-                  <div class="sgft-info-wrap"><button type="button" class="sgft-info-btn" aria-label="More information">More info</button><span class="sgft-info-content">Proposals not aligned with national climate priorities may not receive <abbr title="National Designated Authority">NDA</abbr> endorsement.</span></div>
-                  <select class="sgft-select answer" data-q="q1">
-                    <option value="">Select</option>
-                    <option value="yes">Yes</option>
-                    <option value="no">No</option>
-                  </select>
-                </div>
-              </div>
-
-              <div class="sgft-row" data-q="q2">
-                <button type="button" class="sgft-row-head">
-                  <span class="sgft-row-check"><span class="sgft-row-num">2</span><svg class="sgft-row-checkmark" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l3.5 3.5L13 5"/></svg></span>
-                  <span class="sgft-row-title">Does the project possess legal land-use rights and all required FPIC (Free, Prior, Informed Consent) approvals?</span>
-                  <span class="sgft-row-pill"></span>
-                </button>
-                <div class="sgft-row-body">
-                  <div class="sgft-info-wrap"><button type="button" class="sgft-info-btn" aria-label="More information">More info</button><span class="sgft-info-content">1. Project need to adhere to Minimum Social Safeguards (MSS) also uphold ethical and inclusive social practices<br>2. Project activities should contribute to environmental goals</span></div>
-                  <select class="sgft-select answer" data-q="q2">
-                    <option value="">Select</option>
-                    <option value="yes">Yes</option>
-                    <option value="no">No</option>
-                  </select>
-                </div>
-              </div>
-
-              <div class="sgft-row" data-q="q3">
-                <button type="button" class="sgft-row-head">
-                  <span class="sgft-row-check"><span class="sgft-row-num">3</span><svg class="sgft-row-checkmark" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l3.5 3.5L13 5"/></svg></span>
-                  <span class="sgft-row-title">Will the project comply with the governing environmental and social laws and standards?</span>
-                  <span class="sgft-row-pill"></span>
-                </button>
-                <div class="sgft-row-body">
-                  <div class="sgft-info-wrap"><button type="button" class="sgft-info-btn" aria-label="More information">More info</button><span class="sgft-info-content">Compliance with environmental and social safeguards are key prerequisite for eligibility.</span></div>
-                  <select class="sgft-select answer" data-q="q3">
-                    <option value="">Select</option>
-                    <option value="yes">Yes</option>
-                    <option value="no">No</option>
-                    <option value="partially">Partially</option>
-                  </select>
-                </div>
-              </div>
-
-              <div class="sgft-row" data-q="q4">
-                <button type="button" class="sgft-row-head">
-                  <span class="sgft-row-check"><span class="sgft-row-num">4</span><svg class="sgft-row-checkmark" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l3.5 3.5L13 5"/></svg></span>
-                  <span class="sgft-row-title">Does the project require external financial support to become commercially viable?</span>
-                  <span class="sgft-row-pill"></span>
-                </button>
-                <div class="sgft-row-body">
-                  <div class="sgft-info-wrap"><button type="button" class="sgft-info-btn" aria-label="More information">More info</button><span class="sgft-info-content">Bankability of the project determines the Green Finance Eligbility. For <abbr title="Green Climate Fund">GCF</abbr> fully bankable projects without a funding gap do not qualify.</span></div>
-                  <select class="sgft-select answer" data-q="q4">
-                    <option value="">Select</option>
-                    <option value="commercial">No</option>
-                    <option value="concessional">Not viable without concessional support</option>
-                    <option value="carbon">Not viable without carbon credit</option>
-                  </select>
-                </div>
-              </div>
-
-              <div class="sgft-row" data-q="q5">
-                <button type="button" class="sgft-row-head">
-                  <span class="sgft-row-check"><span class="sgft-row-num">5</span><svg class="sgft-row-checkmark" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l3.5 3.5L13 5"/></svg></span>
-                  <span class="sgft-row-title">Is the project required by any existing law, regulation or legally binding mandate?</span>
-                  <span class="sgft-row-pill"></span>
-                </button>
-                <div class="sgft-row-body">
-                  <div class="sgft-info-wrap"><button type="button" class="sgft-info-btn" aria-label="More information">More info</button><span class="sgft-info-content">Project implementation a legal obligation or required by law</span></div>
-                  <select class="sgft-select answer" data-q="q5">
-                    <option value="">Select</option>
-                    <option value="yes">Yes</option>
-                    <option value="no">No</option>
-                    <option value="partially">Partially</option>
-                  </select>
-                </div>
-              </div>
-
-              <div class="sgft-row" data-q="q6">
-                <button type="button" class="sgft-row-head">
-                  <span class="sgft-row-check"><span class="sgft-row-num">6</span><svg class="sgft-row-checkmark" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l3.5 3.5L13 5"/></svg></span>
-                  <span class="sgft-row-title">Is a use-of-proceeds Monitoring and Evaluation (M&amp;E) plan included or planned for the project?</span>
-                  <span class="sgft-row-pill"></span>
-                </button>
-                <div class="sgft-row-body">
-                  <div class="sgft-info-wrap"><button type="button" class="sgft-info-btn" aria-label="More information">More info</button><span class="sgft-info-content">Required to track the use of proceeds and impact of project as per compliance</span></div>
-                  <select class="sgft-select answer" data-q="q6">
-                    <option value="">Select</option>
-                    <option value="yes">Yes</option>
-                    <option value="no">No</option>
-                    <option value="partially">Partially</option>
-                  </select>
-                </div>
-              </div>
-
-              <div class="sgft-row" data-q="q7">
-                <button type="button" class="sgft-row-head">
-                  <span class="sgft-row-check"><span class="sgft-row-num">7</span><svg class="sgft-row-checkmark" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l3.5 3.5L13 5"/></svg></span>
-                  <span class="sgft-row-title">Is this same project or piece of land currently signed up with any other carbon credit or greenhouse gas program?</span>
-                  <span class="sgft-row-pill"></span>
-                </button>
-                <div class="sgft-row-body">
-                  <div class="sgft-info-wrap"><button type="button" class="sgft-info-btn" aria-label="More information">More info</button><span class="sgft-info-content">Only 1 carbon credit programme per project</span></div>
-                  <select class="sgft-select answer" data-q="q7">
-                    <option value="">Select</option>
-                    <option value="yes">Yes</option>
-                    <option value="no">No</option>
-                    <option value="partially">Partially</option>
-                  </select>
-                </div>
-              </div>
-
+        <div class="sgft-qblock">
+          <div class="sgft-progress-head">
+            <div class="sgft-progress-top">
+              <span class="sgft-progress-label" id="progress-label">Question 1 of 7</span>
+              <span class="sgft-progress-time">&sim;2 min &middot; 7 questions</span>
             </div>
-
-            <div class="sgft-actions">
-              <button id="show-result" class="sgft-btn sgft-btn-primary" type="button" disabled>See Final Result</button>
-              <a href="./agroforestry.html" class="sgft-btn sgft-btn-secondary">Back to Agroforestry Page</a>
+            <div class="sgft-progress-track" id="progress-track">
+              <div class="sgft-progress-fill" id="progress-fill"></div>
             </div>
           </div>
 
-          <aside class="sgft-side-panel" aria-label="Live preliminary result">
-            <div class="sgft-side-panel-card">
-              <div class="sgft-side-panel-header">
-                <h2>Live Preliminary Result</h2>
-                <p>Updated as you answer each question.</p>
-              </div>
-              <div id="verdict-container"></div>
-              <div class="sgft-live-groups" id="result-grid"></div>
-            </div>
-          </aside>
+          <div class="sgft-qbody">
+            <p class="sgft-qnum" id="q-num">Question 1</p>
+            <h2 class="sgft-qtitle" id="q-title"></h2>
+            <span class="sgft-info-wrap">
+              <button type="button" class="sgft-info-btn" id="q-info-btn" aria-label="More information">More info</button>
+              <span class="sgft-info-content" id="q-info-content"></span>
+            </span>
+            <div class="sgft-qoptions" id="q-options"></div>
+          </div>
+
+          <div class="sgft-qnav">
+            <button type="button" class="sgft-qnav-btn" id="btn-prev">&larr; Previous</button>
+            <button type="button" class="sgft-qnav-btn primary" id="btn-next" disabled>Next &rarr;</button>
+          </div>
         </div>
+        <a href="./agroforestry.html" class="sgft-back-link">Back to Agroforestry Page</a>
 
         <section id="final-result" class="sgft-final-result" hidden>
           <h2 class="sgft-final-result-title">Final Result</h2>
@@ -494,9 +263,60 @@
   <script>
     "use strict";
 
+    // one question at a time — id, title, the "more info" text, and its
+    // answer options. Wording is copied verbatim from the checklist version.
+    const QUESTIONS = [
+      {
+        id: "q1",
+        title: "Does the project broadly align with the host country's national climate strategy and plans or <abbr title='Nationally Determined Contribution'>NDC</abbr>?",
+        info: "Proposals not aligned with national climate priorities may not receive <abbr title='National Designated Authority'>NDA</abbr> endorsement.",
+        options: [{ value: "yes", label: "Yes" }, { value: "no", label: "No" }]
+      },
+      {
+        id: "q2",
+        title: "Does the project possess legal land-use rights and all required FPIC (Free, Prior, Informed Consent) approvals?",
+        info: "1. Project need to adhere to Minimum Social Safeguards (MSS) also uphold ethical and inclusive social practices<br>2. Project activities should contribute to environmental goals",
+        options: [{ value: "yes", label: "Yes" }, { value: "no", label: "No" }]
+      },
+      {
+        id: "q3",
+        title: "Will the project comply with the governing environmental and social laws and standards?",
+        info: "Compliance with environmental and social safeguards are key prerequisite for eligibility.",
+        options: [{ value: "yes", label: "Yes" }, { value: "no", label: "No" }, { value: "partially", label: "Partially" }]
+      },
+      {
+        id: "q4",
+        title: "Does the project require external financial support to become commercially viable?",
+        info: "Bankability of the project determines the Green Finance Eligbility. For <abbr title='Green Climate Fund'>GCF</abbr> fully bankable projects without a funding gap do not qualify.",
+        options: [
+          { value: "commercial", label: "No" },
+          { value: "concessional", label: "Not viable without concessional support" },
+          { value: "carbon", label: "Not viable without carbon credit" }
+        ]
+      },
+      {
+        id: "q5",
+        title: "Is the project required by any existing law, regulation or legally binding mandate?",
+        info: "Project implementation a legal obligation or required by law",
+        options: [{ value: "yes", label: "Yes" }, { value: "no", label: "No" }, { value: "partially", label: "Partially" }]
+      },
+      {
+        id: "q6",
+        title: "Is a use-of-proceeds Monitoring and Evaluation (M&E) plan included or planned for the project?",
+        info: "Required to track the use of proceeds and impact of project as per compliance",
+        options: [{ value: "yes", label: "Yes" }, { value: "no", label: "No" }, { value: "partially", label: "Partially" }]
+      },
+      {
+        id: "q7",
+        title: "Is this same project or piece of land currently signed up with any other carbon credit or greenhouse gas program?",
+        info: "Only 1 carbon credit programme per project",
+        options: [{ value: "yes", label: "Yes" }, { value: "no", label: "No" }, { value: "partially", label: "Partially" }]
+      }
+    ];
+
     // answers picked so far, e.g. { q1: "yes", q2: "no" }
     const answers = {};
-    const selects = document.querySelectorAll(".answer");
+    let step = 0;
 
     const TIER_LABEL = { ineligible: "Ineligible", moderate: "Moderately Eligible", high: "Highly Eligible" };
     const TIER_CLASS = { ineligible: "sgft-low", moderate: "sgft-mid", high: "sgft-high" };
@@ -663,79 +483,7 @@
       }
     };
 
-    function buildOptionButtons() {
-      selects.forEach((selectEl) => {
-        const optsWrap = document.createElement("div");
-        optsWrap.className = "sgft-options";
-        Array.from(selectEl.options)
-          .filter((opt) => opt.value)
-          .forEach((opt) => {
-            const btn = document.createElement("button");
-            btn.type = "button";
-            btn.className = "sgft-opt-btn";
-            btn.dataset.value = opt.value;
-            btn.textContent = opt.textContent;
-            btn.addEventListener("click", () => {
-              selectEl.value = opt.value;
-              selectEl.dispatchEvent(new Event("change"));
-            });
-            optsWrap.appendChild(btn);
-          });
-        selectEl.insertAdjacentElement("afterend", optsWrap);
-      });
-    }
-
-    const QUESTION_IDS = ["q1", "q2", "q3", "q4", "q5", "q6", "q7"];
-    const rows = {};
-    QUESTION_IDS.forEach((q) => { rows[q] = document.querySelector(`.sgft-row[data-q="${q}"]`); });
-    let activeQ = "q1";
-
-    function setActive(qid) {
-      activeQ = qid;
-      QUESTION_IDS.forEach((q) => rows[q].classList.toggle("active", q === qid));
-      if (qid) rows[qid].scrollIntoView({ behavior: "smooth", block: "nearest" });
-    }
-
-    function pillLabel(qid) {
-      const select = rows[qid].querySelector(".sgft-select");
-      const opt = Array.from(select.options).find((o) => o.value === select.value);
-      return opt ? opt.textContent : "";
-    }
-
-    function updateProgress() {
-      let answered = 0;
-      QUESTION_IDS.forEach((q) => {
-        const isAnswered = Boolean(answers[q]);
-        rows[q].classList.toggle("is-answered", isAnswered);
-        rows[q].querySelector(".sgft-row-pill").textContent = isAnswered ? pillLabel(q) : "";
-        if (isAnswered) answered += 1;
-      });
-      document.getElementById("show-result").disabled = answered < QUESTION_IDS.length;
-    }
-
-    selects.forEach((el) => {
-      el.addEventListener("change", () => {
-        answers[el.dataset.q] = el.value;
-        const optionsWrap = el.nextElementSibling;
-        if (optionsWrap && optionsWrap.classList.contains("sgft-options")) {
-          optionsWrap.querySelectorAll(".sgft-opt-btn").forEach((btn) => {
-            btn.classList.toggle("active", btn.dataset.value === el.value);
-          });
-        }
-        updateProgress();
-        currentQ = el.dataset.q;
-        buildPreliminaryResult(currentQ);
-        const currentIndex = QUESTION_IDS.indexOf(el.dataset.q);
-        const nextUnanswered = QUESTION_IDS.slice(currentIndex + 1).find((q) => !answers[q]);
-        setActive(nextUnanswered || null);
-      });
-    });
-
-    QUESTION_IDS.forEach((q) => {
-      rows[q].querySelector(".sgft-row-head").addEventListener("click", () => {
-        setActive(activeQ === q ? null : q);
-      });
-    });
+    const QUESTION_IDS = QUESTIONS.map((q) => q.id);
 
     const INSTRUMENTS = [
       { id: "gb", title: "Green Bonds", abbr: "GB" },
@@ -744,13 +492,8 @@
       { id: "gl", title: "Green Loans", abbr: "GL" }
     ];
 
-    // live preview only ever looks at the question you just answered —
-    // no need to compare against earlier answers, so just show that
-    // one question's result straight from RULES
-    let currentQ = null;
-
-    // shared by the live preview and the final result — both just need
-    // a tier count per instrument, this turns that into the banner html
+    // shared by the final result — needs a tier count per instrument,
+    // this turns that into the banner html
     function renderVerdict(container, tierCounts, total, emptyMessage) {
       if (total === 0) {
         container.innerHTML = `<div class="sgft-verdict tier-mixed">
@@ -788,53 +531,6 @@
         <svg class="sgft-verdict-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">${iconPath}</svg>
         <p class="sgft-verdict-title">${verdictTitle}</p>
       </div>`;
-    }
-
-    // groups shown worst tier first, so the instruments that need
-    // attention surface before the ones that are already fine
-    const TIER_ORDER = ["ineligible", "moderate", "high"];
-    const TIER_GROUP_LABEL = { ineligible: "Ineligible", moderate: "Moderately eligible", high: "Highly eligible" };
-    const TIER_GROUP_COLOR = { ineligible: "var(--color-red-500)", moderate: "#92400e", high: "#166534" };
-
-    function buildPreliminaryResult(qid) {
-      const resultGrid = document.getElementById("result-grid");
-      const verdictContainer = document.getElementById("verdict-container");
-      const rule = qid && RULES[qid] && RULES[qid][answers[qid]];
-
-      if (!rule) {
-        resultGrid.innerHTML = "";
-        renderVerdict(verdictContainer, {}, 0, "Answer a question to see its eligibility result");
-        return;
-      }
-
-      const touched = INSTRUMENTS.filter(({ id }) => rule[id] !== undefined);
-
-      resultGrid.innerHTML = TIER_ORDER.map((tier) => {
-        const items = touched.filter(({ id }) => rule[id] === tier);
-        if (!items.length) return "";
-        const rows = items.map(({ id, title, abbr }) => {
-          const reason = (rule.reason && rule.reason[id]) || "";
-          const reco = (rule.reco && rule.reco[id]) || "";
-          const recoBtn = reco
-            ? `<span class="sgft-info-wrap"><button type="button" class="sgft-info-btn" aria-label="Recommendation">More info</button><span class="sgft-info-content">${reco}</span></span>`
-            : "";
-          return `<div class="sgft-live-row ${TIER_CLASS[tier]}">
-            <span class="sgft-live-icon">${abbr}</span>
-            <div class="sgft-live-row-body">
-              <p class="sgft-live-name">${title}${recoBtn}</p>
-              ${reason ? `<p class="sgft-live-text">${reason}</p>` : ""}
-            </div>
-          </div>`;
-        }).join("");
-        return `<div class="sgft-live-group">
-          <p class="sgft-live-group-label" style="color:${TIER_GROUP_COLOR[tier]};">${TIER_GROUP_LABEL[tier]} &middot; ${items.length}</p>
-          ${rows}
-        </div>`;
-      }).join("");
-
-      const tierCounts = { high: 0, moderate: 0, ineligible: 0 };
-      touched.forEach(({ id }) => { tierCounts[rule[id]] += 1; });
-      renderVerdict(verdictContainer, tierCounts, touched.length, "This question doesn't affect any instrument");
     }
 
     // final result combines all 7 answers: worst tier wins per instrument,
@@ -891,24 +587,86 @@
       renderVerdict(document.getElementById("final-verdict-container"), tierCounts, touched.length, "No instruments affected");
     }
 
-    function allAnswered() {
-      return QUESTION_IDS.every((q) => answers[q]);
+    // progress dots — one per question, sitting right on the fill track,
+    // click any of them to jump straight there
+    const progressTrack = document.getElementById("progress-track");
+    QUESTIONS.forEach((q, i) => {
+      const dot = document.createElement("button");
+      dot.type = "button";
+      dot.className = "sgft-progress-dot";
+      dot.setAttribute("aria-label", "Go to question " + (i + 1));
+      dot.addEventListener("click", () => { step = i; renderQuestion(); });
+      progressTrack.appendChild(dot);
+    });
+    const dots = progressTrack.querySelectorAll(".sgft-progress-dot");
+
+    function renderProgress() {
+      document.getElementById("progress-label").textContent = "Question " + (step + 1) + " of " + QUESTIONS.length;
+      document.getElementById("progress-fill").style.width = (((step + 1) / QUESTIONS.length) * 100) + "%";
+      dots.forEach((d, i) => {
+        d.classList.toggle("done", i < step);
+        d.classList.toggle("current", i === step);
+      });
     }
 
-    document.getElementById("show-result").addEventListener("click", () => {
-      if (!allAnswered()) return;
-      buildFinalResult();
-      const finalResult = document.getElementById("final-result");
-      finalResult.hidden = false;
-      finalResult.scrollIntoView({ behavior: "smooth", block: "start" });
+    function renderQuestion() {
+      const q = QUESTIONS[step];
+      document.getElementById("q-num").textContent = "Question " + (step + 1);
+      document.getElementById("q-title").innerHTML = q.title;
+      document.getElementById("q-info-content").innerHTML = q.info;
+      document.getElementById("q-info-content").classList.remove("open");
+
+      const optWrap = document.getElementById("q-options");
+      optWrap.innerHTML = "";
+      q.options.forEach((opt) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "sgft-qopt";
+        btn.textContent = opt.label;
+        if (answers[q.id] === opt.value) btn.classList.add("selected");
+        btn.addEventListener("click", () => {
+          answers[q.id] = opt.value;
+          renderQuestion();
+          // auto-advance, but not on the last question — that one waits
+          // for "See result" so nothing changes on screen unexpectedly
+          if (step < QUESTIONS.length - 1) {
+            setTimeout(() => { step++; renderQuestion(); }, 220);
+          }
+        });
+        optWrap.appendChild(btn);
+      });
+
+      document.getElementById("btn-prev").disabled = step === 0;
+      const nextBtn = document.getElementById("btn-next");
+      nextBtn.disabled = !answers[q.id];
+      nextBtn.textContent = step === QUESTIONS.length - 1 ? "See result →" : "Next →";
+
+      renderProgress();
+    }
+
+    document.getElementById("btn-prev").addEventListener("click", () => {
+      if (step > 0) { step--; renderQuestion(); }
+    });
+    document.getElementById("btn-next").addEventListener("click", () => {
+      const q = QUESTIONS[step];
+      if (!answers[q.id]) return;
+      if (step < QUESTIONS.length - 1) {
+        step++;
+        renderQuestion();
+      } else {
+        buildFinalResult();
+        const finalResult = document.getElementById("final-result");
+        finalResult.hidden = false;
+        finalResult.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
     });
 
     // "More info" opens the text right below itself (normal page flow, not
     // a floating box) — hover for desktop, click still works too so touch
     // and keyboard users aren't left out. Delegated on document so it works
-    // for both the static question buttons and the recommendation buttons
-    // that get rebuilt on every answer. mouseenter/mouseleave don't bubble,
-    // but capture-phase listeners still see them on the way down.
+    // for the question-info button and the recommendation buttons that get
+    // rebuilt on every answer. mouseenter/mouseleave don't bubble, but
+    // capture-phase listeners still see them on the way down.
     document.addEventListener("mouseenter", (e) => {
       const btn = e.target.closest && e.target.closest(".sgft-info-btn");
       if (btn) btn.nextElementSibling.classList.add("open");
@@ -922,9 +680,7 @@
       if (btn) btn.nextElementSibling.classList.toggle("open");
     });
 
-    buildOptionButtons();
-    updateProgress();
-    buildPreliminaryResult();
+    renderQuestion();
   </script>
 </body>
 </html>
