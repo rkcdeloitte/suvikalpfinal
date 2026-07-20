@@ -785,10 +785,16 @@
         acc.innerHTML = `<p class="sgft-final-hero-sub" style="padding:16px;">No instruments affected.</p>`;
         return;
       }
+      // auto-open the worst-tier row (most worth reading first) regardless
+      // of its position in the display order
+      let openIdx = rows.findIndex((r) => r.tier === "ineligible");
+      if (openIdx === -1) openIdx = rows.findIndex((r) => r.tier === "moderate");
+      if (openIdx === -1) openIdx = 0;
+
       acc.innerHTML = rows.map(({ title, tier, reasons, recos }, i) => {
         const stripeClass = TIER_STRIPE_CLASS[tier];
         const hasBody = reasons.length > 0 || recos.length > 0;
-        return `<div class="sgft-final-row ${i === 0 ? "open" : ""}">
+        return `<div class="sgft-final-row ${i === openIdx ? "open" : ""}">
           <button type="button" class="sgft-final-head">
             <span class="sgft-final-stripe ${stripeClass}"></span>
             <span class="sgft-final-name">${title}</span>
@@ -844,7 +850,7 @@
           reasons: [...new Set(atWorst.map((h) => h.reason).filter(Boolean))],
           recos: [...new Set(atWorst.map((h) => h.reco).filter(Boolean))]
         };
-      }).filter(Boolean).sort((a, b) => TIER_RANK[a.tier] - TIER_RANK[b.tier]);
+      }).filter(Boolean).sort((a, b) => TIER_RANK[b.tier] - TIER_RANK[a.tier]);
 
       const tierCounts = { high: 0, moderate: 0, ineligible: 0 };
       rows.forEach((r) => { tierCounts[r.tier] += 1; });
