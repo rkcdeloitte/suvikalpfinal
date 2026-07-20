@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="../style.css">
   <link rel="stylesheet" href="./category.css">
   <style>
-    .sgft-content { max-width: 580px; margin: 0 auto; padding: 26px 24px 48px; }
+    .sgft-content { max-width: 1080px; margin: 0 auto; padding: 26px 24px 48px; }
 
     .sgft-intro { margin: 0 0 18px; }
     .sgft-intro p {
@@ -18,14 +18,61 @@
     }
     .sgft-intro p strong { color: var(--color-text); font-weight: 600; }
 
+    .sgft-layout-row { display: flex; align-items: flex-start; gap: 20px; }
+
     /* everything about answering questions lives in one card: progress
        header, the question itself, and prev/next — so it reads as a
        single unit instead of separate floating pieces */
     .sgft-qblock {
+      flex: 1; min-width: 0;
       background: var(--color-surface); border: 1px solid var(--color-card-border);
       border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);
       overflow: hidden;
     }
+
+    /* live status panel — 2x2 matrix of self-contained cards. each card
+       carries its own donut (top-right) + name/tier/text (left-aligned).
+       ordered worst tier first; instruments this question doesn't touch
+       go neutral gray rather than defaulting to any real tier color. */
+    .sgft-live-panel { width: 380px; flex-shrink: 0; }
+    .sgft-live-title { margin: 0 0 2px; font-family: var(--font-sans); font-size: 0.95rem; font-weight: 700; color: var(--color-teal-700); }
+    .sgft-live-sub { margin: 0 0 14px; font-family: var(--font-sans); font-size: var(--fs-xs); color: var(--color-text-secondary); }
+    .sgft-live-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .sgft-live-card {
+      position: relative; border-radius: var(--radius-lg); border: 1px solid var(--color-card-border);
+      padding: 12px 12px 13px; min-height: 100px;
+      animation: sgftLivePop .28s ease;
+    }
+    @keyframes sgftLivePop {
+      0% { transform: scale(.96); opacity: .5; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .sgft-live-t-low  { background: #fef2f2; }
+    .sgft-live-t-mid  { background: #fffbeb; }
+    .sgft-live-t-high { background: #ecfdf5; }
+    .sgft-live-t-neutral { background: var(--color-gray-200); }
+    .sgft-live-card-ring { position: absolute; top: 10px; right: 10px; width: 42px; height: 42px; }
+    .sgft-live-card-ring svg { transform: rotate(-90deg); }
+    .sgft-live-card-ring-label { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: var(--font-sans); font-size: 0.56rem; font-weight: 700; }
+    .sgft-live-card-name { margin: 0 0 2px; padding-right: 46px; font-family: var(--font-sans); font-size: 0.74rem; font-weight: 700; line-height: 1.25; color: var(--color-text); }
+    .sgft-live-card-tier { margin: 0 0 7px; font-family: var(--font-sans); font-size: 0.66rem; font-weight: 700; }
+    .sgft-live-t-low  .sgft-live-card-tier { color: var(--color-red-500); }
+    .sgft-live-t-mid  .sgft-live-card-tier { color: #92400e; }
+    .sgft-live-t-high .sgft-live-card-tier { color: #166534; }
+    .sgft-live-t-neutral .sgft-live-card-tier { color: var(--color-text-secondary); }
+    /* long recommendation text scrolls within a fixed area instead of
+       stretching the card (and the whole grid row) to match — keeps the
+       2x2 matrix uniform even when one instrument has a lot to say */
+    .sgft-live-card-textwrap { max-height: 122px; overflow-y: auto; padding-right: 2px; }
+    .sgft-live-card-textwrap::-webkit-scrollbar { width: 5px; }
+    .sgft-live-card-textwrap::-webkit-scrollbar-thumb { background: var(--color-card-border); border-radius: var(--radius-full); }
+    .sgft-live-card-text { margin: 0 0 6px; font-family: var(--font-sans); font-size: 0.68rem; line-height: 1.5; color: var(--color-text-secondary); }
+    .sgft-live-card-text:last-child { margin-bottom: 0; }
+    .sgft-live-card-reco { color: var(--color-teal-700); }
+
+    .sgft-live-overall { margin-top: 14px; padding: 10px 12px; border-radius: var(--radius); background: var(--color-gray-200); text-align: center; }
+    .sgft-live-overall-label { font-family: var(--font-sans); font-size: 0.62rem; color: var(--color-text-secondary); margin: 0 0 3px; text-transform: uppercase; letter-spacing: .04em; font-weight: 700; }
+    .sgft-live-overall-value { font-family: var(--font-sans); font-size: 0.82rem; font-weight: 700; margin: 0; }
 
     .sgft-progress-head { padding: 16px 24px 14px; border-bottom: 1px solid var(--color-card-border); }
     .sgft-progress-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
@@ -168,11 +215,16 @@
     .sgft-final-result-title { margin: 0 0 4px; font-family: var(--font-sans); font-size: var(--fs-lg); font-weight: 700; }
     .sgft-final-result-sub { margin: 0 0 20px; font-family: var(--font-sans); font-size: var(--fs-sm); color: var(--color-text-secondary); }
 
+    @media (max-width: 860px) {
+      .sgft-layout-row { flex-direction: column; }
+      .sgft-live-panel { width: 100%; }
+    }
     @media (max-width: 560px) {
       .sgft-content { padding: 20px 14px 40px; }
       .sgft-qbody { padding: 22px 16px 6px; }
       .sgft-progress-head { padding: 14px 16px 12px; }
       .sgft-qnav { padding: 12px 16px 16px; }
+      .sgft-live-grid { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
@@ -215,31 +267,40 @@
       </div>
 
       <section id="page-questions">
-        <div class="sgft-qblock">
-          <div class="sgft-progress-head">
-            <div class="sgft-progress-top">
-              <span class="sgft-progress-label" id="progress-label">Question 1 of 7</span>
-              <span class="sgft-progress-time">&sim;2 min &middot; 7 questions</span>
+        <div class="sgft-layout-row">
+          <div class="sgft-qblock">
+            <div class="sgft-progress-head">
+              <div class="sgft-progress-top">
+                <span class="sgft-progress-label" id="progress-label">Question 1 of 7</span>
+                <span class="sgft-progress-time">&sim;2 min &middot; 7 questions</span>
+              </div>
+              <div class="sgft-progress-track" id="progress-track">
+                <div class="sgft-progress-fill" id="progress-fill"></div>
+              </div>
             </div>
-            <div class="sgft-progress-track" id="progress-track">
-              <div class="sgft-progress-fill" id="progress-fill"></div>
+
+            <div class="sgft-qbody">
+              <p class="sgft-qnum" id="q-num">Question 1</p>
+              <h2 class="sgft-qtitle" id="q-title"></h2>
+              <span class="sgft-info-wrap">
+                <button type="button" class="sgft-info-btn" id="q-info-btn" aria-label="More information">More info</button>
+                <span class="sgft-info-content" id="q-info-content"></span>
+              </span>
+              <div class="sgft-qoptions" id="q-options"></div>
+            </div>
+
+            <div class="sgft-qnav">
+              <button type="button" class="sgft-qnav-btn" id="btn-prev">&larr; Previous</button>
+              <button type="button" class="sgft-qnav-btn primary" id="btn-next" disabled>Next &rarr;</button>
             </div>
           </div>
 
-          <div class="sgft-qbody">
-            <p class="sgft-qnum" id="q-num">Question 1</p>
-            <h2 class="sgft-qtitle" id="q-title"></h2>
-            <span class="sgft-info-wrap">
-              <button type="button" class="sgft-info-btn" id="q-info-btn" aria-label="More information">More info</button>
-              <span class="sgft-info-content" id="q-info-content"></span>
-            </span>
-            <div class="sgft-qoptions" id="q-options"></div>
-          </div>
-
-          <div class="sgft-qnav">
-            <button type="button" class="sgft-qnav-btn" id="btn-prev">&larr; Previous</button>
-            <button type="button" class="sgft-qnav-btn primary" id="btn-next" disabled>Next &rarr;</button>
-          </div>
+          <aside class="sgft-live-panel" aria-label="Live eligibility status">
+            <p class="sgft-live-title">Live Status</p>
+            <p class="sgft-live-sub">Updates as you answer</p>
+            <div class="sgft-live-grid" id="live-grid"></div>
+            <div class="sgft-live-overall" id="live-overall"></div>
+          </aside>
         </div>
         <a href="./agroforestry.html" class="sgft-back-link">Back to Agroforestry Page</a>
 
@@ -492,6 +553,76 @@
       { id: "gl", title: "Green Loans", abbr: "GL" }
     ];
 
+    // live status panel: 4 cards, one per instrument, worst tier first.
+    // an instrument this question doesn't touch shows neutral gray rather
+    // than defaulting into any real tier color — "not affected" isn't
+    // the same thing as "high eligible"
+    const TIER_RANK = { ineligible: 0, moderate: 1, high: 2 };
+    const TIER_FRACTION = { ineligible: 0.22, moderate: 0.55, high: 0.92 };
+    const TIER_RING_COLOR = { ineligible: "var(--color-red-500)", moderate: "var(--gold)", high: "#166534" };
+    const TIER_CARD_CLASS = { ineligible: "sgft-live-t-low", moderate: "sgft-live-t-mid", high: "sgft-live-t-high" };
+
+    function buildLivePreview(qid) {
+      const grid = document.getElementById("live-grid");
+      const overall = document.getElementById("live-overall");
+      const rule = qid && RULES[qid] && RULES[qid][answers[qid]];
+
+      const items = INSTRUMENTS.map(({ id, title, abbr }) => ({
+        title, abbr,
+        tier: rule ? rule[id] : undefined,
+        reason: (rule && rule.reason && rule.reason[id]) || "",
+        reco: (rule && rule.reco && rule.reco[id]) || ""
+      }));
+      items.sort((a, b) => (a.tier === undefined ? 3 : TIER_RANK[a.tier]) - (b.tier === undefined ? 3 : TIER_RANK[b.tier]));
+
+      const r = 17;
+      const circumference = 2 * Math.PI * r;
+      grid.innerHTML = items.map(({ title, abbr, tier, reason, reco }) => {
+        const neutral = tier === undefined;
+        const cardClass = neutral ? "sgft-live-t-neutral" : TIER_CARD_CLASS[tier];
+        const ringColor = neutral ? "var(--color-card-border)" : TIER_RING_COLOR[tier];
+        const offset = circumference * (1 - (neutral ? 0 : TIER_FRACTION[tier]));
+        const tierLabel = neutral ? "Not affected" : TIER_LABEL[tier];
+        return `<div class="sgft-live-card ${cardClass}">
+          <div class="sgft-live-card-ring">
+            <svg width="42" height="42" viewBox="0 0 42 42">
+              <circle cx="21" cy="21" r="${r}" fill="none" stroke="var(--color-card-border)" stroke-width="5"/>
+              <circle cx="21" cy="21" r="${r}" fill="none" stroke="${ringColor}" stroke-width="5" stroke-dasharray="${circumference.toFixed(1)}" stroke-dashoffset="${offset.toFixed(1)}" stroke-linecap="round" transform="rotate(-90 21 21)"/>
+            </svg>
+            <span class="sgft-live-card-ring-label">${abbr}</span>
+          </div>
+          <p class="sgft-live-card-name">${title}</p>
+          <p class="sgft-live-card-tier">${tierLabel}</p>
+          ${(reason || reco) ? `<div class="sgft-live-card-textwrap">
+            ${reason ? `<p class="sgft-live-card-text">${reason}</p>` : ""}
+            ${reco ? `<p class="sgft-live-card-text sgft-live-card-reco">${reco}</p>` : ""}
+          </div>` : ""}
+        </div>`;
+      }).join("");
+
+      const touched = items.filter((i) => i.tier !== undefined);
+      if (!touched.length) {
+        overall.innerHTML = `<p class="sgft-live-overall-label">This answer's impact</p><p class="sgft-live-overall-value">Answer to see it</p>`;
+        return;
+      }
+      const counts = { high: 0, moderate: 0, ineligible: 0 };
+      touched.forEach((i) => { counts[i.tier] += 1; });
+      const total = touched.length;
+      let label, color;
+      if (counts.high === total) { label = "Highly eligible"; color = "#166534"; }
+      else if (counts.ineligible === total) { label = "Ineligible"; color = "var(--color-red-500)"; }
+      else if (counts.moderate === total) { label = "Moderately eligible"; color = "var(--gold)"; }
+      else {
+        const parts = [];
+        if (counts.high) parts.push(counts.high + " high");
+        if (counts.moderate) parts.push(counts.moderate + " moderate");
+        if (counts.ineligible) parts.push(counts.ineligible + " ineligible");
+        label = "Mixed — " + parts.join(", ");
+        color = counts.ineligible ? "var(--color-red-500)" : "var(--gold)";
+      }
+      overall.innerHTML = `<p class="sgft-live-overall-label">This answer's impact</p><p class="sgft-live-overall-value" style="color:${color};">${label}</p>`;
+    }
+
     // shared by the final result — needs a tier count per instrument,
     // this turns that into the banner html
     function renderVerdict(container, tierCounts, total, emptyMessage) {
@@ -615,6 +746,7 @@
       document.getElementById("q-title").innerHTML = q.title;
       document.getElementById("q-info-content").innerHTML = q.info;
       document.getElementById("q-info-content").classList.remove("open");
+      buildLivePreview(q.id);
 
       const optWrap = document.getElementById("q-options");
       optWrap.innerHTML = "";
@@ -628,9 +760,10 @@
           answers[q.id] = opt.value;
           renderQuestion();
           // auto-advance, but not on the last question — that one waits
-          // for "See result" so nothing changes on screen unexpectedly
+          // for "See result" so nothing changes on screen unexpectedly.
+          // long enough to actually read the live status update first
           if (step < QUESTIONS.length - 1) {
-            setTimeout(() => { step++; renderQuestion(); }, 220);
+            setTimeout(() => { step++; renderQuestion(); }, 1500);
           }
         });
         optWrap.appendChild(btn);
