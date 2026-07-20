@@ -212,12 +212,17 @@
     .sgft-final-reco { font-family: var(--font-sans); font-size: var(--fs-sm); line-height: 1.6; color: var(--color-teal-700); margin: 0 0 8px; padding-top: 8px; border-top: 1px dashed var(--color-card-border); }
     .sgft-final-reco:last-child { margin-bottom: 0; }
 
-    .sgft-final-low  { background: var(--color-red-500); }
-    .sgft-final-mid  { background: var(--gold); }
-    .sgft-final-high { background: #166534; }
+    .sgft-final-stripe.sgft-final-low  { background: var(--color-red-500); }
+    .sgft-final-stripe.sgft-final-mid  { background: var(--gold); }
+    .sgft-final-stripe.sgft-final-high { background: #166534; }
     .sgft-final-tier.sgft-final-low  { background: #fef2f2; color: var(--color-red-500); }
     .sgft-final-tier.sgft-final-mid  { background: #fffbeb; color: #92400e; }
     .sgft-final-tier.sgft-final-high { background: #ecfdf5; color: #166534; }
+
+    .sgft-final-row { transition: background-color .15s ease; }
+    .sgft-final-row.sgft-final-low:hover  { background: #fef2f2; }
+    .sgft-final-row.sgft-final-mid:hover  { background: #fffbeb; }
+    .sgft-final-row.sgft-final-high:hover { background: #ecfdf5; }
     .sgft-final-eyebrow { margin: 0 0 6px; font-family: var(--font-sans); font-size: 0.72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--color-primary); }
     .sgft-final-result-title { margin: 0 0 4px; font-family: var(--font-sans); font-size: var(--fs-lg); font-weight: 700; }
     .sgft-final-result-sub { margin: 0 0 20px; font-family: var(--font-sans); font-size: var(--fs-sm); color: var(--color-text-secondary); }
@@ -686,7 +691,7 @@
       acc.innerHTML = rows.map(({ title, tier, reasons, recos }, i) => {
         const stripeClass = TIER_STRIPE_CLASS[tier];
         const hasBody = reasons.length > 0 || recos.length > 0;
-        return `<div class="sgft-final-row ${i === openIdx ? "open" : ""}">
+        return `<div class="sgft-final-row ${stripeClass} ${i === openIdx ? "open" : ""}">
           <button type="button" class="sgft-final-head">
             <span class="sgft-final-stripe ${stripeClass}"></span>
             <span class="sgft-final-name">${title}</span>
