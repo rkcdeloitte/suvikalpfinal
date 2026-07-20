@@ -63,16 +63,6 @@
     .sgft-live-t-low  .sgft-live-card-tier { color: var(--color-red-500); }
     .sgft-live-t-mid  .sgft-live-card-tier { color: #92400e; }
     .sgft-live-t-high .sgft-live-card-tier { color: #166534; }
-    /* long recommendation text scrolls within a fixed area instead of
-       stretching the slab to match — full slab width means far fewer
-       wrapped lines than the old 2-column grid, so this rarely kicks in */
-    .sgft-live-card-textwrap { max-height: 110px; overflow-y: auto; padding-right: 4px; }
-    .sgft-live-card-textwrap::-webkit-scrollbar { width: 5px; }
-    .sgft-live-card-textwrap::-webkit-scrollbar-thumb { background: var(--color-card-border); border-radius: var(--radius-full); }
-    .sgft-live-card-text { margin: 0 0 6px; font-family: var(--font-sans); font-size: 0.85rem; line-height: 1.55; color: var(--color-text-secondary); }
-    .sgft-live-card-text:last-child { margin-bottom: 0; }
-    .sgft-live-card-reco { color: var(--color-teal-700); }
-
     /* abbreviations (NDA, GCF, etc.) get a custom tooltip instead of the
        native title="" one — the browser's built-in tooltip has a built-in
        ~1s delay before it appears that can't be shortened, this shows
@@ -195,12 +185,6 @@
     /* question info: calm/neutral — this is background context, not an action */
     .sgft-qbody .sgft-info-content { background: var(--color-gray-200); color: var(--color-text-secondary); border: 1px solid var(--color-card-border); }
     .sgft-qbody .sgft-info-content::before { background: var(--color-primary); }
-
-    /* recommendation info (Live Status "Enhancement measures"): teal wash —
-       signals "do this", matching the teal used for recommendation text
-       everywhere else in the tool */
-    .sgft-live-card .sgft-info-content { background: var(--color-teal-border); color: var(--color-teal-700); border: 1px solid rgba(33,128,141,.3); text-align: left; }
-    .sgft-live-card .sgft-info-content::before { background: var(--color-teal-700); }
 
     .sgft-final-result { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--color-card-border); }
 
