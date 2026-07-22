@@ -274,7 +274,7 @@
   <header id="site-header">
     <div class="header-left">
       <div class="header-tool-title"><span class="hindi">सुविकल्प:</span> Mine Repurposing Tool</div>
-      <div class="header-tool-sub">bioenergy — Preliminary Green Finance Screening</div>
+      <div class="header-tool-sub">Bioenergy — Preliminary Green Finance Screening</div>
     </div>
   <div class="header-right">
     <div class="header-cco-lockup">
@@ -287,14 +287,14 @@
   <div class="page">
 
     <div class="sf-backbar">
-      <button class="back-btn" onclick="window.location.href='./bioenergy.html'" aria-label="Back to bioenergy">
+      <button class="back-btn" onclick="window.location.href='./bioenergy.html'" aria-label="Back to Bioenergy">
         <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M10 3L5 8l5 5"/>
         </svg>
-        Back to bioenergy
+        Back to Bioenergy
       </button>
       <span class="sf-breadcrumb">
-        <span>bioenergy</span>
+        <span>Bioenergy</span>
         <span class="sep">/</span>
         <span style="color:var(--color-primary);font-weight:500;">Green Finance</span>
       </span>
@@ -305,79 +305,37 @@
       <div class="sgft-intro">
         <p>Answer <strong>7 quick questions</strong> to see a preliminary eligibility status for
           Green Bonds, Carbon Credit, <abbr title="Green Climate Fund">GCF</abbr> and Green Loans,
-          based on the bioenergy financing criteria.</p>
+          based on the Bioenergy financing criteria.</p>
       </div>
 
       <section id="page-questions">
-        <div class="sgft-layout">
-          <div class="sgft-main">
-            <div class="sgft-checklist" id="checklist">
-
-              <div class="sgft-row active" data-q="q1">
-                <button type="button" class="sgft-row-head">
-                  <span class="sgft-row-check"><span class="sgft-row-num">1</span><svg class="sgft-row-checkmark" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l3.5 3.5L13 5"/></svg></span>
-                  <span class="sgft-row-title">Does the project broadly align with the host country's national climate strategy and plans or NDC?</span>
-                  <span class="sgft-row-pill"></span>
-                </button>
-                <div class="sgft-row-body">
-                  <p class="sgft-clause-inline"><span class="sgft-clause-icon">i</span><span>Proposals not aligned with national climate priorities may not receive NDA endorsement.</span></p>
-                  <select class="sgft-select answer" data-q="q1">
-                    <option value="">Select</option>
-                    <option value="yes">Yes</option>
-                    <option value="no">No</option>
-                  </select>
-                </div>
+        <div class="sgft-layout-row">
+          <div class="sgft-qblock">
+            <div class="sgft-progress-head">
+              <div class="sgft-progress-top">
+                <span class="sgft-progress-label" id="progress-label">Question 1 of 7</span>
+                <span class="sgft-progress-time">~2 min</span>
               </div>
-
-              <div class="sgft-row" data-q="q2">
-                <button type="button" class="sgft-row-head">
-                  <span class="sgft-row-check"><span class="sgft-row-num">2</span><svg class="sgft-row-checkmark" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l3.5 3.5L13 5"/></svg></span>
-                  <span class="sgft-row-title">Does the project possess legal land-use rights and all required FPIC (Free, Prior, Informed Consent) approvals?</span>
-                  <span class="sgft-row-pill"></span>
-                </button>
-                <div class="sgft-row-body">
-                  <p class="sgft-clause-inline"><span class="sgft-clause-icon">i</span><span>Project needs to adhere to Minimum Social Safeguards and uphold ethical, inclusive social practices.</span></p>
-                  <select class="sgft-select answer" data-q="q2">
-                    <option value="">Select</option>
-                    <option value="yes">Yes</option>
-                    <option value="no">No</option>
-                  </select>
-                </div>
+              <div class="sgft-progress-track" id="progress-track">
+                <div class="sgft-progress-fill" id="progress-fill"></div>
               </div>
+            </div>
 
-              <div class="sgft-row" data-q="q3">
-                <button type="button" class="sgft-row-head">
-                  <span class="sgft-row-check"><span class="sgft-row-num">3</span><svg class="sgft-row-checkmark" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l3.5 3.5L13 5"/></svg></span>
-                  <span class="sgft-row-title">Will the project comply with the governing environmental and social laws and standards?</span>
-                  <span class="sgft-row-pill"></span>
-                </button>
-                <div class="sgft-row-body">
-                  <p class="sgft-clause-inline"><span class="sgft-clause-icon">i</span><span>Covers Minimum Social Safeguards and whether project activities uphold ethical, inclusive social practices.</span></p>
-                  <select class="sgft-select answer" data-q="q3">
-                    <option value="">Select</option>
-                    <option value="yes">Yes</option>
-                    <option value="no">No</option>
-                    <option value="partially">Partially</option>
-                  </select>
-                </div>
-              </div>
+            <div class="sgft-qbody">
+              <p class="sgft-qnum" id="q-num">Question 1</p>
+              <p class="sgft-qtitle" id="q-title"></p>
+              <span class="sgft-info-wrap">
+                <button type="button" class="sgft-info-btn" aria-label="More information">More info</button>
+                <div class="sgft-info-content" id="q-info-content"></div>
+              </span>
+              <div class="sgft-qoptions" id="q-options"></div>
+            </div>
 
-              <div class="sgft-row" data-q="q4">
-                <button type="button" class="sgft-row-head">
-                  <span class="sgft-row-check"><span class="sgft-row-num">4</span><svg class="sgft-row-checkmark" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l3.5 3.5L13 5"/></svg></span>
-                  <span class="sgft-row-title">Does the project require external financial support to become commercially viable?</span>
-                  <span class="sgft-row-pill"></span>
-                </button>
-                <div class="sgft-row-body">
-                  <p class="sgft-clause-inline"><span class="sgft-clause-icon">i</span><span>Financiers won't fund a project that would go ahead anyway without their support.</span></p>
-                  <select class="sgft-select answer" data-q="q4">
-                    <option value="">Select</option>
-                    <option value="commercial">No</option>
-                    <option value="concessional">Not viable without concessional support</option>
-                    <option value="carbon">Not viable without carbon credit</option>
-                  </select>
-                </div>
-              </div>
+            <div class="sgft-qnav">
+              <button type="button" class="sgft-qnav-btn" id="btn-prev">&larr; Back</button>
+              <button type="button" class="sgft-qnav-btn primary" id="btn-next">Next &rarr;</button>
+            </div>
+          </div>
 
           <aside class="sgft-live-panel" aria-label="Live eligibility status">
             <p class="sgft-live-title">Live Status</p>

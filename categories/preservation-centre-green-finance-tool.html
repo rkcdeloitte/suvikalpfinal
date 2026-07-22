@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Green Finance — Solar PV Farms | SUVIKALP</title>
+  <title>Green Finance — Preservation Centre | SUVIKALP</title>
   <link rel="stylesheet" href="../style.css">
   <link rel="stylesheet" href="./category.css">
   <style>
@@ -27,6 +27,7 @@
       overflow: hidden;
     }
 
+    /* only instruments the current question actually touches get a card here */
     .sgft-live-panel { flex: 1; min-width: 0; }
     .sgft-live-title { margin: 0 0 2px; font-family: var(--font-sans); font-size: 1.05rem; font-weight: 700; color: var(--color-teal-700); }
     .sgft-live-sub { margin: 0 0 14px; font-family: var(--font-sans); font-size: var(--fs-sm); color: var(--color-text-secondary); }
@@ -273,7 +274,7 @@
   <header id="site-header">
     <div class="header-left">
       <div class="header-tool-title"><span class="hindi">सुविकल्प:</span> Mine Repurposing Tool</div>
-      <div class="header-tool-sub">Solar PV Farms — Preliminary Green Finance Screening</div>
+      <div class="header-tool-sub">Preservation Centre — Preliminary Green Finance Screening</div>
     </div>
   <div class="header-right">
     <div class="header-cco-lockup">
@@ -286,14 +287,14 @@
   <div class="page">
 
     <div class="sf-backbar">
-      <button class="back-btn" onclick="window.location.href='./solar-pv.html'" aria-label="Back to Solar PV Farms">
+      <button class="back-btn" onclick="window.location.href='./preservation-centre.html'" aria-label="Back to Preservation Centre">
         <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M10 3L5 8l5 5"/>
         </svg>
-        Back to Solar PV Farms
+        Back to Preservation Centre
       </button>
       <span class="sf-breadcrumb">
-        <span>Solar PV Farms</span>
+        <span>Preservation Centre</span>
         <span class="sep">/</span>
         <span style="color:var(--color-primary);font-weight:500;">Green Finance</span>
       </span>
@@ -302,9 +303,9 @@
     <div class="sgft-content">
       <h1 class="spv-section-title">Green Finance</h1>
       <div class="sgft-intro">
-        <p>Answer <strong>8 quick questions</strong> to see a preliminary eligibility status for
+        <p>Answer <strong>7 quick questions</strong> to see a preliminary eligibility status for
           Green Bonds, Carbon Credit, <abbr title="Green Climate Fund">GCF</abbr> and Green Loans,
-          based on the Solar PV Farms financing criteria.</p>
+          based on the Preservation Centre financing criteria.</p>
       </div>
 
       <section id="page-questions">
@@ -312,8 +313,8 @@
           <div class="sgft-qblock">
             <div class="sgft-progress-head">
               <div class="sgft-progress-top">
-                <span class="sgft-progress-label" id="progress-label">Question 1 of 8</span>
-                <span class="sgft-progress-time">&sim;2 min &middot; 8 questions</span>
+                <span class="sgft-progress-label" id="progress-label">Question 1 of 6</span>
+                <span class="sgft-progress-time">~2 min</span>
               </div>
               <div class="sgft-progress-track" id="progress-track">
                 <div class="sgft-progress-fill" id="progress-fill"></div>
@@ -322,17 +323,17 @@
 
             <div class="sgft-qbody">
               <p class="sgft-qnum" id="q-num">Question 1</p>
-              <h2 class="sgft-qtitle" id="q-title"></h2>
+              <p class="sgft-qtitle" id="q-title"></p>
               <span class="sgft-info-wrap">
-                <button type="button" class="sgft-info-btn" id="q-info-btn" aria-label="More information">More info</button>
-                <span class="sgft-info-content" id="q-info-content"></span>
+                <button type="button" class="sgft-info-btn" aria-label="More information">More info</button>
+                <div class="sgft-info-content" id="q-info-content"></div>
               </span>
               <div class="sgft-qoptions" id="q-options"></div>
             </div>
 
             <div class="sgft-qnav">
-              <button type="button" class="sgft-qnav-btn" id="btn-prev">&larr; Previous</button>
-              <button type="button" class="sgft-qnav-btn primary" id="btn-next" disabled>Next &rarr;</button>
+              <button type="button" class="sgft-qnav-btn" id="btn-prev">&larr; Back</button>
+              <button type="button" class="sgft-qnav-btn primary" id="btn-next">Next &rarr;</button>
             </div>
           </div>
 
@@ -340,12 +341,13 @@
             <p class="sgft-live-title">Live Status</p>
             <p class="sgft-live-sub">Updates as you answer</p>
             <div class="sgft-live-grid" id="live-grid"></div>
+            <div class="sgft-live-overall" id="live-overall"></div>
           </aside>
         </div>
 
         <section id="final-result" class="sgft-final-result" hidden>
           <p class="sgft-final-eyebrow">Final Result</p>
-          <h2 class="sgft-final-result-title">Combined eligibility across all 8 answers</h2>
+          <h2 class="sgft-final-result-title">Combined eligibility across all 7 answers</h2>
           <p class="sgft-final-result-sub">Tap any instrument to see why, and what to do next.</p>
           <div class="sgft-final-acc" id="final-acc"></div>
         </section>
@@ -368,25 +370,25 @@
       {
         id: "q1",
         title: "Does the project broadly align with the host country's national climate strategy and plans or <abbr title='Nationally Determined Contribution'>NDC</abbr>?",
-        info: "Proposals not aligned with national climate priorities will not receive <abbr title='National Designated Authority'>NDA</abbr> endorsement, which is mandatory for accessing <abbr title='Green Climate Fund'>GCF</abbr>.",
+        info: "Proposals not aligned with national climate priorities may not receive <abbr title='National Designated Authority'>NDA</abbr> endorsement.<br><a href=\"https://unfccc.int/sites/default/files/NDC/2022-06/INDIA%20INDC%20TO%20UNFCCC.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">See India's NDC submission to the UNFCCC &nearr;</a>",
         options: [{ value: "yes", label: "Yes" }, { value: "no", label: "No" }]
       },
       {
         id: "q2",
         title: "Does the project possess legal land-use rights and all required FPIC (Free, Prior, Informed Consent) approvals?",
-        info: "FPIC is mandated to access carbon credit and <abbr title='Green Climate Fund'>GCF</abbr>.",
+        info: "Ensure the project has valid land-use rights and all required approvals, including Free, Prior and Informed Consent (FPIC), which means informing, consulting, and obtaining consent from affected Indigenous or local communities before starting project activities.<br><a href=\"https://ses-toolkit.info.undp.org/sites/g/files/zskgke446/files/SES%20Document%20Library/Uploaded%20October%202016/FINAL%20FPIC%20FAQ%20Guidance%20-%20June%2015%202022.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">See UNDP Social and Environmental Standards FPIC &nearr;</a>",
         options: [{ value: "yes", label: "Yes" }, { value: "no", label: "No" }]
       },
       {
         id: "q3",
-        title: "Will the project comply with the environmental and social standards?",
-        info: "Required for all solar facilities above 10 MW under the Green Taxonomy to ensure environmental compliance.",
+        title: "Will the project comply with the governing environmental and social laws and standards?",
+        info: "Ensure the project complies with all applicable environmental and social laws, regulations, and standards, including environmental protection, worker safety, and community well-being.<br><a href=\"https://thedocs.worldbank.org/en/doc/837721522762050108-0290022018/original/ESFFramework.pdf#page=29&zoom=80\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">See World Bank Enviornmental and Social Framework &nearr;</a>",
         options: [{ value: "yes", label: "Yes" }, { value: "no", label: "No" }, { value: "partially", label: "Partially" }]
       },
       {
         id: "q4",
-        title: "Does the project require external funds to become commercially viable?",
-        info: "<abbr title='Green Climate Fund'>GCF</abbr> provides the minimum concessionality needed. Fully bankable projects without a funding gap do not qualify.",
+        title: "Does the project require external financial support to become commercially viable?",
+        info: "The project's financial need helps determine whether it is eligible for green finance.",
         options: [
           { value: "commercial", label: "No" },
           { value: "concessional", label: "Not viable without concessional support" },
@@ -396,29 +398,19 @@
       {
         id: "q5",
         title: "Is the project required by any existing law, regulation or legally binding mandate?",
-        info: "Green bond proceeds and <abbr title='Green Climate Fund'>GCF</abbr> support remain available for mandated projects — demonstrating a project is required by law can actually help prove its regulatory soundness.",
+        info: "It helps to determine whether the Project Implementation is voluntary or already required by law. Projects that are legally required may not be eligible for carbon credits.",
         options: [{ value: "yes", label: "Yes" }, { value: "no", label: "No" }, { value: "partially", label: "Partially" }]
       },
       {
         id: "q6",
-        title: "Will the project export electricity to a grid?",
-        info: "The Green Taxonomy covers construction and operation of grid-connected solar facilities.",
-        options: [{ value: "yes", label: "Yes" }, { value: "no", label: "No" }]
+        title: "Is use of proceeds Monitoring and Evaluation (M&E) plan included or planned for the project?",
+        info: "The project should have a plan to monitor its progress, how the funds are used, and the environmental and social benefits achieved during the project.",
+        options: [{ value: "yes", label: "Yes" }, { value: "no", label: "No" }, { value: "partially", label: "Partially" }]
       },
       {
         id: "q7",
-        title: "Does the project include a Battery Energy Storage System (BESS)?",
-        info: "A BESS is ineligible for carbon credit if it sits on a separate site or grid connection from the power plant.",
-        options: [
-          { value: "no-bess", label: "No BESS" },
-          { value: "same-site", label: "Yes – same site, shared grid connection, same owner" },
-          { value: "separate-site", label: "Yes – separate site or grid connection" }
-        ]
-      },
-      {
-        id: "q8",
-        title: "Is a Monitoring and Evaluation (M&E) plan included or planned for the project?",
-        info: "<abbr title='Green Climate Fund'>GCF</abbr> and Carbon Credit require a results-based M&E framework aligned with its Performance Measurement Framework. Transparent tracking prevents funds from being used for non-green purposes.",
+        title: "Is the facility necessary component of a green value chain, such that the operations will be energy efficient and waste reduction ?",
+        info: "Project should be focused on energy efficiency and waste reduction.",
         options: [{ value: "yes", label: "Yes" }, { value: "no", label: "No" }]
       }
     ];
@@ -463,7 +455,7 @@
 
     // one entry per question, one entry per answer, one tier per instrument
     // (gb/cc/gcf/gl). Skip an instrument key on an answer if that answer
-    // doesn't affect it (e.g. Green Bonds isn't touched by Q7 at all).
+    // doesn't affect it (e.g. Carbon Credit isn't touched by Q1).
     // reason = why it got that tier, reco = what to do about it.
     const RULES = {
       q1: {
@@ -471,126 +463,143 @@
         no: {
           gb: "ineligible", gcf: "ineligible", gl: "ineligible",
           reco: {
-            gb: "Issuers are encouraged to seek alignment with voluntary guidelines on a \"best-efforts basis\" and should \"disclose how they are progressing\" against each recommended element of a transition strategy, explaining any areas of non-alignment",
-            gcf: "Review the country's <abbr title='Nationally Determined Contribution'>NDC</abbr>, national renewable energy plan, or sector strategy\nAdjust project scope or target beneficiaries to match prioritised sectors in the <abbr title='Nationally Determined Contribution'>NDC</abbr>\nEngage the <abbr title='National Designated Authority'>NDA</abbr> to understand what solar PV contributions are explicitly planned and endorsed",
-            gl: "Issuers are encouraged to seek alignment with voluntary guidelines on a \"best-efforts basis\" and should \"disclose how they are progressing\" against each recommended element of a transition strategy, explaining any areas of non-alignment"
+            gb: "Issuers are encouraged to use guidance from the Climate Transition Finance Handbook. For climate change mitigation",
+            gcf: "Review the country's <abbr title='Nationally Determined Contribution'>NDC</abbr>, national renewable energy plan, or sector strategy\nAdjust project scope or target beneficiaries to match prioritised sectors in the <abbr title='Nationally Determined Contribution'>NDC</abbr>\nEngage the <abbr title='National Designated Authority'>NDA</abbr> to understand what Preservation Centre contributions are explicitly planned and endorsed",
+            gl: "Seek alignment with voluntary guidelines on a \"best-efforts basis\" and should \"disclose how they are progressing\" against each recommended element of a transition strategy, explaining any areas of non-alignment"
           }
         }
       },
       q2: {
-        yes: { gb: "high", cc: "high", gcf: "high", gl: "high" },
+        yes: {
+          gb: "high", cc: "high", gcf: "high", gl: "high",
+          reason: { cc: "The project developer must have the legal authority to implement the project and demonstrate ownership or control over the project area through valid land rights, leases, permits, or agreements." }
+        },
         no: {
           gb: "ineligible", cc: "ineligible", gcf: "ineligible", gl: "ineligible",
+          reason: { cc: "The project developer cannot demonstrate legal authority to operate the project or claim ownership of the carbon benefits. Without legal rights to the land or carbon benefits, ownership of the emission reductions is uncertain." },
           reco: {
-            gb: "Adhering to Minimum Social Safeguards (MSS) — taxonomy-aligned green activities need to adhere to human rights and labor standards. Minimum Social Safeguards help ensure that while economic activities contribute to environmental goals, they also uphold ethical and inclusive social practices. For instance, project developers should engage local communities and protect their rights without causing displacement, and green technology supply chains must ensure safe working conditions and prevent labor exploitation.",
-            gl: "Adhering to Minimum Social Safeguards (MSS) — taxonomy-aligned green activities need to adhere to human rights and labor standards. Minimum Social Safeguards help ensure that while economic activities contribute to environmental goals, they also uphold ethical and inclusive social practices. For instance, project developers should engage local communities and protect their rights without causing displacement, and green technology supply chains must ensure safe working conditions and prevent labor exploitation."
+            gb: "Issuers are encouraged to seek through their processes to identify mitigants to known and likely risks of material negative social and/or environmental impacts from the project(s), which may include relevant trade-off analysis and monitoring undertaken where the issuer assesses the potential risks to be meaningful.\nIssuer should refer remediation plan guided by <abbr title='International Finance Corporation'>IFC</abbr>, Equator Principles or other international social standards and ensure full legal and social compliance is documented and verified by an external reviewer.",
+            cc: "Project owner need to obtain legal ownership or land-use rights. Secure contracts transferring carbon rights to the project developer. Resolve land tenure or ownership disputes prior to project validation.",
+            gcf: "The project must secure legal land-use rights and obtain required community/Indigenous consent (FPIC) before it can qualify for green financing.",
+            gl: "Issuers are encouraged to seek through their processes to identify mitigants to known and likely risks of material negative social and/or environmental impacts from the project(s), which may include relevant trade-off analysis and monitoring undertaken where the issuer assesses the potential risks to be meaningful.\nIssuer should refer remediation plan guided by <abbr title='International Finance Corporation'>IFC</abbr>, Equator Principles or other international social standards and ensure full legal and social compliance is documented and verified by an external reviewer."
           }
         }
       },
       q3: {
         yes: {
-          gb: "high", cc: "high", gcf: "high", gl: "high",
+          gb: "high", gcf: "high", gl: "high",
           reason: { gcf: "Must comply with <abbr title='International Finance Corporation'>IFC</abbr>-aligned safeguards to prevent harm." },
           reco: { gcf: "<abbr title='Green Climate Fund'>GCF</abbr> requires compliance with its <abbr title='Environmental and Social Safeguards'>ESS</abbr> (<abbr title='International Finance Corporation'>IFC</abbr> Performance Standards). Commission a scoping-level <abbr title='Environmental and Social Impact Assessment'>ESIA</abbr> immediately- this is required before concept note submission.\nIdentify a qualified environmental and social consultant with <abbr title='International Finance Corporation'>IFC</abbr> PS experience\nDocument the E&S risk category (A/B/C) as it determines depth of assessment required" }
         },
         no: {
-          gb: "ineligible", cc: "ineligible", gcf: "ineligible", gl: "ineligible",
+          gb: "ineligible", gcf: "ineligible", gl: "ineligible",
           reco: {
-            gb: "Projects must meet two critical pillars:\nDo No Significant Harm (DNSH): While contributing to one environmental goal, the project must not undermine others (e.g., an energy project must not destroy local habitats)\nMinimum Social Safeguards (MSS): The project must adhere to human rights and labor standards, such as the Labor Code, ensuring safe working conditions and prohibiting forced or child labor\nAppoint an External Reviewer (such as an SPO provider) to confirm the project's alignment with these standards",
-            gl: "Projects must meet two critical pillars:\nDo No Significant Harm (DNSH): While contributing to one environmental goal, the project must not undermine others (e.g., an energy project must not destroy local habitats)\nMinimum Social Safeguards (MSS): The project must adhere to human rights and labor standards, such as the Labor Code, ensuring safe working conditions and prohibiting forced or child labor\nAppoint an External Reviewer (such as an SPO provider) to confirm the project's alignment with these standards"
+            gb: "GBP recommend that issuers clearly communicate to investors their environmental sustainability objectives overall, and how they will identify and manage potential environmental and social risks associated with the selected projects.\n\nProjects must meet two critical pillars:\nDo No Significant Harm (DNSH): While contributing to one environmental goal, the project must not undermine others (e.g., an energy project must not destroy local habitats)\nMinimum Social Safeguards (MSS): The project must adhere to human rights and labor standards, such as the Labor Code, ensuring safe working conditions and prohibiting forced or child labor\nAppoint an External Reviewer (such as an SPO provider) to confirm the project's alignment with these standards",
+            gl: "GLP recommend that issuers clearly communicate to investors their environmental sustainability objectives overall, and how they will identify and manage potential environmental and social risks associated with the selected projects.\n\nProjects must meet two critical pillars:\nDo No Significant Harm (DNSH): While contributing to one environmental goal, the project must not undermine others (e.g., an energy project must not destroy local habitats)\nMinimum Social Safeguards (MSS): The project must adhere to human rights and labor standards, such as the Labor Code, ensuring safe working conditions and prohibiting forced or child labor\nAppoint an External Reviewer (such as an SPO provider) to confirm the project's alignment with these standards"
           }
         },
-        partially: { gb: "ineligible", cc: "ineligible", gcf: "ineligible", gl: "ineligible" }
+        partially: { gb: "ineligible", gcf: "ineligible", gl: "ineligible" }
       },
       q4: {
         commercial: {
           gb: "high", cc: "ineligible", gcf: "ineligible", gl: "high",
           reason: {
-            cc: "Projects that are financially viable without carbon revenue cannot demonstrate additionality through the investment test. Consider whether avoided-cost or barrier arguments apply.",
-            gcf: "<abbr title='Green Climate Fund'>GCF</abbr> will not fund projects that can attract commercial finance on their own terms — this would crowd out private investment.",
-            gl: "Project is financially attractive on it's own"
+            cc: "The project would proceed regardless of carbon credits, so it is not additional — carbon finance isn't the deciding factor.",
+            gcf: "<abbr title='Green Climate Fund'>GCF</abbr> will not fund projects that can attract commercial finance on their own terms — this would crowd out private investment."
           },
           reco: {
-            gcf: "<abbr title='Green Climate Fund'>GCF</abbr> will not fund projects that can attract commercial finance on their own terms — this would crowd out private investment. You may required to (1) document the specific financing barriers (e.g. high perceived risk, currency mismatch, tenor mismatch)\n(2) Prepare a financial model demonstrating the funding gap with and without <abbr title='Green Climate Fund'>GCF</abbr> support\n(3) Consider re-scoping to include underserved segments (e.g. off-grid, small commercial) where the market gap is clearer"
+            cc: "Redesign the project to include voluntary activities beyond business-as-usual. Identify additional measures that only become feasible with carbon finance.",
+            gcf: "<abbr title='Green Climate Fund'>GCF</abbr> will not fund projects that can attract commercial finance on their own terms — this would crowd out private investment. You may required to\n(1) document the specific financing barriers (e.g. high perceived risk, currency mismatch, tenor mismatch)\n(2) Prepare a financial model demonstrating the funding gap with and without <abbr title='Green Climate Fund'>GCF</abbr> support\n(3) Consider re-scoping to include underserved segments (e.g. off-grid, small commercial) where the market gap is clearer"
           }
         },
         concessional: {
-          gb: "high", cc: "ineligible", gcf: "high", gl: "moderate",
-          reason: {
-            gb: "Project is not financially attractive on it's own; green bonds used to bridge investment gaps for projects that are not yet commercially attractive on their own.",
-            gl: "Project is NOT financially attractive on it's own"
+          gb: "moderate", cc: "moderate", gcf: "high", gl: "moderate",
+          reason: { cc: "Only part of the project depends on carbon finance — some activities may already be financially viable while others require carbon revenue." },
+          reco: {
+            cc: "Conduct a financial analysis showing carbon revenue improves project viability. Demonstrate investment barriers, technology barriers, or financial risks. Clearly identify activities that rely on carbon finance.",
+            gl: "Project is financially attractive on it's own"
           }
         },
-        carbon: { cc: "high", gcf: "ineligible" }
+        carbon: {
+          gb: "moderate", cc: "high", gcf: "moderate", gl: "moderate",
+          reason: { cc: "Carbon finance is necessary for the project to proceed." },
+          reco: {
+            gl: "Project is financially attractive on it's own"
+          }
+        }
       },
       q5: {
         yes: {
           gb: "high", cc: "ineligible", gcf: "high", gl: "high",
           reason: {
             gb: "Irrelevant factor for determining ineligibility.",
-            cc: "Carbon credit is not eligible for projects that are mandated under statutory laws.",
+            cc: "The activity is legally required, and carbon credits cannot be issued for actions undertaken solely to comply with legal obligations.",
             gcf: "Irrelevant factor.",
             gl: "Irrelevant factor for determining ineligibility."
           },
-          reco: { cc: "Fully mandated projects fail the regulatory surplus test — the VCS Standard requires the project to go beyond legal obligations." }
+          reco: {
+            cc: "Add voluntary restoration or emission reduction activities beyond regulatory requirements. Exclude legally mandated activities from the carbon project boundary."
+          }
         },
         no: {
           gb: "high", cc: "high", gcf: "high", gl: "high",
-          reason: { gb: "Irrelevant factor for determining ineligibility.", gcf: "Irrelevant factor." }
+          reason: {
+            gb: "Irrelevant factor for determining ineligibility.",
+            cc: "The activity is entirely voluntary and exceeds legal requirements.",
+            gcf: "Irrelevant factor."
+          }
         },
         partially: {
           gb: "high", cc: "moderate", gcf: "high", gl: "high",
-          reason: { gb: "Irrelevant factor for determining ineligibility.", gcf: "Irrelevant factor." }
+          reason: {
+            gb: "Irrelevant factor for determining ineligibility.",
+            cc: "Some activities are legally required, but additional voluntary activities go beyond compliance.",
+            gcf: "Irrelevant factor."
+          },
+          reco: {
+            cc: "Clearly separate mandatory activities from voluntary activities. Claim carbon credits only for actions beyond legal requirements. Maintain evidence demonstrating the additional voluntary scope."
+          }
         }
       },
       q6: {
         yes: {
           gb: "high", cc: "high", gcf: "high", gl: "high",
           reason: {
-            cc: "The methodology only applies to grid-connected generation — off-grid or captive power projects are not eligible.",
-            gcf: "Irrelevant factor.",
-            gl: "Green Loans criteria apply to grid-connected solar facilities."
-          }
-        },
-        no: {
-          gb: "moderate", cc: "ineligible", gcf: "high", gl: "moderate",
-          reason: { gcf: "Irrelevant factor." },
-          reco: {
-            gb: "The project will only be considered an eligible green project as long as the environmental benefits can be quantified.",
-            gl: "The project will only be considered an eligible green project as long as the environmental benefits can be quantified."
-          }
-        }
-      },
-      q7: {
-        "no-bess": {
-          cc: "high", gcf: "high",
-          reason: {
-            cc: "BESS must share the same site and grid interconnection point as the power plant per VMR0017 condition 8(f).",
-            gcf: "Irrelevant factor."
-          }
-        },
-        "same-site": {
-          cc: "high", gcf: "high",
-          reason: { gcf: "Irrelevant factor." }
-        },
-        "separate-site": { cc: "ineligible" }
-      },
-      q8: {
-        yes: {
-          gb: "high", cc: "high", gcf: "high", gl: "high",
-          reason: {
-            gb: "Monitoring and Evaluation (M&E) is both a planned and required component for projects financed through green bonds.",
-            cc: "Direct measurement via calibrated grid-interface meters is a hard requirement of VMR0017 Section 9.2 — projects unable to install meters cannot meet monitoring requirements.",
+            gb: "M&E is both a planned and required component for projects financed through green bonds.",
+            cc: "Monitoring systems, responsible personnel, and data collection processes are already in place.",
             gcf: "<abbr title='Green Climate Fund'>GCF</abbr> requires a results-based M&E framework aligned with its Performance Measurement Framework.",
-            gl: "Monitoring and Evaluation (M&E) is both a planned and required component for projects financed through green loans."
-          },
-          reco: { gcf: "<abbr title='Green Climate Fund'>GCF</abbr> requires a results-based M&E framework aligned with its Performance Measurement Framework.\nDesign an M&E plan with indicators tied to <abbr title='Green Climate Fund'>GCF</abbr> core indicators (PMF-M Core 1, 2, 3)\nInclude gender-disaggregated data collection in the M&E framework\nEstablish a results reporting schedule aligned with <abbr title='Green Climate Fund'>GCF</abbr> reporting requirements" }
+            gl: "M&E is both a planned and required component for projects financed through green loans."
+          }
         },
         no: {
           gb: "ineligible", cc: "ineligible", gcf: "ineligible", gl: "ineligible",
+          reason: { cc: "Verifiable monitoring is essential for calculating carbon credits — without reliable data, emission reductions cannot be verified." },
           reco: {
-            gb: "Monitoring is a regular part of the review and approval process for green projects, ensuring they align with environmental missions and development priorities. Proponents are strongly recommended to adopt the <abbr title='International Capital Market Association'>ICMA</abbr> Harmonised Framework for Impact Reporting.",
-            gl: "Monitoring is a regular part of the review and approval process for green projects, ensuring they align with environmental missions and development priorities. Proponents are strongly recommended to adopt the <abbr title='International Capital Market Association'>ICMA</abbr> Harmonised Framework for Impact Reporting."
+            gb: "Monitoring is a regular part of the review and approval process for green projects, ensuring they align with environmental missions and development priorities\nProponents are strongly recommended to adopt the <abbr title='International Capital Market Association'>ICMA</abbr> Harmonised Framework for Impact Reporting",
+            cc: "Direct measurement via calibrated grid-interface meters is a hard requirement. Projects unable to install meters cannot meet monitoring requirements.",
+            gcf: "<abbr title='Green Climate Fund'>GCF</abbr> requires a results-based M&E framework aligned with its Performance Measurement Framework.\nDesign an M&E plan with indicators tied to <abbr title='Green Climate Fund'>GCF</abbr> core indicators (PMF-M Core 1, 2, 3)\nInclude gender-disaggregated data collection in the M&E framework\nEstablish a results reporting schedule aligned with <abbr title='Green Climate Fund'>GCF</abbr> reporting requirements",
+            gl: "Monitoring is a regular part of the review and approval process for green projects, ensuring they align with environmental missions and development priorities\nProponents are strongly recommended to adopt the <abbr title='International Capital Market Association'>ICMA</abbr> Harmonised Framework for Impact Reporting"
+          }
+        },
+        partially: {
+          cc: "moderate",
+          reco: { cc: "Develop a Monitoring, Reporting and Verification (MRV) plan. Install necessary monitoring equipment. Assign monitoring responsibilities. Establish data management and record-keeping procedures." }
+        }
+      },
+      q7: {
+        yes: {
+          gb: "high", gl: "high",
+          reason: {
+            gb: " ",
+            gl: " "
+          }
+        },
+        no: {
+          gb: "ineligible", gl: "ineligible",
+          reason: {},
+          reco: {
+            gb: "Preservation centres/ cold chain facilities are eligible for green bonds, provided they meet specific technical and environmental criteria within established Climate Transition Bond Guidelines.",
+            gl: "Preservation centres/ cold chain facilities are eligible for green loans, provided they meet specific technical and environmental criteria within established green loan principles."
           }
         }
       }
@@ -725,7 +734,7 @@
       });
     }
 
-    // combines all 8 answers: worst tier wins per instrument, and every
+    // combines all 7 answers: worst tier wins per instrument, and every
     // reason/reco tied to that worst tier is listed (deduped)
     function buildFinalResult() {
       const hitsByInstrument = {};

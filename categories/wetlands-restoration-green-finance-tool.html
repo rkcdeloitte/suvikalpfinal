@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Green Finance — Solar PV Farms | SUVIKALP</title>
+  <title>Green Finance — Wetlands Restoration | SUVIKALP</title>
   <link rel="stylesheet" href="../style.css">
   <link rel="stylesheet" href="./category.css">
   <style>
@@ -27,6 +27,7 @@
       overflow: hidden;
     }
 
+    /* only instruments the current question actually touches get a card here */
     .sgft-live-panel { flex: 1; min-width: 0; }
     .sgft-live-title { margin: 0 0 2px; font-family: var(--font-sans); font-size: 1.05rem; font-weight: 700; color: var(--color-teal-700); }
     .sgft-live-sub { margin: 0 0 14px; font-family: var(--font-sans); font-size: var(--fs-sm); color: var(--color-text-secondary); }
@@ -273,7 +274,7 @@
   <header id="site-header">
     <div class="header-left">
       <div class="header-tool-title"><span class="hindi">सुविकल्प:</span> Mine Repurposing Tool</div>
-      <div class="header-tool-sub">Solar PV Farms — Preliminary Green Finance Screening</div>
+      <div class="header-tool-sub">Wetlands Restoration — Preliminary Green Finance Screening</div>
     </div>
   <div class="header-right">
     <div class="header-cco-lockup">
@@ -286,14 +287,14 @@
   <div class="page">
 
     <div class="sf-backbar">
-      <button class="back-btn" onclick="window.location.href='./solar-pv.html'" aria-label="Back to Solar PV Farms">
+      <button class="back-btn" onclick="window.location.href='./wetlands-restoration.html'" aria-label="Back to Wetlands Restoration">
         <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M10 3L5 8l5 5"/>
         </svg>
-        Back to Solar PV Farms
+        Back to Wetlands Restoration
       </button>
       <span class="sf-breadcrumb">
-        <span>Solar PV Farms</span>
+        <span>Wetlands Restoration</span>
         <span class="sep">/</span>
         <span style="color:var(--color-primary);font-weight:500;">Green Finance</span>
       </span>
@@ -302,9 +303,9 @@
     <div class="sgft-content">
       <h1 class="spv-section-title">Green Finance</h1>
       <div class="sgft-intro">
-        <p>Answer <strong>8 quick questions</strong> to see a preliminary eligibility status for
+        <p>Answer <strong>7 quick questions</strong> to see a preliminary eligibility status for
           Green Bonds, Carbon Credit, <abbr title="Green Climate Fund">GCF</abbr> and Green Loans,
-          based on the Solar PV Farms financing criteria.</p>
+          based on the Wetlands Restoration financing criteria.</p>
       </div>
 
       <section id="page-questions">
@@ -312,8 +313,8 @@
           <div class="sgft-qblock">
             <div class="sgft-progress-head">
               <div class="sgft-progress-top">
-                <span class="sgft-progress-label" id="progress-label">Question 1 of 8</span>
-                <span class="sgft-progress-time">&sim;2 min &middot; 8 questions</span>
+                <span class="sgft-progress-label" id="progress-label">Question 1 of 7</span>
+                <span class="sgft-progress-time">&sim;2 min &middot; 7 questions</span>
               </div>
               <div class="sgft-progress-track" id="progress-track">
                 <div class="sgft-progress-fill" id="progress-fill"></div>
@@ -345,7 +346,7 @@
 
         <section id="final-result" class="sgft-final-result" hidden>
           <p class="sgft-final-eyebrow">Final Result</p>
-          <h2 class="sgft-final-result-title">Combined eligibility across all 8 answers</h2>
+          <h2 class="sgft-final-result-title">Combined eligibility across all 7 answers</h2>
           <p class="sgft-final-result-sub">Tap any instrument to see why, and what to do next.</p>
           <div class="sgft-final-acc" id="final-acc"></div>
         </section>
@@ -368,25 +369,25 @@
       {
         id: "q1",
         title: "Does the project broadly align with the host country's national climate strategy and plans or <abbr title='Nationally Determined Contribution'>NDC</abbr>?",
-        info: "Proposals not aligned with national climate priorities will not receive <abbr title='National Designated Authority'>NDA</abbr> endorsement, which is mandatory for accessing <abbr title='Green Climate Fund'>GCF</abbr>.",
+        info: "Proposals not aligned with national climate priorities may not receive <abbr title='National Designated Authority'>NDA</abbr> endorsement.<br><a href=\"https://unfccc.int/sites/default/files/NDC/2022-06/INDIA%20INDC%20TO%20UNFCCC.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">See India's NDC submission to the UNFCCC &nearr;</a>",
         options: [{ value: "yes", label: "Yes" }, { value: "no", label: "No" }]
       },
       {
         id: "q2",
         title: "Does the project possess legal land-use rights and all required FPIC (Free, Prior, Informed Consent) approvals?",
-        info: "FPIC is mandated to access carbon credit and <abbr title='Green Climate Fund'>GCF</abbr>.",
+        info: "1. Project need to adhere to Minimum Social Safeguards (MSS) also uphold ethical and inclusive social practices<br>2. Project activities should contribute to environmental goals",
         options: [{ value: "yes", label: "Yes" }, { value: "no", label: "No" }]
       },
       {
         id: "q3",
-        title: "Will the project comply with the environmental and social standards?",
-        info: "Required for all solar facilities above 10 MW under the Green Taxonomy to ensure environmental compliance.",
+        title: "Will the project comply with the governing environmental and social laws and standards?",
+        info: "Compliance with environmental and social safeguards are key prerequisite for eligibility.",
         options: [{ value: "yes", label: "Yes" }, { value: "no", label: "No" }, { value: "partially", label: "Partially" }]
       },
       {
         id: "q4",
-        title: "Does the project require external funds to become commercially viable?",
-        info: "<abbr title='Green Climate Fund'>GCF</abbr> provides the minimum concessionality needed. Fully bankable projects without a funding gap do not qualify.",
+        title: "Does the project require external financial support to become commercially viable?",
+        info: "Bankability of the project determines the Green Finance Eligbility. For <abbr title='Green Climate Fund'>GCF</abbr> fully bankable projects without a funding gap do not qualify.",
         options: [
           { value: "commercial", label: "No" },
           { value: "concessional", label: "Not viable without concessional support" },
@@ -396,29 +397,19 @@
       {
         id: "q5",
         title: "Is the project required by any existing law, regulation or legally binding mandate?",
-        info: "Green bond proceeds and <abbr title='Green Climate Fund'>GCF</abbr> support remain available for mandated projects — demonstrating a project is required by law can actually help prove its regulatory soundness.",
+        info: "Project implementation a legal obligation or required by law",
         options: [{ value: "yes", label: "Yes" }, { value: "no", label: "No" }, { value: "partially", label: "Partially" }]
       },
       {
         id: "q6",
-        title: "Will the project export electricity to a grid?",
-        info: "The Green Taxonomy covers construction and operation of grid-connected solar facilities.",
+        title: "Is a use-of-proceeds Monitoring and Evaluation (M&E) plan included or planned for the project?",
+        info: "<abbr title='Green Climate Fund'>GCF</abbr> and Carbon Credit require a results-based M&E framework aligned with its Performance Measurement Framework. Pillar 3 of the GBP requires transparent tracking to prevent funds from being used for non-green purposes.",
         options: [{ value: "yes", label: "Yes" }, { value: "no", label: "No" }]
       },
       {
         id: "q7",
-        title: "Does the project include a Battery Energy Storage System (BESS)?",
-        info: "A BESS is ineligible for carbon credit if it sits on a separate site or grid connection from the power plant.",
-        options: [
-          { value: "no-bess", label: "No BESS" },
-          { value: "same-site", label: "Yes – same site, shared grid connection, same owner" },
-          { value: "separate-site", label: "Yes – separate site or grid connection" }
-        ]
-      },
-      {
-        id: "q8",
-        title: "Is a Monitoring and Evaluation (M&E) plan included or planned for the project?",
-        info: "<abbr title='Green Climate Fund'>GCF</abbr> and Carbon Credit require a results-based M&E framework aligned with its Performance Measurement Framework. Transparent tracking prevents funds from being used for non-green purposes.",
+        title: "Is the project aligned with the <abbr title='Central Pollution Control Board'>CPCB</abbr> mandate to meet its specific criteria?",
+        info: "Requires short- and long-term plans to ensure water quality, per <abbr title='Central Pollution Control Board'>CPCB</abbr> Technical Screening Criteria (TSC) aligned with international standards.",
         options: [{ value: "yes", label: "Yes" }, { value: "no", label: "No" }]
       }
     ];
@@ -463,7 +454,7 @@
 
     // one entry per question, one entry per answer, one tier per instrument
     // (gb/cc/gcf/gl). Skip an instrument key on an answer if that answer
-    // doesn't affect it (e.g. Green Bonds isn't touched by Q7 at all).
+    // doesn't affect it (e.g. Carbon Credit isn't touched by Q1).
     // reason = why it got that tier, reco = what to do about it.
     const RULES = {
       q1: {
@@ -472,7 +463,7 @@
           gb: "ineligible", gcf: "ineligible", gl: "ineligible",
           reco: {
             gb: "Issuers are encouraged to seek alignment with voluntary guidelines on a \"best-efforts basis\" and should \"disclose how they are progressing\" against each recommended element of a transition strategy, explaining any areas of non-alignment",
-            gcf: "Review the country's <abbr title='Nationally Determined Contribution'>NDC</abbr>, national renewable energy plan, or sector strategy\nAdjust project scope or target beneficiaries to match prioritised sectors in the <abbr title='Nationally Determined Contribution'>NDC</abbr>\nEngage the <abbr title='National Designated Authority'>NDA</abbr> to understand what solar PV contributions are explicitly planned and endorsed",
+            gcf: "Review the country's <abbr title='Nationally Determined Contribution'>NDC</abbr>, national renewable energy plan, or sector strategy\nAdjust project scope or target beneficiaries to match prioritised sectors in the <abbr title='Nationally Determined Contribution'>NDC</abbr>\nEngage the <abbr title='National Designated Authority'>NDA</abbr> to understand what wetland restoration contributions are explicitly planned and endorsed",
             gl: "Issuers are encouraged to seek alignment with voluntary guidelines on a \"best-efforts basis\" and should \"disclose how they are progressing\" against each recommended element of a transition strategy, explaining any areas of non-alignment"
           }
         }
@@ -521,7 +512,7 @@
             gl: "Project is NOT financially attractive on it's own"
           }
         },
-        carbon: { cc: "high", gcf: "ineligible" }
+        carbon: { gb: "moderate", cc: "high", gcf: "moderate", gl: "moderate" }
       },
       q5: {
         yes: {
@@ -547,38 +538,6 @@
         yes: {
           gb: "high", cc: "high", gcf: "high", gl: "high",
           reason: {
-            cc: "The methodology only applies to grid-connected generation — off-grid or captive power projects are not eligible.",
-            gcf: "Irrelevant factor.",
-            gl: "Green Loans criteria apply to grid-connected solar facilities."
-          }
-        },
-        no: {
-          gb: "moderate", cc: "ineligible", gcf: "high", gl: "moderate",
-          reason: { gcf: "Irrelevant factor." },
-          reco: {
-            gb: "The project will only be considered an eligible green project as long as the environmental benefits can be quantified.",
-            gl: "The project will only be considered an eligible green project as long as the environmental benefits can be quantified."
-          }
-        }
-      },
-      q7: {
-        "no-bess": {
-          cc: "high", gcf: "high",
-          reason: {
-            cc: "BESS must share the same site and grid interconnection point as the power plant per VMR0017 condition 8(f).",
-            gcf: "Irrelevant factor."
-          }
-        },
-        "same-site": {
-          cc: "high", gcf: "high",
-          reason: { gcf: "Irrelevant factor." }
-        },
-        "separate-site": { cc: "ineligible" }
-      },
-      q8: {
-        yes: {
-          gb: "high", cc: "high", gcf: "high", gl: "high",
-          reason: {
             gb: "Monitoring and Evaluation (M&E) is both a planned and required component for projects financed through green bonds.",
             cc: "Direct measurement via calibrated grid-interface meters is a hard requirement of VMR0017 Section 9.2 — projects unable to install meters cannot meet monitoring requirements.",
             gcf: "<abbr title='Green Climate Fund'>GCF</abbr> requires a results-based M&E framework aligned with its Performance Measurement Framework.",
@@ -591,6 +550,16 @@
           reco: {
             gb: "Monitoring is a regular part of the review and approval process for green projects, ensuring they align with environmental missions and development priorities. Proponents are strongly recommended to adopt the <abbr title='International Capital Market Association'>ICMA</abbr> Harmonised Framework for Impact Reporting.",
             gl: "Monitoring is a regular part of the review and approval process for green projects, ensuring they align with environmental missions and development priorities. Proponents are strongly recommended to adopt the <abbr title='International Capital Market Association'>ICMA</abbr> Harmonised Framework for Impact Reporting."
+          }
+        }
+      },
+      q7: {
+        yes: { gb: "high", cc: "high", gcf: "high", gl: "high" },
+        no: {
+          gb: "ineligible", cc: "ineligible", gcf: "ineligible", gl: "ineligible",
+          reco: {
+            gb: "Contribute to the restoration and rehabilitation of degraded water bodies. Support the conservation of wetlands. Improve water quality through pollution reduction and prevention measures. Adopt sustainable water management practices. Promote eco-tourism and public awareness.",
+            gl: "Contribute to the restoration and rehabilitation of degraded water bodies. Support the conservation of wetlands. Improve water quality through pollution reduction and prevention measures. Adopt sustainable water management practices. Promote eco-tourism and public awareness."
           }
         }
       }
@@ -725,7 +694,7 @@
       });
     }
 
-    // combines all 8 answers: worst tier wins per instrument, and every
+    // combines all 7 answers: worst tier wins per instrument, and every
     // reason/reco tied to that worst tier is listed (deduped)
     function buildFinalResult() {
       const hitsByInstrument = {};
