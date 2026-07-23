@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Green Finance — Procedure for Green Loans | SUVIKALP</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="./category.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    .gl-content { max-width: 1080px; margin: 0 auto; padding: 26px 24px 56px; }
+
+    .gl-title-row { display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+    .gl-wip-badge {
+      display:inline-block; font-family:var(--font-sans); font-size:0.7rem; font-weight:700;
+      letter-spacing:0.03em; text-transform:uppercase; color:#b06a10; background:#fff8f3;
+      border:1px solid #f0c896; border-radius:999px; padding:3px 10px;
+    }
+    .gl-tagline { font-family:var(--font-sans); font-size:var(--fs-md); font-style:italic; color:var(--color-text-secondary); margin:2px 0 10px; }
+
+    .gl-note {
+      display:flex; gap:10px; align-items:flex-start; background:var(--color-surface,#fff);
+      border:1px solid var(--color-card-border,#e2e8f0); border-left:3px solid var(--color-teal-600,#0F6E56);
+      border-radius:10px; padding:14px 16px; margin:4px 0 22px;
+    }
+    .gl-note-icon {
+      flex:0 0 auto; width:20px; height:20px; border-radius:50%; background:var(--color-teal-600,#0F6E56);
+      color:#fff; font-family:var(--font-sans); font-weight:700; font-size:0.72rem;
+      display:flex; align-items:center; justify-content:center; margin-top:1px;
+    }
+    .gl-note p { margin:0; font-family:var(--font-sans); font-size:var(--fs-base); line-height:var(--lh-base); color:var(--color-text-secondary); }
+    .gl-note.gl-suggestion { border-left-color:#1a5ca8; }
+    .gl-note.gl-suggestion .gl-note-icon { background:#1a5ca8; }
+    .gl-note.gl-warning { border-left-color:#C85000; }
+    .gl-note.gl-warning .gl-note-icon { background:#C85000; }
+
+    .gl-subhead {
+      font-family:var(--font-sans); font-weight:700; font-size:var(--fs-base); color:var(--color-teal-700,var(--color-teal-600));
+      margin:18px 0 8px;
+    }
+    .gl-subhead:first-child { margin-top:0; }
+    .gl-subhead-lg { font-family:var(--font-sans); font-weight:700; font-size:var(--fs-lg); color:var(--color-text); margin:20px 0 10px; }
+    .gl-subhead-lg:first-child { margin-top:0; }
+
+    .gl-block { margin-bottom:18px; padding-bottom:18px; border-bottom:1px solid var(--color-card-border,#e2e8f0); }
+    .gl-block:last-child { border-bottom:none; margin-bottom:0; padding-bottom:0; }
+    .gl-block-title { font-family:var(--font-sans); font-weight:700; font-size:var(--fs-md); color:var(--color-text); margin:0 0 6px; }
+
+    table.gl-table { width:100%; border-collapse:collapse; margin:10px 0 18px; font-family:var(--font-sans); font-size:var(--fs-base); }
+    table.gl-table th, table.gl-table td { text-align:left; padding:10px 12px; border:1px solid var(--color-card-border,#e2e8f0); vertical-align:top; }
+    table.gl-table th { background:var(--color-surface,#f8fafc); font-weight:700; color:var(--color-text); }
+    table.gl-table td { color:var(--color-text-secondary); line-height:var(--lh-base); }
+    table.gl-table td:first-child, table.gl-table th:first-child { font-weight:600; color:var(--color-text); }
+
+    .gl-stage-list { list-style:none; margin:0; padding:0; counter-reset:gl-stage; }
+    .gl-stage-item {
+      display:flex; gap:12px; padding:12px 0; border-bottom:1px solid var(--color-card-border,#e2e8f0);
+    }
+    .gl-stage-item:last-child { border-bottom:none; }
+    .gl-stage-num {
+      flex:0 0 auto; width:26px; height:26px; border-radius:50%; background:var(--color-teal-600,#0F6E56);
+      color:#fff; font-family:var(--font-sans); font-weight:700; font-size:0.78rem;
+      display:flex; align-items:center; justify-content:center;
+    }
+    .gl-stage-body p { margin:0 0 4px; }
+    .gl-stage-title { font-family:var(--font-sans); font-weight:700; font-size:var(--fs-md); color:var(--color-text); }
+    .gl-stage-desc { font-family:var(--font-sans); font-size:var(--fs-base); line-height:var(--lh-base); color:var(--color-text-secondary); }
+    .gl-stage-sublist { margin:6px 0 0 20px; font-family:var(--font-sans); font-size:var(--fs-base); line-height:var(--lh-base); color:var(--color-text-secondary); }
+    .gl-stage-sublist li { margin-bottom:3px; }
+
+    .gl-ifc-header { display:flex; align-items:center; gap:14px; margin-bottom:16px; }
+    .gl-ifc-logo { height:34px; width:auto; }
+    .gl-ifc-header p { margin:0; font-family:var(--font-sans); font-size:var(--fs-sm); color:var(--color-text-secondary); }
+
+    .gl-sources-list { margin:0; padding-left:20px; font-family:var(--font-sans); font-size:var(--fs-md); line-height:var(--lh-loose); color:var(--color-text); }
+    .gl-sources-list li { margin-bottom:6px; }
+    .gl-sources-list a { color:var(--color-primary,#0F6E56); text-decoration:none; }
+    .gl-sources-list a:hover { text-decoration:underline; }
+
+    .gl-disclaimer-box { margin-top:28px; padding:14px 16px; border-top:1px solid var(--color-card-border,#e2e8f0); }
+    .gl-disclaimer-box p { margin:0; font-family:var(--font-sans); font-size:0.8rem; color:var(--color-text-secondary); line-height:1.65; }
+    .gl-disclaimer-box strong { color:var(--color-text); font-weight:600; }
+  </style>
+</head>
+<body>
+  <header id="site-header">
+    <div class="header-left">
+      <div class="header-tool-title"><span class="hindi">सुविकल्प:</span> Mine Repurposing Tool</div>
+      <div class="header-tool-sub">Green Finance — Procedure for Green Loans</div>
+    </div>
+  <div class="header-right">
+    <div class="header-cco-lockup">
+      <img class="header-cco-logo" src="data:image/png;base64,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" alt="Coal Controller Organisation emblem">
+      <div class="header-cco-text"></div>
+    </div>
+  </div>
+  </header>
+
+  <div class="page">
+
+    <div class="sf-backbar">
+      <button class="back-btn" onclick="history.back()" aria-label="Back">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M10 3L5 8l5 5"/>
+        </svg>
+        Back
+      </button>
+      <span class="sf-breadcrumb">
+        <span>Green Finance</span>
+        <span class="sep">/</span>
+        <span style="color:var(--color-primary);font-weight:500;">Procedure for Green Loans</span>
+      </span>
+    </div>
+
+    <div class="gl-content">
+      <div class="gl-title-row">
+        <h1 class="spv-section-title" style="border-bottom:none;margin-bottom:0;padding-bottom:0;">Step-By-Step Procedure for Green Loans</h1>
+        <span class="gl-wip-badge">Work in Progress</span>
+      </div>
+      <p class="gl-tagline">Supporting environmentally sustainable economic activity.</p>
+
+      <div class="gl-intro">
+        <p class="spv-body-text">A green loan is a form of financing that enables borrowers to use the proceeds to exclusively fund projects that make a substantial contribution to an environmental objective.</p>
+        <p class="spv-body-text">Green Loans help borrowers communicate the greening of their operations and supply chain.</p>
+        <p class="spv-body-text">Considering the higher transaction costs of bond issuance, the minimum bond size to be tradeable, and the fact that only bonds above a certain size are tracked by various indices, potential issuers in emerging markets with small green portfolios may feel inclined to receive a green loan instead of issuing a green bond.</p>
+      </div>
+
+      <!-- Core Principles -->
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Core Principles of a Green Loan (GLP)</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">According to the Green Loan Principles (GLP) issued by the International Capital Market Association (ICMA) and the Loan Market Association (LMA), a loan is considered a &ldquo;green loan&rdquo; when it meets the following core principles:</p>
+          <table class="gl-table">
+            <thead><tr><th>Core Principle</th><th>Content</th></tr></thead>
+            <tbody>
+              <tr><td>1. Use of capital for green purposes</td><td>The loan must be used exclusively for projects that fall under the &ldquo;green&rdquo; category, such as renewable energy, energy efficiency, clean transportation, green buildings, resource circularity, sustainable agriculture, and so on.</td></tr>
+              <tr><td>2. Project evaluation and selection</td><td>The enterprise must clearly describe the project selection criteria, environmental risks, and the anticipated environmental benefits.</td></tr>
+              <tr><td>3. Management of loan proceeds</td><td>Loan proceeds must be tracked separately or managed transparently to ensure they are not used for unintended purposes.</td></tr>
+              <tr><td>4. Transparent periodic reporting</td><td>The enterprise must commit to providing periodic reports to the bank on the progress of the project and the actual environmental outcomes (avoided emissions, energy savings, etc.).</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Criteria to Secure Green Loans -->
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Criteria Businesses Need to Meet to Secure Green Loans</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">Accessing green loans is not simply about &lsquo;submitting a loan application&rsquo; &mdash; it is a process of proving that the business is creating or will create a significant positive impact on the environment, according to measurable standards. Below are the core conditions, common evaluation criteria, and common mistakes businesses need to be aware of.</p>
+
+          <p class="gl-subhead-lg">Core Requirement for Eligibility</p>
+
+          <div class="gl-block">
+            <p class="gl-block-title">Possession of a &ldquo;Green&rdquo; Project</p>
+            <p class="spv-body-text">According to the Green Loan Principles (ICMA) and the green financing framework, the industries eligible for green loans typically include:</p>
+            <ul class="spv-list" style="margin-bottom:0;">
+              <li>Renewable Energy (solar, wind, biomass)</li>
+              <li>Energy Efficiency &amp; Performance</li>
+              <li>Clean Transportation (electric vehicles, green logistics)</li>
+              <li>Green Buildings (certified with EDGE, LEED, etc.)</li>
+              <li>Water &amp; Waste Management, Circular Economy</li>
+              <li>Smart Agriculture, Organic Farming, Low-Emission Practices</li>
+            </ul>
+          </div>
+
+          <div class="gl-block">
+            <p class="gl-block-title">Ability to Measure and Demonstrate Environmental Impact</p>
+            <p class="spv-body-text">Traditional banks require businesses to provide verifiable emission data, including:</p>
+            <ul class="spv-list">
+              <li>CO&#8322;e/kWh Emission Intensity</li>
+              <li>Energy Savings Ratio</li>
+              <li>Total Annual Emission Reductions</li>
+            </ul>
+            <p class="spv-body-text" style="margin-bottom:0;">This data typically needs to be calculated and/or verified by an independent third party. Monitoring and calculating these metrics annually to ensure eligibility for green loans requires businesses to have a team of experts familiar with environmental impact measurement and calculation standards, such as ISO 14064-1 and ISO 14067. Some companies use third party tools to calculate environmental impact and determine the feasibility of green loan programs.</p>
+          </div>
+
+          <div class="gl-block">
+            <p class="gl-block-title">Capital Management and Transparent Reporting</p>
+            <p class="spv-body-text">Businesses need to demonstrate the ability to:</p>
+            <ul class="spv-list" style="margin-bottom:0;">
+              <li>Manage separate capital flows for green projects</li>
+              <li>Track the proper use of funds allocated for green initiatives</li>
+              <li>Provide regular reports to banks on progress and emission results</li>
+              <li>Comply with environmental accounting standards, where applicable</li>
+            </ul>
+          </div>
+
+          <div class="gl-block">
+            <p class="gl-block-title">Common Criteria Used of Evaluation</p>
+            <p class="spv-body-text">When reviewing applications, banks typically rely on specific quantitative metrics:</p>
+            <table class="gl-table">
+              <thead><tr><th>Criteria</th><th>Meaning</th><th>Example</th></tr></thead>
+              <tbody>
+                <tr><td>Emission Intensity (gCO&#8322;/kWh)</td><td>The emission level per unit of energy or product produced.</td><td>&lt;100 gCO&#8322;/kWh for approved renewable energy</td></tr>
+                <tr><td>Avoided Emissions</td><td>Comparison with older technologies or baseline methods to calculate CO&#8322;e reduction.</td><td>Using biomass instead of FO oil, reducing 1,500 tons of CO&#8322; per year.</td></tr>
+                <tr><td>Technical Green Certification</td><td>Enhances project reliability and accelerates the validation process.</td><td>ISO 14064 (GHG inventory), EDGE, LEED (buildings), PCAF (finance)</td></tr>
+              </tbody>
+            </table>
+            <div class="gl-note" style="margin-bottom:0;">
+              <span class="gl-note-icon">i</span>
+              <p><strong>Note:</strong> If a business lacks the capacity to measure emissions internally, it can hire a consulting firm or use third party technology platforms.</p>
+            </div>
+          </div>
+
+          <p class="gl-subhead-lg">Common Mistakes That Cause Businesses to Fail in Green Loan Applications</p>
+          <p class="spv-body-text">In practice, many businesses are not approved for green loans not due to lack of capability, but due to inadequate technical preparation:</p>
+          <ul class="spv-list">
+            <li>Lack of emission baseline: There is no data on current emission levels to compare with the new approach.</li>
+            <li>Unable to calculate emission reduction effectiveness: Failing to demonstrate the &ldquo;green impact.&rdquo;</li>
+            <li>Incomplete technical documentation: Project descriptions are unclear, lacking information on technology, production capacity, and equipment.</li>
+            <li>Failure to provide necessary information to calculate environmental metrics.</li>
+            <li>No independent verification: Self-reported data is often not accepted by banks or funding organizations without independent verification.</li>
+            <li>Project lacks certification or measurement results according to international standards.</li>
+          </ul>
+          <p class="spv-body-text" style="margin-bottom:0;">Meeting these criteria is essential for businesses not only to access green loan funding but also to enhance their credibility, making them more attractive to investors and long-term partners.</p>
+        </div>
+      </div>
+
+      <!-- Steps Involved -->
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Steps Involved in Issuing Green Loans</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+
+          <div class="gl-block">
+            <p class="gl-block-title">Step 1: Identify a Green-Eligible Project</p>
+            <p class="spv-body-text">The first step is for businesses to determine whether their project falls within the sectors eligible for green financing. According to ICMA standards and green finance frameworks adopted by banks, commonly eligible sectors include:</p>
+            <ul class="spv-list" style="margin-bottom:0;">
+              <li>Renewable energy (solar, wind, biomass, small-scale hydropower)</li>
+              <li>Low-emission transportation (electric vehicles, clean logistics)</li>
+              <li>Green buildings (new construction or retrofitting to meet EDGE, LEED certifications)</li>
+              <li>Cleaner production (technology upgrades for energy savings and waste reduction)</li>
+              <li>Resource and waste management</li>
+              <li>Sustainable and organic agriculture</li>
+            </ul>
+          </div>
+
+          <div class="gl-block">
+            <p class="gl-block-title">Step 2: Conduct a Preliminary Assessment of Emissions and Reduction Potential</p>
+            <p class="spv-body-text">Next, businesses should assess the current emissions baseline and determine the project's potential to reduce emissions compared to the status quo.</p>
+            <ul class="spv-list">
+              <li>Calculate emission intensity: gCO&#8322;e/kWh or gCO&#8322;e per ton of product</li>
+              <li>Estimate avoided emissions: the amount of CO&#8322; reduced annually if the project is implemented</li>
+              <li>Benchmark against international standards: e.g., less than 100 gCO&#8322;/kWh for renewable energy projects</li>
+            </ul>
+            <div class="gl-note gl-suggestion" style="margin-bottom:0;">
+              <span class="gl-note-icon">i</span>
+              <p><strong>Suggestion:</strong> Consider using greenhouse gas inventory software or engaging third-party consultants certified under standards such as ISO 14064-1 or ISO 14067 to ensure credible, independently verified results.</p>
+            </div>
+          </div>
+
+          <div class="gl-block">
+            <p class="gl-block-title">Step 3: Prepare Technical and Loan Application Documents</p>
+            <p class="spv-body-text">A successful green loan application requires comprehensive preparation in two aspects:</p>
+            <p class="gl-subhead">Technical and Environmental Documentation</p>
+            <ul class="spv-list">
+              <li>Project description and technology drawings</li>
+              <li>Input data: electricity, fuel, and material consumption</li>
+              <li>Output production data</li>
+              <li>Baseline analysis and emissions reduction performance</li>
+              <li>Technical certifications, if available (e.g., EDGE, ISO...)</li>
+            </ul>
+            <p class="gl-subhead">Loan Application Documentation</p>
+            <ul class="spv-list">
+              <li>Financial plan</li>
+              <li>Investment structure</li>
+              <li>Debt repayment capability</li>
+              <li>Legal documents of the business</li>
+            </ul>
+            <div class="gl-note" style="margin-bottom:0;">
+              <span class="gl-note-icon">i</span>
+              <p><strong>Note:</strong> Some banks require independent verification of emissions reports, especially for larger loans or those financed by international funds.</p>
+            </div>
+          </div>
+
+          <div class="gl-block">
+            <p class="gl-block-title">Step 4: Choose the Right Bank and Green Loan Program</p>
+            <p class="spv-body-text" style="margin-bottom:0;">Each bank has different criteria, regulations, and incentives. Give priority to establish partnerships with leading banks and understand their criteria and incentive programs well.</p>
+          </div>
+
+          <div class="gl-block">
+            <p class="gl-block-title">Step 5: Monitor, Report, and Maintain Transparency</p>
+            <p class="spv-body-text">After disbursement, businesses must maintain periodic reporting (usually every 6&ndash;12 months) covering:</p>
+            <ul class="spv-list">
+              <li>Project implementation progress</li>
+              <li>Actual emissions results</li>
+              <li>Any newly acquired certifications</li>
+            </ul>
+            <p class="gl-subhead">Failure to Maintain Transparency May Result In:</p>
+            <ul class="spv-list" style="margin-bottom:0;">
+              <li>Loss of preferential interest rates</li>
+              <li>Suspension of further disbursements</li>
+              <li>Removal from green credit portfolios (which could harm the business's brand image)</li>
+            </ul>
+          </div>
+
+          <p class="spv-body-text" style="margin-bottom:0;">In a world that is rapidly advancing the green transition with strict financial standards and clear capital incentives, green financing is no longer a distant concept &mdash; it has become a strategic tool for modern businesses. Understanding the criteria, proactively measuring emissions, and standardizing technical documentation will not only help businesses access preferential capital but also enhance competitiveness across global value chains.</p>
+        </div>
+      </div>
+
+      <!-- IFC Funding -->
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>International Finance Corporation (IFC) Funding</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+
+          
+          <p class="gl-subhead-lg">Eligibility Criteria</p>
+          <p class="spv-body-text">The project must:</p>
+          <ul class="spv-list">
+            <li>Be located in a developing country that is a member of IFC</li>
+            <li>Be in the private sector</li>
+            <li>Be technically sound</li>
+            <li>Have good prospects of being profitable</li>
+            <li>Benefit the local economy; and</li>
+            <li>Be environmentally and socially sound, satisfying IFC's environmental and social standards as well as those of the host country</li>
+          </ul>
+          <div class="gl-note" style="margin-bottom:0;">
+            <span class="gl-note-icon">i</span>
+            <p><strong>Note:</strong> IFC does not lend directly to micro, small, and medium enterprises or individual entrepreneurs, but many of its investment clients are financial intermediaries that on-lend to smaller businesses.</p>
+          </div>
+
+          <p class="gl-subhead-lg">Investment Proposals</p>
+          <p class="spv-body-text">An investment proposal should include the following preliminary information:</p>
+
+          <div class="gl-block">
+            <p class="gl-block-title">1. Brief description of project</p>
+          </div>
+
+          <div class="gl-block">
+            <p class="gl-block-title">2. Sponsorship, Management &amp; Technical Assistance</p>
+            <ul class="spv-list" style="margin-bottom:0;">
+              <li>History and business of sponsors, including financial information</li>
+              <li>Proposed management arrangements and names and curricula vitae of managers</li>
+              <li>Description of technical arrangements and other external assistance (management, production, marketing, finance, etc.)</li>
+            </ul>
+          </div>
+
+          <div class="gl-block">
+            <p class="gl-block-title">3. Market &amp; Sales</p>
+            <ul class="spv-list" style="margin-bottom:0;">
+              <li>Projected production volumes, unit prices, sales objectives, and market share of proposed venture</li>
+              <li>Potential users of products and distribution channels to be used</li>
+              <li>Present sources of supply for products</li>
+              <li>Future competition and possibility that market may be satisfied by substitute products</li>
+              <li>Tariff protection or import restrictions affecting products</li>
+              <li>Critical factors that determine market potential</li>
+            </ul>
+          </div>
+
+          <div class="gl-block">
+            <p class="gl-block-title">4. Technical Feasibility, Manpower, Raw Material Resources &amp; Environment</p>
+            <ul class="spv-list" style="margin-bottom:0;">
+              <li>Comments on special technical complexities and need for know-how and special skills</li>
+              <li>Possible suppliers of equipment</li>
+              <li>Availability of manpower and of infrastructure facilities (transport and communications, power, water, etc.)</li>
+              <li>Breakdown of projected operating costs by major categories of expenditures</li>
+              <li>Source, cost, and quality of raw material supply and relations with support industries</li>
+              <li>Import restrictions on required raw materials</li>
+              <li>Proposed plant location in relation to suppliers, markets, infrastructure, and manpower</li>
+              <li>Proposed plant size in comparison with other known plants</li>
+              <li>Potential environmental issues and how these issues are addressed</li>
+            </ul>
+          </div>
+
+          <div class="gl-block">
+            <p class="gl-block-title">5. Investment Requirements, Project Financing, and Returns</p>
+            <ul class="spv-list" style="margin-bottom:0;">
+              <li>Proposed financial structure of venture, indicating expected sources and terms of equity and debt financing</li>
+              <li>Type of IFC financing (loan, equity, quasi-equity, a combination of financial products, etc.) and amount</li>
+              <li>Projected financial statement, information on profitability, and return on investment</li>
+              <li>Critical factors determining profitability</li>
+            </ul>
+          </div>
+
+          <div class="gl-block">
+            <p class="gl-block-title">6. Government Support &amp; Regulations</p>
+            <ul class="spv-list" style="margin-bottom:0;">
+              <li>Specific government incentives and support available to project</li>
+              <li>Expected contribution of project to economic development</li>
+              <li>Outline of government regulations on exchange controls and conditions of capital entry and repatriation</li>
+            </ul>
+          </div>
+
+          <div class="gl-block">
+            <p class="gl-block-title">7. Timetable Envisaged for Project Preparation and Completion</p>
+          </div>
+
+          <p class="gl-subhead-lg">Stages of Business Cycle</p>
+          <ol class="gl-stage-list">
+            <li class="gl-stage-item"><span class="gl-stage-num">1</span><div class="gl-stage-body"><p class="gl-stage-title">Business Development</p><p class="gl-stage-desc">Guided by IFC's strategic goals, investment officers (IOs) and business development officers identify suitable projects. This initial conversation with the client is critical in helping understand their needs and determine whether there is a role for IFC.</p></div></li>
+            <li class="gl-stage-item"><span class="gl-stage-num">2</span><div class="gl-stage-body"><p class="gl-stage-title">Early Review</p><p class="gl-stage-desc">The IO prepares a description of the project, IFC's role, the anticipated contribution to development and benefits to stakeholders, and any potential deal-breakers. Lessons from previous projects are considered, and in some cases a pre-appraisal visit is conducted to identify any issues in advance. IFC senior management then decides whether to authorize project appraisal.</p></div></li>
+            <li class="gl-stage-item"><span class="gl-stage-num">3</span><div class="gl-stage-body"><p class="gl-stage-title">Appraisal</p><p class="gl-stage-desc">The investment team assesses the full business potential, risks, and opportunities associated with the investment through discussions with the client and visits to the project site. The following questions are asked:</p><ul class="gl-stage-sublist"><li>Is the investment financially and economically sound?</li><li>Can it comply with IFC's social and environmental Performance Standards?</li><li>Have lessons from prior investments been taken into account?</li><li>Have the necessary disclosure and consultation requirements been met?</li><li>How can IFC help the client further improve the sustainability of the project or enterprise?</li></ul></div></li>
+            <li class="gl-stage-item"><span class="gl-stage-num">4</span><div class="gl-stage-body"><p class="gl-stage-title">Investment Review</p><p class="gl-stage-desc">The project team makes its recommendations to IFC departmental management, who will decide whether to approve the project. This is a key stage in the investment cycle. The team and departmental management must be confident that the client is able and willing to meet IFC standards and work with IFC to improve the sustainability of their enterprise.</p></div></li>
+            <li class="gl-stage-item"><span class="gl-stage-num">5</span><div class="gl-stage-body"><p class="gl-stage-title">Negotiations</p><p class="gl-stage-desc">The project team starts to negotiate the terms and conditions of IFC participation in the project. These include conditions of disbursement and covenants, performance and monitoring requirements, agreement of action plans and resolution of any outstanding issues.</p></div></li>
+            <li class="gl-stage-item"><span class="gl-stage-num">6</span><div class="gl-stage-body"><p class="gl-stage-title">Public Disclosure</p><p class="gl-stage-desc">A Summary of Investment Information (SII) for the project and the environmental and social review, where applicable, are posted on IFC's <a href="https://disclosures.ifc.org/" target="_blank" rel="noopener" style="color:var(--color-primary,#0F6E56);">Project Information and Data Portal</a> before being submitted to the Board for review. The length of the disclosure period is determined by the environmental category of the project.</p></div></li>
+            <li class="gl-stage-item"><span class="gl-stage-num">7</span><div class="gl-stage-body"><p class="gl-stage-title">Board Review and Approval</p><p class="gl-stage-desc">The project is submitted to <a href="https://www.ifc.org/en/about/governance-and-financial-sustainability#board" target="_blank" rel="noopener" style="color:var(--color-primary,#0F6E56);">IFC's Board of Directors</a> for consideration and approval through regular or streamlined procedures. &ldquo;Streamlined&rdquo; means that Board members review the documents but don't meet to discuss the project &mdash; available to low-risk projects of a small enough size. Certain small projects can be approved by IFC management under delegated authority. The due diligence process and public disclosure remain the same in all cases. The Board demands that each investment have economic, financial, and development value and reflects IFC's commitment to sustainability.</p></div></li>
+            <li class="gl-stage-item"><span class="gl-stage-num">8</span><div class="gl-stage-body"><p class="gl-stage-title">Commitment</p><p class="gl-stage-desc">IFC and the company sign the legal agreement for the investment. This includes the client's agreement to comply with the applicable <a href="https://www.ifc.org/en/insights-reports/2012/ifc-performance-standards" target="_blank" rel="noopener" style="color:var(--color-primary,#0F6E56);">Performance Standards</a>, to immediately report any serious accident or fatality, and to provide regular monitoring reports. The legal agreement will also covenant the client's Action Plan.</p></div></li>
+            <li class="gl-stage-item"><span class="gl-stage-num">9</span><div class="gl-stage-body"><p class="gl-stage-title">Disbursement of Funds</p><p class="gl-stage-desc">Funds are often paid out in stages or on condition of certain steps being completed as agreed in the legal agreement.</p></div></li>
+            <li class="gl-stage-item"><span class="gl-stage-num">10</span><div class="gl-stage-body"><p class="gl-stage-title">Project Supervision and Development Outcome Tracking</p><p class="gl-stage-desc">IFC monitors its investments to ensure compliance with the conditions in the loan agreement. The company submits regular reports on financial as well as social and environmental performance, and information on factors that might materially affect the enterprise. Ongoing dialogue during supervision allows IFC to support clients in solving issues and identifying new opportunities, while tracking the project's contribution to development against key indicators identified at the start of the investment cycle.</p></div></li>
+            <li class="gl-stage-item"><span class="gl-stage-num">11</span><div class="gl-stage-body"><p class="gl-stage-title">Evaluation</p><p class="gl-stage-desc">Projects are evaluated on a regular basis. To help improve operational performance, annual evaluations are conducted based on a stratified random sample of projects that have reached early operating maturity.</p></div></li>
+            <li class="gl-stage-item"><span class="gl-stage-num">12</span><div class="gl-stage-body"><p class="gl-stage-title">Closing</p><p class="gl-stage-desc">The books on the project are closed when the investment is repaid in full or when IFC exits by selling its equity stake. In specific cases the debt may be written off. The goal is to help the client reach a high level of sustainability that will continue long after IFC's involvement has ended.</p></div></li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- Sources -->
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Sources</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <ol class="gl-sources-list">
+            <li><a href="https://www.icmagroup.org/assets/documents/Regulatory/Green-Bonds/LMA_Green_Loan_Principles_Booklet-220318.pdf" target="_blank" rel="noopener">Green Loan Principles</a></li>
+            <li><a href="https://www.lma.eu.com/application/files/1717/4298/0842/Guidance_on_Green_Loan_Principles_-_26_March_2025.pdf" target="_blank" rel="noopener">Guidance on Green Loan Principles</a></li>
+            <li><a href="https://www.icmagroup.org/assets/documents/Sustainable-finance/2023-updates/Pre-issuance-Check-List-for-Green-Bonds-Green-Bond-Programmes-June-2023-220623.pdf" target="_blank" rel="noopener">Pre-issuance Checklist for Green Bonds / Green Loans Programmes</a></li>
+            <li><a href="https://www.icmagroup.org/assets/documents/Sustainable-finance/2025-updates/Guidance-on-Allocation-Reporting-June-2025.pdf" target="_blank" rel="noopener">Guidance on Allocation Reporting</a></li>
+            <li><a href="https://www.ifc.org/en/what-we-do/products-and-services/how-to-apply-for-financing" target="_blank" rel="noopener">International Finance Corporation, World Bank Group</a></li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="gl-disclaimer-box">
+        <p><strong>Disclaimer:</strong> The information in this document has been provided by third-party sources and is intended for general information only (the &ldquo;Information&rdquo;) and is not intended to be and should not be relied upon as being legal, financial, investment, tax, regulatory, business or other professional advice. Coal Controller of India is not responsible for the accuracy, reliability, currency or completeness of the Information. Coal Controller of India does not represent nor warrant that the Information is accurate, suitable or complete and neither CCI, its employees, representatives or its members shall have any liability arising from or relating to its use.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="./category.js"></script>
+</body>
+</html>
