@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Testimonials Admin — SUVIKALP</title>
+<meta name="robots" content="noindex, nofollow">
+<style>
+:root{
+  --teal-300:#32b8c6; --teal-400:#2da6b2; --teal-500:#21808d; --teal-600:#1d7480; --teal-700:#1a6873;
+  --cream-50:#fcfcf9; --cream-100:#fffffd; --slate-900:#13343b; --slate-500:#626c71;
+  --gold:#d97706;
+  --border:rgba(94,82,64,.18); --card-border:rgba(94,82,64,.12);
+  --teal-bg:rgba(33,128,141,.08); --teal-border:rgba(33,128,141,.2);
+  --success:#1a7a5e; --success-bg:#e6f5ef; --error:#c0152f; --error-bg:#fdeceb; --warn:#a84b2f; --warn-bg:#fdf3ea;
+  --shadow-md:0 4px 6px -1px rgba(0,0,0,.06),0 2px 4px -1px rgba(0,0,0,.04);
+  --shadow-lg:0 10px 15px -3px rgba(0,0,0,.08),0 4px 6px -2px rgba(0,0,0,.04);
+  --radius:8px; --radius-md:10px; --radius-lg:12px;
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+*{box-sizing:border-box;}
+body{margin:0;font-family:var(--font);color:var(--slate-900);background:var(--cream-50);}
+
+/* ── Header (matches index.html / testimonials.html exactly) ── */
+header#site-header{background:#21808d;color:#fff;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 28px;position:sticky;top:0;z-index:300;box-shadow:0 1px 4px rgba(0,0,0,.15);}
+.brand-mark{display:flex;flex-direction:column;justify-content:center;gap:3px;}
+.header-title{font-size:1.45rem;font-weight:700;margin:0;line-height:1.15;letter-spacing:-0.01em;}
+.header-title .hindi{font-weight:700;}
+.header-sub{font-size:.78rem;opacity:.88;font-weight:400;}
+.header-right{display:flex;align-items:center;gap:14px;flex-shrink:0;}
+.header-right a{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border:1px solid rgba(255,255,255,.45);border-radius:20px;color:#fff;text-decoration:none;font-size:.78rem;font-weight:500;white-space:nowrap;transition:background .15s;}
+.header-right a:hover{background:rgba(255,255,255,.15);}
+.header-right a.logo-link{padding:0;border:none;border-radius:0;background:none !important;}
+.header-divider{width:1px;height:36px;background:rgba(255,255,255,.25);margin:0 4px;}
+@media (max-width:640px){ header#site-header{ height:auto; min-height:56px; padding:12px 16px; flex-wrap:wrap; gap:10px; } .header-sub{ display:none; } }
+footer{text-align:center;font-size:.75rem;color:var(--slate-500);padding:20px;}
+
+.page{max-width:1000px;margin:0 auto;padding:40px 20px 80px;}
+.card{background:var(--cream-100);border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px 30px;margin-bottom:20px;box-shadow:var(--shadow-lg);max-width:420px;}
+label{display:block;font-size:.8rem;font-weight:600;margin:14px 0 5px;}
+input[type=email],input[type=password]{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:var(--radius);font-family:var(--font);font-size:.9rem;}
+input:focus{outline:none;border-color:var(--teal-500);box-shadow:0 0 0 3px var(--teal-bg);}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:9px 18px;border-radius:var(--radius);border:none;font-weight:600;font-size:.82rem;cursor:pointer;font-family:var(--font);}
+.btn:disabled{opacity:.55;cursor:not-allowed;}
+.btn-block{width:100%;}
+.btn-primary{background:var(--teal-500);color:#fff;}
+.btn-primary:hover{background:var(--teal-600);}
+.btn-approve{background:var(--success-bg);color:var(--success);border:1.5px solid var(--success);}
+.btn-approve:hover{background:var(--success);color:#fff;}
+.btn-reject{background:var(--error-bg);color:var(--error);border:1.5px solid var(--error);}
+.btn-reject:hover{background:var(--error);color:#fff;}
+.btn-feature{background:#fff;color:var(--gold);border:1.5px solid var(--gold);}
+.btn-feature:hover{background:var(--gold);color:#fff;}
+.btn-feature.is-featured{background:var(--gold);color:#fff;}
+.btn-outline{background:#fff;border:1.5px solid var(--teal-500);color:var(--teal-500);}
+.btn-outline:hover{background:var(--teal-bg);}
+.msg{padding:10px 14px;border-radius:var(--radius);font-size:.82rem;margin-top:12px;display:none;}
+.msg.error{background:var(--error-bg);color:var(--error);display:block;}
+.msg.success{background:var(--success-bg);color:var(--success);display:block;}
+
+/* ── Stat strip ── */
+.stat-strip{display:flex;gap:0;border:1px solid var(--card-border);border-radius:var(--radius-lg);overflow:hidden;margin-bottom:24px;background:var(--cream-100);box-shadow:var(--shadow-md);}
+.stat-cell{flex:1;padding:16px 20px;border-right:1px solid var(--card-border);}
+.stat-cell:last-child{border-right:none;}
+.stat-cell b{display:block;font-size:1.5rem;font-weight:700;color:var(--teal-600);font-variant-numeric:tabular-nums;}
+.stat-cell span{font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--slate-500);}
+
+.tabbtns{display:flex;gap:8px;margin-bottom:20px;}
+.tabbtn{padding:9px 18px;border-radius:var(--radius);border:1.5px solid var(--border);background:#fff;font-weight:600;font-size:.82rem;cursor:pointer;color:var(--slate-500);font-family:var(--font);}
+.tabbtn.active{border-color:var(--teal-500);color:var(--teal-500);background:var(--teal-bg);}
+
+.trow{background:var(--cream-100);border:1px solid var(--card-border);border-top:3px solid var(--pc,var(--teal-500));border-radius:var(--radius-lg);padding:20px 22px;margin-bottom:16px;box-shadow:var(--shadow-md);}
+.trow .meta{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:10px;margin-bottom:12px;}
+.trow .who b{display:block;font-size:.98rem;}
+.trow .who span{font-size:.8rem;color:var(--slate-500);}
+.trow .badges{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:12px;}
+.sector-badge{font-size:.7rem;font-weight:600;color:#fff;padding:3px 10px;border-radius:20px;}
+.stars-badge{font-size:.85rem;letter-spacing:1px;color:var(--gold);}
+.impact-badge{font-size:.72rem;font-weight:600;color:var(--teal-700);background:var(--teal-bg);border:1px solid var(--teal-border);border-radius:20px;padding:3px 10px;}
+.trow .msgtext{font-size:.92rem;line-height:1.58;margin-bottom:16px;}
+.status-pill{display:inline-block;padding:3px 10px;border-radius:20px;font-size:.7rem;font-weight:700;text-transform:uppercase;}
+.status-pending{background:var(--warn-bg);color:var(--warn);}
+.status-approved{background:var(--success-bg);color:var(--success);}
+.status-rejected{background:var(--error-bg);color:var(--error);}
+.actions{display:flex;gap:10px;flex-wrap:wrap;}
+.empty{color:var(--slate-500);font-size:.85rem;text-align:center;padding:40px 0;}
+.hidden{display:none !important;}
+.user-bar{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:24px;font-size:.85rem;background:var(--teal-bg);border:1px solid var(--teal-border);border-radius:var(--radius-md);padding:10px 16px;}
+.user-bar b{color:var(--teal-700);}
+</style>
+</head>
+<body>
+
+<header id="site-header">
+  <div class="brand-mark">
+    <h1 class="header-title"><span class="hindi">सुविकल्प:</span> Testimonials Admin</h1>
+    <div class="header-sub">Review and moderate submitted testimonials</div>
+  </div>
+  <div class="header-right">
+    <a href="testimonials.html">← Back to Testimonials</a>
+    <div class="header-divider"></div>
+    <a href="https://coalcontroller.gov.in/" target="_blank" rel="noopener" title="CCO Home" class="logo-link"><img src="./CCO.png" style="height:56px;"></a>
+  </div>
+</header>
+
+<div class="page">
+
+  <!-- Login -->
+  <div class="card" id="loginCard">
+    <h2 style="margin:0 0 6px;font-size:1.1rem;color:var(--teal-700);">Admin Login</h2>
+    <div style="color:var(--slate-500);font-size:.85rem;margin-bottom:14px;">Restricted access.</div>
+    <label for="loginEmail">Email</label>
+    <input type="email" id="loginEmail">
+    <label for="loginPassword">Password</label>
+    <input type="password" id="loginPassword">
+    <div style="margin-top:16px;">
+      <button class="btn btn-primary btn-block" id="loginBtn">Log In</button>
+    </div>
+    <div class="msg" id="loginMsg"></div>
+  </div>
+
+  <!-- Admin dashboard -->
+  <div id="dashboard" class="hidden">
+    <div class="user-bar">
+      <div>Signed in as <b id="adminEmailLabel"></b></div>
+      <button class="btn btn-outline" id="logoutBtn">Sign Out</button>
+    </div>
+
+    <div class="stat-strip">
+      <div class="stat-cell"><b id="countPending">0</b><span>Pending</span></div>
+      <div class="stat-cell"><b id="countApproved">0</b><span>Approved</span></div>
+      <div class="stat-cell"><b id="countRejected">0</b><span>Rejected</span></div>
+    </div>
+
+    <div class="tabbtns">
+      <button class="tabbtn active" data-status="pending">Pending</button>
+      <button class="tabbtn" data-status="approved">Approved</button>
+      <button class="tabbtn" data-status="rejected">Rejected</button>
+    </div>
+
+    <div id="list"></div>
+  </div>
+
+  <div class="msg error" id="accessDenied" style="display:none;max-width:420px;">
+    Signed in, but this account is not authorized to access the admin page.
+  </div>
+
+</div>
+
+<footer>&copy; 2026 Coal Controller Organisation, Ministry of Coal, Government of India.</footer>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="./firebase-config.js"></script>
+
+<script>
+const SECTOR_COLORS = {
+  'Renewable Energy': '#C85000',
+  'Industrial Hub': '#1a5ca8',
+  'Logistics & Warehousing': '#b06a10',
+  'Agriculture & Forestry': '#5a3d9e',
+  'Tourism & Recreation': '#1a7a5e',
+  'Other': '#626c71'
+};
+function sectorColor(sector){ return SECTOR_COLORS[sector] || '#21808d'; }
+
+let currentTab = 'pending';
+
+function showMsg(id, text, type){
+  const el = document.getElementById(id);
+  el.textContent = text;
+  el.className = 'msg ' + type;
+}
+
+document.getElementById('loginBtn').onclick = async () => {
+  const email = document.getElementById('loginEmail').value.trim();
+  const password = document.getElementById('loginPassword').value;
+  if (!email || !password) { showMsg('loginMsg', 'Enter both email and password.', 'error'); return; }
+  const btn = document.getElementById('loginBtn');
+  btn.disabled = true;
+  try {
+    await auth.signInWithEmailAndPassword(email, password);
+  } catch (e) {
+    showMsg('loginMsg', e.message, 'error');
+  } finally {
+    btn.disabled = false;
+  }
+};
+
+document.getElementById('logoutBtn').onclick = () => auth.signOut();
+
+document.querySelectorAll('.tabbtn').forEach(btn => {
+  btn.onclick = () => {
+    document.querySelectorAll('.tabbtn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentTab = btn.dataset.status;
+    loadTestimonials();
+  };
+});
+
+auth.onAuthStateChanged(user => {
+  if (!user) {
+    document.getElementById('loginCard').classList.remove('hidden');
+    document.getElementById('dashboard').classList.add('hidden');
+    document.getElementById('accessDenied').style.display = 'none';
+    return;
+  }
+  if (!ADMIN_EMAILS.includes(user.email)) {
+    document.getElementById('loginCard').classList.add('hidden');
+    document.getElementById('dashboard').classList.add('hidden');
+    document.getElementById('accessDenied').style.display = 'block';
+    return;
+  }
+  document.getElementById('loginCard').classList.add('hidden');
+  document.getElementById('dashboard').classList.remove('hidden');
+  document.getElementById('adminEmailLabel').textContent = user.email;
+  loadCounts();
+  loadTestimonials();
+});
+
+async function loadCounts(){
+  try {
+    const [pendingSnap, approvedSnap, rejectedSnap] = await Promise.all([
+      db.collection('testimonials').where('status','==','pending').get(),
+      db.collection('testimonials').where('status','==','approved').get(),
+      db.collection('testimonials').where('status','==','rejected').get()
+    ]);
+    document.getElementById('countPending').textContent = pendingSnap.size;
+    document.getElementById('countApproved').textContent = approvedSnap.size;
+    document.getElementById('countRejected').textContent = rejectedSnap.size;
+  } catch (e) { console.error(e); }
+}
+
+async function loadTestimonials(){
+  const list = document.getElementById('list');
+  list.innerHTML = '<div class="empty">Loading…</div>';
+  try {
+    const snap = await db.collection('testimonials').where('status','==',currentTab).get();
+    if (snap.empty) { list.innerHTML = `<div class="empty">No ${currentTab} testimonials.</div>`; return; }
+    const docs = snap.docs.sort((a,b) => (b.data().createdAt?.seconds||0) - (a.data().createdAt?.seconds||0));
+    list.innerHTML = '';
+    docs.forEach(doc => {
+      const d = doc.data();
+      const color = sectorColor(d.sector);
+      const stars = d.rating ? '★'.repeat(d.rating) + '☆'.repeat(5 - d.rating) : '';
+      const row = document.createElement('div');
+      row.className = 'trow';
+      row.style.setProperty('--pc', color);
+      row.innerHTML = `
+        <div class="meta">
+          <div class="who"><b>${escapeHtml(d.name)}</b><span>${escapeHtml(d.designation)}, ${escapeHtml(d.company)} · ${escapeHtml(d.companySize||'')}</span></div>
+          <span class="status-pill status-${d.status}">${d.status}</span>
+        </div>
+        <div class="badges">
+          ${d.sector ? `<span class="sector-badge" style="background:${color};">${escapeHtml(d.sector)}</span>` : ''}
+          ${stars ? `<span class="stars-badge">${stars}</span>` : ''}
+          ${d.impact ? `<span class="impact-badge">${escapeHtml(d.impact)}</span>` : ''}
+        </div>
+        <div class="msgtext">${escapeHtml(d.message)}</div>
+        <div class="actions" id="actions-${doc.id}"></div>
+      `;
+      const actions = row.querySelector(`#actions-${doc.id}`);
+      if (currentTab !== 'approved') {
+        const approveBtn = document.createElement('button');
+        approveBtn.className = 'btn btn-approve';
+        approveBtn.textContent = 'Approve';
+        approveBtn.onclick = () => updateStatus(doc.id, { status: 'approved' });
+        actions.appendChild(approveBtn);
+      }
+      if (currentTab !== 'rejected') {
+        const rejectBtn = document.createElement('button');
+        rejectBtn.className = 'btn btn-reject';
+        rejectBtn.textContent = 'Reject';
+        rejectBtn.onclick = () => updateStatus(doc.id, { status: 'rejected' });
+        actions.appendChild(rejectBtn);
+      }
+      if (currentTab === 'approved') {
+        const featureBtn = document.createElement('button');
+        const isFeatured = d.featured === true;
+        featureBtn.className = 'btn btn-feature' + (isFeatured ? ' is-featured' : '');
+        featureBtn.textContent = isFeatured ? '★ Featured' : '☆ Feature';
+        featureBtn.onclick = () => toggleFeatured(doc.id, !isFeatured);
+        actions.appendChild(featureBtn);
+      }
+      list.appendChild(row);
+    });
+  } catch (e) {
+    list.innerHTML = `<div class="empty">Error loading testimonials: ${escapeHtml(e.message)}</div>`;
+  }
+}
+
+async function updateStatus(id, fields){
+  await db.collection('testimonials').doc(id).update(fields);
+  loadCounts();
+  loadTestimonials();
+}
+
+// Only one testimonial should be featured at a time — unset any existing one first.
+async function toggleFeatured(id, makeFeatured){
+  if (makeFeatured) {
+    const snap = await db.collection('testimonials').where('featured','==',true).get();
+    const batch = db.batch();
+    snap.docs.forEach(doc => batch.update(doc.ref, { featured: false }));
+    batch.update(db.collection('testimonials').doc(id), { featured: true });
+    await batch.commit();
+  } else {
+    await db.collection('testimonials').doc(id).update({ featured: false });
+  }
+  loadTestimonials();
+}
+
+function escapeHtml(str){
+  const div = document.createElement('div');
+  div.textContent = str || '';
+  return div.innerHTML;
+}
+</script>
+
+</body>
+</html>
