@@ -303,7 +303,7 @@
     <div class="sgft-content">
       <h1 class="spv-section-title">Green Finance</h1>
       <div class="sgft-intro">
-        <p>Answer <strong>7 quick questions</strong> to see a preliminary eligibility status for
+        <p>Answer <strong>6 quick questions</strong> to see a preliminary eligibility status for
           Green Bonds, Carbon Credit, <abbr title="Green Climate Fund">GCF</abbr> and Green Loans,
           based on the Agroforestry financing criteria.</p>
       </div>
@@ -386,20 +386,12 @@
             <div class="sgft-live-overall" id="live-overall"></div>
           </aside>
         </div>
-        <a href="./agroforestry.html" class="sgft-back-link">Back to Agroforestry Page</a>
 
         <section id="final-result" class="sgft-final-result" hidden>
-<<<<<<< HEAD
-          <h2 class="sgft-final-result-title">Final Result</h2>
-          <p class="sgft-final-result-sub">Combined eligibility across all answers.</p>
-          <div id="final-verdict-container"></div>
-          <div class="sgft-grid" id="final-result-grid"></div>
-=======
           <p class="sgft-final-eyebrow">Final Result</p>
           <h2 class="sgft-final-result-title">Combined eligibility across all 7 answers</h2>
           <p class="sgft-final-result-sub">Tap any instrument to see why, and what to do next.</p>
           <div class="sgft-final-acc" id="final-acc"></div>
->>>>>>> origin/main
         </section>
       </section>
     </div>
@@ -455,12 +447,6 @@
         id: "q6",
         title: "Is a use-of-proceeds Monitoring and Evaluation (M&E) plan included or planned for the project?",
         info: "Required to track the use of proceeds and impact of project as per compliance",
-        options: [{ value: "yes", label: "Yes" }, { value: "no", label: "No" }, { value: "partially", label: "Partially" }]
-      },
-      {
-        id: "q7",
-        title: "Is this same project or piece of land currently signed up with any other carbon credit or greenhouse gas program?",
-        info: "Only 1 carbon credit programme per project",
         options: [{ value: "yes", label: "Yes" }, { value: "no", label: "No" }, { value: "partially", label: "Partially" }]
       }
     ];
@@ -634,27 +620,6 @@
         partially: {
           cc: "moderate",
           reco: { cc: "Develop a Monitoring, Reporting and Verification (MRV) plan. Install necessary monitoring equipment. Assign monitoring responsibilities. Establish data management and record-keeping procedures." }
-        }
-      },
-      q7: {
-        yes: {
-          gb: "ineligible", cc: "ineligible", gcf: "ineligible", gl: "ineligible",
-          reason: { cc: "The project is currently active under another carbon credit program — the same emission reductions cannot receive carbon credits twice (double counting)." },
-          reco: {
-            gb: "Only be included if they run no risk of 'double-counting' through any other mechanism/financing instrument",
-            cc: "Withdraw the project from the other program. Ensure previous credits are cancelled or the project is officially inactive before applying to Verra.",
-            gcf: "Fix accounting boundary: no dual claim as carbon credit + <abbr title='Nationally Determined Contribution'>NDC</abbr> + <abbr title='Green Climate Fund'>GCF</abbr> — avoid overlap.\nAdd no-double-counting attestation in <abbr title='Environmental and Social Safeguards'>ESS</abbr>/Funding Proposal.\nApply corresponding adjustments (Article 6) via <abbr title='National Designated Authority'>NDA</abbr> for cross-border claims.\nSeparate MRV (results) from financial reporting (flows).\nAccredited Entities due diligence to include double-counting check.\nVerify with MoEFCC/NDA that reductions aren't already in <abbr title='Nationally Determined Contribution'>NDC</abbr> baseline.",
-            gl: "Only be included if they run no risk of 'double-counting' through any other mechanism/financing instrument"
-          }
-        },
-        no: {
-          gb: "high", cc: "high", gcf: "high", gl: "high",
-          reason: { cc: "The project is not registered or applying under any other carbon credit program." }
-        },
-        partially: {
-          cc: "moderate",
-          reason: { cc: "Previously registered, but now inactive or being withdrawn. The project may become eligible if evidence is provided that no further credits will be issued elsewhere." },
-          reco: { cc: "Obtain official withdrawal/de-registration from the other program. Demonstrate that no duplicate carbon credits have been issued. Maintain documentation proving exclusive ownership of emission reductions." }
         }
       }
     };

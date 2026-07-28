@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Green Finance — Procedure for Green Bonds | SUVIKALP</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="./category.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    .gb-content { max-width: 1080px; margin: 0 auto; padding: 26px 24px 56px; }
+
+    .gb-title-row { display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+    .gb-wip-badge {
+      display:inline-block; font-family:var(--font-sans); font-size:0.7rem; font-weight:700;
+      letter-spacing:0.03em; text-transform:uppercase; color:#b06a10; background:#fff8f3;
+      border:1px solid #f0c896; border-radius:999px; padding:3px 10px;
+    }
+
+    .gb-intro p.spv-body-text:first-of-type { margin-top:2px; }
+
+    .gb-note {
+      display:flex; gap:10px; align-items:flex-start; background:var(--color-surface,#fff);
+      border:1px solid var(--color-card-border,#e2e8f0); border-left:3px solid var(--color-teal-600,#0F6E56);
+      border-radius:10px; padding:14px 16px; margin:4px 0 22px;
+    }
+    .gb-note-icon {
+      flex:0 0 auto; width:20px; height:20px; border-radius:50%; background:var(--color-teal-600,#0F6E56);
+      color:#fff; font-family:var(--font-sans); font-weight:700; font-size:0.72rem;
+      display:flex; align-items:center; justify-content:center; margin-top:1px;
+    }
+    .gb-note p { margin:0; font-family:var(--font-sans); font-size:var(--fs-base); line-height:var(--lh-base); color:var(--color-text-secondary); }
+
+    .gb-subhead {
+      font-family:var(--font-sans); font-weight:700; font-size:var(--fs-base); color:var(--color-teal-700,var(--color-teal-600));
+      margin:18px 0 8px;
+    }
+    .gb-subhead:first-child { margin-top:0; }
+
+    .gb-checklist-block { margin-bottom:18px; padding-bottom:18px; border-bottom:1px solid var(--color-card-border,#e2e8f0); }
+    .gb-checklist-block:last-child { border-bottom:none; margin-bottom:0; padding-bottom:0; }
+    .gb-checklist-title { font-family:var(--font-sans); font-weight:700; font-size:var(--fs-md); color:var(--color-text); margin:0 0 6px; }
+
+    .gb-doc-group { margin-bottom:16px; }
+    .gb-doc-group:last-child { margin-bottom:0; }
+    .gb-doc-group-title { font-family:var(--font-sans); font-weight:700; font-size:var(--fs-base); color:var(--color-text); margin:0 0 8px; }
+    .gb-doc-link-list { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:6px; }
+    .gb-doc-link-list li a {
+      display:flex; align-items:center; gap:8px; font-family:var(--font-sans); font-size:var(--fs-md);
+      color:var(--color-primary,#0F6E56); text-decoration:none; font-weight:500;
+    }
+    .gb-doc-link-list li a:hover { text-decoration:underline; }
+    .gb-doc-link-list li a svg { flex:0 0 auto; }
+
+    .gb-exchange-list, .gb-alt-list { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:12px; }
+    .gb-exchange-item, .gb-alt-item {
+      background:var(--color-surface,#fff); border:1px solid var(--color-card-border,#e2e8f0); border-radius:10px; padding:12px 16px;
+    }
+    .gb-exchange-name, .gb-alt-name { font-family:var(--font-sans); font-weight:700; font-size:var(--fs-md); color:var(--color-text); margin:0 0 4px; }
+    .gb-exchange-name a, .gb-alt-name a { color:var(--color-primary,#0F6E56); text-decoration:none; }
+    .gb-exchange-name a:hover, .gb-alt-name a:hover { text-decoration:underline; }
+    .gb-exchange-desc, .gb-alt-desc { font-family:var(--font-sans); font-size:var(--fs-base); line-height:var(--lh-base); color:var(--color-text-secondary); margin:0; }
+
+    .gb-ifc-header { display:flex; align-items:center; gap:14px; margin-bottom:16px; }
+    .gb-ifc-logo { height:34px; width:auto; }
+    .gb-ifc-header p { margin:0; font-family:var(--font-sans); font-size:var(--fs-sm); color:var(--color-text-secondary); }
+
+    .gb-contact-card {
+      background:var(--color-surface,#fff); border:1px solid var(--color-card-border,#e2e8f0); border-radius:10px;
+      padding:14px 16px; margin-bottom:12px;
+    }
+    .gb-contact-card:last-child { margin-bottom:0; }
+    .gb-contact-role { font-family:var(--font-sans); font-weight:700; font-size:var(--fs-sm); color:var(--color-teal-700,var(--color-teal-600)); text-transform:uppercase; letter-spacing:0.02em; margin:0 0 4px; }
+    .gb-contact-name { font-family:var(--font-sans); font-weight:600; font-size:var(--fs-md); color:var(--color-text); margin:0 0 4px; }
+    .gb-contact-meta { font-family:var(--font-sans); font-size:var(--fs-base); line-height:var(--lh-base); color:var(--color-text-secondary); margin:0; }
+    .gb-contact-meta a { color:var(--color-primary,#0F6E56); text-decoration:none; }
+    .gb-contact-meta a:hover { text-decoration:underline; }
+
+    .gb-sources-list { margin:0; padding-left:20px; font-family:var(--font-sans); font-size:var(--fs-md); line-height:var(--lh-loose); color:var(--color-text); }
+    .gb-sources-list li { margin-bottom:6px; }
+    .gb-sources-list a { color:var(--color-primary,#0F6E56); text-decoration:none; }
+    .gb-sources-list a:hover { text-decoration:underline; }
+
+    .gb-disclaimer-box {
+      margin-top:28px; padding:14px 16px; border-top:1px solid var(--color-card-border,#e2e8f0);
+    }
+    .gb-disclaimer-box p { margin:0; font-family:var(--font-sans); font-size:0.8rem; color:var(--color-text-secondary); line-height:1.65; }
+    .gb-disclaimer-box strong { color:var(--color-text); font-weight:600; }
+  </style>
+</head>
+<body>
+  <header id="site-header">
+    <div class="header-left">
+      <div class="header-tool-title"><span class="hindi">सुविकल्प:</span> Mine Repurposing Tool</div>
+      <div class="header-tool-sub">Green Finance — Procedure for Green Bonds</div>
+    </div>
+  <div class="header-right">
+    <div class="header-cco-lockup">
+      <img class="header-cco-logo" src="data:image/png;base64,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" alt="Coal Controller Organisation emblem">
+      <div class="header-cco-text"></div>
+    </div>
+  </div>
+  </header>
+
+  <div class="page">
+
+    <div class="sf-backbar">
+      <button class="back-btn" onclick="history.back()" aria-label="Back">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M10 3L5 8l5 5"/>
+        </svg>
+        Back
+      </button>
+      <span class="sf-breadcrumb">
+        <span>Green Finance</span>
+        <span class="sep">/</span>
+        <span style="color:var(--color-primary);font-weight:500;">Procedure for Green Bonds</span>
+      </span>
+    </div>
+
+    <div class="gb-content">
+      <div class="gb-title-row">
+        <h1 class="spv-section-title" style="border-bottom:none;margin-bottom:0;padding-bottom:0;">Step-By-Step Procedure for Green Bonds</h1>
+        <span class="gb-wip-badge">Work in Progress</span>
+      </div>
+
+      <div class="gb-intro">
+        <p class="spv-body-text">Green Bonds facilitate capital flows from responsible investors in developed countries into green projects in emerging economies.</p>
+      </div>
+
+      <!-- Steps Involved -->
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Steps Involved in Issuing Green Bonds</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="gb-subhead">Issuing a Green Bond</p>
+          <ol class="spv-list">
+            <li>Pre-issuance</li>
+            <li>Define a green bond framework</li>
+            <li>Define how project meets green bond eligibility criteria (use of proceeds)</li>
+            <li>Put in place project selection process and select eligible projects (selection of projects and assets)</li>
+            <li>Set up accounts and process to earmark and allocate proceeds &mdash; &ldquo;ring fence&rdquo; the proceeds (management of proceeds)</li>
+            <li>Establish reporting processes; get pre-issuance external review (external review)</li>
+          </ol>
+
+          <p class="gb-subhead">Launch the Bond into the Market</p>
+          <ol class="spv-list">
+            <li>Post-issuance</li>
+            <li>Allocate proceeds to the projects</li>
+            <li>Monitor the projects</li>
+            <li>Publish impact report</li>
+            <li>Post-issuance audit if necessary</li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- Documents to fill -->
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Documents to Fill</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">Issuers wishing to be listed in the Database must complete and forward to the Secretariat, the relevant template and form (see below), and/or must have made publicly available their external review reports. Completed templates and forms for disclosure to the market should be sent to the Secretariat at: <a href="mailto:sustainabilitybonds@icmagroup.org" style="color:var(--color-primary,#0F6E56);">sustainabilitybonds@icmagroup.org</a>.</p>
+
+          <div class="gb-doc-group">
+            <p class="gb-doc-group-title">Template for Issuers</p>
+            <ul class="gb-doc-link-list">
+              <li><a href="https://www.icmagroup.org/assets/Green-Bond-Information-Template_2023-07-06.docx" target="_blank" rel="noopener">Download Green Bond Information Template</a></li>
+              <li><a href="https://www.icmagroup.org/assets/Social-Bond-Information-Template_2023-07-06.docx" target="_blank" rel="noopener">Download Social Bond Information Template</a></li>
+              <li><a href="https://www.icmagroup.org/assets/Sustainability-Bond-Information-Template_2023-07-06.docx" target="_blank" rel="noopener">Download Sustainability Bond Information Template</a></li>
+              <li><a href="https://www.icmagroup.org/assets/Sustainability-Linked-Bond-Information-Template_2023-07-06.docx" target="_blank" rel="noopener">Download Sustainability-Linked Bond Information Template</a></li>
+            </ul>
+          </div>
+
+          <div class="gb-doc-group">
+            <p class="gb-doc-group-title">Templates for External Reviewers</p>
+            <ul class="gb-doc-link-list">
+              <li><a href="https://www.icmagroup.org/assets/documents/Sustainable-finance/2023-updates/External-Review-Form-Use-of-Proceeds-Bonds-2023-220623.docx" target="_blank" rel="noopener">Download Use of Proceeds Bonds External Review Form</a></li>
+              <li><a href="https://www.icmagroup.org/assets/documents/Sustainable-finance/2023-updates/External-Review-Form-Sustainability-Linked-Bonds-2023-220623.docx" target="_blank" rel="noopener">Download Sustainability-Linked Bond External Review Form</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pre-Issuance Checklist -->
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Pre-Issuance Checklist</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+
+          <div class="gb-checklist-block">
+            <p class="gb-checklist-title">1. Establish a Green Bond Framework</p>
+            <p class="spv-body-text" style="margin-bottom:0;">Create a formal document defining your project's environmental objectives. It must align with global standards like the Green Bond Principles (GBP) established by the International Capital Market Association.</p>
+          </div>
+
+          <div class="gb-checklist-block">
+            <p class="gb-checklist-title">2. Verify Your &ldquo;Use of Proceeds&rdquo;</p>
+            <p class="spv-body-text">Your project must clearly fall under eligible green categories.</p>
+            <ol class="spv-list" style="margin-bottom:0;">
+              <li>Renewable energy (solar, wind, hydro)</li>
+              <li>Energy efficiency and green buildings</li>
+              <li>Clean transportation (EVs, metro systems)</li>
+              <li>Waste management, water conservation, and biodiversity</li>
+            </ol>
+          </div>
+
+          <div class="gb-checklist-block">
+            <p class="gb-checklist-title">3. Obtain a Second-Party Opinion (SPO)</p>
+            <p class="spv-body-text" style="margin-bottom:0;">To prove your project avoids &ldquo;greenwashing&rdquo; and genuinely meets sustainability criteria, hire an independent reviewer, rating agency, or environmental consultant (e.g., Sustainalytics or Moody's) to validate your framework.</p>
+          </div>
+
+          <div class="gb-checklist-block">
+            <p class="gb-checklist-title">4. Issue the Bond</p>
+            <p class="spv-body-text" style="margin-bottom:0;">Work with an underwriter or investment bank to structure the debt. The bond is then issued into the market. If your project size is too small for a standard corporate bond, consider accessing funds via specialized financing facilities.</p>
+          </div>
+
+          <div class="gb-checklist-block">
+            <p class="gb-checklist-title">5. Track and Manage the Proceeds</p>
+            <p class="spv-body-text" style="margin-bottom:0;">You must create a segregated account to track the incoming funds. The money raised can only be disbursed to the specified eligible projects.</p>
+          </div>
+
+          <div class="gb-checklist-block">
+            <p class="gb-checklist-title">6. Report on Progress</p>
+            <p class="spv-body-text" style="margin-bottom:0;">You are legally required to provide regular allocation and impact reports. These documents show investors how their funds were spent and the exact environmental impact achieved (e.g., carbon emissions reduced).</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Prefilled Template -->
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Prefilled Green Bond / Green Bond Programme Information Template</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">Need to prefill with the project title.</p>
+          <ol class="spv-list" style="margin-bottom:0;">
+            <li>GBP component 1: Use of proceeds
+              <ol type="a" style="margin:6px 0 0 20px;">
+                <li>What are the environmental objectives as per the GBP?
+                  <ol type="i" style="margin:4px 0 0 20px;">
+                    <li>Precheck the objectives</li>
+                  </ol>
+                </li>
+                <li style="margin-top:6px;">What are the Green Project categories as per the GBP?
+                  <ol type="i" style="margin:4px 0 0 20px;">
+                    <li>Preselect the category</li>
+                  </ol>
+                </li>
+              </ol>
+            </li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- Global Exchanges -->
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Global Green Bond Exchanges</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">To attract international and institutional investors, you must list your green bond on a recognized sustainable stock exchange or a dedicated green bond segment. The leading international platforms for listing green bonds include:</p>
+          <ul class="gb-exchange-list">
+            <li class="gb-exchange-item">
+              <p class="gb-exchange-name">Luxembourg Green Exchange (LGX)</p>
+              <p class="gb-exchange-desc">The world's first and largest dedicated platform for sustainable securities, requiring strict compliance with green frameworks.</p>
+            </li>
+            <li class="gb-exchange-item">
+              <p class="gb-exchange-name"><a href="https://www.londonstockexchange.com/raise-finance/debt/our-products/sustainable-bond-market" target="_blank" rel="noopener">London Stock Exchange (LSE) Sustainable Bond Market</a></p>
+              <p class="gb-exchange-desc">Offers high visibility to global institutional funds and requires rigorous post-issuance reporting.</p>
+            </li>
+            <li class="gb-exchange-item">
+              <p class="gb-exchange-name"><a href="https://www.euronext.com/en/listing/esg-for-issuers/esg-bonds" target="_blank" rel="noopener">Euronext ESG Bonds</a></p>
+              <p class="gb-exchange-desc">Connects issuers to a massive European investor network across multiple European cities.</p>
+            </li>
+            <li class="gb-exchange-item">
+              <p class="gb-exchange-name">Nasdaq Sustainable Debt Market</p>
+              <p class="gb-exchange-desc">Highly popular for Nordic and European issuers, offering extensive visibility to ESG-focused asset managers.</p>
+            </li>
+            <li class="gb-exchange-item">
+              <p class="gb-exchange-name"><a href="https://www.sgx.com/" target="_blank" rel="noopener">Singapore Exchange (SGX) Sustainable Fixed Income</a></p>
+              <p class="gb-exchange-desc">The premier hub for listing green and transition bonds targeting Asian investors.</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Alternative Routes -->
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Alternative Routes for Smaller Projects</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">If your project is too small for a major public stock exchange listing, consider these alternative avenues:</p>
+          <ul class="gb-alt-list">
+            <li class="gb-alt-item">
+              <p class="gb-alt-name">Private Placement</p>
+              <p class="gb-alt-desc">Sell the bonds directly to a select group of institutional investors (like pension funds or insurance companies) without a public exchange listing.</p>
+            </li>
+            <li class="gb-alt-item">
+              <p class="gb-alt-name">Sustainable Crowd-investing</p>
+              <p class="gb-alt-desc">Utilize specialized green crowdfunding platforms to raise capital directly from retail investors.</p>
+            </li>
+            <li class="gb-alt-item">
+              <p class="gb-alt-name">Green Aggregators</p>
+              <p class="gb-alt-desc">Partner with development banks that bundle smaller local projects into one large, exchange-tradable green bond.</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- IFC Contact Directory -->
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>IFC Contact Directory</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <div class="gb-ifc-header">
+            <img class="gb-ifc-logo" src="data:image/png;base64,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" alt="International Finance Corporation logo">
+            <p>Reference contacts published by the International Finance Corporation (IFC).</p>
+          </div>
+
+          <div class="gb-contact-card">
+            <p class="gb-contact-role">IFC Headquarters</p>
+            <p class="gb-contact-meta">2121 Pennsylvania Avenue, NW, Washington D.C. 20433, United States<br>+1 (202) 473-1000</p>
+          </div>
+
+          <div class="gb-contact-card">
+            <p class="gb-contact-role">Head of Corporate Communications</p>
+            <p class="gb-contact-name">Jim Rosenberg</p>
+            <p class="gb-contact-meta">Washington D.C.<br>+1 (202) 473-0551<br><a href="mailto:IFCmedia@ifc.org">IFCmedia@ifc.org</a></p>
+          </div>
+
+          <div class="gb-contact-card">
+            <p class="gb-contact-role">Country Office &mdash; Regional Director, South Asia</p>
+            <p class="gb-contact-name">Imad N. Fakhoury</p>
+            <p class="gb-contact-meta"><a href="mailto:infoindia@ifc.org">infoindia@ifc.org</a></p>
+          </div>
+
+          <div class="gb-contact-card">
+            <p class="gb-contact-role">Country Office &mdash; Principal Country Officer</p>
+            <p class="gb-contact-name">Roshika Singh</p>
+            <p class="gb-contact-meta"><a href="mailto:infoindia@ifc.org">infoindia@ifc.org</a></p>
+          </div>
+
+          <div class="gb-contact-card">
+            <p class="gb-contact-role">New Delhi, India (Serves: India)</p>
+            <p class="gb-contact-meta">6th Floor, Worldmark-3, Aerocity, New Delhi, India 110037</p>
+          </div>
+
+          <div class="gb-contact-card">
+            <p class="gb-contact-role">Mumbai, India &mdash; Country Office (Serves: India)</p>
+            <p class="gb-contact-meta">Godrej BKC, Unit-1, 3rd Floor, Plot C-68, G Block, Bandra Kurla Complex, Bandra East, Mumbai, India 400 051</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sources -->
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Sources</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <ol class="gb-sources-list">
+            <li><a href="https://www.icmagroup.org/sustainable-finance/the-principles-guidelines-and-handbooks/green-bond-principles-gbp/" target="_blank" rel="noopener">GBP Official Website</a></li>
+            <li><a href="https://www.icmagroup.org/assets/Hindi-GBP-2021_06.pdf" target="_blank" rel="noopener">GBP Report for India</a> (Hindi)</li>
+            <li><a href="https://www.icmagroup.org/assets/documents/Sustainable-finance/2023-updates/Pre-issuance-Check-List-for-Green-Bonds-Green-Bond-Programmes-June-2023-220623.pdf" target="_blank" rel="noopener">Pre-issuance Checklist for Green Bonds / Green Bond Programmes</a></li>
+            <li><a href="https://www.icmagroup.org/assets/documents/Sustainable-finance/2025-updates/Guidance-on-Allocation-Reporting-June-2025.pdf" target="_blank" rel="noopener">Guidance on Allocation Reporting</a></li>
+            <li><a href="https://www.ifc.org/content/dam/ifc/doc/mgrt/202203-ifc-green-bond-handbook.pdf" target="_blank" rel="noopener">Green Bond Handbook: A Step-By-Step Guide to Issuing a Green Bond</a></li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="gb-note">
+        <span class="gb-note-icon">i</span>
+        <p><strong>Note:</strong> Considering the higher transaction costs of bond issuance, the minimum bond size to be tradeable, and the fact that only bonds above a certain size are tracked by various indices, potential issuers in emerging markets with small green portfolios may feel inclined to receive a green loan instead of issuing a green bond.</p>
+      </div>
+
+      <div class="gb-disclaimer-box">
+        <p><strong>Disclaimer:</strong> The information in this document has been provided by third-party sources and is intended for general information only (the &ldquo;Information&rdquo;) and is not intended to be and should not be relied upon as being legal, financial, investment, tax, regulatory, business or other professional advice. The Coal Controller Organisation of India is not responsible for the accuracy, reliability or completeness of the Information. The Coal Controller Organisation of India does not represent nor warrant that the Information is accurate, suitable or complete and neither CCI, its employees, representatives or its members shall have any liability arising from or relating to its use.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="./category.js"></script>
+</body>
+</html>

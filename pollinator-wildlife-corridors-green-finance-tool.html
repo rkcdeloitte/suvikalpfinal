@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Green Finance — Agroforestry | SUVIKALP</title>
+  <title>Green Finance — Pollinator/Wildlife Closure | SUVIKALP</title>
   <link rel="stylesheet" href="../style.css">
   <link rel="stylesheet" href="./category.css">
   <style>
@@ -274,7 +274,7 @@
   <header id="site-header">
     <div class="header-left">
       <div class="header-tool-title"><span class="hindi">सुविकल्प:</span> Mine Repurposing Tool</div>
-      <div class="header-tool-sub">Agroforestry — Preliminary Green Finance Screening</div>
+      <div class="header-tool-sub">Pollinator/Wildlife Closure — Preliminary Green Finance Screening</div>
     </div>
   <div class="header-right">
     <div class="header-cco-lockup">
@@ -287,14 +287,14 @@
   <div class="page">
 
     <div class="sf-backbar">
-      <button class="back-btn" onclick="window.location.href='./agroforestry.html'" aria-label="Back to Agroforestry">
+      <button class="back-btn" onclick="window.location.href='./pollinator-wildlife-corridors.html'" aria-label="Back to Pollinator/Wildlife Closure">
         <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M10 3L5 8l5 5"/>
         </svg>
-        Back to Agroforestry
+        Back to Pollinator/Wildlife Closure
       </button>
       <span class="sf-breadcrumb">
-        <span>Agroforestry</span>
+        <span>Pollinator/Wildlife Closure</span>
         <span class="sep">/</span>
         <span style="color:var(--color-primary);font-weight:500;">Green Finance</span>
       </span>
@@ -303,81 +303,39 @@
     <div class="sgft-content">
       <h1 class="spv-section-title">Green Finance</h1>
       <div class="sgft-intro">
-        <p>Answer <strong>7 quick questions</strong> to see a preliminary eligibility status for
+        <p>Answer <strong>6 quick questions</strong> to see a preliminary eligibility status for
           Green Bonds, Carbon Credit, <abbr title="Green Climate Fund">GCF</abbr> and Green Loans,
-          based on the Agroforestry financing criteria.</p>
+          based on the Pollinator/Wildlife Closure financing criteria.</p>
       </div>
 
       <section id="page-questions">
-        <div class="sgft-layout">
-          <div class="sgft-main">
-            <div class="sgft-checklist" id="checklist">
-
-              <div class="sgft-row active" data-q="q1">
-                <button type="button" class="sgft-row-head">
-                  <span class="sgft-row-check"><span class="sgft-row-num">1</span><svg class="sgft-row-checkmark" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l3.5 3.5L13 5"/></svg></span>
-                  <span class="sgft-row-title">Does the project broadly align with the host country's national climate strategy and plans or NDC?</span>
-                  <span class="sgft-row-pill"></span>
-                </button>
-                <div class="sgft-row-body">
-                  <p class="sgft-clause-inline"><span class="sgft-clause-icon">i</span><span>Proposals not aligned with national climate priorities may not receive NDA endorsement.</span></p>
-                  <select class="sgft-select answer" data-q="q1">
-                    <option value="">Select</option>
-                    <option value="yes">Yes</option>
-                    <option value="no">No</option>
-                  </select>
-                </div>
+        <div class="sgft-layout-row">
+          <div class="sgft-qblock">
+            <div class="sgft-progress-head">
+              <div class="sgft-progress-top">
+                <span class="sgft-progress-label" id="progress-label">Question 1 of 6</span>
+                <span class="sgft-progress-time">~2 min</span>
               </div>
-
-              <div class="sgft-row" data-q="q2">
-                <button type="button" class="sgft-row-head">
-                  <span class="sgft-row-check"><span class="sgft-row-num">2</span><svg class="sgft-row-checkmark" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l3.5 3.5L13 5"/></svg></span>
-                  <span class="sgft-row-title">Does the project possess legal land-use rights and all required FPIC (Free, Prior, Informed Consent) approvals?</span>
-                  <span class="sgft-row-pill"></span>
-                </button>
-                <div class="sgft-row-body">
-                  <p class="sgft-clause-inline"><span class="sgft-clause-icon">i</span><span>Project needs to adhere to Minimum Social Safeguards and uphold ethical, inclusive social practices.</span></p>
-                  <select class="sgft-select answer" data-q="q2">
-                    <option value="">Select</option>
-                    <option value="yes">Yes</option>
-                    <option value="no">No</option>
-                  </select>
-                </div>
+              <div class="sgft-progress-track" id="progress-track">
+                <div class="sgft-progress-fill" id="progress-fill"></div>
               </div>
+            </div>
 
-              <div class="sgft-row" data-q="q3">
-                <button type="button" class="sgft-row-head">
-                  <span class="sgft-row-check"><span class="sgft-row-num">3</span><svg class="sgft-row-checkmark" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l3.5 3.5L13 5"/></svg></span>
-                  <span class="sgft-row-title">Will the project comply with the governing environmental and social laws and standards?</span>
-                  <span class="sgft-row-pill"></span>
-                </button>
-                <div class="sgft-row-body">
-                  <p class="sgft-clause-inline"><span class="sgft-clause-icon">i</span><span>Covers Minimum Social Safeguards and whether project activities uphold ethical, inclusive social practices.</span></p>
-                  <select class="sgft-select answer" data-q="q3">
-                    <option value="">Select</option>
-                    <option value="yes">Yes</option>
-                    <option value="no">No</option>
-                    <option value="partially">Partially</option>
-                  </select>
-                </div>
-              </div>
+            <div class="sgft-qbody">
+              <p class="sgft-qnum" id="q-num">Question 1</p>
+              <p class="sgft-qtitle" id="q-title"></p>
+              <span class="sgft-info-wrap">
+                <button type="button" class="sgft-info-btn" aria-label="More information">More info</button>
+                <div class="sgft-info-content" id="q-info-content"></div>
+              </span>
+              <div class="sgft-qoptions" id="q-options"></div>
+            </div>
 
-              <div class="sgft-row" data-q="q4">
-                <button type="button" class="sgft-row-head">
-                  <span class="sgft-row-check"><span class="sgft-row-num">4</span><svg class="sgft-row-checkmark" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l3.5 3.5L13 5"/></svg></span>
-                  <span class="sgft-row-title">Does the project require external financial support to become commercially viable?</span>
-                  <span class="sgft-row-pill"></span>
-                </button>
-                <div class="sgft-row-body">
-                  <p class="sgft-clause-inline"><span class="sgft-clause-icon">i</span><span>Financiers won't fund a project that would go ahead anyway without their support.</span></p>
-                  <select class="sgft-select answer" data-q="q4">
-                    <option value="">Select</option>
-                    <option value="commercial">No</option>
-                    <option value="concessional">Not viable without concessional support</option>
-                    <option value="carbon">Not viable without carbon credit</option>
-                  </select>
-                </div>
-              </div>
+            <div class="sgft-qnav">
+              <button type="button" class="sgft-qnav-btn" id="btn-prev">&larr; Back</button>
+              <button type="button" class="sgft-qnav-btn primary" id="btn-next">Next &rarr;</button>
+            </div>
+          </div>
 
           <aside class="sgft-live-panel" aria-label="Live eligibility status">
             <p class="sgft-live-title">Live Status</p>
@@ -386,20 +344,12 @@
             <div class="sgft-live-overall" id="live-overall"></div>
           </aside>
         </div>
-        <a href="./agroforestry.html" class="sgft-back-link">Back to Agroforestry Page</a>
 
         <section id="final-result" class="sgft-final-result" hidden>
-<<<<<<< HEAD
-          <h2 class="sgft-final-result-title">Final Result</h2>
-          <p class="sgft-final-result-sub">Combined eligibility across all answers.</p>
-          <div id="final-verdict-container"></div>
-          <div class="sgft-grid" id="final-result-grid"></div>
-=======
           <p class="sgft-final-eyebrow">Final Result</p>
-          <h2 class="sgft-final-result-title">Combined eligibility across all 7 answers</h2>
+          <h2 class="sgft-final-result-title">Combined eligibility across all 6 answers</h2>
           <p class="sgft-final-result-sub">Tap any instrument to see why, and what to do next.</p>
           <div class="sgft-final-acc" id="final-acc"></div>
->>>>>>> origin/main
         </section>
       </section>
     </div>
@@ -419,26 +369,26 @@
     const QUESTIONS = [
       {
         id: "q1",
-        title: "Does the project broadly align with the host country's national climate strategy and plans or <abbr title='Nationally Determined Contribution'>NDC</abbr>?",
+        title: "Does the project broadly align with the host country's Nationally Determined Contribution (NDC) or national climate strategy and plans??",
         info: "Proposals not aligned with national climate priorities may not receive <abbr title='National Designated Authority'>NDA</abbr> endorsement.<br><a href=\"https://unfccc.int/sites/default/files/NDC/2022-06/INDIA%20INDC%20TO%20UNFCCC.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">See India's NDC submission to the UNFCCC &nearr;</a>",
         options: [{ value: "yes", label: "Yes" }, { value: "no", label: "No" }]
       },
       {
         id: "q2",
         title: "Does the project possess legal land-use rights and all required FPIC (Free, Prior, Informed Consent) approvals?",
-        info: "1. Project need to adhere to Minimum Social Safeguards (MSS) also uphold ethical and inclusive social practices<br>2. Project activities should contribute to environmental goals",
+        info: "Ensure the project has valid land-use rights and all required approvals, including Free, Prior and Informed Consent (FPIC), which means informing, consulting, and obtaining consent from affected Indigenous or local communities before starting project activities.<br><a href=\"https://ses-toolkit.info.undp.org/sites/g/files/zskgke446/files/SES%20Document%20Library/Uploaded%20October%202016/FINAL%20FPIC%20FAQ%20Guidance%20-%20June%2015%202022.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">See UNDP Social and Environmental Standards FPIC &nearr;</a>",
         options: [{ value: "yes", label: "Yes" }, { value: "no", label: "No" }]
       },
       {
         id: "q3",
         title: "Will the project comply with the governing environmental and social laws and standards?",
-        info: "Compliance with environmental and social safeguards are key prerequisite for eligibility.",
+        info: "Ensure the project complies with all applicable environmental and social laws, regulations, and standards, including environmental protection, worker safety, and community well-being.<br><a href=\"https://thedocs.worldbank.org/en/doc/837721522762050108-0290022018/original/ESFFramework.pdf#page=29&zoom=80\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">See World Bank Enviornmental and Social Framework &nearr;</a>",
         options: [{ value: "yes", label: "Yes" }, { value: "no", label: "No" }, { value: "partially", label: "Partially" }]
       },
       {
         id: "q4",
         title: "Does the project require external financial support to become commercially viable?",
-        info: "Bankability of the project determines the Green Finance Eligbility. For <abbr title='Green Climate Fund'>GCF</abbr> fully bankable projects without a funding gap do not qualify.",
+        info: "The project's financial need helps determine whether it is eligible for green finance.",
         options: [
           { value: "commercial", label: "No" },
           { value: "concessional", label: "Not viable without concessional support" },
@@ -448,19 +398,13 @@
       {
         id: "q5",
         title: "Is the project required by any existing law, regulation or legally binding mandate?",
-        info: "Project implementation a legal obligation or required by law",
+        info: "It helps to determine whether the Project Implementation is voluntary or already required by law. Projects that are legally required may not be eligible for carbon credits.",
         options: [{ value: "yes", label: "Yes" }, { value: "no", label: "No" }, { value: "partially", label: "Partially" }]
       },
       {
         id: "q6",
-        title: "Is a use-of-proceeds Monitoring and Evaluation (M&E) plan included or planned for the project?",
-        info: "Required to track the use of proceeds and impact of project as per compliance",
-        options: [{ value: "yes", label: "Yes" }, { value: "no", label: "No" }, { value: "partially", label: "Partially" }]
-      },
-      {
-        id: "q7",
-        title: "Is this same project or piece of land currently signed up with any other carbon credit or greenhouse gas program?",
-        info: "Only 1 carbon credit programme per project",
+        title: "Is use of proceeds Monitoring and Evaluation (M&E) plan included or planned for the project?",
+        info: "The project should have a plan to monitor its progress, how the funds are used, and the environmental and social benefits achieved during the project.",
         options: [{ value: "yes", label: "Yes" }, { value: "no", label: "No" }, { value: "partially", label: "Partially" }]
       }
     ];
@@ -514,7 +458,7 @@
           gb: "ineligible", gcf: "ineligible", gl: "ineligible",
           reco: {
             gb: "Issuers are encouraged to use guidance from the Climate Transition Finance Handbook. For climate change mitigation",
-            gcf: "Review the country's <abbr title='Nationally Determined Contribution'>NDC</abbr>, national renewable energy plan, or sector strategy\nAdjust project scope or target beneficiaries to match prioritised sectors in the <abbr title='Nationally Determined Contribution'>NDC</abbr>\nEngage the <abbr title='National Designated Authority'>NDA</abbr> to understand what Agroforestry contributions are explicitly planned and endorsed",
+            gcf: "Review the country's <abbr title='Nationally Determined Contribution'>NDC</abbr>, national renewable energy plan, or sector strategy\nAdjust project scope or target beneficiaries to match prioritised sectors in the <abbr title='Nationally Determined Contribution'>NDC</abbr>\nEngage the <abbr title='National Designated Authority'>NDA</abbr> to understand what Pollinator/Wildlife Closure contributions are explicitly planned and endorsed",
             gl: "Seek alignment with voluntary guidelines on a \"best-efforts basis\" and should \"disclose how they are progressing\" against each recommended element of a transition strategy, explaining any areas of non-alignment"
           }
         }
@@ -634,27 +578,6 @@
         partially: {
           cc: "moderate",
           reco: { cc: "Develop a Monitoring, Reporting and Verification (MRV) plan. Install necessary monitoring equipment. Assign monitoring responsibilities. Establish data management and record-keeping procedures." }
-        }
-      },
-      q7: {
-        yes: {
-          gb: "ineligible", cc: "ineligible", gcf: "ineligible", gl: "ineligible",
-          reason: { cc: "The project is currently active under another carbon credit program — the same emission reductions cannot receive carbon credits twice (double counting)." },
-          reco: {
-            gb: "Only be included if they run no risk of 'double-counting' through any other mechanism/financing instrument",
-            cc: "Withdraw the project from the other program. Ensure previous credits are cancelled or the project is officially inactive before applying to Verra.",
-            gcf: "Fix accounting boundary: no dual claim as carbon credit + <abbr title='Nationally Determined Contribution'>NDC</abbr> + <abbr title='Green Climate Fund'>GCF</abbr> — avoid overlap.\nAdd no-double-counting attestation in <abbr title='Environmental and Social Safeguards'>ESS</abbr>/Funding Proposal.\nApply corresponding adjustments (Article 6) via <abbr title='National Designated Authority'>NDA</abbr> for cross-border claims.\nSeparate MRV (results) from financial reporting (flows).\nAccredited Entities due diligence to include double-counting check.\nVerify with MoEFCC/NDA that reductions aren't already in <abbr title='Nationally Determined Contribution'>NDC</abbr> baseline.",
-            gl: "Only be included if they run no risk of 'double-counting' through any other mechanism/financing instrument"
-          }
-        },
-        no: {
-          gb: "high", cc: "high", gcf: "high", gl: "high",
-          reason: { cc: "The project is not registered or applying under any other carbon credit program." }
-        },
-        partially: {
-          cc: "moderate",
-          reason: { cc: "Previously registered, but now inactive or being withdrawn. The project may become eligible if evidence is provided that no further credits will be issued elsewhere." },
-          reco: { cc: "Obtain official withdrawal/de-registration from the other program. Demonstrate that no duplicate carbon credits have been issued. Maintain documentation proving exclusive ownership of emission reductions." }
         }
       }
     };

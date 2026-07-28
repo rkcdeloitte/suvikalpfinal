@@ -1,0 +1,1853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Livestock Farming — SUVIKALP | Coal Controller Organisation</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="./category.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+/* ── Local Inter font faces ─────────────────────────────── */
+@font-face { font-family:"Inter"; font-weight:400; font-display:swap; src:url("../fonts/Inter_18pt-Regular.woff2") format("woff2"),url("../fonts/Inter_18pt-Regular.ttf") format("truetype"); }
+@font-face { font-family:"Inter"; font-weight:500; font-display:swap; src:url("../fonts/Inter_18pt-Medium.woff2") format("woff2"),url("../fonts/Inter_18pt-Medium.ttf") format("truetype"); }
+@font-face { font-family:"Inter"; font-weight:600; font-display:swap; src:url("../fonts/Inter_18pt-SemiBold.woff2") format("woff2"),url("../fonts/Inter_18pt-SemiBold.ttf") format("truetype"); }
+@font-face { font-family:"Inter"; font-weight:700; font-display:swap; src:url("../fonts/Inter_18pt-Bold.woff2") format("woff2"),url("../fonts/Inter_18pt-Bold.ttf") format("truetype"); }
+
+/* ── Single unified font system ─────────────────────────── */
+:root {
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-devanagari: 'Noto Sans Devanagari', 'Noto Sans', sans-serif;
+  --fs-xs:   0.75rem;
+  --fs-sm:   0.8125rem;
+  --fs-base: 0.875rem;
+  --fs-md:   0.9375rem;
+  --fs-lg:   1rem;
+  --fs-xl:   1.125rem;
+  --fs-2xl:  1.375rem;
+  --lh-tight: 1.35;
+  --lh-base:  1.6;
+  --lh-loose: 1.8;
+}
+
+html, body, button, input, select, textarea { font-family: var(--font-sans); }
+.hindi, .header-cco-hindi { font-family: var(--font-devanagari); }
+
+.spv-body-text { font-family:var(--font-sans); font-size:var(--fs-md); line-height:var(--lh-loose); color:var(--color-text); margin-bottom:14px; font-weight:400; }
+.spv-list { margin:8px 0 14px 22px; font-family:var(--font-sans); font-size:var(--fs-md); line-height:var(--lh-loose); color:var(--color-text); }
+.spv-list li { margin-bottom:6px; }
+.spv-section-title { font-family:var(--font-sans); font-weight:700; font-size:var(--fs-xl); color:var(--color-teal-600); border-bottom:2px solid var(--color-primary); padding-bottom:8px; margin-bottom:22px; letter-spacing:-0.01em; }
+
+.accordion-btn { font-family:var(--font-sans); font-weight:600; font-size:var(--fs-base); }
+.accordion-body { font-family:var(--font-sans); font-size:var(--fs-md); }
+.spv-table, .spv-table thead tr th, .spv-table td, .spv-table td:first-child { font-family:var(--font-sans); }
+
+.spv-tab { font-family:var(--font-sans); font-weight:500; font-size:var(--fs-sm); }
+.spv-tab.active { font-weight:700; }
+.prism-label { font-family:var(--font-sans); font-size:0.7rem; line-height:1.3; }
+.prism-letter { font-family:var(--font-sans); font-weight:800; }
+
+.back-btn { font-family:var(--font-sans); font-weight:600; font-size:var(--fs-base); }
+.sf-breadcrumb { font-family:var(--font-sans); font-size:var(--fs-sm); }
+
+/* Tender tab styles are now self-contained inside spv-panel-tender */
+
+.cs-location { font-family:var(--font-sans); font-weight:700; font-size:var(--fs-base); }
+.cs-title { font-family:var(--font-sans); font-size:var(--fs-sm); line-height:var(--lh-base); }
+.cs-desc { font-family:var(--font-sans); font-size:var(--fs-sm); line-height:var(--lh-base); }
+.cs-subtab { font-family:var(--font-sans); font-size:var(--fs-md); font-weight:500; }
+.cs-subtab.active { font-weight:700; }
+
+/* Media/Web tab styles are now self-contained inside spv-panel-media */
+
+.agency-logo-name { font-family:var(--font-sans); font-weight:700; font-size:var(--fs-sm); }
+.agency-logo-type { font-family:var(--font-sans); font-size:0.72rem; }
+.agencies-intro-label { font-family:var(--font-sans); font-weight:700; display:none; }
+.agency-logo-inner--img { display:flex; align-items:center; justify-content:center; padding:10px 14px; border-radius:8px; height:76px !important; box-sizing:border-box; }
+.agency-logo-inner--img img { max-width:100%; max-height:56px; width:auto; height:auto; object-fit:contain; }
+.agencies-intro-text { font-family:var(--font-sans); font-size:var(--fs-md); line-height:var(--lh-base); }
+
+.expert-name { font-family:var(--font-sans); font-weight:700; font-size:var(--fs-lg); }
+.expert-role { font-family:var(--font-sans); font-size:var(--fs-sm); line-height:var(--lh-base); }
+.expert-bio { font-family:var(--font-sans); font-size:var(--fs-base); line-height:var(--lh-loose); }
+.expert-tag { font-family:var(--font-sans); font-size:0.7rem; font-weight:500; }
+.expert-contact a { font-family:var(--font-sans); font-size:var(--fs-base); font-weight:500; }
+.experts-intro-label { font-family:var(--font-sans); font-weight:700; }
+.experts-intro-text { font-family:var(--font-sans); font-size:var(--fs-md); line-height:var(--lh-base); }
+
+.impl-card-title { font-family:var(--font-sans); font-weight:600; font-size:var(--fs-base); }
+.impl-card-num { font-family:var(--font-sans); font-weight:700; }
+.banner-title { font-family:var(--font-sans); font-weight:700; }
+.banner-sub { font-family:var(--font-sans); font-size:var(--fs-base); line-height:var(--lh-base); }
+#site-footer-sf { font-family:var(--font-sans); font-size:var(--fs-xs); }
+
+/* ── About Tab ─────────────────────────────────────────── */
+.about-hero-row { display:flex; gap:28px; align-items:stretch; margin-bottom:40px; min-height:300px; }
+.about-hero-slide-col { flex:0 0 40%; min-width:0; display:flex; flex-direction:column; }
+.about-hero-slide-col .proj-slideshow { flex:none; height:340px; }
+.about-hero-text-col { flex:1; min-width:0; display:flex; flex-direction:column; justify-content:center; }
+.about-hero-label { font-family:var(--font-sans); font-size:var(--fs-xs); font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--teal); margin-bottom:0; }
+.about-hero-label-wrap { margin-bottom:12px; }
+.about-hero-label-bar { display:block; height:3px; width:48px; margin-top:7px; border-radius:99px; background:linear-gradient(90deg,#21808d 0%,#38bdf8 60%,transparent 100%); }
+.about-intro { display:flex; flex-direction:column; gap:14px; }
+.about-intro-block { padding:14px 18px; border-radius:10px; }
+.about-intro-primary { border-left:4px solid #21808d; background:rgba(33,128,141,.05); }
+.about-intro-secondary { border-left:4px solid rgba(33,128,141,.3); background:#fafafa; }
+.about-section { margin-bottom:40px; }
+.about-section-eyebrow { font-family:var(--font-sans); font-size:var(--fs-xs); font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--teal); margin-bottom:4px; }
+.about-section-title { font-family:var(--font-sans); font-size:var(--fs-xl); font-weight:700; color:#0f172a; margin:0 0 20px; line-height:var(--lh-tight); }
+
+/* Schemes carousel */
+.schemes-outer { position:relative; margin:0 20px; }
+.schemes-nav-btn { position:absolute; top:50%; transform:translateY(-50%); z-index:10; width:36px; height:36px; border-radius:50%; background:#fff; border:1.5px solid #e2e8f0; box-shadow:0 2px 10px rgba(0,0,0,.10); cursor:pointer; display:flex; align-items:center; justify-content:center; color:#475569; transition:background .2s,color .2s,border-color .2s,box-shadow .2s; padding:0; }
+.schemes-nav-btn:hover { background:var(--teal,#0a9396); color:#fff; border-color:var(--teal,#0a9396); box-shadow:0 4px 14px rgba(10,147,150,.3); }
+.schemes-nav-btn.schemes-prev { left:-20px; }
+.schemes-nav-btn.schemes-next { right:-20px; }
+.schemes-ticker-wrap { overflow:hidden; position:relative; mask-image:linear-gradient(to right,transparent 0%,black 7%,black 93%,transparent 100%); -webkit-mask-image:linear-gradient(to right,transparent 0%,black 7%,black 93%,transparent 100%); }
+.schemes-ticker { display:flex; gap:16px; overflow-x:auto; -ms-overflow-style:none; scrollbar-width:none; padding:8px 4px; }
+.schemes-ticker::-webkit-scrollbar { display:none; }
+.scheme-card { flex:0 0 220px; scroll-snap-align:start; background:#fff; border:1px solid #e8eaed; border-radius:12px; padding:18px 16px; box-shadow:0 2px 8px rgba(0,0,0,.05); transition:box-shadow .2s,transform .2s; }
+.scheme-card:hover { box-shadow:0 6px 20px rgba(0,0,0,.1); transform:translateY(-3px); }
+.scheme-card-icon { font-size:22px; margin-bottom:10px; }
+.scheme-card-tag { font-family:var(--font-sans); font-size:var(--fs-xs); font-weight:700; letter-spacing:.09em; text-transform:uppercase; color:var(--teal); margin-bottom:5px; }
+.scheme-card-title { font-family:var(--font-sans); font-size:var(--fs-base); font-weight:700; color:#1e293b; margin-bottom:8px; line-height:var(--lh-tight); }
+.scheme-card-desc { font-family:var(--font-sans); font-size:var(--fs-sm); color:#64748b; line-height:var(--lh-base); display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
+
+/* Projects slideshow */
+.proj-slideshow { position:relative; border-radius:14px; overflow:hidden; box-shadow:0 4px 24px rgba(0,0,0,.15); background:#000; }
+.proj-slide { display:none; position:relative; height:100%; min-height:260px; }
+.proj-slide.active { display:block; animation:projFadeIn .5s ease; }
+@keyframes projFadeIn { from { opacity:0; transform:scale(1.03); } to { opacity:1; transform:scale(1); } }
+.proj-slide-img { width:100%; height:100%; object-fit:cover; display:block; }
+.proj-slide-overlay { position:absolute; bottom:0; left:0; right:0; padding:12px 18px; background:linear-gradient(90deg,rgba(10,70,80,.95) 0%,rgba(33,128,141,.88) 100%); display:flex; align-items:center; gap:0; z-index:1; }
+.proj-caption { font-family:var(--font-sans); font-size:var(--fs-base); font-weight:600; color:#fff; line-height:1.4; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.proj-ss-btn { position:absolute; top:50%; transform:translateY(-50%); width:36px; height:36px; border-radius:50%; background:rgba(255,255,255,.18); backdrop-filter:blur(6px); border:1px solid rgba(255,255,255,.28); color:#fff; font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:background .2s,opacity .25s; z-index:3; opacity:0; }
+.proj-slideshow:hover .proj-ss-btn { opacity:1; }
+.proj-ss-btn:hover { background:rgba(255,255,255,.38); }
+.proj-ss-prev { left:12px; }
+.proj-ss-next { right:12px; }
+.proj-ss-dots { display:none; }
+.proj-ss-counter { display:none; }
+.vibgyor-chips { display:none !important; }
+</style>
+</head>
+<body>
+<header id="site-header">
+  <div class="header-left">
+    <div class="header-tool-title">
+      <span class="hindi">सुविकल्प:</span> Mine Repurposing Tool
+    </div>
+    <div class="header-tool-sub">
+      Select factors and sub-factors to discover suitable repurposing options for your mining site
+    </div>
+  </div>
+  <div class="header-right">
+    <a href="https://coalcontroller.gov.in/" target="_blank" rel="noopener" title="CCO Home">
+    <div class="header-cco-lockup">
+      <img class="header-cco-logo" src="data:image/png;base64,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" alt="Coal Controller Organisation emblem">
+      <div class="header-cco-text"></div>
+    </div>
+    </a>
+  </div>
+</header>
+
+<div class="page">
+
+  <!-- Back bar -->
+  <div class="sf-backbar">
+    <button class="back-btn" onclick="window.location.href='../index.html'" aria-label="Back to results">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M10 3L5 8l5 5"/>
+      </svg>
+      Back to Results
+    </button>
+    <span class="sf-breadcrumb">
+      <span>Final Recommendations</span>
+      <span class="sep">/</span>
+      <span style="color:var(--teal);font-weight:500;">Livestock Farming</span>
+    </span>
+  </div>
+
+  <!-- Hero Image -->
+  <div class="spv-hero-wrap">
+    <img src="../images/pexels-szafran-34023742.jpg" alt="Cattle grazing on reclaimed mine land — livestock farming" class="spv-hero-img">
+    <div class="spv-hero-overlay"></div>
+    <div class="spv-hero-title">Livestock Farming</div>
+  </div>
+
+  <!-- Tab navigation -->
+  <nav class="spv-tabs" aria-label="Detail sections">
+    <button class="spv-tab active" data-tab="about"       onclick="showSPVTab('about')">About</button>
+    <button class="spv-tab"        data-tab="prism"        onclick="showSPVTab('prism')">P.R.I.S.M</button>
+    <button class="spv-tab"        data-tab="casestudies"  onclick="showSPVTab('casestudies');setTimeout(function(){window.dispatchEvent(new Event('resize'))},30)">Case Studies</button>
+    <button class="spv-tab"        data-tab="tender"       onclick="showSPVTab('tender')">Sample Tender Documents</button>
+    <button class="spv-tab"        data-tab="media"        onclick="showSPVTab('media')">Media/Web</button>
+    <button class="spv-tab"        data-tab="agencies"    onclick="showSPVTab('agencies')">Agencies</button>
+<!-- EXPERTS TAB HIDDEN (page not yet complete)
+<button class="spv-tab"        data-tab="experts"      onclick="showSPVTab('experts')">Experts</button>
+-->
+  </nav>
+
+  <div id="spv-panel-about" class="spv-panel">
+    <div class="spv-content">
+
+      <div class="about-hero-row">
+        <div class="about-hero-slide-col">
+          <div class="about-hero-label-wrap">
+            <div class="about-hero-label">Global Precedents</div>
+            <span class="about-hero-label-bar"></span>
+          </div>
+          <!-- Slideshow — single image precedent -->
+          <div class="proj-slideshow">
+            <img src="../images/ls-prec-india-buffalo.jpg" alt="Open grassland buffalo grazing, Eastern India — reclamation potential under Supreme Court 2020 re-grassing mandate" class="proj-slide-img" loading="lazy">
+            <div class="proj-slide-overlay">
+              <span class="proj-caption">Open Grassland Buffalo Grazing, Eastern India — Reclamation Potential under SC 2020 Mandate</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-hero-text-col">
+          <div class="about-intro">
+            <div class="about-intro-block about-intro-primary">
+             In India, livestock rearing is a widely practised livelihood activity that contributes to household income, food security, and rural economic development through the production of milk, meat, wool, and draught power. Reclaimed mine land across coal-bearing states offers a viable opportunity to develop livestock-based enterprises, utilizing restored grasslands, fodder plots, and ancillary land parcels to support cattle, goat, sheep, and poultry rearing for communities transitioning from mining-based livelihoods.
+            </div>
+            <div class="about-intro-block about-intro-secondary">
+             Such initiatives can provide stable and diversified income opportunities for local communities, particularly those previously dependent on mining, through activities such as animal husbandry, milk and meat processing, and allied agro-enterprises. However, successful implementation requires addressing key challenges, including ensuring availability of water, fodder, and veterinary services, providing technical training and inputs to livestock rearers, managing waste and environmental impacts, and developing reliable market linkages and value chain infrastructure to ensure the long-term sustainability and economic viability of livestock-based enterprises.
+            </div>
+          </div>
+        </div>
+      </div><!-- /about-hero-row -->
+
+      <div class="about-section">
+        <div class="about-section-eyebrow">Relevant Schemes &amp; Standards</div>
+        <h3 class="about-section-title">Policy levers driving Non-Dairy Livestock scale-up on mine land</h3>
+        <div class="schemes-outer">
+          <button class="schemes-nav-btn schemes-prev" onclick="schemesNav(-1)" aria-label="Previous">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <div class="schemes-ticker-wrap">
+            <div class="schemes-ticker" id="schemesTicker">
+
+              <!-- SCHEME CARD 1 -->
+              <div class="scheme-card">
+                <div class="scheme-card-icon">🐐</div>
+                <div class="scheme-card-tag">DAHD / MoFAHD</div>
+                <div class="scheme-card-title">National Livestock Mission</div>
+                <div class="scheme-card-desc">Funds entrepreneurship in poultry, sheep, goat and piggery; covers breed improvement, feed and fodder development, and SHG / FPO enterprise formation on reclaimed land.</div>
+              </div>
+
+              <!-- SCHEME CARD 2 -->
+              <div class="scheme-card">
+                <div class="scheme-card-icon">🔥</div>
+                <div class="scheme-card-tag">MoJAL / SBM-G</div>
+                <div class="scheme-card-title">GOBARdhan Scheme</div>
+                <div class="scheme-card-desc">Converts dung, poultry litter and piggery slurry from mine-land livestock units into biogas / CBG and bio-slurry, supporting circular-economy and clean-energy goals.</div>
+              </div>
+
+              <!-- SCHEME CARD 3 -->
+              <div class="scheme-card">
+                <div class="scheme-card-icon">👩‍🌾</div>
+                <div class="scheme-card-tag">MoRD</div>
+                <div class="scheme-card-title">DAY-NRLM</div>
+                <div class="scheme-card-desc">Deendayal Antyodaya Yojana – National Rural Livelihoods Mission provides SHG credit linkage, capacity building and enterprise support for women managing goatery, poultry and backyard livestock units.</div>
+              </div>
+
+              <!-- SCHEME CARD 4 -->
+              <div class="scheme-card">
+                <div class="scheme-card-icon">🏦</div>
+                <div class="scheme-card-tag">NABARD</div>
+                <div class="scheme-card-title">NABARD Animal Husbandry Refinance</div>
+                <div class="scheme-card-desc">Provides model bankable project support and refinance for goat farming, sheep, poultry, piggery and fodder development — enabling bank credit for mine-land livestock enterprises.</div>
+              </div>
+
+              <!-- SCHEME CARD 5 -->
+              <div class="scheme-card">
+                <div class="scheme-card-icon">💰</div>
+                <div class="scheme-card-tag">MoF / MUDRA</div>
+                <div class="scheme-card-title">PM MUDRA Yojana</div>
+                <div class="scheme-card-desc">Offers Shishu, Kishore and Tarun loans for micro and small livestock enterprises — covering goatery, poultry shed setup, backyard piggery and fodder cultivation units for land-losers and SHGs.</div>
+              </div>
+
+              <!-- SCHEME CARD 6 -->
+              <div class="scheme-card">
+                <div class="scheme-card-icon">🥩</div>
+                <div class="scheme-card-tag">MoFPI</div>
+                <div class="scheme-card-title">PMFME Scheme</div>
+                <div class="scheme-card-desc">PM Formalisation of Micro Food Processing Enterprises supports upgrade of meat, egg and animal-product micro-processing units — enabling value addition from mine-land livestock clusters.</div>
+              </div>
+
+              <!-- SCHEME CARD 7 -->
+              <div class="scheme-card">
+                <div class="scheme-card-icon">🦆</div>
+                <div class="scheme-card-tag">MFAHD / DADF</div>
+                <div class="scheme-card-title">PM Matsya Sampada Yojana</div>
+                <div class="scheme-card-desc">Supports duckery, integrated duck-fish systems and aquaculture in water-rich closed mine landscapes — enabling productive use of mine water bodies alongside livestock operations.</div>
+              </div>
+
+              <!-- SCHEME CARD 8 -->
+              <div class="scheme-card">
+                <div class="scheme-card-icon">⛏️</div>
+                <div class="scheme-card-tag">CCO / Ministry of Coal</div>
+                <div class="scheme-card-title">Mine Closure Fund &amp; A.R.T.H.A.</div>
+                <div class="scheme-card-desc">CCO's A.R.T.H.A. framework and mine closure funds provide the enabling structure for productive post-mining land use — directly supporting livestock-based livelihood zones as part of just-transition planning.</div>
+              </div>
+
+              <!-- ── DUPLICATE CARDS for seamless loop ── -->
+
+              <div class="scheme-card" aria-hidden="true">
+                <div class="scheme-card-icon">🐐</div>
+                <div class="scheme-card-tag">DAHD / MoFAHD</div>
+                <div class="scheme-card-title">National Livestock Mission</div>
+                <div class="scheme-card-desc">Funds entrepreneurship in poultry, sheep, goat and piggery; covers breed improvement, feed and fodder development, and SHG / FPO enterprise formation on reclaimed land.</div>
+              </div>
+
+              <div class="scheme-card" aria-hidden="true">
+                <div class="scheme-card-icon">🔥</div>
+                <div class="scheme-card-tag">MoJAL / SBM-G</div>
+                <div class="scheme-card-title">GOBARdhan Scheme</div>
+                <div class="scheme-card-desc">Converts dung, poultry litter and piggery slurry from mine-land livestock units into biogas / CBG and bio-slurry, supporting circular-economy and clean-energy goals.</div>
+              </div>
+
+              <div class="scheme-card" aria-hidden="true">
+                <div class="scheme-card-icon">👩‍🌾</div>
+                <div class="scheme-card-tag">MoRD</div>
+                <div class="scheme-card-title">DAY-NRLM</div>
+                <div class="scheme-card-desc">Deendayal Antyodaya Yojana – National Rural Livelihoods Mission provides SHG credit linkage, capacity building and enterprise support for women managing goatery, poultry and backyard livestock units.</div>
+              </div>
+
+              <div class="scheme-card" aria-hidden="true">
+                <div class="scheme-card-icon">🏦</div>
+                <div class="scheme-card-tag">NABARD</div>
+                <div class="scheme-card-title">NABARD Animal Husbandry Refinance</div>
+                <div class="scheme-card-desc">Provides model bankable project support and refinance for goat farming, sheep, poultry, piggery and fodder development — enabling bank credit for mine-land livestock enterprises.</div>
+              </div>
+
+              <div class="scheme-card" aria-hidden="true">
+                <div class="scheme-card-icon">💰</div>
+                <div class="scheme-card-tag">MoF / MUDRA</div>
+                <div class="scheme-card-title">PM MUDRA Yojana</div>
+                <div class="scheme-card-desc">Offers Shishu, Kishore and Tarun loans for micro and small livestock enterprises — covering goatery, poultry shed setup, backyard piggery and fodder cultivation units for land-losers and SHGs.</div>
+              </div>
+
+              <div class="scheme-card" aria-hidden="true">
+                <div class="scheme-card-icon">🥩</div>
+                <div class="scheme-card-tag">MoFPI</div>
+                <div class="scheme-card-title">PMFME Scheme</div>
+                <div class="scheme-card-desc">PM Formalisation of Micro Food Processing Enterprises supports upgrade of meat, egg and animal-product micro-processing units — enabling value addition from mine-land livestock clusters.</div>
+              </div>
+
+              <div class="scheme-card" aria-hidden="true">
+                <div class="scheme-card-icon">🦆</div>
+                <div class="scheme-card-tag">MFAHD / DADF</div>
+                <div class="scheme-card-title">PM Matsya Sampada Yojana</div>
+                <div class="scheme-card-desc">Supports duckery, integrated duck-fish systems and aquaculture in water-rich closed mine landscapes — enabling productive use of mine water bodies alongside livestock operations.</div>
+              </div>
+
+              <div class="scheme-card" aria-hidden="true">
+                <div class="scheme-card-icon">⛏️</div>
+                <div class="scheme-card-tag">CCO / Ministry of Coal</div>
+                <div class="scheme-card-title">Mine Closure Fund &amp; A.R.T.H.A.</div>
+                <div class="scheme-card-desc">CCO's A.R.T.H.A. framework and mine closure funds provide the enabling structure for productive post-mining land use — directly supporting livestock-based livelihood zones as part of just-transition planning.</div>
+              </div>
+
+            </div><!-- /schemes-ticker -->
+          </div><!-- /schemes-ticker-wrap -->
+          <button class="schemes-nav-btn schemes-next" onclick="schemesNav(1)" aria-label="Next">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div><!-- /spv-panel-about -->
+
+  <div id="spv-panel-prism" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+
+<style>
+.pr-intro { padding:22px 24px 20px; background:rgba(33,128,141,.05); border:1px solid rgba(33,128,141,.15); border-radius:14px; margin-bottom:20px; }
+  .pr-intro-eyebrow { font-size:15px; font-weight:700; letter-spacing:.01em; text-transform:none; color:#21808d; margin-bottom:8px; font-style:normal; line-height:1.35; }
+  .pr-intro-heading { font-size:16px; font-weight:700; color:#0f172a; margin-bottom:10px; line-height:1.35; font-style:normal; }
+  .pr-intro-body { font-size:13.5px; color:#374151; line-height:1.85; font-style:normal; }
+  .pr-shell { display:flex; border:1px solid #e2e8f0; border-radius:14px; overflow:clip; background:#fff; }
+  .pr-sidebar { width:220px; flex-shrink:0; border-right:1px solid #e8edf2; padding:16px 0 16px; background:#f8fafc; position:sticky; top:125px; align-self:flex-start; max-height:calc(100vh - 155px); overflow-y:auto; overflow-x:visible; }
+  .pr-sidebar-label { font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:#7a8a9a; padding:0 16px 14px; font-style:normal; }
+  .pr-nav-highlight { position:absolute; left:0; right:0; pointer-events:none; z-index:0; will-change:top,height; background:color-mix(in srgb, var(--pr-hl,#C85000) 9%,transparent); transition:top .4s cubic-bezier(.4,0,.2,1),height .4s cubic-bezier(.4,0,.2,1),background .38s ease; }
+  .pr-nav-highlight::before { content:''; position:absolute; left:0; top:0; bottom:0; width:3px; background:var(--pr-hl,#C85000); border-radius:0 2px 2px 0; transition:background .38s ease; }
+  .pr-nav-item { position:relative; z-index:1; display:flex; align-items:center; gap:12px; padding:13px 16px; cursor:pointer; font-style:normal; }
+  .pr-nav-item::after { display:none; }
+  .pr-nav-item:hover, .pr-nav-item.active { background:transparent; transform:none; }
+  .pr-nav-badge { width:34px; height:34px; border-radius:50%; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:800; border:1.5px solid #d1d5db; color:#9ca3af; background:#fff; position:relative; z-index:1; transition:background .35s cubic-bezier(.4,0,.2,1),color .3s ease,border-color .35s ease,transform .45s cubic-bezier(.34,1.56,.64,1),box-shadow .35s ease; }
+  .pr-nav-item.active .pr-nav-badge { background:var(--pr-accent); color:#fff; border-color:var(--pr-accent); transform:scale(1.12); box-shadow:0 0 0 4px color-mix(in srgb,var(--pr-accent) 18%,transparent),0 3px 10px color-mix(in srgb,var(--pr-accent) 32%,transparent); }
+  .pr-nav-item:hover:not(.active) .pr-nav-badge { border-color:var(--pr-accent); color:var(--pr-accent); background:color-mix(in srgb,var(--pr-accent) 7%,#fff); transform:scale(1.07); }
+  .pr-nav-letter { font-size:13px; font-weight:600; color:#374151; line-height:1.25; font-style:normal; position:relative; z-index:1; transition:color .25s ease,font-weight .2s; }
+  .pr-nav-item.active .pr-nav-letter { color:var(--pr-accent); font-weight:700; }
+  .pr-nav-item:hover:not(.active) .pr-nav-letter { color:var(--pr-accent); }
+  @keyframes nav-slide-in { from { opacity:0; transform:translateX(-10px); } to { opacity:1; transform:translateX(0); } }
+  .pr-nav-item { opacity:0; animation:nav-slide-in .32s cubic-bezier(.4,0,.2,1) both; }
+  .pr-nav-item:nth-child(3) { animation-delay:.02s; }
+  .pr-nav-item:nth-child(4) { animation-delay:.07s; }
+  .pr-nav-item:nth-child(5) { animation-delay:.12s; }
+  .pr-nav-item:nth-child(6) { animation-delay:.17s; }
+  .pr-nav-item:nth-child(7) { animation-delay:.22s; }
+  .pr-content-wrap { flex:1; min-width:0; }
+  .pr-content-wrap .prism2-content-panel { border-radius:0; box-shadow:none; }
+  .prism2-content-panel .prism2-panel-header { background:color-mix(in srgb,var(--pc) 5%,#fff); }
+  .prism2-panel-eyebrow { font-size:13px; font-weight:700; letter-spacing:.10em; text-transform:uppercase; color:var(--pc); margin-bottom:6px; opacity:1; }
+</style>
+
+<!-- PRISM intro banner -->
+<div class="pr-intro">
+  <div class="pr-intro-eyebrow">PRISM – Post-Mining Repurposing and Implementation Strategy Models</div>
+  <div class="pr-intro-heading">A structured framework for mine repurposing from concept to implementation</div>
+  <div class="pr-intro-body">PRISM is a structured framework designed to support identified post-mining repurposing opportunities by evaluating suitable implementation pathways, financial and revenue-generation models, and the implementation requirements, roles, and responsibilities of mine owners, developers, operators, and other stakeholders throughout the project lifecycle. Built around five integrated pillars, PRISM guides Livestock Farming projects from concept to operation.</div>
+</div>
+
+<!-- PRISM sidebar + content shell -->
+<div class="pr-shell">
+  <div class="pr-sidebar">
+    <div class="pr-sidebar-label">Pillars</div>
+    <div class="pr-nav-highlight" id="pr-hl"></div>
+    <div class="pr-nav-item active" style="--pr-accent:#C85000;" data-key="P" onclick="prNav('P')">
+      <div class="pr-nav-badge">P</div>
+      <div><div class="pr-nav-letter">Project vision</div></div>
+    </div>
+    <div class="pr-nav-item" style="--pr-accent:#1a5ca8;" data-key="R" onclick="prNav('R')">
+      <div class="pr-nav-badge">R</div>
+      <div><div class="pr-nav-letter">Repurposing pathways</div></div>
+    </div>
+    <div class="pr-nav-item" style="--pr-accent:#b06a10;" data-key="I" onclick="prNav('I')">
+      <div class="pr-nav-badge">I</div>
+      <div><div class="pr-nav-letter">Investment dynamics</div></div>
+    </div>
+    <div class="pr-nav-item" style="--pr-accent:#5a3d9e;" data-key="S" onclick="prNav('S')">
+      <div class="pr-nav-badge">S</div>
+      <div><div class="pr-nav-letter">Strategic structuring</div></div>
+    </div>
+    <div class="pr-nav-item" style="--pr-accent:#1a7a5e;" data-key="M" onclick="prNav('M')">
+      <div class="pr-nav-badge">M</div>
+      <div><div class="pr-nav-letter">Monitoring guidance</div></div>
+    </div>
+  </div><!-- /pr-sidebar -->
+
+  <div class="pr-content-wrap">
+
+      <div class="prism2-content-panel active" id="prism2-panel-P" style="--pc:#C85000;--pb:#fff0e6;--cb:#fff8f3;">
+      <div class="prism2-panel-header">
+        <div class="prism2-panel-header-letter">P</div>
+        <div class="prism2-panel-header-text">
+          <div class="prism2-panel-eyebrow">PROJECT VISION</div>
+          <p class="prism2-panel-desc">Concept for Non-Dairy Livestock Zones and Livestock–Fodder Livelihood Clusters on closed coal mine land — covering goat rearing, sheep, poultry, piggery, duckery, fodder cultivation, and egg–meat–manure value chains. Site suitability, species selection, and indicative scale planning are covered.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Project Overview</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">This concept proposes the development of <strong>Non-Dairy Livestock Zones / Livestock–Fodder Livelihood Clusters</strong> on closed, reclaimed, or repurposed coal mine land as part of a sustainable mine-closure and post-mining land-use strategy. The model excludes dairy farming as a primary component and instead focuses on goat rearing and goat-meat value chain; sheep rearing and wool/meat-based livelihood; piggery units where socially acceptable and market-linked; backyard poultry and commercial poultry units; duckery in water-rich landscapes; fodder cultivation, fodder banks and fodder-tree systems; animal shelters, paddocks and controlled grazing zones; egg, meat, manure, compost and biogas value chains; veterinary, vaccination, breeding and training services; and SHG / FPO / cooperative / producer-group-based livelihood enterprises.</p>
+          <p class="spv-body-text">India had <strong>74.26 million sheep, 148.89 million goats, 9.06 million pigs and 851.81 million poultry birds</strong> as per the 20th Livestock Census. The National Livestock Mission specifically supports entrepreneurship in poultry, sheep, goat and piggery, along with feed and fodder development.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Strategic Rationale</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">Non-dairy livestock is suitable for selected closed coal mine areas where dairy may not be ideal due to water demand, milk route limitations, higher daily management needs, or overlap with a separate dairy project.</p>
+          <ul class="spv-list">
+            <li>Generates income through meat, eggs, live animals, manure, compost, fodder and breeding-stock sales</li>
+            <li>Requires smaller land parcels compared with large dairy parks, especially for goatery, sheep, backyard poultry and duckery</li>
+            <li>Supports land-losers, women SHGs, youth, traditional livestock keepers and rural producer groups</li>
+            <li>Allows phased livelihood development through small animal units rather than high-capital dairy herds</li>
+            <li>Can utilize reclaimed land through controlled grazing, fodder plots, fodder-tree belts, silvi-pasture and paddock systems</li>
+            <li>Supports circular economy through dung, poultry litter and biodegradable waste conversion into compost, vermicompost, biogas and bio-slurry</li>
+            <li>Enables decentralized livelihood models suitable for SHGs, FPOs, cooperatives and panchayat-level enterprises</li>
+            <li>Creates local employment in animal care, feeding, shed maintenance, vaccination support, feed preparation, egg handling, meat aggregation, composting and logistics</li>
+            <li>Can be integrated with the National Livestock Mission, which supports poultry, sheep, goat, piggery, feed and fodder entrepreneurship</li>
+            <li>Reduces dependence on a single product stream by combining meat, eggs, manure, fodder and livestock-service revenue</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Site Suitability and Technical Specification Matrix</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following matrix provides a structured checklist for assessing the suitability of the proposed site for the selected repurposing option. It identifies the key physical, technical, environmental, infrastructure, legal, and owner-side readiness parameters that should be reviewed before the project is advanced to the next stage of development. The purpose of this matrix is to help the project owner understand existing site conditions, technical requirements, potential constraints, and preparatory actions required before feasibility studies, approvals, or tendering are initiated.</p>
+          <div class="table-wrap">
+            <table class="spv-table">
+              <thead><tr><th>Category</th><th>What to Assess / Prepare</th><th>Why It Matters</th><th>Owner-Side Readiness</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Land status</strong></td><td>Closure status, land ownership, permissible post-mining use</td><td>Legal viability for livestock, fodder and support infrastructure</td><td>Closure note</td></tr>
+                <tr><td><strong>Land safety</strong></td><td>Subsidence, slope stability, backfilled area stability, unsafe zones, waterlogging</td><td>Ensures animal, worker and community safety</td><td>Safety zoning map</td></tr>
+                <tr><td><strong>Soil condition</strong></td><td>Fertility, pH, heavy metals, contamination, salinity, organic matter</td><td>Important for fodder safety, grazing suitability and manure use</td><td>Soil and contamination report</td></tr>
+                <tr><td><strong>Water availability</strong></td><td>Drinking water, washing, poultry/piggery sanitation, duckery ponds, fodder irrigation</td><td>Determines species selection and operating scale</td><td>Water balance plan</td></tr>
+                <tr><td><strong>Fodder potential</strong></td><td>Green fodder, dry fodder, fodder trees, grazing strips, silage, hay, crop residues</td><td>Feed cost is a major determinant of viability</td><td>Fodder development plan</td></tr>
+                <tr><td><strong>Species suitability</strong></td><td>Goat, sheep, pig, poultry, duck, rabbit or other local species suitability</td><td>Prevents unsuitable species introduction</td><td>Species suitability note</td></tr>
+                <tr><td><strong>Climate</strong></td><td>Heat stress, humidity, rainfall, ventilation, disease-prone seasons</td><td>Affects mortality, productivity and shed design</td><td>Agro-climatic note</td></tr>
+                <tr><td><strong>Pollution risk</strong></td><td>Dust, fly ash, contaminated runoff, mine-water quality, chemical exposure</td><td>Protects animal health and food-chain safety</td><td>Environmental screening</td></tr>
+                <tr><td><strong>Veterinary access</strong></td><td>Nearest veterinary hospital, vaccination, disease diagnosis, mobile vet support</td><td>Essential for mortality reduction and productivity</td><td>Veterinary linkage plan</td></tr>
+                <tr><td><strong>Market access</strong></td><td>Goat market, sheep market, pork market, poultry trader, egg market, institutional buyer</td><td>Determines revenue and offtake</td><td>Market linkage note</td></tr>
+                <tr><td><strong>Community proximity</strong></td><td>SHGs, FPOs, livestock households, land-losers, unemployed youth</td><td>Enables livelihood integration</td><td>Beneficiary mapping</td></tr>
+                <tr><td><strong>Access</strong></td><td>Roads, feed transport, animal transport, egg/meat logistics</td><td>Daily logistics and emergency response depend on access</td><td>Access plan</td></tr>
+                <tr><td><strong>Power supply</strong></td><td>Lighting, brooding, water pumps, feed mixing, cold chain if needed</td><td>Supports poultry, piggery and processing</td><td>Power plan</td></tr>
+                <tr><td><strong>Waste management</strong></td><td>Dung, poultry litter, piggery slurry, dead birds/animals, wash water</td><td>Prevents odour, disease and pollution</td><td>Waste management plan</td></tr>
+                <tr><td><strong>Biosecurity</strong></td><td>Quarantine, vaccination, disinfection, visitor control, disease reporting</td><td>Critical for poultry, piggery and small-ruminant units</td><td>Biosecurity plan</td></tr>
+                <tr><td><strong>Animal welfare</strong></td><td>Space, shade, bedding, ventilation, flooring, drinking water, isolation area</td><td>Reduces mortality and improves productivity</td><td>Animal welfare protocol</td></tr>
+                <tr><td><strong>Public safety</strong></td><td>Fencing, odour buffer, traffic, stray animal control, visitor management</td><td>Protects nearby villages and prevents nuisance</td><td>Zoning and buffer plan</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Indicative Project Scale and Configuration Matrix</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following matrix presents an indicative relationship between available site area, project scale, technical configuration, and likely development potential. It is intended to support preliminary planning by helping the project owner identify the appropriate scale and configuration for the proposed repurposing option. The values and recommendations are indicative and should be refined through detailed feasibility studies, site surveys, engineering assessments, and relevant technical and commercial evaluations.</p>
+          <div class="table-wrap">
+            <table class="spv-table">
+              <thead><tr><th>Land Area</th><th>Recommended Scale</th><th>Configuration</th><th>Use Case</th></tr></thead>
+              <tbody>
+                <tr><td><strong>1–5 ha</strong></td><td>Pilot non-dairy livestock unit</td><td>100–300 goats/sheep, or 500–2,000 backyard poultry birds, or small duckery/rabbitry, fodder patch, compost unit</td><td>Proof of concept</td></tr>
+                <tr><td><strong>5–20 ha</strong></td><td>Community livestock livelihood cluster</td><td>Goatery, sheep unit, backyard poultry, duckery where water exists, fodder plots, veterinary room, manure yard, SHG operations</td><td>SHG / FPO livelihood</td></tr>
+                <tr><td><strong>20–50 ha</strong></td><td>Integrated livestock–fodder landscape</td><td>Goat/sheep paddocks, poultry sheds, piggery where suitable, fodder bank, composting, biogas and training facilities</td><td>Cluster-level rural economy</td></tr>
+                <tr><td><strong>50–100 ha</strong></td><td>Non-dairy livestock park</td><td>Multi-species livestock units, egg/meat aggregation, feed store, fodder bank, veterinary centre, training centre, manure/biogas unit</td><td>PPP / CSR / cooperative model</td></tr>
+                <tr><td><strong>100 ha+</strong></td><td>Regional livestock and circular-economy ecosystem</td><td>Multi-zone goat, sheep, poultry, piggery, duckery, fodder, processing linkage, compost/CBG and rural enterprise zone</td><td>Just-transition flagship</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="spv-body-text" style="margin-top:16px;"><strong>Suggested species by site condition</strong></p>
+          <div class="table-wrap">
+            <table class="spv-table">
+              <thead><tr><th>Site Condition</th><th>More Suitable Livestock Option</th><th>Comment</th></tr></thead>
+              <tbody>
+                <tr><td>Dry reclaimed land with shrubs/grasses</td><td>Goatery / sheep rearing</td><td>Good for controlled grazing and fodder-tree models</td></tr>
+                <tr><td>Water-rich reclaimed depressions</td><td>Duckery / integrated duck-fish model</td><td>Only after water testing and ecological clearance</td></tr>
+                <tr><td>Villages with women SHGs</td><td>Backyard poultry, goatery</td><td>Low-entry livelihood model</td></tr>
+                <tr><td>Areas near meat markets</td><td>Goatery, sheep, piggery, poultry</td><td>Stronger offtake potential</td></tr>
+                <tr><td>Areas with strict water limitation</td><td>Goatery, sheep, backyard poultry</td><td>Avoid high-water piggery or large commercial poultry</td></tr>
+                <tr><td>Areas near feed suppliers</td><td>Poultry / piggery</td><td>Feed logistics become easier</td></tr>
+                <tr><td>Sensitive mine land</td><td>Stall-fed goatery, poultry, fodder bank</td><td>Avoid uncontrolled grazing</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="prism2-nav-row">
+        <button class="prism2-btn-prev" id="prism2-prev-P" onclick="prism2Prev()" disabled>&#8592; Previous</button>
+        <div class="prism2-progress-dots" style="display:flex;gap:5px;align-items:center;">
+          <span class="pdot active" data-p="P"></span><span class="pdot" data-p="R"></span>
+          <span class="pdot" data-p="I"></span><span class="pdot" data-p="S"></span><span class="pdot" data-p="M"></span>
+        </div>
+        <button class="prism2-btn-next" id="prism2-next-P" onclick="prism2Next()">Next pillar &#8594;</button>
+      </div>
+    </div><!-- /prism2-panel-P -->
+
+      <div class="prism2-content-panel" id="prism2-panel-R" style="--pc:#1a5ca8;--pb:#e4eef9;--cb:#f3f7fd;">
+      <div class="prism2-panel-header">
+        <div class="prism2-panel-header-letter">R</div>
+        <div class="prism2-panel-header-text">
+          <div class="prism2-panel-eyebrow">REPURPOSING PATHWAYS</div>
+          <p class="prism2-panel-desc">Seven implementation models are available for non-dairy livestock development on closed mine land — from EPC-based basic sheds to Hybrid multi-party livelihood platforms. Model selection is driven by land size, community integration, investment appetite, and the scale of goatery, poultry, piggery, fodder, and circular-economy components.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Implementation Options</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following table outlines the possible implementation models that may be considered for developing the proposed repurposing project. These models differ in terms of ownership structure, funding responsibility, private sector participation, operational control, and long-term risk allocation. The purpose of this table is to help the project owner compare broad development routes and select an implementation approach that aligns with its financial capacity, institutional preference, risk appetite, and long-term asset management objectives.</p>
+          <div class="table-wrap"><table class="spv-table">
+            <thead><tr><th>Model</th><th>Suitability</th><th>Comment</th></tr></thead>
+            <tbody>
+              <tr><td>EPC</td><td>Moderate</td><td>Suitable for basic sheds, fencing, water points, fodder plots, manure yards and training rooms</td></tr>
+              <tr><td>EPC + O&amp;M / Facility Mgmt</td><td>High</td><td>Strong for owner-controlled livelihood clusters with outsourced animal care, feed management, veterinary coordination and SHG support</td></tr>
+              <tr><td>BOOT</td><td>High</td><td>Suitable for commercial poultry, piggery, goat-meat aggregation, feed units or processing-linked projects with eventual asset transfer</td></tr>
+              <tr><td>BOO</td><td>Moderate</td><td>Suitable for private commercial poultry / piggery / meat enterprise where community obligations are contractually mandated</td></tr>
+              <tr><td>DBFOT</td><td>High</td><td>Suitable for large non-dairy livestock parks, feed banks, egg / meat aggregation, processing, composting and biogas infrastructure</td></tr>
+              <tr><td>Concession / Lease-Develop-Operate</td><td>Very High</td><td>Strong for community-linked goatery, sheep, poultry and piggery enterprises with local employment and revenue-sharing</td></tr>
+              <tr><td>Hybrid</td><td>Very High</td><td>Most flexible model combining mine-owner land, CSR, NLM support, private operator, SHG / FPO and veterinary institutions</td></tr>
+            </tbody>
+          </table></div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Comparative Assessment of Key Models</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following comparative assessment evaluates the major implementation models across key decision parameters such as investment requirement, ownership control, financing responsibility, contractual complexity, risk transfer, and long-term economic benefit. This matrix is intended to support early-stage decision-making by highlighting the relative strengths and limitations of each model. The final choice of model should be guided by the specific circumstances of the project, including its scale, commercial viability, applicable policy framework, and the owner's institutional preference.</p>
+          <div class="table-wrap"><table class="spv-table">
+            <thead><tr><th>Evaluation Parameter</th><th>EPC</th><th>EPC+O&amp;M</th><th>BOOT</th><th>BOO</th><th>DBFOT</th><th>Concession</th><th>Hybrid</th></tr></thead>
+            <tbody>
+              <tr><td>Upfront investment by Mine Owner</td><td>High</td><td>High to Moderate</td><td>Low to Moderate</td><td>Low</td><td>Low to Moderate</td><td>Low to Moderate</td><td>Variable</td></tr>
+              <tr><td>Need for private financing</td><td>Low</td><td>Low</td><td>High</td><td>High</td><td>High</td><td>Moderate to High</td><td>Variable</td></tr>
+              <tr><td>Ownership retained by Mine Owner</td><td>Yes</td><td>Yes</td><td>Land retained; assets may transfer later</td><td>Limited / as structured</td><td>Usually land retained</td><td>Land retained</td><td>Usually retained</td></tr>
+              <tr><td>Long-term control over land use</td><td>High</td><td>High</td><td>Moderate</td><td>Low to Moderate</td><td>Moderate to High</td><td>Moderate to High</td><td>High if structured well</td></tr>
+              <tr><td>Suitability for welfare objective</td><td>High</td><td>Very High</td><td>High if mandated</td><td>Moderate</td><td>High</td><td>Very High</td><td>Very High</td></tr>
+              <tr><td>Suitability for local livelihood</td><td>Moderate</td><td>Very High</td><td>High</td><td>Moderate</td><td>High to Very High</td><td>Very High</td><td>Very High</td></tr>
+              <tr><td>Suitability for ecological restoration</td><td>Moderate</td><td>High</td><td>High</td><td>Moderate</td><td>High</td><td>High</td><td>Very High</td></tr>
+              <tr><td>Suitability for community participation</td><td>Moderate</td><td>High</td><td>Moderate to High</td><td>Low to Moderate</td><td>High if mandated</td><td>Very High</td><td>Very High</td></tr>
+              <tr><td>Suitability for SHG / FPO integration</td><td>Moderate</td><td>High</td><td>Moderate</td><td>Low to Moderate</td><td>High if required</td><td>Very High</td><td>Very High</td></tr>
+              <tr><td>Suitability for long-term animal care</td><td>Low to Moderate</td><td>High</td><td>High</td><td>High</td><td>High</td><td>Very High</td><td>Very High</td></tr>
+              <tr><td>Revenue potential</td><td>Low to Moderate</td><td>Moderate to High</td><td>High</td><td>High</td><td>High</td><td>Moderate to High</td><td>Variable to High</td></tr>
+              <tr><td>Owner revenue benefit</td><td>Low to Moderate</td><td>Moderate to High</td><td>Moderate / deferred</td><td>Low to Moderate</td><td>Moderate to High</td><td>Moderate through lease / revenue share</td><td>Variable to High</td></tr>
+              <tr><td>O&amp;M burden on owner</td><td>High</td><td>Moderate</td><td>Low</td><td>Low</td><td>Low</td><td>Low to Moderate</td><td>Shared</td></tr>
+              <tr><td>Contractual complexity</td><td>Low</td><td>Moderate</td><td>High</td><td>High</td><td>Very High</td><td>High</td><td>High</td></tr>
+              <tr><td>Suitability for sensitive mine land</td><td>High if owner controls access</td><td>High</td><td>Moderate if regulated</td><td>Low to Moderate</td><td>High with safeguards</td><td>High with monitoring</td><td>Very High</td></tr>
+              <tr><td>Suitability for phased development</td><td>Moderate</td><td>High</td><td>Moderate</td><td>Moderate</td><td>High</td><td>Very High</td><td>Very High</td></tr>
+              <tr><td>Commercial bankability</td><td>Low</td><td>Low to Moderate</td><td>Moderate to High</td><td>High</td><td>High</td><td>Moderate to High</td><td>Variable</td></tr>
+              <tr><td>Public accountability</td><td>High</td><td>High</td><td>Moderate</td><td>Low</td><td>Moderate to High</td><td>Moderate to High</td><td>Very High</td></tr>
+              <tr><td>Risk to Mine Owner</td><td>High</td><td>Moderate</td><td>Low to Moderate</td><td>Low</td><td>Low to Moderate</td><td>Low to Moderate</td><td>Shared</td></tr>
+              <tr><td>Risk to private party</td><td>Low</td><td>Low to Moderate</td><td>High</td><td>High</td><td>High</td><td>Moderate to High</td><td>Shared</td></tr>
+              <tr><td>Best use case</td><td>Basic sheds, fencing, water and fodder infrastructure</td><td>Owner-controlled goatery / poultry / sheep livelihood with O&amp;M support</td><td>Commercial poultry / piggery / goat-meat project with transfer</td><td>Private livestock venture</td><td>Large livestock park with feed, processing and biogas</td><td>Community-linked livestock enterprise</td><td>Welfare + livelihood + commercial + circular-economy balance</td></tr>
+              <tr><td>Overall suitability for Non-Dairy Livestock</td><td>Moderate</td><td>High</td><td>High</td><td>Moderate</td><td>High</td><td>Very High</td><td>Very High / Most Suitable</td></tr>
+            </tbody>
+          </table></div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Model-Wise Responsibility Logic</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following table explains how major project responsibilities are typically allocated under different implementation models. It covers key functional areas such as site availability, financing, design and construction, regulatory approvals, operation and maintenance, revenue collection, asset ownership, and end-of-term transfer. This helps clarify the respective roles of the project owner, private developer, EPC contractor, operator, or concessionaire, and supports the preparation of tender documents and contractual structures.</p>
+          <div class="table-wrap"><table class="spv-table">
+            <thead><tr><th>Responsibility Area</th><th>EPC</th><th>EPC+O&amp;M / FM</th><th>BOOT</th><th>BOO</th><th>DBFOT</th><th>Concession / Lease</th><th>Hybrid</th></tr></thead>
+            <tbody>
+              <tr><td>Site / land availability</td><td>Mine Owner</td><td>Mine Owner</td><td>Mine Owner / authority</td><td>Mine Owner / developer, as agreed</td><td>Mine Owner / authority</td><td>Mine Owner / authority</td><td>Mine Owner / shared</td></tr>
+              <tr><td>Land ownership</td><td>Mine Owner</td><td>Mine Owner</td><td>Mine Owner retains land; developer gets project rights</td><td>As structured</td><td>Mine Owner retains land</td><td>Mine Owner retains land</td><td>Mine Owner generally retains land</td></tr>
+              <tr><td>Mine closure linkage</td><td>Mine Owner</td><td>Mine Owner</td><td>Mine Owner + developer compliance</td><td>Mine Owner / developer</td><td>Mine Owner + concessionaire</td><td>Mine Owner + concessionaire</td><td>Mine Owner + partners</td></tr>
+              <tr><td>Safety zoning</td><td>Mine Owner</td><td>Mine Owner</td><td>Shared</td><td>Shared</td><td>Shared</td><td>Shared</td><td>Shared</td></tr>
+              <tr><td>Soil and contamination screening</td><td>Mine Owner</td><td>Mine Owner</td><td>Shared</td><td>Shared</td><td>Shared</td><td>Shared</td><td>Mine Owner initially; shared later</td></tr>
+              <tr><td>Livestock master planning</td><td>Mine Owner / consultant</td><td>Mine Owner + O&amp;M agency</td><td>Shared / developer-refined</td><td>Developer-led</td><td>Shared</td><td>Shared</td><td>Shared</td></tr>
+              <tr><td>Species selection</td><td>Mine Owner / consultant</td><td>Mine Owner + O&amp;M agency</td><td>Developer / expert</td><td>Developer</td><td>Concessionaire</td><td>Concessionaire / livestock expert</td><td>Shared with community inputs</td></tr>
+              <tr><td>Breed selection</td><td>Mine Owner / consultant</td><td>Mine Owner + O&amp;M agency</td><td>Developer / expert</td><td>Developer</td><td>Concessionaire</td><td>Concessionaire / livestock expert</td><td>Shared</td></tr>
+              <tr><td>Animal / bird procurement</td><td>Mine Owner / EPC support</td><td>Mine Owner / O&amp;M agency</td><td>Developer</td><td>Developer</td><td>Concessionaire</td><td>Concessionaire / operator</td><td>Shared</td></tr>
+              <tr><td>Livestock shed construction</td><td>EPC contractor</td><td>EPC contractor / O&amp;M agency</td><td>Developer</td><td>Developer</td><td>Concessionaire</td><td>Concessionaire / operator</td><td>Shared</td></tr>
+              <tr><td>Fodder plot development</td><td>EPC contractor</td><td>EPC contractor + O&amp;M agency</td><td>Developer / owner support</td><td>Developer</td><td>Concessionaire</td><td>Concessionaire / local groups</td><td>Shared</td></tr>
+              <tr><td>Feed and fodder management</td><td>Mine Owner</td><td>O&amp;M agency</td><td>Developer</td><td>Developer</td><td>Concessionaire</td><td>Concessionaire / operator</td><td>Operator / SHG / FPO</td></tr>
+              <tr><td>Egg / meat collection point</td><td>EPC contractor / owner</td><td>Owner / O&amp;M agency</td><td>Developer</td><td>Developer</td><td>Concessionaire</td><td>Concessionaire / operator</td><td>Owner + operator / cooperative</td></tr>
+              <tr><td>Processing / aggregation unit</td><td>Mine Owner / separate agency</td><td>O&amp;M agency / market partner</td><td>Developer</td><td>Developer</td><td>Concessionaire</td><td>Concessionaire / private operator</td><td>Shared / cluster-based</td></tr>
+              <tr><td>Water points and sanitation</td><td>EPC contractor</td><td>EPC contractor + O&amp;M agency</td><td>Developer</td><td>Developer</td><td>Concessionaire</td><td>Concessionaire</td><td>Shared</td></tr>
+              <tr><td>Veterinary linkage</td><td>Mine Owner</td><td>O&amp;M agency</td><td>Developer</td><td>Developer</td><td>Concessionaire</td><td>Concessionaire / operator</td><td>Shared / technical partner</td></tr>
+              <tr><td>Vaccination and disease control</td><td>Mine Owner / consultant</td><td>O&amp;M agency</td><td>Developer</td><td>Developer</td><td>Concessionaire</td><td>Concessionaire</td><td>Shared</td></tr>
+              <tr><td>Breeding support</td><td>Mine Owner</td><td>O&amp;M agency / veterinary partner</td><td>Developer</td><td>Developer</td><td>Concessionaire</td><td>Concessionaire</td><td>Shared</td></tr>
+              <tr><td>Quarantine and induction</td><td>Mine Owner / consultant</td><td>O&amp;M agency</td><td>Developer</td><td>Developer</td><td>Concessionaire</td><td>Concessionaire</td><td>Shared</td></tr>
+              <tr><td>Day-to-day livestock operations</td><td>Mine Owner</td><td>O&amp;M agency</td><td>Developer</td><td>Developer</td><td>Concessionaire</td><td>Concessionaire / operator</td><td>SHG / FPO / operator</td></tr>
+              <tr><td>Community mobilization</td><td>Mine Owner</td><td>Mine Owner + O&amp;M agency</td><td>Developer if mandated</td><td>Developer if mandated</td><td>Concessionaire if mandated</td><td>Concessionaire + NGO / FPO</td><td>NGO / SHG / FPO + owner</td></tr>
+              <tr><td>Local employment</td><td>Mine Owner-controlled</td><td>Mine Owner-controlled through contract</td><td>Contract-based</td><td>Developer policy / contract-based</td><td>Contract-based</td><td>Contract-based</td><td>Strongly configurable</td></tr>
+              <tr><td>SHG / FPO participation</td><td>Mine Owner-controlled</td><td>Mine Owner + O&amp;M agency</td><td>Contract-based</td><td>Optional unless mandated</td><td>Contract-based</td><td>Strong contractual role</td><td>Core feature</td></tr>
+              <tr><td>Training and capacity building</td><td>Mine Owner</td><td>O&amp;M agency / livelihood partner</td><td>Developer / operator</td><td>Developer</td><td>Concessionaire</td><td>Concessionaire / NGO / FPO</td><td>Shared; often NGO-led</td></tr>
+              <tr><td>Product ownership</td><td>Mine Owner</td><td>Mine Owner / as per O&amp;M contract</td><td>Developer during concession</td><td>Developer</td><td>Concessionaire during concession</td><td>As per concession / lease terms</td><td>Shared as per agreement</td></tr>
+              <tr><td>Dung / litter / compost / biogas ownership</td><td>Mine Owner</td><td>Mine Owner / operator arrangement</td><td>Developer</td><td>Developer</td><td>Concessionaire</td><td>Concessionaire / SHG / FPO</td><td>Shared</td></tr>
+              <tr><td>Revenue collection</td><td>Mine Owner</td><td>Mine Owner / operator on behalf of owner</td><td>Developer during concession</td><td>Developer</td><td>Concessionaire</td><td>Concessionaire / shared</td><td>Shared</td></tr>
+              <tr><td>Revenue sharing with owner</td><td>Not applicable / owner receives all</td><td>Owner receives after agency payments</td><td>Concession fee / revenue share</td><td>Lease / fixed charges</td><td>Concession fee / revenue share</td><td>Lease rent / concession fee / revenue share</td><td>As structured</td></tr>
+              <tr><td>Market linkage</td><td>Mine Owner</td><td>O&amp;M agency / cooperative / market partner</td><td>Developer</td><td>Developer</td><td>Concessionaire</td><td>Concessionaire / FPO / cooperative</td><td>FPO / operator / market partner</td></tr>
+              <tr><td>Branding and certification</td><td>Mine Owner</td><td>O&amp;M agency / marketing partner</td><td>Developer</td><td>Developer</td><td>Concessionaire</td><td>Concessionaire / operator</td><td>Shared</td></tr>
+              <tr><td>Approvals and permits</td><td>Mine Owner</td><td>Mine Owner with agency support</td><td>Shared</td><td>Shared / developer-led</td><td>Shared</td><td>Shared</td><td>Shared</td></tr>
+              <tr><td>Food safety compliance</td><td>Mine Owner</td><td>Mine Owner + O&amp;M agency</td><td>Developer</td><td>Developer</td><td>Concessionaire</td><td>Concessionaire</td><td>Shared</td></tr>
+              <tr><td>Environmental compliance</td><td>Mine Owner</td><td>Mine Owner + O&amp;M agency</td><td>Developer during concession</td><td>Developer</td><td>Concessionaire</td><td>Concessionaire</td><td>Shared</td></tr>
+              <tr><td>Monitoring and reporting</td><td>Mine Owner</td><td>Mine Owner + O&amp;M agency</td><td>Mine Owner + developer</td><td>Developer / owner oversight</td><td>Independent monitoring + owner</td><td>Owner + concessionaire</td><td>Owner + independent agency</td></tr>
+              <tr><td>O&amp;M risk</td><td>Mine Owner</td><td>O&amp;M agency, with owner oversight</td><td>Developer</td><td>Developer</td><td>Concessionaire</td><td>Concessionaire / operator</td><td>Shared</td></tr>
+              <tr><td>Commercial risk</td><td>Mine Owner</td><td>Mostly Mine Owner</td><td>Developer</td><td>Developer</td><td>Concessionaire</td><td>Concessionaire</td><td>Shared</td></tr>
+              <tr><td>Community welfare obligations</td><td>Mine Owner-controlled</td><td>Mine Owner-controlled</td><td>Contract-based</td><td>Weak unless mandated</td><td>Contract-based</td><td>Strongly contract-based</td><td>Strongest and most flexible</td></tr>
+              <tr><td>Asset transfer at end</td><td>No</td><td>No</td><td>Yes</td><td>No</td><td>Yes</td><td>As agreed</td><td>As agreed</td></tr>
+              <tr><td>Best suited role</td><td>Basic livestock infrastructure creator</td><td>Owner-controlled livestock operator</td><td>Commercial developer-operator</td><td>Private livestock owner</td><td>Structured PPP concessionaire</td><td>Long-term livelihood operator</td><td>Multi-party livelihood + commercial platform</td></tr>
+            </tbody>
+          </table></div>
+        </div>
+      </div>
+
+      <div class="prism2-nav-row">
+        <button class="prism2-btn-prev" id="prism2-prev-R" onclick="prism2Prev()">&#8592; Previous</button>
+        <div class="prism2-progress-dots" style="display:flex;gap:5px;align-items:center;">
+          <span class="pdot" data-p="P"></span><span class="pdot active" data-p="R"></span>
+          <span class="pdot" data-p="I"></span><span class="pdot" data-p="S"></span><span class="pdot" data-p="M"></span>
+        </div>
+        <button class="prism2-btn-next" id="prism2-next-R" onclick="prism2Next()">Next pillar &#8594;</button>
+      </div>
+    </div><!-- /prism2-panel-R -->
+
+      <div class="prism2-content-panel" id="prism2-panel-I" style="--pc:#b06a10;--pb:#faedda;--cb:#fdf7f0;">
+      <div class="prism2-panel-header">
+        <div class="prism2-panel-header-letter">I</div>
+        <div class="prism2-panel-header-text">
+          <div class="prism2-panel-eyebrow">INVESTMENT DYNAMICS</div>
+          <p class="prism2-panel-desc">Non-dairy livestock repurposing generates revenue through meat, eggs, live animals, manure, compost, biogas and fodder value chains. Funding logic ranges from full mine-owner investment under EPC to blended finance under Hybrid models. Livelihood outcomes are strongest under EPC+O&amp;M, Concession, and Hybrid models where SHG / FPO participation and local employment are contractually embedded.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Funding Logic</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following table presents the broad funding logic for each implementation model. It explains who is expected to finance the project, the level of owner-side funding requirement, and the commercial rationale behind each structure. This section is intended to help the project owner assess whether the project is more suitable for owner-funded development, private investment, public-private partnership, lease or concession structure, or a hybrid funding arrangement.</p>
+          <div class="table-wrap"><table class="spv-table">
+            <thead><tr><th>Model</th><th>Funding Source</th><th>Owner Funding Requirement</th><th>Suitability for Non-Dairy Livestock</th></tr></thead>
+            <tbody>
+              <tr><td>EPC</td><td>Mine owner budget / mine closure fund / CSR</td><td>High</td><td>Suitable for basic sheds, fencing, water points, fodder plots, manure yards and training facility setup</td></tr>
+              <tr><td>EPC + O&amp;M / Facility Mgmt</td><td>Mine owner budget + O&amp;M budget + CSR</td><td>High to Moderate</td><td>Strong fit where owner wants control over welfare, SHG participation, animal care, fodder management and training</td></tr>
+              <tr><td>BOOT</td><td>Private developer capital + possible CSR / VGF / grant support</td><td>Low to Moderate</td><td>Suitable for commercial poultry, piggery, goat-meat aggregation, feed units and eventual asset transfer</td></tr>
+              <tr><td>BOO</td><td>Private developer capital</td><td>Low</td><td>Suitable only for commercially driven livestock projects; less preferred where community control is important</td></tr>
+              <tr><td>DBFOT</td><td>Private concessionaire + public / CSR support + possible VGF</td><td>Low to Moderate</td><td>Suitable for large livestock parks with feed banks, processing, training centres and biogas / CBG units</td></tr>
+              <tr><td>Concession / Lease-Develop-Operate</td><td>Private operator / cooperative / FPO / SHG federation / NGO / CSR / blended finance</td><td>Low to Moderate</td><td>Very suitable for community-linked livestock with livelihood obligations, lease fee, revenue sharing and local employment</td></tr>
+              <tr><td>Hybrid</td><td>Mine owner + CSR + government schemes + livestock cooperative + private operator + SHG / FPO + NGO + grants</td><td>Variable</td><td>Most suitable for balancing livelihood, non-dairy livestock value chains, circular economy and owner revenue participation</td></tr>
+            </tbody>
+          </table></div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Revenue Generation by Model</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following table explains how revenue may be generated under different implementation models and identifies who is likely to receive the principal project income. It also describes the nature and extent of the financial benefit available to the project owner, whether through direct project revenue, cost savings, lease income, concession fees, revenue sharing, service charges, or eventual asset transfer. This comparison is intended to support the selection of a commercially appropriate model for the proposed repurposing project.</p>
+          <div class="table-wrap"><table class="spv-table">
+            <thead><tr><th>Model</th><th>How Revenue is Generated</th><th>Who Receives Main Revenue</th><th>Owner's Financial Benefit</th></tr></thead>
+            <tbody>
+              <tr><td>EPC</td><td>Sale of goats, sheep, pigs, poultry birds, eggs, manure, compost, fodder, training fees and biogas</td><td>Mine Owner</td><td>Full revenue retained by owner, but owner bears full CAPEX, O&amp;M, animal health, feed, fodder and market risk</td></tr>
+              <tr><td>EPC + O&amp;M / Facility Mgmt</td><td>Livestock product sales, egg sales, manure, compost, biogas, breeding services, training and fodder bank revenue</td><td>Mine Owner after paying O&amp;M agency</td><td>High benefit; owner retains revenue while outsourcing operations and technical management</td></tr>
+              <tr><td>BOOT</td><td>Developer earns from poultry, piggery, goat / sheep rearing, meat aggregation, feed, compost and training during concession</td><td>Developer / concessionaire during concession</td><td>Lease rent, concession fee, revenue share, local economic uplift and asset transfer at end</td></tr>
+              <tr><td>BOO</td><td>Long-term revenue from livestock products, eggs, meat, feed, compost, biogas and livestock services</td><td>Private developer</td><td>Limited direct benefit; typically lease rent, fixed charges or premium payments</td></tr>
+              <tr><td>DBFOT</td><td>Structured revenue from livestock production, egg / meat aggregation, feed bank, compost, biogas and training</td><td>Concessionaire during concession</td><td>Concession fee, lease rent, revenue share, performance-linked payments and asset transfer at end</td></tr>
+              <tr><td>Concession / Lease-Operate-Develop</td><td>Revenue from goatery, sheep, poultry, piggery, SHG / FPO production, manure, biogas, training and market linkage</td><td>Concessionaire / operator as per agreement</td><td>Lease rentals, revenue share, improved land value and indirect socio-economic benefits</td></tr>
+              <tr><td>Hybrid</td><td>Mixed revenue from livestock products, SHG / FPO enterprises, fodder, manure, compost, biogas, grants, CSR support and training</td><td>Shared between owner, operator, SHG / FPO, cooperative, NGO as structured</td><td>Variable to high; owner benefits through revenue share, reduced O&amp;M burden, ESG gains and enhanced land value</td></tr>
+            </tbody>
+          </table></div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Which Model is Better for Local Livelihood and Jobs</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following table assesses the likely local livelihood and employment potential of each implementation model. It considers the extent to which each model can support construction-phase jobs, long-term operational employment, local procurement opportunities, skill development, community participation, and associated support services. This section is particularly relevant where the repurposing project is expected to contribute to post-mining or post-operational economic transition and sustained local community benefit.</p>
+          <div class="table-wrap"><table class="spv-table">
+            <thead><tr><th>Model</th><th>Local Job Potential</th><th>Why</th><th>Overall Suggestibility for Local Livelihood</th></tr></thead>
+            <tbody>
+              <tr><td>EPC</td><td>Moderate</td><td>Creates short-term jobs in shed construction, fencing, water systems, fodder plot development and basic training. Long-term jobs depend on owner-led operations after completion.</td><td>Moderate</td></tr>
+              <tr><td>EPC + O&amp;M / Facility Mgmt</td><td>High to Very High</td><td>Supports sustained employment in animal care, feeding, shed cleaning, egg handling, goat / sheep management, piggery care, poultry care, manure management and SHG facilitation.</td><td>Very High</td></tr>
+              <tr><td>BOOT</td><td>High</td><td>Generates jobs during development and operation. Local employment can be strong if the agreement mandates local hiring, SHG / FPO participation, training and procurement from local households.</td><td>High</td></tr>
+              <tr><td>BOO</td><td>Moderate</td><td>Can create poultry, piggery, processing, packaging and marketing jobs, but local livelihood depends mainly on private developer policy unless contractually mandated.</td><td>Moderate</td></tr>
+              <tr><td>DBFOT</td><td>High to Very High</td><td>Suitable for large non-dairy livestock parks with egg / meat aggregation, feed banks, processing, biogas, composting, training centres and veterinary services.</td><td>High to Very High</td></tr>
+              <tr><td>Concession / Lease-Operate-Develop</td><td>Very High</td><td>Strong model for long-term local livelihood through SHG / FPO participation, goatery, sheep, poultry, piggery, fodder cultivation, aggregation, training and market linkage.</td><td>Very High</td></tr>
+              <tr><td>Hybrid</td><td>Very High</td><td>Best suited for combining mine-owner support, private / cooperative expertise, NGO facilitation, SHG / FPO participation, CSR support and community benefit obligations.</td><td>Very High / Most Suitable</td></tr>
+            </tbody>
+          </table></div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Combined Comparison: Revenue, Profitability, and Livelihood</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">The following combined comparison brings together three important dimensions of project structuring: revenue potential, owner-side financial benefit, and local livelihood generation. It provides a consolidated view of how each implementation model performs across commercial, institutional, and community-development perspectives. This matrix is intended to support balanced decision-making where the objective extends beyond financial return to include sustainable site reuse and long-term local economic benefit.</p>
+          <p class="spv-body-text">The following table assesses the likely local livelihood and employment potential of each implementation model. It considers the extent to which each model can support construction-phase jobs, long-term operational employment, local procurement opportunities, skill development, community participation, and associated support services. This section is particularly relevant where the repurposing project is expected to contribute to post-mining or post-operational economic transition and sustained local community benefit.</p>
+          <div class="table-wrap"><table class="spv-table">
+            <thead><tr><th>Model</th><th>Main Revenue Source</th><th>Owner Profitability</th><th>Local Job Creation Potential</th><th>Overall Comment</th></tr></thead>
+            <tbody>
+              <tr><td>EPC</td><td>Livestock sales, eggs, manure, compost, fodder, training and future value-added products</td><td>Moderate to High, but owner bears full CAPEX, O&amp;M, animal health, feed, fodder and market risk</td><td>Moderate</td><td>Useful for initial livestock setup, but weak for long-term livelihood unless followed by structured O&amp;M</td></tr>
+              <tr><td>EPC + O&amp;M / Facility Mgmt</td><td>Livestock products, eggs, fodder, manure, compost, biogas, training and breeding services</td><td>High, as owner retains revenue after O&amp;M payments</td><td>High to Very High</td><td>Strong where owner wants control, welfare impact and sustained employment</td></tr>
+              <tr><td>BOOT</td><td>Commercial poultry, piggery, goat / sheep production, aggregation, feed, branding, compost and biogas</td><td>Moderate through concession fee, lease rent, revenue share and eventual asset transfer</td><td>High</td><td>Suitable for commercial livestock with mandatory livelihood clauses</td></tr>
+              <tr><td>BOO</td><td>Long-term private revenue from livestock products, eggs, meat, feed, processing, compost and biogas</td><td>Low to Moderate, mostly from lease rent, fixed charges or premium</td><td>Moderate</td><td>Use cautiously where community benefit and owner control are not primary</td></tr>
+              <tr><td>DBFOT</td><td>Livestock value chain, feed bank, egg / meat aggregation, processing, biogas, compost and training centre</td><td>Moderate to High through concession fee, lease rent, revenue share and transfer terms</td><td>High to Very High</td><td>Good for large structured PPP projects needing private finance and professional operation</td></tr>
+              <tr><td>Concession / Lease-Operate-Develop</td><td>Livestock operations, SHG / FPO production, training, fodder bank, manure / biogas</td><td>Moderate to High through lease rent, concession fee, revenue share and improved land value</td><td>Very High</td><td>Very suitable for community-linked livestock with livelihood obligations</td></tr>
+              <tr><td>Hybrid</td><td>Mixed revenue from livestock products, SHG / FPO enterprises, fodder, training, CSR support, grants, biogas and compost</td><td>Variable to High depending on revenue-sharing and support structure</td><td>Very High</td><td>Most suitable for balancing mine-closure, livelihood, circular-economy and commercial objectives</td></tr>
+            </tbody>
+          </table></div>
+        </div>
+      </div>
+
+      <div class="prism2-nav-row">
+        <button class="prism2-btn-prev" id="prism2-prev-I" onclick="prism2Prev()">&#8592; Previous</button>
+        <div class="prism2-progress-dots" style="display:flex;gap:5px;align-items:center;">
+          <span class="pdot" data-p="P"></span><span class="pdot" data-p="R"></span>
+          <span class="pdot active" data-p="I"></span><span class="pdot" data-p="S"></span><span class="pdot" data-p="M"></span>
+        </div>
+        <button class="prism2-btn-next" id="prism2-next-I" onclick="prism2Next()">Next pillar &#8594;</button>
+      </div>
+    </div><!-- /prism2-panel-I -->
+
+      <div class="prism2-content-panel" id="prism2-panel-S" style="--pc:#5a3d9e;--pb:#edeaf8;--cb:#f7f5fd;">
+      <div class="prism2-panel-header">
+        <div class="prism2-panel-header-letter">S</div>
+        <div class="prism2-panel-header-text">
+          <div class="prism2-panel-eyebrow">STRATEGIC STRUCTURING</div>
+          <p class="prism2-panel-desc">Pre-RFP readiness for non-dairy livestock development requires land safety confirmation, species suitability assessment, market and veterinary linkage planning, and community mobilization. Post-award activities include infrastructure construction, animal procurement, training, market linkage, and phased scale-up led by the selected operator, concessionaire, or SHG / FPO partner.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Preparations Needed Before RFP</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">The following section identifies the key owner-side preparatory actions that should ideally be completed before issuing the first Request for Proposal. These actions are aimed at reducing uncertainty for prospective bidders, improving project bankability, clarifying site availability, identifying approval pathways and risks, and defining the technical and commercial scope of the project. Completing these preparatory steps before tendering can improve bid quality, attract credible responses, and reduce the risk of delays during project implementation.</p>
+          <p class="spv-body-text">Before issuing an RFP for a Livestock Farming, Fodder Landscapes and Meat–Egg–Manure Value-Chain Cluster as a mine-repurposing project, the mine owner should prepare the following in priority order:</p>
+          <ol class="spv-list">
+            <li>Land and mine-closure confirmation — Confirm land ownership, closure status, mine-closure linkage and permissibility of animal husbandry, fodder cultivation, composting, biogas and related livelihood activities.</li>
+            <li>Legal, regulatory and land-use screening — Review land-use restrictions, lease / concession rights, animal ownership, produce ownership, revenue-sharing, insurance, user charges and commercial-use permissions.</li>
+            <li>Safety and no-go zone mapping — Identify safe and unsafe zones, including unstable dumps, highwalls, subsidence-prone areas, contaminated areas, unsafe water bodies, haul roads and restricted mine infrastructure.</li>
+            <li>Soil, water and contamination assessment — Test soil, surface water and groundwater for suitability of fodder cultivation, animal drinking, washing and manure use, with special attention to heavy metals, pH, salinity and polluted runoff.</li>
+            <li>Species and activity suitability assessment — Identify suitable non-dairy animal husbandry activities such as goatery, sheep rearing, piggery, poultry, duckery, rabbitry, fodder bank, composting and biogas based on site conditions, market demand and community acceptance.</li>
+            <li>Fodder and feed-resource assessment — Assess green fodder, dry fodder, fodder-tree belts, silage, hay, crop residues, feed-supply access and fodder-seed availability, in line with the feed and fodder development focus under the National Livestock Mission.</li>
+            <li>Veterinary, biosecurity and disease-control linkage — Map nearby veterinary hospitals, mobile veterinary units, vaccination support, disease reporting systems and quarantine arrangements, considering the Prevention and Control of Infectious and Contagious Diseases in Animals Act, 2009.</li>
+            <li>Animal welfare and housing readiness — Prepare basic norms for species-wise housing, ventilation, shade, floor drainage, drinking water, isolation pens, humane handling and animal transport, consistent with animal-welfare rules listed by the Animal Welfare Board of India.</li>
+            <li>Market and value-chain assessment — Assess demand and offtake for goats, sheep, pigs, poultry birds, eggs, manure, compost, vermicompost, fodder and biogas, including linkage with traders, processors, FPOs, SHGs and institutional buyers.</li>
+            <li>Food-safety and product-handling framework — Prepare compliance requirements for egg, meat, processed food, packaging, storage and sale, including FSSAI registration / licensing for relevant Food Business Operators.</li>
+            <li>Waste, manure and circular-economy plan — Prepare a plan for dung, poultry litter, piggery slurry, bedding waste, dead-animal disposal, composting, vermicompost, bio-slurry, biogas or CBG, including odour, vector and effluent control.</li>
+            <li>Community, SHG / FPO and livelihood mapping — Identify land-losers, nearby livestock keepers, women SHGs, youth groups, FPOs, local entrepreneurs and panchayat-level institutions for livelihood participation and benefit-sharing.</li>
+            <li>Implementation model and cost estimate — Prepare broad CAPEX, 5-year O&amp;M estimate and select a preferred model such as Hybrid, Concession / Lease-Develop-Operate, EPC + O&amp;M, DBFOT or BOOT.</li>
+            <li>Draft RFP scope and bid evaluation framework — Prepare bidder scope covering design, construction, animal procurement, O&amp;M, veterinary services, biosecurity, local employment, SHG / FPO participation, waste management, reporting and revenue-sharing.</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Activities to be taken After Selecting the Agency</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">The following section lists the principal activities that may be undertaken by the selected contractor, developer, concessionaire, operator, or implementation agency after award of the project. These activities generally include detailed site investigations, engineering design, statutory submissions and approvals, equipment procurement, construction, commissioning, operational planning, staff training, and performance monitoring. The distinction between pre-RFP owner preparedness and post-award implementation responsibilities helps ensure an appropriate and efficient allocation of effort across the project development cycle.</p>
+          <p class="spv-body-text">After award, the selected concessionaire / contractor / O&amp;M agency / livestock operator can take up the following activities in chronological order:</p>
+          <ol class="spv-list">
+            <li>Detailed site investigation and DPR preparation — Undertake detailed topographic survey, soil-water testing, drainage assessment, species suitability study, fodder feasibility, final master plan, financial model and DPR for mine-owner approval.</li>
+            <li>Final livestock master planning — Prepare the final layout for goat / sheep sheds, poultry houses, piggery units, duckery areas, fodder plots, quarantine pens, isolation units, manure yard, compost unit, biogas unit, internal roads and buffer areas.</li>
+            <li>Approvals, registration and compliance planning — Obtain required local permissions, animal-husbandry department linkage, FSSAI registration / licence where applicable, pollution-control consent if required, insurance and other statutory approvals.</li>
+            <li>Detailed design of sheds and support infrastructure — Prepare species-wise designs for animal housing, ventilation, drainage, drinking-water systems, feed stores, egg / meat handling areas, manure pits, compost platforms, biogas units and effluent systems.</li>
+            <li>Biosecurity, animal welfare and SOP finalization — Prepare SOPs for quarantine, vaccination, deworming, disease reporting, visitor control, sanitation, humane handling, animal transport, dead-animal disposal and emergency response.</li>
+            <li>Construction and installation — Develop sheds, paddocks, poultry houses, piggery units, duck shelters, fencing, water systems, feed storage, fodder plots, manure yard, composting units, biogas systems, lighting and basic utilities.</li>
+            <li>Procurement of animals, birds and equipment — Procure approved breeds / stock, feed equipment, drinkers, feeders, weighing systems, PPE, first-aid kits, vaccination equipment, cleaning tools and record-keeping systems.</li>
+            <li>Quarantine and animal induction — Induct animals / birds through quarantine, health screening, vaccination, tagging / identification, insurance and initial productivity recording before full-scale operation.</li>
+            <li>Recruitment and training — Recruit and train local youth, SHG members, handlers, supervisors, feed workers, sanitation workers and veterinary-support workers in animal care, feeding, biosecurity, product handling and record keeping.</li>
+            <li>Market linkage and livelihood integration — Finalize offtake arrangements with goat / sheep traders, poultry integrators, egg buyers, piggery buyers, FPOs, SHGs, compost buyers and institutional customers.</li>
+            <li>Trial operation and compliance audit — Run trial operations to test animal survival, feed supply, water supply, waste handling, disease-control systems, product handling, worker training and emergency response.</li>
+            <li>Commercial operation and reporting — Begin full operation with regular reporting on animal health, mortality, production, revenue, local employment, SHG / FPO participation, waste utilization and environmental compliance.</li>
+            <li>Phased scale-up and diversification — Expand goatery, sheep units, poultry, piggery, duckery, fodder banks, composting, biogas or value-added activities based on market demand, disease-control performance, community participation and mine-owner approval.</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Indicative Implementation Pathway</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following implementation pathway presents a practical high-level sequence for advancing the proposed repurposing concept from initial approval through to project execution and long-term operation. It outlines the broad stages of concept approval, preliminary studies, model selection, bid preparation, procurement, detailed design, statutory approvals, construction, commissioning, and ongoing operation. This pathway is indicative and should be adapted to reflect the specific complexity, regulatory requirements, financing structure, and site conditions applicable to the project.</p>
+          <ol class="spv-list" style="list-style:decimal;padding-left:1.4em;">
+            <li>Concept approval and objective setting</li>
+            <li>Site suitability and safety screening</li>
+            <li>Soil, water and contamination assessment</li>
+            <li>Species suitability and non-dairy livestock value-chain assessment</li>
+            <li>Fodder feasibility and land-use planning</li>
+            <li>Community engagement and SHG / FPO onboarding</li>
+            <li>Egg / meat / live-animal market assessment</li>
+            <li>Veterinary and animal health linkage planning</li>
+            <li>Selection of implementation model</li>
+            <li>DPR and bid structuring</li>
+            <li>RFP issuance and partner selection</li>
+            <li>Livestock infrastructure development</li>
+            <li>Animal / bird procurement and induction</li>
+            <li>Training and livelihood integration</li>
+            <li>Product collection, aggregation and market linkage</li>
+            <li>Dung / litter management, composting and biogas integration</li>
+            <li>Processing and value-added product development</li>
+            <li>Monitoring, reporting and phased scale-up</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="prism2-nav-row">
+        <button class="prism2-btn-prev" id="prism2-prev-S" onclick="prism2Prev()">&#8592; Previous</button>
+        <div class="prism2-progress-dots" style="display:flex;gap:5px;align-items:center;">
+          <span class="pdot" data-p="P"></span><span class="pdot" data-p="R"></span>
+          <span class="pdot" data-p="I"></span><span class="pdot active" data-p="S"></span><span class="pdot" data-p="M"></span>
+        </div>
+        <button class="prism2-btn-next" id="prism2-next-S" onclick="prism2Next()">Next pillar &#8594;</button>
+      </div>
+    </div><!-- /prism2-panel-S -->
+
+      <div class="prism2-content-panel" id="prism2-panel-M" style="--pc:#1a7a5e;--pb:#e1f3ec;--cb:#f1faf6;">
+      <div class="prism2-panel-header">
+        <div class="prism2-panel-header-letter">M</div>
+        <div class="prism2-panel-header-text">
+          <div class="prism2-panel-eyebrow">MONITORING GUIDANCE</div>
+          <p class="prism2-panel-desc">The Hybrid Non-Dairy Livestock–Fodder Livelihood Cluster is the most recommended model for closed coal mine repurposing. This section outlines the preferred models, key references, and abbreviations used throughout the PRISM framework.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Way Forward</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">The following way forward summarizes the preferred development approach for the proposed repurposing option, based on the assessment presented in PRISM (Post Mining Repurposing Implementation and Strategy Models). It identifies the most suitable implementation models in order of preference, highlights key technical and due-diligence considerations, and outlines the recommended next steps and broad development logic. This section is intended to guide internal decision-making and support the project owner in progressing from concept-stage evaluation toward feasibility assessment, project structuring, regulatory approvals, and implementation planning.</p>
+        <p class="spv-body-text"><strong>Preferred Models, in order:</strong> (1) Hybrid Model, (2) Concession / Lease-Develop-Operate, (3) EPC + O&amp;M / Facility Management, (4) DBFOT</p>
+        <p class="spv-body-text"><strong>Why preferred:</strong> Hybrid is preferred because livestock projects require land, fodder, veterinary support, producer participation and market linkage. The hybrid mix should include mine-owner land + SHG / FPO livestock units + veterinary agency + private buyer / processor linkage.</p>
+        <p class="spv-body-text"><strong>Secondary option:</strong> BOOT may be used where commercial poultry, piggery, feed production or processing with eventual transfer is planned.</p>
+        <p class="spv-body-text"><strong>Suggestable technical care:</strong> Animal housing, fodder, water, disease control, vaccination, biosecurity, waste management, community acceptance, animal welfare and market access must be ensured.</p>
+        <p class="spv-body-text"><strong>Recommended development logic:</strong> Start with low-risk goatery, sheep units, backyard poultry, fodder banks and composting. Take up piggery, commercial poultry and meat-processing models only after biosecurity, market and waste-management readiness are confirmed.</p>
+        <p class="spv-body-text" style="font-style:italic; margin-top:1.2rem;"><strong>Disclaimer —</strong> All repurposing interventions proposed under P.R.I.S.M. shall remain subject to applicable mining laws, land-use regulations, environmental approvals, mine-closure conditions, forest and biodiversity regulations, groundwater permissions, and any other statutory approvals as may be applicable. Land ownership is proposed to remain with the mine owner / competent authority unless otherwise permitted under applicable law.</p>
+      </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>References</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <ul class="spv-list" >
+            <li>Coal Controller Organisation, Ministry of Coal, Government of India. n.d. <em>Mine Closure Handbooks Portal: A.R.T.H.A, L.I.V.E.S and R.E.C.L.A.I.M.</em> New Delhi: Coal Controller Organisation.</li>
+            <li>Coal Controller Organisation, Ministry of Coal, Government of India. n.d. <em>Introduction to Mine Closure.</em> New Delhi: Coal Controller Organisation.</li>
+            <li>Coal Controller Organisation, Ministry of Coal, Government of India. 2025. <em>L.I.V.E.S Framework for Mine Closure.</em> New Delhi: Coal Controller Organisation.</li>
+            <li>Coal Controller Organisation, Ministry of Coal, Government of India, and Heartfulness Institute. 2025. <em>R.E.C.L.A.I.M: A Community Development Framework — A Practitioner's Guide to Community Development in Mine-Affected Regions of India.</em> New Delhi: Ministry of Coal / Coal Controller Organisation.</li>
+            <li>Ministry of Coal, Government of India. 2025. <em>Mining Plan Guidelines for Coal and Lignite Mine, 2025.</em> New Delhi: Ministry of Coal.</li>
+            <li>Department of Animal Husbandry and Dairying, Ministry of Fisheries, Animal Husbandry and Dairying, Government of India. 2019. <em>20th Livestock Census — 2019: All India Report / Key Results.</em> New Delhi: Government of India.</li>
+            <li>Department of Animal Husbandry and Dairying, Ministry of Fisheries, Animal Husbandry and Dairying, Government of India. 2024. <em>Revised Operational Guidelines: National Livestock Mission.</em> New Delhi: Government of India.</li>
+            <li>Department of Animal Husbandry and Dairying, Ministry of Fisheries, Animal Husbandry and Dairying, Government of India. n.d. <em>National Livestock Mission.</em> New Delhi: Government of India.</li>
+            <li>National Livestock Mission, Department of Animal Husbandry and Dairying, Government of India. n.d. <em>Operational Guidelines: National Livestock Mission.</em> New Delhi: Government of India.</li>
+            <li>Department of Animal Husbandry and Dairying, Government of India. 2024. <em>National Livestock Mission — Entrepreneurship Development Programme Guidelines for Rural Poultry, Sheep and Goat, Piggery, Feed and Fodder Development.</em> New Delhi: Government of India.</li>
+            <li>Press Information Bureau, Government of India. 2025. <em>National Livestock Mission.</em> New Delhi: Ministry of Information and Broadcasting.</li>
+            <li>Vikaspedia, Ministry of Electronics and Information Technology, Government of India. n.d. <em>Model Bankable Project on Goat Farming.</em> New Delhi: Government of India.</li>
+            <li>Vikaspedia, Ministry of Electronics and Information Technology, Government of India. n.d. <em>Housing Management — Sheep and Goat Farming.</em> New Delhi: Government of India.</li>
+            <li>MANAGE — National Institute of Agricultural Extension Management. n.d. <em>Project Report on Goat Farming.</em> Hyderabad: MANAGE, Government of India.</li>
+            <li>National Bank for Agriculture and Rural Development. n.d. <em>Model Bankable Projects: Animal Husbandry and Allied Activities.</em> Mumbai: NABARD.</li>
+            <li>Government of India. n.d. <em>GOBARdhan: Galvanizing Organic Bio-Agro Resources Dhan.</em> New Delhi: Swachh Bharat Mission – Grameen / Government of India.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Abbreviations</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <table class="spv-table">
+            <thead><tr><th>Abbreviation</th><th>Full Form</th></tr></thead>
+            <tbody>
+              <tr><td>BOO</td><td>Build, Own, Operate</td></tr>
+              <tr><td>BOOT</td><td>Build, Own, Operate, Transfer</td></tr>
+              <tr><td>CAPEX</td><td>Capital Expenditure</td></tr>
+              <tr><td>CBG</td><td>Compressed Bio-Gas</td></tr>
+              <tr><td>CCO</td><td>Coal Controller Organisation</td></tr>
+              <tr><td>CSR</td><td>Corporate Social Responsibility</td></tr>
+              <tr><td>DBFOT</td><td>Design, Build, Finance, Operate, Transfer</td></tr>
+              <tr><td>DPR</td><td>Detailed Project Report</td></tr>
+              <tr><td>EPC</td><td>Engineering, Procurement and Construction</td></tr>
+              <tr><td>ESG</td><td>Environmental, Social and Governance</td></tr>
+              <tr><td>FM</td><td>Facility Management</td></tr>
+              <tr><td>FPO</td><td>Farmer Producer Organization</td></tr>
+              <tr><td>GOBARdhan</td><td>Galvanizing Organic Bio-Agro Resources Dhan</td></tr>
+              <tr><td>NGO</td><td>Non-Governmental Organization</td></tr>
+              <tr><td>NLM</td><td>National Livestock Mission</td></tr>
+              <tr><td>O&amp;M</td><td>Operation and Maintenance</td></tr>
+              <tr><td>PPP</td><td>Public-Private Partnership</td></tr>
+              <tr><td>RFP</td><td>Request for Proposal</td></tr>
+              <tr><td>SHG</td><td>Self-Help Group</td></tr>
+              <tr><td>VGF</td><td>Viability Gap Funding</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="prism2-nav-row">
+        <button class="prism2-btn-prev" id="prism2-prev-M" onclick="prism2Prev()">&#8592; Previous</button>
+        <div class="prism2-progress-dots" style="display:flex;gap:5px;align-items:center;">
+          <span class="pdot" data-p="P"></span><span class="pdot" data-p="R"></span>
+          <span class="pdot" data-p="I"></span><span class="pdot" data-p="S"></span><span class="pdot active" data-p="M"></span>
+        </div>
+      </div>
+
+      <!-- Framework completion card -->
+      <div style="margin:0 26px 16px;padding:16px 20px;border-radius:12px;background:#f4faf7;border:1.5px dashed #a8d5c2;display:flex;align-items:center;gap:14px;">
+        <div style="width:36px;height:36px;border-radius:50%;background:#d1ece2;border:1.5px solid #a8d5c2;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#1a7a5e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2.5 8 6 11.5 13.5 4"/></svg>
+        </div>
+        <div style="flex:1;min-width:0;">
+          <div style="font-size:.82rem;font-weight:700;color:#1a7a5e;letter-spacing:.01em;">PRISM Framework Complete</div>
+          <div style="font-size:.75rem;color:#4a7a6a;margin-top:2px;line-height:1.5;">All five pillars reviewed — explore case studies to see how similar projects were executed.</div>
+        </div>
+        <button onclick="showSPVTab('casestudies');setTimeout(function(){window.dispatchEvent(new Event('resize'))},30)" style="flex-shrink:0;font-size:.75rem;font-weight:600;padding:7px 14px;border-radius:8px;border:1.5px solid #a8d5c2;background:#fff;color:#1a7a5e;cursor:pointer;transition:background .2s,border-color .2s;" onmouseover="this.style.background='#e6f5ef'" onmouseout="this.style.background='#fff'">Case Studies &#8599;</button>
+      </div>
+
+      <!-- Download PRISM PDF card -->
+      <div style="margin:0 26px 28px;padding:18px 22px;border-radius:12px;background:linear-gradient(135deg,#f0f7ff 0%,#e8f4fd 100%);border:1.5px solid #c5ddf5;display:flex;align-items:center;gap:16px;">
+        <div style="width:40px;height:40px;border-radius:50%;background:#daeafa;border:1.5px solid #b8d4ef;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#1a5ca8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v10M5 8l4 4 4-4"/><rect x="3" y="14" width="12" height="2" rx="1"/></svg>
+        </div>
+        <div style="flex:1;min-width:0;">
+          <div style="font-size:.82rem;font-weight:700;color:#1a5ca8;letter-spacing:.01em;">Download PRISM Framework</div>
+          <div style="font-size:.75rem;color:#3a6a98;margin-top:2px;line-height:1.5;">Save a print-ready PDF of all five pillars for offline reference.</div>
+        </div>
+        <button onclick="downloadPRISM()" style="flex-shrink:0;font-size:.75rem;font-weight:600;padding:8px 16px;border-radius:8px;border:1.5px solid #b8d4ef;background:#fff;color:#1a5ca8;cursor:pointer;transition:background .2s,border-color .2s;display:flex;align-items:center;gap:6px;" onmouseover="this.style.background='#daeafa'" onmouseout="this.style.background='#fff'">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 1v7M3.5 5.5l3 3 3-3"/><rect x="1.5" y="10" width="10" height="1.5" rx=".75"/></svg>
+          Download PDF
+        </button>
+      </div>
+
+    </div><!-- /prism2-panel-M -->
+
+    </div><!-- /pr-content-wrap -->
+  </div><!-- /pr-shell -->
+
+<script>
+function prNav(key) {
+  if (typeof prism2Show === 'function') prism2Show(key);
+  document.querySelectorAll('#spv-panel-prism .pr-nav-item').forEach(function(n) {
+    n.classList.toggle('active', n.dataset.key === key);
+  });
+  var hl = document.getElementById('pr-hl');
+  var active = document.querySelector('#spv-panel-prism .pr-nav-item[data-key="' + key + '"]');
+  if (hl && active) {
+    var accent = getComputedStyle(active).getPropertyValue('--pr-accent').trim();
+    hl.style.setProperty('--pr-hl', accent);
+    hl.style.top = active.offsetTop + 'px';
+    hl.style.height = active.offsetHeight + 'px';
+  }
+}
+</script>
+
+    </div>
+  </div><!-- /spv-panel-prism -->
+
+  <div id="spv-panel-casestudies" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+      <div class="lit-wrap">
+        <div class="lit-outer">
+          <div class="lit-track-clip">
+            <div class="lit-track" id="litTrack-all">
+
+              
+
+              <a class="lit-card" href="https://dahd.gov.in/sites/default/files/2024-10/SuccessStoriesinLivestockSector.pdf" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#5a3d9e;--lit-glow:rgba(90,61,158,.18);--lit-tint:rgba(90,61,158,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Farming Futures: Celebrating 101 Women Success Stories in Livestock Sector</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Report</span></div>
+                    <div class="lit-card-source">Source: <span>dahd.gov.in</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs-ls-women-livestock.jpg" alt="Women success stories in livestock sector" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://www.cnr.edu.bt/wp-content/uploads/2022/07/Case-Studies_CNR.pdf" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#b06a10;--lit-glow:rgba(176,106,16,.18);--lit-tint:rgba(176,106,16,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Case Studies of Successful Farmers, Agri-enterprises and Farmers' Groups and Cooperatives</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Report</span></div>
+                    <div class="lit-card-source">Source: <span>cnr.edu.bt</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs-ls-farmers-coop.jpg" alt="Successful farmers and agri-enterprise case studies" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://www.ilri.org/index.php/about-us" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#d97706;--lit-glow:rgba(217,119,6,.18);--lit-tint:rgba(217,119,6,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">International Livestock Research Institute</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Website Link</span></div>
+                    <div class="lit-card-source">Source: <span>ilri.org</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs-ls-ilri.jpg" alt="International Livestock Research Institute" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://journalajaees.com/index.php/AJAEES/article/view/1022" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#0891b2;--lit-glow:rgba(8,145,178,.18);--lit-tint:rgba(8,145,178,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Case Study on Successful Dairy Farmer of Virudhunagar District</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Open Access Article</span></div>
+                    <div class="lit-card-source">Source: <span>journalajaees.com</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs-ls-dairy-virudhunagar.jpg" alt="Successful dairy farmer case study Virudhunagar" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://apps.fas.usda.gov/psdonline/circulars/livestock_poultry.pdf" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#1a7a5e;--lit-glow:rgba(26,122,94,.18);--lit-tint:rgba(26,122,94,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Livestock and Poultry: World Markets and Trade</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Report</span></div>
+                    <div class="lit-card-source">Source: <span>fas.usda.gov</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs-ls-poultry.jpg" alt="Livestock and poultry world markets and trade" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+              
+              <a class="lit-card" href="https://re-livestock.eu/case-studies/" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#1a7a5e;--lit-glow:rgba(26,122,94,.18);--lit-tint:rgba(26,122,94,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Relivestock</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Website · Case Studies</span></div>
+                    <div class="lit-card-source">Source: <span>re-livestock.eu</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs-ls-relivestock.jpg" alt="Relivestock case studies" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://en.vikaspedia.in/viewcontent/agriculture/best-practices/animal-husbandry/case-studies-animal-husbandry?lgn=en#section2" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#C85000;--lit-glow:rgba(200,80,0,.18);--lit-tint:rgba(200,80,0,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Case Studies — Animal Husbandry</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Case Study</span></div>
+                    <div class="lit-card-source">Source: <span>vikaspedia.in</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs-ls-animal-husbandry.jpg" alt="Animal husbandry case studies" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://epubs.icar.org.in/index.php/IndFarm/article/download/156281/63337/498041" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#1a5ca8;--lit-glow:rgba(26,92,168,.18);--lit-tint:rgba(26,92,168,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Case Studies on Successful Integrated Farming Systems in West Bengal: Lessons for Replication and Scaling</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Case Study</span></div>
+                    <div class="lit-card-source">Source: <span>epubs.icar.org.in</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs-ls-west-bengal.jpg" alt="Integrated farming systems West Bengal" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://www.destatis.de/EN/Themes/Countries-Regions/International-Statistics/Data-Topic/AgricultureForestryFisheries/livestock_meat.html" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#C85000;--lit-glow:rgba(200,80,0,.18);--lit-tint:rgba(200,80,0,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Global Animal Farming, Meat Production and Meat Consumption</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Website Link</span></div>
+                    <div class="lit-card-source">Source: <span>destatis.de</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs-ls-global-meat.jpg" alt="Global animal farming meat production and consumption data" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://catalogimages.wiley.com/images/db/pdf/9781119852728.excerpt.pdf" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#1a5ca8;--lit-glow:rgba(26,92,168,.18);--lit-tint:rgba(26,92,168,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Global Overview of Sustainable Livestock Production</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Article</span></div>
+                    <div class="lit-card-source">Source: <span>wiley.com</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs-ls-sustainable.jpg" alt="Global overview sustainable livestock production" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://www.nationalgeographic.com/science/article/partner-content-livestock-farming-future" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#5a3d9e;--lit-glow:rgba(90,61,158,.18);--lit-tint:rgba(90,61,158,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">The Future of Livestock Farming</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Link</span></div>
+                    <div class="lit-card-source">Source: <span>nationalgeographic.com</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs-ls-future.jpg" alt="Future of livestock farming" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://dahd.gov.in/hi#gsc.tab=0" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#b06a10;--lit-glow:rgba(176,106,16,.18);--lit-tint:rgba(176,106,16,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Department of Animal Husbandry and Dairying</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Website Link</span></div>
+                    <div class="lit-card-source">Source: <span>dahd.gov.in</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs-ls-dahd.jpg" alt="Department of Animal Husbandry and Dairying India" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://www.worldbank.org/en/topic/agriculture/brief/moving-towards-sustainability-the-livestock-sector-and-the-world-bank" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#d97706;--lit-glow:rgba(217,119,6,.18);--lit-tint:rgba(217,119,6,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Moving Towards Sustainability: The Livestock Sector and the World Bank</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Article Link</span></div>
+                    <div class="lit-card-source">Source: <span>worldbank.org</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs-ls-worldbank.jpg" alt="Livestock sector sustainability and World Bank" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://www.ifad.org/en/livestock" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#0891b2;--lit-glow:rgba(8,145,178,.18);--lit-tint:rgba(8,145,178,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">IFAD — Livestock</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Website Link</span></div>
+                    <div class="lit-card-source">Source: <span>ifad.org</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs-ls-ifad.jpg" alt="IFAD livestock programmes" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+            </div><!-- /lit-track -->
+          </div><!-- /lit-track-clip -->
+          <div class="lit-nav">
+            <button class="lit-nav-btn" id="litPrev-all" onclick="litMove('all',-1)" aria-label="Previous">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <div class="lit-dots" id="litDots-all"></div>
+            <button class="lit-nav-btn" id="litNext-all" onclick="litMove('all',1)" aria-label="Next">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+          </div>
+        </div><!-- /lit-outer -->
+      </div><!-- /lit-wrap -->
+    </div>
+  </div><!-- /spv-panel-casestudies -->
+
+  <div id="spv-panel-tender" class="spv-panel" style="display:none;">
+  <div class="spv-content">
+
+  
+
+  <div class="t5-wrap">
+    <div class="t5-topbar">
+      <div class="t5-pills">
+        <button class="t5-pill t5-pill--all active" onclick="t5Filter('all')">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          All Documents <span class="t5-pill-count" id="t5cnt-all">9</span>
+        </button>
+        <button class="t5-pill--rfp t5-pill" data-sec="rfp" onclick="t5Filter('rfp')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          RFP <span class="t5-pill-count" id="t5cnt-rfp">5</span>
+        </button>
+        <button class="t5-pill--rpt t5-pill" data-sec="rpt" onclick="t5Filter('rpt')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          Reports &amp; DPR <span class="t5-pill-count" id="t5cnt-rpt">4</span>
+        </button>
+      </div>
+      <div class="t5-right">
+        <div class="t5-search-wrap">
+          <svg class="t5-search-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input id="t5SearchInput" class="t5-search" type="text" placeholder="Search documents…" oninput="t5Search(this.value)">
+        </div>
+        <span class="t5-counter" id="t5Counter"></span>
+      </div>
+    </div>
+    <div id="t5Sections">
+      <div class="t5-section" data-sec="rfp" style="animation-delay:0.05s">
+        <div class="t5-section-header">
+          <div class="t5-section-bar" style="background:#0F6E56"></div>
+          <span class="t5-section-label" style="color:#0F6E56">Requests for Proposal (RFP)</span>
+          <span class="t5-section-count">5 documents</span>
+        </div>
+        <div class="t5-list">
+          <a class="t5-row t5-row--rfp" data-sec="rfp"
+             data-title="engaging an agency to prepare state strategic plans for world bank supported ahssoh programme"
+             href="https://www.dahd.gov.in/sites/default/files/2023-11/RFPSSP.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0F6E56">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Engaging an Agency to Prepare State Strategic Plans for World Bank Supported Ahssoh Programme</div>
+              <div class="t5-sub">dahd.gov.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">RFP</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rfp" data-sec="rfp"
+             data-title="request for proposal (rfp) for selection of agency for setup of call center &amp; implementation, operations &amp; maintenance of mobile veterinary unit"
+             href="https://development.delhi.gov.in/sites/default/files/inline-files/tender_document_delhi_model_rfp_pdf.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0F6E56">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Request for Proposal (RFP) for Selection of Agency for Setup of Call center &amp; Implementation, Operations &amp; Maintenance of Mobile Veterinary Unit</div>
+              <div class="t5-sub">development.delhi.gov.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">RFP</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rfp" data-sec="rfp"
+             data-title="rfp for selection of agency for operation and maintenance of goshala (cattle shelter) at sandhapur in jatni municipality."
+             href="http://www.jatnimunicipality.in/Admin/News/Details%20of%20Goshala%20RFP,%20Technical%20&amp;%20Financial%20Bid%20Evaluation%20of%20EO%20I2662024090.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0F6E56">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">RFP for Selection of Agency for Operation and Maintenance of Goshala (Cattle shelter) at Sandhapur in Jatni Municipality.</div>
+              <div class="t5-sub">jatnimunicipality.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">RFP</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rfp" data-sec="rfp"
+             data-title="hiring of technical support agency (tsa) for livestock business development under piu-ahd, smart"
+             href="https://smart-ms-masterapi.smart-mh.org/CMSAttachments/RFPTSA_132424012414.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0F6E56">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Hiring of Technical Support Agency (TSA) for Livestock Business Development under Piu-ahd, Smart</div>
+              <div class="t5-sub">smart-ms-masterapi.smart-mh.org</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">RFP</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rfp" data-sec="rfp"
+             data-title="request for proposals for construction of cattle protection trench (6ftx 3ft x 4ft)"
+             href="https://www.brlf.in/wp-content/uploads/2026/01/RFP-Construction-of-Cattle-Protection-Trench-6ftX-3ft-X-4ft.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0F6E56">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Request for Proposals for Construction of Cattle Protection Trench (6ftX 3ft X 4ft)</div>
+              <div class="t5-sub">brlf.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">RFP</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+        </div>
+      </div><!-- /rfp section -->
+      <div class="t5-section" data-sec="rpt" style="animation-delay:0.30s">
+        <div class="t5-section-header">
+          <div class="t5-section-bar" style="background:#0369a1"></div>
+          <span class="t5-section-label" style="color:#0369a1">Reports &amp; DPR</span>
+          <span class="t5-section-count">4 documents</span>
+        </div>
+        <div class="t5-list">
+          <a class="t5-row t5-row--rpt" data-sec="rpt"
+             data-title="detailed project report poultry &amp; cattle feed unit"
+             href="https://megahvt.gov.in/policy/ModelDPRPoultryandCattleFeed.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0369a1">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Detailed Project Report Poultry &amp; Cattle Feed Unit</div>
+              <div class="t5-sub">megahvt.gov.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">DPR</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rpt" data-sec="rpt"
+             data-title="detailed project report on setting up of a pig rearing farm"
+             href="https://www.ncdc.in/documents/downloads/171804052017.Sample-DPR_Pig-Rearing-Farm.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0369a1">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Detailed Project Report on Setting up of a Pig Rearing Farm</div>
+              <div class="t5-sub">ncdc.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">DPR</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rpt" data-sec="rpt"
+             data-title="detailed project report on integrated agriculture project"
+             href="https://dhenkanalkvk.org/pdf/dpr_integrated_agril_of_smplantation.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0369a1">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Detailed Project Report on Integrated Agriculture Project</div>
+              <div class="t5-sub">dhenkanalkvk.org</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">DPR</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rpt" data-sec="rpt"
+             data-title="financial feasibility analysis of beef cattle breeding business in baluran national park buffer zone"
+             href="http://irjaes.com/wp-content/uploads/2022/12/IRJAES-V7N4P295Y22.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0369a1">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Financial Feasibility Analysis of Beef Cattle Breeding Business in Baluran National Park Buffer Zone</div>
+              <div class="t5-sub">irjaes.com</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">Report</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+        </div>
+      </div><!-- /rpt section -->
+    </div><!-- /t5Sections -->
+  </div><!-- /t5-wrap -->
+
+  </div>
+  </div><!-- /spv-panel-tender -->
+
+  <div id="spv-panel-media" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+
+    <style>
+/* ── Media/Web tab — matches solar-pv.html ── */
+</style>
+
+    <!--
+    ══════════════════════════════════════════════════════════════════
+    HOW TO ADD A MEDIA ROW
+    ══════════════════════════════════════════════════════════════════
+    1. Copy one <a class="media-row …"> block below.
+    2. Set  --mr-accent  (the colour) and  --mr-tint  (accent at ~10% opacity).
+       Suggested palette:
+         Green-teal   #0F6E56  rgba(15,110,86,.1)
+         Blue         #185FA5  rgba(24,95,165,.1)
+         Amber        #BA7517  rgba(186,117,23,.1)
+         Emerald      #1D9E75  rgba(29,158,117,.1)
+         Indigo       #534AB7  rgba(83,74,183,.1)
+         Red          #C81414  rgba(200,20,20,.1)
+         Orange       #C85000  rgba(200,80,0,.1)
+    3. Set the  href  to the URL.
+    4. Update  media-row-tag  (e.g. "Case Study · Germany"), title, and source domain.
+    5. Choose an appropriate SVG icon for  media-row-icon  (stroke colour = --mr-accent).
+
+    ICON IDEAS (copy the <svg> you need):
+      Globe/website  → <circle cx="12" cy="12" r="10"/> + grid lines
+      Document/report→ <path d="M14 2H6…"/> (file icon)
+      Location/map   → <path d="M12 2C8.13 2…"/> (pin icon)
+      Chart/data     → <polyline points="22 12 18 12 15 21…"/> (pulse)
+      Book/policy    → <path d="M2 3h6a4 4 0 0 1 4 4v14…"/> (book)
+      News           → <rect x="3" y="3" width="18" height="18" rx="2"/> (grid)
+    ══════════════════════════════════════════════════════════════════
+
+    <div class="media-stack">
+
+      <a class="media-row" href="https://dribbble.com/search/livestock-website" target="_blank" rel="noopener noreferrer"
+         style="--mr-accent:#1a7a5e;--mr-tint:rgba(26,122,94,.1);">
+        <div class="media-row-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a7a5e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
+        <div class="media-row-main">
+          <div class="media-row-tag">Website · Design Reference</div>
+          <div class="media-row-title">Livestock Website</div>
+          <div class="media-row-source">
+            <svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><line x1="2" y1="8" x2="14" y2="8"/><path d="M8 2a10 10 0 010 12M8 2a10 10 0 000 12"/></svg>
+            dribbble.com
+          </div>
+        </div>
+        <div class="media-row-arrow">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/></svg>
+        </div>
+      </a>
+
+      <a class="media-row" href="https://www.agriwebb.com/" target="_blank" rel="noopener noreferrer"
+         style="--mr-accent:#C85000;--mr-tint:rgba(200,80,0,.1);">
+        <div class="media-row-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C85000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <div class="media-row-main">
+          <div class="media-row-tag">Software · Farm Management</div>
+          <div class="media-row-title">Livestock Management Software That Moves Your Farm Forward</div>
+          <div class="media-row-source">
+            <svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><line x1="2" y1="8" x2="14" y2="8"/><path d="M8 2a10 10 0 010 12M8 2a10 10 0 000 12"/></svg>
+            agriwebb.com
+          </div>
+        </div>
+        <div class="media-row-arrow">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/></svg>
+        </div>
+      </a>
+
+      <a class="media-row" href="https://desygner.com/blog/industry/how-to-create-content-for-livestock-feed-supply-business" target="_blank" rel="noopener noreferrer"
+         style="--mr-accent:#1a5ca8;--mr-tint:rgba(26,92,168,.1);">
+        <div class="media-row-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a5ca8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        </div>
+        <div class="media-row-main">
+          <div class="media-row-tag">Article · Content Guide</div>
+          <div class="media-row-title">Creating Content for a Livestock Feed and Supply Business</div>
+          <div class="media-row-source">
+            <svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><line x1="2" y1="8" x2="14" y2="8"/><path d="M8 2a10 10 0 010 12M8 2a10 10 0 000 12"/></svg>
+            desygner.com
+          </div>
+        </div>
+        <div class="media-row-arrow">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/></svg>
+        </div>
+      </a>
+
+    </div><!-- /media-stack -->
+
+    <p style="font-size:0.72rem; color:var(--color-text-secondary); font-style:italic; margin-top:16px;">Links open external websites. Coal Controller Organisation does not endorse third-party content.</p>
+
+    </div>
+  </div><!-- /spv-panel-media -->
+
+  <div id="spv-panel-agencies" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+
+      <div class="agencies-logo-grid">
+
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img">
+            <img src="../images/agencies/Suguna Foods Pvt Ltd.png" alt="Suguna Foods Pvt Ltd" style="max-width:100%; max-height:64px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">Suguna Foods Pvt Ltd</div>
+          <div class="agency-logo-type">Turnkey poultry &amp; livestock farm: shed design, construction, equipment supply &amp; flock installation</div>
+        </div>
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img">
+            <img src="../images/agencies/Venkys India Ltd.gif" alt="Venkys India Ltd" style="max-width:100%; max-height:64px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">Venkys India Ltd</div>
+          <div class="agency-logo-type">Integrated poultry farm shed construction, equipment, ventilation &amp; flock supply</div>
+        </div>
+        
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img">
+            <img src="../images/agencies/Keggfarms Pvt Ltd.gif" alt="Keggfarms Pvt Ltd (Kuroiler)" style="max-width:100%; max-height:64px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">Keggfarms Pvt Ltd (Kuroiler)</div>
+          <div class="agency-logo-type">Poultry farm shed design, build, breed supply &amp; farm commissioning</div>
+        </div>
+        
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img" style="background:#ffffff; border-radius:10px;">
+             <img src="../images/agencies/greenfarms.png" alt="Keggfarms Pvt Ltd (Kuroiler)" style="max-width:100%; max-height:64px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">GreenFarm Equipments India</div>
+          <div class="agency-logo-type">Livestock shed construction, feeding &amp; watering systems, manure management equipment setup</div>
+        </div>
+        
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img" style="background:#ffffff; border-radius:10px;">
+             <img src="../images/agencies/Raj_Agro.png" alt="Keggfarms Pvt Ltd (Kuroiler)" style="max-width:100%; max-height:64px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">Raj Agro International</div>
+          <div class="agency-logo-type">Dairy &amp; livestock shed construction, stall systems &amp; milking equipment supply &amp; install</div>
+        </div>
+        
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img">
+            <img src="../images/agencies/Provet India.png" alt="Provet India" style="max-width:100%; max-height:64px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">Provet India</div>
+          <div class="agency-logo-type">Livestock equipment supply, farm layout design &amp; shed commissioning</div>
+        </div>
+        
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img" style="background:#f5f5f5; border-radius:10px;">
+          </div>
+          <div class="agency-logo-name">SKA Group (livestock infrastructure)</div>
+          <div class="agency-logo-type">Poultry &amp; livestock farm civil, shed &amp; utilities construction</div>
+        </div>
+        
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img">
+            <img src="../images/agencies/Godrej Agrovet Ltd.png" alt="Godrej Agrovet – Agri Services Div." style="max-width:100%; max-height:64px; object-fit:contain; background: #1a5ca8;">
+          </div>
+          <div class="agency-logo-name">Godrej Agrovet – Agri Services Div.</div>
+          <div class="agency-logo-type">Animal husbandry infrastructure, feed systems &amp; integrated livestock farm setup</div>
+        </div>
+
+      </div><!-- /agencies-logo-grid -->
+
+      <div style="margin-top:28px; padding:14px 18px; background:rgba(33,128,141,.05); border:1px solid rgba(33,128,141,.18); border-radius:8px; display:flex; gap:12px; align-items:flex-start;">
+        <svg style="flex-shrink:0; margin-top:2px;" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#21808d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <p style="margin:0; font-family:var(--font-sans); font-size:0.8rem; color:var(--color-text-secondary); line-height:1.65;">
+          <strong style="color:var(--color-text); font-weight:600;">Disclaimer:</strong>
+          Inclusion of an agency on this list does not constitute endorsement, empanelment, or recommendation by the Coal Controller Organisation or the Ministry of Coal, Government of India. Mine owners and project proponents are advised to conduct their own due diligence process before engaging any agency.
+        </p>
+      </div>
+
+    </div>
+  </div><!-- /spv-panel-agencies -->
+
+  <div id="spv-panel-experts" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+      <div class="experts-grid">
+
+        <!-- ── EDIT: Expert cards ──────────────────────────────────────
+             Avatar: 2–3 letter initials, with a gradient background colour.
+             Gradient suggestions:
+               linear-gradient(135deg,#1a7a5e,#0f5a42)  — green
+               linear-gradient(135deg,#1a5ca8,#0e3d77)  — blue
+               linear-gradient(135deg,#5a3d9e,#3d2870)  — purple
+               linear-gradient(135deg,#C85000,#8a3800)  — orange
+               linear-gradient(135deg,#b45309,#7a380a)  — amber
+               linear-gradient(135deg,#21808d,#0a5c66)  — teal
+             ─────────────────────────────────────────────────────────── -->
+
+     
+
+        <div class="expert-card">
+          <div class="expert-card-top">
+            <div class="expert-avatar">AS</div>
+            <div class="expert-header-info">
+              <div class="expert-name">Dr. Amit Sharma</div>
+              <div class="expert-role">Livestock Production Management</div>
+            </div>
+          </div>
+          <div class="expert-tags">
+            <span class="expert-tag">Livestock Production</span>
+            <span class="expert-tag">Farm Management</span>
+          </div>
+          <p class="expert-bio">Specialist in livestock production management with expertise in optimising herd productivity, feed systems, and sustainable livestock farm operations.</p>
+          <div class="expert-contact">
+            <a href="tel:+919888948857">+91 98889 48857</a>
+            <a href="mailto:draslpm@gmail.com">draslpm@gmail.com</a>
+          </div>
+        </div>
+
+        <div class="expert-card">
+          <div class="expert-card-top">
+            <div class="expert-avatar">YS</div>
+            <div class="expert-header-info">
+              <div class="expert-name">Dr. Yashpal Singh</div>
+              <div class="expert-role">Livestock Production Management</div>
+            </div>
+          </div>
+          <div class="expert-tags">
+            <span class="expert-tag">Livestock Production</span>
+            <span class="expert-tag">Farm Management</span>
+          </div>
+          <p class="expert-bio">Expert in livestock production management, focusing on animal husbandry practices, production efficiency, and integrated livestock systems for sustainable farm development.</p>
+          <div class="expert-contact">
+            <a href="tel:+918591287755">+91 85912 87755</a>
+            <a href="mailto:Dryash2007@rediffmail.com">Dryash2007@rediffmail.com</a>
+          </div>
+        </div>
+
+        <div class="expert-card">
+          <div class="expert-card-top">
+            <div class="expert-avatar">AD</div>
+            <div class="expert-header-info">
+              <div class="expert-name">Dr. A. J. Dhami</div>
+              <div class="expert-role">Farm Management &amp; Livestock Development · AAU</div>
+            </div>
+          </div>
+          <div class="expert-tags">
+            <span class="expert-tag">Farm Management</span>
+            <span class="expert-tag">Livestock Development</span>
+          </div>
+          <p class="expert-bio">Specialist in farm management and livestock development at Anand Agricultural University (AAU), with expertise in reproductive health, herd management, and farm enterprise development.</p>
+          <div class="expert-contact">
+            <a href="tel:+919898262498">+91 98982 62498</a>
+            <a href="mailto:ajdhami@aau.in">ajdhami@aau.in</a>
+          </div>
+        </div>
+
+      </div><!-- /experts-grid -->
+      <div style="margin-top:28px;padding:14px 18px;background:rgba(33,128,141,.05);border:1px solid rgba(33,128,141,.18);border-radius:8px;display:flex;gap:12px;align-items:flex-start;">
+        <svg style="flex-shrink:0;margin-top:2px;" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#21808d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <p style="margin:0;font-family:var(--font-sans);font-size:0.8rem;color:var(--color-text-secondary);line-height:1.65;"><strong style="color:var(--color-text);font-weight:600;">Disclaimer:</strong> Inclusion of an expert does not constitute endorsement, empanelment, or recommendation by the Coal Controller Organisation or the Ministry of Coal, Government of India. Users are advised to independently verify credentials and suitability before engaging any individual.</p>
+      </div>
+    </div>
+  </div><!-- /spv-panel-experts -->
+
+  <!-- Footer -->
+  <footer id="site-footer-sf">
+    &copy; 2026 Coal Controller Organisation, Ministry of Coal, Government of India.
+  </footer>
+
+</div><!-- /page -->
+
+<!-- ═══════════════════════════════════════════════════════
+     SCRIPTS — edit only the PRISM2_COLORS and PRISM2_BG values
+     ═══════════════════════════════════════════════════════ -->
+<script>
+const PRISM2_COLORS = {P:'#C85000', R:'#1a5ca8', I:'#b06a10', S:'#5a3d9e', M:'#1a7a5e'};
+const PRISM2_BG     = {P:'#fff0e6', R:'#e4eef9', I:'#faedda', S:'#edeaf8', M:'#e1f3ec'};
+</script>
+<script src="./category.js"></script>
+<script>
+window.prism2Next = function() {
+  if (prism2Current < PRISM2_ORDER.length - 1) prNav(PRISM2_ORDER[prism2Current + 1]);
+};
+window.prism2Prev = function() {
+  if (prism2Current > 0) prNav(PRISM2_ORDER[prism2Current - 1]);
+};
+
+function downloadPRISM() {
+  var rawTitle = document.title || '';
+  var catName  = rawTitle.split('—')[0].split('-')[0].trim() || 'Category';
+
+  var PC = {P:'#C85000',R:'#1a5ca8',I:'#b06a10',S:'#5a3d9e',M:'#1a7a5e'};
+  var PB = {P:'#fff8f3',R:'#f3f7fd',I:'#fdf7f0',S:'#f7f5fd',M:'#f1faf6'};
+  var PN = {P:'Project Vision',R:'Repurposing Pathways',I:'Investment Dynamics',S:'Strategic Structuring',M:'Monitoring &amp; Management'};
+  var PE = {P:'POST-MINING',R:'REPURPOSING',I:'INVESTMENT',S:'STRATEGY',M:'MANAGEMENT'};
+
+  var introHeadEl = document.querySelector('.pr-intro-heading');
+  var introBodyEl = document.querySelector('.pr-intro-body');
+  var introHead   = introHeadEl ? introHeadEl.textContent : 'A structured framework for mine repurposing from concept to implementation';
+  var introBody   = introBodyEl ? introBodyEl.innerHTML   : '';
+
+  var pillarsHTML = '';
+  ['P','R','I','S','M'].forEach(function(k) {
+    var panel = document.getElementById('prism2-panel-' + k);
+    if (!panel) return;
+
+    var eyebrowEl   = panel.querySelector('.prism2-panel-eyebrow');
+    var titleEl     = panel.querySelector('.prism2-panel-title');
+    var descEl      = panel.querySelector('.prism2-panel-desc');
+    var eyebrow     = eyebrowEl  ? eyebrowEl.textContent  : PE[k];
+    var panelTitle  = titleEl    ? titleEl.textContent    : PN[k];
+    var descHTML    = descEl     ? descEl.innerHTML       : '';
+
+    var accHTML = '';
+    panel.querySelectorAll('.accordion-item').forEach(function(item) {
+      var spans = item.querySelectorAll('.accordion-btn span');
+      var btnText = '';
+      for (var s = 0; s < spans.length; s++) {
+        var t = spans[s].textContent.trim();
+        if (t && t !== '⥤' && t !== '˅') { btnText = t; break; }
+      }
+      var body = item.querySelector('.accordion-body');
+      if (!body) return;
+      var clone = body.cloneNode(true);
+      clone.style.display = '';
+      /* Remove scroll-wrapper overflow so tables span full width */
+      clone.querySelectorAll('.spv-table-wrap').forEach(function(w){w.style.overflowX='visible';});
+      accHTML += '<div class="acc-item">' +
+        '<div class="acc-heading">' + btnText + '</div>' +
+        '<div class="acc-body">' + clone.innerHTML + '</div>' +
+        '</div>';
+    });
+
+    pillarsHTML +=
+      '<div class="pillar" style="border-left-color:' + PC[k] + ';">' +
+        '<div class="pillar-hdr" style="background:' + PC[k] + '18;">' +
+          '<div class="pillar-letter" style="color:' + PC[k] + ';">' + k + '</div>' +
+          '<div class="pillar-info">' +
+            '<div class="pillar-eyebrow" style="color:' + PC[k] + ';">' + eyebrow + '</div>' +
+            '<div class="pillar-name">' + panelTitle + '</div>' +
+            (descHTML ? '<div class="pillar-desc">' + descHTML + '</div>' : '') +
+          '</div>' +
+        '</div>' +
+        '<div class="pillar-content">' + accHTML + '</div>' +
+      '</div>';
+  });
+
+  var css = [
+    '*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}',
+    'body{font-family:"Segoe UI",Arial,sans-serif;font-size:10pt;color:#1a1a1a;line-height:1.65;background:#fff}',
+    '@page{size:A4;margin:16mm 14mm}',
+    /* ── Cover ── */
+    '.cover{margin-bottom:28pt;padding-bottom:22pt;border-bottom:1.5pt solid #ddd}',
+    '.rainbow{height:5pt;border-radius:99pt;background:linear-gradient(to right,#7C3AB5,#4f6de0,#0ea5e9,#1D9E75,#3B6D11,#BA7517,#C85000,#A32D2D);margin-bottom:18pt}',
+    '.cover-eye{font-size:7.5pt;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#888;margin-bottom:7pt}',
+    '.cover-title{font-size:24pt;font-weight:800;color:#111;line-height:1.15;margin-bottom:5pt}',
+    '.cover-sub{font-size:11pt;font-weight:600;color:#444;margin-bottom:11pt}',
+    '.cover-body{font-size:9pt;color:#555;line-height:1.75}',
+    /* ── Pillars ── */
+    '.pillars{display:flex;flex-direction:column;gap:20pt}',
+    '.pillar{border-left:4pt solid #ccc;border-radius:6pt;overflow:hidden;page-break-inside:avoid}',
+    '.pillar-hdr{padding:13pt 15pt 11pt;display:flex;align-items:flex-start;gap:12pt}',
+    '.pillar-letter{font-size:30pt;font-weight:800;line-height:1;flex-shrink:0;width:38pt;opacity:.85}',
+    '.pillar-info{flex:1}',
+    '.pillar-eyebrow{font-size:7pt;font-weight:700;letter-spacing:.11em;text-transform:uppercase;margin-bottom:2pt}',
+    '.pillar-name{font-size:12.5pt;font-weight:700;color:#111;margin-bottom:3pt}',
+    '.pillar-desc{font-size:8.5pt;color:#555;line-height:1.6}',
+    /* ── Accordion ── */
+    '.pillar-content{background:#fff}',
+    '.acc-item{border-top:1pt solid #e8e8e0}',
+    '.acc-heading{font-size:9pt;font-weight:700;padding:8pt 13pt;color:#2a2a2a;background:#fafaf8}',
+    '.acc-body{font-size:8.5pt;line-height:1.75;color:#444;padding:9pt 13pt 11pt}',
+    /* ── Body content ── */
+    '.spv-body-text{margin-bottom:7pt}',
+    'p{margin-bottom:7pt}',
+    '.spv-list,.spv-list-unstyled{margin:5pt 0 7pt 16pt}',
+    'ul,ol{margin:5pt 0 7pt 16pt}',
+    '.spv-list li,ul li,ol li{margin-bottom:3pt}',
+    /* ── Tables ── */
+    '.spv-table-wrap{margin:7pt 0;overflow:visible}',
+    '.spv-table{width:100%;border-collapse:collapse;font-size:8pt}',
+    '.spv-table th{background:#f0f0ea;font-weight:700;text-align:left;padding:5pt 7pt;border:1pt solid #ccc;vertical-align:top}',
+    '.spv-table td{padding:4.5pt 7pt;border:1pt solid #ccc;vertical-align:top}',
+    '.spv-table tr:nth-child(even) td{background:#f9f9f7}',
+    /* ── Strong/em ── */
+    'strong{font-weight:700}',
+    'em{font-style:italic}',
+    /* ── Info/note boxes (if any) ── */
+    '.spv-note,.spv-info{background:#f5f5f0;border-left:3pt solid #aaa;padding:8pt 10pt;margin:6pt 0;font-size:8.5pt}'
+  ].join('\n');
+
+  var html = '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">' +
+    '<title>PRISM — ' + catName + '<\/title>' +
+    '<style>' + css + '<\/style><\/head><body>' +
+    '<div class="cover">' +
+      '<div class="rainbow"><\/div>' +
+      '<div class="cover-eye">PRISM Framework — Post-Mining Repurposing &amp; Implementation Strategy Models<\/div>' +
+      '<div class="cover-title">' + catName + '<\/div>' +
+      '<div class="cover-sub">' + introHead + '<\/div>' +
+      (introBody ? '<div class="cover-body">' + introBody + '<\/div>' : '') +
+    '<\/div>' +
+    '<div class="pillars">' + pillarsHTML + '<\/div>' +
+    '<\/body><\/html>';
+
+  var win = window.open('', '_blank', 'width=960,height=750');
+  if (!win) { alert('Please allow pop-ups for this site to download the PDF.'); return; }
+  win.document.write(html);
+  win.document.close();
+  win.focus();
+  setTimeout(function() { win.print(); }, 700);
+}
+
+(function() {
+  var panel = document.getElementById('spv-panel-prism');
+  if (!panel) return;
+  new MutationObserver(function() {
+    if (panel.style.display !== 'none') setTimeout(function() { prNav('P'); }, 10);
+  }).observe(panel, { attributes: true, attributeFilter: ['style'] });
+})();
+</script>
+
+<!-- browse-back-script -->
+<script>
+(function(){
+  if(new URLSearchParams(location.search).get('from')==='browse'){
+    var btn=document.querySelector('.back-btn');
+    if(btn){
+      btn.onclick=function(){window.location.href='../browse.html';};
+      btn.setAttribute('aria-label','Back to Browse');
+      for(var i=btn.childNodes.length-1;i>=0;i--){
+        var n=btn.childNodes[i];
+        if(n.nodeType===3&&n.textContent.trim()){n.textContent=' Back to Browse';break;}
+      }
+    }
+    var cr=document.querySelector('.sf-breadcrumb span:not(.sep)');
+    if(cr)cr.textContent='All Categories';
+  }
+})();
+</script>
+</body>
+</html>
