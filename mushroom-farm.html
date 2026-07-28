@@ -1,0 +1,1670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mushroom Farm — SUVIKALP | Coal Controller Organisation</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="./category.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<header id="site-header">
+  <div class="header-left">
+    <div class="header-tool-title">
+      <span class="hindi">सुविकल्प:</span> Mine Repurposing Tool
+    </div>
+    <div class="header-tool-sub">
+      Select factors and sub-factors to discover suitable repurposing options for your mining site
+    </div>
+  </div>
+  <div class="header-right">
+    <a href="https://coalcontroller.gov.in/" target="_blank" rel="noopener" title="CCO Home">
+    <div class="header-cco-lockup">
+      <img class="header-cco-logo" src="data:image/png;base64,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" alt="Coal Controller Organisation emblem">
+      <div class="header-cco-text"></div>
+    </div>
+    </a>
+  </div>
+</header>
+
+<div class="page">
+
+  <!-- Back bar -->
+  <div class="sf-backbar">
+    <button class="back-btn" onclick="window.location.href='../index.html'" aria-label="Back to results">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M10 3L5 8l5 5"/>
+      </svg>
+      Back to Results
+    </button>
+    <span class="sf-breadcrumb">
+      <span>Final Recommendations</span>
+      <span class="sep">/</span>
+      <span style="color:var(--teal);font-weight:500;">Mushroom Cultivation &amp; Value-Chain</span>
+    </span>
+  </div>
+
+  <!-- Hero Image -->
+  <div class="spv-hero-wrap">
+    <img src="../images/mf-hero.jpg" alt="Controlled-environment mushroom cultivation and growing rooms on repurposed mine land" class="spv-hero-img">
+    <div class="spv-hero-overlay"></div>
+    <div class="spv-hero-title">Mushroom Farm</div>
+  </div>
+
+  <!-- Main Tab navigation -->
+  <nav class="spv-tabs" aria-label="Detail sections">
+    <button class="spv-tab active" data-tab="about"       onclick="showSPVTab('about')">About</button>
+    <button class="spv-tab"        data-tab="prism"        onclick="showSPVTab('prism');prNav(PRISM2_ORDER[prism2Current])">P.R.I.S.M</button>
+    <button class="spv-tab"        data-tab="casestudies"  onclick="showSPVTab('casestudies');setTimeout(function(){window.dispatchEvent(new Event('resize'))},30)">Case Studies</button>
+    <button class="spv-tab"        data-tab="tender"       onclick="showSPVTab('tender')">Sample Tender Documents</button>
+    <button class="spv-tab"        data-tab="media"        onclick="showSPVTab('media')">Media/Web</button>
+    <button class="spv-tab"        data-tab="agencies"    onclick="showSPVTab('agencies')">Agencies</button>
+<!-- EXPERTS TAB HIDDEN (page not yet complete)
+<button class="spv-tab"        data-tab="experts"      onclick="showSPVTab('experts')">Experts</button>
+-->
+  </nav>
+
+  <!-- TAB: About -->
+  <div id="spv-panel-about" class="spv-panel">
+    <div class="spv-content">
+    <div class="about-hero-row">
+      <div class="about-hero-slide-col">
+        <div class="about-hero-label-wrap">
+          <div class="about-hero-label">Global Precedents</div>
+          <span class="about-hero-label-bar"></span>
+        </div>
+        <div class="proj-slideshow">
+          <img src="../images/mf-about.jpg" alt="Large-scale button mushroom cultivation in controlled-environment growing facility — global precedent" class="proj-slide-img" loading="lazy">
+          <div class="proj-slide-overlay"><span class="proj-caption">Underground Mushroom Farm, Namur, Belgium</span></div>
+        </div>
+      </div>
+      <div class="about-hero-text-col">
+        <div class="about-intro">
+          <div class="about-intro-block about-intro-primary">
+            <p class="spv-body-text" style="margin:0;">
+              Mushroom farming offers a sustainable mine repurposing opportunity by utilizing abandoned mine buildings, underground spaces, and reclaimed land for commercial cultivation. The naturally cool and humid conditions in mine areas support year-round production with minimal environmental impact. This approach promotes livelihood generation, women-led self-help groups, agri-based entrepreneurship, and local employment while ensuring productive reuse of post-mining infrastructure.
+            </p>
+          </div>
+          <div class="about-intro-block about-intro-secondary">
+            <p class="spv-body-text" style="margin:0;">
+              Successful implementation requires proper hygiene management, adequate ventilation and water supply, technical skill development, strong market linkages, and sustainable long-term operations.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-section">
+      <div class="about-section-eyebrow">Policy &amp; Support</div>
+      <h3 class="about-section-title">Policy Levers driving Mushroom Cultivation &amp; Value-Chain scale-up</h3>
+      <div class="schemes-outer">
+        <button class="schemes-nav-btn schemes-prev" onclick="schemesNav(-1)" aria-label="Previous">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <div class="schemes-ticker-wrap">
+          <div class="schemes-ticker" id="schemesTicker">
+            <div class="scheme-card">
+              <div class="scheme-card-icon">&#127812;</div>
+              <div class="scheme-card-tag">NHB / MoA&amp;FW</div>
+              <div class="scheme-card-title">National Horticulture Board — Mushroom DPR &amp; Infrastructure Support</div>
+              <div class="scheme-card-desc">NHB provides model DPRs and benchmark infrastructure for 50 TPA, 100 TPA, and 500 TPA+ mushroom units covering cropping rooms, pasteurization tunnels, compost yards, cold rooms, and plant and machinery.</div>
+            </div>
+            <div class="scheme-card">
+              <div class="scheme-card-icon">&#127968;</div>
+              <div class="scheme-card-tag">MoRD / DAY-NRLM</div>
+              <div class="scheme-card-title">DAY-NRLM — SHG Livelihood &amp; Mushroom Enterprise Support</div>
+              <div class="scheme-card-desc">Deendayal Antyodaya Yojana – National Rural Livelihoods Mission supports SHG-based livelihood activities including mushroom cultivation, training, and enterprise development in rural and mine-affected areas.</div>
+            </div>
+            <div class="scheme-card">
+              <div class="scheme-card-icon">&#127981;</div>
+              <div class="scheme-card-tag">MoMSME</div>
+              <div class="scheme-card-title">PMEGP — Prime Minister's Employment Generation Programme</div>
+              <div class="scheme-card-desc">PMEGP provides credit-linked capital subsidy for food processing, packaging, and rural enterprise units including mushroom spawn production, processing, and value-added product manufacturing.</div>
+            </div>
+            <div class="scheme-card">
+              <div class="scheme-card-icon">&#127807;</div>
+              <div class="scheme-card-tag">DAC&amp;FW / SFAC</div>
+              <div class="scheme-card-title">FPO Promotion &amp; Market Linkage Support</div>
+              <div class="scheme-card-desc">SFAC/DAC&amp;FW FPO equity grant and NABARD support for farmer-producer-organisation-linked mushroom cultivation, processing, and market linkage clusters.</div>
+            </div>
+            <div class="scheme-card">
+              <div class="scheme-card-icon">&#127822;</div>
+              <div class="scheme-card-tag">MoFPI</div>
+              <div class="scheme-card-title">PM-FME — Formalisation of Micro Food Processing Enterprises</div>
+              <div class="scheme-card-desc">Credit-linked subsidy and technical support for micro food processing units; supports SHG/FPO-based mushroom drying, packing, powder, pickle, and value-addition enterprises.</div>
+            </div>
+            <div class="scheme-card">
+              <div class="scheme-card-icon">&#9981;</div>
+              <div class="scheme-card-tag">MoC / CCO</div>
+              <div class="scheme-card-title">Mine Repurposing Policy — L.I.V.E.S &amp; A.R.T.H.A Frameworks</div>
+              <div class="scheme-card-desc">CCO mine-closure handbooks (A.R.T.H.A, L.I.V.E.S, R.E.C.L.A.I.M) promote ecological restoration, community development, and productive repurposing; mushroom farming is an eligible livelihood repurposing activity.</div>
+            </div>
+            <!-- duplicates for seamless loop -->
+            <div class="scheme-card" aria-hidden="true">
+              <div class="scheme-card-icon">&#127812;</div>
+              <div class="scheme-card-tag">NHB / MoA&amp;FW</div>
+              <div class="scheme-card-title">National Horticulture Board — Mushroom DPR &amp; Infrastructure Support</div>
+              <div class="scheme-card-desc">NHB provides model DPRs and benchmark infrastructure for 50 TPA, 100 TPA, and 500 TPA+ mushroom units.</div>
+            </div>
+            <div class="scheme-card" aria-hidden="true">
+              <div class="scheme-card-icon">&#127968;</div>
+              <div class="scheme-card-tag">MoRD / DAY-NRLM</div>
+              <div class="scheme-card-title">DAY-NRLM — SHG Livelihood &amp; Mushroom Enterprise Support</div>
+              <div class="scheme-card-desc">Supports SHG-based livelihood activities including mushroom cultivation, training, and enterprise development in rural and mine-affected areas.</div>
+            </div>
+            <div class="scheme-card" aria-hidden="true">
+              <div class="scheme-card-icon">&#127981;</div>
+              <div class="scheme-card-tag">MoMSME</div>
+              <div class="scheme-card-title">PMEGP — Prime Minister's Employment Generation Programme</div>
+              <div class="scheme-card-desc">Credit-linked capital subsidy for mushroom spawn production, processing, and value-added product manufacturing.</div>
+            </div>
+            <div class="scheme-card" aria-hidden="true">
+              <div class="scheme-card-icon">&#127807;</div>
+              <div class="scheme-card-tag">DAC&amp;FW / SFAC</div>
+              <div class="scheme-card-title">FPO Promotion &amp; Market Linkage Support</div>
+              <div class="scheme-card-desc">FPO equity grant and NABARD support for farmer-producer-organisation-linked mushroom cultivation, processing, and market linkage clusters.</div>
+            </div>
+            <div class="scheme-card" aria-hidden="true">
+              <div class="scheme-card-icon">&#127822;</div>
+              <div class="scheme-card-tag">MoFPI</div>
+              <div class="scheme-card-title">PM-FME — Formalisation of Micro Food Processing Enterprises</div>
+              <div class="scheme-card-desc">Supports SHG/FPO-based mushroom drying, packing, powder, pickle, and value-addition enterprises.</div>
+            </div>
+            <div class="scheme-card" aria-hidden="true">
+              <div class="scheme-card-icon">&#9981;</div>
+              <div class="scheme-card-tag">MoC / CCO</div>
+              <div class="scheme-card-title">Mine Repurposing Policy — L.I.V.E.S &amp; A.R.T.H.A Frameworks</div>
+              <div class="scheme-card-desc">CCO mine-closure handbooks promote ecological restoration, community development, and productive repurposing; mushroom farming is an eligible livelihood repurposing activity.</div>
+            </div>
+          </div>
+        </div>
+        <button class="schemes-nav-btn schemes-next" onclick="schemesNav(1)" aria-label="Next">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
+    </div>
+
+    </div>
+  </div>
+
+  <!-- TAB: P.R.I.S.M -->
+  <div id="spv-panel-prism" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+
+<style>
+.pr-intro { padding:22px 24px 20px; background:rgba(33,128,141,.05); border:1px solid rgba(33,128,141,.15); border-radius:14px; margin-bottom:20px; }
+  .pr-intro-eyebrow { font-size:15px; font-weight:700; color:#21808d; margin-bottom:8px; font-style:normal; line-height:1.35; }
+  .pr-intro-heading { font-size:16px; font-weight:700; color:#0f172a; margin-bottom:10px; line-height:1.35; font-style:normal; }
+  .pr-intro-body { font-size:13.5px; color:#374151; line-height:1.85; font-style:normal; }
+  .pr-shell { display:flex; border:1px solid #e2e8f0; border-radius:14px; overflow:clip; background:#fff; }
+  .pr-sidebar { width:220px; flex-shrink:0; border-right:1px solid #e8edf2; padding:16px 0 16px; background:#f8fafc; position:sticky; top:125px; align-self:flex-start; max-height:calc(100vh - 155px); overflow-y:auto; overflow-x:visible; }
+  .pr-sidebar-label { font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:#7a8a9a; padding:0 16px 14px; font-style:normal; }
+  .pr-nav-highlight { position:absolute; left:0; right:0; pointer-events:none; z-index:0; will-change:top,height; background:color-mix(in srgb,var(--pr-hl,#C85000) 9%,transparent); transition:top .4s cubic-bezier(.4,0,.2,1),height .4s cubic-bezier(.4,0,.2,1),background .38s ease; }
+  .pr-nav-highlight::before { content:''; position:absolute; left:0; top:0; bottom:0; width:3px; background:var(--pr-hl,#C85000); border-radius:0 2px 2px 0; transition:background .38s ease; }
+  .pr-nav-item { position:relative; z-index:1; display:flex; align-items:center; gap:12px; padding:13px 16px; cursor:pointer; font-style:normal; }
+  .pr-nav-item::after { display:none; }
+  .pr-nav-item:hover,.pr-nav-item.active { background:transparent; transform:none; }
+  .pr-nav-badge { width:34px; height:34px; border-radius:50%; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:800; border:1.5px solid #d1d5db; color:#9ca3af; background:#fff; position:relative; z-index:1; transition:background .35s cubic-bezier(.4,0,.2,1),color .3s ease,border-color .35s ease,transform .45s cubic-bezier(.34,1.56,.64,1),box-shadow .35s ease; }
+  .pr-nav-item.active .pr-nav-badge { background:var(--pr-accent); color:#fff; border-color:var(--pr-accent); transform:scale(1.12); box-shadow:0 0 0 4px color-mix(in srgb,var(--pr-accent) 18%,transparent),0 3px 10px color-mix(in srgb,var(--pr-accent) 32%,transparent); }
+  .pr-nav-item:hover:not(.active) .pr-nav-badge { border-color:var(--pr-accent); color:var(--pr-accent); background:color-mix(in srgb,var(--pr-accent) 7%,#fff); transform:scale(1.07); }
+  .pr-nav-letter { font-size:13px; font-weight:600; color:#374151; line-height:1.25; font-style:normal; position:relative; z-index:1; transition:color .25s ease,font-weight .2s; }
+  .pr-nav-item.active .pr-nav-letter { color:var(--pr-accent); font-weight:700; }
+  .pr-nav-item:hover:not(.active) .pr-nav-letter { color:var(--pr-accent); }
+  @keyframes nav-slide-in { from { opacity:0; transform:translateX(-10px); } to { opacity:1; transform:translateX(0); } }
+  .pr-nav-item { opacity:0; animation:nav-slide-in .32s cubic-bezier(.4,0,.2,1) both; }
+  .pr-nav-item:nth-child(3) { animation-delay:.02s; }
+  .pr-nav-item:nth-child(4) { animation-delay:.07s; }
+  .pr-nav-item:nth-child(5) { animation-delay:.12s; }
+  .pr-nav-item:nth-child(6) { animation-delay:.17s; }
+  .pr-nav-item:nth-child(7) { animation-delay:.22s; }
+  .pr-content-wrap { flex:1; min-width:0; }
+  .pr-content-wrap .prism2-content-panel { border-radius:0; box-shadow:none; }
+  .prism2-content-panel .prism2-panel-header { background:color-mix(in srgb,var(--pc) 5%,#fff); }</style>
+
+<div class="pr-intro">
+  <div class="pr-intro-eyebrow">PRISM – Post-Mining Repurposing and Implementation Strategy Models</div>
+  <div class="pr-intro-heading">A structured framework for mine repurposing from concept to implementation</div>
+  <div class="pr-intro-body">PRISM is a structured framework designed to support identified post-mining repurposing opportunities by evaluating suitable implementation pathways, financial and revenue-generation models, and the implementation requirements, roles, and responsibilities of mine owners, developers, operators, and other stakeholders throughout the project lifecycle. Built around five integrated pillars, PRISM guides Mushroom Cultivation, Processing &amp; Value-Chain Landscapes projects from concept to operation.</div>
+</div>
+
+<div class="pr-shell">
+  <div class="pr-sidebar">
+    <div class="pr-sidebar-label">Pillars</div>
+    <div class="pr-nav-highlight" id="pr-hl"></div>
+    <div class="pr-nav-item active" style="--pr-accent:#C85000;" data-key="P" onclick="prNav('P')">
+      <div class="pr-nav-badge">P</div>
+      <div><div class="pr-nav-letter">Project vision</div></div>
+    </div>
+    <div class="pr-nav-item" style="--pr-accent:#1a5ca8;" data-key="R" onclick="prNav('R')">
+      <div class="pr-nav-badge">R</div>
+      <div><div class="pr-nav-letter">Repurposing pathways</div></div>
+    </div>
+    <div class="pr-nav-item" style="--pr-accent:#b06a10;" data-key="I" onclick="prNav('I')">
+      <div class="pr-nav-badge">I</div>
+      <div><div class="pr-nav-letter">Investment dynamics</div></div>
+    </div>
+    <div class="pr-nav-item" style="--pr-accent:#5a3d9e;" data-key="S" onclick="prNav('S')">
+      <div class="pr-nav-badge">S</div>
+      <div><div class="pr-nav-letter">Strategic structuring</div></div>
+    </div>
+    <div class="pr-nav-item" style="--pr-accent:#1a7a5e;" data-key="M" onclick="prNav('M')">
+      <div class="pr-nav-badge">M</div>
+      <div><div class="pr-nav-letter">Monitoring guidance</div></div>
+    </div>
+  </div><!-- /pr-sidebar -->
+
+  <div class="pr-content-wrap">
+
+  <!-- ── P Panel ── -->
+  <div class="prism2-content-panel active" id="prism2-panel-P" style="--pc:#C85000;--pb:#fff0e6;--cb:#fff8f3;">
+    <div class="prism2-panel-header">
+      <div class="prism2-panel-header-letter">P</div>
+      <div class="prism2-panel-header-text">
+        <div class="prism2-panel-eyebrow">PROJECT VISION</div>
+        <p class="prism2-panel-desc">Post-mining site context, suitability criteria, scale matrix, and owner-side readiness before committing to a Mushroom Farming project.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">
+        <span>Project Overview</span>
+        <span class="accordion-chevron">&#8964;</span>
+      </button>
+      <div class="accordion-body" style="display:none;">
+        <p>This concept proposes the development of <strong>Mushroom Farming Zones</strong> on closed, reclaimed, or repurposed coal mine land as part of a sustainable mine-closure and post-mining land-use strategy. The objective is to convert under-utilized mine land, abandoned built spaces, reclaimed platforms, workshops, storage sheds, or low-productivity land parcels into <strong>controlled-environment mushroom production, training, processing, and livelihood clusters</strong>.</p>
+        <p>Unlike conventional agriculture, mushroom farming:</p>
+        <ul style="padding-left:1.4rem;line-height:1.9;">
+          <li>Requires very limited arable land</li>
+          <li>Can be conducted indoors using sheds, low-cost growing rooms, tunnels, or controlled-environment chambers</li>
+          <li>Uses agricultural residues such as paddy straw, wheat straw, maize stalks, sawdust, and other lignocellulosic biomass</li>
+          <li>Generates a nutrient-rich by-product in the form of spent mushroom substrate, which can be converted into manure or vermicompost</li>
+          <li>Is suitable for women SHGs, land-losers, youth, small entrepreneurs, and local producer groups</li>
+        </ul>
+        <p>Mushroom cultivation is particularly relevant for mine-closure repurposing because it can use compact sites, repurposed buildings, low-disturbance land parcels, and cluster-based production systems. It is an indoor crop, does not require arable land, has a short crop cycle, and provides high yield per unit time. This aligns with India's mine-closure approach, where frameworks such as <strong>L.I.V.E.S</strong>, <strong>R.E.C.L.A.I.M</strong>, and <strong>A.R.T.H.A</strong> promote ecological restoration, community development, green finance, and productive repurposing of closed mine areas.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">
+        <span>Strategic Rationale</span>
+        <span class="accordion-chevron">&#8964;</span>
+      </button>
+      <div class="accordion-body" style="display:none;">
+        <p>Mushroom farming is highly suited for closed coal mine areas because it is <strong>land-efficient, livelihood-intensive, low-footprint, modular, and scalable</strong>. It can be developed in reclaimed land parcels, unused buildings, closed mine infrastructure, training centres, community sheds, or purpose-built low-cost structures.</p>
+        <p><strong>Key Benefits:</strong></p>
+        <ul style="padding-left:1.4rem;line-height:1.9;">
+          <li>No dependence on high soil fertility — suitable for reclaimed, marginal, or non-arable mine land</li>
+          <li>Indoor and vertical-space-based production — high output from small land areas</li>
+          <li>Short crop cycle — faster income generation compared to orchards or forestry</li>
+          <li>High suitability for women SHGs, land-losers, youth, and small rural entrepreneurs</li>
+          <li>Uses agricultural residues and biomass — supports circular economy and waste-to-value conversion</li>
+          <li>Produces spent mushroom substrate — can be used for composting, vermicomposting, nursery media, and mine-land soil improvement</li>
+          <li>Supports diversified revenue streams: fresh mushrooms, dried mushrooms, mushroom powder, pickles and value-added foods, spawn production, compost / substrate production, training and incubation services, spent mushroom substrate manure</li>
+          <li>Compatible with eco-restoration, agroforestry, nursery development, composting, and rural enterprise zones</li>
+          <li>Can be scaled from household units to commercial controlled-environment farms</li>
+          <li>Strong fit with ESG, circular economy, livelihood restoration, and just-transition goals</li>
+        </ul>
+        <p>Mushroom cultivation can convert agricultural, industrial, forestry, and household wastes into nutritious food. India has abundant agricultural residues and labour, which are key enabling factors for mushroom farming.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">
+        <span>Site Suitability and Technical Specification Matrix</span>
+        <span class="accordion-chevron">&#8964;</span>
+      </button>
+      <div class="accordion-body" style="display:none;">
+        <div class="spv-table-wrap">
+          <p class="spv-body-text">The following matrix provides a structured checklist for assessing the suitability of the proposed site for the selected repurposing option. It identifies the key physical, technical, environmental, infrastructure, legal, and owner-side readiness parameters that should be reviewed before the project is advanced to the next stage of development. The purpose of this matrix is to help the project owner understand existing site conditions, technical requirements, potential constraints, and preparatory actions required before feasibility studies, approvals, or tendering are initiated.</p>
+          <table class="spv-table">
+            <thead><tr><th>Category</th><th>What to Assess / Prepare</th><th>Why it Matters</th><th>Owner-Side Readiness</th></tr></thead>
+            <tbody>
+              <tr><td>Land status</td><td>Closure status, land ownership, mine-closure permissibility, post-mining land-use approval</td><td>Legal viability for food production, enterprise activity, training, and processing</td><td>Closure note</td></tr>
+              <tr><td>Existing structures</td><td>Availability of unused sheds, workshops, stores, staff buildings, warehouses, or community halls</td><td>Mushroom farming benefits from indoor structures and controlled space</td><td>Built-asset inventory</td></tr>
+              <tr><td>Site safety</td><td>Subsidence, slope stability, restricted zones, abandoned openings, haul-road risks</td><td>Safe access for workers, SHGs, trainees, and transport</td><td>Safety zoning plan</td></tr>
+              <tr><td>Environmental condition</td><td>Dust, emissions, mine drainage, chemical exposure, waste dump proximity</td><td>Prevents contamination and protects food-grade production</td><td>Environmental screening</td></tr>
+              <tr><td>Water availability</td><td>Clean water for substrate wetting, cleaning, humidification, and processing</td><td>Critical for hygiene, humidity control, and production reliability</td><td>Water plan</td></tr>
+              <tr><td>Power supply</td><td>Electricity for ventilation, cooling, humidification, lighting, drying, and cold storage</td><td>Required especially for button mushroom and year-round commercial units</td><td>Power assessment</td></tr>
+              <tr><td>Temperature and humidity</td><td>Local climate, seasonal suitability, heat stress, cooling need</td><td>Determines species choice: oyster, milky, button, shiitake, paddy straw</td><td>Agro-climatic note</td></tr>
+              <tr><td>Raw material availability</td><td>Paddy straw, wheat straw, sawdust, maize stalk, cotton waste, bagasse, poultry manure, gypsum</td><td>Determines substrate and compost economics</td><td>Biomass supply map</td></tr>
+              <tr><td>Market proximity</td><td>Nearby towns, hotels, retail markets, institutional buyers, cold-chain access</td><td>Mushrooms are perishable and need quick marketing</td><td>Market assessment</td></tr>
+              <tr><td>Community proximity</td><td>SHGs, FPOs, land-losers, youth groups, women groups, rural entrepreneurs</td><td>Ensures livelihood integration</td><td>Beneficiary mapping</td></tr>
+              <tr><td>Access</td><td>Roads, vehicle access, loading/unloading points, cold-chain mobility</td><td>Enables substrate transport and mushroom dispatch</td><td>Access plan</td></tr>
+              <tr><td>Hygiene and biosecurity</td><td>Cleanable floors, drainage, pest control, quarantine space, waste disposal</td><td>Prevents crop failure, disease, and contamination</td><td>Biosecurity plan</td></tr>
+              <tr><td>Processing potential</td><td>Space for drying, packing, cold storage, value addition, spawn unit</td><td>Improves profitability and shelf life</td><td>Processing feasibility note</td></tr>
+              <tr><td>Spent substrate use</td><td>Composting area, vermicompost unit, nursery linkage, mine-land restoration use</td><td>Supports circular economy and soil improvement</td><td>Waste-to-resource plan</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">
+        <span>Indicative Project Scale and Configuration Matrix</span>
+        <span class="accordion-chevron">&#8964;</span>
+      </button>
+      <div class="accordion-body" style="display:none;">
+        <div class="spv-table-wrap">
+          <p class="spv-body-text">The following matrix presents an indicative relationship between available site area, project scale, technical configuration, and likely development potential. It is intended to support preliminary planning by helping the project owner identify the appropriate scale and configuration for the proposed repurposing option. The values and recommendations are indicative and should be refined through detailed feasibility studies, site surveys, engineering assessments, and relevant technical and commercial evaluations.</p>
+          <table class="spv-table">
+            <thead><tr><th>Land / Built Area</th><th>Recommended Scale</th><th>Configuration</th><th>Use Case</th></tr></thead>
+            <tbody>
+              <tr><td>0.05–0.25 ha / 500–2,500 sq ft</td><td>Pilot mushroom unit</td><td>5–25 growing rooms or low-cost oyster/milky units, training room, packing table</td><td>Proof of concept, SHG training, livelihood demonstration</td></tr>
+              <tr><td>0.25–1 ha / 2,500–10,000 sq ft</td><td>Community mushroom cluster</td><td>Multiple SHG units, substrate preparation area, water and hygiene facilities, small drying/packing unit</td><td>SHG livelihood and local market supply</td></tr>
+              <tr><td>1–3 ha / 10,000–40,000 sq ft</td><td>Integrated mushroom production zone</td><td>Oyster/milky/button units, substrate yard, composting/vermicompost unit, cold room, packaging facility</td><td>Cluster-level production and employment</td></tr>
+              <tr><td>3–5 ha</td><td>Mushroom enterprise park</td><td>Spawn unit, compost/substrate unit, controlled-environment growing rooms, processing and branding unit, training centre</td><td>PPP/CSR-supported commercial-livelihood model</td></tr>
+              <tr><td>5 ha+</td><td>Regional mushroom and bioresource hub</td><td>Production clusters, spawn lab, substrate aggregation, cold chain, value addition, incubation, training, compost use for mine-land restoration</td><td>Just-transition flagship and regional enterprise model</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="font-size:.85rem;color:#6b7280;margin-top:10px;">The National Horticulture Board DPR provides benchmark infrastructure for 50 TPA, 100 TPA, 500 TPA, and larger mushroom units. For example, the NHB DPR shows a 50 TPA unit with 2,400 sq ft cropping rooms and a 100 TPA unit with 5,400 sq ft cropping room area.</p>
+      </div>
+    </div>
+
+    <div class="prism2-nav-row">
+      <button class="prism2-btn-prev" id="prism2-prev-P" onclick="prism2Prev()" disabled>&#8592; Previous</button>
+      <div class="prism2-progress-dots" style="display:flex;gap:5px;align-items:center;">
+        <span class="pdot active" data-p="P"></span>
+        <span class="pdot" data-p="R"></span>
+        <span class="pdot" data-p="I"></span>
+        <span class="pdot" data-p="S"></span>
+        <span class="pdot" data-p="M"></span>
+      </div>
+      <button class="prism2-btn-next" id="prism2-next-P" onclick="prism2Next()">Next pillar &#8594;</button>
+    </div>
+  </div><!-- /P panel -->
+
+  <!-- ── R Panel ── -->
+  <div class="prism2-content-panel" id="prism2-panel-R" style="--pc:#1a5ca8;--pb:#e4eef9;--cb:#f3f7fd;">
+    <div class="prism2-panel-header">
+      <div class="prism2-panel-header-letter">R</div>
+      <div class="prism2-panel-header-text">
+        <div class="prism2-panel-eyebrow">REPURPOSING PATHWAYS</div>
+        <p class="prism2-panel-desc">Implementation models, comparative assessment, and model-wise responsibility logic for mine-area Mushroom Farming development.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">
+        <span>Implementation Options</span>
+        <span class="accordion-chevron">&#8964;</span>
+      </button>
+      <div class="accordion-body" style="display:none;">
+        <div class="spv-table-wrap">
+          <p class="spv-body-text">The following table outlines the possible implementation models that may be considered for developing the proposed repurposing project. These models differ in terms of ownership structure, funding responsibility, private sector participation, operational control, and long-term risk allocation. The purpose of this table is to help the project owner compare broad development routes and select an implementation approach that aligns with its financial capacity, institutional preference, risk appetite, and long-term asset management objectives.</p>
+          <table class="spv-table">
+            <thead><tr><th>Model</th><th>Suitability</th><th>Comment</th></tr></thead>
+            <tbody>
+              <tr><td>EPC</td><td>Moderate</td><td>Good for basic sheds, growing rooms, water supply, hygiene infrastructure, substrate yard, training hall, and packing area</td></tr>
+              <tr><td>EPC + O&amp;M</td><td>High</td><td>Strong for owner-controlled livelihood model with SHG training, technical handholding, crop-cycle management, and market linkage</td></tr>
+              <tr><td>BOOT</td><td>High</td><td>Suitable for commercial mushroom production, processing, cold chain, and eventual asset transfer</td></tr>
+              <tr><td>BOO</td><td>Moderate</td><td>Suitable for private commercial mushroom venture; weaker for community integration unless contractually mandated</td></tr>
+              <tr><td>DBFOT</td><td>High</td><td>Best for large mushroom parks requiring private finance, controlled-environment infrastructure, processing, branding, and cold chain</td></tr>
+              <tr><td>Concession / Lease-Develop-Operate</td><td>Very High</td><td>Strong for community-linked production, SHG/FPO roles, lease fee, revenue share, and local employment obligations</td></tr>
+              <tr><td>Hybrid</td><td>Very High</td><td>Most flexible and balanced; combines owner land/building support, CSR/government schemes, technical agency, private operator, SHG/FPO participation, and market linkage</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">
+        <span>Comparative Assessment of Key Models</span>
+        <span class="accordion-chevron">&#8964;</span>
+      </button>
+      <div class="accordion-body" style="display:none;">
+        <div class="spv-table-wrap">
+          <p class="spv-body-text">The following comparative assessment evaluates the major implementation models across key decision parameters such as investment requirement, ownership control, financing responsibility, contractual complexity, risk transfer, and long-term economic benefit. This matrix is intended to support early-stage decision-making by highlighting the relative strengths and limitations of each model. The final choice of model should be guided by the specific circumstances of the project, including its scale, commercial viability, applicable policy framework, and the owner's institutional preference.</p>
+          <table class="spv-table">
+            <thead><tr><th>Evaluation Parameter</th><th>EPC</th><th>EPC+O&amp;M</th><th>BOOT</th><th>BOO</th><th>DBFOT</th><th>Concession</th><th>Hybrid</th></tr></thead>
+            <tbody>
+              <tr><td>Upfront investment by Mine Owner</td><td>High</td><td>High–Moderate</td><td>Low–Moderate</td><td>Low</td><td>Low–Moderate</td><td>Low–Moderate</td><td>Variable</td></tr>
+              <tr><td>Ownership retained by Mine Owner</td><td>Yes</td><td>Yes</td><td>Land retained</td><td>Limited</td><td>Usually land retained</td><td>Land retained</td><td>Usually retained</td></tr>
+              <tr><td>Suitability for welfare objective</td><td>High</td><td>Very High</td><td>High if mandated</td><td>Moderate</td><td>High</td><td>Very High</td><td>Very High</td></tr>
+              <tr><td>Suitability for local livelihood</td><td>Moderate</td><td>Very High</td><td>High</td><td>Moderate</td><td>High–Very High</td><td>Very High</td><td>Very High</td></tr>
+              <tr><td>Suitability for ecological restoration</td><td>Moderate</td><td>High</td><td>High</td><td>Moderate</td><td>High</td><td>High</td><td>Very High</td></tr>
+              <tr><td>Suitability for SHG / FPO integration</td><td>Moderate</td><td>High</td><td>Moderate</td><td>Low–Moderate</td><td>High if required</td><td>Very High</td><td>Very High</td></tr>
+              <tr><td>Revenue potential</td><td>Low–Moderate</td><td>Moderate–High</td><td>High</td><td>High</td><td>High</td><td>Moderate–High</td><td>Variable–High</td></tr>
+              <tr><td>O&amp;M burden on owner</td><td>High</td><td>Moderate</td><td>Low</td><td>Low</td><td>Low</td><td>Low–Moderate</td><td>Shared</td></tr>
+              <tr><td>Risk to Mine Owner</td><td>High</td><td>Moderate</td><td>Low–Moderate</td><td>Low</td><td>Low–Moderate</td><td>Low–Moderate</td><td>Shared</td></tr>
+              <tr><td>Overall suitability for Mushroom Farming</td><td>Moderate</td><td>High</td><td>High</td><td>Moderate</td><td>High</td><td>Very High</td><td>Very High / Most Suitable</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">
+        <span>Model-Wise Responsibility Logic</span>
+        <span class="accordion-chevron">&#8964;</span>
+      </button>
+      <div class="accordion-body" style="display:none;">
+        <div class="spv-table-wrap">
+          <p class="spv-body-text">The following table explains how major project responsibilities are typically allocated under different implementation models. It covers key functional areas such as site availability, financing, design and construction, regulatory approvals, operation and maintenance, revenue collection, asset ownership, and end-of-term transfer. This helps clarify the respective roles of the project owner, private developer, EPC contractor, operator, or concessionaire, and supports the preparation of tender documents and contractual structures.</p>
+          <table class="spv-table">
+            <thead><tr><th>Responsibility Area</th><th>EPC</th><th>EPC+O&amp;M</th><th>BOOT</th><th>BOO</th><th>DBFOT</th><th>Concession</th><th>Hybrid</th></tr></thead>
+            <tbody>
+              <tr><td>Site / land availability</td><td>Mine Owner</td><td>Mine Owner</td><td>Mine Owner / authority</td><td>Mine Owner / developer</td><td>Mine Owner / authority</td><td>Mine Owner / authority</td><td>Mine Owner / shared</td></tr>
+              <tr><td>Built-asset mapping</td><td>Mine Owner / consultant</td><td>Mine Owner + O&amp;M agency</td><td>Developer / technical expert</td><td>Developer</td><td>Concessionaire</td><td>Concessionaire / expert agency</td><td>Shared</td></tr>
+              <tr><td>Species selection</td><td>Mine Owner / consultant</td><td>Mine Owner + O&amp;M agency</td><td>Developer / expert</td><td>Developer</td><td>Concessionaire</td><td>Concessionaire / mushroom expert</td><td>Shared with community inputs</td></tr>
+              <tr><td>Growing room construction</td><td>EPC contractor</td><td>EPC contractor</td><td>Developer</td><td>Developer</td><td>Concessionaire</td><td>Concessionaire / operator</td><td>Shared</td></tr>
+              <tr><td>Substrate / compost unit</td><td>EPC contractor</td><td>EPC contractor</td><td>Developer</td><td>Developer</td><td>Concessionaire</td><td>Concessionaire / operator</td><td>Shared with local groups</td></tr>
+              <tr><td>Spawn procurement / production</td><td>Mine Owner / vendor</td><td>O&amp;M agency / vendor</td><td>Developer</td><td>Developer</td><td>Concessionaire</td><td>Concessionaire / operator</td><td>Shared / technical partner</td></tr>
+              <tr><td>Crop-cycle management</td><td>Mine Owner</td><td>O&amp;M agency</td><td>Developer</td><td>Developer</td><td>Concessionaire</td><td>Concessionaire / operator</td><td>SHG / FPO / operator</td></tr>
+              <tr><td>Hygiene and biosecurity</td><td>Mine Owner</td><td>O&amp;M agency</td><td>Developer</td><td>Developer</td><td>Concessionaire</td><td>Concessionaire</td><td>Shared / technical partner</td></tr>
+              <tr><td>Harvesting</td><td>Mine Owner-controlled</td><td>O&amp;M agency + SHGs</td><td>Developer</td><td>Developer</td><td>Concessionaire</td><td>Concessionaire / SHG / FPO</td><td>SHG / FPO / operator</td></tr>
+              <tr><td>Processing and packaging</td><td>Mine Owner</td><td>O&amp;M agency / market partner</td><td>Developer</td><td>Developer</td><td>Concessionaire</td><td>Concessionaire / operator</td><td>Shared / cluster-based</td></tr>
+              <tr><td>Spent substrate management</td><td>Mine Owner</td><td>O&amp;M agency</td><td>Developer</td><td>Developer</td><td>Concessionaire</td><td>Concessionaire / operator</td><td>Shared with restoration team</td></tr>
+              <tr><td>Community mobilization</td><td>Mine Owner</td><td>Mine Owner + O&amp;M agency</td><td>Developer if mandated</td><td>Developer if mandated</td><td>Concessionaire if mandated</td><td>Concessionaire + NGO / FPO</td><td>NGO / SHG / FPO + owner</td></tr>
+              <tr><td>Local employment</td><td>Mine Owner-controlled</td><td>Mine Owner-controlled through contract</td><td>Contract-based</td><td>Developer policy</td><td>Contract-based</td><td>Contract-based</td><td>Strongly configurable</td></tr>
+              <tr><td>SHG / FPO participation</td><td>Mine Owner-controlled</td><td>Mine Owner + O&amp;M agency</td><td>Contract-based</td><td>Optional unless mandated</td><td>Contract-based</td><td>Strong contractual role</td><td>Core feature</td></tr>
+              <tr><td>Market linkage</td><td>Mine Owner</td><td>O&amp;M agency / market partner</td><td>Developer</td><td>Developer</td><td>Concessionaire</td><td>Concessionaire / FPO</td><td>FPO / operator / private buyer</td></tr>
+              <tr><td>Food safety compliance</td><td>Mine Owner</td><td>Mine Owner + O&amp;M agency</td><td>Developer</td><td>Developer</td><td>Concessionaire</td><td>Concessionaire</td><td>Shared</td></tr>
+              <tr><td>Asset transfer at end</td><td>No</td><td>No</td><td>Yes</td><td>No</td><td>Yes</td><td>As agreed</td><td>As agreed</td></tr>
+              <tr><td>Best suited role</td><td>Basic mushroom infrastructure creator</td><td>Owner-controlled mushroom operator</td><td>Commercial developer-operator</td><td>Private mushroom owner</td><td>Structured PPP concessionaire</td><td>Long-term livelihood operator</td><td>Multi-party livelihood + commercial platform</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="prism2-nav-row">
+      <button class="prism2-btn-prev" id="prism2-prev-R" onclick="prism2Prev()">&#8592; Previous</button>
+      <div class="prism2-progress-dots" style="display:flex;gap:5px;align-items:center;">
+        <span class="pdot" data-p="P"></span>
+        <span class="pdot active" data-p="R"></span>
+        <span class="pdot" data-p="I"></span>
+        <span class="pdot" data-p="S"></span>
+        <span class="pdot" data-p="M"></span>
+      </div>
+      <button class="prism2-btn-next" id="prism2-next-R" onclick="prism2Next()">Next pillar &#8594;</button>
+    </div>
+  </div><!-- /R panel -->
+
+  <!-- ── I Panel ── -->
+  <div class="prism2-content-panel" id="prism2-panel-I" style="--pc:#b06a10;--pb:#faedda;--cb:#fdf7f0;">
+    <div class="prism2-panel-header">
+      <div class="prism2-panel-header-letter">I</div>
+      <div class="prism2-panel-header-text">
+        <div class="prism2-panel-eyebrow">INVESTMENT DYNAMICS</div>
+        <p class="prism2-panel-desc">Funding logic, revenue generation, local livelihood potential, and combined comparison across all implementation models.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">
+        <span>Funding Logic</span>
+        <span class="accordion-chevron">&#8964;</span>
+      </button>
+      <div class="accordion-body" style="display:none;">
+        <div class="spv-table-wrap">
+          <p class="spv-body-text">The following table presents the broad funding logic for each implementation model. It explains who is expected to finance the project, the level of owner-side funding requirement, and the commercial rationale behind each structure. This section is intended to help the project owner assess whether the project is more suitable for owner-funded development, private investment, public-private partnership, lease or concession structure, or a hybrid funding arrangement.</p>
+          <table class="spv-table">
+            <thead><tr><th>Model</th><th>Funding Source</th><th>Owner Funding Requirement</th><th>Suitability</th></tr></thead>
+            <tbody>
+              <tr><td>EPC</td><td>Mine owner budget / mine closure fund / CSR</td><td>High</td><td>Suitable for basic mushroom sheds, growing rooms, water supply, hygiene area, substrate yard, packing room, training facility, and initial equipment</td></tr>
+              <tr><td>EPC + O&amp;M</td><td>Mine owner budget + O&amp;M budget + CSR</td><td>High to Moderate</td><td>Strong fit where owner wants control over welfare, SHG participation, technical handholding, crop-cycle support, and market linkage</td></tr>
+              <tr><td>BOOT</td><td>Private developer capital + possible CSR / VGF / grant support</td><td>Low to Moderate</td><td>Suitable for commercial mushroom production, spawn unit, cold chain, processing, branding, and eventual asset transfer</td></tr>
+              <tr><td>BOO</td><td>Private developer capital</td><td>Low</td><td>Suitable only for commercially driven mushroom projects; less preferred where community control is important</td></tr>
+              <tr><td>DBFOT</td><td>Private concessionaire + public/CSR support + possible VGF</td><td>Low to Moderate</td><td>Suitable for large mushroom parks with controlled-environment growing rooms, processing units, cold storage, branding, training centres, and value-added products</td></tr>
+              <tr><td>Concession / Lease-Develop-Operate</td><td>Private operator / FPO / SHG federation / NGO / CSR / blended finance</td><td>Low to Moderate</td><td>Very suitable for community-linked mushroom clusters with livelihood obligations, lease fee, revenue sharing, training, and local employment</td></tr>
+              <tr><td>Hybrid</td><td>Mine owner + CSR + government schemes + private operator + SHG/FPO + NGO + grants</td><td>Variable</td><td>Most suitable for balancing livelihood, food enterprise, circular economy, spent-substrate use, and owner revenue participation</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">
+        <span>Revenue Generation by Model</span>
+        <span class="accordion-chevron">&#8964;</span>
+      </button>
+      <div class="accordion-body" style="display:none;">
+        <div class="spv-table-wrap">
+          <p class="spv-body-text">The following table explains how revenue may be generated under different implementation models and identifies who is likely to receive the principal project income. It also describes the nature and extent of the financial benefit available to the project owner, whether through direct project revenue, cost savings, lease income, concession fees, revenue sharing, service charges, or eventual asset transfer. This comparison is intended to support the selection of a commercially appropriate model for the proposed repurposing project.</p>
+          <table class="spv-table">
+            <thead><tr><th>Model</th><th>How Revenue is Generated</th><th>Who Receives Main Revenue</th><th>Owner's Financial Benefit</th></tr></thead>
+            <tbody>
+              <tr><td>EPC</td><td>Sale of fresh mushrooms, dried mushrooms, mushroom powder, pickles, spawn, compost, training fees, substrate manure</td><td>Mine Owner</td><td>Full revenue retained by owner, but owner bears full CAPEX, O&amp;M, crop failure, hygiene, market, and working-capital risk</td></tr>
+              <tr><td>EPC + O&amp;M</td><td>Same revenue streams: fresh mushrooms, value-added products, spawn, packing, training, compost, institutional sales</td><td>Mine Owner after paying O&amp;M agency</td><td>High benefit; owner retains revenue while outsourcing technical operations and management</td></tr>
+              <tr><td>BOOT</td><td>Developer earns from mushroom production, spawn, compost, cold storage, processing, branding, institutional sales, training during concession period</td><td>Developer / concessionaire during concession</td><td>Lease rent, concession fee, revenue share, local economic uplift, and asset transfer at end</td></tr>
+              <tr><td>BOO</td><td>Long-term revenue from mushroom production, processing, branded sales, spawn, dried mushroom, powder, retail and institutional markets</td><td>Private developer</td><td>Limited direct benefit; typically lease rent, fixed charges, or premium payments</td></tr>
+              <tr><td>DBFOT</td><td>Structured revenue from mushroom production, processing, cold chain, branding, training centre, spawn production, composting, value-added products</td><td>Concessionaire during concession</td><td>Concession fee, lease rent, revenue share, performance-linked payments, and asset transfer at end</td></tr>
+              <tr><td>Concession</td><td>Revenue from mushroom operations, SHG/FPO-based production, processing, packing, spawn supply, training, compost, institutional sales</td><td>Concessionaire / operator as per agreement</td><td>Lease rentals, revenue share, improved land value, and indirect socio-economic benefits</td></tr>
+              <tr><td>Hybrid</td><td>Mixed revenue streams: mushroom sales, SHG/FPO enterprises, dried products, powder, pickles, spawn, compost, training, CSR/grants, branding, institutional sales</td><td>Shared between owner, operator, SHG/FPO, NGO as structured</td><td>Variable to high; owner benefits through revenue share, reduced O&amp;M burden, ESG gains, and enhanced land value</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">
+        <span>Which Model is Better for Local Livelihood and Jobs</span>
+        <span class="accordion-chevron">&#8964;</span>
+      </button>
+      <div class="accordion-body" style="display:none;">
+        <div class="spv-table-wrap">
+          <p class="spv-body-text">The following table assesses the likely local livelihood and employment potential of each implementation model. It considers the extent to which each model can support construction-phase jobs, long-term operational employment, local procurement opportunities, skill development, community participation, and associated support services. This section is particularly relevant where the repurposing project is expected to contribute to post-mining or post-operational economic transition and sustained local community benefit.</p>
+          <table class="spv-table">
+            <thead><tr><th>Model</th><th>Local Job Potential</th><th>Why</th><th>Overall Suggestibility</th></tr></thead>
+            <tbody>
+              <tr><td>EPC</td><td>Moderate</td><td>Creates short-term jobs in shed construction, growing-room setup, substrate yard preparation, water system, racks, hygiene area, and basic training. Long-term jobs depend on owner-led operations.</td><td>Moderate</td></tr>
+              <tr><td>EPC + O&amp;M</td><td>High to Very High</td><td>Supports sustained employment in substrate preparation, spawning, bag filling, crop management, harvesting, grading, packing, cleaning, disease monitoring, processing, and SHG facilitation.</td><td>Very High</td></tr>
+              <tr><td>BOOT</td><td>High</td><td>Generates jobs during development and operation. Local employment can be strong if the agreement mandates local hiring, SHG/FPO participation, training, and local procurement.</td><td>High</td></tr>
+              <tr><td>BOO</td><td>Moderate</td><td>Can create production, processing, packing, cold-chain, and marketing jobs, but local livelihood depends mainly on private developer policy unless contractually mandated.</td><td>Moderate</td></tr>
+              <tr><td>DBFOT</td><td>High to Very High</td><td>Suitable for large mushroom parks with growing rooms, substrate/compost units, spawn lab, cold chain, processing, branding, training centres, and value-added production.</td><td>High to Very High</td></tr>
+              <tr><td>Concession</td><td>Very High</td><td>Strong model for long-term local livelihood through SHG/FPO participation, production clusters, processing, packaging, training, market linkage, and compost enterprises.</td><td>Very High</td></tr>
+              <tr><td>Hybrid</td><td>Very High</td><td>Best suited for combining mine-owner support, private technical expertise, NGO facilitation, SHG/FPO participation, CSR support, government schemes, and community benefit obligations.</td><td>Very High / Most Suitable</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">
+        <span>Combined Comparison: Revenue, Profitability, and Livelihood</span>
+        <span class="accordion-chevron">&#8964;</span>
+      </button>
+      <div class="accordion-body" style="display:none;">
+        <div class="spv-table-wrap">
+          <p class="spv-body-text">The following combined comparison brings together three important dimensions of project structuring: revenue potential, owner-side financial benefit, and local livelihood generation. It provides a consolidated view of how each implementation model performs across commercial, institutional, and community-development perspectives. This matrix is intended to support balanced decision-making where the objective extends beyond financial return to include sustainable site reuse and long-term local economic benefit.</p>
+          <table class="spv-table">
+            <thead><tr><th>Model</th><th>Main Revenue Source</th><th>Owner Profitability</th><th>Local Job Creation</th><th>Overall Comment</th></tr></thead>
+            <tbody>
+              <tr><td>EPC</td><td>Fresh mushrooms, dried mushrooms, spawn, compost, training fees, value-added products</td><td>Moderate to High, but owner bears full CAPEX, O&amp;M, crop-cycle, hygiene, disease, market, and working-capital risk</td><td>Moderate</td><td>Useful for initial unit setup, but weak for long-term livelihood unless followed by structured O&amp;M</td></tr>
+              <tr><td>EPC + O&amp;M</td><td>Mushroom sales, processing, packaging, spawn, compost, training, institutional sales</td><td>High, as owner retains revenue after O&amp;M payments</td><td>High to Very High</td><td>Strong where owner wants control, welfare impact, and sustained employment</td></tr>
+              <tr><td>BOOT</td><td>Commercial mushroom production, spawn, compost, cold chain, processing, branding, training</td><td>Moderate through concession fee, lease rent, revenue share, and eventual asset transfer</td><td>High</td><td>Suitable for commercial mushroom farming with mandatory livelihood clauses</td></tr>
+              <tr><td>BOO</td><td>Long-term private revenue from mushrooms, processed products, spawn, compost, retail and institutional sales</td><td>Low to Moderate, mostly from lease rent, fixed charges, or premium</td><td>Moderate</td><td>Use cautiously where community benefit and owner control are not primary</td></tr>
+              <tr><td>DBFOT</td><td>Mushroom value chain, processing, cold chain, branding, training centre, spawn lab, compost unit</td><td>Moderate to High through concession fee, lease rent, revenue share, and transfer terms</td><td>High to Very High</td><td>Good for large structured PPP projects needing private finance and professional operation</td></tr>
+              <tr><td>Concession</td><td>Mushroom operations, SHG/FPO production, spawn supply, processing, training, compost, market linkage</td><td>Moderate to High through lease rent, concession fee, revenue share, and improved land value</td><td>Very High</td><td>Very suitable for community-linked mushroom farming with livelihood obligations</td></tr>
+              <tr><td>Hybrid</td><td>Mixed revenue from mushrooms, SHG/FPO enterprises, spawn, dried products, training, CSR, grants, compost, institutional sales</td><td>Variable to High depending on revenue-sharing and support structure</td><td>Very High</td><td>Most suitable for balancing mine-closure, livelihood, circular economy, ecological, and commercial objectives</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="prism2-nav-row">
+      <button class="prism2-btn-prev" id="prism2-prev-I" onclick="prism2Prev()">&#8592; Previous</button>
+      <div class="prism2-progress-dots" style="display:flex;gap:5px;align-items:center;">
+        <span class="pdot" data-p="P"></span>
+        <span class="pdot" data-p="R"></span>
+        <span class="pdot active" data-p="I"></span>
+        <span class="pdot" data-p="S"></span>
+        <span class="pdot" data-p="M"></span>
+      </div>
+      <button class="prism2-btn-next" id="prism2-next-I" onclick="prism2Next()">Next pillar &#8594;</button>
+    </div>
+  </div><!-- /I panel -->
+
+  <!-- ── S Panel ── -->
+  <div class="prism2-content-panel" id="prism2-panel-S" style="--pc:#5a3d9e;--pb:#edeaf8;--cb:#f7f5fd;">
+    <div class="prism2-panel-header">
+      <div class="prism2-panel-header-letter">S</div>
+      <div class="prism2-panel-header-text">
+        <div class="prism2-panel-eyebrow">STRATEGIC STRUCTURING</div>
+        <p class="prism2-panel-desc">Pre-RFP readiness, post-award scope, and the 15-step implementation pathway for mine-area Mushroom Farming.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">
+        <span>Preparations Needed Before RFP</span>
+        <span class="accordion-chevron">&#8964;</span>
+      </button>
+      <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">The following section identifies the key owner-side preparatory actions that should ideally be completed before issuing the first Request for Proposal. These actions are aimed at reducing uncertainty for prospective bidders, improving project bankability, clarifying site availability, identifying approval pathways and risks, and defining the technical and commercial scope of the project. Completing these preparatory steps before tendering can improve bid quality, attract credible responses, and reduce the risk of delays during project implementation.</p>
+        <p class="spv-body-text">Before issuing an RFP for a mushroom-farming-based mine repurposing project, the mine owner should prepare the following in priority order:</p>
+        <ol class="spv-list">
+          <li><strong>Land and closure confirmation</strong> — Confirm land ownership, closure status, mine-closure linkage and permissibility of mushroom farming, food-processing, training, composting and rural-enterprise use within the post-mining land-use plan.</li>
+          <li><strong>Legal and land-use screening</strong> — Review land-use restrictions, lease / concession rights, produce ownership, commercial rights, revenue-sharing permissibility, food-business responsibility and liability allocation.</li>
+          <li><strong>Safe and usable zone mapping</strong> — Identify usable buildings, sheds, platforms and safe land parcels, while excluding unstable dumps, subsidence-prone areas, abandoned mine openings, contaminated zones and restricted infrastructure.</li>
+          <li><strong>Built-asset and utility assessment</strong> — Prepare an inventory of available sheds, stores, workshops, warehouses, staff buildings, power supply, water source, drainage and access roads that can be repurposed for growing rooms, substrate preparation, packing and training.</li>
+          <li><strong>Environmental and contamination screening</strong> — Assess dust, drainage, residual contamination, wastewater risk, waste-dump proximity and food-safety suitability before allowing any edible mushroom production.</li>
+          <li><strong>Species and technology suitability note</strong> — Identify suitable mushroom types such as oyster, milky, button or paddy-straw mushroom based on local temperature, humidity, water availability, power reliability and level of environmental control required.</li>
+          <li><strong>Raw-material and substrate assessment</strong> — Map availability of paddy straw, wheat straw, sawdust, maize stalk, bagasse, cotton waste, poultry manure, gypsum, packaging material and nearby substrate suppliers.</li>
+          <li><strong>Food safety and enterprise compliance check</strong> — Identify applicable requirements such as FSSAI Registration / Licence for food handling, processing and sale, Udyam Registration for MSME status, GST where applicable, and local trade licence requirements.</li>
+          <li><strong>Community and stakeholder consultation</strong> — Consult panchayats, nearby communities, land-losers, SHGs, FPOs, youth groups, women groups, KVKs, horticulture / agriculture departments, district industries centre and rural livelihood missions.</li>
+          <li><strong>Market and value-chain assessment</strong> — Estimate demand and revenue potential from fresh mushrooms, dried mushrooms, mushroom powder, pickles, spawn, compost / spent substrate, institutional supply, retail sale and training services.</li>
+          <li><strong>Preliminary zoning and process-flow plan</strong> — Prepare a basic layout showing growing rooms, substrate preparation area, pasteurization / sterilization area, spawn room, packing room, cold room, training area, composting zone, waste area and vehicle movement.</li>
+          <li><strong>Cost, funding and model selection</strong> — Prepare broad CAPEX and 3–5 year O&amp;M estimates and select the preferred model such as Hybrid, Concession / Lease-Develop-Operate, EPC + O&amp;M, DBFOT or BOOT.</li>
+          <li><strong>Scheme and support convergence note</strong> — Check convergence with official support routes such as NHB / MIDH horticulture support, PMFME for micro food processing, PMEGP for rural enterprises, DAY-NRLM for SHG livelihoods and MSME support.</li>
+          <li><strong>Draft RFP scope and obligations</strong> — Prepare bidder scope covering design, construction, growing-room operation, crop-cycle management, spawn / substrate quality, food safety, local employment, SHG/FPO participation, training, market linkage and waste-to-compost use.</li>
+          <li><strong>Bid evaluation framework</strong> — Define evaluation criteria covering mushroom-farming experience, technical capability, food-safety compliance, financial capacity, O&amp;M plan, community integration, market linkage, revenue proposal and risk-management plan.</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">
+        <span>Activities to be taken After Selecting the Agency</span>
+        <span class="accordion-chevron">&#8964;</span>
+      </button>
+      <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">The following section lists the principal activities that may be undertaken by the selected contractor, developer, concessionaire, operator, or implementation agency after award of the project. These activities generally include detailed site investigations, engineering design, statutory submissions and approvals, equipment procurement, construction, commissioning, operational planning, staff training, and performance monitoring. The distinction between pre-RFP owner preparedness and post-award implementation responsibilities helps ensure an appropriate and efficient allocation of effort across the project development cycle.</p>
+        <p class="spv-body-text">After award, the selected concessionaire / contractor / O&amp;M agency / mushroom-farming operator can take up the following activities in chronological order:</p>
+        <ol class="spv-list">
+          <li><strong>Detailed site and asset investigation</strong> — Undertake detailed measurement of buildings, sheds, platforms, water points, drainage, electrical load, access roads and safe working areas for final project planning.</li>
+          <li><strong>Detailed technical feasibility</strong> — Finalize species mix, production capacity, crop calendar, growing-room design, temperature / humidity control, substrate technology, spawn source and expected yield assumptions.</li>
+          <li><strong>Detailed environmental and hygiene planning</strong> — Prepare the hygiene plan, biosecurity plan, pest and disease-control plan, wastewater plan, spent-substrate management plan and worker-safety plan.</li>
+          <li><strong>Final master planning</strong> — Prepare the final mushroom-zone master plan showing growing rooms, substrate area, pasteurization / sterilization unit, spawn room, packing area, cold storage, training room, composting area, utilities and community enterprise spaces.</li>
+          <li><strong>Detailed Project Report (DPR)</strong> — The selected operator shall prepare the DPR with final capacity, layout, engineering, machinery list, crop-cycle plan, financial model, O&amp;M plan, food-safety plan, approval plan and implementation schedule for mine-owner approval.</li>
+          <li><strong>Approvals, registrations and enterprise formalities</strong> — Obtain applicable FSSAI Registration / Licence, Udyam Registration, GST registration where required, trade licence, electricity connection approval, fire and building safety clearances where applicable.</li>
+          <li><strong>Procurement of equipment and inputs</strong> — Procure racks, trays or bags, humidifiers, blowers, foggers, thermometers, hygrometers, pasteurization / sterilization equipment, packing tables, dryers, cold storage, PPE, cleaning equipment, spawn and substrate material.</li>
+          <li><strong>Construction and installation</strong> — Develop or retrofit growing rooms, insulation, ventilation, water lines, drainage, flooring, substrate area, packing room, cold room, training area, composting area and basic worker facilities.</li>
+          <li><strong>Preparation of operating procedures</strong> — Prepare SOPs for substrate preparation, pasteurization / sterilization, spawning, incubation, cropping, harvesting, grading, packing, cleaning, disease control, cold storage and waste handling.</li>
+          <li><strong>Recruitment and training</strong> — Recruit and train local youth, SHGs, FPO members, supervisors and workers in mushroom cultivation, hygiene, harvesting, packing, record-keeping, food safety and enterprise management.</li>
+          <li><strong>Trial crop cycles and quality stabilization</strong> — Run initial trial batches to stabilize temperature, humidity, contamination control, spawn quality, yield, harvesting schedule, packing quality and market dispatch systems.</li>
+          <li><strong>Local livelihood integration</strong> — Onboard SHGs, FPOs, local entrepreneurs and women groups for production, packing, drying, pickle / powder making, composting, retail sale and local distribution.</li>
+          <li><strong>Processing, branding and market linkage</strong> — Develop drying, powdering, packing, labelling, branding, local retail, institutional sale, hotel / canteen supply and online or aggregator-based marketing channels.</li>
+          <li><strong>Commissioning and commercial operation</strong> — Commission the mushroom farming zone after successful trial production, food-safety readiness, trained manpower deployment, market linkage and mine-owner approval.</li>
+          <li><strong>Regular O&amp;M and monitoring</strong> — Monitor production, contamination rate, yield, sales, income generation, local employment, SHG/FPO participation, hygiene compliance, equipment maintenance and spent-substrate utilization.</li>
+          <li><strong>Phased expansion</strong> — Scale up growing rooms, spawn production, cold storage, processing, composting and training activities based on market demand, profitability, community participation and safety performance.</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">
+        <span>Indicative Implementation Pathway</span>
+        <span class="accordion-chevron">&#8964;</span>
+      </button>
+      <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">The following implementation pathway presents a practical high-level sequence for advancing the proposed repurposing concept from initial approval through to project execution and long-term operation. It outlines the broad stages of concept approval, preliminary studies, model selection, bid preparation, procurement, detailed design, statutory approvals, construction, commissioning, and ongoing operation. This pathway is indicative and should be adapted to reflect the specific complexity, regulatory requirements, financing structure, and site conditions applicable to the project.</p>
+        <ol style="padding-left:1.4rem;line-height:1.9;">
+          <li>Concept approval and objective setting</li>
+          <li>Site suitability and built-asset mapping</li>
+          <li>Environmental and safety screening</li>
+          <li>Species selection and production model finalization</li>
+          <li>Raw-material and substrate supply assessment</li>
+          <li>Community engagement and SHG/FPO onboarding</li>
+          <li>Market and value-chain assessment</li>
+          <li>Selection of implementation model</li>
+          <li>DPR and bid structuring</li>
+          <li>RFP issuance and partner selection</li>
+          <li>Growing-room, substrate, water, power, hygiene, and processing infrastructure setup</li>
+          <li>Training and livelihood integration</li>
+          <li>Trial crop cycles and quality stabilization</li>
+          <li>Processing, packaging, cold-chain, and market linkage</li>
+          <li>Scaling, branding, value addition, and integration with composting / mine-land restoration</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="prism2-nav-row">
+      <button class="prism2-btn-prev" id="prism2-prev-S" onclick="prism2Prev()">&#8592; Previous</button>
+      <div class="prism2-progress-dots" style="display:flex;gap:5px;align-items:center;">
+        <span class="pdot" data-p="P"></span>
+        <span class="pdot" data-p="R"></span>
+        <span class="pdot" data-p="I"></span>
+        <span class="pdot active" data-p="S"></span>
+        <span class="pdot" data-p="M"></span>
+      </div>
+      <button class="prism2-btn-next" id="prism2-next-S" onclick="prism2Next()">Next pillar &#8594;</button>
+    </div>
+  </div><!-- /S panel -->
+
+  <!-- ── M Panel ── -->
+  <div class="prism2-content-panel" id="prism2-panel-M" style="--pc:#1a7a5e;--pb:#e1f3ec;--cb:#f0faf9;">
+    <div class="prism2-panel-header">
+      <div class="prism2-panel-header-letter">M</div>
+      <div class="prism2-panel-header-text">
+        <div class="prism2-panel-eyebrow">MONITORING GUIDANCE</div>
+        <p class="prism2-panel-desc">Way forward, preferred models, recommended strategy, references, and abbreviations for mine-area Mushroom Farming.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">
+        <span>Way Forward</span>
+        <span class="accordion-chevron">&#8964;</span>
+      </button>
+      <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">The following way forward summarizes the preferred development approach for the proposed repurposing option, based on the assessment presented in PRISM (Post Mining Repurposing Implementation and Strategy Models). It identifies the most suitable implementation models in order of preference, highlights key technical and due-diligence considerations, and outlines the recommended next steps and broad development logic. This section is intended to guide internal decision-making and support the project owner in progressing from concept-stage evaluation toward feasibility assessment, project structuring, regulatory approvals, and implementation planning.</p>
+        <p class="spv-body-text"><strong>Preferred Models, in order:</strong> (1) Hybrid Model, (2) Concession / Lease-Develop-Operate, (3) EPC + O&amp;M / Facility Management, (4) DBFOT, (5) BOOT</p>
+        <p class="spv-body-text"><strong>Why preferred:</strong> Hybrid is preferred because mushroom farming needs small built-up space, technical training, crop-cycle management, SHG participation and market linkage. The hybrid mix should include owner-provided space + SHG / FPO production + technical agency + buyer / processor linkage.</p>
+        <p class="spv-body-text"><strong>Secondary option:</strong> EPC may be used for pilot-scale demonstration infrastructure; BOO should be used only where it is purely commercial and community obligations are secured.</p>
+        <p class="spv-body-text"><strong>Suggestable technical care:</strong> Temperature, humidity, ventilation, substrate supply, hygiene, pest control, drying, packing, cold storage and market access must be ensured.</p>
+        <p class="spv-body-text"><strong>Recommended development logic:</strong> Begin with a 500–2,500 sq ft pilot or 0.05–0.25 ha cluster. Scale after 2–3 successful crop cycles into substrate preparation, drying, packing and cold-chain facilities.</p>
+        <p class="spv-body-text" style="font-style:italic; margin-top:1.2rem;"><strong>Disclaimer —</strong> All repurposing interventions proposed under P.R.I.S.M. shall remain subject to applicable mining laws, land-use regulations, environmental approvals, mine-closure conditions, forest and biodiversity regulations, groundwater permissions, and any other statutory approvals as may be applicable. Land ownership is proposed to remain with the mine owner / competent authority unless otherwise permitted under applicable law.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">
+        <span>References</span>
+        <span class="accordion-chevron">&#8964;</span>
+      </button>
+      <div class="accordion-body" style="display:none;">
+        <ol style="padding-left:1.4rem;line-height:1.9;font-size:.875rem;">
+          <li>Coal Controller Organisation, Government of India. Mine Closure Handbooks Portal: A.R.T.H.A., L.I.V.E.S., and R.E.C.L.A.I.M.</li>
+          <li>Press Information Bureau, Ministry of Coal. Special Campaign 5.0 release noting L.I.V.E.S and A.R.T.H.A frameworks for sustainable mine closure and repurposing.</li>
+          <li>National Horticulture Board. Mushroom Production Technology DPR, including benchmark infrastructure and machinery for 50 TPA, 100 TPA, 500 TPA and larger mushroom units.</li>
+          <li>National Horticulture Board. Cultivation of Mushroom technical document.</li>
+          <li>Tamil Nadu Agricultural University / Tamil Nadu Agriculture Department. Crop Production Guide: Mushroom Cultivation.</li>
+          <li>MANAGE / Agri-Clinics and Agri-Business Centres. Project Report on Mushroom Cultivation, covering spawn, substrate preparation, infrastructure, crop management, pest/disease management, post-harvest handling, and economics.</li>
+          <li>National Bank for Agriculture and Rural Development. Model Bankable Projects portal.</li>
+          <li>Bihar Horticulture Department. Design and Detail of Mushroom Unit / Mushroom Production Checklist 2025–26.</li>
+          <li>Central Coalfields Limited. Training on mushroom cultivation in mining-affected areas of Ramgarh district.</li>
+          <li>ICAR / Directorate of Mushroom Research and state agricultural universities. Mushroom cultivation, spawn production, and mushroom enterprise extension literature.</li>
+          <li>Krishi Vigyan Kendras. Scientific mushroom cultivation training and extension programmes.</li>
+          <li>FSSAI. Food safety and packaging compliance requirements applicable to processed, packed, and branded mushroom products.</li>
+          <li>Ministry of Rural Development, Government of India. DAY-NRLM support for SHG-based livelihood activities.</li>
+          <li>Ministry of MSME, Government of India. PMEGP and MSME support for food processing, packaging, and rural enterprises.</li>
+          <li>APEDA and food export compliance resources for processed food and mushroom products where export is proposed.</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">
+        <span>Abbreviations</span>
+        <span class="accordion-chevron">&#8964;</span>
+      </button>
+      <div class="accordion-body" style="display:none;">
+        <div class="spv-table-wrap">
+          <table class="spv-table">
+            <thead><tr><th>Abbreviation</th><th>Full Form</th></tr></thead>
+            <tbody>
+              <tr><td>AHU</td><td>Air Handling Unit</td></tr>
+              <tr><td>APEDA</td><td>Agricultural and Processed Food Products Export Development Authority</td></tr>
+              <tr><td>BOO</td><td>Build, Own, Operate</td></tr>
+              <tr><td>BOOT</td><td>Build, Own, Operate, Transfer</td></tr>
+              <tr><td>CAPEX</td><td>Capital Expenditure</td></tr>
+              <tr><td>CSR</td><td>Corporate Social Responsibility</td></tr>
+              <tr><td>DAY-NRLM</td><td>Deendayal Antyodaya Yojana – National Rural Livelihoods Mission</td></tr>
+              <tr><td>DBFOT</td><td>Design, Build, Finance, Operate, Transfer</td></tr>
+              <tr><td>DPR</td><td>Detailed Project Report</td></tr>
+              <tr><td>EPC</td><td>Engineering, Procurement and Construction</td></tr>
+              <tr><td>ESG</td><td>Environmental, Social and Governance</td></tr>
+              <tr><td>FM</td><td>Facility Management</td></tr>
+              <tr><td>FPO</td><td>Farmer Producer Organization</td></tr>
+              <tr><td>FSSAI</td><td>Food Safety and Standards Authority of India</td></tr>
+              <tr><td>ICAR</td><td>Indian Council of Agricultural Research</td></tr>
+              <tr><td>KVK</td><td>Krishi Vigyan Kendra</td></tr>
+              <tr><td>MSME</td><td>Micro, Small and Medium Enterprises</td></tr>
+              <tr><td>NGO</td><td>Non-Governmental Organization</td></tr>
+              <tr><td>NHB</td><td>National Horticulture Board</td></tr>
+              <tr><td>O&amp;M</td><td>Operation and Maintenance</td></tr>
+              <tr><td>PIB</td><td>Press Information Bureau</td></tr>
+              <tr><td>PMEGP</td><td>Prime Minister's Employment Generation Programme</td></tr>
+              <tr><td>PPP</td><td>Public-Private Partnership</td></tr>
+              <tr><td>RFP</td><td>Request for Proposal</td></tr>
+              <tr><td>SHG</td><td>Self-Help Group</td></tr>
+              <tr><td>TPA</td><td>Tonnes Per Annum</td></tr>
+              <tr><td>VGF</td><td>Viability Gap Funding</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="prism2-nav-row">
+      <button class="prism2-btn-prev" id="prism2-prev-M" onclick="prism2Prev()">&#8592; Previous</button>
+      <div class="prism2-progress-dots" style="display:flex;gap:5px;align-items:center;">
+        <span class="pdot" data-p="P"></span>
+        <span class="pdot" data-p="R"></span>
+        <span class="pdot" data-p="I"></span>
+        <span class="pdot" data-p="S"></span>
+        <span class="pdot active" data-p="M"></span>
+      </div>
+    </div>
+
+    <!-- Framework completion card -->
+    <div style="margin:0 26px 16px;padding:16px 20px;border-radius:12px;background:#f4faf7;border:1.5px dashed #a8d5c2;display:flex;align-items:center;gap:14px;">
+      <div style="width:36px;height:36px;border-radius:50%;background:#d1ece2;border:1.5px solid #a8d5c2;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#1a7a5e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2.5 8 6 11.5 13.5 4"/></svg>
+      </div>
+      <div style="flex:1;min-width:0;">
+        <div style="font-size:.82rem;font-weight:700;color:#1a7a5e;letter-spacing:.01em;">PRISM Framework Complete</div>
+        <div style="font-size:.75rem;color:#4a7a6a;margin-top:2px;line-height:1.5;">All five pillars reviewed — explore case studies to see how similar projects were executed.</div>
+      </div>
+      <button onclick="showSPVTab('casestudies');setTimeout(function(){window.dispatchEvent(new Event('resize'))},30)" style="flex-shrink:0;font-size:.75rem;font-weight:600;padding:7px 14px;border-radius:8px;border:1.5px solid #a8d5c2;background:#fff;color:#1a7a5e;cursor:pointer;transition:background .2s,border-color .2s;" onmouseover="this.style.background='#e6f5ef'" onmouseout="this.style.background='#fff'">Case Studies &#8599;</button>
+    </div>
+
+    <!-- Download PRISM PDF card -->
+    <div style="margin:0 26px 28px;padding:18px 22px;border-radius:12px;background:linear-gradient(135deg,#f0f7ff 0%,#e8f4fd 100%);border:1.5px solid #c5ddf5;display:flex;align-items:center;gap:16px;">
+      <div style="width:40px;height:40px;border-radius:50%;background:#daeafa;border:1.5px solid #b8d4ef;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#1a5ca8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v10M5 8l4 4 4-4"/><rect x="3" y="14" width="12" height="2" rx="1"/></svg>
+      </div>
+      <div style="flex:1;min-width:0;">
+        <div style="font-size:.82rem;font-weight:700;color:#1a5ca8;letter-spacing:.01em;">Download PRISM Framework</div>
+        <div style="font-size:.75rem;color:#3a6a98;margin-top:2px;line-height:1.5;">Save a print-ready PDF of all five pillars for offline reference.</div>
+      </div>
+      <button onclick="downloadPRISM()" style="flex-shrink:0;font-size:.75rem;font-weight:600;padding:8px 16px;border-radius:8px;border:1.5px solid #b8d4ef;background:#fff;color:#1a5ca8;cursor:pointer;transition:background .2s,border-color .2s;display:flex;align-items:center;gap:6px;" onmouseover="this.style.background='#daeafa'" onmouseout="this.style.background='#fff'">
+        <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 1v7M3.5 5.5l3 3 3-3"/><rect x="1.5" y="10" width="10" height="1.5" rx=".75"/></svg>
+        Download PDF
+      </button>
+    </div>
+
+  </div><!-- /M panel -->
+
+  </div><!-- /pr-content-wrap -->
+</div><!-- /pr-shell -->
+
+    </div>
+  </div>
+
+  <!-- TAB: Case Studies -->
+  <div id="spv-panel-casestudies" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+      <div class="lit-wrap">
+        <div class="lit-outer">
+          <div class="lit-track-clip">
+            <div class="lit-track" id="litTrack-all">
+
+<a class="lit-card" href="https://spectrumnews1.com/ky/louisville/news/2023/09/14/university-of-pikeville-mushroom-research" target="_blank" rel="noopener noreferrer"
+   style="--lit-accent:#1a7a5e;--lit-glow:rgba(26,122,94,.18);--lit-tint:rgba(26,122,94,.06);">
+  <div class="lit-card-body">
+    <div class="lit-card-title">No Coal Here: Find Out What the University of Pikeville is Growing in Abandoned Coal Mines</div>
+    <div class="lit-card-meta">
+      <div class="lit-card-type"><span>Article</span></div>
+      <div class="lit-card-source">Source: <span>spectrumnews1.com</span></div>
+    </div>
+  </div>
+  <div class="lit-card-img"><img src="../images/cs/cs-mush-1.png" alt="University of Pikeville growing mushrooms in abandoned coal mines" loading="lazy"></div>
+  <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/><polyline points="9 9 10 9"/></svg> View</div>
+</a>
+
+<a class="lit-card" href="https://www.researchgate.net/publication/305716082_Mushroom_Diversity_of_Chitarpur_Coal-Mine_Area_of_Latehar_District_in_Jharkhand_State_India" target="_blank" rel="noopener noreferrer"
+   style="--lit-accent:#C85000;--lit-glow:rgba(200,80,0,.18);--lit-tint:rgba(200,80,0,.06);">
+  <div class="lit-card-body">
+    <div class="lit-card-title">Mushroom Diversity of Chitarpur Coal-Mine Area of Latehar District in Jharkhand State, India</div>
+    <div class="lit-card-meta">
+      <div class="lit-card-type"><span>Open Access Paper</span></div>
+      <div class="lit-card-source">Source: <span>ResearchGate</span></div>
+    </div>
+  </div>
+  <div class="lit-card-img"><img src="../images/cs/cs-mush-2.png" alt="Mushroom diversity in Chitarpur coal mine area Jharkhand India" loading="lazy"></div>
+  <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/><polyline points="9 9 10 9"/></svg> View</div>
+</a>
+
+<a class="lit-card" href="https://justagriculture.in/files/newsletter/2024/january/35.%20Mushroom%20Production-%20A%20Case%20Study%20of%20Progressive%20Farmer.pdf" target="_blank" rel="noopener noreferrer"
+   style="--lit-accent:#1a5ca8;--lit-glow:rgba(26,92,168,.18);--lit-tint:rgba(26,92,168,.06);">
+  <div class="lit-card-body">
+    <div class="lit-card-title">Mushroom Production: A Case Study of Progressive Farmer</div>
+    <div class="lit-card-meta">
+      <div class="lit-card-type"><span>Case Study</span></div>
+      <div class="lit-card-source">Source: <span>justagriculture.in</span></div>
+    </div>
+  </div>
+  <div class="lit-card-img"><img src="../images/cs/cs-mush-5.png" alt="Mushroom production case study of progressive farmer" loading="lazy"></div>
+  <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/><polyline points="9 9 10 9"/></svg> View</div>
+</a>
+
+<a class="lit-card" href="https://www.ideals.illinois.edu/items/95441/bitstreams/308426/data.pdf" target="_blank" rel="noopener noreferrer"
+   style="--lit-accent:#5a3d9e;--lit-glow:rgba(90,61,158,.18);--lit-tint:rgba(90,61,158,.06);">
+  <div class="lit-card-body">
+    <div class="lit-card-title">Underground Agriculture: Repurposing Abandoned Tunnels in Coal-Mining Systems</div>
+    <div class="lit-card-meta">
+      <div class="lit-card-type"><span>Research Paper</span></div>
+      <div class="lit-card-source">Source: <span>IDEALS — University of Illinois</span></div>
+    </div>
+  </div>
+  <div class="lit-card-img"><img src="../images/cs/cs-mush-3.png" alt="Repurposing abandoned coal mine tunnels for underground agriculture" loading="lazy"></div>
+  <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/><polyline points="9 9 10 9"/></svg> View</div>
+</a>
+
+<a class="lit-card" href="https://cms.kvk7.in/assets/uploads/1740827722.Success%20story%20of%20mushroom%20farm%20woman%20Final.pdf" target="_blank" rel="noopener noreferrer"
+   style="--lit-accent:#b06a10;--lit-glow:rgba(176,106,16,.18);--lit-tint:rgba(176,106,16,.06);">
+  <div class="lit-card-body">
+    <div class="lit-card-title">A Success Story on Mushroom Cultivation by a Farm Woman of Dhalai, Tripura</div>
+    <div class="lit-card-meta">
+      <div class="lit-card-type"><span>Case Study</span></div>
+      <div class="lit-card-source">Source: <span>cms.kvk7.in</span></div>
+    </div>
+  </div>
+  <div class="lit-card-img"><img src="../images/cs/cs-mush-4.png" alt="Success story mushroom cultivation farm woman Dhalai Tripura" loading="lazy"></div>
+  <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/><polyline points="9 9 10 9"/></svg> View</div>
+</a>
+
+<a class="lit-card" href="https://ijcrt.org/papers/IJCRT2007487.pdf" target="_blank" rel="noopener noreferrer"
+   style="--lit-accent:#d97706;--lit-glow:rgba(217,119,6,.18);--lit-tint:rgba(217,119,6,.06);">
+  <div class="lit-card-body">
+    <div class="lit-card-title">Case Study On Mushroom And Mushroom Spawn Production For Sustainable Income Generation</div>
+    <div class="lit-card-meta">
+      <div class="lit-card-type"><span>Case Study</span></div>
+      <div class="lit-card-source">Source: <span>ijcrt.org</span></div>
+    </div>
+  </div>
+  <div class="lit-card-img"><img src="../images/cs/cs-mush-6.png" alt="Mushroom and spawn production case study sustainable income generation" loading="lazy"></div>
+  <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/><polyline points="9 9 10 9"/></svg> View</div>
+</a>
+
+<a class="lit-card" href="https://www.mdpi.com/2077-0472/11/7/579" target="_blank" rel="noopener noreferrer"
+   style="--lit-accent:#0891b2;--lit-glow:rgba(8,145,178,.18);--lit-tint:rgba(8,145,178,.06);">
+  <div class="lit-card-body">
+    <div class="lit-card-title">A Case Study on Surplus Mushrooms Production: Extraction and Recovery of Vitamin D2</div>
+    <div class="lit-card-meta">
+      <div class="lit-card-type"><span>Open Access Article</span></div>
+      <div class="lit-card-source">Source: <span>MDPI Agriculture</span></div>
+    </div>
+  </div>
+  <div class="lit-card-img"><img src="../images/cs/cs-mush-7.png" alt="Surplus mushroom production extraction recovery Vitamin D2 case study" loading="lazy"></div>
+  <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/><polyline points="9 9 10 9"/></svg> View</div>
+</a>
+
+<a class="lit-card" href="https://www.scribd.com/document/1019299502/A-Case-Study-Oyster-Mushroom-Cultivation-an-Alternate-Source-of-Income-1" target="_blank" rel="noopener noreferrer"
+   style="--lit-accent:#1a7a5e;--lit-glow:rgba(26,122,94,.18);--lit-tint:rgba(26,122,94,.06);">
+  <div class="lit-card-body">
+    <div class="lit-card-title">A Case Study — Oyster Mushroom Cultivation: An Alternate Source of Income</div>
+    <div class="lit-card-meta">
+      <div class="lit-card-type"><span>Case Study</span></div>
+      <div class="lit-card-source">Source: <span>Scribd</span></div>
+    </div>
+  </div>
+  <div class="lit-card-img"><img src="../images/cs/cs-mush-8.png" alt="Oyster mushroom cultivation alternate source of income case study" loading="lazy"></div>
+  <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/><polyline points="9 9 10 9"/></svg> View</div>
+</a>
+
+<a class="lit-card" href="https://www.researchgate.net/publication/343375860_Case_Study_On_Mushroom_And_Mushroom_Spawn_Production_For_Sustainable_Income_Generation" target="_blank" rel="noopener noreferrer"
+   style="--lit-accent:#C85000;--lit-glow:rgba(200,80,0,.18);--lit-tint:rgba(200,80,0,.06);">
+  <div class="lit-card-body">
+    <div class="lit-card-title">Case Study On Mushroom And Mushroom Spawn Production For Sustainable Income Generation</div>
+    <div class="lit-card-meta">
+      <div class="lit-card-type"><span>Open Access Paper</span></div>
+      <div class="lit-card-source">Source: <span>ResearchGate</span></div>
+    </div>
+  </div>
+  <div class="lit-card-img"><img src="../images/cs/cs-mush-12.png" alt="Mushroom spawn production sustainable income generation ResearchGate" loading="lazy"></div>
+  <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/><polyline points="9 9 10 9"/></svg> View</div>
+</a>
+
+<a class="lit-card" href="https://vigyanvarta.in/adminpanel/upload_doc/VV_0224_08.pdf" target="_blank" rel="noopener noreferrer"
+   style="--lit-accent:#1a5ca8;--lit-glow:rgba(26,92,168,.18);--lit-tint:rgba(26,92,168,.06);">
+  <div class="lit-card-body">
+    <div class="lit-card-title">Unveiling Assam's Fungal Fortune: A Case Study of Mushroom Agripreneur in Assam</div>
+    <div class="lit-card-meta">
+      <div class="lit-card-type"><span>Case Study</span></div>
+      <div class="lit-card-source">Source: <span>vigyanvarta.in</span></div>
+    </div>
+  </div>
+  <div class="lit-card-img"><img src="../images/cs/cs-mush-9.png" alt="Mushroom agripreneur case study Assam India" loading="lazy"></div>
+  <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/><polyline points="9 9 10 9"/></svg> View</div>
+</a>
+
+<a class="lit-card" href="https://www.hortijournal.com/archives/2025/vol7issue7/PartB/7-7-21-234.pdf" target="_blank" rel="noopener noreferrer"
+   style="--lit-accent:#5a3d9e;--lit-glow:rgba(90,61,158,.18);--lit-tint:rgba(90,61,158,.06);">
+  <div class="lit-card-body">
+    <div class="lit-card-title">Economic Assessment of Selected Mushroom Products: A Case Study of Pilot Mushroom Farm, Bhandara District</div>
+    <div class="lit-card-meta">
+      <div class="lit-card-type"><span>Case Study</span></div>
+      <div class="lit-card-source">Source: <span>hortijournal.com</span></div>
+    </div>
+  </div>
+  <div class="lit-card-img"><img src="../images/cs/cs-mush-11.png" alt="Economic assessment mushroom products pilot farm Bhandara district" loading="lazy"></div>
+  <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/><polyline points="9 9 10 9"/></svg> View</div>
+</a>
+
+<a class="lit-card" href="https://101reporters.com/article/agriculture/In_Udhampur_one_womans_success_story_in_mushroom_cultivation_inspires_others_to_follow_suit" target="_blank" rel="noopener noreferrer"
+   style="--lit-accent:#b06a10;--lit-glow:rgba(176,106,16,.18);--lit-tint:rgba(176,106,16,.06);">
+  <div class="lit-card-body">
+    <div class="lit-card-title">In Udhampur, One Woman's Success Story in Mushroom Cultivation Inspires Others to Follow Suit</div>
+    <div class="lit-card-meta">
+      <div class="lit-card-type"><span>Article</span></div>
+      <div class="lit-card-source">Source: <span>101reporters.com</span></div>
+    </div>
+  </div>
+  <div class="lit-card-img"><img src="../images/mf-hero.jpg" alt="Udhampur woman success story mushroom cultivation inspires others" loading="lazy"></div>
+  <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/><polyline points="9 9 10 9"/></svg> View</div>
+</a>
+
+<a class="lit-card" href="https://www.sewakodisha.org/resources/case_study/empowering-rural-women-through-collective-action-a-case-study-on-mushroom-cultivation/" target="_blank" rel="noopener noreferrer"
+   style="--lit-accent:#d97706;--lit-glow:rgba(217,119,6,.18);--lit-tint:rgba(217,119,6,.06);">
+  <div class="lit-card-body">
+    <div class="lit-card-title">Empowering Rural Women Through Collective Action: A Case Study on Mushroom Cultivation</div>
+    <div class="lit-card-meta">
+      <div class="lit-card-type"><span>Case Study</span></div>
+      <div class="lit-card-source">Source: <span>sewakodisha.org</span></div>
+    </div>
+  </div>
+  <div class="lit-card-img"><img src="../images/cs/cs-mush-10.png" alt="Empowering rural women collective action mushroom cultivation case study Odisha" loading="lazy"></div>
+  <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/><polyline points="9 9 10 9"/></svg> View</div>
+</a>
+
+<a class="lit-card" href="https://thegiorgicompanies.com/wp-content/uploads/sites/4/2022/10/Mined-Land-compressed.pdf" target="_blank" rel="noopener noreferrer"
+   style="--lit-accent:#0891b2;--lit-glow:rgba(8,145,178,.18);--lit-tint:rgba(8,145,178,.06);">
+  <div class="lit-card-body">
+    <div class="lit-card-title">Mushroom Compost Feedstock Production on Degraded Mined Land Reclaimed with Spent Mushroom Compost</div>
+    <div class="lit-card-meta">
+      <div class="lit-card-type"><span>Case Study Report</span></div>
+      <div class="lit-card-source">Source: <span>thegiorgicompanies.com</span></div>
+    </div>
+  </div>
+  <div class="lit-card-img"><img src="../images/mf-hero.jpg" alt="Mushroom compost feedstock production degraded mined land reclamation" loading="lazy"></div>
+  <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/><polyline points="9 9 10 9"/></svg> View</div>
+</a>
+
+<a class="lit-card" href="https://dmrsolan.res.in/Bul-SMS.pdf" target="_blank" rel="noopener noreferrer"
+   style="--lit-accent:#1a7a5e;--lit-glow:rgba(26,122,94,.18);--lit-tint:rgba(26,122,94,.06);">
+  <div class="lit-card-body">
+    <div class="lit-card-title">Management of Spent Mushroom Substrate</div>
+    <div class="lit-card-meta">
+      <div class="lit-card-type"><span>Technical Bulletin</span></div>
+      <div class="lit-card-source">Source: <span>dmrsolan.res.in (ICAR-DMR)</span></div>
+    </div>
+  </div>
+  <div class="lit-card-img"><img src="../images/cs/cs-mush-15.jpg" alt="Management of spent mushroom substrate ICAR DMR technical bulletin" loading="lazy"></div>
+  <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/><polyline points="9 9 10 9"/></svg> View</div>
+</a>
+
+<a class="lit-card" href="https://www.ijcmas.com/6-9-2017/Mahantesh%20Shirur,%20et%20al.pdf" target="_blank" rel="noopener noreferrer"
+   style="--lit-accent:#C85000;--lit-glow:rgba(200,80,0,.18);--lit-tint:rgba(200,80,0,.06);">
+  <div class="lit-card-body">
+    <div class="lit-card-title">An Exemplary Story of Growing Temperate Mushroom in Tropical Climate of Rural India: Lessons for Other Startups</div>
+    <div class="lit-card-meta">
+      <div class="lit-card-type"><span>Research Paper</span></div>
+      <div class="lit-card-source">Source: <span>ijcmas.com</span></div>
+    </div>
+  </div>
+  <div class="lit-card-img"><img src="../images/cs/cs-mush-2.png" alt="Temperate mushroom tropical climate rural India startup lessons" loading="lazy"></div>
+  <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/><polyline points="9 9 10 9"/></svg> View</div>
+</a>
+
+<a class="lit-card" href="https://edepot.wur.nl/298455" target="_blank" rel="noopener noreferrer"
+   style="--lit-accent:#1a5ca8;--lit-glow:rgba(26,92,168,.18);--lit-tint:rgba(26,92,168,.06);">
+  <div class="lit-card-body">
+    <div class="lit-card-title">The Adoption of Mushroom Farming Among Smallholder Farmers: A Case of Women Mushroom Farmers in Makuyu, Kenya</div>
+    <div class="lit-card-meta">
+      <div class="lit-card-type"><span>Research Paper</span></div>
+      <div class="lit-card-source">Source: <span>edepot.wur.nl (Wageningen)</span></div>
+    </div>
+  </div>
+  <div class="lit-card-img"><img src="../images/cs/cs-mush-17.jpg" alt="Women mushroom farmers adoption smallholder farming Makuyu Kenya" loading="lazy"></div>
+  <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/><polyline points="9 9 10 9"/></svg> View</div>
+</a>
+
+            </div><!-- /lit-track -->
+          </div><!-- /lit-track-clip -->
+          <div class="lit-nav">
+            <button class="lit-nav-btn" id="litPrev-all" onclick="litMove('all',-1)" aria-label="Previous">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <div class="lit-dots" id="litDots-all"></div>
+            <button class="lit-nav-btn" id="litNext-all" onclick="litMove('all',1)" aria-label="Next">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+          </div>
+        </div><!-- /lit-outer -->
+      </div><!-- /lit-wrap -->
+    </div><!-- /spv-content -->
+  </div><!-- /spv-panel-casestudies -->
+
+  <!-- TAB: Tender Documents -->
+  <div id="spv-panel-tender" class="spv-panel" style="display:none;">
+  <div class="spv-content">
+
+  
+
+  <div class="t5-wrap">
+    <div class="t5-topbar">
+      <div class="t5-pills">
+        <button class="t5-pill t5-pill--all active" onclick="t5Filter('all')">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          All Documents <span class="t5-pill-count" id="t5cnt-all">7</span>
+        </button>
+        <button class="t5-pill--rfp t5-pill" data-sec="rfp" onclick="t5Filter('rfp')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          RFP <span class="t5-pill-count" id="t5cnt-rfp">2</span>
+        </button>
+        <button class="t5-pill--nit t5-pill" data-sec="nit" onclick="t5Filter('nit')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+          NIT <span class="t5-pill-count" id="t5cnt-nit">2</span>
+        </button>
+        <button class="t5-pill--eoi t5-pill" data-sec="eoi" onclick="t5Filter('eoi')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          EOI <span class="t5-pill-count" id="t5cnt-eoi">1</span>
+        </button>
+        <button class="t5-pill--rpt t5-pill" data-sec="rpt" onclick="t5Filter('rpt')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          Reports &amp; DPR <span class="t5-pill-count" id="t5cnt-rpt">2</span>
+        </button>
+      </div>
+      <div class="t5-right">
+        <div class="t5-search-wrap">
+          <svg class="t5-search-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input id="t5SearchInput" class="t5-search" type="text" placeholder="Search documents…" oninput="t5Search(this.value)">
+        </div>
+        <span class="t5-counter" id="t5Counter"></span>
+      </div>
+    </div>
+    <div id="t5Sections">
+      <div class="t5-section" data-sec="rfp" style="animation-delay:0.05s">
+        <div class="t5-section-header">
+          <div class="t5-section-bar" style="background:#0F6E56"></div>
+          <span class="t5-section-label" style="color:#0F6E56">Requests for Proposal (RFP)</span>
+          <span class="t5-section-count">2 documents</span>
+        </div>
+        <div class="t5-list">
+          <a class="t5-row t5-row--rfp" data-sec="rfp"
+             data-title="request for proposal (rfp) [ rfp reference no. 0001/ukcdp/rfp/2022] selection of jv partner for mushroom value chain development under ukcdp project in uttarakhand"
+             href="https://cdnbbsr.s3waas.gov.in/s3cc0991344c3d760ae42259064406bae1/uploads/2025/02/20250210779474835.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0F6E56">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Request for Proposal (RFP) [ RFP Reference No. 0001/ukcdp/rfp/2022] Selection of JV Partner for Mushroom Value Chain Development under Ukcdp Project in Uttarakhand</div>
+              <div class="t5-sub">cdnbbsr.s3waas.gov.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">RFP</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rfp" data-sec="rfp"
+             data-title="request for proposal for supply for mushroom production unit and required support"
+             href="https://cdn.s3waas.gov.in/s358d4d1e7b1e97b258c9ed0b37e02d087/uploads/2022/12/2022122017.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0F6E56">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Request for Proposal for Supply for Mushroom Production Unit and Required Support</div>
+              <div class="t5-sub">cdn.s3waas.gov.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">RFP</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+        </div>
+      </div><!-- /rfp section -->
+      <div class="t5-section" data-sec="nit" style="animation-delay:0.10s">
+        <div class="t5-section-header">
+          <div class="t5-section-bar" style="background:#B45309"></div>
+          <span class="t5-section-label" style="color:#B45309">Notice Inviting Tender (NIT)</span>
+          <span class="t5-section-count">2 documents</span>
+        </div>
+        <div class="t5-list">
+          <a class="t5-row t5-row--nit" data-sec="nit"
+             data-title="tender for mushroom cultivation training to women of periphery villages"
+             href="https://opgc.co.in/ten/doc/w_nit-478_2.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#B45309">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Tender for Mushroom Cultivation training to women of periphery villages</div>
+              <div class="t5-sub">opgc.co.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">Tender</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--nit" data-sec="nit"
+             data-title="tender document of supply, installation and commissioning of oyster mushroom spawn lab, processing &amp; value addition cluster at mendipathar, north garo hills meghalaya"
+             href="https://mbda.gov.in/sites/default/files/finalpmtenderdocumentmeghafoodoystermushroomcluster10.02.2022a.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#B45309">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Tender document of Supply, Installation and Commissioning of Oyster Mushroom Spawn Lab, Processing &amp; Value Addition Cluster at Mendipathar, North Garo Hills Meghalaya</div>
+              <div class="t5-sub">mbda.gov.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">Tender</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+        </div>
+      </div><!-- /nit section -->
+      <div class="t5-section" data-sec="eoi" style="animation-delay:0.15s">
+        <div class="t5-section-header">
+          <div class="t5-section-bar" style="background:#0a7377"></div>
+          <span class="t5-section-label" style="color:#0a7377">Expression of Interest (EOI)</span>
+          <span class="t5-section-count">1 document</span>
+        </div>
+        <div class="t5-list">
+          <a class="t5-row t5-row--eoi" data-sec="eoi"
+             data-title="expression of interest for empanelmentoftraining providers for skill development programme for mushroom cultivation &amp; supply of blak rice paddy cultivation tools in manipur"
+             href="https://www.neramac.com/files/userfiles/2026/02/12/files/mushroom-cultivation-manipur.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0a7377">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Expression of Interest for Empanelmentoftraining Providers for Skill Development Programme for Mushroom Cultivation &amp; Supply of Blak Rice Paddy Cultivation Tools in Manipur</div>
+              <div class="t5-sub">neramac.com</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">EOI</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+        </div>
+      </div><!-- /eoi section -->
+      <div class="t5-section" data-sec="rpt" style="animation-delay:0.30s">
+        <div class="t5-section-header">
+          <div class="t5-section-bar" style="background:#0369a1"></div>
+          <span class="t5-section-label" style="color:#0369a1">Reports &amp; DPR</span>
+          <span class="t5-section-count">2 documents</span>
+        </div>
+        <div class="t5-list">
+          <a class="t5-row t5-row--rpt" data-sec="rpt"
+             data-title="detailed project report (dpr) model template nhb scheme no. 1 for mushroom production technology"
+             href="https://nhb.gov.in/NHBDPR/Mushroom_DPR.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0369a1">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Detailed Project Report (DPR) Model template Nhb Scheme No. 1 for Mushroom Production Technology</div>
+              <div class="t5-sub">nhb.gov.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">DPR</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rpt" data-sec="rpt"
+             data-title="feasibility report"
+             href="https://horticulture.bihar.gov.in/HORTMIS/ProjectBasedActivity/ProjectDocuments/Mushroom/Small_MUSHROOM_UNIT%202.00%20lakh.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0369a1">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Feasibility Report</div>
+              <div class="t5-sub">horticulture.bihar.gov.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">Report</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+        </div>
+      </div><!-- /rpt section -->
+    </div><!-- /t5Sections -->
+  </div><!-- /t5-wrap -->
+
+  <script>
+    (function(){
+      var activeFilter="all", searchQuery="";
+      function render(){
+        var sections=document.querySelectorAll("#spv-panel-tender .t5-section");
+        var rows=document.querySelectorAll("#spv-panel-tender .t5-row");
+        var vis=0;
+        sections.forEach(function(sec){
+          var secKey=sec.getAttribute("data-sec");
+          var showSec=(activeFilter==="all"||activeFilter===secKey);
+          var secVis=0;
+          sec.querySelectorAll(".t5-row").forEach(function(row){
+            var titleMatch=!searchQuery||row.getAttribute("data-title").indexOf(searchQuery)!==-1;
+            var show=showSec&&titleMatch;
+            row.style.display=show?"":"none";
+            if(show){secVis++;vis++;}
+          });
+          sec.style.display=secVis>0?"":"none";
+        });
+        var counter=document.getElementById("t5Counter");
+        if(counter) counter.textContent=vis+" document"+(vis===1?"":"s");
+        var empty=document.getElementById("t5Empty");
+        if(empty) empty.style.display=vis===0?"":"none";
+      }
+      window.t5Filter=function(type){
+        activeFilter=type;
+        document.querySelectorAll("#spv-panel-tender .t5-pill").forEach(function(p){
+          var m=(p.getAttribute("onclick")||"").match(/t5Filter\('?(\w+)'?\)/);
+          if(m) p.classList.toggle("active",m[1]===type);
+        });
+        render();
+      };
+      window.t5Search=function(val){ searchQuery=val.trim().toLowerCase(); render(); };
+      render();
+    })();
+  </script>
+
+  </div><!-- /spv-content -->
+  </div><!-- /spv-panel-tender -->
+
+  <!-- TAB: Media/Web -->
+  <div id="spv-panel-media" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+      
+  <div class="media-stack">
+
+    <a class="media-row" href="https://youtu.be/MHy5l-MNJC8?si=YfoxUwfGgMbWFIc4" target="_blank" rel="noopener noreferrer" style="--mr-accent:#1a7a5e;--mr-tint:rgba(26,122,94,.1);">
+      <div class="media-row-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a7a5e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+      <div class="media-row-main">
+        <div class="media-row-tag">Video · YouTube</div>
+        <div class="media-row-title">Mining for Mushrooms</div>
+        <div class="media-row-source"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><line x1="2" y1="8" x2="14" y2="8"/><path d="M8 2a10 10 0 010 12M8 2a10 10 0 000 12"/></svg>youtu.be</div>
+      </div>
+      <div class="media-row-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/></svg></div>
+    </a>
+
+    <a class="media-row" href="https://www.hindustantimes.com/india-news/from-bunker-to-business-how-mushrooms-are-bringing-prosperity-to-villages-along-the-line-of-control-in-kashmir-101683484502660.html" target="_blank" rel="noopener noreferrer" style="--mr-accent:#C85000;--mr-tint:rgba(200,80,0,.1);">
+      <div class="media-row-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C85000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+      <div class="media-row-main">
+        <div class="media-row-tag">Article · News</div>
+        <div class="media-row-title">LoC Villagers Grow Mushrooms in Abandoned Bunkers, Reap Dividends of Peace After 2021 Pact</div>
+        <div class="media-row-source"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><line x1="2" y1="8" x2="14" y2="8"/><path d="M8 2a10 10 0 010 12M8 2a10 10 0 000 12"/></svg>hindustantimes.com</div>
+      </div>
+      <div class="media-row-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/></svg></div>
+    </a>
+
+    <a class="media-row" href="https://icar.org.in/en/node/5830" target="_blank" rel="noopener noreferrer" style="--mr-accent:#1a5ca8;--mr-tint:rgba(26,92,168,.1);">
+      <div class="media-row-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a5ca8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+      <div class="media-row-main">
+        <div class="media-row-tag">Article · ICAR</div>
+        <div class="media-row-title">Mushroom Cultivation — A Way Towards Self-Reliance</div>
+        <div class="media-row-source"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><line x1="2" y1="8" x2="14" y2="8"/><path d="M8 2a10 10 0 010 12M8 2a10 10 0 000 12"/></svg>icar.org.in</div>
+      </div>
+      <div class="media-row-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/></svg></div>
+    </a>
+
+    <a class="media-row" href="https://www.cabidigitallibrary.org/doi/10.1079/ab.2025.0056" target="_blank" rel="noopener noreferrer" style="--mr-accent:#5a3d9e;--mr-tint:rgba(90,61,158,.1);">
+      <div class="media-row-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5a3d9e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+      <div class="media-row-main">
+        <div class="media-row-tag">Review Article · CABI</div>
+        <div class="media-row-title">Current Status and Future Prospects of Mushroom Cultivation and Research in India: A Review</div>
+        <div class="media-row-source"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><line x1="2" y1="8" x2="14" y2="8"/><path d="M8 2a10 10 0 010 12M8 2a10 10 0 000 12"/></svg>cabidigitallibrary.org</div>
+      </div>
+      <div class="media-row-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/></svg></div>
+    </a>
+
+    <a class="media-row" href="https://actalliance.org/act-assembly-posts/mushroom-cultivation-a-climate-smart-livelihood-model/" target="_blank" rel="noopener noreferrer" style="--mr-accent:#b06a10;--mr-tint:rgba(176,106,16,.1);">
+      <div class="media-row-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#b06a10" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+      <div class="media-row-main">
+        <div class="media-row-tag">Article · ACT Alliance</div>
+        <div class="media-row-title">Mushroom Cultivation: A Climate-Smart Livelihood Model</div>
+        <div class="media-row-source"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><line x1="2" y1="8" x2="14" y2="8"/><path d="M8 2a10 10 0 010 12M8 2a10 10 0 000 12"/></svg>actalliance.org</div>
+      </div>
+      <div class="media-row-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/></svg></div>
+    </a>
+
+    <a class="media-row" href="https://www.kenresearch.com/industry-reports/india-mushroom-market" target="_blank" rel="noopener noreferrer" style="--mr-accent:#0891b2;--mr-tint:rgba(8,145,178,.1);">
+      <div class="media-row-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0891b2" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+      <div class="media-row-main">
+        <div class="media-row-tag">Market Report · Ken Research</div>
+        <div class="media-row-title">India Mushroom Market Outlook to 2030</div>
+        <div class="media-row-source"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><line x1="2" y1="8" x2="14" y2="8"/><path d="M8 2a10 10 0 010 12M8 2a10 10 0 000 12"/></svg>kenresearch.com</div>
+      </div>
+      <div class="media-row-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/></svg></div>
+    </a>
+
+  </div>
+  <p style="font-size:0.72rem; color:var(--color-text-secondary); font-style:italic; margin-top:16px;">Links open external websites. Coal Controller Organisation does not endorse third-party content.</p>
+    </div>
+  </div>
+
+  <!-- TAB: Agencies -->
+ <div id="spv-panel-agencies" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+  <div class="agencies-logo-grid">
+ 
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img" style="background:#f5f5f5; border-radius:10px;">
+            <img src="../images/agencies/Biobritte%20Agro%20Solutions%20Pvt%20Ltd.jpg" alt="Biobritte Agro Solutions Pvt Ltd" style="max-width:100%; max-height:60px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">Biobritte Agro Solutions Pvt Ltd</div>
+          <div class="agency-logo-type">End-to-end mushroom farm setup: growing room build, spawn unit, substrate plant &amp; commissioning</div>
+        </div>
+ 
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img" style="background:#f5f5f5; border-radius:10px;">
+            <img src="../images/agencies/" alt="Snehal Mushrooms Pvt Ltd" style="max-width:100%; max-height:60px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">Snehal Mushrooms Pvt Ltd</div>
+          <div class="agency-logo-type">Substrate prep plant, climate-controlled growing room construction, shelving &amp; spawn supply</div>
+        </div>
+ 
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img" style="background:#f5f5f5; border-radius:10px;">
+            <img src="../images/agencies/greenagrotech.jpg" alt="GreenTech Agro India" style="max-width:100%; max-height:60px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">GreenTech Agro India</div>
+          <div class="agency-logo-type">Mushroom farm infrastructure: insulated room build, shelf systems &amp; environmental control setup</div>
+        </div>
+ 
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img" style="background:#f5f5f5; border-radius:10px;">
+            <img src="../images/agencies/Himalya%20International%20Ltd.webp" alt="Himalya International Ltd" style="max-width:100%; max-height:60px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">Himalya International Ltd</div>
+          <div class="agency-logo-type">Large-scale commercial mushroom farm design, climate room construction &amp; commissioning</div>
+        </div>
+ 
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img" style="background:#f5f5f5; border-radius:10px;">
+            <img src="../images/agencies/" alt="MushBee Agro Pvt Ltd" style="max-width:100%; max-height:60px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">MushBee Agro Pvt Ltd</div>
+          <div class="agency-logo-type">Mushroom growing room civil &amp; insulation build, shelf installation &amp; environment control setup</div>
+        </div>
+ 
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img" style="background:#f5f5f5; border-radius:10px;">
+            <img src="../images/agencies/" alt="Inno Agro (Mushroom House India)" style="max-width:100%; max-height:60px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">Inno Agro (Mushroom House India)</div>
+          <div class="agency-logo-type">Commercial mushroom farm design, growing room build, substrate plant &amp; spawn commissioning</div>
+        </div>
+ 
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img" style="background:#f5f5f5; border-radius:10px;">
+            <img src="../images/agencies/" alt="Agri Mushroom Infrastructure India" style="max-width:100%; max-height:60px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">Agri Mushroom Infrastructure India</div>
+          <div class="agency-logo-type">Mushroom farm polyhouse &amp; insulated room construction, substrate &amp; spawn setup</div>
+        </div>
+ 
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img" style="background:#f5f5f5; border-radius:10px;">
+            <img src="../images/agencies/Krishi%20Mushroom%20Pvt%20Ltd.jpg" alt="Krishi Mushroom Pvt Ltd" style="max-width:100%; max-height:60px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">Krishi Mushroom Pvt Ltd</div>
+          <div class="agency-logo-type">Climate-controlled mushroom growing infrastructure, shed construction &amp; commissioning</div>
+        </div>
+ 
+  </div>
+ 
+  <div style="margin-top:28px; padding:14px 18px; background:rgba(33,128,141,.05); border:1px solid rgba(33,128,141,.18); border-radius:8px; display:flex; gap:12px; align-items:flex-start;">
+    <svg style="flex-shrink:0; margin-top:2px;" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#21808d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+    <p style="margin:0; font-family:var(--font-sans); font-size:0.8rem; color:var(--color-text-secondary); line-height:1.65;">
+      <strong style="color:var(--color-text); font-weight:600;">Disclaimer:</strong>
+      Inclusion of an agency on this list does not constitute endorsement, empanelment, or recommendation by the Coal Controller Organisation or the Ministry of Coal, Government of India. Mine owners and project proponents are advised to conduct their own due diligence process before engaging any agency.
+    </p>
+  </div>
+ 
+    </div>
+  </div>
+  <!-- TAB: Experts -->
+  <div id="spv-panel-experts" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+      <div class="experts-grid">
+      </div>
+
+      <div style="margin-top:28px;padding:14px 18px;background:rgba(33,128,141,.05);border:1px solid rgba(33,128,141,.18);border-radius:8px;display:flex;gap:12px;align-items:flex-start;">
+        <svg style="flex-shrink:0;margin-top:2px;" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#21808d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <p style="margin:0;font-family:var(--font-sans);font-size:0.8rem;color:var(--color-text-secondary);line-height:1.65;"><strong style="color:var(--color-text);font-weight:600;">Disclaimer:</strong> Inclusion of an expert does not constitute endorsement, empanelment, or recommendation by the Coal Controller Organisation or the Ministry of Coal, Government of India. Users are advised to independently verify credentials and suitability before engaging any individual.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer id="site-footer-sf">
+    &copy; 2026 Coal Controller Organisation, Ministry of Coal, Government of India.
+  </footer>
+
+</div><!-- /page -->
+
+<script>
+const PRISM2_COLORS = {P:'#C85000', R:'#1a5ca8', I:'#b06a10', S:'#5a3d9e', M:'#1a7a5e'};
+const PRISM2_BG     = {P:'#fff0e6', R:'#e4eef9', I:'#faedda', S:'#edeaf8', M:'#e1f3ec'};
+</script>
+<script src="./category.js"></script>
+<script>
+function prNav(key) {
+  prism2Show(key);
+  document.querySelectorAll('#spv-panel-prism .pr-nav-item').forEach(function(n) {
+    n.classList.toggle('active', n.dataset.key === key);
+  });
+  var hl = document.getElementById('pr-hl');
+  var activeItem = document.querySelector('#spv-panel-prism .pr-nav-item[data-key="' + key + '"]');
+  if (hl && activeItem) {
+    var accent = getComputedStyle(activeItem).getPropertyValue('--pr-accent').trim();
+    hl.style.setProperty('--pr-hl', accent);
+    hl.style.top    = activeItem.offsetTop + 'px';
+    hl.style.height = activeItem.offsetHeight + 'px';
+  }
+  document.querySelectorAll('#spv-panel-prism .pdot').forEach(function(d) {
+    d.classList.toggle('active', d.dataset.p === key);
+  });
+}
+function prism2Next() {
+  if (prism2Current < PRISM2_ORDER.length - 1)
+    prNav(PRISM2_ORDER[prism2Current + 1]);
+}
+function prism2Prev() {
+  if (prism2Current > 0)
+    prNav(PRISM2_ORDER[prism2Current - 1]);
+}
+document.addEventListener('DOMContentLoaded', function() {
+  prNav('P');
+});
+
+function downloadPRISM() {
+  var rawTitle = document.title || '';
+  var catName  = rawTitle.split('—')[0].split('-')[0].trim() || 'Category';
+
+  var PC = {P:'#C85000',R:'#1a5ca8',I:'#b06a10',S:'#5a3d9e',M:'#1a7a5e'};
+  var PB = {P:'#fff8f3',R:'#f3f7fd',I:'#fdf7f0',S:'#f7f5fd',M:'#f1faf6'};
+  var PN = {P:'Project Vision',R:'Repurposing Pathways',I:'Investment Dynamics',S:'Strategic Structuring',M:'Monitoring &amp; Management'};
+  var PE = {P:'POST-MINING',R:'REPURPOSING',I:'INVESTMENT',S:'STRATEGY',M:'MANAGEMENT'};
+
+  var introHeadEl = document.querySelector('.pr-intro-heading');
+  var introBodyEl = document.querySelector('.pr-intro-body');
+  var introHead   = introHeadEl ? introHeadEl.textContent : 'A structured framework for mine repurposing from concept to implementation';
+  var introBody   = introBodyEl ? introBodyEl.innerHTML   : '';
+
+  var pillarsHTML = '';
+  ['P','R','I','S','M'].forEach(function(k) {
+    var panel = document.getElementById('prism2-panel-' + k);
+    if (!panel) return;
+
+    var eyebrowEl   = panel.querySelector('.prism2-panel-eyebrow');
+    var titleEl     = panel.querySelector('.prism2-panel-title');
+    var descEl      = panel.querySelector('.prism2-panel-desc');
+    var eyebrow     = eyebrowEl  ? eyebrowEl.textContent  : PE[k];
+    var panelTitle  = titleEl    ? titleEl.textContent    : PN[k];
+    var descHTML    = descEl     ? descEl.innerHTML       : '';
+
+    var accHTML = '';
+    panel.querySelectorAll('.accordion-item').forEach(function(item) {
+      var spans = item.querySelectorAll('.accordion-btn span');
+      var btnText = '';
+      for (var s = 0; s < spans.length; s++) {
+        var t = spans[s].textContent.trim();
+        if (t && t !== '⥤' && t !== '˅') { btnText = t; break; }
+      }
+      var body = item.querySelector('.accordion-body');
+      if (!body) return;
+      var clone = body.cloneNode(true);
+      clone.style.display = '';
+      /* Remove scroll-wrapper overflow so tables span full width */
+      clone.querySelectorAll('.spv-table-wrap').forEach(function(w){w.style.overflowX='visible';});
+      accHTML += '<div class="acc-item">' +
+        '<div class="acc-heading">' + btnText + '</div>' +
+        '<div class="acc-body">' + clone.innerHTML + '</div>' +
+        '</div>';
+    });
+
+    pillarsHTML +=
+      '<div class="pillar" style="border-left-color:' + PC[k] + ';">' +
+        '<div class="pillar-hdr" style="background:' + PC[k] + '18;">' +
+          '<div class="pillar-letter" style="color:' + PC[k] + ';">' + k + '</div>' +
+          '<div class="pillar-info">' +
+            '<div class="pillar-eyebrow" style="color:' + PC[k] + ';">' + eyebrow + '</div>' +
+            '<div class="pillar-name">' + panelTitle + '</div>' +
+            (descHTML ? '<div class="pillar-desc">' + descHTML + '</div>' : '') +
+          '</div>' +
+        '</div>' +
+        '<div class="pillar-content">' + accHTML + '</div>' +
+      '</div>';
+  });
+
+  var css = [
+    '*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}',
+    'body{font-family:"Segoe UI",Arial,sans-serif;font-size:10pt;color:#1a1a1a;line-height:1.65;background:#fff}',
+    '@page{size:A4;margin:16mm 14mm}',
+    /* ── Cover ── */
+    '.cover{margin-bottom:28pt;padding-bottom:22pt;border-bottom:1.5pt solid #ddd}',
+    '.rainbow{height:5pt;border-radius:99pt;background:linear-gradient(to right,#7C3AB5,#4f6de0,#0ea5e9,#1D9E75,#3B6D11,#BA7517,#C85000,#A32D2D);margin-bottom:18pt}',
+    '.cover-eye{font-size:7.5pt;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#888;margin-bottom:7pt}',
+    '.cover-title{font-size:24pt;font-weight:800;color:#111;line-height:1.15;margin-bottom:5pt}',
+    '.cover-sub{font-size:11pt;font-weight:600;color:#444;margin-bottom:11pt}',
+    '.cover-body{font-size:9pt;color:#555;line-height:1.75}',
+    /* ── Pillars ── */
+    '.pillars{display:flex;flex-direction:column;gap:20pt}',
+    '.pillar{border-left:4pt solid #ccc;border-radius:6pt;overflow:hidden;page-break-inside:avoid}',
+    '.pillar-hdr{padding:13pt 15pt 11pt;display:flex;align-items:flex-start;gap:12pt}',
+    '.pillar-letter{font-size:30pt;font-weight:800;line-height:1;flex-shrink:0;width:38pt;opacity:.85}',
+    '.pillar-info{flex:1}',
+    '.pillar-eyebrow{font-size:7pt;font-weight:700;letter-spacing:.11em;text-transform:uppercase;margin-bottom:2pt}',
+    '.pillar-name{font-size:12.5pt;font-weight:700;color:#111;margin-bottom:3pt}',
+    '.pillar-desc{font-size:8.5pt;color:#555;line-height:1.6}',
+    /* ── Accordion ── */
+    '.pillar-content{background:#fff}',
+    '.acc-item{border-top:1pt solid #e8e8e0}',
+    '.acc-heading{font-size:9pt;font-weight:700;padding:8pt 13pt;color:#2a2a2a;background:#fafaf8}',
+    '.acc-body{font-size:8.5pt;line-height:1.75;color:#444;padding:9pt 13pt 11pt}',
+    /* ── Body content ── */
+    '.spv-body-text{margin-bottom:7pt}',
+    'p{margin-bottom:7pt}',
+    '.spv-list,.spv-list-unstyled{margin:5pt 0 7pt 16pt}',
+    'ul,ol{margin:5pt 0 7pt 16pt}',
+    '.spv-list li,ul li,ol li{margin-bottom:3pt}',
+    /* ── Tables ── */
+    '.spv-table-wrap{margin:7pt 0;overflow:visible}',
+    '.spv-table{width:100%;border-collapse:collapse;font-size:8pt}',
+    '.spv-table th{background:#f0f0ea;font-weight:700;text-align:left;padding:5pt 7pt;border:1pt solid #ccc;vertical-align:top}',
+    '.spv-table td{padding:4.5pt 7pt;border:1pt solid #ccc;vertical-align:top}',
+    '.spv-table tr:nth-child(even) td{background:#f9f9f7}',
+    /* ── Strong/em ── */
+    'strong{font-weight:700}',
+    'em{font-style:italic}',
+    /* ── Info/note boxes (if any) ── */
+    '.spv-note,.spv-info{background:#f5f5f0;border-left:3pt solid #aaa;padding:8pt 10pt;margin:6pt 0;font-size:8.5pt}'
+  ].join('\n');
+
+  var html = '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">' +
+    '<title>PRISM — ' + catName + '<\/title>' +
+    '<style>' + css + '<\/style><\/head><body>' +
+    '<div class="cover">' +
+      '<div class="rainbow"><\/div>' +
+      '<div class="cover-eye">PRISM Framework — Post-Mining Repurposing &amp; Implementation Strategy Models<\/div>' +
+      '<div class="cover-title">' + catName + '<\/div>' +
+      '<div class="cover-sub">' + introHead + '<\/div>' +
+      (introBody ? '<div class="cover-body">' + introBody + '<\/div>' : '') +
+    '<\/div>' +
+    '<div class="pillars">' + pillarsHTML + '<\/div>' +
+    '<\/body><\/html>';
+
+  var win = window.open('', '_blank', 'width=960,height=750');
+  if (!win) { alert('Please allow pop-ups for this site to download the PDF.'); return; }
+  win.document.write(html);
+  win.document.close();
+  win.focus();
+  setTimeout(function() { win.print(); }, 700);
+}
+</script>
+
+<!-- browse-back-script -->
+<script>
+(function(){
+  if(new URLSearchParams(location.search).get('from')==='browse'){
+    var btn=document.querySelector('.back-btn');
+    if(btn){
+      btn.onclick=function(){window.location.href='../browse.html';};
+      btn.setAttribute('aria-label','Back to Browse');
+      for(var i=btn.childNodes.length-1;i>=0;i--){
+        var n=btn.childNodes[i];
+        if(n.nodeType===3&&n.textContent.trim()){n.textContent=' Back to Browse';break;}
+      }
+    }
+    var cr=document.querySelector('.sf-breadcrumb span:not(.sep)');
+    if(cr)cr.textContent='All Categories';
+  }
+})();
+</script>
+</body>
+</html>

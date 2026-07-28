@@ -1,0 +1,1818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Geo-repository — SUVIKALP | Coal Controller Organisation</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="./category.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ── Local Inter font faces ─────────────────────────────── */
+@font-face { font-family:"Inter"; font-weight:400; font-display:swap; src:url("../fonts/Inter_18pt-Regular.woff2") format("woff2"),url("../fonts/Inter_18pt-Regular.ttf") format("truetype"); }
+@font-face { font-family:"Inter"; font-weight:500; font-display:swap; src:url("../fonts/Inter_18pt-Medium.woff2") format("woff2"),url("../fonts/Inter_18pt-Medium.ttf") format("truetype"); }
+@font-face { font-family:"Inter"; font-weight:600; font-display:swap; src:url("../fonts/Inter_18pt-SemiBold.woff2") format("woff2"),url("../fonts/Inter_18pt-SemiBold.ttf") format("truetype"); }
+@font-face { font-family:"Inter"; font-weight:700; font-display:swap; src:url("../fonts/Inter_18pt-Bold.woff2") format("woff2"),url("../fonts/Inter_18pt-Bold.ttf") format("truetype"); }
+
+/* ── Single unified font system ─────────────────────────── */
+:root {
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-devanagari: 'Noto Sans Devanagari', 'Noto Sans', sans-serif;
+  --fs-xs:   0.75rem;
+  --fs-sm:   0.8125rem;
+  --fs-base: 0.875rem;
+  --fs-md:   0.9375rem;
+  --fs-lg:   1rem;
+  --fs-xl:   1.125rem;
+  --fs-2xl:  1.375rem;
+  --lh-tight: 1.35;
+  --lh-base:  1.6;
+  --lh-loose: 1.8;
+}
+
+html, body, button, input, select, textarea { font-family: var(--font-sans); }
+.hindi, .header-cco-hindi { font-family: var(--font-devanagari); }
+
+.spv-body-text { font-family:var(--font-sans); font-size:var(--fs-md); line-height:var(--lh-loose); color:var(--color-text); margin-bottom:14px; font-weight:400; }
+.spv-list { margin:8px 0 14px 22px; font-family:var(--font-sans); font-size:var(--fs-md); line-height:var(--lh-loose); color:var(--color-text); }
+.spv-list li { margin-bottom:6px; }
+.spv-section-title { font-family:var(--font-sans); font-weight:700; font-size:var(--fs-xl); color:var(--color-teal-600); border-bottom:2px solid var(--color-primary); padding-bottom:8px; margin-bottom:22px; letter-spacing:-0.01em; }
+
+.accordion-btn { font-family:var(--font-sans); font-weight:600; font-size:var(--fs-base); }
+.accordion-body { font-family:var(--font-sans); font-size:var(--fs-md); }
+.spv-table, .spv-table thead tr th, .spv-table td, .spv-table td:first-child { font-family:var(--font-sans); }
+
+.spv-tab { font-family:var(--font-sans); font-weight:500; font-size:var(--fs-sm); }
+.spv-tab.active { font-weight:700; }
+.prism-label { font-family:var(--font-sans); font-size:0.7rem; line-height:1.3; }
+.prism-letter { font-family:var(--font-sans); font-weight:800; }
+
+.back-btn { font-family:var(--font-sans); font-weight:600; font-size:var(--fs-base); }
+.sf-breadcrumb { font-family:var(--font-sans); font-size:var(--fs-sm); }
+
+/* Tender tab styles are now self-contained inside spv-panel-tender */
+
+.cs-location { font-family:var(--font-sans); font-weight:700; font-size:var(--fs-base); }
+.cs-title { font-family:var(--font-sans); font-size:var(--fs-sm); line-height:var(--lh-base); }
+.cs-desc { font-family:var(--font-sans); font-size:var(--fs-sm); line-height:var(--lh-base); }
+.cs-subtab { font-family:var(--font-sans); font-size:var(--fs-md); font-weight:500; }
+.cs-subtab.active { font-weight:700; }
+
+/* Media/Web tab styles are now self-contained inside spv-panel-media */
+
+.agency-logo-name { font-family:var(--font-sans); font-weight:700; font-size:var(--fs-sm); }
+.agency-logo-type { font-family:var(--font-sans); font-size:0.72rem; }
+.agencies-intro-label { font-family:var(--font-sans); font-weight:700; display:none; }
+.agency-logo-inner--img { display:flex; align-items:center; justify-content:center; padding:10px 14px; border-radius:8px; height:76px !important; box-sizing:border-box; }
+.agency-logo-inner--img img { max-width:100%; max-height:56px; width:auto; height:auto; object-fit:contain; }
+.agencies-intro-text { font-family:var(--font-sans); font-size:var(--fs-md); line-height:var(--lh-base); }
+
+.expert-name { font-family:var(--font-sans); font-weight:700; font-size:var(--fs-lg); }
+.expert-role { font-family:var(--font-sans); font-size:var(--fs-sm); line-height:var(--lh-base); }
+.expert-bio { font-family:var(--font-sans); font-size:var(--fs-base); line-height:var(--lh-loose); }
+.expert-tag { font-family:var(--font-sans); font-size:0.7rem; font-weight:500; }
+.expert-contact a { font-family:var(--font-sans); font-size:var(--fs-base); font-weight:500; }
+.experts-intro-label { font-family:var(--font-sans); font-weight:700; }
+.experts-intro-text { font-family:var(--font-sans); font-size:var(--fs-md); line-height:var(--lh-base); }
+
+.impl-card-title { font-family:var(--font-sans); font-weight:600; font-size:var(--fs-base); }
+.impl-card-num { font-family:var(--font-sans); font-weight:700; }
+.banner-title { font-family:var(--font-sans); font-weight:700; }
+.banner-sub { font-family:var(--font-sans); font-size:var(--fs-base); line-height:var(--lh-base); }
+#site-footer-sf { font-family:var(--font-sans); font-size:var(--fs-xs); }
+
+/* ── About Tab ─────────────────────────────────────────── */
+.about-hero-row { display:flex; gap:28px; align-items:stretch; margin-bottom:40px; min-height:300px; }
+.about-hero-slide-col { flex:0 0 40%; min-width:0; display:flex; flex-direction:column; }
+.about-hero-slide-col .proj-slideshow { flex:none; height:340px; }
+.proj-static-img-wrap { position:relative; border-radius:14px; overflow:hidden; box-shadow:0 4px 24px rgba(0,0,0,.15); flex:none; height:340px; }
+.proj-static-img { width:100%; height:100%; object-fit:cover; display:block; }
+.about-hero-text-col { flex:1; min-width:0; display:flex; flex-direction:column; justify-content:center; }
+.about-hero-label { font-family:var(--font-sans); font-size:var(--fs-xs); font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--teal); margin-bottom:0; }
+.about-hero-label-wrap { margin-bottom:12px; }
+.about-hero-label-bar { display:block; height:3px; width:48px; margin-top:7px; border-radius:99px; background:linear-gradient(90deg,#21808d 0%,#38bdf8 60%,transparent 100%); }
+.about-intro { display:flex; flex-direction:column; gap:14px; }
+.about-intro-block { padding:14px 18px; border-radius:10px; }
+.about-intro-primary { border-left:4px solid #21808d; background:rgba(33,128,141,.05); }
+.about-intro-secondary { border-left:4px solid rgba(33,128,141,.3); background:#fafafa; }
+.about-section { margin-bottom:40px; }
+.about-section-eyebrow { font-family:var(--font-sans); font-size:var(--fs-xs); font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--teal); margin-bottom:4px; }
+.about-section-title { font-family:var(--font-sans); font-size:var(--fs-xl); font-weight:700; color:#0f172a; margin:0 0 20px; line-height:var(--lh-tight); }
+
+/* Schemes carousel */
+.schemes-outer { position:relative; margin:0 20px; }
+.schemes-nav-btn { position:absolute; top:50%; transform:translateY(-50%); z-index:10; width:36px; height:36px; border-radius:50%; background:#fff; border:1.5px solid #e2e8f0; box-shadow:0 2px 10px rgba(0,0,0,.10); cursor:pointer; display:flex; align-items:center; justify-content:center; color:#475569; transition:background .2s,color .2s,border-color .2s,box-shadow .2s; padding:0; }
+.schemes-nav-btn:hover { background:var(--teal,#0a9396); color:#fff; border-color:var(--teal,#0a9396); box-shadow:0 4px 14px rgba(10,147,150,.3); }
+.schemes-nav-btn.schemes-prev { left:-20px; }
+.schemes-nav-btn.schemes-next { right:-20px; }
+.schemes-ticker-wrap { overflow:hidden; position:relative; mask-image:linear-gradient(to right,transparent 0%,black 7%,black 93%,transparent 100%); -webkit-mask-image:linear-gradient(to right,transparent 0%,black 7%,black 93%,transparent 100%); }
+.schemes-ticker { display:flex; gap:16px; overflow-x:auto; -ms-overflow-style:none; scrollbar-width:none; padding:8px 4px; }
+.schemes-ticker::-webkit-scrollbar { display:none; }
+.scheme-card { flex:0 0 220px; scroll-snap-align:start; background:#fff; border:1px solid #e8eaed; border-radius:12px; padding:18px 16px; box-shadow:0 2px 8px rgba(0,0,0,.05); transition:box-shadow .2s,transform .2s; }
+.scheme-card:hover { box-shadow:0 6px 20px rgba(0,0,0,.1); transform:translateY(-3px); }
+.scheme-card-icon { font-size:22px; margin-bottom:10px; }
+.scheme-card-tag { font-family:var(--font-sans); font-size:var(--fs-xs); font-weight:700; letter-spacing:.09em; text-transform:uppercase; color:var(--teal); margin-bottom:5px; }
+.scheme-card-title { font-family:var(--font-sans); font-size:var(--fs-base); font-weight:700; color:#1e293b; margin-bottom:8px; line-height:var(--lh-tight); }
+.scheme-card-desc { font-family:var(--font-sans); font-size:var(--fs-sm); color:#64748b; line-height:var(--lh-base); display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
+
+/* Projects slideshow */
+.proj-slideshow { position:relative; border-radius:14px; overflow:hidden; box-shadow:0 4px 24px rgba(0,0,0,.15); background:#000; }
+.proj-slide { display:none; position:relative; height:100%; min-height:260px; }
+.proj-slide.active { display:block; animation:projFadeIn .5s ease; }
+@keyframes projFadeIn { from { opacity:0; transform:scale(1.03); } to { opacity:1; transform:scale(1); } }
+.proj-slide-img { width:100%; height:100%; object-fit:cover; display:block; }
+.proj-slide-overlay { position:absolute; bottom:0; left:0; right:0; padding:12px 18px; background:linear-gradient(90deg,rgba(10,70,80,.95) 0%,rgba(33,128,141,.88) 100%); display:flex; align-items:center; gap:0; z-index:1; }
+.proj-caption { font-family:var(--font-sans); font-size:var(--fs-base); font-weight:600; color:#fff; line-height:1.4; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.proj-ss-btn { position:absolute; top:50%; transform:translateY(-50%); width:36px; height:36px; border-radius:50%; background:rgba(255,255,255,.18); backdrop-filter:blur(6px); border:1px solid rgba(255,255,255,.28); color:#fff; font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:background .2s,opacity .25s; z-index:3; opacity:0; }
+.proj-slideshow:hover .proj-ss-btn { opacity:1; }
+.proj-ss-btn:hover { background:rgba(255,255,255,.38); }
+.proj-ss-prev { left:12px; }
+.proj-ss-next { right:12px; }
+.proj-ss-dots { display:none; }
+.proj-ss-counter { display:none; }
+.vibgyor-chips { display:none !important; }
+  </style>
+</head>
+<body>
+<header id="site-header">
+  <div class="header-left">
+    <div class="header-tool-title">
+      <span class="hindi">सुविकल्प:</span> Mine Repurposing Tool
+    </div>
+    <div class="header-tool-sub">
+      Select factors and sub-factors to discover suitable repurposing options for your mining site
+    </div>
+  </div>
+  <div class="header-right">
+    <a href="https://coalcontroller.gov.in/" target="_blank" rel="noopener" title="CCO Home">
+    <div class="header-cco-lockup">
+      <img class="header-cco-logo" src="data:image/png;base64,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" alt="Coal Controller Organisation emblem">
+      <div class="header-cco-text"></div>
+    </div>
+    </a>
+  </div>
+</header>
+
+<div class="page">
+
+  <!-- Back bar -->
+  <div class="sf-backbar">
+    <button class="back-btn" onclick="window.location.href='../index.html'" aria-label="Back to results">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M10 3L5 8l5 5"/>
+      </svg>
+      Back to Results
+    </button>
+    <span class="sf-breadcrumb">
+      <span>Final Recommendations</span>
+      <span class="sep">/</span>
+      <span style="color:var(--teal);font-weight:500;">Geo-Repository / Geoscience Data Centre</span>
+    </span>
+  </div>
+
+  <!-- Hero Image -->
+  <div class="spv-hero-wrap">
+    <img src="../images/geo-repository-hero.jpg" alt="Engineer monitoring geoscience data across multiple screens in an industrial control room — centralized geo-repository facility" class="spv-hero-img">
+    <div class="spv-hero-overlay"></div>
+    <div class="spv-hero-title">Geo-repository</div>
+  </div>
+
+  <!-- Tab navigation -->
+  <nav class="spv-tabs" aria-label="Detail sections">
+    <button class="spv-tab active" data-tab="about"       onclick="showSPVTab('about')">About</button>
+    <button class="spv-tab"        data-tab="prism"        onclick="showSPVTab('prism')">P.R.I.S.M</button>
+    <button class="spv-tab"        data-tab="casestudies"  onclick="showSPVTab('casestudies');setTimeout(function(){window.dispatchEvent(new Event('resize'))},30)">Case Studies</button>
+    <button class="spv-tab"        data-tab="tender"       onclick="showSPVTab('tender')">Sample Tender Documents</button>
+    <button class="spv-tab"        data-tab="media"        onclick="showSPVTab('media')">Media/Web</button>
+    <button class="spv-tab"        data-tab="agencies"    onclick="showSPVTab('agencies')">Agencies</button>
+<!-- EXPERTS TAB HIDDEN (page not yet complete)
+<button class="spv-tab"        data-tab="experts"      onclick="showSPVTab('experts')">Experts</button>
+-->
+  </nav>
+
+  <div id="spv-panel-about" class="spv-panel">
+    <div class="spv-content">
+
+      <div class="about-hero-row">
+        <div class="about-hero-slide-col">
+          <div class="about-hero-label-wrap">
+            <div class="about-hero-label">Global Precedents</div>
+            <span class="about-hero-label-bar"></span>
+          </div>
+          <div class="proj-static-img-wrap">
+            <img src="../images/gr-hero.jpg" alt="Geologist in underground mine tunnel — geological investigation and data repository in former mine workings" class="proj-static-img" loading="lazy">
+            <div class="proj-slide-overlay">
+              <span class="proj-caption">USGS NGMDB Geoscience Repository, Denver, USA</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-hero-text-col">
+          <div class="about-intro">
+            <div class="about-intro-block about-intro-primary">
+              A <strong>Geo-Repository / Centralized Geoscience Data Centre</strong> on closed, reclaimed, or repurposed coal mine land converts under-utilised administrative infrastructure into a knowledge, data, training, and decision-support facility. It stores, manages, validates, visualises, and disseminates spatial, geological, exploration, mine-planning, environmental, geotechnical, hydrogeological, drone-survey, remote-sensing, and closure-monitoring data — creating a long-term digital asset from mine-closure legacy records.
+            </div>
+            <div class="about-intro-block about-intro-secondary">
+              A Geo-Repository has a <strong>low physical footprint</strong> but high institutional value. It is especially suited to mines with existing administrative buildings, control rooms, survey offices, or training facilities. India's reference model is the <strong>National Geoscience Data Repository (NGDR)</strong> under the National Mineral Exploration Policy, 2016. The CCO frameworks <strong>A.R.T.H.A., L.I.V.E.S.</strong> and <strong>R.E.C.L.A.I.M.</strong> explicitly support knowledge-based repurposing as part of structured mine closure and just-transition planning.
+            </div>
+          </div>
+        </div>
+      </div><!-- /about-hero-row -->
+
+      <div class="about-section">
+        <div class="about-section-eyebrow">Relevant Schemes &amp; Standards</div>
+        <h3 class="about-section-title">Policy Levers driving Geo-Repository development</h3>
+        <div class="schemes-outer">
+          <button class="schemes-nav-btn schemes-prev" onclick="schemesNav(-1)" aria-label="Previous">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <div class="schemes-ticker-wrap">
+            <div class="schemes-ticker" id="schemesTicker">
+              <div class="scheme-card">
+                <div class="scheme-card-icon">🗺️</div>
+                <div class="scheme-card-tag">Ministry of Mines</div>
+                <div class="scheme-card-title">National Geoscience Data Repository (NGDR)</div>
+                <div class="scheme-card-desc">NGDR hosts exploration-related geoscientific data, standardizes submissions through the Mineral Exploration Reporting Template (MERT), converts data to GIS-compatible formats, and enables AI / ML applications for geoscience.</div>
+              </div>
+              <div class="scheme-card">
+                <div class="scheme-card-icon">📡</div>
+                <div class="scheme-card-tag">DST / Survey of India</div>
+                <div class="scheme-card-title">National Geospatial Policy 2022</div>
+                <div class="scheme-card-desc">The National Geospatial Policy, 2022 and the 2021 Geospatial Data Guidelines liberalise acquisition and production of geospatial data and services, enabling mine-repurposed Geo-Repositories to operate within a clear legal framework.</div>
+              </div>
+              <div class="scheme-card">
+                <div class="scheme-card-icon">🔬</div>
+                <div class="scheme-card-tag">Ministry of Mines</div>
+                <div class="scheme-card-title">National Mineral Exploration Policy 2016</div>
+                <div class="scheme-card-desc">The National Mineral Exploration Policy, 2016 mandated the NGDR as a national geoscience data platform and established the Mineral Exploration Reporting Template and data-standardization requirements applicable to mine-level repositories.</div>
+              </div>
+              <div class="scheme-card">
+                <div class="scheme-card-icon">⛏️</div>
+                <div class="scheme-card-tag">Ministry of Coal / CCO</div>
+                <div class="scheme-card-title">Mine Closure Frameworks — A.R.T.H.A., L.I.V.E.S., R.E.C.L.A.I.M.</div>
+                <div class="scheme-card-desc">CCO's mine-closure handbooks promote structured, knowledge-based repurposing. A Geo-Repository directly supports mine-closure statutory reporting, post-closure monitoring, land-repurposing planning, and community data access.</div>
+              </div>
+              <div class="scheme-card">
+                <div class="scheme-card-icon">💻</div>
+                <div class="scheme-card-tag">MeitY / DPIIT</div>
+                <div class="scheme-card-title">Digital India &amp; National Data Governance Framework</div>
+                <div class="scheme-card-desc">Digital India initiatives and India's emerging National Data Governance Framework support investment in digital public infrastructure — positioning mine-based Geo-Repositories as aligned digital asset creation under government priorities.</div>
+              </div>
+              <div class="scheme-card">
+                <div class="scheme-card-icon">🌐</div>
+                <div class="scheme-card-tag">OGC / IUGS</div>
+                <div class="scheme-card-title">International Geoscience Data Standards</div>
+                <div class="scheme-card-desc">USGS NGMDB, OneGeology, and GeoSciML demonstrate the value of standardized, searchable, interoperable geoscience data infrastructure. A mine Geo-Repository can align with OGC web services, ISO metadata, and MERT standards for future integration and data sharing.</div>
+              </div>
+
+              <!-- duplicates for seamless loop -->
+              <div class="scheme-card" aria-hidden="true">
+                <div class="scheme-card-icon">🗺️</div>
+                <div class="scheme-card-tag">Ministry of Mines</div>
+                <div class="scheme-card-title">National Geoscience Data Repository (NGDR)</div>
+                <div class="scheme-card-desc">NGDR hosts exploration-related geoscientific data, standardizes submissions through the Mineral Exploration Reporting Template (MERT), converts data to GIS-compatible formats, and enables AI / ML applications for geoscience.</div>
+              </div>
+              <div class="scheme-card" aria-hidden="true">
+                <div class="scheme-card-icon">📡</div>
+                <div class="scheme-card-tag">DST / Survey of India</div>
+                <div class="scheme-card-title">National Geospatial Policy 2022</div>
+                <div class="scheme-card-desc">The National Geospatial Policy, 2022 and the 2021 Geospatial Data Guidelines liberalise acquisition and production of geospatial data and services, enabling mine-repurposed Geo-Repositories to operate within a clear legal framework.</div>
+              </div>
+              <div class="scheme-card" aria-hidden="true">
+                <div class="scheme-card-icon">🔬</div>
+                <div class="scheme-card-tag">Ministry of Mines</div>
+                <div class="scheme-card-title">National Mineral Exploration Policy 2016</div>
+                <div class="scheme-card-desc">The National Mineral Exploration Policy, 2016 mandated the NGDR as a national geoscience data platform and established the Mineral Exploration Reporting Template and data-standardization requirements applicable to mine-level repositories.</div>
+              </div>
+              <div class="scheme-card" aria-hidden="true">
+                <div class="scheme-card-icon">⛏️</div>
+                <div class="scheme-card-tag">Ministry of Coal / CCO</div>
+                <div class="scheme-card-title">Mine Closure Frameworks — A.R.T.H.A., L.I.V.E.S., R.E.C.L.A.I.M.</div>
+                <div class="scheme-card-desc">CCO's mine-closure handbooks promote structured, knowledge-based repurposing. A Geo-Repository directly supports mine-closure statutory reporting, post-closure monitoring, land-repurposing planning, and community data access.</div>
+              </div>
+              <div class="scheme-card" aria-hidden="true">
+                <div class="scheme-card-icon">💻</div>
+                <div class="scheme-card-tag">MeitY / DPIIT</div>
+                <div class="scheme-card-title">Digital India &amp; National Data Governance Framework</div>
+                <div class="scheme-card-desc">Digital India initiatives and India's emerging National Data Governance Framework support investment in digital public infrastructure — positioning mine-based Geo-Repositories as aligned digital asset creation under government priorities.</div>
+              </div>
+              <div class="scheme-card" aria-hidden="true">
+                <div class="scheme-card-icon">🌐</div>
+                <div class="scheme-card-tag">OGC / IUGS</div>
+                <div class="scheme-card-title">International Geoscience Data Standards</div>
+                <div class="scheme-card-desc">USGS NGMDB, OneGeology, and GeoSciML demonstrate the value of standardized, searchable, interoperable geoscience data infrastructure. A mine Geo-Repository can align with OGC web services, ISO metadata, and MERT standards for future integration and data sharing.</div>
+              </div>
+            </div><!-- /schemes-ticker -->
+          </div><!-- /schemes-ticker-wrap -->
+          <button class="schemes-nav-btn schemes-next" onclick="schemesNav(1)" aria-label="Next">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div><!-- /spv-panel-about -->
+
+  <div id="spv-panel-prism" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+
+<style>
+  .pr-intro { padding:22px 24px 20px; background:rgba(33,128,141,.05); border:1px solid rgba(33,128,141,.15); border-radius:14px; margin-bottom:20px; }
+  .pr-intro-eyebrow { font-size:15px; font-weight:700; letter-spacing:.01em; text-transform:none; color:#21808d; margin-bottom:8px; font-style:normal; line-height:1.35; }
+  .pr-intro-heading { font-size:16px; font-weight:700; color:#0f172a; margin-bottom:10px; line-height:1.35; font-style:normal; }
+  .pr-intro-body { font-size:13.5px; color:#374151; line-height:1.85; font-style:normal; }
+  .pr-shell { display:flex; border:1px solid #e2e8f0; border-radius:14px; overflow:clip; background:#fff; }
+  .pr-sidebar { width:220px; flex-shrink:0; border-right:1px solid #e8edf2; padding:16px 0 16px; background:#f8fafc; position:sticky; top:125px; align-self:flex-start; max-height:calc(100vh - 155px); overflow-y:auto; overflow-x:visible; }
+  .pr-sidebar-label { font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:#7a8a9a; padding:0 16px 14px; font-style:normal; }
+  .pr-nav-highlight { position:absolute; left:0; right:0; pointer-events:none; z-index:0; will-change:top,height; background:color-mix(in srgb, var(--pr-hl,#C85000) 9%,transparent); transition:top .4s cubic-bezier(.4,0,.2,1),height .4s cubic-bezier(.4,0,.2,1),background .38s ease; }
+  .pr-nav-highlight::before { content:''; position:absolute; left:0; top:0; bottom:0; width:3px; background:var(--pr-hl,#C85000); border-radius:0 2px 2px 0; transition:background .38s ease; }
+  .pr-nav-item { position:relative; z-index:1; display:flex; align-items:center; gap:12px; padding:13px 16px; cursor:pointer; font-style:normal; }
+  .pr-nav-item::after { display:none; }
+  .pr-nav-item:hover, .pr-nav-item.active { background:transparent; transform:none; }
+  .pr-nav-badge { width:34px; height:34px; border-radius:50%; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:800; border:1.5px solid #d1d5db; color:#9ca3af; background:#fff; position:relative; z-index:1; transition:background .35s cubic-bezier(.4,0,.2,1),color .3s ease,border-color .35s ease,transform .45s cubic-bezier(.34,1.56,.64,1),box-shadow .35s ease; }
+  .pr-nav-item.active .pr-nav-badge { background:var(--pr-accent); color:#fff; border-color:var(--pr-accent); transform:scale(1.12); box-shadow:0 0 0 4px color-mix(in srgb,var(--pr-accent) 18%,transparent),0 3px 10px color-mix(in srgb,var(--pr-accent) 32%,transparent); }
+  .pr-nav-item:hover:not(.active) .pr-nav-badge { border-color:var(--pr-accent); color:var(--pr-accent); background:color-mix(in srgb,var(--pr-accent) 7%,#fff); transform:scale(1.07); }
+  .pr-nav-letter { font-size:13px; font-weight:600; color:#374151; line-height:1.25; font-style:normal; position:relative; z-index:1; transition:color .25s ease,font-weight .2s; }
+  .pr-nav-item.active .pr-nav-letter { color:var(--pr-accent); font-weight:700; }
+  .pr-nav-item:hover:not(.active) .pr-nav-letter { color:var(--pr-accent); }
+  @keyframes nav-slide-in { from { opacity:0; transform:translateX(-10px); } to { opacity:1; transform:translateX(0); } }
+  .pr-nav-item { opacity:0; animation:nav-slide-in .32s cubic-bezier(.4,0,.2,1) both; }
+  .pr-nav-item:nth-child(3) { animation-delay:.02s; }
+  .pr-nav-item:nth-child(4) { animation-delay:.07s; }
+  .pr-nav-item:nth-child(5) { animation-delay:.12s; }
+  .pr-nav-item:nth-child(6) { animation-delay:.17s; }
+  .pr-nav-item:nth-child(7) { animation-delay:.22s; }
+  .pr-content-wrap { flex:1; min-width:0; }
+  .pr-content-wrap .prism2-content-panel { border-radius:0; box-shadow:none; }
+  .prism2-content-panel .prism2-panel-header { background:color-mix(in srgb,var(--pc) 5%,#fff); }
+  .prism2-panel-eyebrow { font-size:13px; font-weight:700; letter-spacing:.10em; text-transform:uppercase; color:var(--pc); margin-bottom:6px; opacity:1; }
+</style>
+
+<!-- PRISM intro banner -->
+<div class="pr-intro">
+  <div class="pr-intro-eyebrow">PRISM – Post-Mining Repurposing and Implementation Strategy Models</div>
+  <div class="pr-intro-heading">A structured framework for mine repurposing from concept to implementation</div>
+  <div class="pr-intro-body">PRISM is a structured framework designed to support identified post-mining repurposing opportunities by evaluating suitable implementation pathways, financial and revenue-generation models, and the implementation requirements, roles, and responsibilities of mine owners, developers, operators, and other stakeholders throughout the project lifecycle. Built around five integrated pillars, PRISM guides Geo-Repository / Geoscience Data Centre projects from concept to operation.</div>
+</div>
+
+<!-- PRISM sidebar + content shell -->
+<div class="pr-shell">
+  <div class="pr-sidebar">
+    <div class="pr-sidebar-label">Pillars</div>
+    <div class="pr-nav-highlight" id="pr-hl"></div>
+    <div class="pr-nav-item active" style="--pr-accent:#C85000;" data-key="P" onclick="prNav('P')">
+      <div class="pr-nav-badge">P</div>
+      <div><div class="pr-nav-letter">Project vision</div></div>
+    </div>
+    <div class="pr-nav-item" style="--pr-accent:#1a5ca8;" data-key="R" onclick="prNav('R')">
+      <div class="pr-nav-badge">R</div>
+      <div><div class="pr-nav-letter">Repurposing pathways</div></div>
+    </div>
+    <div class="pr-nav-item" style="--pr-accent:#b06a10;" data-key="I" onclick="prNav('I')">
+      <div class="pr-nav-badge">I</div>
+      <div><div class="pr-nav-letter">Investment dynamics</div></div>
+    </div>
+    <div class="pr-nav-item" style="--pr-accent:#5a3d9e;" data-key="S" onclick="prNav('S')">
+      <div class="pr-nav-badge">S</div>
+      <div><div class="pr-nav-letter">Strategic structuring</div></div>
+    </div>
+    <div class="pr-nav-item" style="--pr-accent:#1a7a5e;" data-key="M" onclick="prNav('M')">
+      <div class="pr-nav-badge">M</div>
+      <div><div class="pr-nav-letter">Monitoring guidance</div></div>
+    </div>
+  </div><!-- /pr-sidebar -->
+
+  <div class="pr-content-wrap">
+
+      <div class="prism2-content-panel active" id="prism2-panel-P" style="--pc:#C85000;--pb:#fff0e6;--cb:#fff8f3;">
+      <div class="prism2-panel-header">
+        <div class="prism2-panel-header-letter">P</div>
+        <div class="prism2-panel-header-text">
+          <div class="prism2-panel-eyebrow">PROJECT VISION</div>
+          <p class="prism2-panel-desc">Covers the project concept, strategic rationale, site suitability and technical specification matrix, and indicative scale models — from a mine-level pilot Geo-Repository Cell to a national Geoscience and Mine Closure Digital Campus.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Project Overview</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">This concept proposes the development of a <strong>Geo-Repository / Centralized Geoscience Data Centre</strong> on closed, reclaimed, or repurposed coal mine land as part of a sustainable mine-closure and post-mining land-use strategy. A Geo-Repository is a centralized platform for storing, managing, validating, visualizing, and disseminating <strong>spatial, geological, exploration, mine-planning, environmental, geotechnical, hydrogeological, drone-survey, remote-sensing, and closure-monitoring data</strong>.</p>
+          <p class="spv-body-text">The objective is to convert under-utilized mine infrastructure or mine-owned land into a knowledge, data, training, and decision-support facility that can serve mine closure planning; geological and exploration data archiving; land-repurposing studies; environmental and biodiversity monitoring; subsidence and slope-risk monitoring; groundwater and surface-water monitoring; drone and satellite data management; GIS-based land-use planning; statutory reporting; training and capacity building; and research collaboration with universities, geological agencies, and technical institutions.</p>
+          <p class="spv-body-text">Unlike heavy land-based industrial reuse, a Geo-Repository has a <strong>low physical footprint</strong> but high long-term institutional value. It is especially suitable where the closed mine has existing administrative buildings, control rooms, survey offices, communication infrastructure, secure compounds, or training facilities that can be repurposed. India already has a national-level reference model in the <strong>National Geoscience Data Repository (NGDR)</strong> conceptualised by the Ministry of Mines under the National Mineral Exploration Policy, 2016.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Strategic Rationale</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <ul class="spv-list">
+            <li>Creates a long-term digital asset from mine-closure data — preserving legacy mine plans, borehole logs, geological maps, exploration reports, survey records, and environmental data</li>
+            <li>Supports GIS-based mine-closure and post-closure monitoring, enabling safe land repurposing through spatial risk mapping</li>
+            <li>Enables future exploration, mineral assessment, groundwater studies, and land-use planning on and around the closed mine</li>
+            <li>Requires limited land compared with industrial, agricultural, or tourism models — can reuse existing mine offices, survey buildings, training centres, control rooms, or communication facilities</li>
+            <li>Can generate revenue through data services, training, analytics, consulting, GIS services, digital archiving, and institutional partnerships</li>
+            <li>Supports AI / ML-based geological interpretation, risk prediction, resource modelling, and closure-monitoring analytics</li>
+            <li>Supports compliance with geospatial and data-governance frameworks including the National Geospatial Policy 2022 and 2021 Geospatial Data Guidelines</li>
+            <li>Creates skilled local employment in GIS, surveying, data digitization, drone mapping, field validation, database management, and digital operations</li>
+            <li>Provides a centralized system for mine-owner, regulator, researcher, and community-facing data products</li>
+            <li>Aligns with national geoscience and digital infrastructure priorities — NGDR, MERT, OGC standards, and Digital India</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Site Suitability and Technical Specification Matrix</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following matrix provides a structured checklist for assessing the suitability of the proposed site for the selected repurposing option. It identifies the key physical, technical, environmental, infrastructure, legal, and owner-side readiness parameters that should be reviewed before the project is advanced to the next stage of development. The purpose of this matrix is to help the project owner understand existing site conditions, technical requirements, potential constraints, and preparatory actions required before feasibility studies, approvals, or tendering are initiated.</p>
+          <table class="spv-table">
+            <thead><tr><th>Category</th><th>What to Assess / Prepare</th><th>Why It Matters</th><th>Owner-Side Readiness</th></tr></thead>
+            <tbody>
+              <tr><td>Land Status</td><td>Ownership, closure status, permissible post-mining use, land-use restrictions</td><td>Legal viability for establishing data centre / geoscience facility</td><td>Land title and closure-status note</td></tr>
+              <tr><td>Building Availability</td><td>Existing mine office, survey office, control room, training centre, store building, laboratory, or administrative block</td><td>Reduces CAPEX and enables adaptive reuse of existing structures</td><td>Building condition assessment</td></tr>
+              <tr><td>Structural Safety</td><td>Foundation condition, roof condition, electrical safety, fire safety, seismic and stability check</td><td>Ensures safe occupancy and equipment installation</td><td>Structural audit report</td></tr>
+              <tr><td>Site Safety</td><td>Subsidence risk, slope stability, dump stability, abandoned voids, restricted zones</td><td>Protects staff, visitors, equipment, and long-term operations</td><td>Mine safety zoning plan</td></tr>
+              <tr><td>Physical Security</td><td>Compound wall, access control, CCTV, secure server room, restricted archive room</td><td>Protects sensitive geological and mine data</td><td>Security plan</td></tr>
+              <tr><td>Power Supply</td><td>Grid power, backup power, UPS, solar rooftop, DG backup, redundant supply</td><td>Ensures uninterrupted server and data operations</td><td>Power reliability plan</td></tr>
+              <tr><td>Connectivity</td><td>Fibre internet, redundant broadband, secure VPN, internal LAN, Wi-Fi, data exchange gateway</td><td>Critical for data access, upload, remote use, and GIS services</td><td>Connectivity assessment</td></tr>
+              <tr><td>Server Room Suitability</td><td>Cooling, raised floor, dust control, humidity control, fire suppression, rack space</td><td>Required for safe IT infrastructure</td><td>Data centre room plan</td></tr>
+              <tr><td>Data Inventory</td><td>Mine plans, borehole logs, geological sections, exploration reports, maps, survey data, drone data, satellite data, environmental data</td><td>Defines repository scope and digitization workload</td><td>Legacy data inventory</td></tr>
+              <tr><td>Data Format Readiness</td><td>Paper maps, CAD, GIS, PDF, raster, vector, tabular logs, LAS, shapefile, GeoPackage, GeoTIFF</td><td>Determines digitization and data migration effort</td><td>Data format matrix</td></tr>
+              <tr><td>Metadata Readiness</td><td>Dataset owner, date, scale, coordinate system, lineage, accuracy, method, restrictions</td><td>Enables searchability, reliability, and reuse</td><td>Metadata template</td></tr>
+              <tr><td>Cybersecurity</td><td>Role-based access, encryption, backup, audit logs, firewall, endpoint security, disaster recovery</td><td>Protects sensitive and strategic geological and mine data</td><td>Cybersecurity framework</td></tr>
+              <tr><td>Analytics Capability</td><td>GIS, remote sensing, 3D modelling, mine-closure dashboards, AI / ML analytics</td><td>Creates decision-support value beyond basic data storage</td><td>Analytics architecture</td></tr>
+              <tr><td>Human Resources</td><td>GIS analysts, geologists, surveyors, data managers, IT administrators, drone operators</td><td>Required for sustained technical operation</td><td>Staffing and training plan</td></tr>
+              <tr><td>Institutional Linkage</td><td>GSI, academic institutions, mining institutes, state agencies, research labs, startups</td><td>Improves technical quality, data use, and institutional reach</td><td>MoU / partnership plan</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Indicative Project Scale and Configuration Matrix</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following matrix presents an indicative relationship between available site area, project scale, technical configuration, and likely development potential. It is intended to support preliminary planning by helping the project owner identify the appropriate scale and configuration for the proposed repurposing option. The values and recommendations are indicative and should be refined through detailed feasibility studies, site surveys, engineering assessments, and relevant technical and commercial evaluations.</p>
+          <table class="spv-table">
+            <thead><tr><th>Land / Built-up Area</th><th>Recommended Scale</th><th>Configuration</th><th>Use Case</th></tr></thead>
+            <tbody>
+              <tr><td>0.25–1 ha / 500–1,500 sq. m</td><td>Pilot Geo-Repository Cell</td><td>Digitization room, GIS workstation lab, small server room, physical archive, training room</td><td>Mine-level data archive and closure-monitoring support</td></tr>
+              <tr><td>1–3 ha / 1,500–5,000 sq. m</td><td>Mine Cluster Geo-Repository</td><td>Central server room, GIS lab, map archive, drone data unit, training facility, dashboard room</td><td>Cluster-level support for multiple closed mines</td></tr>
+              <tr><td>3–10 ha / 5,000–15,000 sq. m</td><td>Regional Geoscience Data Centre</td><td>Data centre, physical archive, interpretation lab, 3D visualization room, remote-sensing unit, capacity-building centre</td><td>Regional mine-repurposing, exploration, and land-use planning hub</td></tr>
+              <tr><td>10–25 ha / 15,000–40,000 sq. m</td><td>Integrated Geo-Knowledge Campus</td><td>Geo-repository, research centre, innovation lab, skilling institute, conference facility, drone testing area, public gallery</td><td>Just-transition flagship and institutional knowledge hub</td></tr>
+              <tr><td>25 ha+</td><td>National / Multi-State Geoscience and Mine Closure Digital Campus</td><td>Large data centre, disaster recovery site, AI / ML centre, national archive, training academy, research and startup ecosystem</td><td>Large-scale strategic digital infrastructure model</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="prism2-nav-row">
+        <button class="prism2-btn-prev" id="prism2-prev-P" onclick="prism2Prev()" disabled>&#8592; Previous</button>
+        <div class="prism2-progress-dots" style="display:flex;gap:5px;align-items:center;">
+          <span class="pdot active" data-p="P"></span><span class="pdot" data-p="R"></span>
+          <span class="pdot" data-p="I"></span><span class="pdot" data-p="S"></span><span class="pdot" data-p="M"></span>
+        </div>
+        <button class="prism2-btn-next" id="prism2-next-P" onclick="prism2Next()">Next pillar &#8594;</button>
+      </div>
+    </div><!-- /prism2-panel-P -->
+
+      <div class="prism2-content-panel" id="prism2-panel-R" style="--pc:#1a5ca8;--pb:#e4eef9;--cb:#f3f7fd;">
+      <div class="prism2-panel-header">
+        <div class="prism2-panel-header-letter">R</div>
+        <div class="prism2-panel-header-text">
+          <div class="prism2-panel-eyebrow">REPURPOSING PATHWAYS</div>
+          <p class="prism2-panel-desc">Describes the seven implementation models available for Geo-Repository projects and the comparative assessment that drives model selection based on data governance, ownership, livelihood, and long-term data maintenance objectives.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Implementation Options</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following table outlines the possible implementation models that may be considered for developing the proposed repurposing project. These models differ in terms of ownership structure, funding responsibility, private sector participation, operational control, and long-term risk allocation. The purpose of this table is to help the project owner compare broad development routes and select an implementation approach that aligns with its financial capacity, institutional preference, risk appetite, and long-term asset management objectives.</p>
+          <table class="spv-table">
+            <thead><tr><th>Main Group</th><th>Model</th><th>Core Feature</th><th>Broad Suitability</th></tr></thead>
+            <tbody>
+              <tr><td>Owner-Funded Digital Infrastructure</td><td>EPC</td><td>Mine owner funds and procures civil renovation, server room, digitization equipment, GIS lab, archive room, network, power backup, and basic software through a contractor</td><td>Suitable for pilot or mine-level geo-repository where the owner wants full control over data, infrastructure, access, and operations</td></tr>
+              <tr><td>Owner-Controlled Operations</td><td>EPC + O&amp;M / FM</td><td>Mine owner develops via EPC and appoints a professional agency for digitization, metadata creation, GIS operations, IT maintenance, cybersecurity, and user support</td><td>Highly suitable where the repository will handle sensitive mine data and where owner control and long-term maintenance are important</td></tr>
+              <tr><td>Private-Financed Transfer</td><td>BOOT</td><td>Private developer invests in digital and physical infrastructure, operates the repository for a concession period, provides data services, and transfers assets to the mine owner at end</td><td>Suitable where revenue from data services, analytics, training, and institutional users can support private investment</td></tr>
+              <tr><td>Private Commercial Data Services</td><td>BOO</td><td>Private developer builds, owns, and operates the data infrastructure providing commercial GIS, geological data, mapping, and analytics services</td><td>Suitable for commercially oriented geospatial service centres; less preferred where mine data sovereignty and public accountability are primary</td></tr>
+              <tr><td>Structured PPP</td><td>DBFOT</td><td>Private concessionaire designs, builds, finances, operates, and transfers the geo-repository under a structured agreement with performance, cybersecurity, and data-governance obligations</td><td>Suitable for large regional repositories, mine-closure digital campuses, disaster-recovery repositories, and multi-mine data platforms</td></tr>
+              <tr><td>Land / Facility Concession</td><td>Concession / Lease-Develop-Operate</td><td>Mine owner retains land and core data ownership while granting facility development and operation rights to a specialist agency, SPV, technology provider, or research consortium</td><td>Very suitable where mine owner wants to reuse land / buildings, earn lease or service revenue, and ensure professional digital operations with strict data-control clauses</td></tr>
+              <tr><td>Multi-Stakeholder Partnership</td><td>Hybrid</td><td>Combines mine-owner land / building support, technology provider, GIS agency, research institution, government scheme, CSR, academic partner, and local skilling component</td><td>Most suitable for balancing mine-closure compliance, digital asset creation, research use, local skill development, public value, and long-term sustainability</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Comparative Assessment of Key Models</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;">
+          <p class="spv-body-text">The following comparative assessment evaluates the major implementation models across key decision parameters such as investment requirement, ownership control, financing responsibility, contractual complexity, risk transfer, and long-term economic benefit. This matrix is intended to support early-stage decision-making by highlighting the relative strengths and limitations of each model. The final choice of model should be guided by the specific circumstances of the project, including its scale, commercial viability, applicable policy framework, and the owner's institutional preference.</p>
+          <table class="spv-table">
+            <thead><tr><th>Evaluation Parameter</th><th>EPC</th><th>EPC+O&amp;M/FM</th><th>BOOT</th><th>BOO</th><th>DBFOT</th><th>Concession / LDO</th><th>Hybrid</th></tr></thead>
+            <tbody>
+              <tr><td>Upfront investment by Mine Owner</td><td>High</td><td>High–Moderate</td><td>Low–Moderate</td><td>Low</td><td>Low–Moderate</td><td>Low–Moderate</td><td>Variable</td></tr>
+              <tr><td>Long-term control over data</td><td>Very High</td><td>Very High</td><td>Moderate–High (if contracted)</td><td>Low–Moderate</td><td>High with safeguards</td><td>High with safeguards</td><td>Very High if structured well</td></tr>
+              <tr><td>Suitability for welfare objective</td><td>Moderate</td><td>High</td><td>High if mandated</td><td>Moderate</td><td>High</td><td>Very High</td><td>Very High</td></tr>
+              <tr><td>Suitability for local livelihood</td><td>Moderate</td><td>High</td><td>High if mandated</td><td>Moderate</td><td>High</td><td>High–Very High</td><td>Very High</td></tr>
+              <tr><td>Suitability for GIS / technical skill development</td><td>Moderate</td><td>High</td><td>High</td><td>Moderate–High</td><td>Very High</td><td>Very High</td><td>Very High</td></tr>
+              <tr><td>Suitability for long-term data maintenance</td><td>Low–Moderate</td><td>High</td><td>High</td><td>High</td><td>Very High</td><td>Very High</td><td>Very High</td></tr>
+              <tr><td>Revenue potential</td><td>Low–Moderate</td><td>Moderate</td><td>Moderate–High</td><td>High</td><td>High</td><td>Moderate–High</td><td>Variable–High</td></tr>
+              <tr><td>Suitability for sensitive mine data</td><td>High (if owner controls access)</td><td>Very High</td><td>Moderate if regulated</td><td>Low–Moderate</td><td>High with cybersecurity clauses</td><td>High with monitoring</td><td>Very High</td></tr>
+              <tr><td>Commercial bankability</td><td>Low</td><td>Low–Moderate</td><td>Moderate</td><td>Moderate–High</td><td>High</td><td>Moderate–High</td><td>Variable</td></tr>
+              <tr><td>Overall suitability for Geo-Repository</td><td>Moderate</td><td>Very High</td><td>High</td><td>Moderate</td><td>High–Very High</td><td>Very High</td><td>Very High / Most Suitable</td></tr>
+            </tbody>
+          </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Model-Wise Responsibility Logic</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;">
+          <p class="spv-body-text">The following table explains how major project responsibilities are typically allocated under different implementation models. It covers key functional areas such as site availability, financing, design and construction, regulatory approvals, operation and maintenance, revenue collection, asset ownership, and end-of-term transfer. This helps clarify the respective roles of the project owner, private developer, EPC contractor, operator, or concessionaire, and supports the preparation of tender documents and contractual structures.</p>
+          <table class="spv-table">
+            <thead><tr><th>Responsibility Area</th><th>EPC</th><th>EPC+O&amp;M/FM</th><th>BOOT</th><th>DBFOT</th><th>Concession / LDO</th><th>Hybrid</th></tr></thead>
+            <tbody>
+              <tr><td>Site / building availability</td><td>Mine Owner</td><td>Mine Owner</td><td>Mine Owner / authority</td><td>Mine Owner / authority</td><td>Mine Owner / authority</td><td>Mine Owner / shared</td></tr>
+              <tr><td>Core data ownership</td><td>Mine Owner</td><td>Mine Owner</td><td>Mine Owner; developer gets operating rights</td><td>Mine Owner</td><td>Mine Owner</td><td>Mine Owner / public authority as structured</td></tr>
+              <tr><td>Building renovation</td><td>EPC contractor</td><td>EPC contractor</td><td>Developer</td><td>Concessionaire</td><td>Concessionaire / operator</td><td>Shared</td></tr>
+              <tr><td>Server room / data centre setup</td><td>EPC contractor / IT vendor</td><td>EPC contractor + O&amp;M agency</td><td>Developer</td><td>Concessionaire</td><td>Operator / technology partner</td><td>Shared</td></tr>
+              <tr><td>Data digitization</td><td>EPC contractor / digitization vendor</td><td>O&amp;M agency / specialist vendor</td><td>Developer</td><td>Concessionaire</td><td>Operator</td><td>Shared / specialist agency</td></tr>
+              <tr><td>GIS database design</td><td>Mine Owner / consultant</td><td>Mine Owner + O&amp;M agency</td><td>Developer / expert</td><td>Concessionaire</td><td>Operator / expert agency</td><td>Shared</td></tr>
+              <tr><td>Cybersecurity</td><td>Mine Owner / IT vendor</td><td>O&amp;M agency + owner oversight</td><td>Developer</td><td>Concessionaire</td><td>Operator</td><td>Shared</td></tr>
+              <tr><td>Training and capacity building</td><td>Mine Owner</td><td>O&amp;M agency / training partner</td><td>Developer / operator</td><td>Concessionaire</td><td>Operator / academic partner</td><td>Shared; often institution-led</td></tr>
+              <tr><td>Local employment</td><td>Mine Owner-controlled</td><td>Mine Owner through contract</td><td>Contract-based</td><td>Contract-based</td><td>Contract-based</td><td>Strongly configurable</td></tr>
+              <tr><td>Revenue sharing with owner</td><td>Owner receives all</td><td>Owner receives after FM payments</td><td>Concession fee / revenue share</td><td>Concession fee / revenue share</td><td>Lease rent / service fee / revenue share</td><td>As structured</td></tr>
+            </tbody>
+          </table>
+          </div>
+        </div>
+      </div>
+      <div class="prism2-nav-row">
+        <button class="prism2-btn-prev" id="prism2-prev-R" onclick="prism2Prev()">&#8592; Previous</button>
+        <div class="prism2-progress-dots" style="display:flex;gap:5px;align-items:center;">
+          <span class="pdot" data-p="P"></span><span class="pdot active" data-p="R"></span>
+          <span class="pdot" data-p="I"></span><span class="pdot" data-p="S"></span><span class="pdot" data-p="M"></span>
+        </div>
+        <button class="prism2-btn-next" id="prism2-next-R" onclick="prism2Next()">Next pillar &#8594;</button>
+      </div>
+    </div><!-- /prism2-panel-R -->
+
+      <div class="prism2-content-panel" id="prism2-panel-I" style="--pc:#b06a10;--pb:#faedda;--cb:#fdf7f0;">
+      <div class="prism2-panel-header">
+        <div class="prism2-panel-header-letter">I</div>
+        <div class="prism2-panel-header-text">
+          <div class="prism2-panel-eyebrow">INVESTMENT DYNAMICS</div>
+          <p class="prism2-panel-desc">Covers funding logic by model, revenue generation streams — data services, GIS products, training, analytics, archive services, digital twin, and consulting — and livelihood outcomes for each model.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Funding Logic</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following table presents the broad funding logic for each implementation model. It explains who is expected to finance the project, the level of owner-side funding requirement, and the commercial rationale behind each structure. This section is intended to help the project owner assess whether the project is more suitable for owner-funded development, private investment, public-private partnership, lease or concession structure, or a hybrid funding arrangement.</p>
+          <table class="spv-table">
+            <thead><tr><th>Model</th><th>Funding Source</th><th>Owner Funding Requirement</th><th>Suitability for Geo-Repository</th></tr></thead>
+            <tbody>
+              <tr><td>EPC</td><td>Mine owner budget / mine closure fund / CSR / digital infrastructure budget</td><td>High</td><td>Suitable for basic repository infrastructure — digitization lab, archive room, server room, GIS lab, and training facility</td></tr>
+              <tr><td>EPC + O&amp;M / FM</td><td>Mine owner budget + O&amp;M budget + CSR + service fees</td><td>High–Moderate</td><td>Strong fit where owner wants control over sensitive data, statutory reporting, closure monitoring, and GIS operations</td></tr>
+              <tr><td>BOOT</td><td>Private technology partner / data services company + possible grant / VGF / CSR support</td><td>Low–Moderate</td><td>Suitable where commercial data services, training, analytics, and institutional subscriptions can support private investment</td></tr>
+              <tr><td>BOO</td><td>Private developer / geospatial company capital</td><td>Low</td><td>Suitable only for commercially driven geospatial service centres; less preferred for sensitive mine data</td></tr>
+              <tr><td>DBFOT</td><td>Private concessionaire + public / CSR support + possible VGF + institutional finance</td><td>Low–Moderate</td><td>Suitable for large regional geo-repositories with data centre, archive, analytics lab, and long-term operation</td></tr>
+              <tr><td>Concession / LDO</td><td>Private operator / technology provider / academic consortium / SPV / CSR / blended finance</td><td>Low–Moderate</td><td>Very suitable for facility reuse where mine owner retains land and data ownership while outsourcing specialist operation</td></tr>
+              <tr><td>Hybrid</td><td>Mine owner + government digital mission + CSR + technology partner + academic institution + research grants + service revenue</td><td>Variable</td><td>Most suitable for balancing data governance, mine-closure monitoring, research, skilling, and revenue generation</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Revenue Generation by Model</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following table explains how revenue may be generated under different implementation models and identifies who is likely to receive the principal project income. It also describes the nature and extent of the financial benefit available to the project owner, whether through direct project revenue, cost savings, lease income, concession fees, revenue sharing, service charges, or eventual asset transfer. This comparison is intended to support the selection of a commercially appropriate model for the proposed repurposing project.</p>
+          <table class="spv-table">
+            <thead><tr><th>Model</th><th>How Revenue is Generated</th><th>Who Receives Revenue</th><th>Owner's Financial Benefit</th></tr></thead>
+            <tbody>
+              <tr><td>EPC</td><td>Data access fees, GIS map services, training fees, digitization services, analytical reports, dashboard subscriptions, consulting support</td><td>Mine Owner</td><td>Full revenue retained, but owner bears full CAPEX, O&amp;M, technology refresh, cybersecurity, and data management risk</td></tr>
+              <tr><td>EPC + O&amp;M / FM</td><td>Same revenue streams: data services, GIS support, training, archive services, dashboard hosting, drone data processing, closure-monitoring analytics</td><td>Mine Owner after paying O&amp;M agency</td><td>High benefit; owner retains data and revenue while outsourcing technical operations</td></tr>
+              <tr><td>BOOT</td><td>Developer earns from data services, training, analytics, GIS subscriptions, software services, institutional users, archive digitization, and consulting during concession</td><td>Developer / concessionaire during concession</td><td>Lease rent, concession fee, revenue share, local skill development, and asset transfer at end of concession</td></tr>
+              <tr><td>DBFOT</td><td>Structured revenue from data hosting, geoscience dashboards, analytics, training, user subscriptions, archive services, drone data processing, and digital twin services</td><td>Concessionaire during concession</td><td>Concession fee, service fee, lease rent, revenue share, performance-linked payments, and transfer terms</td></tr>
+              <tr><td>Concession / LDO</td><td>Revenue from repository operations, data services, archive digitization, GIS lab use, training, consulting, dashboard subscriptions, and institutional partnerships</td><td>Concessionaire / operator as per agreement</td><td>Lease rentals, service charges, revenue share, reduced O&amp;M burden, improved data value, and indirect compliance benefits</td></tr>
+              <tr><td>Hybrid</td><td>Mixed revenue: owner support, CSR, grants, data services, training, GIS products, institutional subscriptions, research projects, drone mapping, analytics</td><td>Shared between owner, operator, academic partner, SPV, or technology partner as structured</td><td>Variable to high; owner benefits through data asset creation, revenue share, ESG gains, and enhanced institutional value</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Which Model is Better for Local Livelihood and Jobs</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following table assesses the likely local livelihood and employment potential of each implementation model. It considers the extent to which each model can support construction-phase jobs, long-term operational employment, local procurement opportunities, skill development, community participation, and associated support services. This section is particularly relevant where the repurposing project is expected to contribute to post-mining or post-operational economic transition and sustained local community benefit.</p>
+          <table class="spv-table">
+            <thead><tr><th>Model</th><th>Local Job Potential</th><th>Why</th><th>Overall Suggestibility for Local Livelihood</th></tr></thead>
+            <tbody>
+              <tr><td>EPC</td><td>Low–Moderate</td><td>Creates short-term jobs in building renovation, scanning, equipment installation, electrical work, networking, and archive setup. Long-term jobs depend on owner-led operations</td><td>Moderate</td></tr>
+              <tr><td>EPC + O&amp;M / FM</td><td>High</td><td>Supports sustained jobs in GIS support, data entry, map scanning, archive management, field survey assistance, drone data processing, IT support, security, and facility management</td><td>High</td></tr>
+              <tr><td>BOOT</td><td>High</td><td>Generates jobs during setup and operation; local employment can be strong if the agreement mandates training, apprenticeships, GIS skilling, and local recruitment</td><td>High</td></tr>
+              <tr><td>BOO</td><td>Moderate</td><td>Can create technical jobs, but local livelihood depends mainly on private developer policy unless contractually mandated</td><td>Moderate</td></tr>
+              <tr><td>DBFOT</td><td>High–Very High</td><td>Suitable for regional facilities with data centre operations, geoscience analytics, training centre, digital archive, drone mapping, and research support</td><td>High–Very High</td></tr>
+              <tr><td>Concession / LDO</td><td>Very High</td><td>Strong model for long-term local livelihood through GIS training, data digitization jobs, archive management, facility operations, drone survey support, and technical apprenticeships</td><td>Very High</td></tr>
+              <tr><td>Hybrid</td><td>Very High</td><td>Best suited for combining mine-owner support, technology expertise, academic training, CSR, local skilling, community outreach, and digital employment pathways</td><td>Very High / Most Suitable</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Combined Comparison: Revenue, Profitability, and Livelihood</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">The following combined comparison brings together three important dimensions of project structuring: revenue potential, owner-side financial benefit, and local livelihood generation. It provides a consolidated view of how each implementation model performs across commercial, institutional, and community-development perspectives. This matrix is intended to support balanced decision-making where the objective extends beyond financial return to include sustainable site reuse and long-term local economic benefit.</p>
+          <p class="spv-body-text">The following table assesses the likely local livelihood and employment potential of each implementation model. It considers the extent to which each model can support construction-phase jobs, long-term operational employment, local procurement opportunities, skill development, community participation, and associated support services. This section is particularly relevant where the repurposing project is expected to contribute to post-mining or post-operational economic transition and sustained local community benefit.</p>
+          <table class="spv-table">
+            <thead><tr><th>Model</th><th>Main Revenue Source</th><th>Owner Profitability</th><th>Local Job Creation</th><th>Overall Comment</th></tr></thead>
+            <tbody>
+              <tr><td>EPC</td><td>Data access, training, digitization services, GIS maps, analytical reports</td><td>Moderate, but owner bears full CAPEX, O&amp;M, technology, cybersecurity, and staffing risk</td><td>Low–Moderate</td><td>Useful for initial repository setup, but weak for long-term technical operation</td></tr>
+              <tr><td>EPC + O&amp;M / FM</td><td>Data services, GIS dashboards, training, archive services, analytics, drone data processing</td><td>Moderate–High; owner retains data and revenue after O&amp;M payments</td><td>High</td><td>Strong where owner wants control, data security, statutory support, and sustained technical employment</td></tr>
+              <tr><td>BOOT</td><td>Commercial geo-data services, software, analytics, training, repository subscriptions</td><td>Moderate through concession fee, lease rent, revenue share, and eventual asset transfer</td><td>High</td><td>Suitable for commercial geo-repository with mandatory data-governance and livelihood clauses</td></tr>
+              <tr><td>DBFOT</td><td>Data hosting, digital archive, analytics, dashboards, training, research services, GIS platform</td><td>Moderate–High through concession fee, service fee, lease rent, revenue share</td><td>High–Very High</td><td>Good for large structured PPP projects needing private finance and professional operation</td></tr>
+              <tr><td>Concession / LDO</td><td>Repository operations, data services, GIS products, training, archive management, institutional services</td><td>Moderate–High through lease rent, service fee, revenue share, and improved data value</td><td>Very High</td><td>Very suitable for community-linked digital livelihood and professional geoscience operations</td></tr>
+              <tr><td>Hybrid</td><td>Mixed revenue from grants, CSR, data services, training, research projects, GIS products, digital monitoring</td><td>Variable–High depending on support structure and revenue-sharing</td><td>Very High</td><td>Most suitable for balancing mine closure, data governance, research, skilling, public value, and commercial use</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="prism2-nav-row">
+        <button class="prism2-btn-prev" id="prism2-prev-I" onclick="prism2Prev()">&#8592; Previous</button>
+        <div class="prism2-progress-dots" style="display:flex;gap:5px;align-items:center;">
+          <span class="pdot" data-p="P"></span><span class="pdot" data-p="R"></span>
+          <span class="pdot active" data-p="I"></span><span class="pdot" data-p="S"></span><span class="pdot" data-p="M"></span>
+        </div>
+        <button class="prism2-btn-next" id="prism2-next-I" onclick="prism2Next()">Next pillar &#8594;</button>
+      </div>
+    </div><!-- /prism2-panel-I -->
+
+      <div class="prism2-content-panel" id="prism2-panel-S" style="--pc:#5a3d9e;--pb:#edeaf8;--cb:#f7f5fd;">
+      <div class="prism2-panel-header">
+        <div class="prism2-panel-header-letter">S</div>
+        <div class="prism2-panel-header-text">
+          <div class="prism2-panel-eyebrow">STRATEGIC STRUCTURING</div>
+          <p class="prism2-panel-desc">Describes what must be ready before the first RFP — building safety, data inventory, metadata standards, cybersecurity requirements, connectivity assessment — and what can be taken up post-award.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Preparations Needed Before RFP</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">The following section identifies the key owner-side preparatory actions that should ideally be completed before issuing the first Request for Proposal. These actions are aimed at reducing uncertainty for prospective bidders, improving project bankability, clarifying site availability, identifying approval pathways and risks, and defining the technical and commercial scope of the project. Completing these preparatory steps before tendering can improve bid quality, attract credible responses, and reduce the risk of delays during project implementation.</p>
+          <p class="spv-body-text">Before issuing an RFP for a Geo-Repository-based mine repurposing project, the mine owner should prepare the following in priority order:</p>
+          <ol class="spv-list">
+            <li>Land, building and closure confirmation — Confirm land ownership, building availability, mine closure status, mine-closure linkage and permissibility of using the site as a geoscience data, GIS, archive, training and monitoring facility under the approved Mine Closure Plan / Final Mine Closure Plan framework. Mine closure plans are treated as an integral part of mining plans under the 2025 Coal and Lignite Mining Plan and Mine Closure Plan guidelines.</li>
+            <li>Legal, data ownership and access screening — Clarify ownership of mine plans, borehole logs, exploration reports, geological maps, survey records, environmental data, drone data and closure-monitoring datasets, including rules for public access, restricted access, commercial use and third-party data sharing.</li>
+            <li>Geospatial policy compliance screening — Review applicability of the National Geospatial Policy, 2022 and DST Guidelines for acquiring and producing Geospatial Data and Geospatial Data Services including Maps, 2021, especially for data generation, digitization, map production, access control and sensitive attributes.</li>
+            <li>Data inventory and classification — Prepare an inventory of available physical and digital records, including mine plans, geological reports, borehole data, exploration blocks, CAD files, GIS layers, satellite images, drone survey data, hydrology data, environmental monitoring data and mine-closure records.</li>
+            <li>NGDR / MERT alignment note — Prepare a note on compatibility with the National Geoscience Data Repository and Mineral Exploration Reporting Template, since NGDR is the Ministry of Mines' national platform for hosting exploration-related geoscientific data and MERT is used for standardized reporting.</li>
+            <li>Preliminary technical site assessment — Assess building condition, server-room suitability, power reliability, internet connectivity, fire safety, cooling requirement, archive-room suitability, physical security, flood risk, subsidence risk and access safety.</li>
+            <li>Repository scope and user definition — Define whether the facility will serve only one closed mine, a group of mines, a regional mine-closure database, or a public-facing knowledge centre for mine repurposing, research and training.</li>
+            <li>Data architecture and standards framework — Prepare a preliminary architecture covering GIS database, document management system, metadata standard, coordinate reference system, backup policy, dashboard requirement, data validation workflow and archival protocol.</li>
+            <li>Cybersecurity and disaster recovery plan — Define role-based access, user authentication, encryption, audit logs, backup frequency, off-site backup, disaster recovery, server security and physical protection of original records.</li>
+            <li>Community, institutional and stakeholder consultation — Consult mine planning, geology, survey, environment, safety, IT, land, CSR, local administration, academic institutions, research agencies, GSI / state geology agencies where relevant, and potential training partners.</li>
+            <li>CAPEX, O&amp;M and implementation model selection — Prepare broad CAPEX and 5-year O&amp;M estimates covering building renovation, scanning, servers, GIS software, cloud / on-premises storage, workstations, archive systems, cybersecurity, staffing and annual maintenance; then select a preferred model such as Hybrid, EPC + O&amp;M, Concession / LDOT or DBFOT.</li>
+            <li>Draft RFP scope, obligations and bid framework — Prepare bidder scope covering digitization, georeferencing, metadata creation, database development, GIS portal, dashboard, cybersecurity, training, O&amp;M, data confidentiality, system handover, service-level standards and evaluation criteria.</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Activities to be taken After Selecting the Agency</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following section lists the principal activities that may be undertaken by the selected contractor, developer, concessionaire, operator, or implementation agency after award of the project. These activities generally include detailed site investigations, engineering design, statutory submissions and approvals, equipment procurement, construction, commissioning, operational planning, staff training, and performance monitoring. The distinction between pre-RFP owner preparedness and post-award implementation responsibilities helps ensure an appropriate and efficient allocation of effort across the project development cycle.</p>
+          <p class="spv-body-text">After award, the selected concessionaire / contractor / O&amp;M agency / technology partner can take up the following activities in chronological order:</p>
+          <ol class="spv-list">
+            <li>Detailed site and facility investigation — Undertake detailed assessment of the selected building / land, including structural safety, electrical load, server-room feasibility, fire safety, access control, cooling requirement, archive-room suitability and physical security.</li>
+            <li>Detailed data audit and gap assessment — Review all available maps, mine plans, sections, borehole logs, exploration reports, survey files, environmental data, closure-monitoring data and digital records to identify missing, duplicate, damaged, restricted and high-priority datasets.</li>
+            <li>Final data governance and access protocol — Prepare the approved data governance framework covering data ownership, access levels, public / restricted / confidential classification, user registration, commercial-use conditions, audit trail and data-sharing approval process.</li>
+            <li>Detailed Project Report — The selected operator shall prepare the DPR covering final repository architecture, hardware and software design, digitization methodology, metadata framework, NGDR / MERT compatibility, cybersecurity plan, O&amp;M plan, staffing plan, training plan, financial model and implementation schedule.</li>
+            <li>Facility renovation and infrastructure setup — Renovate the building and establish archive rooms, scanning rooms, GIS workstations, server room, UPS, cooling, fire protection, CCTV, access control, network cabling and secure storage for original records.</li>
+            <li>Digitization and physical archive management — Scan, catalogue and preserve physical records such as maps, mine plans, registers, reports, sections, drawings, photographs and field books, while maintaining an indexed physical archive for original documents.</li>
+            <li>Data conversion, georeferencing and standardization — Convert paper, CAD, PDF, raster and tabular records into GIS-compatible formats, georeference spatial data, standardize coordinate systems and prepare clean database-ready datasets.</li>
+            <li>Metadata and MERT-compatible reporting — Create dataset-level metadata covering title, location, scale, date, source, coordinate system, accuracy, lineage, ownership, restrictions and update status; exploration datasets should be structured to the extent possible in MERT-compatible formats.</li>
+            <li>Database, GIS portal and dashboard development — Develop the spatial database, document repository, GIS web portal, mine-closure dashboard, land-repurposing layers, environmental monitoring dashboard and controlled user-access system.</li>
+            <li>Cybersecurity, backup and disaster recovery implementation — Install and test authentication, role-based permissions, encryption, firewall, backup system, off-site storage, disaster recovery process and activity logs before operational use.</li>
+            <li>Validation, quality check and owner approval — Conduct technical validation of digitized maps, coordinates, attributes, metadata, document links, dashboard outputs and access controls, followed by review and approval by the mine owner.</li>
+            <li>Training and capacity building — Train mine-owner staff and selected local youth in GIS basics, scanning, metadata entry, document management, dashboard operation, data upload, access control and routine system maintenance.</li>
+            <li>Trial operation and system audit — Run the repository on pilot datasets, test user access, check retrieval speed, verify backup restoration, conduct cybersecurity checks and resolve errors before full commissioning.</li>
+            <li>Commissioning and institutional onboarding — Commission the Geo-Repository after successful validation and onboard authorized users such as mine departments, regulators, technical consultants, research institutions and training partners.</li>
+            <li>Regular operation, updating and phased expansion — Carry out routine data updates, periodic backups, metadata audits, cybersecurity reviews, user support, dashboard improvements, new dataset onboarding and phased expansion to additional mines or regional datasets.</li>
+          </ol>
+        </div>
+      </div>
+          <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Indicative Implementation Pathway</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following implementation pathway presents a practical high-level sequence for advancing the proposed repurposing concept from initial approval through to project execution and long-term operation. It outlines the broad stages of concept approval, preliminary studies, model selection, bid preparation, procurement, detailed design, statutory approvals, construction, commissioning, and ongoing operation. This pathway is indicative and should be adapted to reflect the specific complexity, regulatory requirements, financing structure, and site conditions applicable to the project.</p>
+          <ol class="spv-list">
+            <li>Concept approval and objective setting</li>
+            <li>Land / building identification and safety screening</li>
+            <li>Data inventory and repository scope definition</li>
+            <li>Data sensitivity and access classification</li>
+            <li>Technology architecture and standards finalization</li>
+            <li>Community and institutional stakeholder consultation</li>
+            <li>Selection of implementation model</li>
+            <li>DPR and financial feasibility</li>
+            <li>RFP issuance and partner selection</li>
+            <li>Facility renovation and IT infrastructure setup</li>
+            <li>Legacy data scanning, digitization, and migration</li>
+            <li>Metadata creation and database development</li>
+            <li>GIS portal, dashboard, and analytics deployment</li>
+            <li>Training, local skilling, and institutional onboarding</li>
+            <li>Long-term operations, data updating, monitoring, and service expansion</li>
+          </ol>
+        </div>
+      </div>
+    <div class="prism2-nav-row">
+        <button class="prism2-btn-prev" id="prism2-prev-S" onclick="prism2Prev()">&#8592; Previous</button>
+        <div class="prism2-progress-dots" style="display:flex;gap:5px;align-items:center;">
+          <span class="pdot" data-p="P"></span><span class="pdot" data-p="R"></span>
+          <span class="pdot" data-p="I"></span><span class="pdot active" data-p="S"></span><span class="pdot" data-p="M"></span>
+        </div>
+        
+    <button class="prism2-btn-next" id="prism2-next-S" onclick="prism2Next()">Next pillar &#8594;</button>
+      </div>
+    </div><!-- /prism2-panel-S -->
+
+      <div class="prism2-content-panel" id="prism2-panel-M" style="--pc:#1a7a5e;--pb:#e1f3ec;--cb:#f1faf6;">
+      <div class="prism2-panel-header">
+        <div class="prism2-panel-header-letter">M</div>
+        <div class="prism2-panel-header-text">
+          <div class="prism2-panel-eyebrow">MONITORING GUIDANCE</div>
+          <p class="prism2-panel-desc">Covers the indicative 15-step implementation pathway, preferred models in order, recommended development position as a Mine Closure Digital Knowledge and Geoscience Data Centre, key references, and domain abbreviations.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Way Forward</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">The following way forward summarizes the preferred development approach for the proposed repurposing option, based on the assessment presented in PRISM (Post Mining Repurposing Implementation and Strategy Models). It identifies the most suitable implementation models in order of preference, highlights key technical and due-diligence considerations, and outlines the recommended next steps and broad development logic. This section is intended to guide internal decision-making and support the project owner in progressing from concept-stage evaluation toward feasibility assessment, project structuring, regulatory approvals, and implementation planning.</p>
+        <p class="spv-body-text"><strong>Preferred Models, in order:</strong> (1) Hybrid Model, (2) EPC + O&amp;M / Facility Management, (3) Concession / Lease-Develop-Operate</p>
+        <p class="spv-body-text"><strong>Why preferred:</strong> Hybrid is preferred because a geo-repository requires mine data control, institutional credibility, digital systems and public / research access. The hybrid mix should include mine-owner data governance + technical GIS / geoscience partner + academic institution + IT / cybersecurity support.</p>
+        <p class="spv-body-text"><strong>Secondary option:</strong> DBFOT may be used for large regional or multi-mine geoscience data campuses needing private finance and long-term professional operation.</p>
+        <p class="spv-body-text"><strong>Suggestable technical care:</strong> Metadata standards, GIS compatibility, data security, controlled access, digitization, backup, physical archive conditions, dashboard design and sensitive mine-data protocols must be ensured.</p>
+        <p class="spv-body-text"><strong>Recommended development logic:</strong> Start with mine closure GIS database, geological archive, borehole log system, mine-plan record archive and monitoring dashboards. Expand into training, public knowledge gallery and institutional research collaboration.</p>
+        <p class="spv-body-text" style="font-style:italic; margin-top:1.2rem;"><strong>Disclaimer —</strong> All repurposing interventions proposed under P.R.I.S.M. shall remain subject to applicable mining laws, land-use regulations, environmental approvals, mine-closure conditions, forest and biodiversity regulations, groundwater permissions, and any other statutory approvals as may be applicable. Land ownership is proposed to remain with the mine owner / competent authority unless otherwise permitted under applicable law.</p>
+      </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>References</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <ul class="spv-list">
+            <li>Coal Controller Organisation, Government of India (2026). Mine Closure Handbooks: A.R.T.H.A., L.I.V.E.S. and R.E.C.L.A.I.M. Ministry of Coal, Government of India.</li>
+            <li>Ministry of Mines, Government of India (2023). National Geoscience Data Repository. Geological Survey of India, Government of India.</li>
+            <li>Ministry of Mines, Government of India (2016). National Mineral Exploration Policy. Government of India.</li>
+            <li>Geological Survey of India (2024). National Geoscience Data Repository: Mineral Exploration Reporting Template Dashboard. Ministry of Mines, Government of India.</li>
+            <li>Department of Science and Technology, Government of India (2022). National Geospatial Policy, 2022. Government of India.</li>
+            <li>Department of Science and Technology, Government of India (2021). Guidelines for Acquiring and Producing Geospatial Data and Geospatial Data Services including Maps. Government of India.</li>
+            <li>U.S. Geological Survey (2024). USGS National Geologic Map Database Collection. U.S. Department of the Interior.</li>
+            <li>U.S. Geological Survey (2025). Metadata Creation and Data Standards. U.S. Department of the Interior.</li>
+            <li>British Geological Survey (2026). National Geoscience Data Centre: Metadata Abstract Examples. NERC, United Kingdom.</li>
+            <li>OneGeology (2026). Technical Detail for Participants and GeoSciML. OneGeology Initiative.</li>
+            <li>IUGS CGI (2023). Geoscience Information Metadata Standard. International Union of Geological Sciences.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Abbreviations</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <table class="spv-table">
+            <thead><tr><th>Abbreviation</th><th>Full Form</th></tr></thead>
+            <tbody>
+              <tr><td>EPC</td><td>Engineering, Procurement and Construction</td></tr>
+              <tr><td>O&amp;M</td><td>Operation and Maintenance</td></tr>
+              <tr><td>FM</td><td>Facility Management</td></tr>
+              <tr><td>BOOT</td><td>Build, Own, Operate, Transfer</td></tr>
+              <tr><td>BOO</td><td>Build, Own, Operate</td></tr>
+              <tr><td>DBFOT</td><td>Design, Build, Finance, Operate, Transfer</td></tr>
+              <tr><td>LDO</td><td>Lease-Develop-Operate</td></tr>
+              <tr><td>PPP</td><td>Public-Private Partnership</td></tr>
+              <tr><td>CSR</td><td>Corporate Social Responsibility</td></tr>
+              <tr><td>RFP</td><td>Request for Proposal</td></tr>
+              <tr><td>DPR</td><td>Detailed Project Report</td></tr>
+              <tr><td>CAPEX</td><td>Capital Expenditure</td></tr>
+              <tr><td>ESG</td><td>Environmental, Social and Governance</td></tr>
+              <tr><td>GIS</td><td>Geographic Information System</td></tr>
+              <tr><td>GNSS</td><td>Global Navigation Satellite System</td></tr>
+              <tr><td>AI</td><td>Artificial Intelligence</td></tr>
+              <tr><td>ML</td><td>Machine Learning</td></tr>
+              <tr><td>IT</td><td>Information Technology</td></tr>
+              <tr><td>LAN</td><td>Local Area Network</td></tr>
+              <tr><td>VPN</td><td>Virtual Private Network</td></tr>
+              <tr><td>UPS</td><td>Uninterruptible Power Supply</td></tr>
+              <tr><td>CAD</td><td>Computer-Aided Design</td></tr>
+              <tr><td>MERT</td><td>Mineral Exploration Reporting Template</td></tr>
+              <tr><td>NGDR</td><td>National Geoscience Data Repository</td></tr>
+              <tr><td>GSI</td><td>Geological Survey of India</td></tr>
+              <tr><td>OGC</td><td>Open Geospatial Consortium</td></tr>
+              <tr><td>API</td><td>Application Programming Interface</td></tr>
+              <tr><td>DEM</td><td>Digital Elevation Model</td></tr>
+              <tr><td>LiDAR</td><td>Light Detection and Ranging</td></tr>
+              <tr><td>GeoTIFF</td><td>Georeferenced Tagged Image File Format</td></tr>
+              <tr><td>LAS</td><td>Log ASCII Standard</td></tr>
+              <tr><td>SPV</td><td>Special Purpose Vehicle</td></tr>
+              <tr><td>VGF</td><td>Viability Gap Funding</td></tr>
+              <tr><td>MoU</td><td>Memorandum of Understanding</td></tr>
+              <tr><td>USGS</td><td>United States Geological Survey</td></tr>
+              <tr><td>BGS</td><td>British Geological Survey</td></tr>
+              <tr><td>IUGS</td><td>International Union of Geological Sciences</td></tr>
+              <tr><td>CGI</td><td>Commission for the Management and Application of Geoscience Information</td></tr>
+              <tr><td>CCO</td><td>Coal Controller Organisation</td></tr>
+              <tr><td>DST</td><td>Department of Science and Technology</td></tr>
+              <tr><td>DPIIT</td><td>Department for Promotion of Industry and Internal Trade</td></tr>
+              <tr><td>MeitY</td><td>Ministry of Electronics and Information Technology</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="prism2-nav-row">
+        <button class="prism2-btn-prev" id="prism2-prev-M" onclick="prism2Prev()">&#8592; Previous</button>
+        <div class="prism2-progress-dots" style="display:flex;gap:5px;align-items:center;">
+          <span class="pdot" data-p="P"></span><span class="pdot" data-p="R"></span>
+          <span class="pdot" data-p="I"></span><span class="pdot" data-p="S"></span><span class="pdot active" data-p="M"></span>
+        </div>
+      </div>
+
+      <!-- Framework completion card -->
+      <div style="margin:0 26px 16px;padding:16px 20px;border-radius:12px;background:#f4faf7;border:1.5px dashed #a8d5c2;display:flex;align-items:center;gap:14px;">
+        <div style="width:36px;height:36px;border-radius:50%;background:#d1ece2;border:1.5px solid #a8d5c2;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#1a7a5e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2.5 8 6 11.5 13.5 4"/></svg>
+        </div>
+        <div style="flex:1;min-width:0;">
+          <div style="font-size:.82rem;font-weight:700;color:#1a7a5e;letter-spacing:.01em;">PRISM Framework Complete</div>
+          <div style="font-size:.75rem;color:#4a7a6a;margin-top:2px;line-height:1.5;">All five pillars reviewed — explore case studies to see how similar projects were executed.</div>
+        </div>
+        <button onclick="showSPVTab('casestudies');setTimeout(function(){window.dispatchEvent(new Event('resize'))},30)" style="flex-shrink:0;font-size:.75rem;font-weight:600;padding:7px 14px;border-radius:8px;border:1.5px solid #a8d5c2;background:#fff;color:#1a7a5e;cursor:pointer;transition:background .2s,border-color .2s;" onmouseover="this.style.background='#e6f5ef'" onmouseout="this.style.background='#fff'">Case Studies &#8599;</button>
+      </div>
+
+      <!-- Download PRISM PDF card -->
+      <div style="margin:0 26px 28px;padding:18px 22px;border-radius:12px;background:linear-gradient(135deg,#f0f7ff 0%,#e8f4fd 100%);border:1.5px solid #c5ddf5;display:flex;align-items:center;gap:16px;">
+        <div style="width:40px;height:40px;border-radius:50%;background:#daeafa;border:1.5px solid #b8d4ef;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#1a5ca8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v10M5 8l4 4 4-4"/><rect x="3" y="14" width="12" height="2" rx="1"/></svg>
+        </div>
+        <div style="flex:1;min-width:0;">
+          <div style="font-size:.82rem;font-weight:700;color:#1a5ca8;letter-spacing:.01em;">Download PRISM Framework</div>
+          <div style="font-size:.75rem;color:#3a6a98;margin-top:2px;line-height:1.5;">Save a print-ready PDF of all five pillars for offline reference.</div>
+        </div>
+        <button onclick="downloadPRISM()" style="flex-shrink:0;font-size:.75rem;font-weight:600;padding:8px 16px;border-radius:8px;border:1.5px solid #b8d4ef;background:#fff;color:#1a5ca8;cursor:pointer;transition:background .2s,border-color .2s;display:flex;align-items:center;gap:6px;" onmouseover="this.style.background='#daeafa'" onmouseout="this.style.background='#fff'">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 1v7M3.5 5.5l3 3 3-3"/><rect x="1.5" y="10" width="10" height="1.5" rx=".75"/></svg>
+          Download PDF
+        </button>
+      </div>
+
+    </div><!-- /prism2-panel-M -->
+
+    </div><!-- /pr-content-wrap -->
+  </div><!-- /pr-shell -->
+
+<script>
+function prNav(key) {
+  if (typeof prism2Show === 'function') prism2Show(key);
+  document.querySelectorAll('#spv-panel-prism .pr-nav-item').forEach(function(n) {
+    n.classList.toggle('active', n.dataset.key === key);
+  });
+  var hl = document.getElementById('pr-hl');
+  var active = document.querySelector('#spv-panel-prism .pr-nav-item[data-key="' + key + '"]');
+  if (hl && active) {
+    var accent = getComputedStyle(active).getPropertyValue('--pr-accent').trim();
+    hl.style.setProperty('--pr-hl', accent);
+    hl.style.top = active.offsetTop + 'px';
+    hl.style.height = active.offsetHeight + 'px';
+  }
+}
+</script>
+
+    </div>
+  </div><!-- /spv-panel-prism -->
+
+  <div id="spv-panel-casestudies" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+      <div class="lit-wrap">
+        <div class="lit-outer">
+          <div class="lit-track-clip">
+            <div class="lit-track" id="litTrack-all">
+              <a class="lit-card" href="https://www.sciencedirect.com/science/article/abs/pii/S001379521831723X" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#1a7a5e;--lit-glow:rgba(26,122,94,.18);--lit-tint:rgba(26,122,94,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Characterization and 3D Visualization of Underground Research Facility for Deep Geological Repository Experiments: A Case Study of URF Bukov, Czech Republic</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Research Paper</span></div>
+                    <div class="lit-card-source">Source: <span>sciencedirect.com</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs-geo-cave-lab.jpg" alt="Characterization and 3D Visualization of Underground Research Facility for Deep Geological Repository Experiments: A Case Study of URF Bukov, Czech Republic" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://www.sciencedirect.com/science/article/pii/S0265931X25001377" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#C85000;--lit-glow:rgba(200,80,0,.18);--lit-tint:rgba(200,80,0,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Deep Geological Repositories — A Review of Design Concepts, Near-Field Evolution, and Their Implications for Nuclear Waste Containment</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Research Paper</span></div>
+                    <div class="lit-card-source">Source: <span>sciencedirect.com</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs-geo-underground.jpg" alt="Deep Geological Repositories — A Review of Design Concepts, Near-Field Evolution, and Their Implications for Nuclear Waste Containment" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://mines.gov.in/admin/storage/app/uploads/65e1c382744241709294466.pdf" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#0369a1;--lit-glow:rgba(3,105,161,.18);--lit-tint:rgba(3,105,161,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">National Geoscience Data Repository</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Research Paper</span></div>
+                    <div class="lit-card-source">Source: <span>mines.gov.in</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs-geo-datacenter.jpg" alt="National Geoscience Data Repository" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> View PDF</div>
+              </a>
+
+              <a class="lit-card" href="https://www.re3data.org/repository/r3d100011990" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#7c3aed;--lit-glow:rgba(124,58,237,.18);--lit-tint:rgba(124,58,237,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Geoscience Data Repository for Geophysical Data</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Data Repository</span></div>
+                    <div class="lit-card-source">Source: <span>re3data.org</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs-geo-cloud.jpg" alt="Geoscience Data Repository for Geophysical Data" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://libguides.mskcc.org/c.php?g=1455488&p=10821492" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#be185d;--lit-glow:rgba(190,24,93,.18);--lit-tint:rgba(190,24,93,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Depositing Data in Repositories: GEO</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Library Guide</span></div>
+                    <div class="lit-card-source">Source: <span>libguides.mskcc.org</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs-geo-campus.jpg" alt="Depositing Data in Repositories: GEO" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://resource.geospatialworld.net/casestudy/gsis-national-geoscience-data-repository-ngdr-pioneering-geospatial-data-hub-for-mineral-exploration-in-india" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#b06a10;--lit-glow:rgba(176,106,16,.18);--lit-tint:rgba(176,106,16,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">GSI's National Geoscience Data Repository (NGDR): Pioneering Geospatial Data Hub for Mineral Exploration in India</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Case Study</span></div>
+                    <div class="lit-card-source">Source: <span>resource.geospatialworld.net</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs-geo-ngdr.jpg" alt="GSI's National Geoscience Data Repository (NGDR): Pioneering Geospatial Data Hub for Mineral Exploration in India" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://www.esri.com/en-us/lg/product/geoscience-case-study" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#16a34a;--lit-glow:rgba(22,163,74,.18);--lit-tint:rgba(22,163,74,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Groundwater Consulting Firm Improves Its Central Repository for Data, Reports with Mapping Technology</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Case Study</span></div>
+                    <div class="lit-card-source">Source: <span>esri.com</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs-geo-groundwater.jpg" alt="Groundwater Consulting Firm Improves Its Central Repository for Data, Reports with Mapping Technology" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://www.researchgate.net/publication/317249689_Exploring_digital_preservation_requirements_A_case_study_from_the_National_Geoscience_Data_Centre_NGDC" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#d97706;--lit-glow:rgba(217,119,6,.18);--lit-tint:rgba(217,119,6,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Exploring Digital Preservation Requirements: A Case Study from the National Geoscience Data Centre (NGDC)</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Research Paper</span></div>
+                    <div class="lit-card-source">Source: <span>researchgate.net</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs-geo-preservation.jpg" alt="Exploring Digital Preservation Requirements: A Case Study from the National Geoscience Data Centre (NGDC)" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://www.sciencedirect.com/science/article/abs/pii/S221067072500561X" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#1a5ca8;--lit-glow:rgba(26,92,168,.18);--lit-tint:rgba(26,92,168,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Geospatial Suitability Analysis for Data Center Placement: A Case Study in Texas, USA</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Research Paper</span></div>
+                    <div class="lit-card-source">Source: <span>sciencedirect.com</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs-geo-spatial.jpg" alt="Geospatial Suitability Analysis for Data Center Placement: A Case Study in Texas, USA" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10859230/" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#0f766e;--lit-glow:rgba(15,118,110,.18);--lit-tint:rgba(15,118,110,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Case Studies Associated with the 10 Major Geodiversity-Related Topics</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Research Paper</span></div>
+                    <div class="lit-card-source">Source: <span>pmc.ncbi.nlm.nih.gov</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs-geo-geodiversity.jpg" alt="Case Studies Associated with the 10 Major Geodiversity-Related Topics" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://www.coretrustseal.org/wp-content/uploads/2022/03/20220303-national-geoscience-data-centre_final.pdf" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#9333ea;--lit-glow:rgba(147,51,234,.18);--lit-tint:rgba(147,51,234,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">National Geoscience Data Centre</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Research Paper</span></div>
+                    <div class="lit-card-source">Source: <span>coretrustseal.org</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs-geo-ngdc.jpg" alt="National Geoscience Data Centre" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> View PDF</div>
+              </a>
+
+              <a class="lit-card" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC539976/" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#c2410c;--lit-glow:rgba(194,65,12,.18);--lit-tint:rgba(194,65,12,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">NCBI GEO: Mining Millions of Expression Profiles — Database and Tools</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Research Paper</span></div>
+                    <div class="lit-card-source">Source: <span>pmc.ncbi.nlm.nih.gov</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs-geo-ncbi.jpg" alt="NCBI GEO: Mining Millions of Expression Profiles — Database and Tools" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://www.elucidata.io/blog/mining-data-and-metadata-from-geo-datasets" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#0284c7;--lit-glow:rgba(2,132,199,.18);--lit-tint:rgba(2,132,199,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Mining Data and Metadata from GEO Datasets</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Industry Article</span></div>
+                    <div class="lit-card-source">Source: <span>elucidata.io</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs-geo-data-mining.jpg" alt="Mining Data and Metadata from GEO Datasets" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://academic.oup.com/nar/article/38/suppl_2/W228/1117225" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#15803d;--lit-glow:rgba(21,128,61,.18);--lit-tint:rgba(21,128,61,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">MARQ: An Online Tool to Mine GEO for Experiments with Similar or Opposite Gene Expression Signatures</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Research Paper</span></div>
+                    <div class="lit-card-source">Source: <span>academic.oup.com</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs-geo-marq.jpg" alt="MARQ: An Online Tool to Mine GEO for Experiments with Similar or Opposite Gene Expression Signatures" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+            </div><!-- /lit-track -->
+          </div><!-- /lit-track-clip -->
+          <div class="lit-nav">
+            <button class="lit-nav-btn" id="litPrev-all" onclick="litMove('all',-1)" aria-label="Previous">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <div class="lit-dots" id="litDots-all"></div>
+            <button class="lit-nav-btn" id="litNext-all" onclick="litMove('all',1)" aria-label="Next">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+          </div>
+        </div><!-- /lit-outer -->
+      </div><!-- /lit-wrap -->
+    </div>
+  </div><!-- /spv-panel-casestudies -->
+
+  <div id="spv-panel-tender" class="spv-panel" style="display:none;">
+  <div class="spv-content">
+
+  <style>
+    /* ── Tender documents tab — t5 system (matches solar-pv.html) ── */
+    .t5-wrap{padding:4px 0 48px}
+    .t5-topbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:36px}
+    .t5-pills{display:flex;flex-wrap:wrap;gap:8px;flex:1}
+    .t5-pill{display:inline-flex;align-items:center;gap:7px;padding:8px 16px;border-radius:40px;font-family:var(--font-sans,"Inter",sans-serif);font-size:.82rem;font-weight:600;cursor:pointer;border:1.5px solid transparent;background:#fff;transition:all .22s cubic-bezier(.34,1.3,.64,1);white-space:nowrap}
+    .t5-pill-count{font-size:.72rem;font-weight:500;opacity:.7;background:rgba(0,0,0,.08);border-radius:20px;padding:1px 7px;line-height:1.6}
+    .t5-pill.active .t5-pill-count{background:rgba(255,255,255,.25);opacity:1}
+    .t5-pill--all{border-color:#a2d9dd;color:#0a7377} .t5-pill--rfp{border-color:#7AC9A8;color:#0c5240} .t5-pill--nit{border-color:#F4B96A;color:#8c4100} .t5-pill--ppa{border-color:#A5B4FC;color:#3730a3} .t5-pill--eoi{border-color:#67e8f9;color:#0a5b5e} .t5-pill--agr{border-color:#f9a8d4;color:#9d174d} .t5-pill--rpt{border-color:#93c5fd;color:#1e40af}
+    .t5-pill.active.t5-pill--all{background:#0a9396;color:#fff;border-color:#0a9396;box-shadow:0 4px 14px rgba(10,147,150,.35)}
+    .t5-pill.active.t5-pill--rfp{background:#0F6E56;color:#fff;border-color:#0F6E56;box-shadow:0 4px 14px rgba(15,110,86,.35)}
+    .t5-pill.active.t5-pill--nit{background:#B45309;color:#fff;border-color:#B45309;box-shadow:0 4px 14px rgba(180,83,9,.35)}
+    .t5-pill.active.t5-pill--ppa{background:#4338CA;color:#fff;border-color:#4338CA;box-shadow:0 4px 14px rgba(67,56,202,.35)}
+    .t5-pill.active.t5-pill--eoi{background:#0a7377;color:#fff;border-color:#0a7377;box-shadow:0 4px 14px rgba(10,115,119,.35)}
+    .t5-pill.active.t5-pill--agr{background:#be185d;color:#fff;border-color:#be185d;box-shadow:0 4px 14px rgba(190,24,93,.35)}
+    .t5-pill.active.t5-pill--rpt{background:#0369a1;color:#fff;border-color:#0369a1;box-shadow:0 4px 14px rgba(3,105,161,.35)}
+    .t5-right{display:flex;align-items:center;gap:12px;flex-shrink:0}
+    .t5-search-wrap{position:relative}
+    .t5-search-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:#94a3b8;pointer-events:none}
+    .t5-search{padding:9px 14px 9px 36px;width:210px;background:#f8fafb;border:1.5px solid #e2e8f0;border-radius:40px;font-size:.82rem;font-family:var(--font-sans,"Inter",sans-serif);color:#374151;outline:none;box-sizing:border-box;transition:border-color .2s,box-shadow .2s,width .25s,background .2s}
+    .t5-search::placeholder{color:#94a3b8}
+    .t5-search:focus{border-color:#0a9396;box-shadow:0 0 0 3px rgba(10,147,150,.12);background:#fff;width:250px}
+    .t5-counter{font-size:.8rem;font-weight:700;color:#94a3b8;white-space:nowrap}
+    .t5-section{margin-bottom:72px;animation:t5-pop .38s cubic-bezier(.34,1.3,.64,1) both}
+    .t5-section:last-child{margin-bottom:0}
+    .t5-section + .t5-section{padding-top:36px}
+    .t5-section-header{display:flex;align-items:center;gap:12px;margin-bottom:16px;padding:10px 16px;position:sticky;top:130px;z-index:10;background:#fcfcf9;border-top:1px solid #e8edf3;border-bottom:2px solid #e8edf3;box-shadow:0 4px 12px rgba(0,0,0,.07)}
+    .t5-section-bar{width:4px;height:22px;border-radius:4px;flex-shrink:0}
+    .t5-section-label{font-size:.82rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;flex:1}
+    .t5-section-count{font-size:.75rem;font-weight:700;color:#94a3b8;background:#f1f5f9;border:1px solid #e2e8f0;border-radius:20px;padding:2px 10px;white-space:nowrap}
+    .t5-list{display:flex;flex-direction:column;gap:10px}
+    .t5-row{display:flex;align-items:center;gap:16px;background:#fff;border:1px solid #e8edf3;border-left:4px solid transparent;border-radius:12px;padding:16px 18px;text-decoration:none;color:inherit;cursor:pointer;transition:box-shadow .22s ease,border-color .22s ease,transform .22s cubic-bezier(.34,1.3,.64,1)}
+    .t5-row--rfp{--row-accent:#0F6E56} .t5-row--nit{--row-accent:#B45309} .t5-row--ppa{--row-accent:#4338CA} .t5-row--eoi{--row-accent:#0a7377} .t5-row--agr{--row-accent:#be185d} .t5-row--rpt{--row-accent:#0369a1}
+    .t5-row:hover{border-left-color:var(--row-accent);box-shadow:0 4px 18px rgba(0,0,0,.08);transform:translateX(2px)}
+    .t5-icon-box{width:40px;height:40px;border-radius:10px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:color-mix(in srgb,var(--row-accent) 10%,#fff);border:1px solid color-mix(in srgb,var(--row-accent) 20%,transparent);transition:background .2s}
+    .t5-row:hover .t5-icon-box{background:color-mix(in srgb,var(--row-accent) 18%,#fff)}
+    .t5-text{flex:1;min-width:0}
+    .t5-title{font-size:.92rem;font-weight:400;color:#0f172a;line-height:1.4;margin-bottom:3px;transition:color .2s}
+    .t5-row:hover .t5-title{color:var(--row-accent)}
+    .t5-sub{font-size:.78rem;color:#64748b;line-height:1.4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .t5-right-side{display:flex;align-items:center;gap:10px;flex-shrink:0}
+    .t5-badge{display:inline-flex;align-items:center;font-size:.7rem;font-weight:700;letter-spacing:.05em;padding:4px 11px;border-radius:20px;background:color-mix(in srgb,var(--row-accent) 10%,#fff);color:var(--row-accent);border:1px solid color-mix(in srgb,var(--row-accent) 30%,transparent);white-space:nowrap}
+    .t5-ext-btn{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;border:1px solid #e2e8f0;background:#f8fafc;color:#94a3b8;text-decoration:none;transition:background .2s,color .2s,border-color .2s;flex-shrink:0}
+    .t5-row:hover .t5-ext-btn{background:color-mix(in srgb,var(--row-accent) 8%,#fff);border-color:color-mix(in srgb,var(--row-accent) 30%,transparent);color:var(--row-accent)}
+    .t5-empty{text-align:center;padding:40px 20px;color:#94a3b8;font-size:.85rem}
+    @keyframes t5-pop{from{opacity:0;transform:translateY(12px) scale(.98)}to{opacity:1;transform:none}}
+  </style>
+
+  <div class="t5-wrap">
+    <!-- ── Filter pills + search bar ──────────────────────────────────────
+         EDIT: Update pill counts (t5cnt-*) to match your actual document totals.
+         Add/remove pill buttons to match the document types you have.
+         Available types: rfp · nib · nit · eoi · ppa · agr · rpt
+         ──────────────────────────────────────────────────────────────── -->
+    <div class="t5-topbar">
+      <div class="t5-pills">
+        <button class="t5-pill t5-pill--all active" onclick="t5Filter('all')">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          All Documents <span class="t5-pill-count" id="t5cnt-all">6</span>
+        </button>
+        <button class="t5-pill t5-pill--rfp" data-sec="rfp" onclick="t5Filter('rfp')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          RFP <span class="t5-pill-count" id="t5cnt-rfp">4</span>
+        </button>
+        <button class="t5-pill t5-pill--rpt" data-sec="rpt" onclick="t5Filter('rpt')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          Reports &amp; DPR <span class="t5-pill-count" id="t5cnt-rpt">2</span>
+        </button>
+      </div>
+      <div class="t5-right">
+        <div class="t5-search-wrap">
+          <svg class="t5-search-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input id="t5SearchInput" class="t5-search" type="text" placeholder="Search documents…" oninput="t5Search(this.value)">
+        </div>
+        <span class="t5-counter" id="t5Counter"></span>
+      </div>
+    </div>
+
+    <!-- ── Document sections ───────────────────────────────────────────────
+         HOW TO ADD A DOCUMENT ROW:
+         1. Copy a <a class="t5-row …"> block below into the right section.
+         2. Set the correct  t5-row--TYPE  and  data-sec="TYPE"  (rfp/nib/nit/eoi/ppa/agr/rpt).
+         3. Fill in  data-title  (lowercase — used for search).
+         4. Set  href  to the PDF path or external URL.
+         5. Update the  t5-title  and  t5-sub  (e.g. "EPC + O&M · CAPEX").
+         6. Update the  t5-badge  text.
+         7. Update the pill counts at the top.
+
+         HOW TO REMOVE A SECTION:
+         Delete the entire  <div class="t5-section" data-sec="…">…</div>  block
+         and remove its corresponding pill button above.
+         ──────────────────────────────────────────────────────────────── -->
+    <div id="t5Sections">
+      <div class="t5-section" data-sec="rfp" style="animation-delay:0.05s">
+        <div class="t5-section-header">
+          <div class="t5-section-bar" style="background:#0F6E56"></div>
+          <span class="t5-section-label" style="color:#0F6E56">Requests for Proposal (RFP)</span>
+          <span class="t5-section-count">4 documents</span>
+        </div>
+        <div class="t5-list">
+
+          <a class="t5-row t5-row--rfp" data-sec="rfp"
+             data-title="kssdi geo-portal karnataka spatial data infrastructure rfp"
+             href="https://kscst.org.in/" target="_blank" rel="noopener">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">RFP — KSSDI Geo-Portal Development, Karnataka Spatial Data Infrastructure</div>
+              <div class="t5-sub">Karnataka State Council for Science &amp; Technology (KSCST)</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">RFP</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+
+          <a class="t5-row t5-row--rfp" data-sec="rfp"
+             data-title="dpic gsi rsas bangalore data processing information centre rfp nmet"
+             href="https://nmet.gov.in/n22.pdf" target="_blank" rel="noopener">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">RFP — Data Processing &amp; Information Centre (DPIC) at GSI RSAS, Bangalore</div>
+              <div class="t5-sub">National Mineral Exploration Trust (NMET) / GSI</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">RFP</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+
+          <a class="t5-row t5-row--rfp" data-sec="rfp"
+             data-title="disaster recovery centre keonjhar odisha geospatial data rfp"
+             href="https://odisha.gov.in/" target="_blank" rel="noopener">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">RFP — Disaster Recovery Centre for Geospatial Data, Keonjhar, Odisha</div>
+              <div class="t5-sub">Government of Odisha</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">RFP</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+
+          <a class="t5-row t5-row--rfp" data-sec="rfp"
+             data-title="national data registry nsdi spatial data infrastructure rfp dst"
+             href="https://dst.gov.in/" target="_blank" rel="noopener">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">RFP — National Data Registry for NSDI (National Spatial Data Infrastructure)</div>
+              <div class="t5-sub">Department of Science &amp; Technology, Government of India</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">RFP</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+
+        </div>
+      </div><!-- /rfp section -->
+
+      <!-- ═══ SECTION: REPORTS & DPR ══════════════════════════════════ -->
+      <div class="t5-section" data-sec="rpt" style="animation-delay:0.10s">
+        <div class="t5-section-header">
+          <div class="t5-section-bar" style="background:#0369a1"></div>
+          <span class="t5-section-label" style="color:#0369a1">Reports &amp; DPR</span>
+          <span class="t5-section-count">2 documents</span>
+        </div>
+        <div class="t5-list">
+
+          <a class="t5-row t5-row--rpt" data-sec="rpt"
+             data-title="ngdr proposal nmet funding national geoscience data repository report"
+             href="https://nmet.gov.in/" target="_blank" rel="noopener">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Report — NGDR Proposal via NMET Funding (National Geoscience Data Repository)</div>
+              <div class="t5-sub">National Mineral Exploration Trust (NMET)</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">Report</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+
+          <a class="t5-row t5-row--rpt" data-sec="rpt"
+             data-title="ngdr system feasibility study report national geoscience data repository osti"
+             href="https://www.osti.gov/" target="_blank" rel="noopener">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Feasibility Study Report — NGDR System (National Geoscience Data Repository)</div>
+              <div class="t5-sub">Office of Scientific &amp; Technical Information (OSTI)</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">Feasibility Study</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+
+        </div>
+      </div><!-- /rpt section -->
+
+    </div><!-- /t5Sections -->
+  </div><!-- /t5-wrap -->
+
+  </div>
+  </div><!-- /spv-panel-tender -->
+
+  <div id="spv-panel-media" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+
+    <style>
+      /* ── Media/Web tab — matches solar-pv.html ── */
+      .media-stack { display:flex; flex-direction:column; gap:12px; }
+
+      .media-row {
+        position: relative;
+        display: flex; align-items: center; gap: 14px;
+        padding: 15px 16px;
+        background: #fff;
+        border-radius: 12px;
+        border: 1px solid #e8eaed;
+        border-left: 3px solid var(--mr-accent);
+        text-decoration: none; color: inherit;
+        overflow: hidden;
+        transition:
+          box-shadow  0.28s cubic-bezier(0.34,1.3,0.64,1),
+          transform   0.28s cubic-bezier(0.34,1.3,0.64,1),
+          border-color 0.22s ease;
+      }
+
+      /* Animated accent line sweeps across bottom on hover */
+      .media-row::after {
+        content: '';
+        position: absolute;
+        bottom: 0; left: 0;
+        height: 2px; width: 0;
+        background: var(--mr-accent);
+        border-radius: 0 2px 2px 0;
+        transition: width 0.38s cubic-bezier(0.34,1.3,0.64,1);
+      }
+
+      .media-row:hover {
+        transform: translateY(-5px);
+        border-color: var(--mr-accent);
+        box-shadow:
+          0 10px 32px rgba(19,52,59,.13),
+          0 2px  8px  rgba(19,52,59,.06);
+      }
+      .media-row:hover::after { width: 100%; }
+
+      /* Icon chip */
+      .media-row-icon {
+        width: 42px; height: 42px; border-radius: 10px;
+        background: var(--mr-tint);
+        display: flex; align-items: center; justify-content: center;
+        flex-shrink: 0;
+        transition: background 0.25s ease, box-shadow 0.25s ease;
+      }
+      .media-row-icon svg { transition: filter 0.25s ease; }
+      .media-row:hover .media-row-icon {
+        background: var(--mr-accent);
+        box-shadow: 0 4px 12px rgba(0,0,0,.18);
+      }
+      .media-row:hover .media-row-icon svg { filter: brightness(0) invert(1); }
+
+      /* Text block */
+      .media-row-main { flex:1; min-width:0; }
+      .media-row-tag {
+        font-size: 10px; font-weight: 700; letter-spacing: .07em;
+        text-transform: uppercase; color: var(--mr-accent); margin-bottom: 4px;
+      }
+      .media-row-title {
+        font-size: 13.5px; font-weight: 600; color: #1e293b;
+        line-height: 1.4; margin-bottom: 3px;
+        transition: color 0.2s ease;
+      }
+      .media-row:hover .media-row-title { color: var(--mr-accent); }
+      .media-row-source {
+        font-size: 11px; color: #94a3b8;
+        display: flex; align-items: center; gap: 4px;
+      }
+
+      /* Arrow */
+      .media-row-arrow {
+        flex-shrink: 0; color: #d1dae0;
+        transition: color 0.22s ease, transform 0.28s cubic-bezier(0.34,1.3,0.64,1);
+      }
+      .media-row:hover .media-row-arrow {
+        color: var(--mr-accent);
+        transform: translate(3px, -3px);
+      }
+    </style>
+
+    <!--
+    ══════════════════════════════════════════════════════════════════
+    HOW TO ADD A MEDIA ROW
+    ══════════════════════════════════════════════════════════════════
+    1. Copy one <a class="media-row …"> block below.
+    2. Set  --mr-accent  (the colour) and  --mr-tint  (accent at ~10% opacity).
+       Suggested palette:
+         Green-teal   #0F6E56  rgba(15,110,86,.1)
+         Blue         #185FA5  rgba(24,95,165,.1)
+         Amber        #BA7517  rgba(186,117,23,.1)
+         Emerald      #1D9E75  rgba(29,158,117,.1)
+         Indigo       #534AB7  rgba(83,74,183,.1)
+         Red          #C81414  rgba(200,20,20,.1)
+         Orange       #C85000  rgba(200,80,0,.1)
+    3. Set the  href  to the URL.
+    4. Update  media-row-tag  (e.g. "Case Study · Germany"), title, and source domain.
+    5. Choose an appropriate SVG icon for  media-row-icon  (stroke colour = --mr-accent).
+
+    ICON IDEAS (copy the <svg> you need):
+      Globe/website  → <circle cx="12" cy="12" r="10"/> + grid lines
+      Document/report→ <path d="M14 2H6…"/> (file icon)
+      Location/map   → <path d="M12 2C8.13 2…"/> (pin icon)
+      Chart/data     → <polyline points="22 12 18 12 15 21…"/> (pulse)
+      Book/policy    → <path d="M2 3h6a4 4 0 0 1 4 4v14…"/> (book)
+      News           → <rect x="3" y="3" width="18" height="18" rx="2"/> (grid)
+    ══════════════════════════════════════════════════════════════════
+
+    <div class="media-stack">
+        <a class="media-row" href="https://www.news18.com/india/rs-100-crore-ai-centre-to-lead-indias-hunt-for-hidden-mineral-wealth-exclusive-ws-el-10134728.html" target="_blank" rel="noopener noreferrer" style="--mr-accent:#1a7a5e;--mr-tint:rgba(26,122,94,.1);">
+          <div class="media-row-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a7a5e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+          <div class="media-row-main">
+            <div class="media-row-tag">News Article · News18</div>
+            <div class="media-row-title">Rs 100-Crore AI Centre to Lead India&apos;s Hunt for Hidden Mineral Wealth</div>
+            <div class="media-row-source"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><line x1="2" y1="8" x2="14" y2="8"/><path d="M8 2a10 10 0 010 12M8 2a10 10 0 000 12"/></svg> news18.com</div>
+          </div>
+          <div class="media-row-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/></svg></div>
+        </a>
+        <a class="media-row" href="https://www.pib.gov.in/PressReleaseIframePage.aspx?PRID=1987926&reg=48&lang=2" target="_blank" rel="noopener noreferrer" style="--mr-accent:#C85000;--mr-tint:rgba(200,80,0,.1);">
+          <div class="media-row-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C85000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+          <div class="media-row-main">
+            <div class="media-row-tag">Press Release · PIB India</div>
+            <div class="media-row-title">Mines Ministry to Launch National Geoscience Data Repository Portal to Foster Innovation in Exploration</div>
+            <div class="media-row-source"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><line x1="2" y1="8" x2="14" y2="8"/><path d="M8 2a10 10 0 010 12M8 2a10 10 0 000 12"/></svg> pib.gov.in</div>
+          </div>
+          <div class="media-row-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/></svg></div>
+        </a>
+        <a class="media-row" href="https://vajiramandravi.com/current-affairs/ngdrp/" target="_blank" rel="noopener noreferrer" style="--mr-accent:#0369a1;--mr-tint:rgba(3,105,161,.1);">
+          <div class="media-row-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0369a1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+          <div class="media-row-main">
+            <div class="media-row-tag">Current Affairs · Vajira Mandravi</div>
+            <div class="media-row-title">National Geoscience Data Repository Portal</div>
+            <div class="media-row-source"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><line x1="2" y1="8" x2="14" y2="8"/><path d="M8 2a10 10 0 010 12M8 2a10 10 0 000 12"/></svg> vajiramandravi.com</div>
+          </div>
+          <div class="media-row-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/></svg></div>
+        </a>
+        <a class="media-row" href="https://youtu.be/BLrydkaRDHs?si=R_ICbAkYBIngjnlR" target="_blank" rel="noopener noreferrer" style="--mr-accent:#7c3aed;--mr-tint:rgba(124,58,237,.1);">
+          <div class="media-row-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+          <div class="media-row-main">
+            <div class="media-row-tag">Video · YouTube</div>
+            <div class="media-row-title">A Film on National Geoscience Data Repository Portal</div>
+            <div class="media-row-source"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><line x1="2" y1="8" x2="14" y2="8"/><path d="M8 2a10 10 0 010 12M8 2a10 10 0 000 12"/></svg> youtu.be</div>
+          </div>
+          <div class="media-row-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/></svg></div>
+        </a>
+        <a class="media-row" href="https://link.springer.com/article/10.1007/s12145-025-02065-8" target="_blank" rel="noopener noreferrer" style="--mr-accent:#be185d;--mr-tint:rgba(190,24,93,.1);">
+          <div class="media-row-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#be185d" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+          <div class="media-row-main">
+            <div class="media-row-tag">Research Article · Springer</div>
+            <div class="media-row-title">A Geonetwork-Based Catalogue for Marine Data Management</div>
+            <div class="media-row-source"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><line x1="2" y1="8" x2="14" y2="8"/><path d="M8 2a10 10 0 010 12M8 2a10 10 0 000 12"/></svg> link.springer.com</div>
+          </div>
+          <div class="media-row-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/></svg></div>
+        </a>
+      </div><!-- /media-stack -->
+
+    <p style="font-size:0.72rem; color:var(--color-text-secondary); font-style:italic; margin-top:16px;">Links open external websites. Coal Controller Organisation does not endorse third-party content.</p>
+
+    </div>
+  </div><!-- /spv-panel-media -->
+
+  <div id="spv-panel-agencies" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+
+      <div class="agencies-logo-grid">
+
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img" style="background:#ffffff; border-radius:10px;">
+            <img src="../images/agencies/mecl.png" alt="mecl" style="max-width:100%; max-height:60px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">MECL (Mineral Exploration Corp Ltd)</div>
+          <div class="agency-logo-type">Core drilling, borehole construction, sample storage shed erection &amp; repository facility setup</div>
+        </div>
+
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img" style="background:#ffffff; border-radius:10px;">
+            <img src="../images/agencies/Afcons%20Infrastructure%20Ltd.png" alt="Afcons Infrastructure Ltd" style="max-width:100%; max-height:60px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">Afcons Infrastructure Ltd</div>
+          <div class="agency-logo-type">Underground chamber excavation, concrete lining, waterproofing &amp; access shaft construction</div>
+        </div>
+
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img" style="background:#ffffff; border-radius:10px;">
+            <img src="../images/agencies/Rail%20Vikas%20Nigam%20Ltd%20(RVNL).svg" alt="Rail Vikas Nigam Ltd (RVNL)" style="max-width:100%; max-height:60px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">Rail Vikas Nigam Ltd (RVNL)</div>
+          <div class="agency-logo-type">Underground tunnel, shaft &amp; lined chamber civil construction</div>
+        </div>
+
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img" style="background:#1a5ca8; border-radius:10px;">
+            <img src="../images/agencies/Simplex%20Infrastructures%20Ltd.png" alt="Simplex Infrastructures Ltd" style="max-width:100%; max-height:60px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">Simplex Infrastructures Ltd</div>
+          <div class="agency-logo-type">Underground structural works, reinforced lining &amp; waterproofed storage vault build</div>
+        </div>
+
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img" style="background:#ffffff; border-radius:10px;">
+            <img src="../images/agencies/ITD%20Cementation%20India%20Ltd.jpg" alt="ITD Cementation India Ltd" style="max-width:100%; max-height:60px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">ITD Cementation India Ltd</div>
+          <div class="agency-logo-type">Underground civil works, tunnel boring &amp; repository structure construction</div>
+        </div>
+
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img" style="background:#ffffff; border-radius:10px;">
+            <img src="../images/agencies/mottmacdonald.svg" alt="Afcons Infrastructure Ltd" style="max-width:100%; max-height:60px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">Mott MacDonald India (civil design-build)</div>
+          <div class="agency-logo-type">Geo-repository layout design, civil specification &amp; construction management</div>
+        </div>
+
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img" style="background:#ffffff; border-radius:10px;">
+            <img src="../images/agencies/Godrej%20Construction%20Projects.svg" alt="Godrej Construction Projects" style="max-width:100%; max-height:60px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">Godrej Construction Projects</div>
+          <div class="agency-logo-type">Controlled-environment building civil construction for repository facilities</div>
+        </div>
+
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img agency-logo-inner--img--dark" style="background:#1a5ca8; border-radius:10px;">
+            <img src="../images/agencies/landt-logo.png" alt="Larsen &amp; Toubro Construction" style="max-width:100%; max-height:60px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">Larsen &amp; Toubro Construction</div>
+          <div class="agency-logo-type">Underground civil, access infrastructure &amp; controlled-environment facility EPC</div>
+        </div>
+
+      </div><!-- /agencies-logo-grid -->
+
+      <!-- Disclaimer -->
+      <div style="margin-top:28px; padding:14px 18px; background:rgba(33,128,141,.05); border:1px solid rgba(33,128,141,.18); border-radius:8px; display:flex; gap:12px; align-items:flex-start;">
+        <svg style="flex-shrink:0; margin-top:2px;" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#21808d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <p style="margin:0; font-family:var(--font-sans); font-size:0.8rem; color:var(--color-text-secondary); line-height:1.65;">
+          <strong style="color:var(--color-text); font-weight:600;">Disclaimer:</strong>
+          Inclusion of an agency on this list does not constitute endorsement, empanelment, or recommendation by the Coal Controller Organisation or the Ministry of Coal, Government of India. Mine owners and project proponents are advised to conduct their own due diligence process before engaging any agency.
+        </p>
+      </div>
+
+    </div>
+  </div><!-- /spv-panel-agencies -->
+
+  <div id="spv-panel-experts" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+      <p class="spv-body-text" style="margin-bottom:4px;font-size:var(--fs-sm);color:#64748b;font-style:italic;">This is an indicative list of domain areas and institutional profiles. Mine owners should engage qualified professionals with relevant certifications, verified track records, and appropriate institutional affiliations. This list does not constitute an endorsement.</p>
+      <div class="experts-grid">
+
+      </div><!-- /experts-grid -->
+      <div style="margin-top:28px;padding:14px 18px;background:rgba(33,128,141,.05);border:1px solid rgba(33,128,141,.18);border-radius:8px;display:flex;gap:12px;align-items:flex-start;">
+        <svg style="flex-shrink:0;margin-top:2px;" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#21808d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <p style="margin:0;font-family:var(--font-sans);font-size:0.8rem;color:var(--color-text-secondary);line-height:1.65;"><strong style="color:var(--color-text);font-weight:600;">Disclaimer:</strong> Inclusion of an expert does not constitute endorsement, empanelment, or recommendation by the Coal Controller Organisation or the Ministry of Coal, Government of India. Users are advised to independently verify credentials and suitability before engaging any individual.</p>
+      </div>
+    </div>
+  </div><!-- /spv-panel-experts -->
+
+  <!-- Footer -->
+  <footer id="site-footer-sf">
+    &copy; 2026 Coal Controller Organisation, Ministry of Coal, Government of India.
+  </footer>
+
+</div><!-- /page -->
+
+<!-- ═══════════════════════════════════════════════════════
+     SCRIPTS — edit only the PRISM2_COLORS and PRISM2_BG values
+     ═══════════════════════════════════════════════════════ -->
+<script>
+const PRISM2_COLORS = {P:'#C85000', R:'#1a5ca8', I:'#b06a10', S:'#5a3d9e', M:'#1a7a5e'};
+const PRISM2_BG     = {P:'#fff0e6', R:'#e4eef9', I:'#faedda', S:'#edeaf8', M:'#e1f3ec'};
+</script>
+<script src="./category.js"></script>
+<script>
+window.prism2Next = function() {
+  if (prism2Current < PRISM2_ORDER.length - 1) prNav(PRISM2_ORDER[prism2Current + 1]);
+};
+window.prism2Prev = function() {
+  if (prism2Current > 0) prNav(PRISM2_ORDER[prism2Current - 1]);
+};
+
+function downloadPRISM() {
+  var rawTitle = document.title || '';
+  var catName  = rawTitle.split('—')[0].split('-')[0].trim() || 'Category';
+
+  var PC = {P:'#C85000',R:'#1a5ca8',I:'#b06a10',S:'#5a3d9e',M:'#1a7a5e'};
+  var PB = {P:'#fff8f3',R:'#f3f7fd',I:'#fdf7f0',S:'#f7f5fd',M:'#f1faf6'};
+  var PN = {P:'Project Vision',R:'Repurposing Pathways',I:'Investment Dynamics',S:'Strategic Structuring',M:'Monitoring &amp; Management'};
+  var PE = {P:'POST-MINING',R:'REPURPOSING',I:'INVESTMENT',S:'STRATEGY',M:'MANAGEMENT'};
+
+  var introHeadEl = document.querySelector('.pr-intro-heading');
+  var introBodyEl = document.querySelector('.pr-intro-body');
+  var introHead   = introHeadEl ? introHeadEl.textContent : 'A structured framework for mine repurposing from concept to implementation';
+  var introBody   = introBodyEl ? introBodyEl.innerHTML   : '';
+
+  var pillarsHTML = '';
+  ['P','R','I','S','M'].forEach(function(k) {
+    var panel = document.getElementById('prism2-panel-' + k);
+    if (!panel) return;
+
+    var eyebrowEl   = panel.querySelector('.prism2-panel-eyebrow');
+    var titleEl     = panel.querySelector('.prism2-panel-title');
+    var descEl      = panel.querySelector('.prism2-panel-desc');
+    var eyebrow     = eyebrowEl  ? eyebrowEl.textContent  : PE[k];
+    var panelTitle  = titleEl    ? titleEl.textContent    : PN[k];
+    var descHTML    = descEl     ? descEl.innerHTML       : '';
+
+    var accHTML = '';
+    panel.querySelectorAll('.accordion-item').forEach(function(item) {
+      var spans = item.querySelectorAll('.accordion-btn span');
+      var btnText = '';
+      for (var s = 0; s < spans.length; s++) {
+        var t = spans[s].textContent.trim();
+        if (t && t !== '⥤' && t !== '˅') { btnText = t; break; }
+      }
+      var body = item.querySelector('.accordion-body');
+      if (!body) return;
+      var clone = body.cloneNode(true);
+      clone.style.display = '';
+      /* Remove scroll-wrapper overflow so tables span full width */
+      clone.querySelectorAll('.spv-table-wrap').forEach(function(w){w.style.overflowX='visible';});
+      accHTML += '<div class="acc-item">' +
+        '<div class="acc-heading">' + btnText + '</div>' +
+        '<div class="acc-body">' + clone.innerHTML + '</div>' +
+        '</div>';
+    });
+
+    pillarsHTML +=
+      '<div class="pillar" style="border-left-color:' + PC[k] + ';">' +
+        '<div class="pillar-hdr" style="background:' + PC[k] + '18;">' +
+          '<div class="pillar-letter" style="color:' + PC[k] + ';">' + k + '</div>' +
+          '<div class="pillar-info">' +
+            '<div class="pillar-eyebrow" style="color:' + PC[k] + ';">' + eyebrow + '</div>' +
+            '<div class="pillar-name">' + panelTitle + '</div>' +
+            (descHTML ? '<div class="pillar-desc">' + descHTML + '</div>' : '') +
+          '</div>' +
+        '</div>' +
+        '<div class="pillar-content">' + accHTML + '</div>' +
+      '</div>';
+  });
+
+  var css = [
+    '*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}',
+    'body{font-family:"Segoe UI",Arial,sans-serif;font-size:10pt;color:#1a1a1a;line-height:1.65;background:#fff}',
+    '@page{size:A4;margin:16mm 14mm}',
+    /* ── Cover ── */
+    '.cover{margin-bottom:28pt;padding-bottom:22pt;border-bottom:1.5pt solid #ddd}',
+    '.rainbow{height:5pt;border-radius:99pt;background:linear-gradient(to right,#7C3AB5,#4f6de0,#0ea5e9,#1D9E75,#3B6D11,#BA7517,#C85000,#A32D2D);margin-bottom:18pt}',
+    '.cover-eye{font-size:7.5pt;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#888;margin-bottom:7pt}',
+    '.cover-title{font-size:24pt;font-weight:800;color:#111;line-height:1.15;margin-bottom:5pt}',
+    '.cover-sub{font-size:11pt;font-weight:600;color:#444;margin-bottom:11pt}',
+    '.cover-body{font-size:9pt;color:#555;line-height:1.75}',
+    /* ── Pillars ── */
+    '.pillars{display:flex;flex-direction:column;gap:20pt}',
+    '.pillar{border-left:4pt solid #ccc;border-radius:6pt;overflow:hidden;page-break-inside:avoid}',
+    '.pillar-hdr{padding:13pt 15pt 11pt;display:flex;align-items:flex-start;gap:12pt}',
+    '.pillar-letter{font-size:30pt;font-weight:800;line-height:1;flex-shrink:0;width:38pt;opacity:.85}',
+    '.pillar-info{flex:1}',
+    '.pillar-eyebrow{font-size:7pt;font-weight:700;letter-spacing:.11em;text-transform:uppercase;margin-bottom:2pt}',
+    '.pillar-name{font-size:12.5pt;font-weight:700;color:#111;margin-bottom:3pt}',
+    '.pillar-desc{font-size:8.5pt;color:#555;line-height:1.6}',
+    /* ── Accordion ── */
+    '.pillar-content{background:#fff}',
+    '.acc-item{border-top:1pt solid #e8e8e0}',
+    '.acc-heading{font-size:9pt;font-weight:700;padding:8pt 13pt;color:#2a2a2a;background:#fafaf8}',
+    '.acc-body{font-size:8.5pt;line-height:1.75;color:#444;padding:9pt 13pt 11pt}',
+    /* ── Body content ── */
+    '.spv-body-text{margin-bottom:7pt}',
+    'p{margin-bottom:7pt}',
+    '.spv-list,.spv-list-unstyled{margin:5pt 0 7pt 16pt}',
+    'ul,ol{margin:5pt 0 7pt 16pt}',
+    '.spv-list li,ul li,ol li{margin-bottom:3pt}',
+    /* ── Tables ── */
+    '.spv-table-wrap{margin:7pt 0;overflow:visible}',
+    '.spv-table{width:100%;border-collapse:collapse;font-size:8pt}',
+    '.spv-table th{background:#f0f0ea;font-weight:700;text-align:left;padding:5pt 7pt;border:1pt solid #ccc;vertical-align:top}',
+    '.spv-table td{padding:4.5pt 7pt;border:1pt solid #ccc;vertical-align:top}',
+    '.spv-table tr:nth-child(even) td{background:#f9f9f7}',
+    /* ── Strong/em ── */
+    'strong{font-weight:700}',
+    'em{font-style:italic}',
+    /* ── Info/note boxes (if any) ── */
+    '.spv-note,.spv-info{background:#f5f5f0;border-left:3pt solid #aaa;padding:8pt 10pt;margin:6pt 0;font-size:8.5pt}'
+  ].join('\n');
+
+  var html = '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">' +
+    '<title>PRISM — ' + catName + '<\/title>' +
+    '<style>' + css + '<\/style><\/head><body>' +
+    '<div class="cover">' +
+      '<div class="rainbow"><\/div>' +
+      '<div class="cover-eye">PRISM Framework — Post-Mining Repurposing &amp; Implementation Strategy Models<\/div>' +
+      '<div class="cover-title">' + catName + '<\/div>' +
+      '<div class="cover-sub">' + introHead + '<\/div>' +
+      (introBody ? '<div class="cover-body">' + introBody + '<\/div>' : '') +
+    '<\/div>' +
+    '<div class="pillars">' + pillarsHTML + '<\/div>' +
+    '<\/body><\/html>';
+
+  var win = window.open('', '_blank', 'width=960,height=750');
+  if (!win) { alert('Please allow pop-ups for this site to download the PDF.'); return; }
+  win.document.write(html);
+  win.document.close();
+  win.focus();
+  setTimeout(function() { win.print(); }, 700);
+}
+
+(function() {
+  var panel = document.getElementById('spv-panel-prism');
+  if (!panel) return;
+  new MutationObserver(function() {
+    if (panel.style.display !== 'none') setTimeout(function() { prNav('P'); }, 10);
+  }).observe(panel, { attributes: true, attributeFilter: ['style'] });
+})();
+
+/* ── Tender t5 filter + search ── */
+(function(){
+  var activeFilter="all", searchQuery="";
+  function render(){
+    var sections=document.querySelectorAll("#spv-panel-tender .t5-section");
+    var vis=0;
+    sections.forEach(function(sec){
+      var secKey=sec.getAttribute("data-sec");
+      var showSec=(activeFilter==="all"||activeFilter===secKey);
+      var secVis=0;
+      sec.querySelectorAll(".t5-row").forEach(function(row){
+        var titleMatch=!searchQuery||row.getAttribute("data-title").indexOf(searchQuery)!==-1;
+        var show=showSec&&titleMatch;
+        row.style.display=show?"":"none";
+        if(show){secVis++;vis++;}
+      });
+      sec.style.display=secVis>0?"":"none";
+    });
+    var counter=document.getElementById("t5Counter");
+    if(counter) counter.textContent=vis+" document"+(vis===1?"":"s");
+    var empty=document.getElementById("t5Empty");
+    if(empty) empty.style.display=vis===0?"":"none";
+  }
+  window.t5Filter=function(type){
+    activeFilter=type;
+    document.querySelectorAll("#spv-panel-tender .t5-pill").forEach(function(p){
+      var m=(p.getAttribute("onclick")||"").match(/t5Filter\('?(\w+)'?\)/);
+      if(m) p.classList.toggle("active",m[1]===type);
+    });
+    render();
+  };
+  window.t5Search=function(val){ searchQuery=val.trim().toLowerCase(); render(); };
+  render();
+})();
+</script>
+
+<!-- browse-back-script -->
+<script>
+(function(){
+  if(new URLSearchParams(location.search).get('from')==='browse'){
+    var btn=document.querySelector('.back-btn');
+    if(btn){
+      btn.onclick=function(){window.location.href='../browse.html';};
+      btn.setAttribute('aria-label','Back to Browse');
+      for(var i=btn.childNodes.length-1;i>=0;i--){
+        var n=btn.childNodes[i];
+        if(n.nodeType===3&&n.textContent.trim()){n.textContent=' Back to Browse';break;}
+      }
+    }
+    var cr=document.querySelector('.sf-breadcrumb span:not(.sep)');
+    if(cr)cr.textContent='All Categories';
+  }
+})();
+</script>
+</body>
+</html>

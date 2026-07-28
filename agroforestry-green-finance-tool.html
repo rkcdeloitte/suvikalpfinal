@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Green Finance — Apiculture | SUVIKALP</title>
+  <title>Green Finance — Agroforestry | SUVIKALP</title>
   <link rel="stylesheet" href="../style.css">
   <link rel="stylesheet" href="./category.css">
   <style>
@@ -20,6 +20,9 @@
 
     .sgft-layout-row { display: flex; align-items: flex-start; gap: 20px; }
 
+    /* everything about answering questions lives in one card: progress
+       header, the question itself, and prev/next — so it reads as a
+       single unit instead of separate floating pieces */
     .sgft-qblock {
       flex: 0 1 480px; max-width: 480px; min-width: 0;
       background: var(--color-surface); border: 1px solid var(--color-card-border);
@@ -27,7 +30,12 @@
       overflow: hidden;
     }
 
-    /* only instruments the current question actually touches get a card here */
+    /* live status panel — full-width slabs, one per instrument, stacked
+       (not a 2x2 grid) so each one gets the whole panel width for its
+       text to wrap naturally. Only instruments this question actually
+       touches get a slab at all — nothing rendered for "not affected".
+       flex:1 (not a fixed width) so the panel's right edge always lines
+       up with the heading/intro above, whatever the viewport width. */
     .sgft-live-panel { flex: 1; min-width: 0; }
     .sgft-live-title { margin: 0 0 2px; font-family: var(--font-sans); font-size: 1.05rem; font-weight: 700; color: var(--color-teal-700); }
     .sgft-live-sub { margin: 0 0 14px; font-family: var(--font-sans); font-size: var(--fs-sm); color: var(--color-text-secondary); }
@@ -43,49 +51,35 @@
       100% { transform: scale(1); opacity: 1; }
     }
     .sgft-live-t-low  { background: #fef2f2; }
+    .sgft-live-t-mid  { background: #fffbeb; }
     .sgft-live-t-high { background: #ecfdf5; }
     .sgft-live-card-ring { position: absolute; top: 14px; right: 14px; width: 42px; height: 42px; }
     .sgft-live-card-ring svg { transform: rotate(-90deg); }
     .sgft-live-card-ring-label { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: var(--font-sans); font-size: 0.56rem; font-weight: 700; }
+    /* only the name/tier lines sit next to the ring, so only they need
+       room reserved for it — the text below reclaims the full card width */
     .sgft-live-card-name { margin: 0 0 2px; padding-right: 56px; font-family: var(--font-sans); font-size: 0.92rem; font-weight: 700; line-height: 1.25; color: var(--color-text); }
     .sgft-live-card-tier { margin: 0 0 8px; padding-right: 56px; font-family: var(--font-sans); font-size: 0.8rem; font-weight: 700; }
     .sgft-live-t-low  .sgft-live-card-tier { color: var(--color-red-500); }
+    .sgft-live-t-mid  .sgft-live-card-tier { color: #92400e; }
     .sgft-live-t-high .sgft-live-card-tier { color: #166534; }
+    /* long recommendation text scrolls within a fixed area instead of
+       stretching the slab to match — full slab width means far fewer
+       wrapped lines than the old 2-column grid, so this rarely kicks in */
+    .sgft-live-card-textwrap { max-height: 110px; overflow-y: auto; padding-right: 4px; }
+    .sgft-live-card-textwrap::-webkit-scrollbar { width: 5px; }
+    .sgft-live-card-textwrap::-webkit-scrollbar-thumb { background: var(--color-card-border); border-radius: var(--radius-full); }
+    .sgft-live-card-text { margin: 0 0 6px; font-family: var(--font-sans); font-size: 0.85rem; line-height: 1.55; color: var(--color-text-secondary); }
+    .sgft-live-card-text:last-child { margin-bottom: 0; }
+    .sgft-live-card-reco { color: var(--color-teal-700); }
 
-    .sgft-live-card-info-btn {
-      position: relative; margin-top: 2px;
-      display: inline-flex; align-items: center; gap: 4px;
-      border: none; background: none; padding: 0;
-      font-family: var(--font-sans); font-size: 0.76rem; font-weight: 700;
-      text-decoration: underline; text-underline-offset: 2px;
-      cursor: pointer;
-    }
-    .sgft-live-t-low  .sgft-live-card-info-btn { color: var(--color-red-500); }
-    .sgft-live-t-high .sgft-live-card-info-btn { color: #166534; }
-    .sgft-live-card-info-btn svg { width: 11px; height: 11px; transition: transform .18s ease; flex-shrink: 0; }
-    .sgft-live-card-info-btn.open svg { transform: rotate(180deg); }
-
-    .sgft-live-card-info {
-      display: none; flex-direction: column; gap: 8px; margin-top: 10px;
-      animation: sgftInfoIn .18s ease;
-    }
-    .sgft-live-card-info.open { display: flex; }
-
-    .sgft-live-reco-box {
-      display: flex; gap: 10px; align-items: flex-start;
-      padding: 12px 13px 12px 12px; background: var(--color-surface);
-      border: 1px solid var(--color-card-border); border-left: 3px solid var(--color-teal-700);
-      border-radius: var(--radius); box-shadow: 0 1px 2px rgba(0,0,0,.04);
-    }
-    .sgft-live-reco-icon-wrap {
-      width: 22px; height: 22px; flex-shrink: 0; border-radius: 50%;
-      background: var(--color-teal-700); display: flex; align-items: center; justify-content: center;
-    }
-    .sgft-live-reco-icon-wrap svg { width: 12px; height: 12px; color: #fff; }
-    .sgft-live-reco-label { display: block; margin: 0 0 3px; font-family: var(--font-sans); font-size: 0.66rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--color-teal-700); }
-    .sgft-live-reco-text { margin: 0; font-family: var(--font-sans); font-size: var(--fs-sm); line-height: 1.6; color: var(--color-text-secondary); white-space: pre-line; }
-
-    /* custom tooltip for abbr tags — swaps out the native title="" delay */
+    /* abbreviations (NDA, GCF, etc.) get a custom tooltip instead of the
+       native title="" one — the browser's built-in tooltip has a built-in
+       ~1s delay before it appears that can't be shortened, this shows
+       instantly on hover/focus. It's a single floating element positioned
+       by JS (like the old info-popover) rather than living inside the
+       abbr itself, because abbrs often sit inside the scrollable card
+       text — an absolutely-positioned tip there gets clipped/misplaced. */
     .sgft-abbr { border-bottom: 1px dotted var(--color-text-secondary); cursor: help; }
     #sgft-abbr-tip {
       display: none; position: fixed; z-index: 200;
@@ -96,11 +90,17 @@
     }
     #sgft-abbr-tip.open { display: block; }
 
+    .sgft-live-overall { margin-top: 14px; padding: 10px 12px; border-radius: var(--radius); background: var(--color-gray-200); text-align: center; }
+    .sgft-live-overall-label { font-family: var(--font-sans); font-size: 0.7rem; color: var(--color-text-secondary); margin: 0 0 3px; text-transform: uppercase; letter-spacing: .04em; font-weight: 700; }
+    .sgft-live-overall-value { font-family: var(--font-sans); font-size: 0.95rem; font-weight: 700; margin: 0; }
+
     .sgft-progress-head { padding: 16px 24px 14px; border-bottom: 1px solid var(--color-card-border); }
     .sgft-progress-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
     .sgft-progress-label { font-family: var(--font-sans); font-size: var(--fs-sm); font-weight: 600; color: var(--color-text); }
     .sgft-progress-time { font-family: var(--font-sans); font-size: var(--fs-xs); color: var(--color-text-secondary); }
 
+    /* fill bar and dots share one track — a proper stepper line instead of
+       two stacked rows, which is both more compact and easier to read */
     .sgft-progress-track { position: relative; height: 18px; display: flex; align-items: center; justify-content: space-between; }
     .sgft-progress-track::before {
       content: ""; position: absolute; left: 0; right: 0; top: 50%;
@@ -154,7 +154,15 @@
     .sgft-qnav-btn.primary:hover:not(:disabled) { background: var(--color-teal-700); }
     .sgft-qnav-btn.primary:disabled { background: var(--color-gray-200); color: var(--color-text-secondary); border-color: transparent; }
 
+    .sgft-back-link { display: block; text-align: center; margin-top: 14px; font-family: var(--font-sans); font-size: var(--fs-sm); color: var(--color-text-secondary); text-decoration: none; }
+    .sgft-back-link:hover { color: var(--color-primary); text-decoration: underline; }
 
+    /* "More info" link that reveals extra text (question info, recommendations)
+       right under itself, in normal page flow — not a floating popover, so it
+       stays attached to the question/row instead of feeling like a detached
+       overlay. Opens on hover (mouse) and click (touch/keyboard). Question
+       info and recommendation text get distinct treatments (icon color +
+       background tint) so the two content types read differently at a glance. */
     .sgft-info-wrap { display: inline; margin-left: 8px; }
     .sgft-info-btn {
       border: none; background: none; padding: 0;
@@ -184,69 +192,68 @@
     .sgft-info-content.open { display: block; }
     .sgft-info-content ul { margin: 0; padding-left: 16px; }
 
+    /* question info: calm/neutral — this is background context, not an action */
     .sgft-qbody .sgft-info-content { background: var(--color-gray-200); color: var(--color-text-secondary); border: 1px solid var(--color-card-border); }
     .sgft-qbody .sgft-info-content::before { background: var(--color-primary); }
 
+    /* recommendation info (Final Result cards): teal wash — signals "do this",
+       matching the teal used for recommendation text everywhere else in the tool */
+    .sgft-result .sgft-info-content,
+    .sgft-live-card .sgft-info-content { background: var(--color-teal-border); color: var(--color-teal-700); border: 1px solid rgba(33,128,141,.3); text-align: left; }
+    .sgft-result .sgft-info-content::before,
+    .sgft-live-card .sgft-info-content::before { background: var(--color-teal-700); }
+
+    .sgft-verdict { display: flex; align-items: center; gap: 10px; margin: 0 0 20px; }
+    .sgft-verdict-icon { width: 20px; height: 20px; flex-shrink: 0; }
+    .sgft-verdict-title { margin: 0; font-family: var(--font-sans); font-weight: 700; font-size: var(--fs-lg); }
+    .sgft-verdict.tier-high  .sgft-verdict-icon, .sgft-verdict.tier-high  .sgft-verdict-title { color: #166534; }
+    .sgft-verdict.tier-mixed .sgft-verdict-icon, .sgft-verdict.tier-mixed .sgft-verdict-title { color: #92400e; }
+    .sgft-verdict.tier-low   .sgft-verdict-icon, .sgft-verdict.tier-low   .sgft-verdict-title { color: var(--color-red-500); }
+
+    .sgft-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+    .sgft-result {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius); border: 1px solid var(--color-card-border);
+      background: var(--color-surface);
+      padding: 16px 14px 14px;
+    }
+    .sgft-result::before {
+      content: ""; position: absolute; top: 0; right: 0;
+      width: 90px; height: 90px;
+      border-radius: 0 var(--radius) 0 100%;
+    }
+    .sgft-high::before { background: linear-gradient(135deg, rgba(34,197,94,.22), rgba(34,197,94,0) 70%); }
+    .sgft-mid::before  { background: linear-gradient(135deg, rgba(245,158,11,.22), rgba(245,158,11,0) 70%); }
+    .sgft-low::before  { background: linear-gradient(135deg, rgba(192,21,47,.18), rgba(192,21,47,0) 70%); }
+    .sgft-result h3 { position: relative; margin: 0 0 10px; font-family: var(--font-sans); font-size: var(--fs-base); font-weight: 600; }
+    .sgft-result .status {
+      position: relative;
+      display: inline-block; margin: 0 0 8px; font-family: var(--font-sans);
+      font-size: 0.72rem; font-weight: 700; padding: 4px 10px; border-radius: var(--radius-full);
+    }
+    .sgft-result .reason { position: relative; margin: 0 0 8px; font-family: var(--font-sans); font-size: var(--fs-sm); color: var(--color-text-secondary); line-height: 1.6; }
+    .sgft-result .reco {
+      position: relative; margin: 0; font-family: var(--font-sans); font-size: var(--fs-sm);
+      color: var(--color-teal-700); line-height: 1.6; white-space: pre-line;
+      border-top: 1px dashed var(--color-card-border); padding-top: 8px;
+    }
+    .sgft-high .status { background: #ecfdf5; color: #166534; }
+    .sgft-mid  .status { background: #fffbeb; color: #92400e; }
+    .sgft-low  .status { background: #fef2f2; color: var(--color-red-500); }
+
+    .sgft-result .reason-list {
+      position: relative; list-style: none; margin: 0 0 8px; padding: 0;
+    }
+    .sgft-result .reason-list li {
+      position: relative; padding-left: 14px; margin-bottom: 6px;
+      font-family: var(--font-sans); font-size: var(--fs-sm);
+      color: var(--color-text-secondary); line-height: 1.6;
+    }
+    .sgft-result .reason-list li::before { content: "•"; position: absolute; left: 0; }
+    .sgft-result .reason-list li:last-child { margin-bottom: 0; }
+
     .sgft-final-result { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--color-card-border); }
-
-    .sgft-final-hero-sub { margin: 2px 0 0; font-family: var(--font-sans); font-size: var(--fs-sm); color: var(--color-text-secondary); }
-
-    .sgft-final-acc { border: 1px solid var(--color-card-border); border-radius: var(--radius-lg); overflow: hidden; }
-    .sgft-final-row { border-bottom: 1px solid var(--color-card-border); }
-    .sgft-final-row:last-child { border-bottom: none; }
-    .sgft-final-head { width: 100%; display: flex; align-items: center; gap: 12px; padding: 14px 16px; background: none; border: none; cursor: pointer; text-align: left; font-family: var(--font-sans); }
-    .sgft-final-stripe { width: 4px; align-self: stretch; border-radius: var(--radius-full); flex-shrink: 0; }
-    .sgft-final-name { flex: 1; font-family: var(--font-sans); font-size: var(--fs-base); font-weight: 600; }
-    .sgft-final-tier { font-family: var(--font-sans); font-size: 0.76rem; font-weight: 700; padding: 3px 10px; border-radius: var(--radius-full); }
-    .sgft-final-chevron { width: 16px; height: 16px; color: var(--color-text-secondary); transition: transform .2s ease; flex-shrink: 0; }
-    .sgft-final-chevron-spacer { width: 16px; flex-shrink: 0; }
-    .sgft-final-row.open .sgft-final-chevron { transform: rotate(180deg); }
-    .sgft-final-body { max-height: 0; overflow: hidden; transition: max-height .25s ease; }
-    .sgft-final-row.open .sgft-final-body { max-height: 2400px; }
-    .sgft-final-body-inner { display: flex; flex-direction: column; padding: 0 16px 16px 32px; }
-    .sgft-final-text { font-family: var(--font-sans); font-size: var(--fs-base); line-height: 1.65; color: var(--color-text-secondary); margin: 0 0 8px; }
-    .sgft-final-text:last-child { margin-bottom: 0; }
-
-    .sgft-final-reco-toggle {
-      position: relative; margin: 2px 0 0;
-      display: inline-flex; align-items: center; gap: 4px;
-      border: none; background: none; padding: 0;
-      font-family: var(--font-sans); font-size: 0.8rem; font-weight: 700;
-      color: var(--color-teal-700); text-decoration: underline; text-underline-offset: 2px;
-      cursor: pointer;
-    }
-    .sgft-final-reco-toggle svg { width: 11px; height: 11px; transition: transform .18s ease; flex-shrink: 0; }
-    .sgft-final-reco-toggle.open svg { transform: rotate(180deg); }
-    .sgft-final-reco-panel { display: none; flex-direction: column; gap: 8px; margin-top: 8px; }
-    .sgft-final-reco-panel.open { display: flex; animation: sgftInfoIn .18s ease; }
-
-    .sgft-final-actions-row { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; margin-top: 2px; }
-
-    .sgft-final-proc {
-      display: flex; width: fit-content; align-items: center; gap: 4px;
-      margin-left: auto; padding: 5px 11px;
-      border-radius: var(--radius-full);
-      font-family: var(--font-sans); font-size: 0.76rem; font-weight: 600;
-      text-decoration: none;
-      border: 1px solid currentColor;
-      transition: background-color .15s ease, transform .1s ease;
-    }
-    .sgft-final-proc span { display: inline-block; transition: transform .15s ease; }
-    .sgft-final-proc:hover { transform: translateY(-1px); }
-    .sgft-final-proc:hover span { transform: translate(1px, -1px); }
-    .sgft-final-proc:active { transform: translateY(0); }
-    .sgft-final-proc.sgft-final-low  { color: var(--color-red-500); background: #fef2f2; }
-    .sgft-final-proc.sgft-final-high { color: #166534; background: #ecfdf5; }
-
-    .sgft-final-stripe.sgft-final-low  { background: var(--color-red-500); }
-    .sgft-final-stripe.sgft-final-high { background: #166534; }
-    .sgft-final-tier.sgft-final-low  { background: #fef2f2; color: var(--color-red-500); }
-    .sgft-final-tier.sgft-final-high { background: #ecfdf5; color: #166534; }
-
-    .sgft-final-row { transition: background-color .15s ease; }
-    .sgft-final-row.sgft-final-low:hover  { background: #fef2f2; }
-    .sgft-final-row.sgft-final-high:hover { background: #ecfdf5; }
-    .sgft-final-eyebrow { margin: 0 0 6px; font-family: var(--font-sans); font-size: 0.72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--color-primary); }
     .sgft-final-result-title { margin: 0 0 4px; font-family: var(--font-sans); font-size: var(--fs-lg); font-weight: 700; }
     .sgft-final-result-sub { margin: 0 0 20px; font-family: var(--font-sans); font-size: var(--fs-sm); color: var(--color-text-secondary); }
 
@@ -267,7 +274,7 @@
   <header id="site-header">
     <div class="header-left">
       <div class="header-tool-title"><span class="hindi">सुविकल्प:</span> Mine Repurposing Tool</div>
-      <div class="header-tool-sub">Apiculture — Preliminary Green Finance Screening</div>
+      <div class="header-tool-sub">Agroforestry — Preliminary Green Finance Screening</div>
     </div>
   <div class="header-right">
     <div class="header-cco-lockup">
@@ -280,14 +287,14 @@
   <div class="page">
 
     <div class="sf-backbar">
-      <button class="back-btn" onclick="window.location.href='./apiculture.html'" aria-label="Back to Apiculture">
+      <button class="back-btn" onclick="window.location.href='./agroforestry.html'" aria-label="Back to Agroforestry">
         <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M10 3L5 8l5 5"/>
         </svg>
-        Back to Apiculture
+        Back to Agroforestry
       </button>
       <span class="sf-breadcrumb">
-        <span>Apiculture</span>
+        <span>Agroforestry</span>
         <span class="sep">/</span>
         <span style="color:var(--color-primary);font-weight:500;">Green Finance</span>
       </span>
@@ -296,10 +303,9 @@
     <div class="sgft-content">
       <h1 class="spv-section-title">Green Finance</h1>
       <div class="sgft-intro">
-<<<<<<< HEAD
-        <p>Answer all <strong>6 questions</strong>. The result updates live in the panel
-          on the right as you go, showing a preliminary eligibility status for Green Bonds,
-          Carbon Credit, GCF and Green Loans, based on the Apiculture financing criteria.</p>
+        <p>Answer <strong>7 quick questions</strong> to see a preliminary eligibility status for
+          Green Bonds, Carbon Credit, <abbr title="Green Climate Fund">GCF</abbr> and Green Loans,
+          based on the Agroforestry financing criteria.</p>
       </div>
 
       <section id="page-questions">
@@ -310,16 +316,15 @@
               <div class="sgft-row active" data-q="q1">
                 <button type="button" class="sgft-row-head">
                   <span class="sgft-row-check"><span class="sgft-row-num">1</span><svg class="sgft-row-checkmark" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l3.5 3.5L13 5"/></svg></span>
-                  <span class="sgft-row-title">Is the project required by any existing law, regulation or legally binding mandate?</span>
+                  <span class="sgft-row-title">Does the project broadly align with the host country's national climate strategy and plans or NDC?</span>
                   <span class="sgft-row-pill"></span>
                 </button>
                 <div class="sgft-row-body">
-                  <p class="sgft-clause-inline"><span class="sgft-clause-icon">i</span><span>Being legally mandated doesn't hurt green bond/loan/GCF eligibility, but carbon credits require additionality beyond legal compliance.</span></p>
+                  <p class="sgft-clause-inline"><span class="sgft-clause-icon">i</span><span>Proposals not aligned with national climate priorities may not receive NDA endorsement.</span></p>
                   <select class="sgft-select answer" data-q="q1">
                     <option value="">Select</option>
                     <option value="yes">Yes</option>
                     <option value="no">No</option>
-                    <option value="partially">Partially</option>
                   </select>
                 </div>
               </div>
@@ -343,15 +348,16 @@
               <div class="sgft-row" data-q="q3">
                 <button type="button" class="sgft-row-head">
                   <span class="sgft-row-check"><span class="sgft-row-num">3</span><svg class="sgft-row-checkmark" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l3.5 3.5L13 5"/></svg></span>
-                  <span class="sgft-row-title">Does the project broadly align with the host country's national climate strategy and plans or NDC?</span>
+                  <span class="sgft-row-title">Will the project comply with the governing environmental and social laws and standards?</span>
                   <span class="sgft-row-pill"></span>
                 </button>
                 <div class="sgft-row-body">
-                  <p class="sgft-clause-inline"><span class="sgft-clause-icon">i</span><span>Proposals not aligned with national climate priorities may not receive NDA endorsement.</span></p>
+                  <p class="sgft-clause-inline"><span class="sgft-clause-icon">i</span><span>Covers Minimum Social Safeguards and whether project activities uphold ethical, inclusive social practices.</span></p>
                   <select class="sgft-select answer" data-q="q3">
                     <option value="">Select</option>
                     <option value="yes">Yes</option>
                     <option value="no">No</option>
+                    <option value="partially">Partially</option>
                   </select>
                 </div>
               </div>
@@ -376,11 +382,11 @@
               <div class="sgft-row" data-q="q5">
                 <button type="button" class="sgft-row-head">
                   <span class="sgft-row-check"><span class="sgft-row-num">5</span><svg class="sgft-row-checkmark" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l3.5 3.5L13 5"/></svg></span>
-                  <span class="sgft-row-title">Is a use-of-proceeds Monitoring and Evaluation (M&amp;E) plan included or planned for the project?</span>
+                  <span class="sgft-row-title">Is the project required by any existing law, regulation or legally binding mandate?</span>
                   <span class="sgft-row-pill"></span>
                 </button>
                 <div class="sgft-row-body">
-                  <p class="sgft-clause-inline"><span class="sgft-clause-icon">i</span><span>GCF and Carbon Credit both require a results-based M&amp;E framework; the GBP requires transparent tracking of proceeds.</span></p>
+                  <p class="sgft-clause-inline"><span class="sgft-clause-icon">i</span><span>Being legally mandated doesn't hurt green bond/loan/GCF eligibility, but carbon credits require additionality beyond legal compliance.</span></p>
                   <select class="sgft-select answer" data-q="q5">
                     <option value="">Select</option>
                     <option value="yes">Yes</option>
@@ -393,12 +399,29 @@
               <div class="sgft-row" data-q="q6">
                 <button type="button" class="sgft-row-head">
                   <span class="sgft-row-check"><span class="sgft-row-num">6</span><svg class="sgft-row-checkmark" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l3.5 3.5L13 5"/></svg></span>
-                  <span class="sgft-row-title">Is enhancing biodiversity a key objective of this project?</span>
+                  <span class="sgft-row-title">Is a use-of-proceeds Monitoring and Evaluation (M&amp;E) plan included or planned for the project?</span>
                   <span class="sgft-row-pill"></span>
                 </button>
                 <div class="sgft-row-body">
-                  <p class="sgft-clause-inline"><span class="sgft-clause-icon">i</span><span>Avoid activities that could disrupt local ecosystems.</span></p>
+                  <p class="sgft-clause-inline"><span class="sgft-clause-icon">i</span><span>GCF and Carbon Credit both require a results-based M&amp;E framework; the GBP requires transparent tracking of proceeds.</span></p>
                   <select class="sgft-select answer" data-q="q6">
+                    <option value="">Select</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                    <option value="partially">Partially</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="sgft-row" data-q="q7">
+                <button type="button" class="sgft-row-head">
+                  <span class="sgft-row-check"><span class="sgft-row-num">7</span><svg class="sgft-row-checkmark" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l3.5 3.5L13 5"/></svg></span>
+                  <span class="sgft-row-title">Is this same project or piece of land currently signed up with any other carbon credit or greenhouse gas program?</span>
+                  <span class="sgft-row-pill"></span>
+                </button>
+                <div class="sgft-row-body">
+                  <p class="sgft-clause-inline"><span class="sgft-clause-icon">i</span><span>Only one carbon credit programme per project — a tonne of CO2 reduction can only be issued as a credit once.</span></p>
+                  <select class="sgft-select answer" data-q="q7">
                     <option value="">Select</option>
                     <option value="yes">Yes</option>
                     <option value="no">No</option>
@@ -411,7 +434,7 @@
 
             <div class="sgft-actions">
               <button id="show-result" class="sgft-btn sgft-btn-primary" type="button" disabled>See Final Result</button>
-              <a href="./apiculture.html" class="sgft-btn sgft-btn-secondary">Back to Apiculture Page</a>
+              <a href="./agroforestry.html" class="sgft-btn sgft-btn-secondary">Back to Agroforestry Page</a>
             </div>
           </div>
 
@@ -424,61 +447,15 @@
               <div id="verdict-container"></div>
               <div class="sgft-grid" id="result-grid"></div>
             </div>
-=======
-        <p>Answer <strong>6 quick questions</strong> to see a preliminary eligibility status for
-          Green Bonds, Carbon Credit, <abbr title="Green Climate Fund">GCF</abbr> and Green Loans,
-          based on the Apiculture financing criteria.</p>
-      </div>
-
-      <section id="page-questions">
-        <div class="sgft-layout-row">
-          <div class="sgft-qblock">
-            <div class="sgft-progress-head">
-              <div class="sgft-progress-top">
-                <span class="sgft-progress-label" id="progress-label">Question 1 of 6</span>
-                <span class="sgft-progress-time">&sim;2 min &middot; 6 questions</span>
-              </div>
-              <div class="sgft-progress-track" id="progress-track">
-                <div class="sgft-progress-fill" id="progress-fill"></div>
-              </div>
-            </div>
-
-            <div class="sgft-qbody">
-              <p class="sgft-qnum" id="q-num">Question 1</p>
-              <h2 class="sgft-qtitle" id="q-title"></h2>
-              <span class="sgft-info-wrap">
-                <button type="button" class="sgft-info-btn" id="q-info-btn" aria-label="More information">More info</button>
-                <span class="sgft-info-content" id="q-info-content"></span>
-              </span>
-              <div class="sgft-qoptions" id="q-options"></div>
-            </div>
-
-            <div class="sgft-qnav">
-              <button type="button" class="sgft-qnav-btn" id="btn-prev">&larr; Previous</button>
-              <button type="button" class="sgft-qnav-btn primary" id="btn-next" disabled>Next &rarr;</button>
-            </div>
-          </div>
-
-          <aside class="sgft-live-panel" aria-label="Live eligibility status">
-            <p class="sgft-live-title">Live Status</p>
-            <p class="sgft-live-sub">Updates as you answer</p>
-            <div class="sgft-live-grid" id="live-grid"></div>
->>>>>>> origin/main
           </aside>
         </div>
+        <a href="./agroforestry.html" class="sgft-back-link">Back to Agroforestry Page</a>
 
         <section id="final-result" class="sgft-final-result" hidden>
-<<<<<<< HEAD
           <h2 class="sgft-final-result-title">Final Result</h2>
-          <p class="sgft-final-result-sub">Combined eligibility across all 6 answers.</p>
+          <p class="sgft-final-result-sub">Combined eligibility across all answers.</p>
           <div id="final-verdict-container"></div>
           <div class="sgft-grid" id="final-result-grid"></div>
-=======
-          <p class="sgft-final-eyebrow">Final Result</p>
-          <h2 class="sgft-final-result-title">Combined eligibility across all 6 answers</h2>
-          <p class="sgft-final-result-sub">Tap any instrument to see why, and what to do next.</p>
-          <div class="sgft-final-acc" id="final-acc"></div>
->>>>>>> origin/main
         </section>
       </section>
     </div>
@@ -494,10 +471,94 @@
   <script>
     "use strict";
 
-<<<<<<< HEAD
+    // one question at a time — id, title, the "more info" text, and its
+    // answer options. Wording is copied verbatim from the checklist version.
+    const QUESTIONS = [
+      {
+        id: "q1",
+        title: "Does the project broadly align with the host country's national climate strategy and plans or <abbr title='Nationally Determined Contribution'>NDC</abbr>?",
+        info: "Proposals not aligned with national climate priorities may not receive <abbr title='National Designated Authority'>NDA</abbr> endorsement.",
+        options: [{ value: "yes", label: "Yes" }, { value: "no", label: "No" }]
+      },
+      {
+        id: "q2",
+        title: "Does the project possess legal land-use rights and all required FPIC (Free, Prior, Informed Consent) approvals?",
+        info: "1. Project need to adhere to Minimum Social Safeguards (MSS) also uphold ethical and inclusive social practices<br>2. Project activities should contribute to environmental goals",
+        options: [{ value: "yes", label: "Yes" }, { value: "no", label: "No" }]
+      },
+      {
+        id: "q3",
+        title: "Will the project comply with the governing environmental and social laws and standards?",
+        info: "Compliance with environmental and social safeguards are key prerequisite for eligibility.",
+        options: [{ value: "yes", label: "Yes" }, { value: "no", label: "No" }, { value: "partially", label: "Partially" }]
+      },
+      {
+        id: "q4",
+        title: "Does the project require external financial support to become commercially viable?",
+        info: "Bankability of the project determines the Green Finance Eligbility. For <abbr title='Green Climate Fund'>GCF</abbr> fully bankable projects without a funding gap do not qualify.",
+        options: [
+          { value: "commercial", label: "No" },
+          { value: "concessional", label: "Not viable without concessional support" },
+          { value: "carbon", label: "Not viable without carbon credit" }
+        ]
+      },
+      {
+        id: "q5",
+        title: "Is the project required by any existing law, regulation or legally binding mandate?",
+        info: "Project implementation a legal obligation or required by law",
+        options: [{ value: "yes", label: "Yes" }, { value: "no", label: "No" }, { value: "partially", label: "Partially" }]
+      },
+      {
+        id: "q6",
+        title: "Is a use-of-proceeds Monitoring and Evaluation (M&E) plan included or planned for the project?",
+        info: "Required to track the use of proceeds and impact of project as per compliance",
+        options: [{ value: "yes", label: "Yes" }, { value: "no", label: "No" }, { value: "partially", label: "Partially" }]
+      },
+      {
+        id: "q7",
+        title: "Is this same project or piece of land currently signed up with any other carbon credit or greenhouse gas program?",
+        info: "Only 1 carbon credit programme per project",
+        options: [{ value: "yes", label: "Yes" }, { value: "no", label: "No" }, { value: "partially", label: "Partially" }]
+      }
+    ];
+
     // answers picked so far, e.g. { q1: "yes", q2: "no" }
     const answers = {};
-    const selects = document.querySelectorAll(".answer");
+    let step = 0;
+
+    // swaps native title="" tooltips for a custom one that shows instantly —
+    // call this after inserting any HTML that might contain <abbr> tags.
+    // one shared floating tip, positioned in JS, so it always escapes any
+    // scrollable or animated ancestor instead of getting clipped
+    const abbrTip = document.createElement("div");
+    abbrTip.id = "sgft-abbr-tip";
+    document.body.appendChild(abbrTip);
+
+    function showAbbrTip(el) {
+      abbrTip.textContent = el.dataset.full;
+      abbrTip.classList.add("open");
+      const rect = el.getBoundingClientRect();
+      let left = rect.left + rect.width / 2 - abbrTip.offsetWidth / 2;
+      const maxLeft = window.innerWidth - abbrTip.offsetWidth - 8;
+      if (left > maxLeft) left = maxLeft;
+      if (left < 8) left = 8;
+      abbrTip.style.left = left + "px";
+      abbrTip.style.top = (rect.top - abbrTip.offsetHeight - 6) + "px";
+    }
+    function hideAbbrTip() { abbrTip.classList.remove("open"); }
+
+    function enhanceAbbreviations() {
+      document.querySelectorAll("abbr[title]").forEach((el) => {
+        el.classList.add("sgft-abbr");
+        el.dataset.full = el.getAttribute("title");
+        el.removeAttribute("title");
+        el.setAttribute("tabindex", "0");
+        el.addEventListener("mouseenter", () => showAbbrTip(el));
+        el.addEventListener("mouseleave", hideAbbrTip);
+        el.addEventListener("focus", () => showAbbrTip(el));
+        el.addEventListener("blur", hideAbbrTip);
+      });
+    }
 
     const TIER_LABEL = { ineligible: "Ineligible", moderate: "Moderately Eligible", high: "Highly Eligible" };
     const TIER_CLASS = { ineligible: "sgft-low", moderate: "sgft-mid", high: "sgft-high" };
@@ -506,9 +567,82 @@
     // If an instrument key is left out for an answer, that question just doesn't
     // affect that instrument (e.g. Carbon Credit isn't touched by Q1 at all).
     // "reason" explains the tier, "reco" is what to do about it — both come
-    // straight from the Apiculture criteria sheet, nothing invented.
+    // straight from the Agroforestry criteria sheet, nothing invented.
     const RULES = {
       q1: {
+        yes: { gb: "high", gcf: "high", gl: "high" },
+        no: {
+          gb: "ineligible", gcf: "ineligible", gl: "ineligible",
+          reco: {
+            gb: "Project owners need to refer the Climate Transition Finance Handbook for climate change mitigation.\nGreen Expenditures must have alignment with the objectives of National Conservation Strategy and Policy Statement on Environment and Development and the National Environment Policy, 2006.\nExpenditures must also be in agreement with respective state's environmental and social objectives",
+            gcf: "Review the country's <abbr title='Nationally Determined Contribution'>NDC</abbr>, national renewable energy plan, or sector strategy\nAdjust project scope or target beneficiaries to match prioritised sectors in the <abbr title='Nationally Determined Contribution'>NDC</abbr>\nEngage the <abbr title='National Designated Authority'>NDA</abbr> to understand what Agroforestry contributions are explicitly planned and endorsed",
+            gl: "Project owners need to refer the Climate Transition Finance Handbook for climate change mitigation.\nGreen Expenditures must have alignment with the objectives of National Conservation Strategy and Policy Statement on Environment and Development and the National Environment Policy, 2006.\nExpenditures must also be in agreement with respective state's environmental and social objectives"
+          }
+        }
+      },
+      q2: {
+        yes: {
+          gb: "high", cc: "high", gcf: "high", gl: "high",
+          reason: { cc: "The project developer must have the legal authority to implement the project and demonstrate ownership or control over the project area through valid land rights, leases, permits, or agreements." }
+        },
+        no: {
+          gb: "ineligible", cc: "ineligible", gcf: "ineligible", gl: "ineligible",
+          reason: { cc: "The project developer cannot demonstrate legal authority to operate the project or claim ownership of the carbon benefits. Without legal rights to the land or carbon benefits, ownership of the emission reductions is uncertain." },
+          reco: {
+            gb: "Issuers are encouraged to seek through their processes to identify mitigants to known and likely risks of material negative social and/or environmental impacts from the project(s).\nIssuer should refer remediation plan guided by <abbr title='International Finance Corporation'>IFC</abbr>, Equator Principles or other international social standards and ensure full legal and social compliance is documented and verified by an external reviewer.",
+            cc: "Enhancement Measures: Obtain legal ownership or land-use rights. Secure contracts transferring carbon rights to the project developer. Resolve land tenure or ownership disputes prior to project validation.",
+            gcf: "The project must secure legal land-use rights and obtain required community/Indigenous consent (FPIC) before it can qualify for green financing.",
+            gl: "Issuers are encouraged to seek through their processes to identify mitigants to known and likely risks of material negative social and/or environmental impacts from the project(s).\nIssuer should refer remediation plan guided by <abbr title='International Finance Corporation'>IFC</abbr>, Equator Principles or other international social standards and ensure full legal and social compliance is documented and verified by an external reviewer."
+          }
+        }
+      },
+      q3: {
+        yes: {
+          gb: "high", gcf: "high", gl: "high",
+          reason: { gcf: "Must comply with <abbr title='International Finance Corporation'>IFC</abbr>-aligned safeguards to prevent harm." },
+          reco: { gcf: "<abbr title='Green Climate Fund'>GCF</abbr> requires compliance with its <abbr title='Environmental and Social Safeguards'>ESS</abbr> (<abbr title='International Finance Corporation'>IFC</abbr> Performance Standards). Commission a scoping-level <abbr title='Environmental and Social Impact Assessment'>ESIA</abbr> before concept note submission, identify a qualified E&S consultant with <abbr title='International Finance Corporation'>IFC</abbr> PS experience, and document the E&S risk category (A/B/C)." }
+        },
+        no: {
+          gb: "ineligible", gcf: "ineligible", gl: "ineligible",
+          reco: {
+            gb: "Projects must meet two critical pillars: Do No Significant Harm (the project must not undermine other environmental goals) and Minimum Social Safeguards (adhere to human rights and labor standards). Appoint an External Reviewer to confirm alignment.",
+            gl: "Projects must meet two critical pillars: Do No Significant Harm (the project must not undermine other environmental goals) and Minimum Social Safeguards (adhere to human rights and labor standards). Appoint an External Reviewer to confirm alignment."
+          }
+        },
+        partially: { gb: "ineligible", gcf: "ineligible", gl: "ineligible" }
+      },
+      q4: {
+        commercial: {
+          gb: "high", cc: "ineligible", gcf: "ineligible", gl: "high",
+          reason: {
+            cc: "The project would proceed regardless of carbon credits, so it is not additional — carbon finance isn't the deciding factor.",
+            gcf: "<abbr title='Green Climate Fund'>GCF</abbr> will not fund projects that can attract commercial finance on their own terms — this would crowd out private investment."
+          },
+          reco: {
+            cc: "Redesign the project to include voluntary activities beyond business-as-usual. Identify additional measures that only become feasible with carbon finance.",
+            gcf: "Document the specific financing barriers (e.g. high perceived risk, currency mismatch, tenor mismatch), prepare a financial model demonstrating the funding gap with and without <abbr title='Green Climate Fund'>GCF</abbr> support, and consider re-scoping to underserved segments.",
+            gl: "Project is financially attractive on it's own"
+          }
+        },
+        concessional: {
+          gb: "moderate", cc: "moderate", gcf: "high", gl: "moderate",
+          reason: { cc: "Only part of the project depends on carbon finance — some activities may already be financially viable while others require carbon revenue." },
+          reco: {
+            gb: "Project is not financially attractive on it's own; green bonds used to bridge investment gaps for projects that are not yet commercially attractive on their own.",
+            cc: "Conduct a financial analysis showing carbon revenue improves project viability, demonstrate investment/technology barriers, and clearly identify activities that rely on carbon finance.",
+            gl: "Project is NOT financially attractive on it's own"
+          }
+        },
+        carbon: {
+          gb: "moderate", cc: "high", gcf: "moderate", gl: "moderate",
+          reason: { cc: "Carbon finance is necessary for the project to proceed." },
+          reco: {
+            gb: "Project is not financially attractive on it's own; green bonds used to bridge investment gaps for projects that are not yet commercially attractive on their own.",
+            gl: "Project is NOT financially attractive on it's own"
+          }
+        }
+      },
+      q5: {
         yes: {
           gb: "high", cc: "ineligible", gcf: "high", gl: "high",
           reason: {
@@ -544,249 +678,24 @@
           }
         }
       },
-      q2: {
+      q6: {
         yes: {
-          gb: "high", cc: "high", gcf: "high", gl: "high",
-          reason: { cc: "The project developer must have the legal authority to implement the project and demonstrate ownership or control over the project area through valid land rights, leases, permits, or agreements." }
-        },
-        no: {
-          gb: "ineligible", cc: "ineligible", gcf: "ineligible", gl: "ineligible",
-          reason: { cc: "The project developer cannot demonstrate legal authority to operate the project or claim ownership of the carbon benefits. Without legal rights to the land or carbon benefits, ownership of the emission reductions is uncertain." },
-          reco: {
-            gb: "Issuers are encouraged to seek through their processes to identify mitigants to known and likely risks of material negative social and/or environmental impacts from the project(s).\nIssuer should refer remediation plan guided by IFC, Equator Principles or other international social standards and ensure full legal and social compliance is documented and verified by an external reviewer.",
-            cc: "Enhancement Measures: Obtain legal ownership or land-use rights. Secure contracts transferring carbon rights to the project developer. Resolve land tenure or ownership disputes prior to project validation.",
-            gcf: "The project must secure legal land-use rights and obtain required community/Indigenous consent (FPIC) before it can qualify for green financing.",
-            gl: "Issuers are encouraged to seek through their processes to identify mitigants to known and likely risks of material negative social and/or environmental impacts from the project(s).\nIssuer should refer remediation plan guided by IFC, Equator Principles or other international social standards and ensure full legal and social compliance is documented and verified by an external reviewer."
-=======
-    // id, title, info text and answer options for each question, in order
-    const QUESTIONS = [
-      {
-        id: "q1",
-        title: "Is project required by any existing law, regulations or legally binding mandate?",
-        info: "We can still receive green bond proceeds and GCF for a mandated project. Demonstrating that a project is \"Required by Law\" actually helps prove its regulatory soundnes,",
-        options: [{ value: "yes", label: "Yes" }, { value: "no", label: "No" }, { value: "partially", label: "Partially" }]
-      },
-      {
-        id: "q2",
-        title: "Does the project possess legal land-use rights and all required FPIC (Free, Prior, Informed Consent) approvals?",
-        info: "FPIC mandated to access carbon credit and GCF",
-        options: [{ value: "yes", label: "Yes" }, { value: "no", label: "No" }]
-      },
-      {
-        id: "q3",
-        title: "Does the project broadly align with the host country's national climate strategy and plans or <abbr title='Nationally Determined Contribution'>NDC</abbr>?",
-        info: "Proposals not aligned with national climate priorities will not receive <abbr title='National Designated Authority'>NDA</abbr> endorsementm which is mandatory for accessing GCF",
-        options: [{ value: "yes", label: "Yes" }, { value: "no", label: "No" }]
-      },
-      {
-        id: "q4",
-        title: "Does the project require external funds to become commercially viable?",
-        info: "GCF provides the minimum concessionality needed. Fully bankable projects without a funding gap do not qualify.",
-        options: [
-          { value: "no", label: "No" },
-          { value: "concessional", label: "Not viable without concessional support" },
-          { value: "carbon", label: "Not viable without carbon credit" }
-        ]
-      },
-      {
-        id: "q5",
-        title: "Is a Monitoring and Evaluation (M&E) plan included or planned for the project?",
-        info: "GCF & Carbon Credit requires a results-based M&E framework aligned with its Performance Measurement Framework.<br>Pillar 3 of the GBP requires transparent tracking to prevent funds from being used for non-green purposes",
-        options: [{ value: "yes", label: "Yes" }, { value: "no", label: "No" }]
-      },
-      {
-        id: "q6",
-        title: "Is enhancing biodiversity a key objective of this project?",
-        info: "Avoid the introduction of invasive species; ensure landscaping practices do not degrade soil quality or harm local ecosystems; minimize use of chemical pesticides and fertilizers. Ensure that irrigation practices do not lead to excessive water use or deplete local water resources. Avoid using non-native plant species that could become invasive and disrupt local ecosystems.",
-        options: [{ value: "yes", label: "Yes" }, { value: "no", label: "No" }]
-      }
-    ];
-
-    // answers picked so far, e.g. { q1: "yes", q2: "no" }
-    const answers = {};
-    let step = 0;
-
-    // custom tooltip for <abbr> tags — call enhanceAbbreviations() after
-    // inserting any new HTML that might contain them
-    const abbrTip = document.createElement("div");
-    abbrTip.id = "sgft-abbr-tip";
-    document.body.appendChild(abbrTip);
-
-    function showAbbrTip(el) {
-      abbrTip.textContent = el.dataset.full;
-      abbrTip.classList.add("open");
-      const rect = el.getBoundingClientRect();
-      let left = rect.left + rect.width / 2 - abbrTip.offsetWidth / 2;
-      const maxLeft = window.innerWidth - abbrTip.offsetWidth - 8;
-      if (left > maxLeft) left = maxLeft;
-      if (left < 8) left = 8;
-      abbrTip.style.left = left + "px";
-      abbrTip.style.top = (rect.top - abbrTip.offsetHeight - 6) + "px";
-    }
-    function hideAbbrTip() { abbrTip.classList.remove("open"); }
-
-    function enhanceAbbreviations() {
-      document.querySelectorAll("abbr[title]").forEach((el) => {
-        el.classList.add("sgft-abbr");
-        el.dataset.full = el.getAttribute("title");
-        el.removeAttribute("title");
-        el.setAttribute("tabindex", "0");
-        el.addEventListener("mouseenter", () => showAbbrTip(el));
-        el.addEventListener("mouseleave", hideAbbrTip);
-        el.addEventListener("focus", () => showAbbrTip(el));
-        el.addEventListener("blur", hideAbbrTip);
-      });
-    }
-
-    // Apiculture's sheet only ever uses two tiers — eligible or not —
-    // unlike Agroforestry's 3-tier system, so there's no "moderate" here
-    const TIER_LABEL = { ineligible: "Ineligible", eligible: "Eligible" };
-
-    // one entry per question, one entry per answer, one tier per instrument
-    // (gb/cc/gcf/gl). Skip an instrument key on an answer if that answer
-    // doesn't affect it (e.g. Carbon Credit isn't touched by Q3).
-    // reason = why it got that tier, reco = the sheet's own "Enhancement
-    // Measure" text — what to do about it.
-    const RULES = {
-      q1: {
-        yes: {
-          gb: "eligible", cc: "ineligible", gcf: "eligible", gl: "eligible",
-          reason: {
-            gb: "Irrelevant factor for determining ineligibility",
-            cc: "Carbon credit not eligible for projects that are mandated under statutory laws. Beyond that, eligible",
-            gcf: "Irrelevant Factor",
-            gl: "Irrelevant factor for determining ineligibility"
-          },
-          reco: {
-            gb: "Strongly eligible for Green Bonds",
-            cc: "Fully mandated projects fail the regulatory surplus test. VCS Standard requires the project to go beyond legal obligations."
-          }
-        },
-        no: {
-          gb: "eligible", cc: "eligible", gcf: "eligible", gl: "eligible",
-          reason: { gb: "Irrelevant factor for determining ineligibility", gcf: "Irrelevant Factor" },
-          reco: { gb: "Eligible for Green Bonds" }
-        },
-        partially: {
-          gb: "eligible", cc: "eligible", gcf: "eligible", gl: "eligible",
-          reason: { gb: "Irrelevant factor for determining ineligibility", gcf: "Irrelevant Factor" },
-          reco: { gb: "Eligible for Green Bonds" }
-        }
-      },
-      q2: {
-        yes: { gb: "eligible", cc: "eligible", gcf: "eligible", gl: "eligible" },
-        no: {
-          gb: "ineligible", cc: "ineligible", gcf: "ineligible", gl: "ineligible",
-          reason: {
-            cc: "The project must secure legal land-use rights and obtain required community/Indigenous consent (FPIC) before it can qualify for green financing.",
-            gcf: "The project must secure legal land-use rights and obtain required community/Indigenous consent (FPIC) before it can qualify for green financing."
-          },
-          reco: {
-            gb: "Adhering to Minimum Social Safeguards (MSS) - Taxonomy-aligned green activities need adhere to human rights and labor standards. Minimum Social Safeguards (MSS) help ensure that while economic activities contribute to environmental goals, they also uphold ethical and inclusive social practices. For instance, afforestation projects should engage local communities and protect their rights without causing displacement and/or green technology supply chains must ensure safe working conditions and prevent labor exploitation.",
-            cc: "The project must secure legal land-use rights and obtain required community/Indigenous consent (FPIC) before it can qualify for green financing.",
-            gcf: "The project must secure legal land-use rights and obtain required community/Indigenous consent (FPIC) before it can qualify for green financing.",
-            gl: "Adhering to Minimum Social Safeguards (MSS) - Taxonomy-aligned green activities need adhere to human rights and labor standards. Minimum Social Safeguards (MSS) help ensure that while economic activities contribute to environmental goals, they also uphold ethical and inclusive social practices. For instance, afforestation projects should engage local communities and protect their rights without causing displacement and/or green technology supply chains must ensure safe working conditions and prevent labor exploitation."
->>>>>>> origin/main
-          }
-        }
-      },
-      q3: {
-<<<<<<< HEAD
-        yes: { gb: "high", gcf: "high", gl: "high" },
-        no: {
-          gb: "ineligible", gcf: "ineligible", gl: "ineligible",
-          reco: {
-            gb: "Project owners need to refer the Climate Transition Finance Handbook for climate change mitigation.\nGreen Expenditures must have alignment with the objectives of National Conservation Strategy and Policy Statement on Environment and Development and the National Environment Policy, 2006.\nExpenditures must also be in agreement with respective state's environmental and social objectives",
-            gcf: "Review the country's NDC, national renewable energy plan, or sector strategy\nAdjust project scope or target beneficiaries to match prioritised sectors in the NDC\nEngage the NDA to understand what apiculture contributions are explicitly planned and endorsed",
-            gl: "Project owners need to refer the Climate Transition Finance Handbook for climate change mitigation.\nGreen Expenditures must have alignment with the objectives of National Conservation Strategy and Policy Statement on Environment and Development and the National Environment Policy, 2006.\nExpenditures must also be in agreement with respective state's environmental and social objectives"
-=======
-        yes: { gb: "eligible", gcf: "eligible", gl: "eligible" },
-        no: {
-          gb: "ineligible", gcf: "ineligible", gl: "ineligible",
-          reason: { gcf: "Ineligible. Proposals not aligned with national climate priorities will not receive <abbr title='National Designated Authority'>NDA</abbr> endorsement." },
-          reco: {
-            gb: "Issuers are encouraged to seek alignment with voluntary guidelines on a \"best-efforts basis\" and should \"disclose how they are progressing\" against each recommended element of a transition strategy, explaining any areas of non-alignment",
-            gcf: "Review the country's <abbr title='Nationally Determined Contribution'>NDC</abbr>, national renewable energy plan, or sector strategy\nAdjust project scope or target beneficiaries to match prioritised sectors in the <abbr title='Nationally Determined Contribution'>NDC</abbr>\nEngage the <abbr title='National Designated Authority'>NDA</abbr> to understand what solar PV contributions are explicitly planned and endorsed",
-            gl: "Issuers are encouraged to seek alignment with voluntary guidelines on a \"best-efforts basis\" and should \"disclose how they are progressing\" against each recommended element of a transition strategy, explaining any areas of non-alignment"
->>>>>>> origin/main
-          }
-        }
-      },
-      q4: {
-<<<<<<< HEAD
-        commercial: {
-          gb: "high", cc: "ineligible", gcf: "ineligible", gl: "high",
-          reason: {
-            cc: "The project would proceed regardless of carbon credits, so it is not additional — carbon finance isn't the deciding factor.",
-            gcf: "GCF will not fund projects that can attract commercial finance on their own terms — this would crowd out private investment."
-          },
-          reco: {
-            cc: "Redesign the project to include voluntary activities beyond business-as-usual. Identify additional measures that only become feasible with carbon finance.",
-            gcf: "Document the specific financing barriers (e.g. high perceived risk, currency mismatch, tenor mismatch), prepare a financial model demonstrating the funding gap with and without GCF support, and consider re-scoping to underserved segments.",
-            gl: "Project is financially attractive on it's own"
-          }
-        },
-        concessional: {
-          gb: "moderate", cc: "moderate", gcf: "high", gl: "moderate",
-          reason: { cc: "Only part of the project depends on carbon finance — some activities may already be financially viable while others require carbon revenue." },
-          reco: {
-            gb: "Project is not financially attractive on it's own; green bonds used to bridge investment gaps for projects that are not yet commercially attractive on their own.",
-            cc: "Conduct a financial analysis showing carbon revenue improves project viability, demonstrate investment/technology barriers, and clearly identify activities that rely on carbon finance.",
-=======
-        no: {
-          gb: "eligible", cc: "ineligible", gcf: "ineligible", gl: "eligible",
-          reason: {
-            gb: "Project is not financially attractive on it's own, green bonds used to bridge investment gaps for projects that are not yet commercially attractive on their own.",
-            cc: "Projects that are financially viable without carbon revenue cannot demonstrate additionality through the investment test. Consider whether avoided/barrier arguments apply.",
-            gcf: "Ineligible. GCF will not fund projects that can attract commercial finance on their own terms — this would crowd out private investment.",
-            gl: "Project is not financially attractive on it's own"
-          },
-          reco: {
-            gcf: "GCF will not fund projects that can attract commercial finance on their own terms — this would crowd out private investment. You may required to (1) document the specific financing barriers (e.g. high perceived risk, currency mismatch, tenor mismatch)\n(2) Prepare a financial model demonstrating the funding gap with and without GCF support\n(3) Consider re-scoping to include underserved segments (e.g. off-grid, small commercial) where the market gap is clearer"
-          }
-        },
-        concessional: {
-          gb: "eligible", cc: "ineligible", gcf: "eligible", gl: "ineligible",
-          reason: {
-            gb: "Project is not financially attractive on it's own, green bonds used to bridge investment gaps for projects that are not yet commercially attractive on their own.",
-            cc: "Projects that are financially viable without carbon revenue cannot demonstrate additionality through the investment test. Consider whether avoided/barrier arguments apply.",
->>>>>>> origin/main
-            gl: "Project is NOT financially attractive on it's own"
-          }
-        },
-        carbon: {
-<<<<<<< HEAD
-          gb: "moderate", cc: "high", gcf: "moderate", gl: "moderate",
-          reason: { cc: "Carbon finance is necessary for the project to proceed." },
-          reco: {
-            gb: "Project is not financially attractive on it's own; green bonds used to bridge investment gaps for projects that are not yet commercially attractive on their own.",
-            gl: "Project is NOT financially attractive on it's own"
-          }
-=======
-          gb: "ineligible", cc: "eligible", gcf: "ineligible", gl: "ineligible",
-          reason: { gcf: "Irrelevant Factor" }
->>>>>>> origin/main
-        }
-      },
-      q5: {
-        yes: {
-<<<<<<< HEAD
           gb: "high", cc: "high", gcf: "high", gl: "high",
           reason: {
             gb: "M&E is both a planned and required component for projects financed through green bonds.",
             cc: "Monitoring systems, responsible personnel, and data collection processes are already in place.",
-            gcf: "GCF requires a results-based M&E framework aligned with its Performance Measurement Framework.",
+            gcf: "<abbr title='Green Climate Fund'>GCF</abbr> requires a results-based M&E framework aligned with its Performance Measurement Framework.",
             gl: "M&E is both a planned and required component for projects financed through green loans."
           },
-          reco: { gcf: "Design an M&E plan with indicators tied to GCF core indicators, include gender-disaggregated data collection, and establish a results reporting schedule aligned with GCF requirements." }
+          reco: { gcf: "Design an M&E plan with indicators tied to <abbr title='Green Climate Fund'>GCF</abbr> core indicators, include gender-disaggregated data collection, and establish a results reporting schedule aligned with <abbr title='Green Climate Fund'>GCF</abbr> requirements." }
         },
         no: {
           gb: "ineligible", cc: "ineligible", gcf: "ineligible", gl: "ineligible",
           reason: { cc: "Verifiable monitoring is essential for calculating carbon credits — without reliable data, emission reductions cannot be verified." },
           reco: {
-            gb: "Monitoring is a regular part of the review and approval process for green projects. Adopt the ICMA Harmonised Framework for Impact Reporting.",
+            gb: "Monitoring is a regular part of the review and approval process for green projects. Adopt the <abbr title='International Capital Market Association'>ICMA</abbr> Harmonised Framework for Impact Reporting.",
             cc: "Develop a complete monitoring framework, procure monitoring equipment, train staff, and establish QA/QC procedures before project registration.",
-            gl: "Monitoring is a regular part of the review and approval process for green projects. Adopt the ICMA Harmonised Framework for Impact Reporting."
+            gl: "Monitoring is a regular part of the review and approval process for green projects. Adopt the <abbr title='International Capital Market Association'>ICMA</abbr> Harmonised Framework for Impact Reporting."
           }
         },
         partially: {
@@ -794,144 +703,132 @@
           reco: { cc: "Develop a Monitoring, Reporting and Verification (MRV) plan, install necessary monitoring equipment, assign monitoring responsibilities, and establish data management procedures." }
         }
       },
-      q6: {
+      q7: {
         yes: {
-          gb: "high", gl: "high"
+          gb: "ineligible", cc: "ineligible", gl: "ineligible",
+          reason: { cc: "The project is currently active under another carbon credit program — the same emission reductions cannot receive carbon credits twice (double counting)." },
+          reco: {
+            gb: "Only be included if they run no risk of double-counting through any other mechanism or financing instrument.",
+            cc: "Withdraw the project from the other program, and ensure previous credits are cancelled or the project is officially inactive before applying.",
+            gl: "Only be included if they run no risk of double-counting through any other mechanism or financing instrument."
+          }
         },
         no: {
-          gb: "ineligible", gl: "ineligible",
-          reco: {
-            gb: "Need to ensure enhancing biodiversity as a primary objective of pollinator garden.",
-            gl: "Need to ensure enhancing biodiversity as a primary objective of pollinator garden."
-          }
+          gb: "high", cc: "high", gl: "high",
+          reason: { cc: "The project is not registered or applying under any other carbon credit program." }
         },
         partially: {
-          gb: "moderate", gl: "moderate",
-          reco: {
-            gb: "Need to ensure enhancing biodiversity as a primary objective of pollinator garden.",
-            gl: "Need to ensure enhancing biodiversity as a primary objective of pollinator garden."
-=======
-          gb: "eligible", cc: "eligible", gcf: "eligible", gl: "eligible",
-          reason: {
-            gb: "Monitoring and Evaluation (M&E) is both a planned and required component for projects financed through green bonds",
-            gl: "Monitoring and Evaluation (M&E) is both a planned and required component for projects financed through green bonds"
-          }
-        },
-        no: {
-          gb: "ineligible", cc: "ineligible", gcf: "ineligible", gl: "ineligible",
-          reason: {
-            cc: "Direct measurement via calibrated grid-interface meters is a hard requirement of VMR0017 Section 9.2. Projects unable to install meters cannot meet monitoring requirements.",
-            gcf: "GCF requires a results-based M&E framework aligned with its Performance Measurement Framework."
-          },
-          reco: {
-            gb: "Monitoring is a regular part of the review and approval process for green projects, ensuring they align with environmental missions and development priorities\nProponents are strongly recommended to adopt the <abbr title='International Capital Market Association'>ICMA</abbr> Harmonised Framework for Impact Reporting",
-            gcf: "GCF requires a results-based M&E framework aligned with its Performance Measurement Framework.\nDesign an M&E plan with indicators tied to GCF core indicators (PMF-M Core 1, 2, 3)\nInclude gender-disaggregated data collection in the M&E framework\nEstablish a results reporting schedule aligned with GCF reporting requirements",
-            gl: "Monitoring is a regular part of the review and approval process for green projects, ensuring they align with environmental missions and development priorities\nProponents are strongly recommended to adopt the <abbr title='International Capital Market Association'>ICMA</abbr> Harmonised Framework for Impact Reporting"
-          }
-        }
-      },
-      q6: {
-        yes: { gb: "eligible", gl: "eligible" },
-        no: {
-          gb: "ineligible", gl: "ineligible",
-          reco: {
-            gb: "Need to ensure enhancing biodiversity as a primary objective of pollinator garden as per IFC's The Basic Green Finance Reference Guide",
-            gl: "Need to ensure enhancing biodiversity as a primary objective of pollinator garden as per IFC's The Basic Green Finance Reference Guide"
->>>>>>> origin/main
-          }
+          cc: "moderate",
+          reason: { cc: "Previously registered, but now inactive or being withdrawn. The project may become eligible if evidence is provided that no further credits will be issued elsewhere." },
+          reco: { cc: "Obtain official withdrawal/de-registration from the other program, demonstrate that no duplicate carbon credits have been issued, and maintain documentation proving exclusive ownership of emission reductions." }
         }
       }
     };
 
-<<<<<<< HEAD
-    function buildOptionButtons() {
-      selects.forEach((selectEl) => {
-        const optsWrap = document.createElement("div");
-        optsWrap.className = "sgft-options";
-        Array.from(selectEl.options)
-          .filter((opt) => opt.value)
-          .forEach((opt) => {
-            const btn = document.createElement("button");
-            btn.type = "button";
-            btn.className = "sgft-opt-btn";
-            btn.dataset.value = opt.value;
-            btn.textContent = opt.textContent;
-            btn.addEventListener("click", () => {
-              selectEl.value = opt.value;
-              selectEl.dispatchEvent(new Event("change"));
-            });
-            optsWrap.appendChild(btn);
-          });
-        selectEl.insertAdjacentElement("afterend", optsWrap);
-      });
-    }
-
-    const QUESTION_IDS = ["q1", "q2", "q3", "q4", "q5", "q6"];
-    const rows = {};
-    QUESTION_IDS.forEach((q) => { rows[q] = document.querySelector(`.sgft-row[data-q="${q}"]`); });
-    let activeQ = "q1";
-
-    function setActive(qid) {
-      activeQ = qid;
-      QUESTION_IDS.forEach((q) => rows[q].classList.toggle("active", q === qid));
-      if (qid) rows[qid].scrollIntoView({ behavior: "smooth", block: "nearest" });
-    }
-
-    function pillLabel(qid) {
-      const select = rows[qid].querySelector(".sgft-select");
-      const opt = Array.from(select.options).find((o) => o.value === select.value);
-      return opt ? opt.textContent : "";
-    }
-
-    function updateProgress() {
-      let answered = 0;
-      QUESTION_IDS.forEach((q) => {
-        const isAnswered = Boolean(answers[q]);
-        rows[q].classList.toggle("is-answered", isAnswered);
-        rows[q].querySelector(".sgft-row-pill").textContent = isAnswered ? pillLabel(q) : "";
-        if (isAnswered) answered += 1;
-      });
-      document.getElementById("show-result").disabled = answered < QUESTION_IDS.length;
-    }
-
-    selects.forEach((el) => {
-      el.addEventListener("change", () => {
-        answers[el.dataset.q] = el.value;
-        const optionsWrap = el.nextElementSibling;
-        if (optionsWrap && optionsWrap.classList.contains("sgft-options")) {
-          optionsWrap.querySelectorAll(".sgft-opt-btn").forEach((btn) => {
-            btn.classList.toggle("active", btn.dataset.value === el.value);
-          });
-        }
-        updateProgress();
-        currentQ = el.dataset.q;
-        buildPreliminaryResult(currentQ);
-        const currentIndex = QUESTION_IDS.indexOf(el.dataset.q);
-        const nextUnanswered = QUESTION_IDS.slice(currentIndex + 1).find((q) => !answers[q]);
-        setActive(nextUnanswered || null);
-      });
-    });
-
-    QUESTION_IDS.forEach((q) => {
-      rows[q].querySelector(".sgft-row-head").addEventListener("click", () => {
-        setActive(activeQ === q ? null : q);
-      });
-    });
+    const QUESTION_IDS = QUESTIONS.map((q) => q.id);
 
     const INSTRUMENTS = [
-      { id: "gb", title: "Green Bonds" },
-      { id: "cc", title: "Carbon Credit" },
-      { id: "gcf", title: "GCF Funding" },
-      { id: "gl", title: "Green Loans" }
+      { id: "gb", title: "Green Bonds", abbr: "GB" },
+      { id: "cc", title: "Carbon Credit", abbr: "CC" },
+      { id: "gcf", title: "<abbr title='Green Climate Fund'>GCF</abbr> Funding", abbr: "GCF" },
+      { id: "gl", title: "Green Loans", abbr: "GL" }
     ];
 
-    // live preview only ever looks at the question you just answered —
-    // no need to compare against earlier answers, so just show that
-    // one question's result straight from RULES
-    let currentQ = null;
+    // live status panel: 4 cards, one per instrument, worst tier first.
+    // an instrument this question doesn't touch shows neutral gray rather
+    // than defaulting into any real tier color — "not affected" isn't
+    // the same thing as "high eligible"
+    const TIER_RANK = { ineligible: 0, moderate: 1, high: 2 };
+    const TIER_FRACTION = { ineligible: 0.22, moderate: 0.55, high: 0.92 };
+    const TIER_RING_COLOR = { ineligible: "var(--color-red-500)", moderate: "var(--gold)", high: "#166534" };
+    const TIER_CARD_CLASS = { ineligible: "sgft-live-t-low", moderate: "sgft-live-t-mid", high: "sgft-live-t-high" };
 
-    // shared by the live preview and the final result — both just need
-    // a tier count per instrument, this turns that into the banner html
+    // when a recommendation includes a separate "Enhancement Measures"
+    // step, that part goes behind its own click-to-reveal instead of
+    // always showing inline — keeps the always-visible part short while
+    // the follow-up action is still one click away, not hidden away
+    function renderRecoText(reco) {
+      if (!reco) return "";
+      const marker = "Enhancement Measures:";
+      const idx = reco.indexOf(marker);
+      if (idx === -1) {
+        return `<p class="sgft-live-card-text sgft-live-card-reco">${reco}</p>`;
+      }
+      const before = reco.slice(0, idx).trim();
+      const after = reco.slice(idx);
+      const beforeHtml = before ? `<p class="sgft-live-card-text sgft-live-card-reco">${before}</p>` : "";
+      return `${beforeHtml}<span class="sgft-info-wrap"><button type="button" class="sgft-info-btn" aria-label="Enhancement measures">Enhancement measures</button><span class="sgft-info-content">${after}</span></span>`;
+    }
+
+    function buildLivePreview(qid) {
+      const grid = document.getElementById("live-grid");
+      const overall = document.getElementById("live-overall");
+      const rule = qid && RULES[qid] && RULES[qid][answers[qid]];
+
+      const touched = INSTRUMENTS
+        .map(({ id, title, abbr }) => ({
+          title, abbr,
+          tier: rule ? rule[id] : undefined,
+          reason: (rule && rule.reason && rule.reason[id]) || "",
+          reco: (rule && rule.reco && rule.reco[id]) || ""
+        }))
+        .filter((i) => i.tier !== undefined)
+        .sort((a, b) => TIER_RANK[a.tier] - TIER_RANK[b.tier]);
+
+      if (!touched.length) {
+        grid.innerHTML = `<p class="sgft-live-empty">Answer a question to see its impact here.</p>`;
+        overall.innerHTML = "";
+        overall.style.display = "none";
+        enhanceAbbreviations();
+        return;
+      }
+      overall.style.display = "";
+
+      const r = 17;
+      const circumference = 2 * Math.PI * r;
+      grid.innerHTML = touched.map(({ title, abbr, tier, reason, reco }) => {
+        const cardClass = TIER_CARD_CLASS[tier];
+        const ringColor = TIER_RING_COLOR[tier];
+        const offset = circumference * (1 - TIER_FRACTION[tier]);
+        const tierLabel = TIER_LABEL[tier];
+        return `<div class="sgft-live-card ${cardClass}">
+          <div class="sgft-live-card-ring">
+            <svg width="42" height="42" viewBox="0 0 42 42">
+              <circle cx="21" cy="21" r="${r}" fill="none" stroke="var(--color-card-border)" stroke-width="5"/>
+              <circle cx="21" cy="21" r="${r}" fill="none" stroke="${ringColor}" stroke-width="5" stroke-dasharray="${circumference.toFixed(1)}" stroke-dashoffset="${offset.toFixed(1)}" stroke-linecap="round" transform="rotate(-90 21 21)"/>
+            </svg>
+            <span class="sgft-live-card-ring-label">${abbr}</span>
+          </div>
+          <p class="sgft-live-card-name">${title}</p>
+          <p class="sgft-live-card-tier">${tierLabel}</p>
+          ${(reason || reco) ? `<div class="sgft-live-card-textwrap">
+            ${reason ? `<p class="sgft-live-card-text">${reason}</p>` : ""}
+            ${renderRecoText(reco)}
+          </div>` : ""}
+        </div>`;
+      }).join("");
+
+      const counts = { high: 0, moderate: 0, ineligible: 0 };
+      touched.forEach((i) => { counts[i.tier] += 1; });
+      const total = touched.length;
+      let label, color;
+      if (counts.high === total) { label = "Highly eligible"; color = "#166534"; }
+      else if (counts.ineligible === total) { label = "Ineligible"; color = "var(--color-red-500)"; }
+      else if (counts.moderate === total) { label = "Moderately eligible"; color = "var(--gold)"; }
+      else {
+        const parts = [];
+        if (counts.high) parts.push(counts.high + " high");
+        if (counts.moderate) parts.push(counts.moderate + " moderate");
+        if (counts.ineligible) parts.push(counts.ineligible + " ineligible");
+        label = "Mixed — " + parts.join(", ");
+        color = counts.ineligible ? "var(--color-red-500)" : "var(--gold)";
+      }
+      overall.innerHTML = `<p class="sgft-live-overall-label">This answer's impact</p><p class="sgft-live-overall-value" style="color:${color};">${label}</p>`;
+      enhanceAbbreviations();
+    }
+
+    // shared by the final result — needs a tier count per instrument,
+    // this turns that into the banner html
     function renderVerdict(container, tierCounts, total, emptyMessage) {
       if (total === 0) {
         container.innerHTML = `<div class="sgft-verdict tier-mixed">
@@ -971,173 +868,9 @@
       </div>`;
     }
 
-    function buildPreliminaryResult(qid) {
-      const resultGrid = document.getElementById("result-grid");
-      const verdictContainer = document.getElementById("verdict-container");
-      const rule = qid && RULES[qid] && RULES[qid][answers[qid]];
-
-      if (!rule) {
-        resultGrid.innerHTML = INSTRUMENTS.map(({ title }) => `<article class="sgft-result"><h3>${title}</h3></article>`).join("");
-        renderVerdict(verdictContainer, {}, 0, "Answer a question to see its eligibility result");
-        return;
-      }
-
-      resultGrid.innerHTML = INSTRUMENTS.map(({ id, title }) => {
-        const tier = rule[id];
-        if (tier === undefined) {
-          return `<article class="sgft-result"><h3>${title}</h3></article>`;
-        }
-        const reason = (rule.reason && rule.reason[id]) || "";
-        const reco = (rule.reco && rule.reco[id]) || "";
-        return `<article class="sgft-result ${TIER_CLASS[tier]}">
-          <h3>${title}</h3>
-          <p class="status">${TIER_LABEL[tier]}</p>
-          ${reason ? `<p class="reason">${reason}</p>` : ""}
-          ${reco ? `<p class="reco">${reco}</p>` : ""}
-        </article>`;
-      }).join("");
-
-      const touched = INSTRUMENTS.filter(({ id }) => rule[id] !== undefined);
-      const tierCounts = { high: 0, moderate: 0, ineligible: 0 };
-      touched.forEach(({ id }) => { tierCounts[rule[id]] += 1; });
-      renderVerdict(verdictContainer, tierCounts, touched.length, "This question doesn't affect any instrument");
-    }
-
-    // final result combines all 6 answers: worst tier wins per instrument,
+    // final result combines all 7 answers: worst tier wins per instrument,
     // and every reason/reco that landed on that worst tier gets listed
     // (deduped, so repeated text only shows once)
-=======
-    const QUESTION_IDS = QUESTIONS.map((q) => q.id);
-
-    const INSTRUMENTS = [
-      { id: "gb", title: "Green Bonds", abbr: "GB" },
-      { id: "cc", title: "Carbon Credit", abbr: "CC" },
-      { id: "gcf", title: "<abbr title='Green Climate Fund'>GCF</abbr> Funding", abbr: "GCF" },
-      { id: "gl", title: "Green Loans", abbr: "GL" }
-    ];
-
-    const TIER_RANK = { ineligible: 0, eligible: 1 };
-    const TIER_FRACTION = { ineligible: 0.22, eligible: 0.92 };
-    const TIER_RING_COLOR = { ineligible: "var(--color-red-500)", eligible: "#166534" };
-    const TIER_CARD_CLASS = { ineligible: "sgft-live-t-low", eligible: "sgft-live-t-high" };
-
-    // reference procedure docs shared across category tools — GCF has no
-    // procedure doc yet, so it's simply left out
-    const PROCEDURE_LINKS = {
-      gb: "./procedure/Procedure_Green_Bonds.docx",
-      cc: "./procedure/india-carbon-credit-eligibility.html",
-      gl: "./procedure/Procedure_Green_Loans.docx"
-    };
-
-    function buildLivePreview(qid) {
-      const grid = document.getElementById("live-grid");
-      const rule = qid && RULES[qid] && RULES[qid][answers[qid]];
-
-      const touched = INSTRUMENTS
-        .map(({ id, title, abbr }) => ({
-          id, title, abbr,
-          tier: rule ? rule[id] : undefined,
-          reason: (rule && rule.reason && rule.reason[id]) || "",
-          reco: (rule && rule.reco && rule.reco[id]) || ""
-        }))
-        .filter((i) => i.tier !== undefined)
-        .sort((a, b) => TIER_RANK[a.tier] - TIER_RANK[b.tier]);
-
-      if (!touched.length) {
-        grid.innerHTML = `<p class="sgft-live-empty">Answer a question to see its impact here.</p>`;
-        enhanceAbbreviations();
-        return;
-      }
-
-      const r = 17;
-      const circumference = 2 * Math.PI * r;
-      grid.innerHTML = touched.map(({ title, abbr, tier, reason, reco }) => {
-        const cardClass = TIER_CARD_CLASS[tier];
-        const ringColor = TIER_RING_COLOR[tier];
-        const offset = circumference * (1 - TIER_FRACTION[tier]);
-        const tierLabel = TIER_LABEL[tier];
-        const hasInfo = Boolean(reco);
-        const infoToggle = hasInfo
-          ? `<button type="button" class="sgft-live-card-info-btn" aria-label="More information">More info <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg></button>
-             <div class="sgft-live-card-info">
-               <div class="sgft-live-reco-box">
-                 <span class="sgft-live-reco-icon-wrap"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4l5 4-5 4"/></svg></span>
-                 <div><span class="sgft-live-reco-label">Enhancement Measure</span><p class="sgft-live-reco-text">${reco}</p></div>
-               </div>
-             </div>`
-          : "";
-        return `<div class="sgft-live-card ${cardClass}">
-          <div class="sgft-live-card-ring">
-            <svg width="42" height="42" viewBox="0 0 42 42">
-              <circle cx="21" cy="21" r="${r}" fill="none" stroke="var(--color-card-border)" stroke-width="5"/>
-              <circle cx="21" cy="21" r="${r}" fill="none" stroke="${ringColor}" stroke-width="5" stroke-dasharray="${circumference.toFixed(1)}" stroke-dashoffset="${offset.toFixed(1)}" stroke-linecap="round" transform="rotate(-90 21 21)"/>
-            </svg>
-            <span class="sgft-live-card-ring-label">${abbr}</span>
-          </div>
-          <p class="sgft-live-card-name">${title}</p>
-          <p class="sgft-live-card-tier">${tierLabel}</p>
-          ${infoToggle}
-        </div>`;
-      }).join("");
-
-      enhanceAbbreviations();
-    }
-
-    const TIER_STRIPE_CLASS = { ineligible: "sgft-final-low", eligible: "sgft-final-high" };
-
-    function renderFinalAccordion(rows) {
-      const acc = document.getElementById("final-acc");
-      if (!rows.length) {
-        acc.innerHTML = `<p class="sgft-final-hero-sub" style="padding:16px;">No instruments affected.</p>`;
-        return;
-      }
-      // worst tier opens by default, wherever it sits in the list
-      let openIdx = rows.findIndex((r) => r.tier === "ineligible");
-      if (openIdx === -1) openIdx = 0;
-
-      acc.innerHTML = rows.map(({ id, title, tier, reasons, recos }, i) => {
-        const stripeClass = TIER_STRIPE_CLASS[tier];
-        const procedureHref = PROCEDURE_LINKS[id];
-        const procedureLink = procedureHref
-          ? `<a class="sgft-final-proc ${stripeClass}" href="${procedureHref}" target="_blank" rel="noopener noreferrer">Explore Procedure <span aria-hidden="true">&nearr;</span></a>`
-          : "";
-        const hasBody = reasons.length > 0 || recos.length > 0 || procedureLink;
-        return `<div class="sgft-final-row ${stripeClass} ${i === openIdx ? "open" : ""}">
-          <button type="button" class="sgft-final-head">
-            <span class="sgft-final-stripe ${stripeClass}"></span>
-            <span class="sgft-final-name">${title}</span>
-            <span class="sgft-final-tier ${stripeClass}">${TIER_LABEL[tier]}</span>
-            ${hasBody ? `<svg class="sgft-final-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg>` : `<span class="sgft-final-chevron-spacer"></span>`}
-          </button>
-          ${hasBody ? `<div class="sgft-final-body">
-            <div class="sgft-final-body-inner">
-              ${reasons.map((r) => `<p class="sgft-final-text">${r}</p>`).join("")}
-              <div class="sgft-final-actions-row">
-                ${recos.length ? `<button type="button" class="sgft-final-reco-toggle" aria-label="Show enhancement measures">Enhancement Measures <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg></button>` : ""}
-                ${procedureLink}
-              </div>
-              ${recos.length ? `<div class="sgft-final-reco-panel">
-                  ${recos.map((r) => `<div class="sgft-live-reco-box">
-                    <span class="sgft-live-reco-icon-wrap"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4l5 4-5 4"/></svg></span>
-                    <p class="sgft-live-reco-text">${r}</p>
-                  </div>`).join("")}
-                </div>` : ""}
-            </div>
-          </div>` : ""}
-        </div>`;
-      }).join("");
-
-      acc.querySelectorAll(".sgft-final-head").forEach((btn) => {
-        btn.addEventListener("click", () => {
-          const row = btn.closest(".sgft-final-row");
-          if (row.querySelector(".sgft-final-body")) row.classList.toggle("open");
-        });
-      });
-    }
-
-    // combines all 6 answers: worst tier wins per instrument, and every
-    // reason/reco tied to that worst tier is listed (deduped)
->>>>>>> origin/main
     function buildFinalResult() {
       const hitsByInstrument = {};
       INSTRUMENTS.forEach(({ id }) => { hitsByInstrument[id] = []; });
@@ -1155,7 +888,6 @@
         });
       });
 
-<<<<<<< HEAD
       const TIER_RANK = { ineligible: 0, moderate: 1, high: 2 };
       const result = {};
       INSTRUMENTS.forEach(({ id }) => {
@@ -1164,32 +896,23 @@
         const worstTier = hits.reduce((worst, h) => (TIER_RANK[h.tier] < TIER_RANK[worst] ? h.tier : worst), hits[0].tier);
         const atWorst = hits.filter((h) => h.tier === worstTier);
         result[id] = {
-=======
-      const rows = INSTRUMENTS.map(({ id, title }) => {
-        const hits = hitsByInstrument[id];
-        if (!hits.length) return null;
-        const worstTier = hits.reduce((worst, h) => (TIER_RANK[h.tier] < TIER_RANK[worst] ? h.tier : worst), hits[0].tier);
-        const atWorst = hits.filter((h) => h.tier === worstTier);
-        return {
-          id,
-          title,
->>>>>>> origin/main
           tier: worstTier,
           reasons: [...new Set(atWorst.map((h) => h.reason).filter(Boolean))],
           recos: [...new Set(atWorst.map((h) => h.reco).filter(Boolean))]
         };
-<<<<<<< HEAD
       });
 
       const grid = document.getElementById("final-result-grid");
       grid.innerHTML = INSTRUMENTS.map(({ id, title }) => {
         const st = result[id];
         if (!st) return `<article class="sgft-result"><h3>${title}</h3></article>`;
+        const recoBtn = st.recos.length
+          ? `<span class="sgft-info-wrap"><button type="button" class="sgft-info-btn" aria-label="Recommendation">More info</button><span class="sgft-info-content"><ul>${st.recos.map((r) => `<li>${r}</li>`).join("")}</ul></span></span>`
+          : "";
         return `<article class="sgft-result ${TIER_CLASS[st.tier]}">
-          <h3>${title}</h3>
+          <h3>${title}${recoBtn}</h3>
           <p class="status">${TIER_LABEL[st.tier]}</p>
           ${st.reasons.length ? `<ul class="reason-list">${st.reasons.map((r) => `<li>${r}</li>`).join("")}</ul>` : ""}
-          ${st.recos.length ? `<ul class="reco-list">${st.recos.map((r) => `<li>${r}</li>`).join("")}</ul>` : ""}
         </article>`;
       }).join("");
 
@@ -1197,31 +920,11 @@
       const tierCounts = { high: 0, moderate: 0, ineligible: 0 };
       touched.forEach(({ id }) => { tierCounts[result[id].tier] += 1; });
       renderVerdict(document.getElementById("final-verdict-container"), tierCounts, touched.length, "No instruments affected");
-    }
-
-    function allAnswered() {
-      return QUESTION_IDS.every((q) => answers[q]);
-    }
-
-    document.getElementById("show-result").addEventListener("click", () => {
-      if (!allAnswered()) return;
-      buildFinalResult();
-      const finalResult = document.getElementById("final-result");
-      finalResult.hidden = false;
-      finalResult.scrollIntoView({ behavior: "smooth", block: "start" });
-    });
-
-    buildOptionButtons();
-    updateProgress();
-    buildPreliminaryResult();
-=======
-      }).filter(Boolean).sort((a, b) => TIER_RANK[a.tier] - TIER_RANK[b.tier]);
-
-      renderFinalAccordion(rows);
       enhanceAbbreviations();
     }
 
-    // one dot per question, click to jump straight there
+    // progress dots — one per question, sitting right on the fill track,
+    // click any of them to jump straight there
     const progressTrack = document.getElementById("progress-track");
     QUESTIONS.forEach((q, i) => {
       const dot = document.createElement("button");
@@ -1290,26 +993,17 @@
       }
     });
 
-    // delegated so it still works after buttons get rebuilt on every answer
+    // "More info" opens the text right below itself (normal page flow, not
+    // a floating box) — click only, so it doesn't pop open just from the
+    // mouse passing over it. Delegated on document so it works for the
+    // question-info button and the recommendation buttons that get rebuilt
+    // on every answer.
     document.addEventListener("click", (e) => {
       const btn = e.target.closest(".sgft-info-btn");
       if (btn) btn.nextElementSibling.classList.toggle("open");
-
-      const liveBtn = e.target.closest(".sgft-live-card-info-btn");
-      if (liveBtn) {
-        liveBtn.classList.toggle("open");
-        liveBtn.nextElementSibling.classList.toggle("open");
-      }
-
-      const recoBtn = e.target.closest(".sgft-final-reco-toggle");
-      if (recoBtn) {
-        recoBtn.classList.toggle("open");
-        recoBtn.closest(".sgft-final-body-inner").querySelector(".sgft-final-reco-panel").classList.toggle("open");
-      }
     });
 
     renderQuestion();
->>>>>>> origin/main
   </script>
 </body>
 </html>
