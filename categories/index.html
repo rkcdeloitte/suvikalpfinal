@@ -1,0 +1,4074 @@
+<!DOCTYPE html>
+<!-- saved from url=(0073)file:///C:/Users/HP/Desktop/HTML/New%20folder/complete_modified_tool.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUVIKALP : Mine Repurposing Tool</title>
+    <style>
+        :root {
+  /* Primitive Color Tokens */
+  --color-white: rgba(255, 255, 255, 1);
+  --color-black: rgba(0, 0, 0, 1);
+  --color-cream-50: rgba(252, 252, 249, 1);
+  --color-cream-100: rgba(255, 255, 253, 1);
+  --color-gray-200: rgba(245, 245, 245, 1);
+  --color-gray-300: rgba(167, 169, 169, 1);
+  --color-gray-400: rgba(119, 124, 124, 1);
+  --color-slate-500: rgba(98, 108, 113, 1);
+  --color-brown-600: rgba(94, 82, 64, 1);
+  --color-charcoal-700: rgba(31, 33, 33, 1);
+  --color-charcoal-800: rgba(38, 40, 40, 1);
+  --color-slate-900: rgba(19, 52, 59, 1);
+  --color-teal-300: rgba(50, 184, 198, 1);
+  --color-teal-400: rgba(45, 166, 178, 1);
+  --color-teal-500: rgba(33, 128, 141, 1);
+  --color-teal-600: rgba(29, 116, 128, 1);
+  --color-teal-700: rgba(26, 104, 115, 1);
+  --color-teal-800: rgba(41, 150, 161, 1);
+  --color-red-400: rgba(255, 84, 89, 1);
+  --color-red-500: rgba(192, 21, 47, 1);
+  --color-orange-400: rgba(230, 129, 97, 1);
+  --color-orange-500: rgba(168, 75, 47, 1);
+
+  /* RGB versions for opacity control */
+  --color-brown-600-rgb: 94, 82, 64;
+  --color-teal-500-rgb: 33, 128, 141;
+  --color-slate-900-rgb: 19, 52, 59;
+  --color-slate-500-rgb: 98, 108, 113;
+  --color-red-500-rgb: 192, 21, 47;
+  --color-red-400-rgb: 255, 84, 89;
+  --color-orange-500-rgb: 168, 75, 47;
+  --color-orange-400-rgb: 230, 129, 97;
+
+  /* Background color tokens (Light Mode) */
+  --color-bg-1: rgba(59, 130, 246, 0.08); /* Light blue */
+  --color-bg-2: rgba(245, 158, 11, 0.08); /* Light yellow */
+  --color-bg-3: rgba(34, 197, 94, 0.08); /* Light green */
+  --color-bg-4: rgba(239, 68, 68, 0.08); /* Light red */
+  --color-bg-5: rgba(147, 51, 234, 0.08); /* Light purple */
+  --color-bg-6: rgba(249, 115, 22, 0.08); /* Light orange */
+  --color-bg-7: rgba(236, 72, 153, 0.08); /* Light pink */
+  --color-bg-8: rgba(6, 182, 212, 0.08); /* Light cyan */
+
+  /* Semantic Color Tokens (Light Mode) */
+  --color-background: var(--color-cream-50);
+  --color-surface: var(--color-cream-100);
+  --color-text: var(--color-slate-900);
+  --color-text-secondary: var(--color-slate-500);
+  --color-primary: var(--color-teal-500);
+  --color-primary-hover: var(--color-teal-600);
+  --color-primary-active: var(--color-teal-700);
+  --color-secondary: rgba(var(--color-brown-600-rgb), 0.12);
+  --color-secondary-hover: rgba(var(--color-brown-600-rgb), 0.2);
+  --color-secondary-active: rgba(var(--color-brown-600-rgb), 0.25);
+  --color-border: rgba(var(--color-brown-600-rgb), 0.2);
+  --color-teal-bg: rgba(33, 128, 141, 0.08);
+  --color-teal-border: rgba(33, 128, 141, 0.2);
+  --color-teal: var(--color-teal-500);
+  --gold: #d97706;
+  --color-btn-primary-text: var(--color-cream-50);
+  --color-card-border: rgba(var(--color-brown-600-rgb), 0.12);
+  --color-card-border-inner: rgba(var(--color-brown-600-rgb), 0.12);
+  --color-error: var(--color-red-500);
+  --color-success: var(--color-teal-500);
+  --color-warning: var(--color-orange-500);
+  --color-info: var(--color-slate-500);
+  --color-focus-ring: rgba(var(--color-teal-500-rgb), 0.4);
+  --color-select-caret: rgba(var(--color-slate-900-rgb), 0.8);
+
+  /* Common style patterns */
+  --focus-ring: 0 0 0 3px var(--color-focus-ring);
+  --focus-outline: 2px solid var(--color-primary);
+  --status-bg-opacity: 0.15;
+  --status-border-opacity: 0.25;
+  --select-caret-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23134252' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  --select-caret-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23f5f5f5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+
+  /* RGB versions for opacity control */
+  --color-success-rgb: 33, 128, 141;
+  --color-error-rgb: 192, 21, 47;
+  --color-warning-rgb: 168, 75, 47;
+  --color-info-rgb: 98, 108, 113;
+
+  /* Typography */
+  --font-family-base: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-family-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-size-xs: 11px;
+  --font-size-sm: 12px;
+  --font-size-base: 14px;
+  --font-size-md: 14px;
+  --font-size-lg: 16px;
+  --font-size-xl: 18px;
+  --font-size-2xl: 20px;
+  --font-size-3xl: 24px;
+  --font-size-4xl: 30px;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 550;
+  --font-weight-bold: 600;
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --letter-spacing-tight: -0.01em;
+
+  /* Spacing */
+  --space-0: 0;
+  --space-1: 1px;
+  --space-2: 2px;
+  --space-4: 4px;
+  --space-6: 6px;
+  --space-8: 8px;
+  --space-10: 10px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-20: 20px;
+  --space-24: 24px;
+  --space-32: 32px;
+
+  /* Border Radius */
+  --radius-sm: 6px;
+  --radius-base: 8px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.02);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.04),
+    0 2px 4px -1px rgba(0, 0, 0, 0.02);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.04),
+    0 4px 6px -2px rgba(0, 0, 0, 0.02);
+  --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.03);
+
+  /* Animation */
+  --duration-fast: 150ms;
+  --duration-normal: 250ms;
+  --ease-standard: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Layout */
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1280px;
+}
+
+/* Dark mode colors */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* RGB versions for opacity control (Dark Mode) */
+    --color-gray-400-rgb: 119, 124, 124;
+    --color-teal-300-rgb: 50, 184, 198;
+    --color-gray-300-rgb: 167, 169, 169;
+    --color-gray-200-rgb: 245, 245, 245;
+
+    /* Background color tokens (Dark Mode) */
+    --color-bg-1: rgba(29, 78, 216, 0.15); /* Dark blue */
+    --color-bg-2: rgba(180, 83, 9, 0.15); /* Dark yellow */
+    --color-bg-3: rgba(21, 128, 61, 0.15); /* Dark green */
+    --color-bg-4: rgba(185, 28, 28, 0.15); /* Dark red */
+    --color-bg-5: rgba(107, 33, 168, 0.15); /* Dark purple */
+    --color-bg-6: rgba(194, 65, 12, 0.15); /* Dark orange */
+    --color-bg-7: rgba(190, 24, 93, 0.15); /* Dark pink */
+    --color-bg-8: rgba(8, 145, 178, 0.15); /* Dark cyan */
+
+    /* Semantic Color Tokens (Dark Mode) */
+    --color-background: var(--color-charcoal-700);
+    --color-surface: var(--color-charcoal-800);
+    --color-text: var(--color-gray-200);
+    --color-text-secondary: rgba(var(--color-gray-300-rgb), 0.7);
+    --color-primary: var(--color-teal-300);
+    --color-primary-hover: var(--color-teal-400);
+    --color-primary-active: var(--color-teal-800);
+    --color-secondary: rgba(var(--color-gray-400-rgb), 0.15);
+    --color-secondary-hover: rgba(var(--color-gray-400-rgb), 0.25);
+    --color-secondary-active: rgba(var(--color-gray-400-rgb), 0.3);
+    --color-border: rgba(var(--color-gray-400-rgb), 0.3);
+    --color-error: var(--color-red-400);
+    --color-success: var(--color-teal-300);
+    --color-warning: var(--color-orange-400);
+    --color-info: var(--color-gray-300);
+    --color-focus-ring: rgba(var(--color-teal-300-rgb), 0.4);
+    --color-btn-primary-text: var(--color-slate-900);
+    --color-card-border: rgba(var(--color-gray-400-rgb), 0.2);
+    --color-card-border-inner: rgba(var(--color-gray-400-rgb), 0.15);
+    --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.1),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+    --button-border-secondary: rgba(var(--color-gray-400-rgb), 0.2);
+    --color-border-secondary: rgba(var(--color-gray-400-rgb), 0.2);
+    --color-select-caret: rgba(var(--color-gray-200-rgb), 0.8);
+
+    /* RGB versions for dark mode */
+    --color-success-rgb: var(--color-teal-300-rgb);
+    --color-error-rgb: var(--color-red-400-rgb);
+    --color-warning-rgb: var(--color-orange-400-rgb);
+    --color-info-rgb: var(--color-gray-300-rgb);
+  }
+}
+
+/* Base styles */
+html {
+  font-family: var(--font-family-base);
+  line-height: var(--line-height-normal);
+  color: var(--color-text);
+  background-color: var(--color-background);
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-size: var(--font-size-base);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/* Typography */
+h1{
+  margin: 0;
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-tight);
+  color: var(--color-white);
+  letter-spacing: var(--letter-spacing-tight);
+},
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-tight);
+  color: var(--color-text);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+h1 {
+  font-size: var(--font-size-4xl);
+}
+h2 {
+  font-size: var(--font-size-3xl);
+}
+h3 {
+  font-size: var(--font-size-2xl);
+}
+h4 {
+  font-size: var(--font-size-xl);
+}
+h5 {
+  font-size: var(--font-size-lg);
+}
+h6 {
+  font-size: var(--font-size-md);
+}
+
+p {
+  margin: 0 0 var(--space-16) 0;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-standard);
+}
+
+a:hover {
+  color: var(--color-primary-hover);
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-8) var(--space-16);
+  border-radius: var(--radius-base);
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  line-height: 1.5;
+  cursor: pointer;
+  transition: all var(--duration-normal) var(--ease-standard);
+  border: none;
+  text-decoration: none;
+  position: relative;
+}
+
+.btn:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+.btn--primary {
+  background: var(--color-primary);
+  color: var(--color-btn-primary-text);
+}
+
+.btn--primary:hover {
+  background: var(--color-primary-hover);
+}
+
+.btn--primary:active {
+  background: var(--color-primary-active);
+}
+
+.btn--secondary {
+  background: var(--color-secondary);
+  color: var(--color-text);
+}
+
+.btn--secondary:hover {
+  background: var(--color-secondary-hover);
+}
+
+.btn--secondary:active {
+  background: var(--color-secondary-active);
+}
+
+.btn--outline {
+  background: transparent;
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+}
+
+.btn--outline:hover {
+  background: var(--color-secondary);
+}
+
+.btn--sm {
+  padding: var(--space-4) var(--space-12);
+  font-size: var(--font-size-sm);
+  border-radius: var(--radius-sm);
+}
+
+.btn--lg {
+  padding: var(--space-10) var(--space-20);
+  font-size: var(--font-size-lg);
+  border-radius: var(--radius-md);
+}
+
+.btn--full-width {
+  width: 100%;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Form elements */
+.form-control {
+  display: block;
+  width: 100%;
+  padding: var(--space-8) var(--space-12);
+  font-size: var(--font-size-md);
+  line-height: 1.5;
+  color: var(--color-text);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-base);
+  transition: border-color var(--duration-fast) var(--ease-standard),
+    box-shadow var(--duration-fast) var(--ease-standard);
+}
+
+select.form-control {
+  padding: var(--space-8) var(--space-12);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: var(--select-caret-light);
+  background-repeat: no-repeat;
+  background-position: right var(--space-12) center;
+  background-size: 16px;
+  padding-right: var(--space-32);
+}
+
+@media (prefers-color-scheme: dark) {
+  select.form-control {
+    background-image: var(--select-caret-dark);
+  }
+}
+
+.form-control:focus {
+  border-color: var(--color-primary);
+  outline: var(--focus-outline);
+}
+
+.form-label {
+  display: block;
+  margin-bottom: var(--space-8);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-sm);
+}
+
+.form-group {
+  margin-bottom: var(--space-16);
+}
+
+/* Card component */
+.card {
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-card-border);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition: box-shadow var(--duration-normal) var(--ease-standard);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.card__body {
+  padding: var(--space-16);
+}
+
+/* Status indicators */
+.status {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-6) var(--space-12);
+  border-radius: var(--radius-full);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-sm);
+}
+
+.status--success {
+  background-color: rgba(
+    var(--color-success-rgb, 33, 128, 141),
+    var(--status-bg-opacity)
+  );
+  color: var(--color-success);
+  border: 1px solid
+    rgba(var(--color-success-rgb, 33, 128, 141), var(--status-border-opacity));
+}
+
+.status--error {
+  background-color: rgba(
+    var(--color-error-rgb, 192, 21, 47),
+    var(--status-bg-opacity)
+  );
+  color: var(--color-error);
+  border: 1px solid
+    rgba(var(--color-error-rgb, 192, 21, 47), var(--status-border-opacity));
+}
+
+.status--warning {
+  background-color: rgba(
+    var(--color-warning-rgb, 168, 75, 47),
+    var(--status-bg-opacity)
+  );
+  color: var(--color-warning);
+  border: 1px solid
+    rgba(var(--color-warning-rgb, 168, 75, 47), var(--status-border-opacity));
+}
+
+.status--info {
+  background-color: rgba(
+    var(--color-info-rgb, 98, 108, 113),
+    var(--status-bg-opacity)
+  );
+  color: var(--color-info);
+  border: 1px solid
+    rgba(var(--color-info-rgb, 98, 108, 113), var(--status-border-opacity));
+}
+
+/* Container layout */
+.container {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: var(--space-16);
+  padding-left: var(--space-16);
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: var(--container-sm);
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    max-width: var(--container-md);
+  }
+}
+@media (min-width: 1024px) {
+  .container {
+    max-width: var(--container-lg);
+  }
+}
+@media (min-width: 1280px) {
+  .container {
+    max-width: var(--container-xl);
+  }
+}
+
+/* Utility classes */
+.flex {
+  display: flex;
+}
+.flex-col {
+  flex-direction: column;
+}
+.items-center {
+  align-items: center;
+}
+.justify-center {
+  justify-content: center;
+}
+.justify-between {
+  justify-content: space-between;
+}
+.gap-4 {
+  gap: var(--space-4);
+}
+.gap-8 {
+  gap: var(--space-8);
+}
+.gap-16 {
+  gap: var(--space-16);
+}
+
+.m-0 {
+  margin: 0;
+}
+.mt-8 {
+  margin-top: var(--space-8);
+}
+.mb-8 {
+  margin-bottom: var(--space-8);
+}
+.mx-8 {
+  margin-left: var(--space-8);
+  margin-right: var(--space-8);
+}
+.my-8 {
+  margin-top: var(--space-8);
+  margin-bottom: var(--space-8);
+}
+
+.p-0 {
+  padding: 0;
+}
+.py-8 {
+  padding-top: var(--space-8);
+  padding-bottom: var(--space-8);
+}
+.px-8 {
+  padding-left: var(--space-8);
+  padding-right: var(--space-8);
+}
+.py-16 {
+  padding-top: var(--space-16);
+  padding-bottom: var(--space-16);
+}
+.px-16 {
+  padding-left: var(--space-16);
+  padding-right: var(--space-16);
+}
+
+.block {
+  display: block;
+}
+.hidden {
+  display: none;
+}
+
+/* Accessibility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: 2px;
+}
+
+@font-face { font-family:"Inter"; font-weight:400; font-display:swap; src:url("fonts/Inter_18pt-Regular.woff2") format("woff2"),url("fonts/Inter_18pt-Regular.ttf") format("truetype"); }
+@font-face { font-family:"Inter"; font-weight:500; font-display:swap; src:url("fonts/Inter_18pt-Medium.woff2") format("woff2"),url("fonts/Inter_18pt-Medium.ttf") format("truetype"); }
+@font-face { font-family:"Inter"; font-weight:600; font-display:swap; src:url("fonts/Inter_18pt-SemiBold.woff2") format("woff2"),url("fonts/Inter_18pt-SemiBold.ttf") format("truetype"); }
+@font-face { font-family:"Inter"; font-weight:700; font-display:swap; src:url("fonts/Inter_18pt-Bold.woff2") format("woff2"),url("fonts/Inter_18pt-Bold.ttf") format("truetype"); }
+
+/* Custom styles for mine repurposing tool */
+
+/* Button Groups */
+.button-group {
+    display: flex;
+    gap: var(--space-8);
+    flex-wrap: wrap;
+    margin-top: var(--space-8);
+}
+
+.factor-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-8) var(--space-16);
+    border-radius: var(--radius-base);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    cursor: pointer;
+    transition: all var(--duration-normal) var(--ease-standard);
+    border: 2px solid var(--color-border);
+    background: var(--color-surface);
+    color: var(--color-text);
+    min-width: 80px;
+    text-align: center;
+}
+
+.factor-button:hover {
+    background: var(--color-primary);
+    color: var(--color-btn-primary-text);
+    border-color: var(--color-primary);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+}
+
+.factor-button.selected {
+    background: var(--color-primary);
+    color: var(--color-btn-primary-text);
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px var(--color-focus-ring);
+}
+
+.factor-button:active {
+    transform: translateY(0);
+    transition-duration: var(--duration-fast);
+}
+
+/* AHP Scale Buttons */
+.ahp-scale {
+    display: flex;
+    gap: var(--space-4);
+    justify-content: center;
+    margin: var(--space-16) 0;
+    flex-wrap: wrap;
+}
+
+.scale-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-8) var(--space-12);
+    border-radius: var(--radius-base);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    cursor: pointer;
+    transition: all var(--duration-normal) var(--ease-standard);
+    border: 2px solid var(--color-border);
+    background: var(--color-surface);
+    color: var(--color-text);
+    min-width: 40px;
+    height: 40px;
+}
+
+.scale-button:hover {
+    background: var(--color-primary);
+    color: var(--color-btn-primary-text);
+    border-color: var(--color-primary);
+    transform: scale(1.05);
+}
+
+.scale-button.selected {
+    background: var(--color-primary);
+    color: var(--color-btn-primary-text);
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px var(--color-focus-ring);
+}
+
+.scale-button.center {
+    background: var(--color-secondary);
+    font-weight: var(--font-weight-bold);
+}
+
+.scale-button.center.selected {
+    background: var(--color-success);
+    color: var(--color-btn-primary-text);
+    border-color: var(--color-success);
+}
+
+/* Progress indicator */
+.progress-indicator {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--color-bg-1);
+    padding: var(--space-16);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--space-24);
+}
+
+.progress-text {
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text);
+}
+
+.progress-count {
+    background: var(--color-primary);
+    color: var(--color-btn-primary-text);
+    padding: var(--space-4) var(--space-12);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+}
+
+/* Factor type badges */
+.factor-badge {
+    display: inline-block;
+    padding: var(--space-2) var(--space-8);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-medium);
+    margin-left: var(--space-8);
+}
+
+.badge-critical {
+    background: var(--color-bg-4);
+    color: var(--color-error);
+}
+
+.badge-enabling {
+    background: var(--color-bg-3);
+    color: var(--color-success);
+}
+
+.badge-utility {
+    background: var(--color-bg-2);
+    color: var(--color-warning);
+}
+
+/* Section headers with icons */
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-12);
+    margin-bottom: var(--space-20);
+}
+
+.section-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: var(--color-primary);
+    color: var(--color-btn-primary-text);
+    border-radius: var(--radius-base);
+    font-size: var(--font-size-lg);
+}
+
+/* Reset button */
+.reset-btn {
+    background: var(--color-warning);
+    color: var(--color-btn-primary-text);
+    border: none;
+}
+
+.reset-btn:hover {
+    background: var(--color-orange-500);
+}
+
+.app-header {
+    background: #21808d;
+    color: #fff;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 28px;
+    position: sticky;
+    top: 0;
+    z-index: 300;
+    box-shadow: 0 1px 4px rgba(0,0,0,.15);
+}
+
+.app-header-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3px;
+}
+
+.app-title {
+    font-size: 1.45rem;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+}
+
+.app-subtitle {
+    font-size: 0.78rem;
+    opacity: 0.88;
+    font-weight: 400;
+}
+
+.app-header-right {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-shrink: 0;
+}
+
+.main-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px 24px 40px;
+}
+
+.step-indicator {
+    background: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+    padding: 0 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    height: 56px;
+    overflow-x: auto;
+    white-space: nowrap;
+    box-shadow: 0 1px 3px rgba(0,0,0,.06);
+}
+
+/* Section heading — matches suvikalp index.html */
+.section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin-bottom: 14px;
+}
+.section-num {
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.3rem;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(33,128,141,.3);
+}
+.section-heading .section-title {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--color-text);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    text-align: left;
+    margin-bottom: 0;
+}
+
+/* Top 3 cards grid — responsive */
+.rank-top-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-bottom: 28px;
+}
+
+/* Result card — matches suvikalp style.css .result-card */
+.result-card {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: transform 0.22s ease, box-shadow 0.22s ease;
+    position: relative;
+    background: var(--color-surface);
+    border: 1px solid var(--color-card-border);
+}
+.result-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+.result-card.clickable { cursor: pointer; }
+
+.card-image-wrap {
+    position: relative;
+    height: 190px;
+    overflow: hidden;
+}
+.card-image-wrap img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: brightness(1.12) saturate(1.1);
+    transition: transform 0.38s ease;
+}
+.result-card:hover .card-image-wrap img { transform: scale(1.04); }
+.card-image-wrap::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,.10) 0%, transparent 50%);
+}
+
+.best-badge {
+    position: absolute;
+    top: 10px; left: 10px;
+    background: var(--gold);
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: var(--radius-full);
+    z-index: 2;
+    box-shadow: 0 2px 6px rgba(0,0,0,.22);
+}
+
+.card-title {
+    position: absolute;
+    bottom: 12px; left: 12px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #fff;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    z-index: 2;
+    text-shadow: 0 1px 4px rgba(0,0,0,.5);
+    max-width: calc(100% - 56px);
+    line-height: 1.25;
+}
+
+.card-link-btn {
+    position: absolute;
+    bottom: 10px; right: 10px;
+    width: 32px; height: 32px;
+    border-radius: var(--radius-base);
+    background: rgba(255,255,255,.18);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255,255,255,.28);
+    display: flex; align-items: center; justify-content: center;
+    z-index: 2;
+    cursor: pointer;
+    transition: background 0.18s;
+    color: #fff;
+}
+.card-link-btn:hover { background: rgba(255,255,255,.3); }
+.card-link-btn svg { width: 13px; height: 13px; }
+
+.card-score {
+    padding: 10px 14px 12px;
+    background: var(--color-surface);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.card-score-label { display: none; }
+
+.score-bar-track {
+    flex: 1;
+    height: 5px;
+    background: var(--color-teal-bg);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+}
+.score-bar-fill {
+    height: 100%;
+    border-radius: var(--radius-full);
+    background: linear-gradient(90deg, var(--color-teal-700), var(--color-teal-300));
+    width: 0;
+    transition: width 1s cubic-bezier(.34,1.3,.64,1);
+}
+.score-val {
+    font-weight: 700;
+    font-size: 0.92rem;
+    color: var(--color-primary);
+    white-space: nowrap;
+    min-width: 50px;
+    text-align: right;
+}
+
+/* Remaining ranked list */
+.remaining-section { margin-bottom: 32px; }
+.remaining-title {
+    font-weight: 600;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+    margin-bottom: 12px;
+    padding-left: 2px;
+}
+.remaining-list { display: flex; flex-direction: column; gap: 8px; }
+.remaining-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--color-surface);
+    border-radius: var(--radius-base);
+    padding: 11px 14px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-card-border);
+    transition: box-shadow 0.18s, transform 0.18s;
+}
+.remaining-item:hover { box-shadow: var(--shadow-md); transform: translateX(3px); }
+.remaining-item--linked {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    border-left: 3px solid var(--color-teal);
+}
+.remaining-item--linked:hover { border-left-color: var(--color-teal); background: var(--color-teal-bg); }
+.remaining-link-icon { font-size: 11px; color: var(--color-teal); vertical-align: super; margin-left: 2px; }
+.remaining-rank {
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    background: var(--color-teal-bg);
+    border: 1.5px solid var(--color-teal-border);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700;
+    font-size: 0.78rem;
+    color: var(--color-primary);
+    flex-shrink: 0;
+}
+.remaining-thumb {
+    width: 50px; height: 38px;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    flex-shrink: 0;
+}
+.remaining-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.remaining-info { flex: 1; min-width: 0; }
+.remaining-name {
+    font-weight: 600;
+    font-size: 0.88rem;
+    color: var(--color-text);
+    margin-bottom: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.remaining-bar-wrap { display: flex; align-items: center; gap: 10px; }
+.remaining-bar-track {
+    flex: 1;
+    height: 4px;
+    background: var(--color-teal-bg);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+}
+.remaining-bar-fill {
+    height: 100%;
+    border-radius: var(--radius-full);
+    background: linear-gradient(90deg, var(--color-teal-700), var(--color-teal-300));
+    width: 0;
+    transition: width 1.2s cubic-bezier(.34,1.3,.64,1);
+}
+.remaining-score-val {
+    font-weight: 700;
+    font-size: 0.82rem;
+    color: var(--color-primary);
+    min-width: 40px;
+    text-align: right;
+}
+
+/* Info banner — matches suvikalp index.html */
+.info-banner {
+    background: linear-gradient(120deg, #1a6b77 0%, #21808d 45%, #2da6b2 100%);
+    border-radius: var(--radius-lg);
+    padding: 16px 22px;
+    margin-bottom: 28px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    box-shadow: 0 4px 14px rgba(33,128,141,.22);
+}
+.banner-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 2px; }
+.banner-title { font-weight: 600; font-size: 0.95rem; color: #fff; margin-bottom: 4px; }
+.banner-sub { font-size: 0.8rem; color: rgba(255,255,255,.82); line-height: 1.55; }
+
+.step {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 16px;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    cursor: default;
+    color: var(--color-text-secondary);
+    background: rgba(94, 82, 64, 0.06);
+    border: 1.5px solid transparent;
+    transition: all 0.18s;
+}
+
+.step .step-num {
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.22);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.7rem;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.step:not(.active) .step-num {
+    background: var(--color-teal-bg);
+    color: var(--color-primary);
+}
+
+.step.active {
+    background: var(--color-primary);
+    color: #fff;
+    border-color: var(--color-primary);
+    box-shadow: 0 2px 8px rgba(33,128,141,.3);
+}
+
+.step.active .step-num {
+    background: rgba(255,255,255,.22);
+    color: #fff;
+}
+
+.step.completed {
+    background: rgba(33,128,141,.1);
+    color: var(--color-primary);
+}
+
+.section {
+    margin-bottom: var(--space-32);
+}
+
+.section-title {
+    font-size: var(--font-size-3xl);
+    margin-bottom: var(--space-24);
+    text-align: center;
+}
+
+.factor-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-16);
+    margin-bottom: var(--space-32);
+}
+
+.factor-category {
+    background: var(--color-bg-1);
+    border-radius: var(--radius-lg);
+    padding: var(--space-16);
+}
+
+.category-title {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--space-16);
+    color: var(--color-primary);
+}
+
+.factor-item {
+    margin-bottom: var(--space-16);
+}
+
+.factor-label {
+    font-weight: var(--font-weight-medium);
+    margin-bottom: var(--space-8);
+    font-size: var(--font-size-sm);
+}
+
+.option-results {
+    margin-top: var(--space-32);
+}
+
+.result-tier {
+    margin-bottom: var(--space-24);
+}
+
+.tier-title {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--space-16);
+    padding: var(--space-8) var(--space-16);
+    border-radius: var(--radius-base);
+}
+
+.highly-feasible {
+    background: var(--color-bg-3);
+    color: var(--color-success);
+}
+
+.moderately-feasible {
+    background: var(--color-bg-2);
+    color: var(--color-warning);
+}
+
+.other-options {
+    background: var(--color-bg-4);
+    color: var(--color-error);
+}
+
+.option-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--space-16);
+}
+
+.option-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-card-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-16);
+    transition: all var(--duration-normal);
+}
+
+.option-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.option-name {
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--space-8);
+}
+
+.match-score {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+}
+
+.ahp-matrix {
+    margin: var(--space-24) 0;
+}
+
+.comparison-item {
+    background: var(--color-surface);
+    border: 1px solid var(--color-card-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-16);
+    margin-bottom: var(--space-16);
+}
+
+.comparison-text {
+    font-weight: var(--font-weight-medium);
+    margin-bottom: var(--space-8);
+}
+
+.scale-input {
+    width: 100%;
+    margin: var(--space-8) 0;
+}
+
+.scale-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: var(--font-size-xs);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-8);
+}
+
+.weights-display {
+    background: var(--color-bg-1);
+    border-radius: var(--radius-lg);
+    padding: var(--space-16);
+    margin: var(--space-24) 0;
+}
+
+.weight-item {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--space-4) 0;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.weight-item:last-child {
+    border-bottom: none;
+}
+
+.ranking-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: var(--space-24) 0;
+    background: var(--color-surface);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+.ranking-table th,
+.ranking-table td {
+    padding: var(--space-12) var(--space-16);
+    text-align: left;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.ranking-table th {
+    background: var(--color-bg-1);
+    font-weight: var(--font-weight-semibold);
+}
+
+.ranking-table tr:last-child td {
+    border-bottom: none;
+}
+
+.no-results {
+    text-align: center;
+    padding: var(--space-32);
+    background: var(--color-bg-4);
+    border-radius: var(--radius-lg);
+    margin: var(--space-24) 0;
+}
+
+.relax-factors {
+    margin-top: var(--space-24);
+    padding: var(--space-16);
+    background: var(--color-bg-2);
+    border-radius: var(--radius-lg);
+}
+
+.factor-checkbox {
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--space-8);
+    gap: var(--space-8);
+}
+
+.navigation-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: var(--space-32);
+    padding-top: var(--space-24);
+    border-top: 1px solid var(--color-border);
+}
+
+.summary-panel {
+    background: var(--color-bg-1);
+    border-radius: var(--radius-lg);
+    padding: var(--space-16);
+    margin-bottom: var(--space-24);
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--space-4) 0;
+}
+
+.consistency-warning {
+    background: var(--color-bg-4);
+    color: var(--color-error);
+    padding: var(--space-12) var(--space-16);
+    border-radius: var(--radius-base);
+    margin: var(--space-16) 0;
+    font-weight: var(--font-weight-medium);
+}
+
+
+        /* Step 3 Sticky Layout */
+        .step3-container {
+            display: flex;
+            flex-direction: column;
+            height: 70vh;
+            max-height: 700px;
+        }
+
+        .consistency-header {
+            position: sticky;
+            top: 0;
+            background: var(--color-background);
+            z-index: 10;
+            padding-bottom: var(--space-16);
+            border-bottom: 2px solid var(--color-border);
+            margin-bottom: var(--space-16);
+        }
+
+        .comparisons-scrollable {
+            flex: 1;
+            overflow-y: auto;
+            overflow-x: hidden;
+            padding-right: var(--space-8);
+        }
+
+        /* Custom scrollbar styling */
+        .comparisons-scrollable::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .comparisons-scrollable::-webkit-scrollbar-track {
+            background: var(--color-secondary);
+            border-radius: var(--radius-base);
+        }
+
+        .comparisons-scrollable::-webkit-scrollbar-thumb {
+            background: var(--color-primary);
+            border-radius: var(--radius-base);
+        }
+
+        .comparisons-scrollable::-webkit-scrollbar-thumb:hover {
+            background: var(--color-primary-hover);
+        }
+
+        .hide {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .factor-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .option-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .navigation-buttons {
+        flex-direction: column;
+        gap: var(--space-8);
+    }
+    
+    .step-indicator {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        gap: 4px;
+    }
+    .step { padding: 5px 11px; font-size: 0.7rem; }
+    .app-subtitle { display: none; }
+    .app-header { height: auto; min-height: 56px; padding: 8px 16px; }
+    .rank-top-cards { grid-template-columns: 1fr !important; }
+    .section-heading .section-title { font-size: 1.2rem; }
+    .section-num { width: 38px; height: 38px; font-size: 1.1rem; }
+    .main-container { padding: 16px 14px 40px; }
+}
+    
+        /* Slider Styles for AHP Comparisons */
+        .slider-container {
+            width: 100%;
+            padding: var(--space-16);
+            background: var(--color-surface-secondary, #f9f9f9);
+            border-radius: var(--radius-base);
+            margin: var(--space-16) 0;
+        }
+
+        .comparison-slider {
+            width: 100%;
+            height: 8px;
+            border-radius: 5px;
+            background: linear-gradient(to right, 
+                var(--color-teal-300) 0%, 
+                var(--color-teal-300) 11.11%,
+                var(--color-teal-400) 22.22%,
+                var(--color-teal-500) 33.33%,
+                var(--color-teal-600) 44.44%,
+                var(--color-gray-300) 50%,
+                var(--color-teal-600) 55.56%,
+                var(--color-teal-500) 66.67%,
+                var(--color-teal-400) 77.78%,
+                var(--color-teal-300) 88.89%,
+                var(--color-teal-300) 100%
+            );
+            outline: none;
+            -webkit-appearance: none;
+            appearance: none;
+            cursor: pointer;
+        }
+
+        .comparison-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--color-teal-700);
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            border: 2px solid var(--color-white);
+            transition: all var(--duration-normal) var(--ease-standard);
+        }
+
+        .comparison-slider::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .comparison-slider::-moz-range-thumb {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--color-teal-700);
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            border: 2px solid var(--color-white);
+            transition: all var(--duration-normal) var(--ease-standard);
+        }
+
+        .comparison-slider::-moz-range-thumb:hover {
+            transform: scale(1.2);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .comparison-scale-labels {
+            text-align: center;
+        }
+
+        .slider-scale-numbers {
+            font-variant-numeric: tabular-nums;
+        }
+    
+        /* Scrollable Community Priorities Section */
+        .consistency-ratio-fixed {
+            background: var(--color-bg-1);
+            border-radius: var(--radius-lg);
+            padding: var(--space-16);
+            margin: var(--space-24) 0;
+            position: sticky;
+            top: 80px; /* Adjust based on your header height */
+            z-index: 10;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .community-priorities-scrollable {
+            background: var(--color-bg-1);
+            border-radius: var(--radius-lg);
+            padding: var(--space-16);
+            margin: var(--space-24) 0;
+            max-height: 400px; /* Adjust this value as needed */
+            overflow-y: auto;
+            overflow-x: hidden;
+            border: 1px solid var(--color-border, #e0e0e0);
+        }
+
+        .community-priorities-scrollable::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .community-priorities-scrollable::-webkit-scrollbar-track {
+            background: var(--color-bg-0, #f5f5f5);
+            border-radius: 4px;
+        }
+
+        .community-priorities-scrollable::-webkit-scrollbar-thumb {
+            background: var(--color-primary, #2196F3);
+            border-radius: 4px;
+        }
+
+        .community-priorities-scrollable::-webkit-scrollbar-thumb:hover {
+            background: var(--color-primary-dark, #1976D2);
+        }
+
+        /* Harmonious User-Friendly Enhancements */
+        .help-icon {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            background: var(--color-teal-500);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 18px;
+            font-size: 12px;
+            font-weight: bold;
+            cursor: help;
+            margin-left: 8px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .help-icon:hover {
+            background: var(--color-teal-600);
+            transform: scale(1.1);
+        }
+
+        .tooltip {
+            visibility: hidden;
+            width: 300px;
+            background: linear-gradient(135deg, var(--color-slate-900) 0%, var(--color-teal-700) 100%);
+            color: #fff;
+            text-align: left;
+            border-radius: var(--radius-lg);
+            padding: 12px 16px;
+            position: absolute;
+            z-index: 1000;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -150px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 13px;
+            line-height: 1.6;
+            box-shadow: 0 8px 24px rgba(33, 128, 141, 0.3);
+        }
+
+        .tooltip::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 6px;
+            border-style: solid;
+            border-color: var(--color-teal-700) transparent transparent transparent;
+        }
+
+        .help-icon:hover .tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* Soft teal-to-sage gradient for instructions - harmonious with theme */
+        .step-instruction {
+            background: linear-gradient(135deg, #2d7e8d 0%, #3a9ca8 50%, #4fb3bf 100%);
+            color: white;
+            padding: 18px 24px;
+            border-radius: var(--radius-lg);
+            margin: 24px 0;
+            font-size: 15px;
+            line-height: 1.7;
+            box-shadow: 0 4px 16px rgba(33, 128, 141, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .step-instruction strong {
+            font-size: 16px;
+            display: block;
+            margin-bottom: 8px;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        /* Warm cream-to-peach for tips - complements teal */
+        .quick-tip {
+            background: linear-gradient(135deg, #fef9e7 0%, #fff5e1 100%);
+            border-left: 4px solid #e6a35c;
+            padding: 14px 18px;
+            margin: 16px 0;
+            border-radius: var(--radius-md);
+            font-size: 14px;
+            box-shadow: 0 2px 8px rgba(230, 163, 92, 0.1);
+        }
+
+        .quick-tip strong {
+            color: #a86832;
+            font-weight: 600;
+        }
+
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 34px;
+            height: 34px;
+            background: linear-gradient(135deg, var(--color-teal-500) 0%, var(--color-teal-600) 100%);
+            color: white;
+            border-radius: 50%;
+            font-weight: bold;
+            margin-right: 12px;
+            font-size: 16px;
+            box-shadow: 0 2px 8px rgba(33, 128, 141, 0.25);
+        }
+
+        /* Soft teal info box - matches primary theme */
+        .info-box {
+            background: linear-gradient(135deg, #e8f4f5 0%, #f0f9fa 100%);
+            border-left: 4px solid var(--color-teal-500);
+            padding: 14px 18px;
+            margin: 16px 0;
+            border-radius: var(--radius-md);
+            font-size: 14px;
+            line-height: 1.7;
+            box-shadow: 0 2px 8px rgba(33, 128, 141, 0.08);
+        }
+
+        .info-box strong {
+            color: var(--color-teal-700);
+            font-weight: 600;
+        }
+
+        /* Soft coral warning box - complementary to teal */
+        .warning-box {
+            background: linear-gradient(135deg, #fff3f0 0%, #ffebe8 100%);
+            border-left: 4px solid #e67e6e;
+            padding: 14px 18px;
+            margin: 16px 0;
+            border-radius: var(--radius-md);
+            font-size: 14px;
+            line-height: 1.7;
+            box-shadow: 0 2px 8px rgba(230, 126, 110, 0.1);
+        }
+
+        .warning-box strong {
+            color: #c5563f;
+            font-weight: 600;
+        }
+
+        /* Soft sage success box - analogous to teal */
+        .success-box {
+            background: linear-gradient(135deg, #f0f8f4 0%, #e8f5ed 100%);
+            border-left: 4px solid #6bb88a;
+            padding: 14px 18px;
+            margin: 16px 0;
+            border-radius: var(--radius-md);
+            font-size: 14px;
+            line-height: 1.7;
+            box-shadow: 0 2px 8px rgba(107, 184, 138, 0.1);
+        }
+
+        .success-box strong {
+            color: #4a9668;
+            font-weight: 600;
+        }
+</style>
+</head>
+<body>
+  <div class="app-header">
+    <div class="app-header-left">
+      <h1 class="app-title">सुविकल्प: Mine Repurposing Tool</h1>
+      <div class="app-subtitle">Select factors and sub-factors to discover suitable repurposing options for your mining site</div>
+    </div>
+    <div class="app-header-right">
+      <a href="browse.html" target="_blank" rel="noopener"
+         style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border:1px solid rgba(255,255,255,.45);border-radius:20px;color:#fff;text-decoration:none;font-size:.78rem;font-weight:500;white-space:nowrap;transition:background .15s;"
+         onmouseover="this.style.background='rgba(255,255,255,.15)'" onmouseout="this.style.background='transparent'">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        Explore Repurposing Projects
+      </a>
+      <div style="width:1px;height:36px;background:rgba(255,255,255,.25);margin:0 4px;"></div>
+      <a href="testimonials.html"
+         style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border:1px solid rgba(255,255,255,.45);border-radius:20px;color:#fff;text-decoration:none;font-size:.78rem;font-weight:500;white-space:nowrap;transition:background .15s;"
+         onmouseover="this.style.background='rgba(255,255,255,.15)'" onmouseout="this.style.background='transparent'">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        Testimonials
+      </a>
+      <div style="width:1px;height:36px;background:rgba(255,255,255,.25);margin:0 4px;"></div>
+      <a href="https://coalcontroller.gov.in/" title="CCO Home">
+        <img src="./CCO.png" style="height: 56px;">
+      </a>
+    </div>
+  </div>
+
+    <!-- Progress Indicator — full width outside main container -->
+    <nav class="step-indicator" aria-label="Progress steps">
+        <div class="step active" data-step="1"><span class="step-num">1</span> Factor Selection</div>
+        <div class="step" data-step="2"><span class="step-num">2</span> Option Generation</div>
+        <div class="step" data-step="3"><span class="step-num">3</span> Community Priorities</div>
+        <div class="step" data-step="4"><span class="step-num">4</span> Suitability Analysis</div>
+        <div class="step" data-step="5"><span class="step-num">5</span> Final Ranking</div>
+    </nav>
+
+    <div class="main-container">
+
+       
+
+        <!-- Summary Panel -->
+         <div class="summary-panel hide">
+        <div class="summary-panel">
+            <h3>Analysis Summary</h3>
+            <div class="summary-item">
+                <span>Factors with Selections:</span>
+                <span id="selected-factors-count">0/16</span>
+            </div>
+            <div class="summary-item">
+                <span>Generated Options:</span>
+                <span id="generated-options-count">-</span>
+            </div>
+            <div class="summary-item">
+                <span>AHP Consistency:</span>
+                <span id="ahp-consistency">-</span>
+            </div>
+        </div> 
+         </div>
+
+        <!-- Step 1: Factor Selection -->
+        <div id="step1" class="section">
+            <h2 class="section-title"><span class="step-number">1</span>Tell Me About Your Mine Site</h2>
+            <div class="step-instruction">
+                <strong>📍 How to Use:</strong>
+                Click on the buttons below to describe your mine site. You can select multiple options for each category. The tool will automatically find suitable repurposing projects based on your selections.
+            </div>
+            <div class="quick-tip">
+                <strong>💡 Quick Tip:</strong> Select at least 3-4 categories to get meaningful results. You can always adjust your selections later.
+            </div>
+            
+            <div class="progress-indicator">
+                <span class="progress-text">Selection Progress:</span>
+                <span class="progress-count" id="progress-count">0 of 16 factors with selections</span>
+                <button class="btn btn--sm reset-btn" onclick="resetAllSelections()">Reset All</button>
+            </div>
+
+            <div class="factor-grid">
+                <div class="factor-category">
+                    <div class="section-header">
+                        <div class="section-icon">⛏️</div>
+                        <h3 class="category-title">Geo-Mining Factors of your site</h3>
+                    </div>
+                    <div class="factor-item">
+                        <label class="factor-label">
+                            Mine Type
+                            <span class="factor-badge badge-critical">CRITICAL</span>
+                        </label>
+                        <button class="btn btn--sm btn--outline" style="margin-bottom: var(--space-8);" onclick="clearFactor(&#39;mine_type&#39;)">Clear Selections</button>
+                        <div class="button-group" data-factor="mine_type">
+                            <button class="factor-button" data-value="OC" title="Open cast mining operation">Open Cast (OC)</button>
+                            <button class="factor-button" data-value="UG" title="Underground mining operation">Underground (UG)</button>
+                        </div>
+                    </div>
+                    <div class="factor-item">
+                        <label class="factor-label">
+                            Stable Land Area (OC and UG)
+                            <span class="factor-badge badge-critical">CRITICAL</span>
+                        </label>
+                        <button class="btn btn--sm btn--outline" style="margin-bottom: var(--space-8);" onclick="clearFactor(&#39;land_area&#39;)">Clear Selections</button>
+                        <div class="button-group" data-factor="land_area">
+                            <button class="factor-button" data-value="1-5ha" title="Small available space">1-5 ha</button>
+                            <button class="factor-button" data-value="5-20ha" title="Medium available space">5-20 ha</button>
+                            <button class="factor-button" data-value="20plus" title="Large available space">&gt;20 ha</button>
+                        </div>
+                    </div>
+                    <div class="factor-item">
+                        <label class="factor-label">
+                            Topography Profile (OC Type)
+                            <span class="factor-badge badge-enabling">ENABLING</span>
+                        </label>
+                        <button class="btn btn--sm btn--outline" style="margin-bottom: var(--space-8);" onclick="clearFactor(&#39;topography&#39;)">Clear Selections</button>
+                        <div class="button-group" data-factor="topography">
+                            <button class="factor-button" data-value="less5" title="Level to gentle slope">Less than 5°</button>
+                            <button class="factor-button" data-value="more5" title="Steep slope terrain">More than 5°</button>
+                        </div>
+                    </div>
+                    <div class="factor-item">
+                        <label class="factor-label">
+                            Geotechnical Stability (FoS)
+                            <span class="factor-badge badge-critical">CRITICAL</span>
+                        </label>
+                        <button class="btn btn--sm btn--outline" style="margin-bottom: var(--space-8);" onclick="clearFactor(&#39;geotechnical&#39;)">Clear Selections</button>
+                        <div class="button-group" data-factor="geotechnical">
+                            <button class="factor-button" data-value="less1_5" title="Lower stability factor">Less than 1.5</button>
+                            <button class="factor-button" data-value="more1_5" title="Higher stability factor">More than 1.5</button>
+                        </div>
+                    </div>
+                    <div class="factor-item">
+                        <label class="factor-label">
+                            Presence of Top Soil
+                            <span class="factor-badge badge-critical">CRITICAL</span>
+                        </label>
+                        <button class="btn btn--sm btn--outline" style="margin-bottom: var(--space-8);" onclick="clearFactor(&#39;top_soil&#39;)">Clear Selections</button>
+                        <div class="button-group" data-factor="top_soil">
+                            <button class="factor-button" data-value="yes" title="Fertile soil available">Yes</button>
+                            <button class="factor-button" data-value="no" title="No fertile soil">No</button>
+                        </div>
+                    </div>
+                    <div class="factor-item">
+                        <label class="factor-label">
+                            Presence of Pit Lake
+                            <span class="factor-badge badge-critical">CRITICAL</span>
+                        </label>
+                        <button class="btn btn--sm btn--outline" style="margin-bottom: var(--space-8);" onclick="clearFactor(&#39;pit_lake&#39;)">Clear Selections</button>
+                        <div class="button-group" data-factor="pit_lake">
+                            <button class="factor-button" data-value="yes" title="Water body present in pit">Yes</button>
+                            <button class="factor-button" data-value="no" title="No water body in pit">No</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="factor-category">
+                    <div class="section-header">
+                        <div class="section-icon">🏗️</div>
+                        <h3 class="category-title">Resources &amp; Budget</h3>
+                    </div>
+                    <div class="factor-item">
+                        <label class="factor-label">
+                            Hospital Infrastructure
+                            <span class="factor-badge badge-enabling">ENABLING</span>
+                        </label>
+                        <button class="btn btn--sm btn--outline" style="margin-bottom: var(--space-8);" onclick="clearFactor(&#39;hospital&#39;)">Clear Selections</button>
+                        <div class="button-group" data-factor="hospital">
+                            <button class="factor-button" data-value="available" title="Medical facilities nearby">Nearby available</button>
+                            <button class="factor-button" data-value="not_required" title="No medical requirement">Not required</button>
+                        </div>
+                    </div>
+                    <div class="factor-item">
+                        <label class="factor-label">
+                            Transport
+                            <span class="factor-badge badge-enabling">MULTI-SELECT</span>
+                        </label>
+                        <button class="btn btn--sm btn--outline" style="margin-bottom: var(--space-8);" onclick="clearFactor(&#39;transport&#39;)">Clear Selections</button>
+                        <div class="button-group" data-factor="transport" data-multi="true">
+                            <button class="factor-button" data-value="road" title="Road access available">Road</button>
+                            <button class="factor-button" data-value="railways" title="Railway access available">Railways</button>
+                            <button class="factor-button" data-value="airports" title="Airport access available">Airports</button>
+                            <button class="factor-button" data-value="sea_ports" title="Sea port access available">Sea Ports</button>
+                        </div>
+                    </div>
+                    <div class="factor-item">
+                        <label class="factor-label">
+                            Urban Proximity
+                            <span class="factor-badge badge-enabling">ENABLING</span>
+                        </label>
+                        <button class="btn btn--sm btn--outline" style="margin-bottom: var(--space-8);" onclick="clearFactor(&#39;urban_proximity&#39;)">Clear Selections</button>
+                        <div class="button-group" data-factor="urban_proximity">
+                            <button class="factor-button" data-value="available" title="Close to urban centers">Available</button>
+                            <button class="factor-button" data-value="not_required" title="Remote location acceptable">Not required</button>
+                        </div>
+                    </div>
+                    <div class="factor-item">
+                        <label class="factor-label">
+                            Proximity to Tourist Places
+                            <span class="factor-badge badge-enabling">ENABLING</span>
+                        </label>
+                        <button class="btn btn--sm btn--outline" style="margin-bottom: var(--space-8);" onclick="clearFactor(&#39;tourist_proximity&#39;)">Clear Selections</button>
+                        <div class="button-group" data-factor="tourist_proximity">
+                            <button class="factor-button" data-value="available" title="Near tourist attractions">Available</button>
+                            <button class="factor-button" data-value="not_required" title="Tourism proximity not needed">Not required</button>
+                        </div>
+                    </div>
+                    <div class="factor-item">
+                        <label class="factor-label">
+                            Grid Proximity (km)
+                            <span class="factor-badge badge-utility">UTILITY</span>
+                        </label>
+                        <button class="btn btn--sm btn--outline" style="margin-bottom: var(--space-8);" onclick="clearFactor(&#39;grid_proximity&#39;)">Clear Selections</button>
+                        <div class="button-group" data-factor="grid_proximity">
+                            <button class="factor-button" data-value="less_than_15" title="Close to electrical grid">Less than 15 km</button>
+                            <button class="factor-button" data-value="more_than_15" title="Far from electrical grid">More than 15 km</button>
+                        </div>
+                    </div>
+                    <div class="factor-item">
+                        <label class="factor-label">
+                            Capex
+                            <span class="factor-badge badge-critical">CRITICAL</span>
+                        </label>
+                        <button class="btn btn--sm btn--outline" style="margin-bottom: var(--space-8);" onclick="clearFactor(&#39;capex&#39;)">Clear Selections</button>
+                        <div class="button-group" data-factor="capex" data-multi="true">
+                            <button class="factor-button" data-value="Low CAPEX (Up to ₹100 L/Ha)" title="(Up to ₹100 L/Ha)">Low CAPEX</button>
+                            <button class="factor-button" data-value="Medium CAPEX (₹101-600 L/Ha)" title="(₹101-600 L/Ha)">Medium CAPEX</button>
+                            <button class="factor-button" data-value="High CAPEX (₹601-1,500 L/Ha)" title="(₹601-1,500 L/Ha)">High CAPEX</button>
+                            <button class="factor-button" data-value="Ultra-High CAPEX (>₹1,500 L/Ha)" title="(>₹1,500 L/Ha)">Ultra-High CAPEX</button>
+                        </div>
+                    </div>
+
+
+
+
+
+
+                    
+                </div>
+
+                <div class="factor-category">
+                    <div class="section-header">
+                        <div class="section-icon">🌱</div>
+                        <h3 class="category-title">Environmental Conditions Around Your Site</h3>
+                    </div>
+                    <div class="factor-item">
+                        <label class="factor-label">
+                            Temperature (°C)
+                            <span class="factor-badge badge-critical">CRITICAL</span>
+                        </label>
+                        <button class="btn btn--sm btn--outline" style="margin-bottom: var(--space-8);" onclick="clearFactor(&#39;temperature&#39;)">Clear Selections</button>
+                        <div class="button-group" data-factor="temperature">
+                            <button class="factor-button" data-value="temperate_cool" title="Cool climate">Temperate Cool (10-20°C)</button>
+                            <button class="factor-button" data-value="composite_transitional" title="Moderate climate">Composite Transitional (20-30°C)</button>
+                            <button class="factor-button" data-value="hot_arid_humid" title="Hot climate">Hot Arid/Humid (&gt;30°C)</button>
+                        </div>
+                    </div>
+                    <div class="factor-item">
+                        <label class="factor-label">
+                            Air Quality (AQI)
+                            <span class="factor-badge badge-critical">CRITICAL</span>
+                        </label>
+                        <button class="btn btn--sm btn--outline" style="margin-bottom: var(--space-8);" onclick="clearFactor(&#39;air_quality&#39;)">Clear Selections</button>
+                        <div class="button-group" data-factor="air_quality">
+                            <button class="factor-button" data-value="less_than_100" title="Good air quality">Less than 100</button>
+                            <button class="factor-button" data-value="more_than_100" title="Poor air quality">More Than 100</button>
+                        </div>
+                    </div>
+                    <div class="factor-item">
+                        <label class="factor-label">
+                            Average Wind Speed (m/s)
+                            <span class="factor-badge badge-enabling">ENABLING</span>
+                        </label>
+                        <button class="btn btn--sm btn--outline" style="margin-bottom: var(--space-8);" onclick="clearFactor(&#39;wind_speed&#39;)">Clear Selections</button>
+                        <div class="button-group" data-factor="wind_speed">
+                            <button class="factor-button" data-value="less_than_5" title="Low wind conditions">Less than 5 m/s</button>
+                            <button class="factor-button" data-value="more_than_5" title="High wind conditions">More than 5 m/s</button>
+                        </div>
+                    </div>
+                    <div class="factor-item">
+                        <label class="factor-label">
+                            Flood Risk (100-yr)
+                            <span class="factor-badge badge-critical">CRITICAL</span>
+                        </label>
+                        <button class="btn btn--sm btn--outline" style="margin-bottom: var(--space-8);" onclick="clearFactor(&#39;flood_risk&#39;)">Clear Selections</button>
+                        <div class="button-group" data-factor="flood_risk">
+                            <button class="factor-button" data-value="low" title="Low flood risk">Low</button>
+                            <button class="factor-button" data-value="medium" title="Medium flood risk">Medium</button>
+                            <button class="factor-button" data-value="high" title="High flood risk">High</button>
+                        </div>
+                    </div>
+                    <div class="factor-item">
+                        <label class="factor-label">
+                            Solar Insolation (kWh/m²/day)
+                            <span class="factor-badge badge-enabling">ENABLING</span>
+                        </label>
+                        <button class="btn btn--sm btn--outline" style="margin-bottom: var(--space-8);" onclick="clearFactor(&#39;solar_insolation&#39;)">Clear Selections</button>
+                        <div class="button-group" data-factor="solar_insolation">
+                            <button class="factor-button" data-value="less_than_4" title="Low solar potential">Less than 4</button>
+                            <button class="factor-button" data-value="more_than_4" title="High solar potential">More than 4</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 2: Option Generation Results -->
+        <div id="step2" class="section hide">
+            <h2 class="section-title"><span class="step-number">2</span>Technically feasible Repurposing Options for Your Site</h2>
+             
+            <p class="section-title"></span>(Proceed to Next Page for integrating Community Preferences)</p>
+            <div id="no-results" class="no-results hide">
+                <h3>No suitable options found based on current factors</h3>
+                <p>Try relaxing one or more critical factors to find potential options:</p>
+                
+                <div class="relax-factors">
+                    <h4>Relax Critical Factors:</h4>
+                    <div id="relax-checkboxes"></div>
+                    <button class="btn btn--primary" onclick="rerunAnalysis()">Re-run Analysis</button>
+                </div>
+            </div>
+
+            <div id="option-results" class="option-results">
+                <div id="highly-feasible" class="result-tier">
+                    <h3 class="tier-title highly-feasible">⭐ Excellent Matches (100% Match)</h3>
+                    <div class="option-list" id="highly-feasible-list"></div>
+                </div>
+                
+                <div id="moderately-feasible" class="result-tier">
+                    <h3 class="tier-title moderately-feasible">✓ Good Matches (70-99% Match)</h3>
+                    <div class="option-list" id="moderately-feasible-list"></div>
+                </div>
+                
+                <div id="other-options" class="result-tier">
+                    <h3 class="tier-title other-options">○ Possible Alternatives (40-69% Match)</h3>
+                    <div class="option-list" id="other-options-list"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 3: AHP Community Prioritization -->
+        <div id="step3" class="section hide">
+            <h2 class="section-title"><span class="step-number">3</span>Set Your Community Priorities (RECLAIM framework)</h2>
+            <div class="step-instruction">
+                <strong>🎯 How to Use:</strong>
+                Move the sliders to compare which factors are more important for your community. For example, if jobs are much more important than tourism, move the slider toward "Jobs".
+            </div>
+            <div class="info-box">
+                <strong>Understanding the Scale:</strong><br>
+                • <strong>1 (Equal):</strong> Both factors are equally important<br>
+                • <strong>3 (Moderate):</strong> One factor is slightly more important<br>
+                • <strong>5 (Strong):</strong> One factor is clearly more important<br>
+                • <strong>7 (Very Strong):</strong> One factor is much more important<br>
+                • <strong>9 (Extreme):</strong> One factor is extremely more important
+            </div>
+            
+        
+                   
+                
+               <div class="tier-title highly-feasible">
+                <div style="text-align: center;">
+                   <h2><strong>Consistency Ratio : <span id="consistency-ratio">-</span></strong></h2>
+
+                   <p>(for valid relationship among the Community Preferences)</p>
+                </div>
+               </div>
+
+
+ <div id="consistency-warning" class="consistency-warning hide">
+                Warning: Inconsistent comparisons detected (Consistency Ratio &gt; 0.1). Please review your judgments for logical consistency.
+            </div>
+
+             <div class="community-priorities-scrollable">    
+
+  <h4 class="section-title">Community Priorities</h4>
+
+                 <div class="ahp-matrix">
+                <div id="pairwise-comparisons"></div>
+                </div>
+            </div>
+                                  <div class="weights-display">
+                <h4>Calculated Priority Weights</h4>
+                        
+
+
+
+                <div id="priority-weights"></div>
+            
+            </div> 
+               
+            
+        </div>
+
+        <!-- Step 4: Suitability Analysis -->
+        <div id="step4" class="section hide">
+            <h2 class="section-title"><span class="step-number">4</span>Recommended Options Based on Your Priorities</h2>
+            <div class="step-instruction">
+                <strong>📊 What This Shows:</strong>
+                The repurposing options from Step 2 are now re-ranked based on both your site characteristics AND your community priorities from Step 3.
+            </div>
+            <div class="success-box">
+                <strong>✅ Good to Know:</strong> Options with higher alignment percentages are better matches for both your site conditions and community needs.
+            </div>
+            
+            <div id="suitability-results">
+                <div id="most-suitable" class="result-tier">
+                    <h3 class="tier-title highly-feasible">⭐ Best Fit for Your Community (&gt;80% Alignment)</h3>
+                    <div class="option-list" id="most-suitable-list"></div>
+                </div>
+                
+                <div id="medium-suitable" class="result-tier">
+                    <h3 class="tier-title moderately-feasible">✓ Good Fit (50-80% Alignment)</h3>
+                    <div class="option-list" id="medium-suitable-list"></div>
+                </div>
+                
+                <div id="low-suitable" class="result-tier">
+                    <h3 class="tier-title other-options">○ Worth Considering (&lt;50% Alignment)</h3>
+                    <div class="option-list" id="low-suitable-list"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 5: TOPSIS Final Ranking -->
+        <div id="step5" class="section hide">
+            <div class="section-heading">
+                <div class="section-num">5</div>
+                <h1 class="section-title">Final Recommendations</h1>
+            </div>
+
+            <div class="info-banner" role="region" aria-label="Recommendations summary">
+                <div class="banner-icon">🏆</div>
+                <div>
+                    <div class="banner-title">Your Top Recommendations:</div>
+                    <div class="banner-sub">These are your best repurposing options ranked using advanced analysis. The TOPSIS Score combines everything — site suitability, technical feasibility, and community priorities.</div>
+                </div>
+            </div>
+
+            <!-- Top 3 cards -->
+            <div id="rank-top-cards" class="rank-top-cards"></div>
+
+            <!-- Remaining ranked options -->
+            <div id="rank-remaining-section" class="remaining-section" style="display:none;">
+                <div class="remaining-title">Other Ranked Options</div>
+                <div class="remaining-list" id="rank-remaining-list"></div>
+            </div>
+
+        </div>
+
+        <!-- Navigation Buttons -->
+        <div class="navigation-buttons">
+            <button class="btn btn--outline" id="back-btn" onclick="previousStep()" disabled="">← Back</button>
+            <button class="btn btn--primary" id="next-btn" onclick="nextStep()" disabled="">Select at least one factor to continue</button>
+        </div>
+    </div>
+
+    <script>
+        // Application State
+        let currentStep = 1;
+        let selectedFactors = {};
+        let generatedOptions = [];
+        let ahpWeights = {};
+        let ahpMatrix = {};
+        let suitabilityScores = {};
+        let finalRanking = [];
+        let relaxedFactors = new Set();
+
+        // Data definitions
+        // Factor whitelist data from specifications
+        const factorWhitelists = {
+            mine_type: {
+                name: 'Mine Type',
+                description: 'Type of mining operation affecting repurposing feasibility',
+                subfactors: {
+                    OC: {
+                        name: 'Open Cast (OC)',
+                        options: ['Adventure Tourism', 'Agroforestry', 'Amphitheaters', 'Apiculture (Beekeeping)', 'Aquaculture', 'Art & Culture Centre', 'Botanical Gardens', 'BESS', 'Concrete Plants', 'Convention Centre', 'Data Centers', 'Dairy', 'Eco Park', 'Floating Solar', 'Greenhouses', 'Heritage Museum', 'Industrial Hub', 'Livelihood Centre', 'Livestock', 'Logistic Park', 'Mining Driving School', 'Physics Lab (Education/Research)', 'Pollinator Corridors', 'Pumped Hydro Storage (PHS)', 'Rewilding', 'Solar PV Farms', 'Sports Complex', 'Waste Recycling Centre', 'Wetlands Restoration', 'Wind Farms', 'Mushroom Farm']
+                    },
+                    UG: {
+                        name: 'Underground (UG)',
+                        options: ['Adventure Tourism', 'Aquaculture', 'Art & Culture Centre', 'Convention Centre', 'Data Centers', 'Geo-repository', 'Heritage Museum', 'Mushroom Farm', 'Physics Lab (Education/Research)', 'Preservation Centre', 'R&D Sites', 'UG Parks']
+                    }
+                }
+            },
+            land_area: {
+                name: 'Stable Land Area (OC and UG)',
+                description: 'Available area size for development',
+                subfactors: {
+                    '1-5ha': {
+                        name: '1-5 ha',
+                        options: ['Amphitheaters', 'UG Parks', 'Apiculture (Beekeeping)', 'Aquaculture', 'Art & Culture Centre', 'BESS', 'Heritage Museum', 'Livelihood Centre', 'Livestock', 'Physics Lab (Education/Research)', 'Pollinator Corridors', 'Mushroom Farm', 'Preservation Centre', 'R&D Sites']
+                    },
+                    '5-20ha': {
+                        name: '5-20 ha',
+                        options: ['Floating Solar', 'Greenhouses', 'Concrete Plants', 'Geo-repository', 'Solar PV Farms', 'Data Centers', 'Dairy', 'Botanical Gardens', 'Waste Recycling Centre', 'Mining Driving School', 'R&D Sites', 'Convention Centre']
+                    },
+                    '20plus': {
+                        name: '>20 ha',
+                        options: ['Wind Farms', 'Wetlands Restoration', 'Agroforestry', 'Eco Park', 'Adventure Tourism', 'Sports Complex', 'Logistic Park', 'Pumped Hydro Storage (PHS)', 'Rewilding', 'Industrial Hub']
+                    }
+                }
+            },
+            topography: {
+                name: 'Topography Profile (OC Type)',
+                description: 'Slope and elevation characteristics',
+                subfactors: {
+                    'less5': {
+                        name: 'Less than 5°',
+                        options: ['Agroforestry', 'Amphitheaters', 'Apiculture (Beekeeping)', 'Aquaculture', 'Art & Culture Centre', 'Botanical Gardens', 'BESS', 'Concrete Plants', 'Convention Centre', 'Data Centers', 'Dairy', 'Eco Park', 'Floating Solar', 'Greenhouses', 'Heritage Museum', 'Industrial Hub', 'Livelihood Centre', 'Livestock', 'Logistic Park', 'Physics Lab (Education/Research)', 'Pollinator Corridors', 'Rewilding', 'Solar PV Farms', 'Sports Complex', 'Waste Recycling Centre', 'Wetlands Restoration', 'Wind Farms', 'Mushroom Farm', 'Geo-repository', 'Preservation Centre', 'R&D Sites', 'UG Parks']
+                    },
+                    'more5': {
+                        name: 'More than 5°',
+                        options: ['Wind Farms', 'Pumped Hydro Storage (PHS)', 'Adventure Tourism', 'Apiculture (Beekeeping)', 'Rewilding', 'Pollinator Corridors', 'Eco Park', 'Botanical Gardens', 'Preservation Centre', 'Mining Driving School']
+                    }
+                }
+            },
+            geotechnical: {
+                name: 'Geotechnical Stability (FoS)',
+                description: 'Factor of Safety for structural integrity',
+                subfactors: {
+                    'less1_5': {
+                        name: 'Less than 1.5',
+                        options: ['Agroforestry', 'Amphitheaters', 'Apiculture (Beekeeping)', 'Aquaculture', 'Botanical Gardens', 'BESS', 'Eco Park', 'Floating Solar', 'Greenhouses', 'Heritage Museum', 'Industrial Hub', 'Livelihood Centre', 'Livestock', 'Logistic Park', 'Pollinator Corridors', 'Rewilding', 'Wetlands Restoration', 'Mushroom Farm']
+                    },
+                    'more1_5': {
+                        name: 'More than 1.5',
+                        options: ['Solar PV Farms', 'Wind Farms', 'BESS', 'Data Centers', 'Greenhouses', 'Dairy', 'UG Parks', 'Eco Park', 'Heritage Museum', 'Adventure Tourism', 'Sports Complex', 'Art & Culture Centre', 'Convention Centre', 'Logistic Park', 'Waste Recycling Centre', 'Preservation Centre', 'Mining Driving School', 'Livelihood Centre', 'Physics Lab (Education/Research)', 'Geo-repository', 'R&D Sites', 'Pumped Hydro Storage (PHS)', 'Industrial Hub', 'Concrete Plants']
+                    }
+                }
+            },
+            hospital: {
+                name: 'Hospital Infrastructure',
+                description: 'Proximity to emergency medical services',
+                subfactors: {
+                    'available': {
+                        name: 'Nearby available',
+                        options: ['Adventure Tourism', 'Sports Complex', 'Amphitheaters', 'Convention Centre', 'Art & Culture Centre', 'Industrial Hub', 'Concrete Plants', 'Waste Recycling Centre', 'Logistic Park', 'Mining Driving School', 'Livestock', 'Dairy', 'Agroforestry', 'Aquaculture', 'Apiculture (Beekeeping)', 'Pumped Hydro Storage (PHS)', 'Floating Solar', 'Solar PV Farms', 'Eco Park', 'Botanical Gardens', 'Wetlands Restoration', 'Rewilding', 'UG Parks', 'Data Centers', 'Physics Lab (Education/Research)', 'R&D Sites', 'Geo-repository', 'Preservation Centre']
+                    },
+                    'not_required': {
+                        name: 'Not required',
+                        options: ['Adventure Tourism', 'Agroforestry', 'Amphitheaters', 'Apiculture (Beekeeping)', 'Aquaculture', 'Art & Culture Centre', 'Botanical Gardens', 'BESS', 'Concrete Plants', 'Convention Centre', 'Data Centers', 'Dairy', 'Eco Park', 'Floating Solar', 'Greenhouses', 'Heritage Museum', 'Industrial Hub', 'Livelihood Centre', 'Livestock', 'Logistic Park', 'Mining Driving School', 'Physics Lab (Education/Research)', 'Pollinator Corridors', 'Pumped Hydro Storage (PHS)', 'Rewilding', 'Solar PV Farms', 'Sports Complex', 'Waste Recycling Centre', 'Wetlands Restoration', 'Wind Farms', 'Mushroom Farm', 'Geo-repository', 'Preservation Centre', 'R&D Sites', 'UG Parks']
+                    }
+                }
+            },
+            transport: {
+                name: 'Transport',
+                description: 'Access to transportation infrastructure',
+                multi_select: true,
+                subfactors: {
+                    'road': {
+                        name: 'Road',
+                        options: ['Adventure Tourism', 'Agroforestry', 'Amphitheaters', 'Apiculture (Beekeeping)', 'Aquaculture', 'Art & Culture Centre', 'Botanical Gardens', 'BESS', 'Concrete Plants', 'Convention Centre', 'Data Centers', 'Dairy', 'Eco Park', 'Floating Solar', 'Greenhouses', 'Heritage Museum', 'Industrial Hub', 'Livelihood Centre', 'Livestock', 'Logistic Park', 'Mining Driving School', 'Physics Lab (Education/Research)', 'Pollinator Corridors', 'Pumped Hydro Storage (PHS)', 'Rewilding', 'Solar PV Farms', 'Sports Complex', 'Waste Recycling Centre', 'Wetlands Restoration', 'Wind Farms', 'Mushroom Farm', 'Geo-repository', 'Preservation Centre', 'R&D Sites', 'UG Parks']
+                    },
+                    'railways': {
+                        name: 'Railways',
+                        options: ['Data Centers', 'Heritage Museum', 'Art & Culture Centre', 'Eco Park', 'Adventure Tourism', 'Logistic Park', 'Industrial Hub', 'Concrete Plants', 'Waste Recycling Centre', 'Dairy', 'Agroforestry', 'Livestock', 'Aquaculture', 'Mushroom Farm', 'Mining Driving School']
+                    },
+                    'airports': {
+                        name: 'Airports',
+                        options: ['Data Centers', 'Logistic Park', 'Industrial Hub', 'Convention Centre', 'Physics Lab (Education/Research)', 'R&D Sites', 'Art & Culture Centre']
+                    },
+                    'sea_ports': {
+                        name: 'Sea Ports',
+                        options: ['Logistic Park', 'Industrial Hub', 'Concrete Plants', 'Waste Recycling Centre', 'Aquaculture', 'Dairy', 'Agroforestry']
+                    }
+                }
+            },
+            urban_proximity: {
+                name: 'Urban Proximity',
+                description: 'Distance to urban centers and population',
+                subfactors: {
+                    'available': {
+                        name: 'Available',
+                        options: ['Adventure Tourism', 'Amphitheaters', 'Art & Culture Centre', 'Convention Centre', 'Data Centers', 'Heritage Museum', 'Industrial Hub', 'Livelihood Centre', 'Logistic Park', 'Mining Driving School', 'Physics Lab (Education/Research)', 'R&D Sites', 'Sports Complex', 'UG Parks', 'Waste Recycling Centre', 'Concrete Plants', 'Dairy', 'Agroforestry', 'Aquaculture', 'Greenhouses', 'Botanical Gardens', 'Eco Park', 'Geo-repository', 'Preservation Centre']
+                    },
+                    'not_required': {
+                        name: 'Not required',
+                        options: ['Adventure Tourism', 'Agroforestry', 'Amphitheaters', 'Apiculture (Beekeeping)', 'Aquaculture', 'Art & Culture Centre', 'Botanical Gardens', 'BESS', 'Concrete Plants', 'Convention Centre', 'Data Centers', 'Dairy', 'Eco Park', 'Floating Solar', 'Greenhouses', 'Heritage Museum', 'Industrial Hub', 'Livelihood Centre', 'Livestock', 'Logistic Park', 'Mining Driving School', 'Physics Lab (Education/Research)', 'Pollinator Corridors', 'Pumped Hydro Storage (PHS)', 'Rewilding', 'Solar PV Farms', 'Sports Complex', 'Waste Recycling Centre', 'Wetlands Restoration', 'Wind Farms', 'Mushroom Farm', 'Geo-repository', 'Preservation Centre', 'R&D Sites', 'UG Parks']
+                    }
+                }
+            },
+            tourist_proximity: {
+                name: 'Proximity to Tourist Places',
+                description: 'Access to tourism attractions',
+                subfactors: {
+                    'available': {
+                        name: 'Available',
+                        options: ['Adventure Tourism', 'Amphitheaters', 'Art & Culture Centre', 'Botanical Gardens', 'Convention Centre', 'Eco Park', 'Heritage Museum', 'Sports Complex', 'UG Parks', 'Mining Driving School']
+                    },
+                    'not_required': {
+                        name: 'Not required',
+                        options: ['Adventure Tourism', 'Agroforestry', 'Amphitheaters', 'Apiculture (Beekeeping)', 'Aquaculture', 'Art & Culture Centre', 'Botanical Gardens', 'BESS', 'Concrete Plants', 'Convention Centre', 'Data Centers', 'Dairy', 'Eco Park', 'Floating Solar', 'Greenhouses', 'Heritage Museum', 'Industrial Hub', 'Livelihood Centre', 'Livestock', 'Logistic Park', 'Mining Driving School', 'Physics Lab (Education/Research)', 'Pollinator Corridors', 'Pumped Hydro Storage (PHS)', 'Rewilding', 'Solar PV Farms', 'Sports Complex', 'Waste Recycling Centre', 'Wetlands Restoration', 'Wind Farms', 'Mushroom Farm', 'Geo-repository', 'Preservation Centre', 'R&D Sites', 'UG Parks']
+                    }
+                }
+            },
+            temperature: {
+                name: 'Temperature (°C)',
+                description: 'Climate temperature ranges',
+                subfactors: {
+                    'temperate_cool': {
+                        name: 'Temperate Cool (10-20°C)',
+                        options: ['Adventure Tourism', 'Apiculture (Beekeeping)', 'Aquaculture', 'Botanical Gardens', 'Data Centers', 'Eco Park', 'Greenhouses', 'Heritage Museum', 'Livestock', 'Mushroom Farm', 'Physics Lab (Education/Research)', 'Pollinator Corridors', 'Preservation Centre', 'R&D Sites', 'Rewilding', 'UG Parks', 'Wetlands Restoration', 'Wind Farms', 'Agroforestry', 'Geo-repository']
+                    },
+                    'composite_transitional': {
+                        name: 'Composite Transitional (20-30°C)',
+                        options: ['Adventure Tourism', 'Agroforestry', 'Amphitheaters', 'Apiculture (Beekeeping)', 'Aquaculture', 'Art & Culture Centre', 'Botanical Gardens', 'Convention Centre', 'Dairy', 'Eco Park', 'Floating Solar', 'Greenhouses', 'Heritage Museum', 'Industrial Hub', 'Livelihood Centre', 'Livestock', 'Logistic Park', 'Mining Driving School', 'Pollinator Corridors', 'Solar PV Farms', 'Sports Complex', 'Waste Recycling Centre', 'Wetlands Restoration', 'Wind Farms', 'Concrete Plants']
+                    },
+                    'hot_arid_humid': {
+                        name: 'Hot Arid/Humid (>30°C)',
+                        options: ['BESS', 'Concrete Plants', 'Data Centers', 'Floating Solar', 'Industrial Hub', 'Logistic Park', 'Pumped Hydro Storage (PHS)', 'Solar PV Farms', 'Waste Recycling Centre', 'Wind Farms', 'Geo-repository', 'Physics Lab (Education/Research)']
+                    }
+                }
+            },
+            air_quality: {
+                name: 'Air Quality (AQI)',
+                description: 'Atmospheric pollution levels',
+                subfactors: {
+                    'less_than_100': {
+                        name: 'Less than 100',
+                        options: ['Adventure Tourism', 'Agroforestry', 'Amphitheaters', 'Apiculture (Beekeeping)', 'Aquaculture', 'Art & Culture Centre', 'Botanical Gardens', 'Convention Centre', 'Dairy', 'Eco Park', 'Greenhouses', 'Heritage Museum', 'Livelihood Centre', 'Livestock', 'Mining Driving School', 'Pollinator Corridors', 'Rewilding', 'Sports Complex', 'UG Parks', 'Wetlands Restoration', 'Mushroom Farm', 'Preservation Centre', 'R&D Sites']
+                    },
+                    'more_than_100': {
+                        name: 'More Than 100',
+                        options: ['BESS', 'Concrete Plants', 'Data Centers', 'Floating Solar', 'Industrial Hub', 'Logistic Park', 'Physics Lab (Education/Research)', 'Pumped Hydro Storage (PHS)', 'Solar PV Farms', 'Waste Recycling Centre', 'Wind Farms', 'Geo-repository']
+                    }
+                }
+            },
+            grid_proximity: {
+                name: 'Grid Proximity (km)',
+                description: 'Distance to electrical grid',
+                subfactors: {
+                    'less_than_15': {
+                        name: 'Less than 15 km',
+                        options: ['BESS', 'Data Centers', 'Floating Solar', 'Industrial Hub', 'Logistic Park', 'Physics Lab (Education/Research)', 'Pumped Hydro Storage (PHS)', 'Solar PV Farms', 'Waste Recycling Centre', 'Wind Farms', 'Concrete Plants', 'Geo-repository']
+                    },
+                    'more_than_15': {
+                        name: 'More than 15 km',
+                        options: ['Adventure Tourism', 'Agroforestry', 'Amphitheaters', 'Apiculture (Beekeeping)', 'Aquaculture', 'Art & Culture Centre', 'Botanical Gardens', 'Convention Centre', 'Dairy', 'Eco Park', 'Greenhouses', 'Heritage Museum', 'Livelihood Centre', 'Livestock', 'Mining Driving School', 'Pollinator Corridors', 'Rewilding', 'Sports Complex', 'UG Parks', 'Wetlands Restoration', 'Mushroom Farm', 'Preservation Centre', 'R&D Sites']
+                    }
+                }
+            },
+             capex: {
+                name: 'Capex',
+                description: 'Funds available for investment',
+                subfactors: {
+                    'Low CAPEX (Up to ₹100 L/Ha)': {
+                        name: 'Low CAPEX',
+                        options: ['Apiculture (Beekeeping)', 'Rewilding', 'Pollinator Corridors', 'Wetlands Restoration', 'Agroforestry', 'Botanical Gardens', 'Eco Park','Livestock']
+                    },
+                    'Medium CAPEX (₹101-600 L/Ha)': {
+                        name: 'Medium CAPEX',
+                        options: ['Dairy', 'Aquaculture', 'UG Parks', 'Mining Driving School', 'Livelihood Centre', 'Mushroom Farm', 'Concrete Plants', 'Adventure Tourism', 'Greenhouses', 'Waste Recycling Centre', 'R&D Sites', 'Heritage Museum', 'Preservation Centre', 'Art & Culture Centre', 'Physics Lab (Education/Research)', 'Preservation Centre', 'Amphitheaters', 'Solar PV Farms', 'Sports Complex', 'UG Parks']
+                    },
+                    'High CAPEX (₹601-1,500 L/Ha)': {
+                        name: 'High CAPEX',
+                        options: ['Adventure Tourism', 'Agroforestry', 'Amphitheaters', 'Apiculture (Beekeeping)', 'Aquaculture', 'Art & Culture Centre', 'Botanical Gardens', 'BESS', 'Concrete Plants', 'Convention Centre', 'Data Centers', 'Dairy', 'Eco Park', 'Floating Solar', 'Greenhouses', 'Heritage Museum', 'Industrial Hub', 'Livelihood Centre', 'Livestock', 'Logistic Park', 'Mining Driving School', 'Physics Lab (Education/Research)', 'Pollinator Corridors', 'Pumped Hydro Storage (PHS)', 'Rewilding', 'Solar PV Farms', 'Sports Complex', 'Waste Recycling Centre', 'Wetlands Restoration', 'Wind Farms', 'Mushroom Farm']
+                    },
+                    'Ultra-High CAPEX (>₹1,500 L/Ha)': {
+                        name: 'Ultra-High CAPEX',
+                        options: ['Data Centers','Pumped Hydro Storage (PHS)', 'Geo-repository']
+                    },
+                }
+            },
+            wind_speed: {
+                name: 'Average Wind Speed (m/s)',
+                description: 'Wind resource availability',
+                subfactors: {
+                    'less_than_5': {
+                        name: 'Less than 5 m/s',
+                        options: ['Agroforestry', 'Amphitheaters', 'Apiculture (Beekeeping)', 'Aquaculture', 'Art & Culture Centre', 'Botanical Gardens', 'Convention Centre', 'Dairy', 'Eco Park', 'Greenhouses', 'Heritage Museum', 'Livelihood Centre', 'Livestock', 'Mining Driving School', 'Pollinator Corridors', 'Sports Complex', 'UG Parks', 'Wetlands Restoration', 'Mushroom Farm', 'Preservation Centre']
+                    },
+                    'more_than_5': {
+                        name: 'More than 5 m/s',
+                        options: ['Adventure Tourism', 'BESS', 'Concrete Plants', 'Data Centers', 'Floating Solar', 'Industrial Hub', 'Logistic Park', 'Physics Lab (Education/Research)', 'Pumped Hydro Storage (PHS)', 'Rewilding', 'Solar PV Farms', 'Waste Recycling Centre', 'Wind Farms', 'Geo-repository', 'R&D Sites', 'Agroforestry']
+                    }
+                }
+            },
+            top_soil: {
+                name: 'Presence of Top Soil',
+                description: 'Availability of fertile soil',
+                subfactors: {
+                    'yes': {
+                        name: 'Yes',
+                        options: ['Agroforestry', 'Apiculture (Beekeeping)', 'Botanical Gardens', 'Dairy', 'Greenhouses', 'Livestock', 'Pollinator Corridors']
+                    },
+                    'no': {
+                        name: 'No',
+                        options: ['Adventure Tourism', 'Amphitheaters', 'Aquaculture', 'Art & Culture Centre', 'BESS', 'Concrete Plants', 'Convention Centre', 'Data Centers', 'Eco Park', 'Floating Solar', 'Heritage Museum', 'Industrial Hub', 'Livelihood Centre', 'Logistic Park', 'Mining Driving School', 'Physics Lab (Education/Research)', 'Pumped Hydro Storage (PHS)', 'Rewilding', 'Solar PV Farms', 'Sports Complex', 'UG Parks', 'Waste Recycling Centre', 'Wetlands Restoration', 'Wind Farms', 'Mushroom Farm', 'Geo-repository', 'Preservation Centre', 'R&D Sites']
+                    }
+                }
+            },
+            pit_lake: {
+                name: 'Presence of Pit Lake',
+                description: 'Water body availability in pit',
+                subfactors: {
+                    'yes': {
+                        name: 'Yes',
+                        options: ['Pumped Hydro Storage (PHS)', 'Wetlands Restoration', 'Floating Solar', 'Aquaculture']
+                    },
+                    'no': {
+                        name: 'No',
+                        options: ['Adventure Tourism', 'Agroforestry', 'Amphitheaters', 'Apiculture (Beekeeping)', 'Art & Culture Centre', 'Botanical Gardens', 'BESS', 'Concrete Plants', 'Convention Centre', 'Data Centers', 'Dairy', 'Eco Park', 'Greenhouses', 'Heritage Museum', 'Industrial Hub', 'Livelihood Centre', 'Livestock', 'Logistic Park', 'Mining Driving School', 'Physics Lab (Education/Research)', 'Pollinator Corridors', 'Rewilding', 'Solar PV Farms', 'Sports Complex', 'UG Parks', 'Waste Recycling Centre', 'Wind Farms', 'Mushroom Farm', 'Geo-repository', 'Preservation Centre', 'R&D Sites']
+                    }
+                }
+            },
+            flood_risk: {
+                name: 'Flood Risk (100-yr)',
+                description: '100-year flood probability',
+                subfactors: {
+                    'low': {
+                        name: 'Low',
+                        options: ['Adventure Tourism', 'Agroforestry', 'Amphitheaters', 'Apiculture (Beekeeping)', 'Aquaculture', 'Art & Culture Centre', 'Botanical Gardens', 'BESS', 'Concrete Plants', 'Convention Centre', 'Data Centers', 'Dairy', 'Eco Park', 'Floating Solar', 'Greenhouses', 'Heritage Museum', 'Industrial Hub', 'Livelihood Centre', 'Livestock', 'Logistic Park', 'Mining Driving School', 'Physics Lab (Education/Research)', 'Pollinator Corridors', 'Rewilding', 'Solar PV Farms', 'Sports Complex', 'UG Parks', 'Waste Recycling Centre', 'Wind Farms', 'Mushroom Farm']
+                    },
+                    'medium': {
+                        name: 'Medium',
+                        options: ['Adventure Tourism', 'Agroforestry', 'Apiculture (Beekeeping)', 'Aquaculture', 'Botanical Gardens', 'Eco Park', 'Rewilding', 'Wetlands Restoration', 'Geo-repository']
+                    },
+                    'high': {
+                        name: 'High',
+                        options: ['Pumped Hydro Storage (PHS)']
+                    }
+                }
+            },
+            solar_insolation: {
+                name: 'Solar Insolation (kWh/m²/day)',
+                description: 'Solar energy resource potential',
+                subfactors: {
+                    'less_than_4': {
+                        name: 'Less than 4',
+                        options: ['Agroforestry', 'Botanical Gardens', 'Mushroom Farm', 'UG Parks', 'Geo-repository']
+                    },
+                    'more_than_4': {
+                        name: 'More than 4',
+                        options: ['Solar PV Farms', 'Floating Solar']
+                    }
+                }
+            }
+        };
+
+        // Compatibility matrix for community factors
+        const compatibilityMatrix = {
+            'Adventure Tourism': {
+                'Employment Generation': 'high',
+                'Social Inclusion': 'high',
+                'Environmental Sustainability': 'medium',
+               
+                'Skill Development': 'medium',
+                'Local Infrastructure Development': 'high'
+            },
+            'Agroforestry': {
+                'Employment Generation': 'medium',
+                'Social Inclusion': 'medium',
+                'Environmental Sustainability': 'high',
+              
+                'Skill Development': 'medium',
+                'Local Infrastructure Development': 'low'
+            },
+            'Amphitheaters': {
+                'Employment Generation': 'medium',
+                'Social Inclusion': 'high',
+                'Environmental Sustainability': 'low',
+             
+                'Skill Development': 'low',
+                'Local Infrastructure Development': 'medium'
+            },
+            'Apiculture (Beekeeping)': {
+                'Employment Generation': 'low',
+                'Social Inclusion': 'low',
+                'Environmental Sustainability': 'high',
+               
+                'Skill Development': 'medium',
+                'Local Infrastructure Development': 'low'
+            },
+            'Aquaculture': {
+                'Employment Generation': 'medium',
+                'Social Inclusion': 'medium',
+                'Environmental Sustainability': 'medium',
+               
+                'Skill Development': 'medium',
+                'Local Infrastructure Development': 'medium'
+            },
+            'Art & Culture Centre': {
+                'Employment Generation': 'medium',
+                'Social Inclusion': 'high',
+                'Environmental Sustainability': 'high',
+             
+                'Skill Development': 'low',
+                'Local Infrastructure Development': 'high'
+            },
+            'Botanical Gardens': {
+                'Employment Generation': 'medium',
+                'Social Inclusion': 'high',
+                'Environmental Sustainability': 'high',
+               
+                'Skill Development': 'medium',
+                'Local Infrastructure Development': 'medium'
+            },
+            'BESS': {
+                'Employment Generation': 'low',
+                'Social Inclusion': 'low',
+                'Environmental Sustainability': 'medium',
+             
+                'Skill Development': 'high',
+                'Local Infrastructure Development': 'high'
+            },
+            'Concrete Plants': {
+                'Employment Generation': 'medium',
+                'Social Inclusion': 'low',
+                'Environmental Sustainability': 'low',
+               
+                'Skill Development': 'high',
+                'Local Infrastructure Development': 'medium'
+            },
+            'Convention Centre': {
+                'Employment Generation': 'high',
+                'Social Inclusion': 'medium',
+                'Environmental Sustainability': 'low',
+
+                'Skill Development': 'low',
+                'Local Infrastructure Development': 'high'
+            },
+            'Data Centers': {
+                'Employment Generation': 'low',
+                'Social Inclusion': 'low',
+                'Environmental Sustainability': 'medium',
+              
+                'Skill Development': 'high',
+                'Local Infrastructure Development': 'high'
+            },
+            'Dairy': {
+                'Employment Generation': 'medium',
+                'Social Inclusion': 'medium',
+                'Environmental Sustainability': 'medium',
+        
+                'Skill Development': 'medium',
+                'Local Infrastructure Development': 'low'
+            },
+            'Eco Park': {
+                'Employment Generation': 'high',
+                'Social Inclusion': 'high',
+                'Environmental Sustainability': 'high',
+             
+                'Skill Development': 'medium',
+                'Local Infrastructure Development': 'medium'
+            },
+            'Floating Solar': {
+                'Employment Generation': 'low',
+                'Social Inclusion': 'low',
+                'Environmental Sustainability': 'high',
+             
+                'Skill Development': 'high',
+                'Local Infrastructure Development': 'medium'
+            },
+            'Greenhouses': {
+                'Employment Generation': 'medium',
+                'Social Inclusion': 'medium',
+                'Environmental Sustainability': 'medium',
+               
+                'Skill Development': 'medium',
+                'Local Infrastructure Development': 'medium'
+            },
+            'Heritage Museum': {
+                'Employment Generation': 'low',
+                'Social Inclusion': 'high',
+                'Environmental Sustainability': 'low',
+                
+                'Skill Development': 'low',
+                'Local Infrastructure Development': 'medium'
+            },
+            'Industrial Hub': {
+                'Employment Generation': 'high',
+                'Social Inclusion': 'low',
+                'Environmental Sustainability': 'low',
+               
+                'Skill Development': 'high',
+                'Local Infrastructure Development': 'high'
+            },
+            'Livelihood Centre': {
+                'Employment Generation': 'high',
+                'Social Inclusion': 'high',
+                'Environmental Sustainability': 'low',
+          
+                'Skill Development': 'high',
+                'Local Infrastructure Development': 'medium'
+            },
+            'Livestock': {
+                'Employment Generation': 'medium',
+                'Social Inclusion': 'medium',
+                'Environmental Sustainability': 'medium',
+            
+                'Skill Development': 'medium',
+                'Local Infrastructure Development': 'low'
+            },
+            'Logistic Park': {
+                'Employment Generation': 'high',
+                'Social Inclusion': 'low',
+                'Environmental Sustainability': 'low',
+       
+                'Skill Development': 'high',
+                'Local Infrastructure Development': 'high'
+            },
+            'Mining Driving School': {
+                'Employment Generation': 'medium',
+                'Social Inclusion': 'medium',
+                'Environmental Sustainability': 'low',
+           
+                'Skill Development': 'high',
+                'Local Infrastructure Development': 'medium'
+            },
+            'Physics Lab (Education/Research)': {
+                'Employment Generation': 'low',
+                'Social Inclusion': 'low',
+                'Environmental Sustainability': 'low',
+            
+                'Skill Development': 'high',
+                'Local Infrastructure Development': 'high'
+            },
+            'Pollinator Corridors': {
+                'Employment Generation': 'low',
+                'Social Inclusion': 'medium',
+                'Environmental Sustainability': 'high',
+          
+                'Skill Development': 'medium',
+                'Local Infrastructure Development': 'low'
+            },
+            'Pumped Hydro Storage (PHS)': {
+                'Employment Generation': 'low',
+                'Social Inclusion': 'low',
+                'Environmental Sustainability': 'medium',
+               
+                'Skill Development': 'high',
+                'Local Infrastructure Development': 'high'
+            },
+            'Rewilding': {
+                'Employment Generation': 'low',
+                'Social Inclusion': 'low',
+                'Environmental Sustainability': 'high',
+              
+                'Skill Development': 'low',
+                'Local Infrastructure Development': 'low'
+            },
+            'Solar PV Farms': {
+                'Employment Generation': 'low',
+                'Social Inclusion': 'low',
+                'Environmental Sustainability': 'high',
+         
+                'Skill Development': 'high',
+                'Local Infrastructure Development': 'medium'
+            },
+            'Sports Complex': {
+                'Employment Generation': 'medium',
+                'Social Inclusion': 'high',
+                'Environmental Sustainability': 'low',
+       
+                'Skill Development': 'high',
+                'Local Infrastructure Development': 'high'
+            },
+            'Waste Recycling Centre': {
+                'Employment Generation': 'medium',
+                'Social Inclusion': 'low',
+                'Environmental Sustainability': 'medium',
+                
+                'Skill Development': 'medium',
+                'Local Infrastructure Development': 'medium'
+            },
+            'Wetlands Restoration': {
+                'Employment Generation': 'low',
+                'Social Inclusion': 'low',
+                'Environmental Sustainability': 'high',
+               
+                'Skill Development': 'medium',
+                'Local Infrastructure Development': 'low'
+            },
+            'Wind Farms': {
+                'Employment Generation': 'low',
+                'Social Inclusion': 'low',
+                'Environmental Sustainability': 'high',
+               
+                'Skill Development': 'high',
+                'Local Infrastructure Development': 'medium'
+            },
+            'Mushroom Farm': {
+                'Employment Generation': 'medium',
+                'Social Inclusion': 'low',
+                'Environmental Sustainability': 'medium',
+           
+                'Skill Development': 'high',
+                'Local Infrastructure Development': 'low'
+            },
+            'Geo-repository': {
+                'Employment Generation': 'low',
+                'Social Inclusion': 'low',
+                'Environmental Sustainability': 'medium',
+           
+                'Skill Development': 'low',
+                'Local Infrastructure Development': 'high'
+            },
+            'Preservation Centre': {
+                'Employment Generation': 'low',
+                'Social Inclusion': 'low',
+                'Environmental Sustainability': 'low',
+               
+                'Skill Development': 'medium',
+                'Local Infrastructure Development': 'high'
+            },
+            'R&D Sites': {
+                'Employment Generation': 'low',
+                'Social Inclusion': 'low',
+                'Environmental Sustainability': 'low',
+          
+                'Skill Development': 'high',
+                'Local Infrastructure Development': 'high'
+            },
+            'UG Parks': {
+                'Employment Generation': 'medium',
+                'Social Inclusion': 'high',
+                'Environmental Sustainability': 'medium',
+             
+                'Skill Development': 'medium',
+                'Local Infrastructure Development': 'high'
+            }
+        };
+        
+        // Sample repurposing option with old structure (keeping for reference)
+        const sampleOption = {
+                id: 1,
+            // Additional sample options...
+            // More options would follow the same pattern...
+        };
+        
+        // Placeholder for backward compatibility
+        const repurposingOptions = [{
+                id: 3,
+                name: 'Amphitheaters',
+                required_all: ['SG_Yes', 'SLA_Moderate', 'SAC_High', 'SLD_Yes', 'STC_Yes'],
+                optional_any: ['SUP_Near', 'SHP_Yes'],
+                employment: 'medium', skill: 'low', social: 'high', environment: 'low', economic: 'medium', infrastructure: 'medium'
+            },
+            {
+                id: 2,
+                name: 'Apiculture (Beekeeping)',
+                required_all: ['SG_Yes', 'SMT_OC', 'SRC_Suitable', 'SSQ_Good', 'SLD_Yes', 'SUP_Remote'],
+                employment: 'low', skill: 'medium', social: 'low', environment: 'high', economic: 'low', infrastructure: 'low'
+            },
+            {
+                id: 3,
+                name: 'Aquaculture',
+                required_all: ['SG_Yes', 'SMT_Any', 'SWS_Yes', 'SRC_Suitable', 'SLD_Yes', 'STC_Yes'],
+                employment: 'medium', skill: 'medium', social: 'medium', environment: 'medium', economic: 'medium', infrastructure: 'medium'
+            },
+            {
+                id: 6,
+                name: 'Art & Culture Centre',
+                required_all: ['SG_Yes', 'SMT_Any', 'SLA_Small', 'SAC_High', 'SLD_Yes', 'SUP_Near', 'STC_Yes'],
+                employment: 'medium', skill: 'high', social: 'high', environment: 'low', economic: 'medium', infrastructure: 'high'
+            },
+            {
+                id: 7,
+                name: 'Botanical Gardens',
+                required_all: ['SG_Yes', 'SMT_OC', 'SLA_Large', 'SRC_Suitable', 'SSQ_Good', 'SWS_Yes', 'SLD_Yes', 'SAE_Yes'],
+                employment: 'medium', skill: 'medium', social: 'high', environment: 'high', economic: 'low', infrastructure: 'medium'
+            },
+            {
+                id: 8,
+                name: 'BESS (Battery Energy Storage)',
+                required_all: ['SG_Yes', 'SPO_High', 'SLA_Moderate', 'SLD_Yes', 'STC_Yes'],
+                employment: 'low', skill: 'high', social: 'low', environment: 'medium', economic: 'high', infrastructure: 'high'
+            },
+            {
+                id: 9,
+                name: 'Concrete Plants',
+                required_all: ['SG_Yes', 'SMT_OC', 'SLA_Moderate', 'SLD_Yes', 'STC_Yes', 'SAC_Low'],
+                employment: 'medium', skill: 'low', social: 'low', environment: 'low', economic: 'high', infrastructure: 'medium'
+            },
+            {
+                id: 10,
+                name: 'Convention Centre',
+                required_all: ['SG_Yes', 'SMT_Any', 'SLA_Large', 'SLD_Yes', 'SUP_Near', 'STC_Yes', 'SPO_Standard'],
+                employment: 'high', skill: 'medium', social: 'medium', environment: 'low', economic: 'high', infrastructure: 'high'
+            },
+            {
+                id: 11,
+                name: 'Data Centers',
+                required_all: ['SG_Yes', 'SFO_Yes', 'SPO_High', 'SLD_Yes'],
+                optional_any: ['SMT_UG', 'SRC_Cool'],
+                employment: 'low', skill: 'high', social: 'low', environment: 'medium', economic: 'high', infrastructure: 'high'
+            },
+            {
+                id: 12,
+                name: 'Dairy Farming',
+                required_all: ['SG_Yes', 'SMT_OC', 'SLA_Moderate', 'SRC_Suitable', 'SSQ_Good', 'SLD_Yes', 'STC_Yes'],
+                employment: 'medium', skill: 'medium', social: 'medium', environment: 'medium', economic: 'medium', infrastructure: 'low'
+            },
+            {
+                id: 13,
+                name: 'Eco Park',
+                required_all: ['SG_Yes', 'SMT_OC', 'SLA_Large', 'SLD_Yes', 'SRC_Suitable', 'SAC_High', 'SAE_Yes'],
+                employment: 'high', skill: 'medium', social: 'high', environment: 'high', economic: 'medium', infrastructure: 'medium'
+            },
+            {
+                id: 14,
+                name: 'Floating Solar',
+                required_all: ['SG_Yes', 'SWS_Yes', 'SPO_Standard', 'SLD_Yes', 'SRC_LowCloud'],
+                employment: 'low', skill: 'high', social: 'low', environment: 'high', economic: 'high', infrastructure: 'medium'
+            },
+            {
+                id: 15,
+                name: 'Greenhouses',
+                required_all: ['SG_Yes', 'SMT_OC', 'SLA_Moderate', 'SRC_Suitable', 'SSQ_Good', 'SLD_Yes', 'STC_Yes'],
+                employment: 'medium', skill: 'medium', social: 'medium', environment: 'medium', economic: 'medium', infrastructure: 'medium'
+            },
+            {
+                id: 16,
+                name: 'Heritage Museum',
+                required_all: ['SG_Yes', 'SMT_Any', 'SLA_Small', 'SLD_Yes', 'SUP_Near', 'STC_Yes', 'SAE_Yes'],
+                employment: 'low', skill: 'medium', social: 'high', environment: 'low', economic: 'low', infrastructure: 'medium'
+            },
+            {
+                id: 17,
+                name: 'Industrial Hub',
+                required_all: ['SG_Yes', 'SMT_OC', 'SLA_Large', 'STP_Flat', 'SPO_Standard', 'SLD_Yes', 'STC_Yes', 'SAC_Low'],
+                employment: 'high', skill: 'medium', social: 'low', environment: 'low', economic: 'high', infrastructure: 'high'
+            },
+            {
+                id: 18,
+                name: 'Livelihood Centre',
+                required_all: ['SG_Yes', 'SMT_Any', 'SLA_Small', 'SAC_High', 'SLD_Yes', 'SUP_Near', 'STC_Yes'],
+                employment: 'high', skill: 'high', social: 'high', environment: 'low', economic: 'medium', infrastructure: 'medium'
+            },
+            {
+                id: 19,
+                name: 'Livestock Farming',
+                required_all: ['SG_Yes', 'SMT_OC', 'SLA_Large', 'SRC_Suitable', 'SSQ_Good', 'SWS_Yes', 'SLD_Yes', 'STC_Yes'],
+                employment: 'medium', skill: 'low', social: 'medium', environment: 'medium', economic: 'medium', infrastructure: 'low'
+            },
+            {
+                id: 20,
+                name: 'Logistic Park',
+                required_all: ['SG_Yes', 'SMT_OC', 'SLA_Large', 'STP_Flat', 'SLD_Yes', 'STC_Yes', 'SPO_Standard'],
+                employment: 'high', skill: 'low', social: 'low', environment: 'low', economic: 'high', infrastructure: 'high'
+            },
+            {
+                id: 21,
+                name: 'Mining Driving School',
+                required_all: ['SG_Yes', 'SMT_OC', 'SLA_Moderate', 'SLD_Yes', 'STC_Yes', 'SUP_Near'],
+                employment: 'medium', skill: 'high', social: 'medium', environment: 'low', economic: 'low', infrastructure: 'medium'
+            },
+            {
+                id: 22,
+                name: 'Physics Lab',
+                required_all: ['SG_Yes', 'SMT_UG', 'SLA_Small', 'SLD_Yes', 'SPO_Standard'],
+                employment: 'low', skill: 'high', social: 'low', environment: 'low', economic: 'low', infrastructure: 'high'
+            },
+            {
+                id: 23,
+                name: 'Pollinator Corridors',
+                required_all: ['SMT_OC', 'SRC_Suitable', 'SSQ_Good', 'SLD_Yes', 'SLA_Large', 'SAC_High'],
+                employment: 'low', skill: 'low', social: 'medium', environment: 'high', economic: 'low', infrastructure: 'low'
+            },
+            {
+                id: 24,
+                name: 'Pumped Hydro Storage (PHS)',
+                required_all: ['SG_Yes', 'SMT_OC', 'STP_Steep', 'SWS_Yes', 'SPO_Standard', 'SLD_Yes', 'SLA_Large'],
+                employment: 'low', skill: 'high', social: 'low', environment: 'medium', economic: 'high', infrastructure: 'high'
+            },
+            {
+                id: 25,
+                name: 'Rewilding',
+                required_all: ['SMT_OC', 'SRC_Suitable', 'SLD_Yes', 'SLA_Large', 'SUP_Remote', 'SAC_Low'],
+                employment: 'low', skill: 'low', social: 'low', environment: 'high', economic: 'low', infrastructure: 'low'
+            },
+            {
+                id: 26,
+                name: 'Solar PV Farms',
+                required_all: ['SG_Yes', 'SMT_OC', 'SLA_Large', 'STP_Flat', 'SPO_Standard', 'SLD_Yes', 'SRC_LowCloud', 'STC_Yes'],
+                employment: 'low', skill: 'medium', social: 'low', environment: 'high', economic: 'high', infrastructure: 'medium'
+            },
+            {
+                id: 27,
+                name: 'Sports Complex',
+                required_all: ['SG_Yes', 'SMT_OC', 'SLA_Moderate', 'STP_Flat', 'SLD_Yes', 'SUP_Near', 'STC_Yes', 'SHP_Yes'],
+                employment: 'medium', skill: 'medium', social: 'high', environment: 'low', economic: 'medium', infrastructure: 'high'
+            },
+            {
+                id: 28,
+                name: 'Waste Recycling Centre',
+                required_all: ['SG_Yes', 'SMT_OC', 'SLA_Moderate', 'SLD_Yes', 'SUP_Near', 'STC_Yes', 'SAC_Low'],
+                employment: 'medium', skill: 'medium', social: 'low', environment: 'medium', economic: 'medium', infrastructure: 'medium'
+            },
+            {
+                id: 29,
+                name: 'Wetlands Restoration',
+                required_all: ['SMT_OC', 'SWS_Yes', 'SRC_HighPPT', 'SLD_Yes', 'SLA_Large'],
+                employment: 'low', skill: 'medium', social: 'low', environment: 'high', economic: 'low', infrastructure: 'low'
+            },
+            {
+                id: 30,
+                name: 'Wind Farms',
+                required_all: ['SG_Yes', 'SMT_OC', 'STP_Moderate', 'SPO_Standard', 'SLD_Yes', 'SRC_HighWind', 'SUP_Remote'],
+                employment: 'low', skill: 'high', social: 'low', environment: 'high', economic: 'high', infrastructure: 'medium'
+            },
+            {
+                id: 31,
+                name: 'Mushroom Farm',
+                required_all: ['SG_Yes', 'SMT_UG', 'SLA_Small', 'SLD_Yes', 'SRC_StableTemp', 'STC_Yes'],
+                employment: 'medium', skill: 'medium', social: 'low', environment: 'medium', economic: 'medium', infrastructure: 'low'
+            },
+            {
+                id: 32,
+                name: 'Geo-repository',
+                required_all: ['SG_Yes', 'SMT_UG', 'SLD_Yes', 'SLA_Large', 'SAC_Low', 'SUP_Remote'],
+                employment: 'low', skill: 'high', social: 'low', environment: 'medium', economic: 'low', infrastructure: 'high'
+            },
+            {
+                id: 33,
+                name: 'Preservation Centre',
+                required_all: ['SG_Yes', 'SMT_UG', 'SLD_Yes', 'SRC_StableTemp', 'SFO_Yes'],
+                employment: 'low', skill: 'high', social: 'low', environment: 'low', economic: 'low', infrastructure: 'high'
+            },
+            {
+                id: 34,
+                name: 'R&D Sites',
+                required_all: ['SG_Yes', 'SMT_Any', 'SLA_Small', 'SLD_Yes', 'SPO_Standard', 'SFO_Yes', 'SUP_Near'],
+                employment: 'low', skill: 'high', social: 'low', environment: 'low', economic: 'medium', infrastructure: 'high'
+            },
+            {
+                id: 35,
+                name: 'Underground Parks',
+                required_all: ['SG_Yes', 'SMT_UG', 'SAC_High', 'SLD_Yes', 'SUP_Near', 'STC_Yes', 'SAE_Yes'],
+                employment: 'medium', skill: 'medium', social: 'high', environment: 'medium', economic: 'medium', infrastructure: 'high'
+            },
+            {
+                // Legacy structure maintained for compatibility
+            }
+        ];
+
+        const ahpFactors = [
+            { name: 'Employment Generation', description: 'Job creation and livelihood opportunities for local communities' },
+            { name: 'Social Inclusion', description: 'Community participation, equity, and social cohesion' },
+            { name: 'Environmental Sustainability', description: 'Ecological restoration, biodiversity, and climate resilience' },
+
+            { name: 'Skill Development', description: 'Skill and talent development opportunities for local communities' },
+            { name: 'Local Infrastructure Development', description: 'Transport, utilities, and facility development' }
+        ];
+
+        // Initialize the application
+        function init() {
+            console.log('Initializing app...');
+            
+            // Initialize state
+            selectedFactors = {};
+            
+            // Find all button groups
+            const buttonGroups = document.querySelectorAll('.button-group');
+            console.log(`Found ${buttonGroups.length} button groups`);
+            
+            if (buttonGroups.length === 0) {
+                console.error('No button groups found! Check HTML structure.');
+                return;
+            }
+            
+            // Add click listeners to all factor buttons
+            buttonGroups.forEach(group => {
+                const factor = group.dataset.factor;
+                const isMultiSelect = group.dataset.multi === 'true';
+                
+                console.log(`Setting up factor: ${factor}, multi-select: ${isMultiSelect}`);
+                
+                if (!factor) {
+                    console.error('Button group missing data-factor attribute:', group);
+                    return;
+                }
+                
+                const buttons = group.querySelectorAll('.factor-button');
+                console.log(`Found ${buttons.length} buttons for factor: ${factor}`);
+                
+                buttons.forEach(button => {
+                    const value = button.dataset.value;
+                    if (!value) {
+                        console.error('Button missing data-value attribute:', button);
+                        return;
+                    }
+                    
+                    // Remove any existing listeners to prevent duplicates
+                    button.removeEventListener('click', button._clickHandler);
+                    
+                    // Create and store the click handler (all factors now use multi-select)
+                    button._clickHandler = function(e) {
+                        console.log(`Button clicked: ${factor} = ${value}`);
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        try {
+                            selectFactorButton(factor, value, group);
+                        } catch (error) {
+                            console.error('Error in button click handler:', error);
+                        }
+                    };
+                    
+                    button.addEventListener('click', button._clickHandler);
+                    console.log(`Added click listener for: ${factor} = ${value}`);
+                });
+            });
+            
+            updateSelectedFactors();
+            updateStepIndicator();
+            
+            // Test that event listeners are working
+            const firstButton = document.querySelector('.factor-button');
+            if (firstButton) {
+                console.log('Testing first button event listener...');
+                // We won't actually click it, just verify it has the handler
+                if (firstButton._clickHandler) {
+                    console.log('✓ First button has click handler attached');
+                } else {
+                    console.error('✗ First button missing click handler!');
+                }
+            }
+            
+            console.log('Initialization complete');
+            console.log('Current selectedFactors:', selectedFactors);
+            
+            // Final verification
+            const totalButtons = document.querySelectorAll('.factor-button').length;
+            console.log(`Total factor buttons found: ${totalButtons}`);
+            console.log(`Expected factors: 16`);
+            
+            if (totalButtons === 0) {
+                console.error('CRITICAL: No factor buttons found! Check HTML structure.');
+            }
+
+            // Restore previous session if user navigated back from a category page
+            restoreStateFromSession();
+        }
+
+        function selectFactorButton(factor, value, group) {
+            console.log(`selectFactorButton called: ${factor} = ${value}`);
+
+            try {
+                const clickedButton = group.querySelector(`[data-value="${value}"]`);
+                if (!clickedButton) {
+                    console.error(`Could not find button with value: ${value}`);
+                    return;
+                }
+
+                const isMultiSelect = group.dataset.multi === 'true';
+                const selectedButtons = group.querySelectorAll('.factor-button.selected');
+
+                if (isMultiSelect) {
+                    clickedButton.classList.toggle('selected');
+                    console.log(`Button ${value} toggled in multi-select group`);
+                } else {
+                    if (clickedButton.classList.contains('selected')) {
+                        clickedButton.classList.remove('selected');
+                        console.log(`Button ${value} deselected in single-select group`);
+                    } else {
+                        selectedButtons.forEach(btn => btn.classList.remove('selected'));
+                        clickedButton.classList.add('selected');
+                        console.log(`Button ${value} selected and others deselected in single-select group`);
+                    }
+                }
+
+                // Get all selected values for this factor
+                const updatedSelectedButtons = group.querySelectorAll('.factor-button.selected');
+                const selectedValues = Array.from(updatedSelectedButtons).map(btn => btn.dataset.value);
+
+                console.log(`Selected values for ${factor}:`, selectedValues);
+
+                if (selectedValues.length > 0) {
+                    selectedFactors[factor] = selectedValues;
+                } else {
+                    delete selectedFactors[factor];
+                }
+
+                console.log(`Updated selectedFactors:`, selectedFactors);
+                updateSelectedFactors();
+            } catch (error) {
+                console.error('Error in selectFactorButton:', error);
+            }
+        }
+        
+        // Clear all selections for a specific factor
+        function clearFactor(factor) {
+            console.log(`Clearing factor: ${factor}`);
+            
+            const buttonGroup = document.querySelector(`[data-factor="${factor}"]`);
+            if (!buttonGroup) {
+                console.error(`Could not find button group for factor: ${factor}`);
+                return;
+            }
+            
+            // Remove selected class from all buttons in this group
+            const selectedButtons = buttonGroup.querySelectorAll('.factor-button.selected');
+            selectedButtons.forEach(btn => {
+                btn.classList.remove('selected');
+            });
+            
+            // Remove from selectedFactors
+            delete selectedFactors[factor];
+            
+            console.log(`Cleared factor ${factor}. Updated selections:`, selectedFactors);
+            updateSelectedFactors();
+        }
+
+        function resetAllSelections() {
+            console.log('Resetting all selections');
+
+            // Clear persisted session so we start fresh
+            ['suv_step','suv_sel','suv_opts','suv_ahpw','suv_ahpm','suv_suit','suv_rank']
+                .forEach(k => sessionStorage.removeItem(k));
+
+            selectedFactors = {};
+            relaxedFactors.clear();
+            
+            const selectedButtons = document.querySelectorAll('.factor-button.selected');
+            console.log(`Removing 'selected' class from ${selectedButtons.length} buttons`);
+            
+            selectedButtons.forEach(btn => {
+                btn.classList.remove('selected');
+            });
+            
+            updateSelectedFactors();
+            updateNavigationButtons();
+            console.log('All selections reset');
+        }
+
+        function updateSelectedFactors() {
+            let count = Object.keys(selectedFactors).length;
+            console.log(`updateSelectedFactors called: ${count} factors selected`);
+            console.log('Current selections:', selectedFactors);
+            
+            const selectedCountEl = document.getElementById('selected-factors-count');
+            const progressCountEl = document.getElementById('progress-count');
+            
+            if (selectedCountEl) {
+                selectedCountEl.textContent = `${count}/16`;
+            }
+            
+            if (progressCountEl) {
+                progressCountEl.textContent = `${count} of 16 factors with selections`;
+            }
+            
+            // Enable/disable next button based on selections (need at least 1 factor with selections)
+            const nextBtn = document.getElementById('next-btn');
+            if (nextBtn && currentStep === 1) {
+                const hasSelections = count > 0;
+                nextBtn.disabled = !hasSelections;
+                if (hasSelections) {
+                    nextBtn.textContent = 'Proceed to Generate Options →';
+                } else {
+                    nextBtn.textContent = 'Select at least one factor to continue';
+                }
+                console.log(`Next button updated: disabled=${nextBtn.disabled}, text="${nextBtn.textContent}"`);
+            }
+        }
+
+        function updateStepIndicator() {
+            document.querySelectorAll('.step').forEach(step => {
+                const stepNum = parseInt(step.dataset.step);
+                step.classList.remove('active', 'completed');
+                
+                if (stepNum === currentStep) {
+                    step.classList.add('active');
+                } else if (stepNum < currentStep) {
+                    step.classList.add('completed');
+                }
+            });
+        }
+
+        function nextStep() {
+            if (currentStep === 1) {
+                generateOptions();
+                showStep(2);
+            } else if (currentStep === 2) {
+                if (generatedOptions.length > 0) {
+                    setupAHP();
+                    showStep(3);
+                }
+            } else if (currentStep === 3) {
+                if (validateAHP()) {
+                    calculateSuitability();
+                    showStep(4);
+                }
+            } else if (currentStep === 4) {
+                calculateTOPSIS();
+                showStep(5);
+            }
+        }
+
+        function previousStep() {
+            if (currentStep > 1) {
+                showStep(currentStep - 1);
+            }
+        }
+
+        function saveStateToSession() {
+            try {
+                sessionStorage.setItem('suv_step', currentStep);
+                sessionStorage.setItem('suv_sel',  JSON.stringify(selectedFactors));
+                sessionStorage.setItem('suv_opts', JSON.stringify(generatedOptions));
+                sessionStorage.setItem('suv_ahpw', JSON.stringify(ahpWeights));
+                sessionStorage.setItem('suv_ahpm', JSON.stringify(ahpMatrix));
+                sessionStorage.setItem('suv_suit', JSON.stringify(suitabilityScores));
+                sessionStorage.setItem('suv_rank', JSON.stringify(finalRanking));
+            } catch(e) {}
+        }
+
+        function restoreStateFromSession() {
+            try {
+                const step = parseInt(sessionStorage.getItem('suv_step') || '0');
+                if (!step || step < 2) return false;
+
+                selectedFactors   = JSON.parse(sessionStorage.getItem('suv_sel')  || '{}');
+                generatedOptions  = JSON.parse(sessionStorage.getItem('suv_opts') || '[]');
+                ahpWeights        = JSON.parse(sessionStorage.getItem('suv_ahpw') || '{}');
+                ahpMatrix         = JSON.parse(sessionStorage.getItem('suv_ahpm') || '{}');
+                suitabilityScores = JSON.parse(sessionStorage.getItem('suv_suit') || '{}');
+                finalRanking      = JSON.parse(sessionStorage.getItem('suv_rank') || '[]');
+
+                // Re-highlight selected factor buttons
+                Object.keys(selectedFactors).forEach(factorKey => {
+                    const group = document.querySelector(`.button-group[data-factor="${factorKey}"]`);
+                    if (!group) return;
+                    group.querySelectorAll('.factor-button').forEach(btn => {
+                        if ((selectedFactors[factorKey] || []).includes(btn.dataset.value)) {
+                            btn.classList.add('selected');
+                        }
+                    });
+                });
+
+                // Re-render saved step content
+                if (step >= 5 && finalRanking.length > 0)                      displayFinalRanking();
+                else if (step >= 4 && Object.keys(suitabilityScores).length > 0) displaySuitabilityResults();
+                else if (step >= 3 && Object.keys(ahpWeights).length > 0)        setupAHP();
+                else if (step >= 2 && generatedOptions.length > 0)               displayGeneratedOptions();
+
+                showStep(step);
+                updateSelectedFactors();
+                return true;
+            } catch(e) {
+                console.warn('Could not restore session state', e);
+                return false;
+            }
+        }
+
+        function showStep(step) {
+            // Hide all steps
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.add('hide');
+            });
+
+            // Show current step
+            document.getElementById(`step${step}`).classList.remove('hide');
+
+            currentStep = step;
+            updateStepIndicator();
+            updateNavigationButtons();
+            saveStateToSession();
+        }
+
+        function updateNavigationButtons() {
+            const backBtn = document.getElementById('back-btn');
+            const nextBtn = document.getElementById('next-btn');
+
+            nextBtn.style.display = '';
+
+            backBtn.disabled = currentStep === 1;
+
+            if (currentStep === 1) {
+                const hasSelections = Object.keys(selectedFactors).length > 0;
+                nextBtn.disabled = !hasSelections;
+                nextBtn.textContent = hasSelections ? 'Proceed to Generate Options →' : 'Select at least one factor to continue';
+            } else if (currentStep === 2) {
+                nextBtn.textContent = 'Continue to Priority Assessment →';
+                nextBtn.disabled = generatedOptions.length === 0;
+            } else if (currentStep === 3) {
+                nextBtn.textContent = 'Calculate Suitability →';
+                nextBtn.disabled = !validateAHP();
+            } else if (currentStep === 4) {
+                nextBtn.textContent = 'Generate Final Ranking →';
+                nextBtn.disabled = false;
+            } else if (currentStep === 5) {
+                nextBtn.style.display = 'none';
+            }
+        }
+
+        // CRITICAL factors: if selected and option fails any one → option is excluded
+        const CRITICAL_FACTOR_KEYS = new Set([
+            'mine_type', 'land_area', 'geotechnical', 'top_soil', 'pit_lake',
+            'capex', 'temperature', 'air_quality', 'flood_risk'
+        ]);
+
+        function generateOptions() {
+            generatedOptions = [];
+            const allOptions = new Set();
+
+            // Collect all unique options
+            Object.values(factorWhitelists).forEach(factor => {
+                Object.values(factor.subfactors).forEach(subfactor => {
+                    subfactor.options.forEach(option => allOptions.add(option));
+                });
+            });
+
+            // For each option, check against all selected factors
+            allOptions.forEach(optionName => {
+                let matchedFactors = 0;
+                let totalFactors = Object.keys(selectedFactors).length;
+                const factorMatches = [];
+
+                Object.keys(selectedFactors).forEach(factorKey => {
+                    const factorData = factorWhitelists[factorKey];
+                    if (!factorData) return;
+
+                    const selectedValues = selectedFactors[factorKey]; // Array of selected subfactors
+
+                    // Check if option appears in ANY of the selected subfactors (UNION within factor)
+                    let factorMatch = false;
+                    if (Array.isArray(selectedValues)) {
+                        selectedValues.forEach(subfactorValue => {
+                            if (factorData.subfactors[subfactorValue] &&
+                                factorData.subfactors[subfactorValue].options.includes(optionName)) {
+                                factorMatch = true;
+                            }
+                        });
+                    }
+
+                    if (factorMatch) {
+                        matchedFactors++;
+                    }
+
+                    factorMatches.push({
+                        factor: factorKey,
+                        matched: factorMatch,
+                        name: factorData.name
+                    });
+                });
+
+                // Calculate match percentage
+                const matchScore = totalFactors > 0 ? (matchedFactors / totalFactors) * 100 : 0;
+
+                // Include options with 40% or higher match
+                if (matchScore >= 40) {
+                    generatedOptions.push({
+                        name: optionName,
+                        matchScore: matchScore,
+                        matchedFactors: matchedFactors,
+                        totalFactors: totalFactors,
+                        factorMatches: factorMatches,
+                        isFullMatch: matchScore === 100
+                    });
+                }
+            });
+            
+            // Sort by match score
+            generatedOptions.sort((a, b) => b.matchScore - a.matchScore);
+            
+            displayGeneratedOptions();
+            document.getElementById('generated-options-count').textContent = generatedOptions.length;
+        }
+
+        function displayGeneratedOptions() {
+            const highlyFeasible = generatedOptions.filter(opt => opt.matchScore === 100);
+            const moderatelyFeasible = generatedOptions.filter(opt => opt.matchScore >= 70 && opt.matchScore < 100);
+            const otherOptions = generatedOptions.filter(opt => opt.matchScore >= 40 && opt.matchScore < 70);
+            
+            document.getElementById('highly-feasible-list').innerHTML = renderOptionList(highlyFeasible);
+            document.getElementById('moderately-feasible-list').innerHTML = renderOptionList(moderatelyFeasible);
+            document.getElementById('other-options-list').innerHTML = renderOptionList(otherOptions);
+            
+            // Show/hide tiers based on content
+            document.getElementById('highly-feasible').style.display = highlyFeasible.length > 0 ? 'block' : 'none';
+            document.getElementById('moderately-feasible').style.display = moderatelyFeasible.length > 0 ? 'block' : 'none';
+            document.getElementById('other-options').style.display = otherOptions.length > 0 ? 'block' : 'none';
+            
+            // Show no results if no options
+            if (generatedOptions.length === 0) {
+                document.getElementById('no-results').classList.remove('hide');
+                document.getElementById('option-results').classList.add('hide');
+                setupRelaxFactors();
+            } else {
+                document.getElementById('no-results').classList.add('hide');
+                document.getElementById('option-results').classList.remove('hide');
+            }
+        }
+
+        function renderOptionList(options) {
+            if (options.length === 0) return '<p>No options in this category</p>';
+            
+            return options.map(option => {
+                const failedFactors = option.factorMatches ? option.factorMatches.filter(f => !f.matched) : [];
+                const passedFactors = option.factorMatches ? option.factorMatches.filter(f => f.matched) : [];
+                
+                return `
+                    <div class="option-card">
+                        <div class="option-name">${option.name}</div>
+                        <div class="match-score">
+                            ${Math.round(option.matchScore)}% match (${option.matchedFactors}/${option.totalFactors} factors)
+                        </div>
+                        ${passedFactors.length > 0 ? `
+                            <div style="margin-top: var(--space-8); color: var(--color-success); font-size: var(--font-size-xs);">
+                                ✓ Satisfied: ${passedFactors.map(f => f.name).join(', ')}
+                            </div>
+                        ` : ''}
+                        ${failedFactors.length > 0 ? `
+                            <div style="margin-top: var(--space-4); color: var(--color-error); font-size: var(--font-size-xs);">
+                                ✗ Missing: ${failedFactors.map(f => f.name).join(', ')}
+                            </div>
+                        ` : ''}
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function setupRelaxFactors() {
+            const container = document.getElementById('relax-checkboxes');
+            const criticalKeys = Array.from(CRITICAL_FACTOR_KEYS)
+                .filter(key => selectedFactors[key] && selectedFactors[key].length > 0);
+
+            if (criticalKeys.length === 0) {
+                container.innerHTML = '<p>No critical factors selected to relax.</p>';
+                return;
+            }
+
+            container.innerHTML = criticalKeys.map(key => {
+                const factorData = factorWhitelists[key];
+                if (!factorData) return '';
+                return (selectedFactors[key] || []).map(val => {
+                    const factorKey = `${key}_${val}`;
+                    return `
+                        <div class="factor-checkbox">
+                            <input type="checkbox" id="relax_${factorKey}" value="${factorKey}">
+                            <label for="relax_${factorKey}">${factorData.name}: ${val}</label>
+                        </div>
+                    `;
+                }).join('');
+            }).join('');
+        }
+
+        function rerunAnalysis() {
+            relaxedFactors.clear();
+            document.querySelectorAll('#relax-checkboxes input:checked').forEach(checkbox => {
+                relaxedFactors.add(checkbox.value);
+            });
+            
+            generateOptions();
+        }
+
+        function updateAHPFromSlider(slider) {
+            const comparisonId = slider.getAttribute('data-comparison');
+            const factor1 = slider.getAttribute('data-factor1');
+            const factor2 = slider.getAttribute('data-factor2');
+            const value = parseInt(slider.value);
+
+            // Map slider value to Saaty scale descriptions
+            const satyDescriptions = {
+                '-4': `${factor2} extremely more important`,
+                '-3': `${factor2} very strongly more important`,
+                '-2': `${factor2} strongly more important`,
+                '-1': `${factor2} moderately more important`,
+                '0': 'Equal importance',
+                '1': `${factor1} moderately more important`,
+                '2': `${factor1} strongly more important`,
+                '3': `${factor1} very strongly more important`,
+                '4': `${factor1} extremely more important`
+            };
+
+            // Update the AHP matrix with Saaty scale values (1,3,5,7,9)
+            if (!ahpMatrix[factor1]) ahpMatrix[factor1] = {};
+            if (!ahpMatrix[factor2]) ahpMatrix[factor2] = {};
+
+            let satyValue = 1;
+            if (value !== 0) {
+                satyValue = Math.abs(value) * 2 + 1;
+            }
+
+            if (value > 0) {
+                ahpMatrix[factor1][factor2] = satyValue;
+                ahpMatrix[factor2][factor1] = 1 / satyValue;
+            } else if (value < 0) {
+                ahpMatrix[factor1][factor2] = 1 / satyValue;
+                ahpMatrix[factor2][factor1] = satyValue;
+            } else {
+                ahpMatrix[factor1][factor2] = 1;
+                ahpMatrix[factor2][factor1] = 1;
+            }
+
+            // Update the display value
+            const displayElement = document.getElementById(`val_${comparisonId}`);
+            if (displayElement) {
+                displayElement.textContent = satyDescriptions[value] || 'Equal importance';
+            }
+            calculateAHPWeights();
+        }
+
+        function setupAHP() {
+            const container = document.getElementById('pairwise-comparisons');
+            let html = '';
+            
+            // Initialize AHP matrix
+            ahpMatrix = {};
+            ahpFactors.forEach(f1 => {
+                ahpMatrix[f1.name] = {};
+                ahpFactors.forEach(f2 => {
+                    if (f1.name === f2.name) {
+                        ahpMatrix[f1.name][f2.name] = 1;
+                    } else {
+                        ahpMatrix[f1.name][f2.name] = 1;
+                    }
+                });
+            });
+            
+            // Generate pairwise comparisons with button interface
+            for (let i = 0; i < ahpFactors.length; i++) {
+                for (let j = i + 1; j < ahpFactors.length; j++) {
+                    const factor1 = ahpFactors[i];
+                    const factor2 = ahpFactors[j];
+                    const comparisonId = `${i}_${j}`;
+                    
+                    html += `
+                        <div class="comparison-item">
+                            <div class="comparison-text"><strong>${factor1.name}</strong> vs <strong>${factor2.name}</strong></div>
+                            <p style="color: var(--color-text-secondary); font-size: var(--font-size-sm); margin: var(--space-8) 0;">
+                                ${factor1.description} vs ${factor2.description}
+                            </p>
+                            <div class="scale-labels" style="margin-bottom: var(--space-12);">
+                                <span style="color: var(--color-text-secondary);">${factor2.name} more important</span>
+                                <span style="color: var(--color-text-secondary);">Equal importance</span>
+                                <span style="color: var(--color-text-secondary);">${factor1.name} more important</span>
+                            </div>
+                            <div class="slider-container">
+                                <div class="comparison-scale-labels" style="display: flex; justify-content: space-between; margin-bottom: var(--space-12); font-size: var(--font-size-xs); color: var(--color-text-secondary);">
+                                    <span>${factor2.name}<br>extremely<br>more important</span>
+                                    <span>Very<br>strongly</span>
+                                    <span>Strongly</span>
+                                    <span>Moderately</span>
+                                    <span style="font-weight: bold;">EQUAL</span>
+                                    <span>Moderately</span>
+                                    <span>Strongly</span>
+                                    <span>Very<br>strongly</span>
+                                    <span>${factor1.name}<br>extremely<br>more important</span>
+                                </div>
+                                <input type="range" class="comparison-slider" id="slider_${comparisonId}" 
+                                    min="-4" max="4" value="0" step="1"
+                                    data-comparison="${comparisonId}" 
+                                    data-factor1="${factor1.name}" 
+                                    data-factor2="${factor2.name}">
+                                <div class="slider-scale-numbers" style="display: flex; justify-content: space-between; margin-top: var(--space-8); font-size: var(--font-size-xs); font-weight: var(--font-weight-bold); color: var(--color-text);">
+                                    <span>9</span>
+                                    <span>7</span>
+                                    <span>5</span>
+                                    <span>3</span>
+                                    <span>1</span>
+                                    <span>3</span>
+                                    <span>5</span>
+                                    <span>7</span>
+                                    <span>9</span>
+                                </div>
+                            </div>
+                            <div style="text-align: center; margin-top: var(--space-8); font-weight: var(--font-weight-medium);">
+                                Current: <span id="val_${comparisonId}">Equal importance</span>
+                            </div>
+                        </div>
+                    `;
+                }
+            }
+            
+            container.innerHTML = html;
+            
+            // Add event listeners to AHP comparison sliders
+            document.querySelectorAll('.comparison-slider').forEach(slider => {
+                slider.addEventListener('input', () => {
+                    updateAHPFromSlider(slider);
+                });
+                // Initialize the value display on load
+                updateAHPFromSlider(slider);
+            });
+            
+            calculateAHPWeights();
+        }
+
+        function selectAHPButton(scale, clickedButton) {
+            const comparisonId = scale.dataset.comparison;
+            const factor1 = scale.dataset.factor1;
+            const factor2 = scale.dataset.factor2;
+            const value = parseInt(clickedButton.dataset.value);
+            
+            // Remove selected class from all buttons in this scale
+            scale.querySelectorAll('.scale-button').forEach(btn => {
+                btn.classList.remove('selected');
+            });
+            
+            // Add selected class to clicked button
+            clickedButton.classList.add('selected');
+            
+            // Convert slider value to AHP scale and update display
+            let ahpValue, displayText;
+            if (value === 0) {
+                ahpValue = 1;
+                displayText = 'Equal importance';
+            } else if (value > 0) {
+                ahpValue = (value * 2) + 1; // 1, 3, 5, 7, 9
+                displayText = `${factor1} ${ahpValue === 3 ? 'moderately' : ahpValue === 5 ? 'strongly' : ahpValue === 7 ? 'very strongly' : 'extremely'} more important`;
+            } else {
+                ahpValue = 1 / (Math.abs(value * 2) + 1); // 1/3, 1/5, 1/7, 1/9
+                const importance = Math.abs(value * 2) + 1;
+                displayText = `${factor2} ${importance === 3 ? 'moderately' : importance === 5 ? 'strongly' : importance === 7 ? 'very strongly' : 'extremely'} more important`;
+            }
+            
+            // Update matrix
+            ahpMatrix[factor1][factor2] = ahpValue;
+            ahpMatrix[factor2][factor1] = 1 / ahpValue;
+            
+            // Update display
+            document.getElementById(`val_${comparisonId}`).textContent = displayText;
+            
+            calculateAHPWeights();
+        }
+
+        function updateAHPComparison(input) {
+            const value = parseInt(input.value);
+            const factor1 = input.dataset.factor1;
+            const factor2 = input.dataset.factor2;
+            const compId = input.id.replace('comp_', '');
+            
+            // Convert slider value to AHP scale
+            let ahpValue, displayText;
+            if (value === 0) {
+                ahpValue = 1;
+                displayText = '1 (Equal)';
+            } else if (value > 0) {
+                ahpValue = (value * 2) + 1; // 1, 3, 5, 7, 9
+                displayText = `${ahpValue} (${factor1} more important)`;
+            } else {
+                ahpValue = 1 / (Math.abs(value * 2) + 1); // 1/3, 1/5, 1/7, 1/9
+                displayText = `1/${Math.abs(value * 2) + 1} (${factor2} more important)`;
+            }
+            
+            // Update matrix
+            ahpMatrix[factor1][factor2] = ahpValue;
+            ahpMatrix[factor2][factor1] = 1 / ahpValue;
+            
+            // Update display
+            document.getElementById(`val_${compId}`).textContent = displayText;
+            
+            calculateAHPWeights();
+        }
+
+        function calculateAHPWeights() {
+            const n = ahpFactors.length;
+            const matrix = [];
+            
+            // Build matrix
+            ahpFactors.forEach(f1 => {
+                const row = [];
+                ahpFactors.forEach(f2 => {
+                    row.push(ahpMatrix[f1.name][f2.name]);
+                });
+                matrix.push(row);
+            });
+            
+            // Calculate column sums
+            const colSums = [];
+            for (let j = 0; j < n; j++) {
+                let sum = 0;
+                for (let i = 0; i < n; i++) {
+                    sum += matrix[i][j];
+                }
+                colSums.push(sum);
+            }
+            
+            // Normalize matrix
+            const normalizedMatrix = [];
+            for (let i = 0; i < n; i++) {
+                const row = [];
+                for (let j = 0; j < n; j++) {
+                    row.push(matrix[i][j] / colSums[j]);
+                }
+                normalizedMatrix.push(row);
+            }
+            
+            // Calculate priority weights (row averages)
+            const weights = [];
+            for (let i = 0; i < n; i++) {
+                let sum = 0;
+                for (let j = 0; j < n; j++) {
+                    sum += normalizedMatrix[i][j];
+                }
+                weights.push(sum / n);
+            }
+            
+            // Calculate consistency
+            const consistencyVector = [];
+            for (let i = 0; i < n; i++) {
+                let sum = 0;
+                for (let j = 0; j < n; j++) {
+                    sum += matrix[i][j] * weights[j];
+                }
+                consistencyVector.push(sum);
+            }
+            
+            let lambda = 0;
+            for (let i = 0; i < n; i++) {
+                lambda += consistencyVector[i] / weights[i];
+            }
+            lambda /= n;
+            
+            const CI = (lambda - n) / (n - 1);
+            const RI = [0, 0, 0, 0.58, 0.9, 1.12, 1.24, 1.32][n]; // Random Index (index = n)
+            const CR = CI / RI;
+            
+            // Store weights
+            ahpWeights = {};
+            ahpFactors.forEach((factor, i) => {
+                ahpWeights[factor.name] = weights[i];
+            });
+            
+            displayAHPWeights(CR);
+            updateNavigationButtons();
+        }
+
+        function displayAHPWeights(CR) {
+            const container = document.getElementById('priority-weights');
+            let html = '';
+            
+            Object.keys(ahpWeights).forEach(factor => {
+                const weight = (ahpWeights[factor] * 100).toFixed(1);
+                html += `
+                    <div class="weight-item">
+                        <span>${factor}</span>
+                        <span><strong>${weight}%</strong></span>
+                    </div>
+                `;
+            });
+            
+            container.innerHTML = html;
+            
+            // Update consistency display
+            const crDisplay = document.getElementById('consistency-ratio');
+            crDisplay.textContent = CR.toFixed(3);
+            document.getElementById('ahp-consistency').textContent = CR <= 0.1 ? 'Good' : 'Poor';
+            
+            const warning = document.getElementById('consistency-warning');
+            if (CR > 0.1) {
+                warning.classList.remove('hide');
+            } else {
+                warning.classList.add('hide');
+            }
+        }
+
+        function validateAHP() {
+            return Object.keys(ahpWeights).length === ahpFactors.length;
+        }
+
+        function calculateSuitability() {
+            suitabilityScores = {};
+            
+            // Define compatibility matrix (how each community factor aligns with option characteristics)
+            const compatibility = {
+                'Employment Generation': { high: 1.0, medium: 0.6, low: 0.2 },
+                'Social Inclusion': { high: 1.0, medium: 0.6, low: 0.2 },
+                'Environmental Sustainability': { high: 1.0, medium: 0.6, low: 0.2 },
+               
+                'Skill Development': { high: 1.0, medium: 0.6, low: 0.2 },
+                'Local Infrastructure Development': { high: 1.0, medium: 0.6, low: 0.2 }
+            };
+            
+            generatedOptions.forEach((option, index) => {
+                let weightedScore = 0;
+                const optionData = compatibilityMatrix[option.name] || {};
+                
+                // Calculate weighted score based on AHP weights and option characteristics
+                Object.keys(ahpWeights).forEach(factor => {
+                    const weight = ahpWeights[factor];
+                    const rating = optionData[factor] || 'low';
+                    const score = compatibility[factor][rating] || 0;
+                    
+                    weightedScore += weight * score;
+                });
+                
+                // Combine technical feasibility with community alignment
+                const technicalScore = option.matchScore / 100;
+                const communityScore = weightedScore;
+                const overallScore = (technicalScore * 0.6) + (communityScore * 0.4); // 60% technical, 40% community
+                
+                suitabilityScores[index] = {
+                    technical: technicalScore,
+                    community: communityScore,
+                    overall: overallScore,
+                    option: option
+                };
+            });
+            
+            displaySuitabilityResults();
+        }
+
+        function displaySuitabilityResults() {
+            const sortedOptions = Object.values(suitabilityScores).sort((a, b) => b.overall - a.overall);
+            
+            const mostSuitable = sortedOptions.filter(opt => opt.overall > 0.8);
+            const mediumSuitable = sortedOptions.filter(opt => opt.overall >= 0.5 && opt.overall <= 0.8);
+            const lowSuitable = sortedOptions.filter(opt => opt.overall < 0.5);
+            
+            document.getElementById('most-suitable-list').innerHTML = renderSuitabilityList(mostSuitable);
+            document.getElementById('medium-suitable-list').innerHTML = renderSuitabilityList(mediumSuitable);
+            document.getElementById('low-suitable-list').innerHTML = renderSuitabilityList(lowSuitable);
+            
+            // Show/hide tiers
+            document.getElementById('most-suitable').style.display = mostSuitable.length > 0 ? 'block' : 'none';
+            document.getElementById('medium-suitable').style.display = mediumSuitable.length > 0 ? 'block' : 'none';
+            document.getElementById('low-suitable').style.display = lowSuitable.length > 0 ? 'block' : 'none';
+        }
+
+        function renderSuitabilityList(options) {
+            if (options.length === 0) return '<p>No options in this category</p>';
+            
+            return options.map(item => `
+                <div class="option-card">
+                    <div class="option-name">${item.option.name}</div>
+                    <div class="match-score">
+                        Overall Score: ${(item.overall * 100).toFixed(1)}%<br>
+                        Technical: ${(item.technical * 100).toFixed(1)}% | Community Fit: ${(item.community * 100).toFixed(1)}%
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function calculateTOPSIS() {
+            const options = Object.values(suitabilityScores);
+            const criteria = ['technical', 'community'];
+            const weights = [0.6, 0.4]; // Technical 60%, Community 40%
+
+            if (options.length === 0) return;
+
+            // Normalize decision matrix
+            const normalizedMatrix = {};
+            criteria.forEach(criterion => {
+                const sumOfSquares = options.reduce((sum, opt) => sum + Math.pow(opt[criterion], 2), 0);
+                const norm = Math.sqrt(sumOfSquares);
+                normalizedMatrix[criterion] = options.map(opt => opt[criterion] / norm);
+            });
+
+            // Apply weights
+            const weightedMatrix = {};
+            criteria.forEach((criterion, i) => {
+                weightedMatrix[criterion] = normalizedMatrix[criterion].map(val => val * weights[i]);
+            });
+
+            // Determine ideal and anti-ideal solutions
+            const ideal = {};
+            const antiIdeal = {};
+            criteria.forEach(criterion => {
+                ideal[criterion] = Math.max(...weightedMatrix[criterion]);
+                antiIdeal[criterion] = Math.min(...weightedMatrix[criterion]);
+            });
+
+            // Calculate distances and closeness coefficient
+            const results = options.map((option, index) => {
+                let distanceToIdeal = 0;
+                let distanceToAntiIdeal = 0;
+                criteria.forEach(criterion => {
+                    const value = weightedMatrix[criterion][index];
+                    distanceToIdeal += Math.pow(value - ideal[criterion], 2);
+                    distanceToAntiIdeal += Math.pow(value - antiIdeal[criterion], 2);
+                });
+                distanceToIdeal = Math.sqrt(distanceToIdeal);
+                distanceToAntiIdeal = Math.sqrt(distanceToAntiIdeal);
+                const closenessCoefficient = distanceToAntiIdeal / (distanceToIdeal + distanceToAntiIdeal);
+                return {
+                    option: option.option,
+                    technical: option.technical,
+                    community: option.community,
+                    overall: option.overall,
+                    topsisScore: closenessCoefficient
+                };
+            });
+
+            // Sort by TOPSIS score and take top 5
+            finalRanking = results
+                .sort((a, b) => b.topsisScore - a.topsisScore)
+                .slice(0, 5);
+
+            displayFinalRanking();
+        }
+
+        // Lookup: option name → { img, url } from the Suvikalp categories page
+        const OPTION_CATALOG = {
+            'Solar PV Farms':                  { img: 'images/solar-pv1.jpg',                       url: 'categories/solar-pv.html' },
+            'Concrete Plants':                 { img: 'images/concrete-plant-bright.jpg',            url: 'categories/concrete.html' },
+            'Waste Recycling Centre':          { img: 'images/recycling-hero.jpg',                   url: 'categories/recycling.html' },
+            'BESS':                            { img: 'images/cs-nlcil-bess.jpg',                    url: 'categories/bess.html' },
+            'Floating Solar':                  { img: 'images/fspv-huainan-precedent.jpg',           url: 'categories/floating-solar.html' },
+            'Wind Farms':                      { img: 'images/wf-hero.jpg',                          url: 'categories/wind-farm.html' },
+            'Logistic Park':                   { img: 'images/lp-hero-logistics.jpg',                url: 'categories/logistics-park.html' },
+            'Industrial Hub':                  { img: 'images/ih-hero-industrial.jpg',               url: 'categories/industrial-hub.html' },
+            'Pumped Hydro Storage (PHS)':      { img: 'images/pumped-hydro-hero.jpg',                url: 'categories/pumped-hydro.html' },
+            'Data Centers':                    { img: 'images/dc-hero-Amazon_AWS_us-west-2.jpg',     url: 'categories/data-centre.html' },
+            'Convention Centre':               { img: 'images/convention-hero-varanasi.jpg',         url: 'categories/convention-centre.html' },
+            'Eco Park':                        { img: 'images/ecopark-hero.jpg',                     url: 'categories/ecopark.html' },
+            'Amphitheaters':                   { img: 'images/amphitheatre-hero.jpg',                url: 'categories/amphitheatre.html' },
+            'Greenhouses':                     { img: 'images/greenhouse-hero.jpg',                  url: 'categories/greenhouse.html' },
+            'UG Parks':                        { img: 'images/underground-park-hero.jpg',            url: 'categories/underground-park.html' },
+            'Adventure Tourism':               { img: 'images/adventure-tourism-thumb.jpg',          url: 'categories/adventure-tourism.html' },
+            'Sports Complex':                  { img: 'images/sc-hero-stadium.jpg',                  url: 'categories/sports-complex.html' },
+            'Livestock':                       { img: 'images/ls-prec-india-buffalo.jpg',            url: 'categories/livestock.html' },
+            'Agroforestry':                    { img: 'images/agroforestry-about.jpg',               url: 'categories/agroforestry.html' },
+            'Geo-repository':                  { img: 'images/cs-geo-datacenter.jpg',                url: 'categories/geo-repository.html' },
+            'Physics Lab (Education/Research)':{ img: 'images/physics-lab-hero.jpg',                 url: 'categories/physics-lab.html' },
+            'Mining Driving School':           { img: 'images/mds-hero-driving-track.png',           url: 'categories/mining-driving-school.html' },
+            'Preservation Centre':             { img: 'images/pc-about.jpg',                         url: 'categories/preservation-centre.html' },
+            'R&D Sites':                       { img: 'images/iitm-research-park-hero.jpg',          url: 'categories/r&d-sites.html' },
+            'Aquaculture':                     { img: 'images/aquaculture-thumb.jpg',                url: 'categories/aquaculture.html' },
+            'Livelihood Centre':               { img: 'images/lc-skill-training.jpg',               url: 'categories/livelihood-centre.html' },
+            'Dairy':                           { img: 'images/df-about.jpg',                         url: 'categories/dairy-farm.html' },
+            'Heritage Museum':                 { img: 'images/cs/cs-heritage.jpg',                   url: 'categories/heritage%20museum.html' },
+            'Mushroom Farm':                   { img: 'images/mf-hero.jpg',                          url: 'categories/mushroom-farm.html' },
+            'Art & Culture Centre':            { img: 'images/art-culture-hero.jpg',                 url: 'categories/art-and-cultural-centre.html' },
+            'Rewilding':                       { img: 'images/rw-hero-deer.jpg',                     url: 'categories/wildlife-sanctuary.html' },
+            'Pollinator Corridors':            { img: 'images/pollinator-thumb.jpg',                 url: 'categories/pollinator-wildlife-corridors.html' },
+            'Apiculture (Beekeeping)':         { img: 'images/apiculture-about.jpg',                 url: 'categories/apiculture.html' },
+            'Wetlands Restoration':            { img: 'images/wl-hero.jpg',                          url: 'categories/wetlands-restoration.html' },
+            'Botanical Gardens':               { img: 'images/botanical-garden-hero1.jpg',           url: 'categories/botanical-garden.html' },
+        };
+
+        function displayFinalRanking() {
+            const topContainer = document.getElementById('rank-top-cards');
+            const remainSection = document.getElementById('rank-remaining-section');
+            const remainList = document.getElementById('rank-remaining-list');
+
+            topContainer.innerHTML = '';
+            remainList.innerHTML = '';
+
+            finalRanking.forEach((item, index) => {
+                const name = item.option.name;
+                const cat = OPTION_CATALOG[name] || {};
+                const img = cat.img || 'images/wf-hero.jpg';
+                const url = cat.url || null;
+                const score = (item.topsisScore * 100).toFixed(1);
+
+                if (index < 3) {
+                    const clickAttr = url ? `onclick="window.open('${url}','_blank')"` : '';
+                    const badge = index === 0 ? '<span class="best-badge">🏆 Best Match</span>' : '';
+                    const linkBtn = url ? `<div class="card-link-btn" onclick="event.stopPropagation();window.open('${url}','_blank')">
+                        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/>
+                        </svg></div>` : '';
+                    topContainer.innerHTML += `
+                      <div class="result-card${url ? ' clickable' : ''}" ${clickAttr}>
+                        <div class="card-image-wrap">
+                          ${badge}
+                          <img src="${img}" alt="${name}" loading="lazy" onerror="this.src='images/wf-hero.jpg'">
+                          <div class="card-title">${name.toUpperCase()}</div>
+                          ${linkBtn}
+                        </div>
+                        <div class="card-score">
+                          <div class="card-score-label">Overall Score</div>
+                          <div class="score-bar-track"><div class="score-bar-fill" data-target="${score}"></div></div>
+                          <div class="score-val">${score} %</div>
+                        </div>
+                      </div>`;
+                } else {
+                    const tag   = url ? `a href="${url}" target="_blank"` : 'div';
+                    const close = url ? 'a' : 'div';
+                    remainList.innerHTML += `
+                      <${tag} class="remaining-item${url ? ' remaining-item--linked' : ''}">
+                        <div class="remaining-rank">#${index + 1}</div>
+                        <div class="remaining-thumb"><img src="${img}" alt="${name}" loading="lazy" onerror="this.src='images/wf-hero.jpg'"></div>
+                        <div class="remaining-info">
+                          <div class="remaining-name">${name}${url ? ' <span class="remaining-link-icon">&#8599;</span>' : ''}</div>
+                          <div class="remaining-bar-wrap">
+                            <div class="remaining-bar-track"><div class="remaining-bar-fill" data-target="${score}"></div></div>
+                            <div class="remaining-score-val">${score}%</div>
+                          </div>
+                        </div>
+                      </${close}>`;
+                }
+            });
+
+            if (finalRanking.length > 3) remainSection.style.display = 'block';
+
+            // Animate score bars after DOM update
+            setTimeout(() => {
+                document.querySelectorAll('.score-bar-fill[data-target], .remaining-bar-fill[data-target]').forEach(el => {
+                    el.style.width = el.dataset.target + '%';
+                });
+            }, 180);
+        }
+
+        function downloadResults() {
+            const csvContent = [
+                ['Rank', 'Option', 'TOPSIS Score', 'Technical Match %', 'Community Alignment %', 'Overall Score %'],
+                ...finalRanking.map((item, index) => [
+                    index + 1,
+                    item.option.name,
+                    item.topsisScore.toFixed(3),
+                    (item.technical * 100).toFixed(1),
+                    (item.community * 100).toFixed(1),
+                    (item.overall * 100).toFixed(1)
+                ])
+            ].map(row => row.join(',')).join('\n');
+            
+            const blob = new Blob([csvContent], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'mine_repurposing_results.csv';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }
+
+        // Test function to verify button functionality
+        function testButtonClicks() {
+            console.log('Testing button functionality...');
+            
+            const buttonGroups = document.querySelectorAll('.button-group');
+            console.log(`Found ${buttonGroups.length} button groups for testing`);
+            
+            buttonGroups.forEach(group => {
+                const factor = group.dataset.factor;
+                const buttons = group.querySelectorAll('.factor-button');
+                console.log(`Factor ${factor}: ${buttons.length} buttons`);
+                
+                buttons.forEach(button => {
+                    console.log(`  - Button: ${button.dataset.value} (${button.textContent.trim()})`);
+                });
+            });
+        }
+        
+        // Enhanced initialization with error handling
+        function initWithRetry() {
+            console.log('Starting enhanced initialization...');
+            
+            // Wait a bit for DOM to be fully ready
+            setTimeout(() => {
+                try {
+                    init();
+                    testButtonClicks();
+                } catch (error) {
+                    console.error('Initialization failed, retrying...', error);
+                    setTimeout(init, 100);
+                }
+            }, 10);
+        }
+        
+        // Initialize the application with multiple fallbacks
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initWithRetry);
+        } else {
+            initWithRetry();
+        }
+        
+        // Also try on window load as a fallback
+        window.addEventListener('load', () => {
+            if (Object.keys(selectedFactors).length === 0) {
+                console.log('Fallback initialization on window load');
+                init();
+            }
+        });
+    </script>
+
+</body>
