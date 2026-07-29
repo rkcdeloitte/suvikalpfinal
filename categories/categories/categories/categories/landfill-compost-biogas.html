@@ -1,0 +1,1813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Landfill + Compost & Biogas — SUVIKALP | Coal Controller Organisation</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="./category.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ── Local Inter font faces ─────────────────────────────── */
+@font-face { font-family:"Inter"; font-weight:400; font-display:swap; src:url("../fonts/Inter_18pt-Regular.woff2") format("woff2"),url("../fonts/Inter_18pt-Regular.ttf") format("truetype"); }
+@font-face { font-family:"Inter"; font-weight:500; font-display:swap; src:url("../fonts/Inter_18pt-Medium.woff2") format("woff2"),url("../fonts/Inter_18pt-Medium.ttf") format("truetype"); }
+@font-face { font-family:"Inter"; font-weight:600; font-display:swap; src:url("../fonts/Inter_18pt-SemiBold.woff2") format("woff2"),url("../fonts/Inter_18pt-SemiBold.ttf") format("truetype"); }
+@font-face { font-family:"Inter"; font-weight:700; font-display:swap; src:url("../fonts/Inter_18pt-Bold.woff2") format("woff2"),url("../fonts/Inter_18pt-Bold.ttf") format("truetype"); }
+
+/* ── Single unified font system ─────────────────────────── */
+:root {
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-devanagari: 'Noto Sans Devanagari', 'Noto Sans', sans-serif;
+  --fs-xs:   0.75rem;
+  --fs-sm:   0.8125rem;
+  --fs-base: 0.875rem;
+  --fs-md:   0.9375rem;
+  --fs-lg:   1rem;
+  --fs-xl:   1.125rem;
+  --fs-2xl:  1.375rem;
+  --lh-tight: 1.35;
+  --lh-base:  1.6;
+  --lh-loose: 1.8;
+}
+
+html, body, button, input, select, textarea { font-family: var(--font-sans); }
+.hindi, .header-cco-hindi { font-family: var(--font-devanagari); }
+
+.spv-body-text { font-family:var(--font-sans); font-size:var(--fs-md); line-height:var(--lh-loose); color:var(--color-text); margin-bottom:14px; font-weight:400; }
+.spv-list { margin:8px 0 14px 22px; font-family:var(--font-sans); font-size:var(--fs-md); line-height:var(--lh-loose); color:var(--color-text); }
+.spv-list li { margin-bottom:6px; }
+.spv-section-title { font-family:var(--font-sans); font-weight:700; font-size:var(--fs-xl); color:var(--color-teal-600); border-bottom:2px solid var(--color-primary); padding-bottom:8px; margin-bottom:22px; letter-spacing:-0.01em; }
+
+.accordion-btn { font-family:var(--font-sans); font-weight:600; font-size:var(--fs-base); }
+.accordion-body { font-family:var(--font-sans); font-size:var(--fs-md); }
+.spv-table, .spv-table thead tr th, .spv-table td, .spv-table td:first-child { font-family:var(--font-sans); }
+
+.spv-tab { font-family:var(--font-sans); font-weight:500; font-size:var(--fs-sm); }
+.spv-tab.active { font-weight:700; }
+.prism-label { font-family:var(--font-sans); font-size:0.7rem; line-height:1.3; }
+.prism-letter { font-family:var(--font-sans); font-weight:800; }
+
+.back-btn { font-family:var(--font-sans); font-weight:600; font-size:var(--fs-base); }
+.sf-breadcrumb { font-family:var(--font-sans); font-size:var(--fs-sm); }
+
+/* Tender tab styles are now self-contained inside spv-panel-tender */
+
+.cs-location { font-family:var(--font-sans); font-weight:700; font-size:var(--fs-base); }
+.cs-title { font-family:var(--font-sans); font-size:var(--fs-sm); line-height:var(--lh-base); }
+.cs-desc { font-family:var(--font-sans); font-size:var(--fs-sm); line-height:var(--lh-base); }
+.cs-subtab { font-family:var(--font-sans); font-size:var(--fs-md); font-weight:500; }
+.cs-subtab.active { font-weight:700; }
+
+/* Media/Web tab styles are now self-contained inside spv-panel-media */
+
+.agency-logo-name { font-family:var(--font-sans); font-weight:700; font-size:var(--fs-sm); }
+.agency-logo-type { font-family:var(--font-sans); font-size:0.72rem; }
+.agencies-intro-label { font-family:var(--font-sans); font-weight:700; display:none; }
+.agency-logo-inner--img { display:flex; align-items:center; justify-content:center; padding:10px 14px; border-radius:8px; height:76px !important; box-sizing:border-box; }
+.agency-logo-inner--img img { max-width:100%; max-height:56px; width:auto; height:auto; object-fit:contain; }
+.agencies-intro-text { font-family:var(--font-sans); font-size:var(--fs-md); line-height:var(--lh-base); }
+
+.expert-name { font-family:var(--font-sans); font-weight:700; font-size:var(--fs-lg); }
+.expert-role { font-family:var(--font-sans); font-size:var(--fs-sm); line-height:var(--lh-base); }
+.expert-bio { font-family:var(--font-sans); font-size:var(--fs-base); line-height:var(--lh-loose); }
+.expert-tag { font-family:var(--font-sans); font-size:0.7rem; font-weight:500; }
+.expert-contact a { font-family:var(--font-sans); font-size:var(--fs-base); font-weight:500; }
+.experts-intro-label { font-family:var(--font-sans); font-weight:700; }
+.experts-intro-text { font-family:var(--font-sans); font-size:var(--fs-md); line-height:var(--lh-base); }
+
+.impl-card-title { font-family:var(--font-sans); font-weight:600; font-size:var(--fs-base); }
+.impl-card-num { font-family:var(--font-sans); font-weight:700; }
+.banner-title { font-family:var(--font-sans); font-weight:700; }
+.banner-sub { font-family:var(--font-sans); font-size:var(--fs-base); line-height:var(--lh-base); }
+#site-footer-sf { font-family:var(--font-sans); font-size:var(--fs-xs); }
+
+/* ── About Tab ─────────────────────────────────────────── */
+.about-hero-row { display:flex; gap:28px; align-items:stretch; margin-bottom:40px; min-height:300px; }
+.about-hero-slide-col { flex:0 0 40%; min-width:0; display:flex; flex-direction:column; }
+.about-hero-slide-col .proj-slideshow { flex:none; height:340px; }
+.proj-static-img-wrap { position:relative; border-radius:14px; overflow:hidden; box-shadow:0 4px 24px rgba(0,0,0,.15); flex:none; height:340px; }
+.proj-static-img { width:100%; height:100%; object-fit:cover; display:block; }
+.about-hero-text-col { flex:1; min-width:0; display:flex; flex-direction:column; justify-content:center; }
+.about-hero-label { font-family:var(--font-sans); font-size:var(--fs-xs); font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--teal); margin-bottom:0; }
+.about-hero-label-wrap { margin-bottom:12px; }
+.about-hero-label-bar { display:block; height:3px; width:48px; margin-top:7px; border-radius:99px; background:linear-gradient(90deg,#21808d 0%,#38bdf8 60%,transparent 100%); }
+.about-intro { display:flex; flex-direction:column; gap:14px; }
+.about-intro-block { padding:14px 18px; border-radius:10px; }
+.about-intro-primary { border-left:4px solid #21808d; background:rgba(33,128,141,.05); }
+.about-intro-secondary { border-left:4px solid rgba(33,128,141,.3); background:#fafafa; }
+.about-section { margin-bottom:40px; }
+.about-section-eyebrow { font-family:var(--font-sans); font-size:var(--fs-xs); font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--teal); margin-bottom:4px; }
+.about-section-title { font-family:var(--font-sans); font-size:var(--fs-xl); font-weight:700; color:#0f172a; margin:0 0 20px; line-height:var(--lh-tight); }
+
+/* Schemes carousel */
+.schemes-outer { position:relative; margin:0 20px; }
+.schemes-nav-btn { position:absolute; top:50%; transform:translateY(-50%); z-index:10; width:36px; height:36px; border-radius:50%; background:#fff; border:1.5px solid #e2e8f0; box-shadow:0 2px 10px rgba(0,0,0,.10); cursor:pointer; display:flex; align-items:center; justify-content:center; color:#475569; transition:background .2s,color .2s,border-color .2s,box-shadow .2s; padding:0; }
+.schemes-nav-btn:hover { background:var(--teal,#0a9396); color:#fff; border-color:var(--teal,#0a9396); box-shadow:0 4px 14px rgba(10,147,150,.3); }
+.schemes-nav-btn.schemes-prev { left:-20px; }
+.schemes-nav-btn.schemes-next { right:-20px; }
+.schemes-ticker-wrap { overflow:hidden; position:relative; mask-image:linear-gradient(to right,transparent 0%,black 7%,black 93%,transparent 100%); -webkit-mask-image:linear-gradient(to right,transparent 0%,black 7%,black 93%,transparent 100%); }
+.schemes-ticker { display:flex; gap:16px; overflow-x:auto; -ms-overflow-style:none; scrollbar-width:none; padding:8px 4px; }
+.schemes-ticker::-webkit-scrollbar { display:none; }
+.scheme-card { flex:0 0 220px; scroll-snap-align:start; background:#fff; border:1px solid #e8eaed; border-radius:12px; padding:18px 16px; box-shadow:0 2px 8px rgba(0,0,0,.05); transition:box-shadow .2s,transform .2s; }
+.scheme-card:hover { box-shadow:0 6px 20px rgba(0,0,0,.1); transform:translateY(-3px); }
+.scheme-card-icon { font-size:22px; margin-bottom:10px; }
+.scheme-card-tag { font-family:var(--font-sans); font-size:var(--fs-xs); font-weight:700; letter-spacing:.09em; text-transform:uppercase; color:var(--teal); margin-bottom:5px; }
+.scheme-card-title { font-family:var(--font-sans); font-size:var(--fs-base); font-weight:700; color:#1e293b; margin-bottom:8px; line-height:var(--lh-tight); }
+.scheme-card-desc { font-family:var(--font-sans); font-size:var(--fs-sm); color:#64748b; line-height:var(--lh-base); display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
+
+/* Projects slideshow */
+.proj-slideshow { position:relative; border-radius:14px; overflow:hidden; box-shadow:0 4px 24px rgba(0,0,0,.15); background:#000; }
+.proj-slide { display:none; position:relative; height:100%; min-height:260px; }
+.proj-slide.active { display:block; animation:projFadeIn .5s ease; }
+@keyframes projFadeIn { from { opacity:0; transform:scale(1.03); } to { opacity:1; transform:scale(1); } }
+.proj-slide-img { width:100%; height:100%; object-fit:cover; display:block; }
+.proj-slide-overlay { position:absolute; bottom:0; left:0; right:0; padding:12px 18px; background:linear-gradient(90deg,rgba(10,70,80,.95) 0%,rgba(33,128,141,.88) 100%); display:flex; align-items:center; gap:0; z-index:1; }
+.proj-caption { font-family:var(--font-sans); font-size:var(--fs-base); font-weight:600; color:#fff; line-height:1.4; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.proj-ss-btn { position:absolute; top:50%; transform:translateY(-50%); width:36px; height:36px; border-radius:50%; background:rgba(255,255,255,.18); backdrop-filter:blur(6px); border:1px solid rgba(255,255,255,.28); color:#fff; font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:background .2s,opacity .25s; z-index:3; opacity:0; }
+.proj-slideshow:hover .proj-ss-btn { opacity:1; }
+.proj-ss-btn:hover { background:rgba(255,255,255,.38); }
+.proj-ss-prev { left:12px; }
+.proj-ss-next { right:12px; }
+.proj-ss-dots { display:none; }
+.proj-ss-counter { display:none; }
+.vibgyor-chips { display:none !important; }
+  </style>
+</head>
+<body>
+<header id="site-header">
+  <div class="header-left">
+    <div class="header-tool-title">
+      <span class="hindi">सुविकल्प:</span> Mine Repurposing Tool
+    </div>
+    <div class="header-tool-sub">
+      Select factors and sub-factors to discover suitable repurposing options for your mining site
+    </div>
+  </div>
+  <div class="header-right">
+    <a href="https://coalcontroller.gov.in/" target="_blank" rel="noopener" title="CCO Home">
+    <div class="header-cco-lockup">
+      <img class="header-cco-logo" src="data:image/png;base64,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" alt="Coal Controller Organisation emblem">
+      <div class="header-cco-text"></div>
+    </div>
+    </a>
+  </div>
+</header>
+
+<div class="page">
+
+  <!-- Back bar -->
+  <div class="sf-backbar">
+    <button class="back-btn" onclick="window.location.href='../index.html'" aria-label="Back to results">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M10 3L5 8l5 5"/>
+      </svg>
+      Back to Results
+    </button>
+    <span class="sf-breadcrumb">
+      <span>Final Recommendations</span>
+      <span class="sep">/</span>
+      <span style="color:var(--teal);font-weight:500;">Landfill + Compost &amp; Biogas</span>
+    </span>
+  </div>
+
+  <!-- Hero Image -->
+  <div class="spv-hero-wrap">
+    <img src="../images/lcb-hero.jpg" alt="Engineered landfill, composting and biogas facility on repurposed closed coal mine land — integrated solid waste management" class="spv-hero-img">
+    <div class="spv-hero-overlay"></div>
+    <div class="spv-hero-title">LANDFILL + COMPOST &amp; BIOGAS</div>
+  </div>
+
+  <!-- Tab navigation -->
+  <nav class="spv-tabs" aria-label="Detail sections">
+    <button class="spv-tab active" data-tab="about"       onclick="showSPVTab('about')">About</button>
+    <button class="spv-tab"        data-tab="prism"        onclick="showSPVTab('prism')">P.R.I.S.M</button>
+    <button class="spv-tab"        data-tab="casestudies"  onclick="showSPVTab('casestudies');setTimeout(function(){window.dispatchEvent(new Event('resize'))},30)">Case Studies</button>
+    <button class="spv-tab"        data-tab="tender"       onclick="showSPVTab('tender')">Sample Tender Documents</button>
+    <button class="spv-tab"        data-tab="media"        onclick="showSPVTab('media')">Media/Web</button>
+    <button class="spv-tab"        data-tab="agencies"    onclick="showSPVTab('agencies')">Agencies</button>
+<!-- EXPERTS TAB HIDDEN (page not yet complete)
+<button class="spv-tab"        data-tab="experts"      onclick="showSPVTab('experts')">Experts</button>
+-->
+  </nav>
+
+  <div id="spv-panel-about" class="spv-panel">
+    <div class="spv-content">
+
+      <div class="about-hero-row">
+        <div class="about-hero-slide-col">
+          <div class="about-hero-label-wrap">
+            <div class="about-hero-label">Precedents</div>
+            <span class="about-hero-label-bar"></span>
+          </div>
+          <div class="proj-static-img-wrap">
+            <img src="../images/gobardhan-indore-plant.jpg" alt="Aerial view of Indore GOBARdhan Bio-CNG Plant, Devguradia, Madhya Pradesh — industrial anaerobic digester tanks and processing sheds, Asia's largest MSW biogas facility at 550 TPD capacity" class="proj-static-img" loading="lazy">
+            <div class="proj-slide-overlay">
+              <span class="proj-caption">Indore GOBARdhan Bio-CNG Plant — Asia's Largest, Madhya Pradesh</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-hero-text-col">
+          <div class="about-intro">
+            <div class="about-intro-block about-intro-primary">
+              <strong>Landfill + Compost &amp; Biogas</strong> development transforms suitable closed, reclaimed, or repurposed coal mine land into an <strong>integrated solid waste processing and resource-recovery facility</strong>. The concept combines scientific / engineered landfill for inert and process rejects, windrow / aerated composting for segregated organic waste, biomethanation / compressed biogas generation from wet biodegradable waste, leachate collection and treatment, landfill gas capture, compost / digestate curing, material recovery for recyclables, green buffer plantations, and local livelihood creation through facility operations and green jobs.
+            </div>
+            <div class="about-intro-block about-intro-secondary">
+              Unlike open dumping, an integrated facility reduces final landfill quantum, generates compost, <strong>Bio-CNG</strong> and soil conditioner, supports methane reduction, and enables controlled disposal of inert rejects in phased cells. India's <strong>Solid Waste Management Rules, 2016</strong> require scientific processing and sanitary landfilling of residual waste, while the <strong>SWM Rules, 2026</strong> further emphasize waste processing, monitoring, buffer zones, and restrictions on landfilling recyclable or energy-recoverable waste. Indore's GOBARdhan Bio-CNG plant processes ~550 TPD of segregated organic MSW, producing ~17,000 kg of Bio-CNG and ~100 tonnes of compost per day — demonstrating commercial scale.
+            </div>
+          </div>
+        </div>
+      </div><!-- /about-hero-row -->
+
+      <div class="about-section">
+        <div class="about-section-eyebrow">Relevant Schemes &amp; Standards</div>
+        <h3 class="about-section-title">Policy Levers enabling Landfill + Compost &amp; Biogas development</h3>
+        <div class="schemes-outer">
+          <button class="schemes-nav-btn schemes-prev" onclick="schemesNav(-1)" aria-label="Previous">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <div class="schemes-ticker-wrap">
+            <div class="schemes-ticker" id="schemesTicker">
+              <div class="scheme-card">
+                <div class="scheme-card-icon">♻️</div>
+                <div class="scheme-card-tag">MoEFCC</div>
+                <div class="scheme-card-title">Solid Waste Management Rules 2016 &amp; 2026</div>
+                <div class="scheme-card-desc">SWM Rules 2016 mandate scientific processing and sanitary landfilling of residual MSW. The SWM Rules 2026 framework strengthens requirements for buffer zones, monitoring systems, and restrictions on landfilling recyclable or energy-recoverable waste — making engineered landfill + compost + biogas the compliant model for waste facilities above 5 TPD on mine land.</div>
+              </div>
+              <div class="scheme-card">
+                <div class="scheme-card-icon">🏙️</div>
+                <div class="scheme-card-tag">MoHUA / SBM-U</div>
+                <div class="scheme-card-title">Swachh Bharat Mission Urban</div>
+                <div class="scheme-card-desc">SBM Urban supports development of integrated waste-processing infrastructure including Material Recovery Facilities (MRF), composting plants, biomethanation units, and sanitary landfills. Advisory on CBG Plants Based on MSW and Model Design Document for 100 TPD Windrow Composting Plant are available from SBM-U for technical guidance.</div>
+              </div>
+              <div class="scheme-card">
+                <div class="scheme-card-icon">🌿</div>
+                <div class="scheme-card-tag">MoPC / MoHUA</div>
+                <div class="scheme-card-title">GOBARdhan — Galvanizing Organic Bio-Agro Resources Dhan</div>
+                <div class="scheme-card-desc">GOBARdhan scheme promotes biogas and compressed biogas (CBG) production from organic waste, agricultural residue, and municipal solid waste. Mine-area biogas plants processing segregated organic MSW can access GOBARdhan support, registration, and linkage with the SATAT Bio-CNG marketing programme.</div>
+              </div>
+              <div class="scheme-card">
+                <div class="scheme-card-icon">⚡</div>
+                <div class="scheme-card-tag">MNRE / MoPNG</div>
+                <div class="scheme-card-title">SATAT &amp; MNRE Bio-CNG / Bioenergy Programmes</div>
+                <div class="scheme-card-desc">The SATAT scheme (Sustainable Alternative Towards Affordable Transportation) enables Bio-CNG producers to sell to Oil Marketing Companies at assured prices. MNRE's bioenergy programmes provide financial support and technical frameworks for biomethanation and biomass energy projects, including MSW-based biogas plants.</div>
+              </div>
+              <div class="scheme-card">
+                <div class="scheme-card-icon">📋</div>
+                <div class="scheme-card-tag">CPHEEO / MoUD</div>
+                <div class="scheme-card-title">CPHEEO MSW Management Manual</div>
+                <div class="scheme-card-desc">CPHEEO's Manual on Municipal Solid Waste Management (2016) provides detailed design guidance for sanitary landfills, composting systems, biomethanation plants, leachate treatment, landfill gas management, and MRF design — the authoritative technical reference for landfill + compost + biogas facilities in India.</div>
+              </div>
+              <div class="scheme-card">
+                <div class="scheme-card-icon">⛏️</div>
+                <div class="scheme-card-tag">Ministry of Coal / CCO</div>
+                <div class="scheme-card-title">CCO Mine Closure Frameworks — A.R.T.H.A., L.I.V.E.S., R.E.C.L.A.I.M.</div>
+                <div class="scheme-card-desc">CCO's mine-closure handbooks promote productive reuse of closed mine land for essential public infrastructure. Landfill + compost + biogas facilities directly support just-transition objectives — converting mine land into productive waste management and resource-recovery assets aligned with A.R.T.H.A. green finance and L.I.V.E.S. livelihood frameworks.</div>
+              </div>
+
+              <!-- duplicates for seamless loop -->
+              <div class="scheme-card" aria-hidden="true">
+                <div class="scheme-card-icon">♻️</div>
+                <div class="scheme-card-tag">MoEFCC</div>
+                <div class="scheme-card-title">Solid Waste Management Rules 2016 &amp; 2026</div>
+                <div class="scheme-card-desc">SWM Rules 2016 mandate scientific processing and sanitary landfilling of residual MSW. The SWM Rules 2026 framework strengthens requirements for buffer zones, monitoring systems, and restrictions on landfilling recyclable or energy-recoverable waste — making engineered landfill + compost + biogas the compliant model for waste facilities above 5 TPD on mine land.</div>
+              </div>
+              <div class="scheme-card" aria-hidden="true">
+                <div class="scheme-card-icon">🏙️</div>
+                <div class="scheme-card-tag">MoHUA / SBM-U</div>
+                <div class="scheme-card-title">Swachh Bharat Mission Urban</div>
+                <div class="scheme-card-desc">SBM Urban supports development of integrated waste-processing infrastructure including Material Recovery Facilities (MRF), composting plants, biomethanation units, and sanitary landfills. Advisory on CBG Plants Based on MSW and Model Design Document for 100 TPD Windrow Composting Plant are available from SBM-U for technical guidance.</div>
+              </div>
+              <div class="scheme-card" aria-hidden="true">
+                <div class="scheme-card-icon">🌿</div>
+                <div class="scheme-card-tag">MoPC / MoHUA</div>
+                <div class="scheme-card-title">GOBARdhan — Galvanizing Organic Bio-Agro Resources Dhan</div>
+                <div class="scheme-card-desc">GOBARdhan scheme promotes biogas and compressed biogas (CBG) production from organic waste, agricultural residue, and municipal solid waste. Mine-area biogas plants processing segregated organic MSW can access GOBARdhan support, registration, and linkage with the SATAT Bio-CNG marketing programme.</div>
+              </div>
+              <div class="scheme-card" aria-hidden="true">
+                <div class="scheme-card-icon">⚡</div>
+                <div class="scheme-card-tag">MNRE / MoPNG</div>
+                <div class="scheme-card-title">SATAT &amp; MNRE Bio-CNG / Bioenergy Programmes</div>
+                <div class="scheme-card-desc">The SATAT scheme (Sustainable Alternative Towards Affordable Transportation) enables Bio-CNG producers to sell to Oil Marketing Companies at assured prices. MNRE's bioenergy programmes provide financial support and technical frameworks for biomethanation and biomass energy projects, including MSW-based biogas plants.</div>
+              </div>
+              <div class="scheme-card" aria-hidden="true">
+                <div class="scheme-card-icon">📋</div>
+                <div class="scheme-card-tag">CPHEEO / MoUD</div>
+                <div class="scheme-card-title">CPHEEO MSW Management Manual</div>
+                <div class="scheme-card-desc">CPHEEO's Manual on Municipal Solid Waste Management (2016) provides detailed design guidance for sanitary landfills, composting systems, biomethanation plants, leachate treatment, landfill gas management, and MRF design — the authoritative technical reference for landfill + compost + biogas facilities in India.</div>
+              </div>
+              <div class="scheme-card" aria-hidden="true">
+                <div class="scheme-card-icon">⛏️</div>
+                <div class="scheme-card-tag">Ministry of Coal / CCO</div>
+                <div class="scheme-card-title">CCO Mine Closure Frameworks — A.R.T.H.A., L.I.V.E.S., R.E.C.L.A.I.M.</div>
+                <div class="scheme-card-desc">CCO's mine-closure handbooks promote productive reuse of closed mine land for essential public infrastructure. Landfill + compost + biogas facilities directly support just-transition objectives — converting mine land into productive waste management and resource-recovery assets aligned with A.R.T.H.A. green finance and L.I.V.E.S. livelihood frameworks.</div>
+              </div>
+            </div><!-- /schemes-ticker -->
+          </div><!-- /schemes-ticker-wrap -->
+          <button class="schemes-nav-btn schemes-next" onclick="schemesNav(1)" aria-label="Next">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div><!-- /spv-panel-about -->
+
+  <div id="spv-panel-prism" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+
+<style>
+  .pr-intro { padding:22px 24px 20px; background:rgba(33,128,141,.05); border:1px solid rgba(33,128,141,.15); border-radius:14px; margin-bottom:20px; }
+  .pr-intro-eyebrow { font-size:15px; font-weight:700; letter-spacing:.01em; text-transform:none; color:#21808d; margin-bottom:8px; font-style:normal; line-height:1.35; }
+  .pr-intro-heading { font-size:16px; font-weight:700; color:#0f172a; margin-bottom:10px; line-height:1.35; font-style:normal; }
+  .pr-intro-body { font-size:13.5px; color:#374151; line-height:1.85; font-style:normal; }
+  .pr-shell { display:flex; border:1px solid #e2e8f0; border-radius:14px; overflow:clip; background:#fff; }
+  .pr-sidebar { width:220px; flex-shrink:0; border-right:1px solid #e8edf2; padding:16px 0 16px; background:#f8fafc; position:sticky; top:125px; align-self:flex-start; max-height:calc(100vh - 155px); overflow-y:auto; overflow-x:visible; }
+  .pr-sidebar-label { font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:#7a8a9a; padding:0 16px 14px; font-style:normal; }
+  .pr-nav-highlight { position:absolute; left:0; right:0; pointer-events:none; z-index:0; will-change:top,height; background:color-mix(in srgb, var(--pr-hl,#C85000) 9%,transparent); transition:top .4s cubic-bezier(.4,0,.2,1),height .4s cubic-bezier(.4,0,.2,1),background .38s ease; }
+  .pr-nav-highlight::before { content:''; position:absolute; left:0; top:0; bottom:0; width:3px; background:var(--pr-hl,#C85000); border-radius:0 2px 2px 0; transition:background .38s ease; }
+  .pr-nav-item { position:relative; z-index:1; display:flex; align-items:center; gap:12px; padding:13px 16px; cursor:pointer; font-style:normal; }
+  .pr-nav-item::after { display:none; }
+  .pr-nav-item:hover, .pr-nav-item.active { background:transparent; transform:none; }
+  .pr-nav-badge { width:34px; height:34px; border-radius:50%; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:800; border:1.5px solid #d1d5db; color:#9ca3af; background:#fff; position:relative; z-index:1; transition:background .35s cubic-bezier(.4,0,.2,1),color .3s ease,border-color .35s ease,transform .45s cubic-bezier(.34,1.56,.64,1),box-shadow .35s ease; }
+  .pr-nav-item.active .pr-nav-badge { background:var(--pr-accent); color:#fff; border-color:var(--pr-accent); transform:scale(1.12); box-shadow:0 0 0 4px color-mix(in srgb,var(--pr-accent) 18%,transparent),0 3px 10px color-mix(in srgb,var(--pr-accent) 32%,transparent); }
+  .pr-nav-item:hover:not(.active) .pr-nav-badge { border-color:var(--pr-accent); color:var(--pr-accent); background:color-mix(in srgb,var(--pr-accent) 7%,#fff); transform:scale(1.07); }
+  .pr-nav-letter { font-size:13px; font-weight:600; color:#374151; line-height:1.25; font-style:normal; position:relative; z-index:1; transition:color .25s ease,font-weight .2s; }
+  .pr-nav-item.active .pr-nav-letter { color:var(--pr-accent); font-weight:700; }
+  .pr-nav-item:hover:not(.active) .pr-nav-letter { color:var(--pr-accent); }
+  @keyframes nav-slide-in { from { opacity:0; transform:translateX(-10px); } to { opacity:1; transform:translateX(0); } }
+  .pr-nav-item { opacity:0; animation:nav-slide-in .32s cubic-bezier(.4,0,.2,1) both; }
+  .pr-nav-item:nth-child(3) { animation-delay:.02s; }
+  .pr-nav-item:nth-child(4) { animation-delay:.07s; }
+  .pr-nav-item:nth-child(5) { animation-delay:.12s; }
+  .pr-nav-item:nth-child(6) { animation-delay:.17s; }
+  .pr-nav-item:nth-child(7) { animation-delay:.22s; }
+  .pr-content-wrap { flex:1; min-width:0; }
+  .pr-content-wrap .prism2-content-panel { border-radius:0; box-shadow:none; }
+  .prism2-content-panel .prism2-panel-header { background:color-mix(in srgb,var(--pc) 5%,#fff); }
+  .prism2-panel-eyebrow { font-size:13px; font-weight:700; letter-spacing:.10em; text-transform:uppercase; color:var(--pc); margin-bottom:6px; opacity:1; }
+</style>
+
+<!-- PRISM intro banner -->
+<div class="pr-intro">
+  <div class="pr-intro-eyebrow">PRISM – Post-Mining Repurposing and Implementation Strategy Models</div>
+  <div class="pr-intro-heading">A structured framework for mine repurposing from concept to implementation</div>
+  <div class="pr-intro-body">PRISM is a structured framework designed to support identified post-mining repurposing opportunities by evaluating suitable implementation pathways, financial and revenue-generation models, and the implementation requirements, roles, and responsibilities of mine owners, developers, operators, and other stakeholders throughout the project lifecycle. Built around five integrated pillars, PRISM guides Landfill + Compost &amp; Biogas projects from concept to operation.</div>
+</div>
+
+<!-- PRISM sidebar + content shell -->
+<div class="pr-shell">
+  <div class="pr-sidebar">
+    <div class="pr-sidebar-label">Pillars</div>
+    <div class="pr-nav-highlight" id="pr-hl"></div>
+    <div class="pr-nav-item active" style="--pr-accent:#C85000;" data-key="P" onclick="prNav('P')">
+      <div class="pr-nav-badge">P</div>
+      <div><div class="pr-nav-letter">Project vision</div></div>
+    </div>
+    <div class="pr-nav-item" style="--pr-accent:#1a5ca8;" data-key="R" onclick="prNav('R')">
+      <div class="pr-nav-badge">R</div>
+      <div><div class="pr-nav-letter">Repurposing pathways</div></div>
+    </div>
+    <div class="pr-nav-item" style="--pr-accent:#b06a10;" data-key="I" onclick="prNav('I')">
+      <div class="pr-nav-badge">I</div>
+      <div><div class="pr-nav-letter">Investment dynamics</div></div>
+    </div>
+    <div class="pr-nav-item" style="--pr-accent:#5a3d9e;" data-key="S" onclick="prNav('S')">
+      <div class="pr-nav-badge">S</div>
+      <div><div class="pr-nav-letter">Strategic structuring</div></div>
+    </div>
+    <div class="pr-nav-item" style="--pr-accent:#1a7a5e;" data-key="M" onclick="prNav('M')">
+      <div class="pr-nav-badge">M</div>
+      <div><div class="pr-nav-letter">Monitoring guidance</div></div>
+    </div>
+  </div><!-- /pr-sidebar -->
+
+  <div class="pr-content-wrap">
+
+      <div class="prism2-content-panel active" id="prism2-panel-P" style="--pc:#C85000;--pb:#fff0e6;--cb:#fff8f3;">
+      <div class="prism2-panel-header">
+        <div class="prism2-panel-header-letter">P</div>
+        <div class="prism2-panel-header-text">
+          <div class="prism2-panel-eyebrow">PROJECT VISION</div>
+          <p class="prism2-panel-desc">Covers the project concept, strategic rationale, site suitability and technical specification matrix, and indicative scale models — from a pilot organic processing zone on 1–5 ha to a regional waste-to-resource and engineered landfill ecosystem at 100 ha+.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Project Overview</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">This concept proposes the development of <strong>Landfill + Compost &amp; Biogas Zones</strong> on closed, reclaimed, or repurposed coal mine land as part of a sustainable mine-closure and post-mining land-use strategy. The objective is to convert suitable under-utilized mine land into an <strong>integrated solid-waste processing and resource-recovery facility</strong>.</p>
+          <p class="spv-body-text">Components include: scientific / engineered landfill for inert and process rejects; windrow / aerated composting for segregated organic waste; biomethanation / compressed biogas generation from wet biodegradable waste; leachate collection and treatment; landfill gas capture where applicable; compost / digestate curing and quality control; material recovery for recyclables before landfilling; green buffers, odour-control systems, and environmental monitoring; and local livelihood creation through facility operations, compost handling, waste segregation, logistics, and green jobs.</p>
+          <p class="spv-body-text">Unlike open dumping, an integrated facility: reduces the quantity of waste finally landfilled; generates compost, biogas / Bio-CNG, and soil conditioner; supports methane reduction and climate objectives; enables controlled disposal of inert rejects; can be developed in phased cells; and is compatible with large, bufferable mine-closure land parcels.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Strategic Rationale</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <ul class="spv-list">
+            <li>Productive reuse of closed mine land for essential public infrastructure</li>
+            <li>Reduction of open dumping and legacy waste accumulation</li>
+            <li>Controlled scientific disposal of inert and process rejects</li>
+            <li>Compost production from segregated biodegradable waste</li>
+            <li>Biogas / Bio-CNG generation from wet organic waste through anaerobic digestion</li>
+            <li>Methane-emission reduction compared with unmanaged dumping</li>
+            <li>Revenue generation through tipping fee, compost sale, Bio-CNG sale, electricity generation, carbon / ESG value, and recyclables recovery</li>
+            <li>Scope for long-term local employment in segregation, composting, gas-plant operation, leachate management, laboratory testing, logistics, and site maintenance</li>
+            <li>Ability to integrate with municipal waste-management systems, mining townships, and nearby ULBs</li>
+            <li>Phased development using landfill cells, compost pads, and modular biogas digesters</li>
+            <li>Opportunity to create green buffer plantations and post-closure ecological improvement</li>
+            <li>Compliance-oriented replacement of unscientific dumping</li>
+            <li>Supports Swachh Bharat Mission, GOBARdhan, circular economy, and mine-closure repurposing objectives</li>
+          </ul>
+          <p class="spv-body-text"><strong>Key Reference:</strong> Indore's GOBARdhan Bio-CNG plant processes ~550 TPD of segregated organic MSW, producing ~17,000 kg of Bio-CNG and ~100 tonnes of compost per day — demonstrating commercial viability at scale.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Site Suitability &amp; Technical Specification Matrix</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following matrix provides a structured checklist for assessing the suitability of the proposed site for the selected repurposing option. It identifies the key physical, technical, environmental, infrastructure, legal, and owner-side readiness parameters that should be reviewed before the project is advanced to the next stage of development. The purpose of this matrix is to help the project owner understand existing site conditions, technical requirements, potential constraints, and preparatory actions required before feasibility studies, approvals, or tendering are initiated.</p>
+          <table class="spv-table">
+            <thead><tr><th>Category</th><th>What to Assess / Prepare</th><th>Why It Matters</th><th>Owner-Side Readiness</th></tr></thead>
+            <tbody>
+              <tr><td>Land Status</td><td>Closure status, ownership, permissible post-mining use, land-use compatibility</td><td>Legal viability and project approval</td><td>Closure and land-use note</td></tr>
+              <tr><td>Mine Safety</td><td>Subsidence, slope stability, mine voids, old dumps, spontaneous heating / fire risk</td><td>Ensures landfill cells, compost pads, and biogas units are safely located</td><td>Geotechnical and safety screening</td></tr>
+              <tr><td>Hydrogeology</td><td>Groundwater depth, aquifer vulnerability, flow direction, nearby wells</td><td>Critical for landfill liner design and pollution prevention</td><td>Hydrogeological report</td></tr>
+              <tr><td>Flood Risk</td><td>Floodplain mapping, stormwater flow, drainage paths</td><td>Landfills should avoid flood-prone areas and wetlands</td><td>Flood and drainage assessment</td></tr>
+              <tr><td>Soil Condition</td><td>Bearing capacity, permeability, contamination, suitability for embankments</td><td>Determines liner system, foundation, and capping design</td><td>Soil investigation report</td></tr>
+              <tr><td>Buffer Availability</td><td>Distance from settlements, schools, hospitals, water bodies, eco-sensitive zones</td><td>Odour, gas, bird, vector, dust, and public safety management</td><td>Buffer zoning plan</td></tr>
+              <tr><td>Waste Catchment</td><td>Nearby ULBs, mining townships, markets, institutions, industries</td><td>Determines waste quantity and project scale</td><td>Waste supply assessment</td></tr>
+              <tr><td>Waste Composition</td><td>Wet waste, dry waste, inert fraction, C&amp;D waste, rejects, seasonal variation</td><td>Determines composting, biogas, and landfill capacity</td><td>Waste characterization study</td></tr>
+              <tr><td>Segregation Readiness</td><td>Source segregation, collection system, wet/dry stream separation</td><td>Biogas and compost require clean biodegradable feedstock</td><td>Segregation improvement plan</td></tr>
+              <tr><td>Access</td><td>Truck routes, weighbridge location, road width, turning radius</td><td>Supports continuous waste movement and avoids public nuisance</td><td>Traffic and logistics plan</td></tr>
+              <tr><td>Leachate Management</td><td>Leachate collection, treatment, recirculation / disposal</td><td>Core landfill pollution-control requirement</td><td>Leachate treatment concept</td></tr>
+              <tr><td>Gas Management</td><td>Landfill gas vents, gas wells, flare / utilization, biogas purification</td><td>Controls methane, odour, explosion risk, and energy recovery</td><td>Gas management plan</td></tr>
+              <tr><td>Composting Technology</td><td>Windrow, aerated static pile, in-vessel, curing area, screening</td><td>Determines land requirement, odour risk, and compost quality</td><td>Compost technology note</td></tr>
+              <tr><td>Biogas Technology</td><td>Wet / dry anaerobic digestion, CSTR, plug-flow, pre-treatment, gas cleaning</td><td>Determines Bio-CNG / power output and CAPEX</td><td>Biomethanation DPR note</td></tr>
+              <tr><td>Environmental Monitoring</td><td>Groundwater wells, air quality, odour, noise, leachate, compost quality</td><td>Compliance and community confidence</td><td>Monitoring framework</td></tr>
+              <tr><td>Safety</td><td>Fire, methane, confined spaces, vector control, heavy vehicle movement</td><td>Worker and public safety</td><td>Safety and emergency plan</td></tr>
+              <tr><td>Compliance</td><td>SWM Rules, SPCB consent, environmental clearance if applicable, PESO / gas approvals</td><td>Legal operation</td><td>Approval matrix</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Indicative Landfill + Compost &amp; Biogas Scale Matrix</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">The following matrix presents an indicative relationship between available site area, project scale, technical configuration, and likely development potential. It is intended to support preliminary planning by helping the project owner identify the appropriate scale and configuration for the proposed repurposing option. The values and recommendations are indicative and should be refined through detailed feasibility studies, site surveys, engineering assessments, and relevant technical and commercial evaluations.</p>
+          <p class="spv-body-text">CPHEEO's MSW Management Manual provides design guidance for sanitary landfills, composting, and biomethanation. SBM Urban's advisory for CBG plants notes that a 100 TPD feedstock plant may require ~16,000–20,000 sq. m (4–5 acres).</p>
+          <table class="spv-table">
+            <thead><tr><th>Land Area</th><th>Recommended Scale</th><th>Configuration</th><th>Use Case</th></tr></thead>
+            <tbody>
+              <tr><td>1–5 ha</td><td>Pilot organic processing zone</td><td>5–25 TPD composting / small biomethanation, leachate tank, curing area, green buffer, no major landfill except small inert storage</td><td>Mine township / institutional wet-waste processing</td></tr>
+              <tr><td>5–20 ha</td><td>Decentralized compost + biogas facility</td><td>25–100 TPD wet-waste processing, 5–25 TPD biogas module, windrow composting, material recovery, small engineered reject cell</td><td>Nearby ULB or mining cluster</td></tr>
+              <tr><td>20–50 ha</td><td>Integrated landfill + compost + biogas facility</td><td>100–300 TPD processing, 50–150 TPD composting / biogas, phased sanitary landfill cells for rejects, leachate treatment, weighbridge, lab</td><td>District / cluster-level waste management</td></tr>
+              <tr><td>50–100 ha</td><td>Large integrated solid-waste management park</td><td>300–750 TPD MSW handling, large composting, Bio-CNG plant, MRF, RDF rejects handling, engineered landfill, green buffer, training centre</td><td>PPP / DBFOT / concession model</td></tr>
+              <tr><td>100 ha+</td><td>Regional waste-to-resource and engineered landfill ecosystem</td><td>750 TPD+ regional waste facility, multi-cell landfill, Bio-CNG, composting, MRF, landfill gas management, solar, greenbelt, eco-monitoring</td><td>Just-transition flagship and regional waste infrastructure</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="prism2-nav-row">
+        <button class="prism2-btn-prev" id="prism2-prev-P" onclick="prism2Prev()" disabled>&#8592; Previous</button>
+        <div class="prism2-progress-dots" style="display:flex;gap:5px;align-items:center;">
+          <span class="pdot active" data-p="P"></span><span class="pdot" data-p="R"></span>
+          <span class="pdot" data-p="I"></span><span class="pdot" data-p="S"></span><span class="pdot" data-p="M"></span>
+        </div>
+        <button class="prism2-btn-next" id="prism2-next-P" onclick="prism2Next()">Next pillar &#8594;</button>
+      </div>
+    </div><!-- /prism2-panel-P -->
+
+      <div class="prism2-content-panel" id="prism2-panel-R" style="--pc:#1a5ca8;--pb:#e4eef9;--cb:#f3f7fd;">
+      <div class="prism2-panel-header">
+        <div class="prism2-panel-header-letter">R</div>
+        <div class="prism2-panel-header-text">
+          <div class="prism2-panel-eyebrow">REPURPOSING PATHWAYS</div>
+          <p class="prism2-panel-desc">Describes the seven implementation models for landfill + compost + biogas projects and the comparative assessment driving model selection — balancing mine-owner control, environmental safeguards, private investment, waste-processing expertise, and community livelihood.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Implementation Options</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following table outlines the possible implementation models that may be considered for developing the proposed repurposing project. These models differ in terms of ownership structure, funding responsibility, private sector participation, operational control, and long-term risk allocation. The purpose of this table is to help the project owner compare broad development routes and select an implementation approach that aligns with its financial capacity, institutional preference, risk appetite, and long-term asset management objectives.</p>
+          <table class="spv-table">
+            <thead><tr><th>Main Group</th><th>Model</th><th>Core Feature</th><th>Broad Suitability</th></tr></thead>
+            <tbody>
+              <tr><td>Owner-Funded</td><td>EPC</td><td>Mine owner funds and owns the landfill / compost / biogas infrastructure; contractor designs and builds</td><td>Suitable for basic infrastructure: landfill cell, compost pad, drains, roads, weighbridge, fencing, leachate tank, and initial processing sheds</td></tr>
+              <tr><td>Owner-Controlled Operations</td><td>EPC + O&amp;M / FM</td><td>Mine owner retains ownership and control while an agency operates and maintains the landfill, composting, and biogas systems</td><td>Highly suitable where the owner wants strong control over compliance, local employment, community welfare, environmental monitoring, and facility performance</td></tr>
+              <tr><td>Private Investment with Transfer</td><td>BOOT</td><td>Private developer finances, builds, and operates the facility for a concession period, then transfers assets</td><td>Suitable for Bio-CNG, composting, leachate treatment, and engineered landfill facilities with tipping fee and revenue generation</td></tr>
+              <tr><td>Private Ownership</td><td>BOO</td><td>Private developer builds, owns, and operates on leased / permitted land</td><td>Suitable for commercially driven composting or Bio-CNG projects; less preferred where land stewardship and community benefit are key</td></tr>
+              <tr><td>Structured PPP</td><td>DBFOT</td><td>Private concessionaire designs, builds, finances, operates, and transfers the integrated facility</td><td>Very suitable for large landfill + compost + biogas parks requiring private finance, technical capability, long concession period</td></tr>
+              <tr><td>Land-Based Concession</td><td>Concession / LDO</td><td>Mine owner retains land ownership while operator develops and operates under lease / concession terms</td><td>Very suitable where the owner wants land control, private operational expertise, revenue sharing, and livelihood obligations</td></tr>
+              <tr><td>Multi-Partner Integrated</td><td>Hybrid</td><td>Combines mine-owner land, ULB waste supply, private operator, CSR / public funding, SHG participation, and technical partners</td><td>Most suitable for balancing mine-closure objectives, waste processing, community livelihood, ESG outcomes, and owner revenue</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Comparative Assessment of Key Models</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following comparative assessment evaluates the major implementation models across key decision parameters such as investment requirement, ownership control, financing responsibility, contractual complexity, risk transfer, and long-term economic benefit. This matrix is intended to support early-stage decision-making by highlighting the relative strengths and limitations of each model. The final choice of model should be guided by the specific circumstances of the project, including its scale, commercial viability, applicable policy framework, and the owner's institutional preference.</p>
+          <table class="spv-table">
+            <thead><tr><th>Parameter</th><th>EPC</th><th>EPC+O&amp;M</th><th>BOOT</th><th>BOO</th><th>DBFOT</th><th>Concession</th><th>Hybrid</th></tr></thead>
+            <tbody>
+              <tr><td>Owner upfront investment</td><td>High</td><td>High–Moderate</td><td>Low–Moderate</td><td>Low</td><td>Low–Moderate</td><td>Low–Moderate</td><td>Variable</td></tr>
+              <tr><td>Private financing needed</td><td>Low</td><td>Low</td><td>High</td><td>High</td><td>High</td><td>Moderate–High</td><td>Variable</td></tr>
+              <tr><td>Land ownership retained</td><td>Yes</td><td>Yes</td><td>Land retained</td><td>Limited</td><td>Land usually retained</td><td>Land retained</td><td>Usually retained</td></tr>
+              <tr><td>Welfare / community suitability</td><td>High</td><td>Very High</td><td>High if mandated</td><td>Moderate</td><td>High</td><td>Very High</td><td>Very High</td></tr>
+              <tr><td>Local livelihood suitability</td><td>Moderate</td><td>Very High</td><td>High</td><td>Moderate</td><td>High–Very High</td><td>Very High</td><td>Very High</td></tr>
+              <tr><td>Revenue potential</td><td>Low–Moderate</td><td>Moderate–High</td><td>High</td><td>High</td><td>High</td><td>Moderate–High</td><td>Variable–High</td></tr>
+              <tr><td>Long-term O&amp;M suitability</td><td>Low–Moderate</td><td>High</td><td>High</td><td>High</td><td>Very High</td><td>Very High</td><td>Very High</td></tr>
+              <tr><td>Overall suitability</td><td>Moderate</td><td>High</td><td>High</td><td>Moderate</td><td>Very High</td><td>Very High</td><td>Most Suitable</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Model-Wise Responsibility Logic</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following table explains how major project responsibilities are typically allocated under different implementation models. It covers key functional areas such as site availability, financing, design and construction, regulatory approvals, operation and maintenance, revenue collection, asset ownership, and end-of-term transfer. This helps clarify the respective roles of the project owner, private developer, EPC contractor, operator, or concessionaire, and supports the preparation of tender documents and contractual structures.</p>
+          <table class="spv-table">
+            <thead><tr><th>Responsibility Area</th><th>EPC</th><th>EPC+O&amp;M</th><th>BOOT</th><th>DBFOT</th><th>Concession</th><th>Hybrid</th></tr></thead>
+            <tbody>
+              <tr><td>Site / land availability</td><td>Mine Owner</td><td>Mine Owner</td><td>Mine Owner / authority</td><td>Mine Owner / authority</td><td>Mine Owner / authority</td><td>Mine Owner / shared</td></tr>
+              <tr><td>Waste catchment mapping</td><td>Owner / consultant</td><td>Owner + O&amp;M agency</td><td>Developer / consultant</td><td>Concessionaire</td><td>Concessionaire</td><td>Shared</td></tr>
+              <tr><td>Landfill cell design</td><td>Owner / consultant</td><td>Owner + O&amp;M agency</td><td>Developer / expert</td><td>Concessionaire</td><td>Concessionaire / operator</td><td>Shared</td></tr>
+              <tr><td>Biogas / Bio-CNG plant</td><td>EPC contractor / owner</td><td>Owner / O&amp;M agency</td><td>Developer</td><td>Concessionaire</td><td>Concessionaire / operator</td><td>Shared / tech partner</td></tr>
+              <tr><td>Day-to-day operations</td><td>Mine Owner</td><td>O&amp;M agency</td><td>Developer</td><td>Concessionaire</td><td>Concessionaire / operator</td><td>SHG / operator / concessionaire</td></tr>
+              <tr><td>Waste supply agreements</td><td>Owner / ULB</td><td>Owner + O&amp;M agency</td><td>Developer if mandated</td><td>Concessionaire</td><td>Concessionaire + ULB</td><td>Shared</td></tr>
+              <tr><td>SHG / waste-picker integration</td><td>Mine Owner</td><td>O&amp;M agency / NGO</td><td>Developer if mandated</td><td>Contract-based</td><td>Concessionaire / NGO</td><td>Core feature</td></tr>
+              <tr><td>Environmental compliance</td><td>Mine Owner</td><td>Owner + O&amp;M agency</td><td>Developer</td><td>Concessionaire</td><td>Concessionaire</td><td>Shared</td></tr>
+              <tr><td>Revenue collection</td><td>Mine Owner</td><td>Owner / operator on behalf</td><td>Developer during concession</td><td>Concessionaire</td><td>Concessionaire / shared</td><td>Shared</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="prism2-nav-row">
+        <button class="prism2-btn-prev" id="prism2-prev-R" onclick="prism2Prev()">&#8592; Previous</button>
+        <div class="prism2-progress-dots" style="display:flex;gap:5px;align-items:center;">
+          <span class="pdot" data-p="P"></span><span class="pdot active" data-p="R"></span>
+          <span class="pdot" data-p="I"></span><span class="pdot" data-p="S"></span><span class="pdot" data-p="M"></span>
+        </div>
+        <button class="prism2-btn-next" id="prism2-next-R" onclick="prism2Next()">Next pillar &#8594;</button>
+      </div>
+    </div><!-- /prism2-panel-R -->
+
+      <div class="prism2-content-panel" id="prism2-panel-I" style="--pc:#b06a10;--pb:#faedda;--cb:#fdf7f0;">
+      <div class="prism2-panel-header">
+        <div class="prism2-panel-header-letter">I</div>
+        <div class="prism2-panel-header-text">
+          <div class="prism2-panel-eyebrow">INVESTMENT DYNAMICS</div>
+          <p class="prism2-panel-desc">Covers funding logic by model, revenue generation streams — tipping fee, compost sale, Bio-CNG / power, recyclables recovery, carbon / ESG value — and livelihood outcomes including SHG, waste-picker, and local employment integration by model.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Funding Logic by Model</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following table presents the broad funding logic for each implementation model. It explains who is expected to finance the project, the level of owner-side funding requirement, and the commercial rationale behind each structure. This section is intended to help the project owner assess whether the project is more suitable for owner-funded development, private investment, public-private partnership, lease or concession structure, or a hybrid funding arrangement.</p>
+          <table class="spv-table">
+            <thead><tr><th>Model</th><th>Funding Source</th><th>Owner Funding Requirement</th><th>Suitability</th></tr></thead>
+            <tbody>
+              <tr><td>EPC</td><td>Mine owner budget / mine closure fund / CSR / public funds</td><td>High</td><td>Suitable for basic landfill cell, compost pad, leachate tank, roads, drains, weighbridge, fencing</td></tr>
+              <tr><td>EPC + O&amp;M / FM</td><td>Mine owner budget + O&amp;M budget + CSR + ULB tipping fee</td><td>High–Moderate</td><td>Strong fit where owner wants control over welfare, compliance, waste-worker integration, and facility maintenance</td></tr>
+              <tr><td>BOOT</td><td>Private developer capital + possible CSR / VGF / grant + assured waste supply</td><td>Low–Moderate</td><td>Suitable for Bio-CNG, composting, and landfill support infrastructure with transfer at end</td></tr>
+              <tr><td>BOO</td><td>Private developer capital</td><td>Low</td><td>Suitable for commercially driven Bio-CNG or composting; less preferred where community control is important</td></tr>
+              <tr><td>DBFOT</td><td>Private concessionaire + public support + ULB tipping fee + VGF</td><td>Low–Moderate</td><td>Suitable for large integrated landfill + compost + biogas parks with private finance</td></tr>
+              <tr><td>Concession / LDO</td><td>Private operator / ULB / NGO / CSR / blended finance / tipping fee</td><td>Low–Moderate</td><td>Very suitable for community-linked waste processing with lease fee and revenue sharing</td></tr>
+              <tr><td>Hybrid</td><td>Owner + CSR + ULB tipping fee + government schemes + private operator + SHG/FPO + grants</td><td>Variable</td><td>Most suitable for balancing mine-closure, landfill compliance, composting, Bio-CNG, livelihood, and owner revenue</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Revenue Generation by Model</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following table explains how revenue may be generated under different implementation models and identifies who is likely to receive the principal project income. It also describes the nature and extent of the financial benefit available to the project owner, whether through direct project revenue, cost savings, lease income, concession fees, revenue sharing, service charges, or eventual asset transfer. This comparison is intended to support the selection of a commercially appropriate model for the proposed repurposing project.</p>
+          <table class="spv-table">
+            <thead><tr><th>Model</th><th>How Revenue is Generated</th><th>Who Receives Main Revenue</th><th>Owner's Financial Benefit</th></tr></thead>
+            <tbody>
+              <tr><td>EPC</td><td>Tipping fee, compost sale, recyclables, Bio-CNG / power if installed, landfill user charges, training fees</td><td>Mine Owner</td><td>Full revenue retained; owner bears full CAPEX, O&amp;M, compliance, and market risk</td></tr>
+              <tr><td>EPC + O&amp;M / FM</td><td>Tipping fee, compost, Bio-CNG / electricity, recyclables, carbon / ESG benefits, training</td><td>Mine Owner after O&amp;M agency payments</td><td>High benefit; retains revenue while outsourcing technical management</td></tr>
+              <tr><td>BOOT</td><td>Tipping fee, Bio-CNG, compost, electricity, landfill charges, recyclables, carbon during concession</td><td>Developer / concessionaire during concession</td><td>Lease rent, concession fee, revenue share, and asset transfer at end</td></tr>
+              <tr><td>DBFOT</td><td>Structured revenue from tipping fee, Bio-CNG, compost, electricity, recyclables, landfill fee, carbon</td><td>Concessionaire during concession</td><td>Concession fee, lease rent, revenue share, and asset transfer at end</td></tr>
+              <tr><td>Concession / LDO</td><td>Landfill gate fee, compost, biogas / Bio-CNG, recyclables, ULB service charges, training</td><td>Concessionaire / operator as per agreement</td><td>Lease rentals, revenue share, improved land value, socio-economic benefits</td></tr>
+              <tr><td>Hybrid</td><td>Mixed: tipping fee, compost, Bio-CNG, electricity, recyclables, grants, CSR, carbon / ESG, training</td><td>Shared between owner, operator, SHG/FPO, NGO, concessionaire</td><td>Variable to high through revenue share, reduced O&amp;M burden, ESG gains</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Local Livelihood &amp; Jobs by Model</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following table assesses the likely local livelihood and employment potential of each implementation model. It considers the extent to which each model can support construction-phase jobs, long-term operational employment, local procurement opportunities, skill development, community participation, and associated support services. This section is particularly relevant where the repurposing project is expected to contribute to post-mining or post-operational economic transition and sustained local community benefit.</p>
+          <table class="spv-table">
+            <thead><tr><th>Model</th><th>Local Job Potential</th><th>Why</th><th>Overall Suggestibility</th></tr></thead>
+            <tbody>
+              <tr><td>EPC</td><td>Moderate</td><td>Short-term construction jobs; long-term jobs depend on owner-led operations after completion</td><td>Moderate</td></tr>
+              <tr><td>EPC + O&amp;M / FM</td><td>High–Very High</td><td>Sustained employment: weighbridge, segregation, composting, curing, screening, biogas support, leachate management, greenbelt, safety</td><td>Very High</td></tr>
+              <tr><td>BOOT</td><td>High</td><td>Development and operation jobs; local hiring strong if mandated in concession agreement</td><td>High</td></tr>
+              <tr><td>DBFOT</td><td>High–Very High</td><td>Large integrated facility: landfill operations, composting, Bio-CNG, MRF, lab testing, vehicles, training, greenbelt</td><td>High–Very High</td></tr>
+              <tr><td>Concession / LDO</td><td>Very High</td><td>Long-term livelihood: SHG / waste-picker participation, compost handling, plant operations, logistics, nursery, monitoring</td><td>Very High</td></tr>
+              <tr><td>Hybrid</td><td>Very High</td><td>Best: combines owner support, private expertise, NGO facilitation, SHG/FPO participation, CSR support, ULB waste supply</td><td>Very High / Most Suitable</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+            <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Combined Comparison: Revenue, Profitability, and Livelihood</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following combined comparison brings together three important dimensions of project structuring: revenue potential, owner-side financial benefit, and local livelihood generation. It provides a consolidated view of how each implementation model performs across commercial, institutional, and community-development perspectives. This matrix is intended to support balanced decision-making where the objective extends beyond financial return to include sustainable site reuse and long-term local economic benefit.</p>
+        <div class="table-wrap">
+          <table class="spv-table">
+            <thead><tr><th>Model</th><th>Owner Profitability</th><th>Local Job Creation</th><th>Overall Comment</th></tr></thead>
+            <tbody>
+              <tr><td><strong>EPC</strong></td><td>High — owner retains full revenue after capital repayment</td><td>Moderate to High</td><td>Suitable where the owner has funding capacity and seeks full control over the asset</td></tr>
+              <tr><td><strong>EPC + O&amp;M / FM</strong></td><td>High — full revenue retained after O&amp;M / FM contract costs</td><td>High to Very High</td><td>Best for owners who want full control combined with professional facility management</td></tr>
+              <tr><td><strong>BOOT</strong></td><td>Moderate — income through lease, concession fee, or transfer value</td><td>High</td><td>Suitable where private financing is needed; owner benefits indirectly and gains the asset at end of concession</td></tr>
+              <tr><td><strong>DBFOT</strong></td><td>Moderate to High — through lease, concession fee, and transfer</td><td>High to Very High</td><td>Strong PPP structure for larger projects requiring private investment and structured public participation</td></tr>
+              <tr><td><strong>Concession / LDO</strong></td><td>Moderate — through concession fee and revenue-sharing arrangement</td><td>High to Very High</td><td>Highly suitable where the owner wants to retain land while outsourcing commercial activation</td></tr>
+              <tr><td><strong>Hybrid</strong></td><td>Variable to High — depends on structure and revenue-sharing terms</td><td>Very High</td><td>Most suitable where public value, community benefit, and commercial viability are all required</td></tr>
+            </tbody>
+          </table>
+        </div>
+        </div>
+      </div>
+
+<div class="prism2-nav-row">
+        <button class="prism2-btn-prev" id="prism2-prev-I" onclick="prism2Prev()">&#8592; Previous</button>
+        <div class="prism2-progress-dots" style="display:flex;gap:5px;align-items:center;">
+          <span class="pdot" data-p="P"></span><span class="pdot" data-p="R"></span>
+          <span class="pdot active" data-p="I"></span><span class="pdot" data-p="S"></span><span class="pdot" data-p="M"></span>
+        </div>
+        <button class="prism2-btn-next" id="prism2-next-I" onclick="prism2Next()">Next pillar &#8594;</button>
+      </div>
+    </div><!-- /prism2-panel-I -->
+
+      <div class="prism2-content-panel" id="prism2-panel-S" style="--pc:#5a3d9e;--pb:#edeaf8;--cb:#f7f5fd;">
+      <div class="prism2-panel-header">
+        <div class="prism2-panel-header-letter">S</div>
+        <div class="prism2-panel-header-text">
+          <div class="prism2-panel-eyebrow">STRATEGIC STRUCTURING</div>
+          <p class="prism2-panel-desc">Describes the 13-item checklist for what must be ready before the first RFP — land confirmation, regulatory screening, mine-safety zoning, waste characterization, technology layout, market assessment — and the 15-step post-award implementation sequence.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Preparations Needed Before RFP</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">The following section identifies the key owner-side preparatory actions that should ideally be completed before issuing the first Request for Proposal. These actions are aimed at reducing uncertainty for prospective bidders, improving project bankability, clarifying site availability, identifying approval pathways and risks, and defining the technical and commercial scope of the project. Completing these preparatory steps before tendering can improve bid quality, attract credible responses, and reduce the risk of delays during project implementation.</p>
+          <p class="spv-body-text">Before issuing an RFP for a Landfill + Compost &amp; Biogas based mine repurposing project, the mine owner should prepare the following in priority order:</p>
+          <ol class="spv-list">
+            <li><strong>Land and closure confirmation</strong> — Confirm ownership, mine-closure status, land-use permissibility, and compatibility for scientific solid-waste processing, composting, biomethanation, and sanitary landfill use.</li>
+            <li><strong>Legal and regulatory screening</strong> — Review SWM Rules 2016/2026, SPCB consent requirements, ULB authorization, tipping-fee rights, waste ownership, compost / Bio-CNG sale rights, and revenue-sharing permissibility.</li>
+            <li><strong>Mine safety and no-go zone mapping</strong> — Identify unstable dumps, highwalls, subsidence-prone areas, mine-fire zones, waterlogged pits, old voids, and restricted mine infrastructure.</li>
+            <li><strong>Preliminary technical site assessment</strong> — Topographic survey, geotechnical screening, hydrogeological note, groundwater depth, drainage review, flood-risk screening, and soil permeability assessment.</li>
+            <li><strong>Environmental and contamination screening</strong> — Soil, groundwater, surface water, air quality, dust, residual contamination, and ecological sensitivity assessment.</li>
+            <li><strong>Waste catchment and quantity assessment</strong> — Identify nearby ULBs, mine townships, markets, institutions, industrial canteens; estimate daily waste in TPD.</li>
+            <li><strong>Waste characterization and segregation readiness</strong> — Assess wet waste, dry recyclables, inert fraction, rejects, C&amp;D waste, and seasonal variation; review whether source-segregated wet waste can be supplied for composting and biomethanation.</li>
+            <li><strong>Preliminary technology and zoning plan</strong> — Initial layout for MRF, composting pad, biomethanation / CBG plant, sanitary landfill cells, leachate treatment, green buffer, roads, weighbridge, laboratory, and no-go areas.</li>
+            <li><strong>Leachate, landfill gas, and odour-control concept</strong> — Basic concepts for leachate collection, stormwater separation, landfill gas venting / flaring, Bio-CNG gas safety, odour control, and daily-cover management.</li>
+            <li><strong>Market and revenue assessment</strong> — Assess tipping fee, compost sale, Bio-CNG / electricity, recyclables, RDF if applicable, carbon / ESG benefits, and landfill user charges.</li>
+            <li><strong>Cost and implementation model selection</strong> — Broad CAPEX, 5-year O&amp;M estimate, tipping-fee assumptions, and preferred model (Hybrid, Concession / LDO, DBFOT, or EPC + O&amp;M).</li>
+            <li><strong>Draft RFP scope and performance obligations</strong> — Bidder obligations: design, construction, operation, SWM compliance, landfill-cell management, compost quality, Bio-CNG performance, local employment, safety, environmental monitoring, and post-closure responsibility.</li>
+            <li><strong>Bid evaluation framework</strong> — Criteria: solid-waste experience, landfill design capability, composting / biomethanation track record, SPCB compliance history, financial capacity, O&amp;M plan, local livelihood integration, and revenue proposal.</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Activities to be taken After Selecting the Agency</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following section lists the principal activities that may be undertaken by the selected contractor, developer, concessionaire, operator, or implementation agency after award of the project. These activities generally include detailed site investigations, engineering design, statutory submissions and approvals, equipment procurement, construction, commissioning, operational planning, staff training, and performance monitoring. The distinction between pre-RFP owner preparedness and post-award implementation responsibilities helps ensure an appropriate and efficient allocation of effort across the project development cycle.</p>
+          <ol class="spv-list">
+            <li><strong>Detailed site investigation</strong> — Topographic survey, drone mapping, geotechnical investigation, hydrogeological study, groundwater monitoring baseline, flood-risk review, and landfill foundation assessment.</li>
+            <li><strong>Detailed waste and feedstock study</strong> — Seasonal waste characterization, wet-waste quality testing, inert / reject assessment, recyclables estimation, and ULB / bulk-waste generator supply commitments.</li>
+            <li><strong>Detailed environmental and regulatory planning</strong> — Environmental management plan, leachate management plan, landfill gas management plan, odour-control plan, stormwater plan, fire-safety plan, and statutory approval roadmap.</li>
+            <li><strong>Final master planning</strong> — Final facility master plan: waste receiving area, MRF, composting zone, biomethanation / CBG plant, sanitary landfill cells, leachate treatment, green buffer, internal roads, emergency access.</li>
+            <li><strong>DPR preparation</strong> — Final surveys, design basis, technology selection, landfill-cell design, composting and biomethanation design, financial model, O&amp;M plan, approvals plan, and implementation schedule.</li>
+            <li><strong>Approvals and statutory permissions</strong> — SPCB Consent to Establish, ULB / local-body authorization, fire NOC, environmental clearance if triggered, PESO / gas-safety approvals, and other project-specific permissions.</li>
+            <li><strong>Detailed engineering and procurement</strong> — Landfill liner, leachate pipes, leachate treatment plant, compost pad, digester, gas-holder, Bio-CNG purification, weighbridge, laboratory, drains, roads, fencing, and utilities.</li>
+            <li><strong>Construction and installation</strong> — Landfill cells, MRF, composting pad, biomethanation unit, leachate treatment system, stormwater drains, access roads, green buffer, weighing system, CCTV, fire-fighting, and worker facilities.</li>
+            <li><strong>Operating procedures and compliance systems</strong> — SOPs for waste acceptance, segregation, composting, digester feeding, gas handling, landfill compaction, daily cover, leachate treatment, odour control, and environmental monitoring.</li>
+            <li><strong>Recruitment and training</strong> — Operators, safety staff, laboratory staff, landfill supervisors, compost workers, equipment operators, SHG members, waste workers, and local youth in PPE, safety, and operating procedures.</li>
+            <li><strong>Trial operation and performance testing</strong> — Trial runs for MRF, composting, biogas generation, leachate treatment, weighbridge, landfill operations, gas safety, odour control, and emergency response.</li>
+            <li><strong>Commissioning and commercial operation</strong> — Full-scale operations after statutory readiness, safety clearance, feedstock confirmation, trial-run stabilization, and approval from the mine owner / authority.</li>
+            <li><strong>Regular operation and monitoring</strong> — Routine O&amp;M, compost quality testing, leachate and groundwater monitoring, landfill gas monitoring, Bio-CNG performance reporting, incident reporting, and SWM compliance.</li>
+            <li><strong>Local livelihood and market linkage</strong> — SHGs, waste workers, transporters, compost distributors, local farmers, nurseries, and service providers for sustained livelihood and product offtake.</li>
+            <li><strong>Phased expansion</strong> — Expand landfill cells, composting capacity, Bio-CNG modules, green buffer, and monitoring based on waste supply, regulatory compliance, revenue performance, and approved master plan.</li>
+          </ol>
+        </div>
+      </div>
+      <div class="prism2-nav-row">
+        <button class="prism2-btn-prev" id="prism2-prev-S" onclick="prism2Prev()">&#8592; Previous</button>
+        <div class="prism2-progress-dots" style="display:flex;gap:5px;align-items:center;">
+          <span class="pdot" data-p="P"></span><span class="pdot" data-p="R"></span>
+          <span class="pdot" data-p="I"></span><span class="pdot active" data-p="S"></span><span class="pdot" data-p="M"></span>
+        </div>
+        <button class="prism2-btn-next" id="prism2-next-S" onclick="prism2Next()">Next pillar &#8594;</button>
+      </div>
+    </div><!-- /prism2-panel-S -->
+
+      <div class="prism2-content-panel" id="prism2-panel-M" style="--pc:#1a7a5e;--pb:#e1f3ec;--cb:#f1faf6;">
+      <div class="prism2-panel-header">
+        <div class="prism2-panel-header-letter">M</div>
+        <div class="prism2-panel-header-text">
+          <div class="prism2-panel-eyebrow">MONITORING GUIDANCE</div>
+          <p class="prism2-panel-desc">Covers the indicative 15-step implementation pathway, preferred models in order (Hybrid, Concession / LDO, DBFOT), recommended technical safeguards, key references including CPHEEO, SBM-U, and CCO, and domain abbreviations.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Indicative Implementation Pathway</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following implementation pathway presents a practical high-level sequence for advancing the proposed repurposing concept from initial approval through to project execution and long-term operation. It outlines the broad stages of concept approval, preliminary studies, model selection, bid preparation, procurement, detailed design, statutory approvals, construction, commissioning, and ongoing operation. This pathway is indicative and should be adapted to reflect the specific complexity, regulatory requirements, financing structure, and site conditions applicable to the project.</p>
+          <ol class="spv-list">
+            <li>Concept approval and objective setting</li>
+            <li>Site suitability, hydrogeology, and mine-safety screening</li>
+            <li>Waste catchment and waste-characterization study</li>
+            <li>Environmental, buffer-zone, and landfill-siting assessment</li>
+            <li>Community engagement and SHG / waste-worker onboarding</li>
+            <li>Market and value-chain assessment for compost and Bio-CNG</li>
+            <li>Selection of implementation model</li>
+            <li>DPR and bid structuring</li>
+            <li>RFP issuance and partner selection</li>
+            <li>Landfill cell, compost pad, and biogas infrastructure development</li>
+            <li>ULB / generator agreements and waste-supply formalization</li>
+            <li>Trial operations of composting and biomethanation units</li>
+            <li>Leachate, gas, odour, and environmental monitoring activation</li>
+            <li>Full-scale processing, reporting, and market linkage</li>
+            <li>Scaling, additional landfill cells, and diversification into Bio-CNG, compost branding, and green-buffer development</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Way Forward &amp; Preferred Models</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">The following way forward summarizes the preferred development approach for the proposed repurposing option, based on the assessment presented in PRISM (Post Mining Repurposing Implementation and Strategy Models). It identifies the most suitable implementation models in order of preference, highlights key technical and due-diligence considerations, and outlines the recommended next steps and broad development logic. This section is intended to guide internal decision-making and support the project owner in progressing from concept-stage evaluation toward feasibility assessment, project structuring, regulatory approvals, and implementation planning.</p>
+          <p class="spv-body-text"><strong>Preferred models, in order:</strong></p>
+          <ol class="spv-list">
+            <li><strong>Hybrid Model</strong> — Mine-owner land + ULB waste supply agreement + private waste-processing operator + SHG / waste-worker participation</li>
+            <li><strong>Concession / Lease-Develop-Operate</strong> — Strong for community-linked waste infrastructure with livelihood obligations</li>
+            <li><strong>DBFOT</strong> — For large structured PPP projects needing private finance and professional operation</li>
+          </ol>
+          <p class="spv-body-text"><strong>Why Hybrid is preferred:</strong> Waste projects require municipal linkage, environmental compliance, technology operation, and community safeguards. The hybrid mix should include mine-owner land, ULB waste supply agreement, private waste-processing operator, and SHG / waste-worker participation.</p>
+          <p class="spv-body-text"><strong>Secondary option:</strong> EPC + O&amp;M is suitable for welfare-driven or public-service waste facilities where the owner / local body wants strong control.</p>
+          <p class="spv-body-text"><strong>Recommended development logic:</strong> Start with integrated waste processing, MRF, composting / biomethanation, and engineered reject landfill. Expand into Bio-CNG, compost branding, nursery, and solar only after feedstock quality is reliable.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>References</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <ol class="spv-list">
+            <li>Ministry of Environment, Forest and Climate Change. (2016). <em>Solid Waste Management Rules, 2016.</em> Government of India.</li>
+            <li>Ministry of Environment, Forest and Climate Change. (2026). <em>Solid Waste Management Rules, 2026.</em> Government of India.</li>
+            <li>Central Public Health and Environmental Engineering Organisation. (2016). <em>Manual on Municipal Solid Waste Management, Part II.</em> Ministry of Urban Development, Government of India.</li>
+            <li>Central Public Health and Environmental Engineering Organisation. (2016). <em>Manual on Municipal Solid Waste Management, Part III: The Compendium.</em> Government of India.</li>
+            <li>Swachh Bharat Mission Urban. (2025). <em>Advisory on CBG Plants Based on Municipal Solid Waste.</em> Ministry of Housing and Urban Affairs, Government of India.</li>
+            <li>Swachh Bharat Mission Urban. (2025). <em>Model Design Document for 100 TPD Windrow Composting Plant.</em> Ministry of Housing and Urban Affairs, Government of India.</li>
+            <li>Swachh Bharat Mission Urban. (2022). <em>Inside Asia's Largest GOBARdhan Bio-CNG Plant.</em> Ministry of Housing and Urban Affairs, Government of India.</li>
+            <li>Press Information Bureau. (2024). <em>Transforming Waste into Wealth with Asia's Largest Bio-CNG Plant.</em> Government of India.</li>
+            <li>Centre for Science and Environment. (2025). <em>Bio-CNG from Municipal Solid Waste.</em> CSE.</li>
+            <li>Coal Controller Organisation. (2023–2025). <em>Mine Closure Handbooks Portal: A.R.T.H.A., L.I.V.E.S. and R.E.C.L.A.I.M.</em> Ministry of Coal, Government of India.</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Abbreviations</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <table class="spv-table">
+            <thead><tr><th>Abbreviation</th><th>Full Form</th></tr></thead>
+            <tbody>
+              <tr><td>A.R.T.H.A.</td><td>Green Finance for Coal Mines Repurposing</td></tr>
+              <tr><td>Bio-CNG</td><td>Bio-Compressed Natural Gas</td></tr>
+              <tr><td>BOO</td><td>Build, Own, Operate</td></tr>
+              <tr><td>BOOT</td><td>Build, Own, Operate, Transfer</td></tr>
+              <tr><td>CAPEX</td><td>Capital Expenditure</td></tr>
+              <tr><td>CBG</td><td>Compressed Biogas</td></tr>
+              <tr><td>CPHEEO</td><td>Central Public Health and Environmental Engineering Organisation</td></tr>
+              <tr><td>CSR</td><td>Corporate Social Responsibility</td></tr>
+              <tr><td>DBFOT</td><td>Design, Build, Finance, Operate, Transfer</td></tr>
+              <tr><td>DPR</td><td>Detailed Project Report</td></tr>
+              <tr><td>EPC</td><td>Engineering, Procurement and Construction</td></tr>
+              <tr><td>ESG</td><td>Environmental, Social and Governance</td></tr>
+              <tr><td>FM</td><td>Facility Management</td></tr>
+              <tr><td>FPO</td><td>Farmer Producer Organization</td></tr>
+              <tr><td>GOBARdhan</td><td>Galvanizing Organic Bio-Agro Resources Dhan</td></tr>
+              <tr><td>LDO</td><td>Lease-Develop-Operate</td></tr>
+              <tr><td>MRF</td><td>Material Recovery Facility</td></tr>
+              <tr><td>O&amp;M</td><td>Operation and Maintenance</td></tr>
+              <tr><td>PESO</td><td>Petroleum and Explosives Safety Organisation</td></tr>
+              <tr><td>PPP</td><td>Public-Private Partnership</td></tr>
+              <tr><td>RFP</td><td>Request for Proposal</td></tr>
+              <tr><td>SHG</td><td>Self-Help Group</td></tr>
+              <tr><td>SPCB</td><td>State Pollution Control Board</td></tr>
+              <tr><td>SWM</td><td>Solid Waste Management</td></tr>
+              <tr><td>TPD</td><td>Tonnes Per Day</td></tr>
+              <tr><td>ULB</td><td>Urban Local Body</td></tr>
+              <tr><td>VGF</td><td>Viability Gap Funding</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="prism2-nav-row">
+        <button class="prism2-btn-prev" id="prism2-prev-M" onclick="prism2Prev()">&#8592; Previous</button>
+        <div class="prism2-progress-dots" style="display:flex;gap:5px;align-items:center;">
+          <span class="pdot" data-p="P"></span><span class="pdot" data-p="R"></span>
+          <span class="pdot" data-p="I"></span><span class="pdot" data-p="S"></span><span class="pdot active" data-p="M"></span>
+        </div>
+      </div>
+
+      <!-- Framework completion card -->
+      <div style="margin:0 26px 16px;padding:16px 20px;border-radius:12px;background:#f4faf7;border:1.5px dashed #a8d5c2;display:flex;align-items:center;gap:14px;">
+        <div style="width:36px;height:36px;border-radius:50%;background:#d1ece2;border:1.5px solid #a8d5c2;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#1a7a5e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2.5 8 6 11.5 13.5 4"/></svg>
+        </div>
+        <div style="flex:1;min-width:0;">
+          <div style="font-size:.82rem;font-weight:700;color:#1a7a5e;letter-spacing:.01em;">PRISM Framework Complete</div>
+          <div style="font-size:.75rem;color:#4a7a6a;margin-top:2px;line-height:1.5;">All five pillars reviewed — explore case studies to see how similar projects were executed.</div>
+        </div>
+        <button onclick="showSPVTab('casestudies');setTimeout(function(){window.dispatchEvent(new Event('resize'))},30)" style="flex-shrink:0;font-size:.75rem;font-weight:600;padding:7px 14px;border-radius:8px;border:1.5px solid #a8d5c2;background:#fff;color:#1a7a5e;cursor:pointer;transition:background .2s,border-color .2s;" onmouseover="this.style.background='#e6f5ef'" onmouseout="this.style.background='#fff'">Case Studies &#8599;</button>
+      </div>
+
+      <!-- Download PRISM PDF card -->
+      <div style="margin:0 26px 28px;padding:18px 22px;border-radius:12px;background:linear-gradient(135deg,#f0f7ff 0%,#e8f4fd 100%);border:1.5px solid #c5ddf5;display:flex;align-items:center;gap:16px;">
+        <div style="width:40px;height:40px;border-radius:50%;background:#daeafa;border:1.5px solid #b8d4ef;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#1a5ca8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v10M5 8l4 4 4-4"/><rect x="3" y="14" width="12" height="2" rx="1"/></svg>
+        </div>
+        <div style="flex:1;min-width:0;">
+          <div style="font-size:.82rem;font-weight:700;color:#1a5ca8;letter-spacing:.01em;">Download PRISM Framework</div>
+          <div style="font-size:.75rem;color:#3a6a98;margin-top:2px;line-height:1.5;">Save a print-ready PDF of all five pillars for offline reference.</div>
+        </div>
+        <button onclick="downloadPRISM()" style="flex-shrink:0;font-size:.75rem;font-weight:600;padding:8px 16px;border-radius:8px;border:1.5px solid #b8d4ef;background:#fff;color:#1a5ca8;cursor:pointer;transition:background .2s,border-color .2s;display:flex;align-items:center;gap:6px;" onmouseover="this.style.background='#daeafa'" onmouseout="this.style.background='#fff'">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 1v7M3.5 5.5l3 3 3-3"/><rect x="1.5" y="10" width="10" height="1.5" rx=".75"/></svg>
+          Download PDF
+        </button>
+      </div>
+
+    </div><!-- /prism2-panel-M -->
+
+    </div><!-- /pr-content-wrap -->
+  </div><!-- /pr-shell -->
+
+<script>
+function prNav(key) {
+  if (typeof prism2Show === 'function') prism2Show(key);
+  document.querySelectorAll('#spv-panel-prism .pr-nav-item').forEach(function(n) {
+    n.classList.toggle('active', n.dataset.key === key);
+  });
+  var hl = document.getElementById('pr-hl');
+  var active = document.querySelector('#spv-panel-prism .pr-nav-item[data-key="' + key + '"]');
+  if (hl && active) {
+    var accent = getComputedStyle(active).getPropertyValue('--pr-accent').trim();
+    hl.style.setProperty('--pr-hl', accent);
+    hl.style.top = active.offsetTop + 'px';
+    hl.style.height = active.offsetHeight + 'px';
+  }
+}
+</script>
+
+    </div>
+  </div><!-- /spv-panel-prism -->
+
+  <div id="spv-panel-casestudies" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+      <div class="lit-wrap">
+        <div class="lit-outer">
+          <div class="lit-track-clip">
+            <div class="lit-track" id="litTrack-all">
+
+              <a class="lit-card" href="https://www.pppinindia.gov.in/bestpractices/best-practice-detail/gobardhan-bio-cng-plant#:~:text=150-,Largest%20Bio%2DCNG%20plant%20in%20Asia%20of%20550%20TPD%20capacity,premium%20earned%20by%20IMC%20annually" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#1a7a5e;--lit-glow:rgba(26,122,94,.18);--lit-tint:rgba(26,122,94,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Indore GOBARdhan Bio-CNG Plant</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Case Study</span></div>
+                    <div class="lit-card-source">Source: <span>pppinindia.gov.in</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs/cs-lcb-1.jpg" alt="Biogas plant facility India — Indore GOBARdhan Bio-CNG plant" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="http://cpheeo.gov.in/upload/uploadfiles/files/Part1(1).pdf" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#C85000;--lit-glow:rgba(200,80,0,.18);--lit-tint:rgba(200,80,0,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">CPHEEO MSW Manual — Engineered Sanitary Landfill, Composting & Biomethanation Design Guidelines India</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Case Study</span></div>
+                    <div class="lit-card-source">Source: <span>cpheeo.gov.in</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs/cs-lcb-2.jpg" alt="Sanitary landfill composting MSW design India — CPHEEO engineering guidelines" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://cpcb.nic.in/uploads/MSW/SWM_2026.pdf" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#1a5ca8;--lit-glow:rgba(26,92,168,.18);--lit-tint:rgba(26,92,168,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Solid Waste Management Rules 2016 & 2026 — Scientific Landfill, Buffer Zone & Monitoring Requirements</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Case Study</span></div>
+                    <div class="lit-card-source">Source: <span>cpcb.nic.in</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs/cs-lcb-3.jpg" alt="Scientific landfill solid waste management monitoring — SWM Rules India" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://coalcontroller.gov.in/mine-closure-handbooks" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#5a3d9e;--lit-glow:rgba(90,61,158,.18);--lit-tint:rgba(90,61,158,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">CCO Mine Closure Handbooks — A.R.T.H.A., L.I.V.E.S. & R.E.C.L.A.I.M. for Productive Mine Land Repurposing</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Case Study</span></div>
+                    <div class="lit-card-source">Source: <span>coalcontroller.gov.in</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs/cs-lcb-4.jpg" alt="Mine closure land reclamation productive repurposing — CCO handbooks ARTHA LIVES RECLAIM" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://sbmurban.org/storage/app/media/e-library/model-documents/Advisory%20on%20CBG%20Plants%20Based%20on%20Municipal%20Solid%20Waste.pdf" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#b06a10;--lit-glow:rgba(176,106,16,.18);--lit-tint:rgba(176,106,16,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">SBM Urban — CBG Plant Advisory, Legacy Waste Dumpsite Remediation Toolkit & 100 TPD Composting Model</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Case Study</span></div>
+                    <div class="lit-card-source">Source: <span>sbmurban.org</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs/cs-lcb-5.jpg" alt="Composting organic waste dumpsite remediation — SBM Urban CBG plant advisory" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://crctime.com.au/crcwp/wp-content/uploads/2025/04/Final-report-Project-3.15-Algae-cultivation.pdf" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#d97706;--lit-glow:rgba(215,119,6,.18);--lit-tint:rgba(215,119,6,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Algae-Based Technologies for Improved Environmental Outcomes and Sustainable Post-Mining Futures</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Case Study</span></div>
+                    <div class="lit-card-source">Source: <span>crctime.com.au</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs/cs-lcb-6.jpg" alt="Green algae technology sustainable post-mining environmental outcomes" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://www.nature.com/articles/s41598-025-15980-z" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#0369a1;--lit-glow:rgba(3,105,161,.18);--lit-tint:rgba(3,105,161,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Integrating the Sustainable Development Goals into Post-Mining Land Use Selection</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Case Study</span></div>
+                    <div class="lit-card-source">Source: <span>nature.com</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs/cs-lcb-7.jpg" alt="Sustainable land use green SDG post-mining selection" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+            </div><!-- /lit-track -->
+          </div><!-- /lit-track-clip -->
+          <div class="lit-nav">
+            <button class="lit-nav-btn" id="litPrev-all" onclick="litMove('all',-1)" aria-label="Previous">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <div class="lit-dots" id="litDots-all"></div>
+            <button class="lit-nav-btn" id="litNext-all" onclick="litMove('all',1)" aria-label="Next">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+          </div>
+        </div><!-- /lit-outer -->
+      </div><!-- /lit-wrap -->
+    </div>
+  </div><!-- /spv-panel-casestudies -->
+
+  <div id="spv-panel-tender" class="spv-panel" style="display:none;">
+  <div class="spv-content">
+
+  <style>
+    /* ── Tender documents tab — t5 system (matches solar-pv.html) ── */
+    .t5-wrap{padding:4px 0 48px}
+    .t5-topbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:36px}
+    .t5-pills{display:flex;flex-wrap:wrap;gap:8px;flex:1}
+    .t5-pill{display:inline-flex;align-items:center;gap:7px;padding:8px 16px;border-radius:40px;font-family:var(--font-sans,"Inter",sans-serif);font-size:.82rem;font-weight:600;cursor:pointer;border:1.5px solid transparent;background:#fff;transition:all .22s cubic-bezier(.34,1.3,.64,1);white-space:nowrap}
+    .t5-pill-count{font-size:.72rem;font-weight:500;opacity:.7;background:rgba(0,0,0,.08);border-radius:20px;padding:1px 7px;line-height:1.6}
+    .t5-pill.active .t5-pill-count{background:rgba(255,255,255,.25);opacity:1}
+    .t5-pill--all{border-color:#a2d9dd;color:#0a7377} .t5-pill--rfp{border-color:#7AC9A8;color:#0c5240} .t5-pill--nit{border-color:#F4B96A;color:#8c4100} .t5-pill--ppa{border-color:#A5B4FC;color:#3730a3} .t5-pill--eoi{border-color:#67e8f9;color:#0a5b5e} .t5-pill--agr{border-color:#f9a8d4;color:#9d174d} .t5-pill--rpt{border-color:#93c5fd;color:#1e40af}
+    .t5-pill.active.t5-pill--all{background:#0a9396;color:#fff;border-color:#0a9396;box-shadow:0 4px 14px rgba(10,147,150,.35)}
+    .t5-pill.active.t5-pill--rfp{background:#0F6E56;color:#fff;border-color:#0F6E56;box-shadow:0 4px 14px rgba(15,110,86,.35)}
+    .t5-pill.active.t5-pill--nit{background:#B45309;color:#fff;border-color:#B45309;box-shadow:0 4px 14px rgba(180,83,9,.35)}
+    .t5-pill.active.t5-pill--ppa{background:#4338CA;color:#fff;border-color:#4338CA;box-shadow:0 4px 14px rgba(67,56,202,.35)}
+    .t5-pill.active.t5-pill--eoi{background:#0a7377;color:#fff;border-color:#0a7377;box-shadow:0 4px 14px rgba(10,115,119,.35)}
+    .t5-pill.active.t5-pill--agr{background:#be185d;color:#fff;border-color:#be185d;box-shadow:0 4px 14px rgba(190,24,93,.35)}
+    .t5-pill.active.t5-pill--rpt{background:#0369a1;color:#fff;border-color:#0369a1;box-shadow:0 4px 14px rgba(3,105,161,.35)}
+    .t5-right{display:flex;align-items:center;gap:12px;flex-shrink:0}
+    .t5-search-wrap{position:relative}
+    .t5-search-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:#94a3b8;pointer-events:none}
+    .t5-search{padding:9px 14px 9px 36px;width:210px;background:#f8fafb;border:1.5px solid #e2e8f0;border-radius:40px;font-size:.82rem;font-family:var(--font-sans,"Inter",sans-serif);color:#374151;outline:none;box-sizing:border-box;transition:border-color .2s,box-shadow .2s,width .25s,background .2s}
+    .t5-search::placeholder{color:#94a3b8}
+    .t5-search:focus{border-color:#0a9396;box-shadow:0 0 0 3px rgba(10,147,150,.12);background:#fff;width:250px}
+    .t5-counter{font-size:.8rem;font-weight:700;color:#94a3b8;white-space:nowrap}
+    .t5-section{margin-bottom:72px;animation:t5-pop .38s cubic-bezier(.34,1.3,.64,1) both}
+    .t5-section:last-child{margin-bottom:0}
+    .t5-section + .t5-section{padding-top:36px}
+    .t5-section-header{display:flex;align-items:center;gap:12px;margin-bottom:16px;padding:10px 16px;position:sticky;top:130px;z-index:10;background:#fcfcf9;border-top:1px solid #e8edf3;border-bottom:2px solid #e8edf3;box-shadow:0 4px 12px rgba(0,0,0,.07)}
+    .t5-section-bar{width:4px;height:22px;border-radius:4px;flex-shrink:0}
+    .t5-section-label{font-size:.82rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;flex:1}
+    .t5-section-count{font-size:.75rem;font-weight:700;color:#94a3b8;background:#f1f5f9;border:1px solid #e2e8f0;border-radius:20px;padding:2px 10px;white-space:nowrap}
+    .t5-list{display:flex;flex-direction:column;gap:10px}
+    .t5-row{display:flex;align-items:center;gap:16px;background:#fff;border:1px solid #e8edf3;border-left:4px solid transparent;border-radius:12px;padding:16px 18px;text-decoration:none;color:inherit;cursor:pointer;transition:box-shadow .22s ease,border-color .22s ease,transform .22s cubic-bezier(.34,1.3,.64,1)}
+    .t5-row--rfp{--row-accent:#0F6E56} .t5-row--nit{--row-accent:#B45309} .t5-row--ppa{--row-accent:#4338CA} .t5-row--eoi{--row-accent:#0a7377} .t5-row--agr{--row-accent:#be185d} .t5-row--rpt{--row-accent:#0369a1}
+    .t5-row:hover{border-left-color:var(--row-accent);box-shadow:0 4px 18px rgba(0,0,0,.08);transform:translateX(2px)}
+    .t5-icon-box{width:40px;height:40px;border-radius:10px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:color-mix(in srgb,var(--row-accent) 10%,#fff);border:1px solid color-mix(in srgb,var(--row-accent) 20%,transparent);transition:background .2s}
+    .t5-row:hover .t5-icon-box{background:color-mix(in srgb,var(--row-accent) 18%,#fff)}
+    .t5-text{flex:1;min-width:0}
+    .t5-title{font-size:.92rem;font-weight:400;color:#0f172a;line-height:1.4;margin-bottom:3px;transition:color .2s}
+    .t5-row:hover .t5-title{color:var(--row-accent)}
+    .t5-sub{font-size:.78rem;color:#64748b;line-height:1.4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .t5-right-side{display:flex;align-items:center;gap:10px;flex-shrink:0}
+    .t5-badge{display:inline-flex;align-items:center;font-size:.7rem;font-weight:700;letter-spacing:.05em;padding:4px 11px;border-radius:20px;background:color-mix(in srgb,var(--row-accent) 10%,#fff);color:var(--row-accent);border:1px solid color-mix(in srgb,var(--row-accent) 30%,transparent);white-space:nowrap}
+    .t5-ext-btn{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;border:1px solid #e2e8f0;background:#f8fafc;color:#94a3b8;text-decoration:none;transition:background .2s,color .2s,border-color .2s;flex-shrink:0}
+    .t5-row:hover .t5-ext-btn{background:color-mix(in srgb,var(--row-accent) 8%,#fff);border-color:color-mix(in srgb,var(--row-accent) 30%,transparent);color:var(--row-accent)}
+    .t5-empty{text-align:center;padding:40px 20px;color:#94a3b8;font-size:.85rem}
+    @keyframes t5-pop{from{opacity:0;transform:translateY(12px) scale(.98)}to{opacity:1;transform:none}}
+  </style>
+
+  <div class="t5-wrap">
+    <div class="t5-topbar">
+      <div class="t5-pills">
+        <button class="t5-pill t5-pill--all active" onclick="t5Filter('all')">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          All Documents <span class="t5-pill-count" id="t5cnt-all">15</span>
+        </button>
+        <button class="t5-pill--rfp t5-pill" data-sec="rfp" onclick="t5Filter('rfp')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          RFP <span class="t5-pill-count" id="t5cnt-rfp">6</span>
+        </button>
+        <button class="t5-pill--rpt t5-pill" data-sec="rpt" onclick="t5Filter('rpt')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          Reports &amp; DPR <span class="t5-pill-count" id="t5cnt-rpt">9</span>
+        </button>
+      </div>
+      <div class="t5-right">
+        <div class="t5-search-wrap">
+          <svg class="t5-search-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input id="t5SearchInput" class="t5-search" type="text" placeholder="Search documents…" oninput="t5Search(this.value)">
+        </div>
+        <span class="t5-counter" id="t5Counter"></span>
+      </div>
+    </div>
+    <div id="t5Sections">
+      <div class="t5-section" data-sec="rfp" style="animation-delay:0.05s">
+        <div class="t5-section-header">
+          <div class="t5-section-bar" style="background:#0F6E56"></div>
+          <span class="t5-section-label" style="color:#0F6E56">Requests for Proposal (RFP)</span>
+          <span class="t5-section-count">6 documents</span>
+        </div>
+        <div class="t5-list">
+          <a class="t5-row t5-row--rfp" data-sec="rfp"
+             data-title="operation &amp; maintenance of engineered sanitary landfill site (e-slf) and a 100 kld leachate treatment plant (ltp) for municipal corporation of delhi at tehkhand, okhla, delhi."
+             href="https://mcdonline.nic.in/portal/downloadFile/nit03_rfp_merged_2411230935541154.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0F6E56">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Operation &amp; Maintenance of Engineered Sanitary Landfill Site (E-slf) and a 100 KLD Leachate Treatment Plant (LTP) for Municipal Corporation of Delhi at Tehkhand, Okhla, Delhi.</div>
+              <div class="t5-sub">mcdonline.nic.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">RFP</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rfp" data-sec="rfp"
+             data-title="design, construction and development of sanitary landfill site of 1,30,000 cubic meter capacity with operation &amp; maintenance for 5 years on vgf basis as per solid waste management rules, 2016 as amended time to time and swachh bharat mission (urban) 2.o guidelines for municipal corporation kota north"
+             href="https://lsg.urban.rajasthan.gov.in/content/dam/raj/udh/lsgs/lsg-jaipur/Order/ORDER2022/June/RFP%20KOTA%20NORTH%20SLF.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0F6E56">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Design, Construction and Development of Sanitary Landfill Site of 1,30,000 Cubic Meter Capacity with Operation &amp; Maintenance for 5 years on VGF basis as per Solid Waste Management Rules, 2016 as Amended time to time and Swachh Bharat Mission (Urban) 2.o guidelines for Municipal Corporation Kota North</div>
+              <div class="t5-sub">lsg.urban.rajasthan.gov.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">RFP</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rfp" data-sec="rfp"
+             data-title="selection of concessionaire for bio-remediation of legacy waste, setting up of processing facility at pramodnagar and kamarhati and sanitary landfill at identified site, secondary collection and transportation, processing and disposal of municipal solid waste for dum dum, south dumdum, north dumdum,baranagar, kamarhati and new barrackpore municipalities"
+             href="https://sudawb.org/uploads/tender/RFP-01.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0F6E56">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Selection of Concessionaire for Bio-remediation of Legacy Waste, setting up of Processing facility at Pramodnagar and Kamarhati and Sanitary Landfill at Identified Site, Secondary collection and Transportation, Processing and Disposal of Municipal Solid Waste for Dum Dum, South Dumdum, North Dumdum,Baranagar, Kamarhati and New Barrackpore Municipalities</div>
+              <div class="t5-sub">sudawb.org</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">RFP</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rfp" data-sec="rfp"
+             data-title="request for proposal (rfp) for the management and operation of material recovery facility (mrf), material composting centre (mcc), and awareness activities in shirwal"
+             href="https://www.ceeindia.org/pdf_files/Request%20for%20Proposal%20(RFP).pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0F6E56">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Request for Proposal (RFP) for the Management and Operation of Material Recovery Facility (MRF), Material Composting Centre (MCC), and Awareness Activities in Shirwal</div>
+              <div class="t5-sub">ceeindia.org</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">RFP</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rfp" data-sec="rfp"
+             data-title="request for proposal (rfp) for selection of concessionaire for setting up 1000 tpd waste handling facility comprising 700 tpd compost processing at perungudi dumpsite at chennai greater chennai corporation under design, build, finance, operate and transfer (dbfot) model on ppp mode."
+             href="https://tnidb.tn.gov.in/media/tender_documents/a712412026-RFP_-_Compost_project.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0F6E56">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Request for Proposal (RFP) for Selection of Concessionaire for Setting up 1000 TPD Waste Handling Facility comprising 700 TPD Compost Processing at Perungudi Dumpsite at Chennai Greater Chennai Corporation under Design, Build, Finance, Operate and Transfer (DBFOT) Model on PPP Mode.</div>
+              <div class="t5-sub">tnidb.tn.gov.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">RFP</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rfp" data-sec="rfp"
+             data-title="rfp for operation, upgradation and maintenance of msw plant at lamdeng, manipur&quot;"
+             href="https://manipur.gov.in/wp-content/uploads/2015/10/rfp-lamdeng.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0F6E56">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">RFP for Operation, Upgradation and Maintenance of MSW Plant at Lamdeng, Manipur&quot;</div>
+              <div class="t5-sub">manipur.gov.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">RFP</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+        </div>
+      </div><!-- /rfp section -->
+      <div class="t5-section" data-sec="rpt" style="animation-delay:0.30s">
+        <div class="t5-section-header">
+          <div class="t5-section-bar" style="background:#0369a1"></div>
+          <span class="t5-section-label" style="color:#0369a1">Reports &amp; DPR</span>
+          <span class="t5-section-count">9 documents</span>
+        </div>
+        <div class="t5-list">
+          <a class="t5-row t5-row--rpt" data-sec="rpt"
+             data-title="pre feasibility report for proposed sanitary landfill, okhla, new delhi"
+             href="https://environmentclearance.nic.in/writereaddata/Online/TOR/25_Dec_2017_155905173UJY93M36PFRReport.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0369a1">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Pre Feasibility Report for Proposed Sanitary Landfill, Okhla, New Delhi</div>
+              <div class="t5-sub">environmentclearance.nic.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">Report</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rpt" data-sec="rpt"
+             data-title="“supply and installation of 100 tpd dry wet waste segregation and processing plant with all type of machinery and tools composting plant processing &amp; scientific disposal of solid waste as per swm rules 2016 for mahesana nagarpalika"
+             href="https://mkp.gem.gov.in/uploaded_documents/51/16/877/OrderItem/BoqDocument/2024/3/15/mrfp_2024-03-15-19-31-25_fc03fbe0d0f045110faf3f7c653f92ad.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0369a1">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">“Supply and Installation of 100 TPD Dry Wet Waste Segregation and Processing Plant with All type of machinery and Tools Composting Plant Processing &amp; Scientific Disposal of Solid waste as per Swm rules 2016 for Mahesana Nagarpalika</div>
+              <div class="t5-sub">mkp.gem.gov.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">Report</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rpt" data-sec="rpt"
+             data-title="engagement of agency for design, supply, installation, commissioning of 4 (four) 2.00 tpd capacity organic waste convertor (owc) plants along with comprehensive operation and maintenance of these 4 (four) plants for seven years for treatment of organic municipal solid waste (msw) at four locations in ndmc area. public private partnership (ppp) mode with viability gap funding (vgf) or license fee"
+             href="https://www.ndmc.gov.in/public_notice/rfptender10052018.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0369a1">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Engagement of Agency for Design, Supply, Installation, Commissioning of 4 (Four) 2.00 TPD capacity Organic Waste Convertor (OWC) Plants along with Comprehensive Operation and Maintenance of these 4 (Four) Plants for Seven Years for Treatment of Organic Municipal Solid Waste (MSW) at Four locations in NDMC area. Public Private Partnership (PPP) Mode with Viability Gap Funding (VGF) or License Fee</div>
+              <div class="t5-sub">ndmc.gov.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">Report</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rpt" data-sec="rpt"
+             data-title="model design document for 100 tpd windrow composting plant"
+             href="https://sbmurban.org/storage/app/media/pdf/Draft/Draft%20Model%20Design%20for%20100%20TPD%20Windorw%20Composting%20for%20Feedback%20.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0369a1">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Model Design document for 100 TPD Windrow Composting Plant</div>
+              <div class="t5-sub">sbmurban.org</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">Report</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rpt" data-sec="rpt"
+             data-title="project report on vermi compost"
+             href="https://udyamdisha.in/MentorHtml/Docs/Businessplans/varmi%20compost.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0369a1">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Project Report on Vermi Compost</div>
+              <div class="t5-sub">udyamdisha.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">Report</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rpt" data-sec="rpt"
+             data-title="compost facility feasibility study"
+             href="https://assets.bouldercounty.gov/wp-content/uploads/2025/10/compost-feasibility-study-final-10202025.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0369a1">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Compost Facility Feasibility Study</div>
+              <div class="t5-sub">assets.bouldercounty.gov</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">Report</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rpt" data-sec="rpt"
+             data-title="techno economic feasibility report for sanitary landfill of msw bhubaneswar ltd. at‐bhuasuni, daruthenga, bhubaneswar, odisha"
+             href="https://environmentclearance.nic.in/writereaddata/Online/TOR/0_0_24_Feb_2015_1304342331TEFR.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0369a1">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Techno Economic Feasibility Report for Sanitary Landfill of MSW Bhubaneswar Ltd. At‐Bhuasuni, Daruthenga, Bhubaneswar, Odisha</div>
+              <div class="t5-sub">environmentclearance.nic.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">Report</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rpt" data-sec="rpt"
+             data-title="preliminary feasibility study sustainable sanitary landfill to energy system"
+             href="https://www.unescap.org/sites/default/files/Report_ID_Pekanbaru_SolidWasteManagement_2015.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0369a1">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Preliminary Feasibility Study Sustainable Sanitary Landfill to Energy System</div>
+              <div class="t5-sub">unescap.org</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">Report</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rpt" data-sec="rpt"
+             data-title="draft dpr on municipal solid waste management"
+             href="https://tgpcb.cgg.gov.in/Uploads/PcbDocumentAllUploads/DevarakondaDraftDPR(27-10-17).pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0369a1">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Draft DPR on municipal solid waste management</div>
+              <div class="t5-sub">tgpcb.cgg.gov.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">DPR</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+        </div>
+      </div><!-- /rpt section -->
+    </div><!-- /t5Sections -->
+  </div><!-- /t5-wrap -->
+
+  </div>
+  </div><!-- /spv-panel-tender -->
+
+  <div id="spv-panel-media" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+
+    <style>
+      /* ── Media/Web tab — matches solar-pv.html ── */
+      .media-stack { display:flex; flex-direction:column; gap:12px; }
+
+      .media-row {
+        position: relative;
+        display: flex; align-items: center; gap: 14px;
+        padding: 15px 16px;
+        background: #fff;
+        border-radius: 12px;
+        border: 1px solid #e8eaed;
+        border-left: 3px solid var(--mr-accent);
+        text-decoration: none; color: inherit;
+        overflow: hidden;
+        transition:
+          box-shadow  0.28s cubic-bezier(0.34,1.3,0.64,1),
+          transform   0.28s cubic-bezier(0.34,1.3,0.64,1),
+          border-color 0.22s ease;
+      }
+
+      /* Animated accent line sweeps across bottom on hover */
+      .media-row::after {
+        content: '';
+        position: absolute;
+        bottom: 0; left: 0;
+        height: 2px; width: 0;
+        background: var(--mr-accent);
+        border-radius: 0 2px 2px 0;
+        transition: width 0.38s cubic-bezier(0.34,1.3,0.64,1);
+      }
+
+      .media-row:hover {
+        transform: translateY(-5px);
+        border-color: var(--mr-accent);
+        box-shadow:
+          0 10px 32px rgba(19,52,59,.13),
+          0 2px  8px  rgba(19,52,59,.06);
+      }
+      .media-row:hover::after { width: 100%; }
+
+      /* Icon chip */
+      .media-row-icon {
+        width: 42px; height: 42px; border-radius: 10px;
+        background: var(--mr-tint);
+        display: flex; align-items: center; justify-content: center;
+        flex-shrink: 0;
+        transition: background 0.25s ease, box-shadow 0.25s ease;
+      }
+      .media-row-icon svg { transition: filter 0.25s ease; }
+      .media-row:hover .media-row-icon {
+        background: var(--mr-accent);
+        box-shadow: 0 4px 12px rgba(0,0,0,.18);
+      }
+      .media-row:hover .media-row-icon svg { filter: brightness(0) invert(1); }
+
+      /* Text block */
+      .media-row-main { flex:1; min-width:0; }
+      .media-row-tag {
+        font-size: 10px; font-weight: 700; letter-spacing: .07em;
+        text-transform: uppercase; color: var(--mr-accent); margin-bottom: 4px;
+      }
+      .media-row-title {
+        font-size: 13.5px; font-weight: 600; color: #1e293b;
+        line-height: 1.4; margin-bottom: 3px;
+        transition: color 0.2s ease;
+      }
+      .media-row:hover .media-row-title { color: var(--mr-accent); }
+      .media-row-source {
+        font-size: 11px; color: #94a3b8;
+        display: flex; align-items: center; gap: 4px;
+      }
+
+      /* Arrow */
+      .media-row-arrow {
+        flex-shrink: 0; color: #d1dae0;
+        transition: color 0.22s ease, transform 0.28s cubic-bezier(0.34,1.3,0.64,1);
+      }
+      .media-row:hover .media-row-arrow {
+        color: var(--mr-accent);
+        transform: translate(3px, -3px);
+      }
+    </style>
+
+    <!--
+    ══════════════════════════════════════════════════════════════════
+    HOW TO ADD A MEDIA ROW
+    ══════════════════════════════════════════════════════════════════
+    1. Copy one <a class="media-row …"> block below.
+    2. Set  --mr-accent  (the colour) and  --mr-tint  (accent at ~10% opacity).
+       Suggested palette:
+         Green-teal   #0F6E56  rgba(15,110,86,.1)
+         Blue         #185FA5  rgba(24,95,165,.1)
+         Amber        #BA7517  rgba(186,117,23,.1)
+         Emerald      #1D9E75  rgba(29,158,117,.1)
+         Indigo       #534AB7  rgba(83,74,183,.1)
+         Red          #C81414  rgba(200,20,20,.1)
+         Orange       #C85000  rgba(200,80,0,.1)
+    3. Set the  href  to the URL.
+    4. Update  media-row-tag  (e.g. "Case Study · Germany"), title, and source domain.
+    5. Choose an appropriate SVG icon for  media-row-icon  (stroke colour = --mr-accent).
+
+    ICON IDEAS (copy the <svg> you need):
+      Globe/website  → <circle cx="12" cy="12" r="10"/> + grid lines
+      Document/report→ <path d="M14 2H6…"/> (file icon)
+      Location/map   → <path d="M12 2C8.13 2…"/> (pin icon)
+      Chart/data     → <polyline points="22 12 18 12 15 21…"/> (pulse)
+      Book/policy    → <path d="M2 3h6a4 4 0 0 1 4 4v14…"/> (book)
+      News           → <rect x="3" y="3" width="18" height="18" rx="2"/> (grid)
+    ══════════════════════════════════════════════════════════════════
+
+    <div class="media-stack">
+
+        <a class="media-row" href="https://arena.gov.au/news/repurposing-broken-hill-mine-for-renewable-energy-storage-using-compressed-air/" target="_blank" rel="noopener noreferrer" style="--mr-accent:#1a7a5e;--mr-tint:rgba(26,122,94,.1);">
+          <div class="media-row-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a7a5e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+          <div class="media-row-main">
+            <div class="media-row-tag">News · ARENA · Australia</div>
+            <div class="media-row-title">Repurposing Broken Hill Mine for Renewable Energy Storage Using Compressed Air</div>
+            <div class="media-row-source"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><line x1="2" y1="8" x2="14" y2="8"/><path d="M8 2a10 10 0 010 12M8 2a10 10 0 000 12"/></svg>arena.gov.au</div>
+          </div>
+          <div class="media-row-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/></svg></div>
+        </a>
+
+        <a class="media-row" href="https://www.npr.org/2025/11/26/g-s1-99287/the-u-s-produces-a-lot-of-food-waste-this-place-wants-to-address-it" target="_blank" rel="noopener noreferrer" style="--mr-accent:#C85000;--mr-tint:rgba(200,80,0,.1);">
+          <div class="media-row-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C85000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+          <div class="media-row-main">
+            <div class="media-row-tag">News · NPR</div>
+            <div class="media-row-title">The U.S. Produces a Lot of Food Waste. This Place Wants to Address It</div>
+            <div class="media-row-source"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><line x1="2" y1="8" x2="14" y2="8"/><path d="M8 2a10 10 0 010 12M8 2a10 10 0 000 12"/></svg>npr.org</div>
+          </div>
+          <div class="media-row-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/></svg></div>
+        </a>
+
+        <a class="media-row" href="https://www.wastetodaymagazine.com/news/range-impact-kentucky-coal-mine-landfill-redevelopment-murphy-road-usa-hauling-connecticut" target="_blank" rel="noopener noreferrer" style="--mr-accent:#1a5ca8;--mr-tint:rgba(26,92,168,.1);">
+          <div class="media-row-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a5ca8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+          <div class="media-row-main">
+            <div class="media-row-tag">News · Waste Today Magazine</div>
+            <div class="media-row-title">MRR of Connecticut Involved in Kentucky Landfill Plan</div>
+            <div class="media-row-source"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><line x1="2" y1="8" x2="14" y2="8"/><path d="M8 2a10 10 0 010 12M8 2a10 10 0 000 12"/></svg>astetodaymagazine.com</div>
+          </div>
+          <div class="media-row-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/></svg></div>
+        </a>
+
+      </div><!-- /media-stack -->
+
+    <p style="font-size:0.72rem; color:var(--color-text-secondary); font-style:italic; margin-top:16px;">Links open external websites. Coal Controller Organisation does not endorse third-party content.</p>
+
+    </div>
+  </div><!-- /spv-panel-media -->
+
+  <div id="spv-panel-agencies" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+
+      <div class="agencies-logo-grid">
+
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img">
+            <img src="../images/agencies/Ramky Enviro Engineers Ltd.gif" alt="Ramky Enviro Engineers Ltd" style="max-width:100%; max-height:56px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">Ramky Enviro Engineers Ltd</div>
+          <div class="agency-logo-type">Engineered landfill: liner system, leachate network, gas collection & cell civil construction</div>
+        </div>
+        
+     
+
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img">
+            <img src="../images/agencies/Antony Waste Handling Cell Ltd.png" alt="Antony Waste Handling Cell Ltd" style="max-width:100%; max-height:56px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">Antony Waste Handling Cell Ltd</div>
+          <div class="agency-logo-type">Landfill cell construction, composting windrow pads & processing infrastructure</div>
+        </div>
+
+    
+
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img">
+            <img src="../images/agencies/IL&FS%20Environment%20Infrastructure%20(IEISL).png" alt="ielfs" style="max-width:100%; max-height:56px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">IL&amp;FS Environment Infrastructure (IEISL)</div>
+          <div class="agency-logo-type">Solid Waste Management, Landfill &amp; Environmental Infrastructure</div>
+        </div>
+
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img">
+            <img src="../images/agencies/zigma_blueplanet_logo-PVf8tgMN%20(1).png" alt="Zigma Global Environ Solutions" style="max-width:100%; max-height:56px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">Zigma Global Environ Solutions</div>
+          <div class="agency-logo-type">Hazardous waste landfill: HDPE lining, containment berms, leachate sump & gas vent construction</div>
+        </div>
+        
+         <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img">
+            <img src="../images/agencies/Essel%20Infraprojects%20Ltd.jpg" alt="Essel Infraprojects Ltd" style="max-width:100%; max-height:56px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">Essel Infraprojects Ltd</div>
+          <div class="agency-logo-type">Waste facility civil & mechanical EPC including compost yard</div>
+        </div>
+        
+         <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img">
+            <img src="../images/agencies/NCC%20Ltd%20(Nagarjuna%20Construction%20Co.).png" alt="NCC Ltd (Nagarjuna Construction)" style="max-width:100%; max-height:56px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">NCC Ltd (Nagarjuna Construction)</div>
+          <div class="agency-logo-type">Civil EPC for landfill cells, compost pads & waste processing infrastructure</div>
+        </div>
+        
+         <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img agency-logo-inner--img--dark">
+            <img src="../images/agencies/Geocycle%20India%20(Holcim).png" alt="Geocycle India (Holcim)" style="max-width:100%; max-height:56px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">Geocycle India (Holcim)</div>
+          <div class="agency-logo-type">Industrial waste co-processing facility construction & commissioning</div>
+        </div>
+
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img agency-logo-inner--img--dark">
+            <img src="../images/agencies/mst-final-logo-e1736592937354.png" alt="MST Resolutions" style="max-width:100%; max-height:56px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">MST Resolutions</div>
+          <div class="agency-logo-type">Solid waste management, landfill remediation & integrated waste infrastructure</div>
+        </div>
+
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img">
+            <img src="../images/agencies/jfbiogas.png" alt="J&amp;F Biogas" style="max-width:100%; max-height:56px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">J&amp;F Biogas</div>
+          <div class="agency-logo-type">Biogas plant design, construction & commissioning for organic waste streams</div>
+        </div>
+
+      </div><!-- /agencies-logo-grid -->
+
+      <!-- Disclaimer -->
+      <div style="margin-top:28px; padding:14px 18px; background:rgba(33,128,141,.05); border:1px solid rgba(33,128,141,.18); border-radius:8px; display:flex; gap:12px; align-items:flex-start;">
+        <svg style="flex-shrink:0; margin-top:2px;" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#21808d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <p style="margin:0; font-family:var(--font-sans); font-size:0.8rem; color:var(--color-text-secondary); line-height:1.65;">
+          <strong style="color:var(--color-text); font-weight:600;">Disclaimer:</strong>
+          Inclusion of an agency on this list does not constitute endorsement, empanelment, or recommendation by the Coal Controller Organisation or the Ministry of Coal, Government of India. Mine owners and project proponents are advised to conduct their own due diligence process before engaging any agency.
+        </p>
+      </div>
+
+    </div>
+  </div><!-- /spv-panel-agencies -->
+
+  <div id="spv-panel-experts" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+      <div class="experts-grid">
+
+      </div><!-- /experts-grid -->
+      <div style="margin-top:28px;padding:14px 18px;background:rgba(33,128,141,.05);border:1px solid rgba(33,128,141,.18);border-radius:8px;display:flex;gap:12px;align-items:flex-start;">
+        <svg style="flex-shrink:0;margin-top:2px;" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#21808d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <p style="margin:0;font-family:var(--font-sans);font-size:0.8rem;color:var(--color-text-secondary);line-height:1.65;"><strong style="color:var(--color-text);font-weight:600;">Disclaimer:</strong> Inclusion of an expert does not constitute endorsement, empanelment, or recommendation by the Coal Controller Organisation or the Ministry of Coal, Government of India. Users are advised to independently verify credentials and suitability before engaging any individual.</p>
+      </div>
+    </div>
+  </div><!-- /spv-panel-experts -->
+
+  <!-- Footer -->
+  <footer id="site-footer-sf">
+    &copy; 2026 Coal Controller Organisation, Ministry of Coal, Government of India.
+  </footer>
+
+</div><!-- /page -->
+
+<!-- ═══════════════════════════════════════════════════════
+     SCRIPTS — edit only the PRISM2_COLORS and PRISM2_BG values
+     ═══════════════════════════════════════════════════════ -->
+<script>
+const PRISM2_COLORS = {P:'#C85000', R:'#1a5ca8', I:'#b06a10', S:'#5a3d9e', M:'#1a7a5e'};
+const PRISM2_BG     = {P:'#fff0e6', R:'#e4eef9', I:'#faedda', S:'#edeaf8', M:'#e1f3ec'};
+</script>
+<script src="./category.js"></script>
+<script>
+window.prism2Next = function() {
+  if (prism2Current < PRISM2_ORDER.length - 1) prNav(PRISM2_ORDER[prism2Current + 1]);
+};
+window.prism2Prev = function() {
+  if (prism2Current > 0) prNav(PRISM2_ORDER[prism2Current - 1]);
+};
+
+function downloadPRISM() {
+  var rawTitle = document.title || '';
+  var catName  = rawTitle.split('—')[0].split('-')[0].trim() || 'Category';
+
+  var PC = {P:'#C85000',R:'#1a5ca8',I:'#b06a10',S:'#5a3d9e',M:'#1a7a5e'};
+  var PB = {P:'#fff8f3',R:'#f3f7fd',I:'#fdf7f0',S:'#f7f5fd',M:'#f1faf6'};
+  var PN = {P:'Project Vision',R:'Repurposing Pathways',I:'Investment Dynamics',S:'Strategic Structuring',M:'Monitoring &amp; Management'};
+  var PE = {P:'POST-MINING',R:'REPURPOSING',I:'INVESTMENT',S:'STRATEGY',M:'MANAGEMENT'};
+
+  var introHeadEl = document.querySelector('.pr-intro-heading');
+  var introBodyEl = document.querySelector('.pr-intro-body');
+  var introHead   = introHeadEl ? introHeadEl.textContent : 'A structured framework for mine repurposing from concept to implementation';
+  var introBody   = introBodyEl ? introBodyEl.innerHTML   : '';
+
+  var pillarsHTML = '';
+  ['P','R','I','S','M'].forEach(function(k) {
+    var panel = document.getElementById('prism2-panel-' + k);
+    if (!panel) return;
+
+    var eyebrowEl   = panel.querySelector('.prism2-panel-eyebrow');
+    var titleEl     = panel.querySelector('.prism2-panel-title');
+    var descEl      = panel.querySelector('.prism2-panel-desc');
+    var eyebrow     = eyebrowEl  ? eyebrowEl.textContent  : PE[k];
+    var panelTitle  = titleEl    ? titleEl.textContent    : PN[k];
+    var descHTML    = descEl     ? descEl.innerHTML       : '';
+
+    var accHTML = '';
+    panel.querySelectorAll('.accordion-item').forEach(function(item) {
+      var spans = item.querySelectorAll('.accordion-btn span');
+      var btnText = '';
+      for (var s = 0; s < spans.length; s++) {
+        var t = spans[s].textContent.trim();
+        if (t && t !== '⥤' && t !== '˅') { btnText = t; break; }
+      }
+      var body = item.querySelector('.accordion-body');
+      if (!body) return;
+      var clone = body.cloneNode(true);
+      clone.style.display = '';
+      /* Remove scroll-wrapper overflow so tables span full width */
+      clone.querySelectorAll('.spv-table-wrap').forEach(function(w){w.style.overflowX='visible';});
+      accHTML += '<div class="acc-item">' +
+        '<div class="acc-heading">' + btnText + '</div>' +
+        '<div class="acc-body">' + clone.innerHTML + '</div>' +
+        '</div>';
+    });
+
+    pillarsHTML +=
+      '<div class="pillar" style="border-left-color:' + PC[k] + ';">' +
+        '<div class="pillar-hdr" style="background:' + PC[k] + '18;">' +
+          '<div class="pillar-letter" style="color:' + PC[k] + ';">' + k + '</div>' +
+          '<div class="pillar-info">' +
+            '<div class="pillar-eyebrow" style="color:' + PC[k] + ';">' + eyebrow + '</div>' +
+            '<div class="pillar-name">' + panelTitle + '</div>' +
+            (descHTML ? '<div class="pillar-desc">' + descHTML + '</div>' : '') +
+          '</div>' +
+        '</div>' +
+        '<div class="pillar-content">' + accHTML + '</div>' +
+      '</div>';
+  });
+
+  var css = [
+    '*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}',
+    'body{font-family:"Segoe UI",Arial,sans-serif;font-size:10pt;color:#1a1a1a;line-height:1.65;background:#fff}',
+    '@page{size:A4;margin:16mm 14mm}',
+    /* ── Cover ── */
+    '.cover{margin-bottom:28pt;padding-bottom:22pt;border-bottom:1.5pt solid #ddd}',
+    '.rainbow{height:5pt;border-radius:99pt;background:linear-gradient(to right,#7C3AB5,#4f6de0,#0ea5e9,#1D9E75,#3B6D11,#BA7517,#C85000,#A32D2D);margin-bottom:18pt}',
+    '.cover-eye{font-size:7.5pt;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#888;margin-bottom:7pt}',
+    '.cover-title{font-size:24pt;font-weight:800;color:#111;line-height:1.15;margin-bottom:5pt}',
+    '.cover-sub{font-size:11pt;font-weight:600;color:#444;margin-bottom:11pt}',
+    '.cover-body{font-size:9pt;color:#555;line-height:1.75}',
+    /* ── Pillars ── */
+    '.pillars{display:flex;flex-direction:column;gap:20pt}',
+    '.pillar{border-left:4pt solid #ccc;border-radius:6pt;overflow:hidden;page-break-inside:avoid}',
+    '.pillar-hdr{padding:13pt 15pt 11pt;display:flex;align-items:flex-start;gap:12pt}',
+    '.pillar-letter{font-size:30pt;font-weight:800;line-height:1;flex-shrink:0;width:38pt;opacity:.85}',
+    '.pillar-info{flex:1}',
+    '.pillar-eyebrow{font-size:7pt;font-weight:700;letter-spacing:.11em;text-transform:uppercase;margin-bottom:2pt}',
+    '.pillar-name{font-size:12.5pt;font-weight:700;color:#111;margin-bottom:3pt}',
+    '.pillar-desc{font-size:8.5pt;color:#555;line-height:1.6}',
+    /* ── Accordion ── */
+    '.pillar-content{background:#fff}',
+    '.acc-item{border-top:1pt solid #e8e8e0}',
+    '.acc-heading{font-size:9pt;font-weight:700;padding:8pt 13pt;color:#2a2a2a;background:#fafaf8}',
+    '.acc-body{font-size:8.5pt;line-height:1.75;color:#444;padding:9pt 13pt 11pt}',
+    /* ── Body content ── */
+    '.spv-body-text{margin-bottom:7pt}',
+    'p{margin-bottom:7pt}',
+    '.spv-list,.spv-list-unstyled{margin:5pt 0 7pt 16pt}',
+    'ul,ol{margin:5pt 0 7pt 16pt}',
+    '.spv-list li,ul li,ol li{margin-bottom:3pt}',
+    /* ── Tables ── */
+    '.spv-table-wrap{margin:7pt 0;overflow:visible}',
+    '.spv-table{width:100%;border-collapse:collapse;font-size:8pt}',
+    '.spv-table th{background:#f0f0ea;font-weight:700;text-align:left;padding:5pt 7pt;border:1pt solid #ccc;vertical-align:top}',
+    '.spv-table td{padding:4.5pt 7pt;border:1pt solid #ccc;vertical-align:top}',
+    '.spv-table tr:nth-child(even) td{background:#f9f9f7}',
+    /* ── Strong/em ── */
+    'strong{font-weight:700}',
+    'em{font-style:italic}',
+    /* ── Info/note boxes (if any) ── */
+    '.spv-note,.spv-info{background:#f5f5f0;border-left:3pt solid #aaa;padding:8pt 10pt;margin:6pt 0;font-size:8.5pt}'
+  ].join('\n');
+
+  var html = '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">' +
+    '<title>PRISM — ' + catName + '<\/title>' +
+    '<style>' + css + '<\/style><\/head><body>' +
+    '<div class="cover">' +
+      '<div class="rainbow"><\/div>' +
+      '<div class="cover-eye">PRISM Framework — Post-Mining Repurposing &amp; Implementation Strategy Models<\/div>' +
+      '<div class="cover-title">' + catName + '<\/div>' +
+      '<div class="cover-sub">' + introHead + '<\/div>' +
+      (introBody ? '<div class="cover-body">' + introBody + '<\/div>' : '') +
+    '<\/div>' +
+    '<div class="pillars">' + pillarsHTML + '<\/div>' +
+    '<\/body><\/html>';
+
+  var win = window.open('', '_blank', 'width=960,height=750');
+  if (!win) { alert('Please allow pop-ups for this site to download the PDF.'); return; }
+  win.document.write(html);
+  win.document.close();
+  win.focus();
+  setTimeout(function() { win.print(); }, 700);
+}
+
+(function() {
+  var panel = document.getElementById('spv-panel-prism');
+  if (!panel) return;
+  new MutationObserver(function() {
+    if (panel.style.display !== 'none') setTimeout(function() { prNav('P'); }, 10);
+  }).observe(panel, { attributes: true, attributeFilter: ['style'] });
+})();
+
+/* ── Tender t5 filter + search ── */
+(function(){
+  var activeFilter="all", searchQuery="";
+  function render(){
+    var sections=document.querySelectorAll("#spv-panel-tender .t5-section");
+    var vis=0;
+    sections.forEach(function(sec){
+      var secKey=sec.getAttribute("data-sec");
+      var showSec=(activeFilter==="all"||activeFilter===secKey);
+      var secVis=0;
+      sec.querySelectorAll(".t5-row").forEach(function(row){
+        var titleMatch=!searchQuery||row.getAttribute("data-title").indexOf(searchQuery)!==-1;
+        var show=showSec&&titleMatch;
+        row.style.display=show?"":"none";
+        if(show){secVis++;vis++;}
+      });
+      sec.style.display=secVis>0?"":"none";
+    });
+    var counter=document.getElementById("t5Counter");
+    if(counter) counter.textContent=vis+" document"+(vis===1?"":"s");
+    var empty=document.getElementById("t5Empty");
+    if(empty) empty.style.display=vis===0?"":"none";
+  }
+  window.t5Filter=function(type){
+    activeFilter=type;
+    document.querySelectorAll("#spv-panel-tender .t5-pill").forEach(function(p){
+      var m=(p.getAttribute("onclick")||"").match(/t5Filter\('?(\w+)'?\)/);
+      if(m) p.classList.toggle("active",m[1]===type);
+    });
+    render();
+  };
+  window.t5Search=function(val){ searchQuery=val.trim().toLowerCase(); render(); };
+  render();
+})();
+</script>
+
+<!-- browse-back-script -->
+<script>
+(function(){
+  if(new URLSearchParams(location.search).get('from')==='browse'){
+    var btn=document.querySelector('.back-btn');
+    if(btn){
+      btn.onclick=function(){window.location.href='../browse.html';};
+      btn.setAttribute('aria-label','Back to Browse');
+      for(var i=btn.childNodes.length-1;i>=0;i--){
+        var n=btn.childNodes[i];
+        if(n.nodeType===3&&n.textContent.trim()){n.textContent=' Back to Browse';break;}
+      }
+    }
+    var cr=document.querySelector('.sf-breadcrumb span:not(.sep)');
+    if(cr)cr.textContent='All Categories';
+  }
+})();
+</script>
+</body>
+</html>

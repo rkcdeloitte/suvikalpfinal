@@ -1,0 +1,1705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Logistic Park — SUVIKALP | Coal Controller Organisation</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="./category.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+@font-face{font-family:"Inter";font-weight:400;font-display:swap;src:url("../fonts/Inter_18pt-Regular.woff2") format("woff2"),url("../fonts/Inter_18pt-Regular.ttf") format("truetype");}
+@font-face{font-family:"Inter";font-weight:500;font-display:swap;src:url("../fonts/Inter_18pt-Medium.woff2") format("woff2"),url("../fonts/Inter_18pt-Medium.ttf") format("truetype");}
+@font-face{font-family:"Inter";font-weight:600;font-display:swap;src:url("../fonts/Inter_18pt-SemiBold.woff2") format("woff2"),url("../fonts/Inter_18pt-SemiBold.ttf") format("truetype");}
+@font-face{font-family:"Inter";font-weight:700;font-display:swap;src:url("../fonts/Inter_18pt-Bold.woff2") format("woff2"),url("../fonts/Inter_18pt-Bold.ttf") format("truetype");}
+:root{--font-sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;--font-devanagari:'Noto Sans Devanagari','Noto Sans',sans-serif;--fs-xs:.75rem;--fs-sm:.8125rem;--fs-base:.875rem;--fs-md:.9375rem;--fs-lg:1rem;--fs-xl:1.125rem;--fs-2xl:1.375rem;--lh-tight:1.35;--lh-base:1.6;--lh-loose:1.8;}
+html,body,button,input,select,textarea{font-family:var(--font-sans);}
+.hindi,.header-cco-hindi{font-family:var(--font-devanagari);}
+.spv-body-text{font-family:var(--font-sans);font-size:var(--fs-md);line-height:var(--lh-loose);color:var(--color-text);margin-bottom:14px;font-weight:400;}
+.spv-list{margin:8px 0 14px 22px;font-family:var(--font-sans);font-size:var(--fs-md);line-height:var(--lh-loose);color:var(--color-text);}
+.spv-list li{margin-bottom:6px;}
+.spv-section-title{font-family:var(--font-sans);font-weight:700;font-size:var(--fs-xl);color:var(--color-teal-600);border-bottom:2px solid var(--color-primary);padding-bottom:8px;margin-bottom:22px;letter-spacing:-.01em;}
+.accordion-btn{font-family:var(--font-sans);font-weight:600;font-size:var(--fs-base);}
+.accordion-body{font-family:var(--font-sans);font-size:var(--fs-md);}
+.spv-table,.spv-table thead tr th,.spv-table td,.spv-table td:first-child{font-family:var(--font-sans);}
+.spv-tab{font-family:var(--font-sans);font-weight:500;font-size:var(--fs-sm);}
+.spv-tab.active{font-weight:700;}
+.back-btn{font-family:var(--font-sans);font-weight:600;font-size:var(--fs-base);}
+.sf-breadcrumb{font-family:var(--font-sans);font-size:var(--fs-sm);}
+.agency-logo-name{font-family:var(--font-sans);font-weight:700;font-size:var(--fs-sm);}
+.agency-logo-type{font-family:var(--font-sans);font-size:.72rem;}
+.agency-logo-inner--img{display:flex;align-items:center;justify-content:center;padding:10px 14px;border-radius:8px;height:76px !important;box-sizing:border-box;}
+.agency-logo-inner--img img{max-width:100%;max-height:56px;width:auto;height:auto;object-fit:contain;}
+.about-hero-row{display:flex;gap:28px;align-items:stretch;margin-bottom:40px;min-height:300px;}
+.about-hero-slide-col{flex:0 0 40%;min-width:0;display:flex;flex-direction:column;}
+.about-hero-slide-col .proj-static-img-wrap{flex:none;height:340px;}
+.about-hero-text-col{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center;}
+.about-hero-label{font-family:var(--font-sans);font-size:var(--fs-xs);font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin-bottom:0;}
+.about-hero-label-wrap{margin-bottom:12px;}
+.about-hero-label-bar{display:block;height:3px;width:48px;margin-top:7px;border-radius:99px;background:linear-gradient(90deg,#21808d 0%,#38bdf8 60%,transparent 100%);}
+.about-intro{display:flex;flex-direction:column;gap:14px;}
+.about-intro-block{padding:14px 18px;border-radius:10px;}
+.about-intro-primary{border-left:4px solid #21808d;background:rgba(33,128,141,.05);}
+.about-intro-secondary{border-left:4px solid rgba(33,128,141,.3);background:#fafafa;}
+.about-section{margin-bottom:40px;}
+.about-section-eyebrow{font-family:var(--font-sans);font-size:var(--fs-xs);font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin-bottom:4px;}
+.about-section-title{font-family:var(--font-sans);font-size:var(--fs-xl);font-weight:700;color:#0f172a;margin:0 0 20px;line-height:var(--lh-tight);}
+.schemes-outer{position:relative;margin:0 20px;}
+.schemes-nav-btn{position:absolute;top:50%;transform:translateY(-50%);z-index:10;width:36px;height:36px;border-radius:50%;background:#fff;border:1.5px solid #e2e8f0;box-shadow:0 2px 10px rgba(0,0,0,.10);cursor:pointer;display:flex;align-items:center;justify-content:center;color:#475569;transition:background .2s,color .2s,border-color .2s,box-shadow .2s;padding:0;}
+.schemes-nav-btn:hover{background:var(--teal,#0a9396);color:#fff;border-color:var(--teal,#0a9396);box-shadow:0 4px 14px rgba(10,147,150,.3);}
+.schemes-nav-btn.schemes-prev{left:-20px;}
+.schemes-nav-btn.schemes-next{right:-20px;}
+.schemes-ticker-wrap{overflow:hidden;position:relative;mask-image:linear-gradient(to right,transparent 0%,black 7%,black 93%,transparent 100%);-webkit-mask-image:linear-gradient(to right,transparent 0%,black 7%,black 93%,transparent 100%);}
+.schemes-ticker{display:flex;gap:16px;overflow-x:auto;-ms-overflow-style:none;scrollbar-width:none;padding:8px 4px;}
+.schemes-ticker::-webkit-scrollbar{display:none;}
+.scheme-card{flex:0 0 220px;background:#fff;border:1px solid #e8eaed;border-radius:12px;padding:18px 16px;box-shadow:0 2px 8px rgba(0,0,0,.05);transition:box-shadow .2s,transform .2s;}
+.scheme-card:hover{box-shadow:0 6px 20px rgba(0,0,0,.1);transform:translateY(-3px);}
+.scheme-card-icon{font-size:22px;margin-bottom:10px;}
+.scheme-card-tag{font-family:var(--font-sans);font-size:var(--fs-xs);font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--teal);margin-bottom:5px;}
+.scheme-card-title{font-family:var(--font-sans);font-size:var(--fs-base);font-weight:700;color:#1e293b;margin-bottom:8px;line-height:var(--lh-tight);}
+.scheme-card-desc{font-family:var(--font-sans);font-size:var(--fs-sm);color:#64748b;line-height:var(--lh-base);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
+.proj-static-img-wrap{position:relative;border-radius:14px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,.15);}
+.proj-static-img{width:100%;height:100%;object-fit:cover;display:block;}
+.proj-slide-overlay{position:absolute;bottom:0;left:0;right:0;padding:12px 18px;background:linear-gradient(90deg,rgba(10,70,80,.95) 0%,rgba(33,128,141,.88) 100%);display:flex;align-items:center;z-index:1;}
+.proj-caption{font-family:var(--font-sans);font-size:var(--fs-base);font-weight:600;color:#fff;line-height:1.4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.pr-intro{padding:22px 24px 20px;background:rgba(33,128,141,.05);border:1px solid rgba(33,128,141,.15);border-radius:14px;margin-bottom:20px;}
+.pr-intro-eyebrow{font-size:15px;font-weight:700;color:#21808d;margin-bottom:8px;line-height:1.35;}
+.pr-intro-heading{font-size:16px;font-weight:700;color:#0f172a;margin-bottom:10px;line-height:1.35;}
+.pr-intro-body{font-size:13.5px;color:#374151;line-height:1.85;}
+.pr-shell{display:flex;border:1px solid #e2e8f0;border-radius:14px;overflow:clip;background:#fff;}
+.pr-sidebar{width:220px;flex-shrink:0;border-right:1px solid #e8edf2;padding:16px 0;background:#f8fafc;position:sticky;top:125px;align-self:flex-start;max-height:calc(100vh - 155px);overflow-y:auto;}
+.pr-sidebar-label{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#7a8a9a;padding:0 16px 14px;}
+.pr-nav-highlight{position:absolute;left:0;right:0;pointer-events:none;z-index:0;background:color-mix(in srgb,var(--pr-hl,#C85000) 9%,transparent);transition:top .4s cubic-bezier(.4,0,.2,1),height .4s cubic-bezier(.4,0,.2,1),background .38s ease;}
+.pr-nav-highlight::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--pr-hl,#C85000);border-radius:0 2px 2px 0;transition:background .38s ease;}
+.pr-nav-item{position:relative;z-index:1;display:flex;align-items:center;gap:12px;padding:13px 16px;cursor:pointer;opacity:0;animation:nav-slide-in .32s cubic-bezier(.4,0,.2,1) both;}
+@keyframes nav-slide-in{from{opacity:0;transform:translateX(-10px);}to{opacity:1;transform:translateX(0);}}
+.pr-nav-item:nth-child(3){animation-delay:.02s;}
+.pr-nav-item:nth-child(4){animation-delay:.07s;}
+.pr-nav-item:nth-child(5){animation-delay:.12s;}
+.pr-nav-item:nth-child(6){animation-delay:.17s;}
+.pr-nav-item:nth-child(7){animation-delay:.22s;}
+.pr-nav-badge{width:34px;height:34px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;border:1.5px solid #d1d5db;color:#9ca3af;background:#fff;position:relative;z-index:1;transition:background .35s cubic-bezier(.4,0,.2,1),color .3s,border-color .35s,transform .45s cubic-bezier(.34,1.56,.64,1),box-shadow .35s;}
+.pr-nav-item.active .pr-nav-badge{background:var(--pr-accent);color:#fff;border-color:var(--pr-accent);transform:scale(1.12);box-shadow:0 0 0 4px color-mix(in srgb,var(--pr-accent) 18%,transparent),0 3px 10px color-mix(in srgb,var(--pr-accent) 32%,transparent);}
+.pr-nav-letter{font-size:13px;font-weight:600;color:#374151;line-height:1.25;position:relative;z-index:1;transition:color .25s,font-weight .2s;}
+.pr-nav-item.active .pr-nav-letter{color:var(--pr-accent);font-weight:700;}
+.pr-content-wrap{flex:1;min-width:0;}
+.pr-content-wrap .prism2-content-panel{border-radius:0;box-shadow:none;}
+.prism2-content-panel .prism2-panel-header{background:color-mix(in srgb,var(--pc) 5%,#fff);}
+.prism2-panel-eyebrow{font-size:13px;font-weight:700;letter-spacing:.10em;text-transform:uppercase;color:var(--pc);margin-bottom:6px;}
+.tbl-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-bottom:4px;}
+.prism2-content-panel .accordion-btn { padding:15px 28px; transition:color .18s,background .18s; font-size:13.5px; font-weight:600; color:#1e293b; }
+.prism2-content-panel .accordion-btn:hover { color:var(--pc); background:color-mix(in srgb,var(--pc) 4%,transparent); }
+.prism2-content-panel .accordion-btn.open { color:var(--pc); background:color-mix(in srgb,var(--pc) 5%,transparent); }</style>
+</head>
+<body>
+
+<header id="site-header">
+  <div class="header-left">
+    <div class="header-tool-title"><span class="hindi">सुविकल्प:</span> Mine Repurposing Tool</div>
+    <div class="header-tool-sub">Select factors and sub-factors to discover suitable repurposing options for your mining site</div>
+  </div>
+  <div class="header-right">
+    <a href="https://coalcontroller.gov.in/" target="_blank" rel="noopener" title="CCO Home">
+    <div class="header-cco-lockup">
+      <img class="header-cco-logo" src="data:image/png;base64,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" alt="Coal Controller Organisation emblem">
+      <div class="header-cco-text"></div>
+    </div>
+    </a>
+  </div>
+</header>
+
+<div class="page">
+
+  <div class="sf-backbar">
+    <button class="back-btn" onclick="window.location.href='../index.html'" aria-label="Back to results">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3L5 8l5 5"/></svg>
+      Back to Results
+    </button>
+    <span class="sf-breadcrumb">
+      <span>Final Recommendations</span>
+      <span class="sep">/</span>
+      <span style="color:var(--teal);font-weight:500;">Logistics Park / Multi-Modal Logistics</span>
+    </span>
+  </div>
+
+  <div class="spv-hero-wrap">
+    <img src="../images/lp-hero-logistics.jpg" alt="Drone aerial view of a large logistics centre with trucks and warehouses — mine-closure repurposing" class="spv-hero-img">
+    <div class="spv-hero-overlay"></div>
+    <div class="spv-hero-title">Logistic Park</div>
+  </div>
+
+  <nav class="spv-tabs" aria-label="Detail sections">
+    <button class="spv-tab active" data-tab="about"       onclick="showSPVTab('about')">About</button>
+    <button class="spv-tab"        data-tab="prism"        onclick="showSPVTab('prism')">P.R.I.S.M</button>
+    <button class="spv-tab"        data-tab="casestudies"  onclick="showSPVTab('casestudies');setTimeout(function(){window.dispatchEvent(new Event('resize'))},30)">Case Studies</button>
+    <button class="spv-tab"        data-tab="tender"       onclick="showSPVTab('tender')">Sample Tender Documents</button>
+    <button class="spv-tab"        data-tab="media"        onclick="showSPVTab('media')">Media/Web</button>
+    <button class="spv-tab"        data-tab="agencies"    onclick="showSPVTab('agencies')">Agencies</button>
+<!-- EXPERTS TAB HIDDEN (page not yet complete)
+<button class="spv-tab"        data-tab="experts"      onclick="showSPVTab('experts')">Experts</button>
+-->
+  </nav>
+
+  <div id="spv-panel-about" class="spv-panel">
+    <div class="spv-content">
+
+      <div class="about-hero-row">
+        <div class="about-hero-slide-col">
+          <div class="about-hero-label-wrap">
+            <div class="about-hero-label">Precedents</div>
+            <span class="about-hero-label-bar"></span>
+          </div>
+          <div class="proj-static-img-wrap">
+            <img src="../images/mmlp-bengaluru-render.jpg" alt="MMLP Bengaluru master plan render — 400-acre multimodal logistics park at Muddelinganahalli with solar-roofed warehouses and rail connectivity, Karnataka" class="proj-static-img" loading="lazy">
+            <div class="proj-slide-overlay">
+              <span class="proj-caption">MMLP Bharatmala, Bengaluru, India</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-hero-text-col">
+          <div class="about-intro">
+            <div class="about-intro-block about-intro-primary">
+              This concept proposes the development of <strong>Logistics Park Zones / Multi-Modal Logistics Park Zones (MMLPs)</strong> on closed, reclaimed, stabilized, or repurposed coal mine land as part of a sustainable mine-closure and post-mining land-use strategy. The objective is to convert under-utilized mine land into a productive <strong>logistics, warehousing, transportation, aggregation, distribution, and value-added supply-chain asset</strong> — including warehousing and storage blocks, truck terminals, rail-linked cargo handling, cold storage, e-commerce fulfilment centres, packaging and sorting units, and digital control facilities. Government of India has approved <strong>35 Multi-Modal Logistics Park locations</strong> to improve logistics efficiency, being developed through PPP on <strong>DBFOT basis</strong> in a hub-and-spoke model.
+            </div>
+            <div class="about-intro-block about-intro-secondary">
+              Unlike heavy industrial reuse, a logistics park uses large land parcels productively without requiring very high-density manufacturing; leverages existing mine roads, rail connectivity, power infrastructure and industrial buffers; and supports local employment in warehousing, transport, handling, security, packaging and facility management. The concept aligns with <strong>PM GatiShakti</strong>, the <strong>National Logistics Policy 2022</strong>, and CCO mine-closure frameworks <strong>L.I.V.E.S., R.E.C.L.A.I.M. and A.R.T.H.A.</strong> It generates lease rent, concession fees, user charges, warehousing income, and revenue share for the mine owner — creating a long-term revenue-generating post-mining land-use system.
+            </div>
+          </div>
+        </div>
+      </div><!-- /about-hero-row -->
+
+      <div class="about-section">
+        <div class="about-section-eyebrow">Relevant Schemes &amp; Policy</div>
+        <h3 class="about-section-title">Policy levers and frameworks supporting Logistics Park development on closed coal mine land</h3>
+        <div class="schemes-outer">
+          <button class="schemes-nav-btn schemes-prev" onclick="schemesNav(-1)" aria-label="Previous">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <div class="schemes-ticker-wrap">
+            <div class="schemes-ticker" id="schemesTicker">
+
+              <div class="scheme-card">
+                <div class="scheme-card-icon">🚀</div>
+                <div class="scheme-card-tag">GoI</div>
+                <div class="scheme-card-title">PM GatiShakti National Master Plan</div>
+                <div class="scheme-card-desc">Launched in 2021, PM GatiShakti addresses connectivity gaps for seamless movement of goods and services. A mine-area logistics park on highways, rail corridors or industrial clusters directly supports this objective.</div>
+              </div>
+
+              <div class="scheme-card">
+                <div class="scheme-card-icon">📦</div>
+                <div class="scheme-card-tag">MoCI</div>
+                <div class="scheme-card-title">National Logistics Policy 2022</div>
+                <div class="scheme-card-desc">India's NLP 2022 targets reduction in logistics costs from ~13–14% of GDP to global benchmarks, with emphasis on multimodal connectivity, warehousing modernization, and digital integration of supply chains.</div>
+              </div>
+
+              <div class="scheme-card">
+                <div class="scheme-card-icon">🏗️</div>
+                <div class="scheme-card-tag">MoRTH / NHLML</div>
+                <div class="scheme-card-title">Bharatmala MMLP Programme</div>
+                <div class="scheme-card-desc">35 Multi-Modal Logistics Parks approved under Bharatmala Pariyojana, being developed through PPP on DBFOT basis in a hub-and-spoke model by NHLML (National Highways Logistics Management Limited).</div>
+              </div>
+
+              <div class="scheme-card">
+                <div class="scheme-card-icon">⛏️</div>
+                <div class="scheme-card-tag">CCO / MoCoal</div>
+                <div class="scheme-card-title">Mine Closure Guidelines 2025</div>
+                <div class="scheme-card-desc">CCO handbooks L.I.V.E.S., R.E.C.L.A.I.M. and A.R.T.H.A. support productive post-mining land use, community-oriented repurposing, and logistics infrastructure on closed coal mine land.</div>
+              </div>
+
+              <div class="scheme-card">
+                <div class="scheme-card-icon">🚂</div>
+                <div class="scheme-card-tag">MoRTH / MoR</div>
+                <div class="scheme-card-title">Dedicated Freight Corridor (DFC)</div>
+                <div class="scheme-card-desc">The Eastern and Western DFCs create high-speed, high-capacity freight corridors across India. Coal mine areas near DFC alignments are prime candidates for logistics park development with rail-linked cargo handling.</div>
+              </div>
+
+              <div class="scheme-card">
+                <div class="scheme-card-icon">🏭</div>
+                <div class="scheme-card-tag">DPIIT / MoCI</div>
+                <div class="scheme-card-title">National Industrial Corridor Programme</div>
+                <div class="scheme-card-desc">Industrial corridors (DMIC, CBIC, AKIC, etc.) create industrial and logistics demand clusters. Mine-area logistics parks located along or near these corridors can serve industrial supply chains effectively.</div>
+              </div>
+
+              <div class="scheme-card">
+                <div class="scheme-card-icon">🌿</div>
+                <div class="scheme-card-tag">CSR / ESG</div>
+                <div class="scheme-card-title">CSR &amp; ESG for Mine Livelihood</div>
+                <div class="scheme-card-desc">Mine operators can use CSR funds under the Companies Act for site preparation, access-road development, skill training, local vendor participation, and community livelihood in mine-area logistics parks.</div>
+              </div>
+
+              <div class="scheme-card">
+                <div class="scheme-card-icon">🏪</div>
+                <div class="scheme-card-tag">MSME / DPIIT</div>
+                <div class="scheme-card-title">MSME &amp; Agro-Logistics Integration</div>
+                <div class="scheme-card-desc">Mine-area logistics parks can serve nearby MSMEs, agricultural markets, and food-processing clusters. MSME cluster development and agri-infrastructure schemes support warehousing and cold-chain integration.</div>
+              </div>
+
+              <!-- Duplicates for seamless loop -->
+              <div class="scheme-card" aria-hidden="true"><div class="scheme-card-icon">🚀</div><div class="scheme-card-tag">GoI</div><div class="scheme-card-title">PM GatiShakti National Master Plan</div><div class="scheme-card-desc">Addresses connectivity gaps for seamless movement of goods and services. Mine-area logistics parks on highways, rail corridors or clusters directly support this objective.</div></div>
+              <div class="scheme-card" aria-hidden="true"><div class="scheme-card-icon">📦</div><div class="scheme-card-tag">MoCI</div><div class="scheme-card-title">National Logistics Policy 2022</div><div class="scheme-card-desc">Targets reduction in logistics costs with emphasis on multimodal connectivity, warehousing modernization, and digital supply chain integration.</div></div>
+              <div class="scheme-card" aria-hidden="true"><div class="scheme-card-icon">🏗️</div><div class="scheme-card-tag">MoRTH / NHLML</div><div class="scheme-card-title">Bharatmala MMLP Programme</div><div class="scheme-card-desc">35 Multi-Modal Logistics Parks approved under Bharatmala Pariyojana via PPP-DBFOT hub-and-spoke model.</div></div>
+              <div class="scheme-card" aria-hidden="true"><div class="scheme-card-icon">⛏️</div><div class="scheme-card-tag">CCO / MoCoal</div><div class="scheme-card-title">Mine Closure Guidelines 2025</div><div class="scheme-card-desc">L.I.V.E.S., R.E.C.L.A.I.M. and A.R.T.H.A. support productive post-mining land use and logistics infrastructure at closed coal mines.</div></div>
+              <div class="scheme-card" aria-hidden="true"><div class="scheme-card-icon">🚂</div><div class="scheme-card-tag">MoRTH / MoR</div><div class="scheme-card-title">Dedicated Freight Corridor (DFC)</div><div class="scheme-card-desc">Eastern and Western DFCs create prime demand for rail-linked logistics parks near coal mine areas along their alignment.</div></div>
+              <div class="scheme-card" aria-hidden="true"><div class="scheme-card-icon">🏭</div><div class="scheme-card-tag">DPIIT / MoCI</div><div class="scheme-card-title">National Industrial Corridor Programme</div><div class="scheme-card-desc">Industrial corridors create logistics demand. Mine-area parks along DMIC, CBIC, AKIC can serve industrial supply chains.</div></div>
+              <div class="scheme-card" aria-hidden="true"><div class="scheme-card-icon">🌿</div><div class="scheme-card-tag">CSR / ESG</div><div class="scheme-card-title">CSR &amp; ESG for Mine Livelihood</div><div class="scheme-card-desc">CSR funds can support site preparation, access roads, skill training, and community livelihood in mine-area logistics parks.</div></div>
+              <div class="scheme-card" aria-hidden="true"><div class="scheme-card-icon">🏪</div><div class="scheme-card-tag">MSME / DPIIT</div><div class="scheme-card-title">MSME &amp; Agro-Logistics Integration</div><div class="scheme-card-desc">MSME cluster and agri-infrastructure schemes support warehousing and cold-chain integration for nearby markets and food processors.</div></div>
+
+            </div>
+          </div>
+          <button class="schemes-nav-btn schemes-next" onclick="schemesNav(1)" aria-label="Next">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div><!-- /spv-panel-about -->
+
+  <div id="spv-panel-prism" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+
+<div class="pr-intro">
+  <div class="pr-intro-eyebrow">PRISM – Post-Mining Repurposing and Implementation Strategy Models</div>
+  <div class="pr-intro-heading">A structured framework for mine repurposing from concept to implementation</div>
+  <div class="pr-intro-body">PRISM is a structured framework designed to support identified post-mining repurposing opportunities by evaluating suitable implementation pathways, financial and revenue-generation models, and the implementation requirements, roles, and responsibilities of mine owners, developers, operators, and other stakeholders throughout the project lifecycle. Built around five integrated pillars, PRISM guides Logistics Park / MMLP projects from concept to operation.</div>
+</div>
+
+<div class="pr-shell">
+  <div class="pr-sidebar">
+    <div class="pr-sidebar-label">Pillars</div>
+    <div class="pr-nav-highlight" id="pr-hl"></div>
+    <div class="pr-nav-item active" style="--pr-accent:#C85000;" data-key="P" onclick="prNav('P')">
+      <div class="pr-nav-badge">P</div>
+      <div><div class="pr-nav-letter">Project vision</div></div>
+    </div>
+    <div class="pr-nav-item" style="--pr-accent:#1a5ca8;" data-key="R" onclick="prNav('R')">
+      <div class="pr-nav-badge">R</div>
+      <div><div class="pr-nav-letter">Repurposing pathways</div></div>
+    </div>
+    <div class="pr-nav-item" style="--pr-accent:#b06a10;" data-key="I" onclick="prNav('I')">
+      <div class="pr-nav-badge">I</div>
+      <div><div class="pr-nav-letter">Investment dynamics</div></div>
+    </div>
+    <div class="pr-nav-item" style="--pr-accent:#5a3d9e;" data-key="S" onclick="prNav('S')">
+      <div class="pr-nav-badge">S</div>
+      <div><div class="pr-nav-letter">Strategic structuring</div></div>
+    </div>
+    <div class="pr-nav-item" style="--pr-accent:#1a7a5e;" data-key="M" onclick="prNav('M')">
+      <div class="pr-nav-badge">M</div>
+      <div><div class="pr-nav-letter">Monitoring guidance</div></div>
+    </div>
+  </div>
+
+  <div class="pr-content-wrap">
+
+    <!-- ── P PANEL ── -->
+    <div class="prism2-content-panel active" id="prism2-panel-P" style="--pc:#C85000;--pb:#fff0e6;--cb:#fff8f3;">
+      <div class="prism2-panel-header">
+        <div class="prism2-panel-header-letter">P</div>
+        <div class="prism2-panel-header-text">
+          <div class="prism2-panel-eyebrow">PROJECT VISION</div>
+          <p class="prism2-panel-desc">Project concept, strategic rationale, site suitability matrix and indicative scale options for developing a logistics park or MMLP on closed coal mine land.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Project Overview</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">This concept proposes the development of <strong>Logistics Park Zones / Multi-Modal Logistics Park Zones</strong> on closed, reclaimed, stabilized, or repurposed coal mine land as part of a sustainable mine-closure and post-mining land-use strategy.</p>
+          <p class="spv-body-text">The objective is to convert under-utilized mine land into a productive logistics, warehousing, transportation, aggregation, distribution, and value-added supply-chain asset centered around:</p>
+          <ul class="spv-list">
+            <li>Warehousing and storage blocks</li>
+            <li>Truck terminal and parking zones</li>
+            <li>Rail siding / rail-linked cargo handling, where feasible</li>
+            <li>Container handling and transshipment areas</li>
+            <li>Cold storage and temperature-controlled warehousing</li>
+            <li>E-commerce fulfilment and distribution centres</li>
+            <li>Packaging, sorting, grading and labelling units</li>
+            <li>Repair, maintenance and driver facilities</li>
+            <li>Weighbridges, fuel / EV charging and service yards</li>
+            <li>Customs / bonded storage, where applicable</li>
+            <li>Administrative, security and digital control facilities</li>
+            <li>Green buffer, stormwater, drainage and utility corridors</li>
+          </ul>
+          <p class="spv-body-text">Unlike heavy industrial reuse, a logistics park uses large land parcels productively without requiring very high-density manufacturing activity; leverages existing mine roads, rail connectivity, power infrastructure and industrial buffers; and supports local employment in warehousing, transport, handling, security, maintenance, packaging, administration and facility management.</p>
+          <p class="spv-body-text">This aligns with India's mine-closure shift toward productive and community-oriented repurposing, as reflected in frameworks such as <strong>L.I.V.E.S., R.E.C.L.A.I.M. and A.R.T.H.A.</strong> The concept is also aligned with India's broader logistics policy direction — Government of India has approved <strong>35 Multi-Modal Logistics Park locations</strong> to improve logistics efficiency and reduce logistics costs, being developed through PPP on <strong>DBFOT basis</strong> in a hub-and-spoke model.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Strategic Rationale</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">A Logistics Park is particularly suited for closed coal mine areas where large land parcels, heavy vehicle access, existing industrial roads, rail proximity, power corridors and buffer distances are already available or can be upgraded.</p>
+          <ul class="spv-list">
+            <li>Converts closed mine land into productive economic infrastructure</li>
+            <li>Supports regional freight aggregation, distribution and supply-chain efficiency</li>
+            <li>Reduces risk of abandoned land misuse, encroachment or unsafe occupation</li>
+            <li>Creates direct and indirect employment in transport, warehousing, loading, unloading, packaging, security, repair, maintenance and facility management</li>
+            <li>Can support local MSMEs, traders, farmers, industries and e-commerce supply chains</li>
+            <li>Can be developed in phases depending on land availability and demand</li>
+            <li>Can integrate road, rail and, where feasible, inland-waterway or port-linked cargo movement</li>
+            <li>Supports <strong>PM GatiShakti</strong> and <strong>National Logistics Policy</strong> objectives for seamless movement of goods and services</li>
+            <li>Generates lease rent, concession fee, user charges, warehousing income, parking income and revenue share for the mine owner</li>
+            <li>Can become a regional economic anchor for post-mining transition</li>
+          </ul>
+          <p class="spv-body-text">PM GatiShakti is intended to address connectivity gaps and enable seamless movement of people, goods and services with cost efficiency. A mine-area logistics park can support this objective if it is located near highways, rail corridors, industrial clusters, ports, consumption centres or mineral / agricultural production belts.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Site Suitability and Technical Specification Matrix</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following matrix provides a structured checklist for assessing the suitability of the proposed site for the selected repurposing option. It identifies the key physical, technical, environmental, infrastructure, legal, and owner-side readiness parameters that should be reviewed before the project is advanced to the next stage of development. The purpose of this matrix is to help the project owner understand existing site conditions, technical requirements, potential constraints, and preparatory actions required before feasibility studies, approvals, or tendering are initiated.</p>
+          <div class="tbl-scroll">
+          <table class="spv-table">
+            <thead><tr>
+              <th>Main Category</th>
+              <th>What to Assess / Prepare</th>
+              <th>Why it Matters</th>
+              <th>Owner-Side Readiness</th>
+            </tr></thead>
+            <tbody>
+              <tr><td><strong>Land status</strong></td><td>Closure status, ownership, lease conditions, land-use permissibility</td><td>Legal viability for logistics, warehousing and transport use</td><td>Closure note and land-use permissibility note</td></tr>
+              <tr><td><strong>Mine stability</strong></td><td>Subsidence risk, dump stability, slope stability, void proximity, highwall safety</td><td>Ensures safe use by trucks, warehouses, workers and visitors</td><td>Geotechnical and mine-stability report</td></tr>
+              <tr><td><strong>Landform</strong></td><td>Flatness, grading requirement, platform levels, cut-fill balance</td><td>Warehouses and yards need stable, level platforms</td><td>Topographic survey and grading plan</td></tr>
+              <tr><td><strong>Soil condition</strong></td><td>Bearing capacity, compaction, settlement risk, contamination, dust potential</td><td>Required for heavy vehicles, racking systems, paved yards and buildings</td><td>Soil testing and contamination screening</td></tr>
+              <tr><td><strong>Drainage</strong></td><td>Stormwater runoff, waterlogging, erosion, mine-water interaction</td><td>Prevents cargo damage, road failure and yard flooding</td><td>Drainage and erosion-control plan</td></tr>
+              <tr><td><strong>Access</strong></td><td>Highway access, approach-road width, turning radius, last-mile connectivity</td><td>Determines freight movement efficiency and truck circulation</td><td>Access and traffic plan</td></tr>
+              <tr><td><strong>Rail connectivity</strong></td><td>Existing siding, nearest station, rail corridor, land for rail spur</td><td>Important for multimodal logistics and bulk cargo</td><td>Rail feasibility note</td></tr>
+              <tr><td><strong>Cargo catchment</strong></td><td>Nearby industries, mines, agriculture markets, manufacturing clusters, ports</td><td>Determines demand and revenue potential</td><td>Cargo-demand assessment</td></tr>
+              <tr><td><strong>Utilities</strong></td><td>Power, water, sewage, telecom, internet, lighting, CCTV</td><td>Required for continuous park operation</td><td>Utility readiness plan</td></tr>
+              <tr><td><strong>Truck movement</strong></td><td>Entry / exit control, parking, loading bays, queuing space, weighbridge</td><td>Prevents congestion and improves safety</td><td>Internal circulation plan</td></tr>
+              <tr><td><strong>Warehouse suitability</strong></td><td>Plot sizes, floor loading, clear height, fire access, racking potential</td><td>Determines whether modern warehousing is feasible</td><td>Warehouse concept plan</td></tr>
+              <tr><td><strong>Cold chain feasibility</strong></td><td>Power reliability, backup power, temperature control demand</td><td>Useful for food, pharma, perishables and e-commerce</td><td>Cold-chain feasibility note</td></tr>
+              <tr><td><strong>Environmental quality</strong></td><td>Dust, air quality, noise, residual pollution, nearby active mining</td><td>Affects workers, goods, vehicles and approvals</td><td>Environmental screening</td></tr>
+              <tr><td><strong>Safety zoning</strong></td><td>Buffer from unsafe mine areas, water bodies, dumps, highwalls and restricted zones</td><td>Protects users from mine-related hazards</td><td>Zoning and barricading plan</td></tr>
+              <tr><td><strong>Community interface</strong></td><td>Nearby settlements, road safety, employment expectations, traffic concerns</td><td>Critical for social acceptance</td><td>Stakeholder consultation note</td></tr>
+              <tr><td><strong>Digital systems</strong></td><td>Gate automation, warehouse management, vehicle tracking, RFID, weighbridge integration</td><td>Improves transparency and operational efficiency</td><td>Digital logistics concept note</td></tr>
+              <tr><td><strong>Security</strong></td><td>Boundary, access control, CCTV, cargo security, fire safety</td><td>Required for commercial users and insurers</td><td>Security and fire-safety plan</td></tr>
+              <tr><td><strong>O&amp;M readiness</strong></td><td>Road maintenance, yard cleaning, lighting, security, equipment, drainage upkeep</td><td>Determines long-term sustainability</td><td>O&amp;M cost and staffing plan</td></tr>
+            </tbody>
+          </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Indicative Project Scale and Configuration Matrix</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">The following matrix presents an indicative relationship between available site area, project scale, technical configuration, and likely development potential. It is intended to support preliminary planning by helping the project owner identify the appropriate scale and configuration for the proposed repurposing option. The values and recommendations are indicative and should be refined through detailed feasibility studies, site surveys, engineering assessments, and relevant technical and commercial evaluations.</p>
+          <p class="spv-body-text">Final sizing should depend on land stability, road / rail connectivity, cargo demand, approved post-closure land use, funding availability, private-sector interest and whether the project is meant for local warehousing, district logistics, regional multimodal logistics or national supply-chain integration. For benchmarking, the Bengaluru MMLP is being developed over <strong>400 acres</strong>; Chennai at about <strong>184 acres</strong> and Indore at about <strong>255 acres</strong>.</p>
+          <div class="tbl-scroll">
+          <table class="spv-table">
+            <thead><tr>
+              <th>Land Area</th>
+              <th>Recommended Scale</th>
+              <th>Configuration</th>
+              <th>Use Case</th>
+            </tr></thead>
+            <tbody>
+              <tr><td><strong>5–20 ha</strong></td><td>Local logistics and truck support zone</td><td>Truck parking, small warehouses, weighbridge, repair bay, fuel / EV charging, toilets, driver rest area, local goods aggregation</td><td>Local freight support, mine-area transport, nearby markets and small industries</td></tr>
+              <tr><td><strong>20–50 ha</strong></td><td>Community / district logistics park</td><td>Warehousing blocks, truck terminal, packaging / sorting sheds, cold rooms, open storage, admin, security, internal roads</td><td>District-level storage, agro-logistics, MSME distribution and local employment</td></tr>
+              <tr><td><strong>50–100 ha</strong></td><td>Integrated logistics and warehousing park</td><td>Larger warehouses, e-commerce fulfilment, cold chain, container yard, service area, parking, value-added processing</td><td>Regional distribution hub for industry, agriculture, retail and e-commerce</td></tr>
+              <tr><td><strong>100–200 ha</strong></td><td>Multi-modal logistics park</td><td>Road-linked and rail-linked cargo handling, warehousing, container yard, truck terminal, cold chain, customs / bonded areas where feasible</td><td>Regional multimodal freight hub</td></tr>
+              <tr><td><strong>200–400 ha</strong></td><td>Large MMLP / regional freight gateway</td><td>Rail siding, container terminal, bulk / break-bulk handling, large warehouses, logistics offices, maintenance, digital control centre</td><td>Large regional logistics anchor with PPP potential</td></tr>
+              <tr><td><strong>400 ha+</strong></td><td>Flagship logistics and industrial supply-chain ecosystem</td><td>Multi-phase MMLP, rail-road integration, warehousing, value-added logistics, cold chain, e-commerce, light assembly, truck village, green buffer</td><td>National-scale hub where land, cargo demand, road and rail connectivity are strong</td></tr>
+            </tbody>
+          </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="prism2-nav-row">
+        <button class="prism2-btn-prev" id="prism2-prev-P" onclick="prism2Prev()" disabled>&#8592; Previous</button>
+        <div class="prism2-progress-dots" style="display:flex;gap:5px;align-items:center;">
+          <span class="pdot active" data-p="P"></span><span class="pdot" data-p="R"></span>
+          <span class="pdot" data-p="I"></span><span class="pdot" data-p="S"></span><span class="pdot" data-p="M"></span>
+        </div>
+        <button class="prism2-btn-next" id="prism2-next-P" onclick="prism2Next()">Next pillar &#8594;</button>
+      </div>
+    </div><!-- /P -->
+
+    <!-- ── R PANEL ── -->
+    <div class="prism2-content-panel" id="prism2-panel-R" style="--pc:#1a5ca8;--pb:#e4eef9;--cb:#f3f7fd;">
+      <div class="prism2-panel-header">
+        <div class="prism2-panel-header-letter">R</div>
+        <div class="prism2-panel-header-text">
+          <div class="prism2-panel-eyebrow">REPURPOSING PATHWAYS</div>
+          <p class="prism2-panel-desc">Implementation models for structuring a logistics park project — from owner-led EPC to PPP concessions, DBFOT, and hybrid mine-closure-plus-logistics approaches.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Implementation Options</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">The following table outlines the possible implementation models that may be considered for developing the proposed repurposing project. These models differ in terms of ownership structure, funding responsibility, private sector participation, operational control, and long-term risk allocation. The purpose of this table is to help the project owner compare broad development routes and select an implementation approach that aligns with its financial capacity, institutional preference, risk appetite, and long-term asset management objectives.</p>
+          <p class="spv-body-text">The implementation approach should be selected based on the mine owner's ownership preference, funding capacity, logistics expertise, phasing requirements, and whether the park is intended for captive use, public logistics, or private commercial operation.</p>
+          <div class="tbl-scroll">
+          <table class="spv-table">
+            <thead><tr>
+              <th>Model Group</th>
+              <th>Model</th>
+              <th>Core Feature</th>
+              <th>Broad Suitability</th>
+            </tr></thead>
+            <tbody>
+              <tr><td>Owner-led</td><td><strong>EPC</strong></td><td>Mine owner funds and retains full ownership; EPC contractor undertakes engineering, procurement and construction</td><td>Suitable where the owner wants full control and has funding capacity, for basic logistics assets such as internal roads, truck parking, weighbridge, boundary, lighting and small warehouses</td></tr>
+              <tr><td>Owner-led</td><td><strong>EPC + O&amp;M / Facility Management</strong></td><td>Owner funds and owns the park; specialized O&amp;M / FM agency operates and maintains common utilities, security, truck terminal, warehouses and user facilities</td><td>Suitable where the owner wants long-term control and revenue rights but does not want to directly manage day-to-day logistics operations and facility services</td></tr>
+              <tr><td>Developer-led / PPP</td><td><strong>BOOT</strong></td><td>Private developer finances, builds, owns and operates during concession period, then transfers the asset back to the mine owner / authority</td><td>Suitable where the owner wants to reduce upfront CAPEX, bring in private logistics expertise, generate concession income, and receive the developed asset after the concession period</td></tr>
+              <tr><td>Developer-led / PPP</td><td><strong>BOO</strong></td><td>Private developer finances, develops, owns and operates on a long-term basis without mandatory transfer</td><td>Suitable only where long-term private ownership is acceptable and the owner's benefit is mainly through lease rent, fixed charges or revenue share</td></tr>
+              <tr><td>Developer-led / PPP</td><td><strong>DBFOT</strong></td><td>Private concessionaire designs, builds, finances, operates and transfers the park under structured PPP concession</td><td>Highly suitable for large logistics park / MMLP-style projects requiring private finance, multimodal integration, long-term operation and eventual transfer</td></tr>
+              <tr><td>Concession-based</td><td><strong>Concession / Lease-Develop-Operate</strong></td><td>Mine owner provides land or development rights; concessionaire leases, develops, operates, maintains and commercialises the park as per agreed conditions</td><td>Very suitable where the mine owner wants to retain land ownership while allowing an experienced logistics operator to invest, develop and generate revenue from the park</td></tr>
+              <tr><td>Mixed</td><td><strong>Hybrid</strong></td><td>Combines owner-side support (land, site preparation, access, safety zoning, basic infrastructure) with private investment in warehouses, truck terminal, cold chain, digital systems and operations</td><td>Most suitable where the project must balance mine-closure obligations, logistics development, private investment, local employment, phased implementation, and commercial viability</td></tr>
+            </tbody>
+          </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Comparative Assessment of Key Models</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following comparative assessment evaluates the major implementation models across key decision parameters such as investment requirement, ownership control, financing responsibility, contractual complexity, risk transfer, and long-term economic benefit. This matrix is intended to support early-stage decision-making by highlighting the relative strengths and limitations of each model. The final choice of model should be guided by the specific circumstances of the project, including its scale, commercial viability, applicable policy framework, and the owner's institutional preference.</p>
+          <div class="tbl-scroll">
+          <table class="spv-table">
+            <thead><tr>
+              <th>Evaluation Parameter</th>
+              <th>EPC</th>
+              <th>EPC + O&amp;M / FM</th>
+              <th>BOOT</th>
+              <th>BOO</th>
+              <th>DBFOT</th>
+              <th>Concession / LDO</th>
+              <th>Hybrid</th>
+            </tr></thead>
+            <tbody>
+              <tr><td><strong>Upfront investment by Mine Owner</strong></td><td>High</td><td>High to Moderate</td><td>Low to Moderate</td><td>Low</td><td>Low to Moderate</td><td>Low to Moderate</td><td>Variable</td></tr>
+              <tr><td><strong>Need for private financing</strong></td><td>Low</td><td>Low to Moderate</td><td>High</td><td>High</td><td>High</td><td>Moderate to High</td><td>Variable</td></tr>
+              <tr><td><strong>Ownership retained by Mine Owner</strong></td><td>Yes</td><td>Yes</td><td>Land retained; asset may transfer later</td><td>Limited / as structured</td><td>Usually land retained with reversion rights</td><td>Land retained by owner</td><td>Usually retained by owner</td></tr>
+              <tr><td><strong>Suitability for logistics infrastructure</strong></td><td>Moderate</td><td>High</td><td>High</td><td>Moderate</td><td>Very High</td><td>Very High</td><td>Very High</td></tr>
+              <tr><td><strong>Suitability for local livelihood</strong></td><td>Moderate</td><td>High</td><td>High</td><td>Moderate</td><td>High to Very High</td><td>Very High</td><td>Very High</td></tr>
+              <tr><td><strong>Suitability for multimodal integration</strong></td><td>Low to Moderate</td><td>Moderate</td><td>High</td><td>Moderate</td><td>Very High</td><td>High to Very High</td><td>Very High</td></tr>
+              <tr><td><strong>Suitability for phased development</strong></td><td>Moderate</td><td>High</td><td>High</td><td>Moderate</td><td>Very High</td><td>Very High</td><td>Very High</td></tr>
+              <tr><td><strong>Revenue potential</strong></td><td>Moderate</td><td>Moderate to High</td><td>High</td><td>High</td><td>High</td><td>Moderate to High</td><td>Variable to High</td></tr>
+              <tr><td><strong>O&amp;M burden on owner</strong></td><td>High</td><td>Moderate</td><td>Low</td><td>Low</td><td>Low</td><td>Low to Moderate</td><td>Shared</td></tr>
+              <tr><td><strong>Commercial bankability</strong></td><td>Low to Moderate</td><td>Moderate</td><td>High</td><td>High</td><td>Very High</td><td>High</td><td>Variable to High</td></tr>
+              <tr><td><strong>Overall suitability for Logistics Park</strong></td><td>Moderate</td><td>High</td><td>High</td><td>Moderate</td><td>Very High</td><td>Very High</td><td>Very High / Most Suitable</td></tr>
+            </tbody>
+          </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Model-Wise Responsibility Logic</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following table explains how major project responsibilities are typically allocated under different implementation models. It covers key functional areas such as site availability, financing, design and construction, regulatory approvals, operation and maintenance, revenue collection, asset ownership, and end-of-term transfer. This helps clarify the respective roles of the project owner, private developer, EPC contractor, operator, or concessionaire, and supports the preparation of tender documents and contractual structures.</p>
+          <div class="tbl-scroll">
+          <table class="spv-table">
+            <thead><tr>
+              <th>Responsibility Area</th>
+              <th>EPC</th>
+              <th>EPC + O&amp;M / FM</th>
+              <th>BOOT</th>
+              <th>BOO</th>
+              <th>DBFOT</th>
+              <th>Concession / LDO</th>
+              <th>Hybrid</th>
+            </tr></thead>
+            <tbody>
+              <tr><td><strong>Site / land availability</strong></td><td>Mine Owner</td><td>Mine Owner</td><td>Mine Owner / authority</td><td>Mine Owner / developer, as agreed</td><td>Mine Owner / authority</td><td>Mine Owner / authority</td><td>Mine Owner / shared</td></tr>
+              <tr><td><strong>Land ownership</strong></td><td>Mine Owner</td><td>Mine Owner</td><td>Mine Owner retains land; developer gets project rights</td><td>As structured</td><td>Mine Owner generally retains land</td><td>Mine Owner retains land</td><td>Mine Owner generally retains land</td></tr>
+              <tr><td><strong>Mine closure linkage</strong></td><td>Mine Owner</td><td>Mine Owner</td><td>Mine Owner + developer compliance</td><td>Mine Owner / developer</td><td>Mine Owner + concessionaire</td><td>Mine Owner + concessionaire</td><td>Mine Owner + partners</td></tr>
+              <tr><td><strong>Geotechnical &amp; stability screening</strong></td><td>Mine Owner / consultant</td><td>Mine Owner / consultant</td><td>Shared</td><td>Shared</td><td>Shared</td><td>Shared</td><td>Mine Owner initially; shared later</td></tr>
+              <tr><td><strong>Cargo demand assessment</strong></td><td>Mine Owner / consultant</td><td>Mine Owner + FM agency</td><td>Developer / logistics expert</td><td>Developer</td><td>Concessionaire</td><td>Concessionaire / expert agency</td><td>Shared</td></tr>
+              <tr><td><strong>Logistics master planning</strong></td><td>Mine Owner / consultant</td><td>Mine Owner + FM agency</td><td>Shared / developer-refined</td><td>Developer-led</td><td>Shared</td><td>Shared</td><td>Shared</td></tr>
+              <tr><td><strong>Road, yard &amp; warehouse development</strong></td><td>EPC contractor</td><td>EPC contractor / FM agency</td><td>Developer</td><td>Developer</td><td>Concessionaire</td><td>Concessionaire / operator</td><td>Owner + operator / PPP partner</td></tr>
+              <tr><td><strong>Rail siding / terminal</strong></td><td>Owner / rail agency / contractor</td><td>Owner + FM agency</td><td>Developer / rail partner</td><td>Developer</td><td>Concessionaire</td><td>Concessionaire / rail partner</td><td>Shared</td></tr>
+              <tr><td><strong>Cold chain infrastructure</strong></td><td>EPC contractor / specialist</td><td>FM agency / specialist</td><td>Developer</td><td>Developer</td><td>Concessionaire</td><td>Concessionaire / specialist</td><td>Shared</td></tr>
+              <tr><td><strong>Digital logistics systems</strong></td><td>Owner-defined</td><td>Owner + FM agency</td><td>Developer</td><td>Developer</td><td>Concessionaire</td><td>Concessionaire / operator</td><td>Shared</td></tr>
+              <tr><td><strong>Day-to-day facility operations</strong></td><td>Mine Owner</td><td>O&amp;M / FM agency</td><td>Developer</td><td>Developer</td><td>Concessionaire</td><td>Concessionaire / operator</td><td>Operator / shared</td></tr>
+              <tr><td><strong>Tenant / warehouse leasing</strong></td><td>Mine Owner</td><td>Mine Owner / operator</td><td>Developer</td><td>Developer</td><td>Concessionaire</td><td>Concessionaire / shared</td><td>Shared</td></tr>
+              <tr><td><strong>Local employment</strong></td><td>Mine Owner-controlled</td><td>Contract-controlled</td><td>Contract-based</td><td>Developer policy / contract-based</td><td>Contract-based</td><td>Strongly contract-based</td><td>Strongly configurable</td></tr>
+              <tr><td><strong>Revenue collection &amp; sharing</strong></td><td>Mine Owner (receives all)</td><td>Mine Owner / operator on behalf of owner</td><td>Concession fee / revenue share</td><td>Lease / fixed charges</td><td>Concession fee / revenue share</td><td>Lease rent / concession fee / revenue share</td><td>As structured</td></tr>
+              <tr><td><strong>Asset transfer at end</strong></td><td>No</td><td>No</td><td>Yes</td><td>No</td><td>Yes</td><td>As agreed</td><td>As agreed</td></tr>
+            </tbody>
+          </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="prism2-nav-row">
+        <button class="prism2-btn-prev" id="prism2-prev-R" onclick="prism2Prev()">&#8592; Previous</button>
+        <div class="prism2-progress-dots" style="display:flex;gap:5px;align-items:center;">
+          <span class="pdot "data-p="P"></span>
+          <span class="pdot active "data-p="R"></span>
+          <span class="pdot "data-p="I"></span>
+          <span class="pdot "data-p="S"></span>
+          <span class="pdot "data-p="M"></span>
+        </div>
+        <button class="prism2-btn-next" id="prism2-next-R" onclick="prism2Next()">Next pillar &#8594;</button>
+      </div>
+    </div><!-- /R -->
+
+    <!-- ── I PANEL ── -->
+    <div class="prism2-content-panel" id="prism2-panel-I" style="--pc:#b06a10;--pb:#faedda;--cb:#fdf6ee;">
+      <div class="prism2-panel-header">
+        <div class="prism2-panel-header-letter">I</div>
+        <div class="prism2-panel-header-text">
+          <div class="prism2-panel-eyebrow">INVESTMENT DYNAMICS</div>
+          <p class="prism2-panel-desc">Funding logic, revenue generation pathways, and combined profitability-livelihood assessment for logistics park projects.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Funding Logic</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following table presents the broad funding logic for each implementation model. It explains who is expected to finance the project, the level of owner-side funding requirement, and the commercial rationale behind each structure. This section is intended to help the project owner assess whether the project is more suitable for owner-funded development, private investment, public-private partnership, lease or concession structure, or a hybrid funding arrangement.</p>
+          <div class="tbl-scroll">
+          <table class="spv-table">
+            <thead><tr>
+              <th>Model</th>
+              <th>Funding Source</th>
+              <th>Owner Funding Requirement</th>
+              <th>Suitability for Logistics Park</th>
+            </tr></thead>
+            <tbody>
+              <tr><td><strong>EPC</strong></td><td>Mine owner budget / closure-linked fund / institutional funding / debt</td><td>High</td><td>Suitable for basic logistics infrastructure, internal roads, parking, weighbridge, boundary, lighting and small warehouses</td></tr>
+              <tr><td><strong>EPC + O&amp;M / FM</strong></td><td>Mine owner budget + O&amp;M budget + logistics facility revenue</td><td>High to Moderate</td><td>Strong fit where owner wants control over land, user charges, community benefit and facility management</td></tr>
+              <tr><td><strong>BOOT</strong></td><td>Private developer capital + debt + possible VGF / grant support</td><td>Low to Moderate</td><td>Suitable for large logistics parks where developer recovers investment and transfers assets at the end</td></tr>
+              <tr><td><strong>BOO</strong></td><td>Private developer capital</td><td>Low</td><td>Suitable only where long-term private control is acceptable and owner revenue is mainly lease-based</td></tr>
+              <tr><td><strong>DBFOT</strong></td><td>Private concessionaire + project finance + possible public support / VGF</td><td>Low to Moderate</td><td>Strongest fit for large MMLP-style PPP logistics projects; aligned with GoI's national MMLP programme</td></tr>
+              <tr><td><strong>Concession / Lease-Develop-Operate</strong></td><td>Private logistics operator / warehouse developer / institutional investor / blended finance</td><td>Low to Moderate</td><td>Very suitable where mine owner provides land and receives lease rent, concession fee or revenue share</td></tr>
+              <tr><td><strong>Hybrid</strong></td><td>Mine owner + private operator + government support + CSR + grants + infrastructure finance</td><td>Variable</td><td>Most suitable for balancing mine-closure objectives, logistics development, livelihood and phased investment</td></tr>
+            </tbody>
+          </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Revenue Generation by Model</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following table explains how revenue may be generated under different implementation models and identifies who is likely to receive the principal project income. It also describes the nature and extent of the financial benefit available to the project owner, whether through direct project revenue, cost savings, lease income, concession fees, revenue sharing, service charges, or eventual asset transfer. This comparison is intended to support the selection of a commercially appropriate model for the proposed repurposing project.</p>
+          <div class="tbl-scroll">
+          <table class="spv-table">
+            <thead><tr>
+              <th>Model</th>
+              <th>How Revenue is Generated</th>
+              <th>Who Receives Main Revenue</th>
+              <th>Owner's Financial Benefit</th>
+            </tr></thead>
+            <tbody>
+              <tr><td><strong>EPC</strong></td><td>Warehouse rent, truck parking, weighbridge charges, loading / unloading fees, open storage, cold storage, repair bays, fuel / EV charging lease, kiosks and service charges</td><td>Mine Owner</td><td>Full revenue retained by owner, but owner bears full CAPEX, O&amp;M, demand and maintenance risk</td></tr>
+              <tr><td><strong>EPC + O&amp;M / FM</strong></td><td>Same revenue streams: warehouse rent, parking, yard charges, handling, utilities, service charges, tenant rentals and user fees</td><td>Mine Owner after paying O&amp;M / FM agency</td><td>High benefit; owner retains revenue while outsourcing facility operations and maintenance</td></tr>
+              <tr><td><strong>BOOT</strong></td><td>Developer earns from warehouses, truck terminal, cargo handling, cold chain, tenant leases, parking, service areas and value-added logistics during concession</td><td>Developer / concessionaire during concession</td><td>Lease rent, concession fee, revenue share, local economic uplift and asset transfer at end</td></tr>
+              <tr><td><strong>BOO</strong></td><td>Long-term private revenue from warehousing, logistics, truck terminal, cold chain, e-commerce fulfilment and commercial services</td><td>Private developer</td><td>Limited direct benefit; typically lease rent, fixed charges or premium payments</td></tr>
+              <tr><td><strong>DBFOT</strong></td><td>Structured revenue from warehousing, multimodal cargo handling, container yard, truck terminal, cold chain, logistics offices and support services</td><td>Concessionaire during concession</td><td>Concession fee, lease rent, revenue share, performance-linked payments and transfer at end</td></tr>
+              <tr><td><strong>Concession / Lease-Develop-Operate</strong></td><td>Revenue from logistics operations, warehouse leasing, truck terminal, cargo handling, cold chain, repair, parking, service yards and tenant operations</td><td>Concessionaire / operator as per agreement</td><td>Lease rentals, revenue share, concession fee, improved land value and indirect socio-economic benefits</td></tr>
+              <tr><td><strong>Hybrid</strong></td><td>Mixed revenue from public-use logistics, private warehousing, industrial users, truck services, cold chain, CSR support, grants and shared commercial income</td><td>Shared between owner, operator and partners as structured</td><td>Variable to high; owner benefits through revenue share, reduced O&amp;M burden, ESG gains and enhanced land value</td></tr>
+            </tbody>
+          </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Which Model is Better for Local Livelihood and Jobs</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following table assesses the likely local livelihood and employment potential of each implementation model. It considers the extent to which each model can support construction-phase jobs, long-term operational employment, local procurement opportunities, skill development, community participation, and associated support services. This section is particularly relevant where the repurposing project is expected to contribute to post-mining or post-operational economic transition and sustained local community benefit.</p>
+          <div class="tbl-scroll">
+          <table class="spv-table">
+            <thead><tr><th>Model</th><th>Local Job Potential</th><th>Why</th><th>Overall Suggestibility</th></tr></thead>
+            <tbody>
+              <tr><td><strong>EPC</strong></td><td>High</td><td>Generates significant local employment during construction, road-building, warehousing, and infrastructure development. Long-term jobs depend on the owner's approach to operational staffing, security, and maintenance.</td><td>High</td></tr>
+              <tr><td><strong>EPC + O&amp;M / FM</strong></td><td>High to Very High</td><td>Supports sustained long-term employment across facility operations, warehouse management, yard supervision, security, cleaning, logistics coordination, and local vendor services. Owner can mandate local hiring obligations.</td><td>Very High / Most Suitable</td></tr>
+              <tr><td><strong>BOOT</strong></td><td>High</td><td>Generates substantial construction-phase and operational employment over the concession period. Local hiring, driver training, material handling, maintenance, and logistics support obligations can be built into the concession agreement.</td><td>High — contractually mandatable</td></tr>
+              <tr><td><strong>BOO</strong></td><td>Moderate to High</td><td>Creates construction and long-term operational employment. Local benefit depends on the private developer's staffing and procurement practices and any contractual community obligations.</td><td>Moderate to High</td></tr>
+              <tr><td><strong>DBFOT</strong></td><td>High to Very High</td><td>Large-scale construction and sustained operational employment through warehousing, terminal management, cargo handling, and logistics support. Local employment obligations can be embedded in concession conditions.</td><td>Very High</td></tr>
+              <tr><td><strong>Concession / Lease-Develop-Operate</strong></td><td>High to Very High</td><td>Supports direct and indirect employment through logistics operations, warehouse management, yard services, truck support, and local enterprise participation. Outcomes depend on the strength of concession terms.</td><td>Very High</td></tr>
+              <tr><td><strong>Hybrid</strong></td><td>Very High</td><td>Strongest model for integrating logistics efficiency with community benefit. Enables explicit provisions for local enterprises, drivers, warehouse staff, SHGs, skill-development programmes, and women-led local enterprises.</td><td>Very High / Most Suitable</td></tr>
+            </tbody>
+          </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Combined Comparison: Revenue, Profitability, and Livelihood</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">The following combined comparison brings together three important dimensions of project structuring: revenue potential, owner-side financial benefit, and local livelihood generation. It provides a consolidated view of how each implementation model performs across commercial, institutional, and community-development perspectives. This matrix is intended to support balanced decision-making where the objective extends beyond financial return to include sustainable site reuse and long-term local economic benefit.</p>
+          <p class="spv-body-text">The following table assesses the likely local livelihood and employment potential of each implementation model. It considers the extent to which each model can support construction-phase jobs, long-term operational employment, local procurement opportunities, skill development, community participation, and associated support services. This section is particularly relevant where the repurposing project is expected to contribute to post-mining or post-operational economic transition and sustained local community benefit.</p>
+          <div class="tbl-scroll">
+          <table class="spv-table">
+            <thead><tr>
+              <th>Model</th>
+              <th>Main Revenue Source</th>
+              <th>Owner Profitability</th>
+              <th>Local Job Creation</th>
+              <th>Overall Comment</th>
+            </tr></thead>
+            <tbody>
+              <tr><td><strong>EPC</strong></td><td>Warehouse rent, truck parking, weighbridge, open storage, service charges</td><td>Moderate to High, but owner bears full CAPEX, O&amp;M and demand risk</td><td>Moderate</td><td>Useful for initial logistics infrastructure; weak for professional long-term operation unless followed by structured O&amp;M</td></tr>
+              <tr><td><strong>EPC + O&amp;M / FM</strong></td><td>Facility rentals, user charges, warehouse leases, parking, handling, service yards and tenant fees</td><td>High — owner retains revenue after O&amp;M payments</td><td>High</td><td>Strong where owner wants control and sustained employment</td></tr>
+              <tr><td><strong>BOOT</strong></td><td>Commercial logistics operation, warehouses, terminal charges, truck services, cold chain and tenant leases</td><td>Moderate — through concession fee, lease rent, revenue share and eventual asset transfer</td><td>High</td><td>Suitable for commercial logistics infrastructure with mandatory livelihood clauses</td></tr>
+              <tr><td><strong>BOO</strong></td><td>Long-term private revenue from logistics estate, warehousing, cold chain, e-commerce and terminal services</td><td>Low to Moderate — mostly from lease rent or fixed charges</td><td>Moderate</td><td>Use cautiously where community benefit and owner control are not primary</td></tr>
+              <tr><td><strong>DBFOT</strong></td><td>MMLP value chain, multimodal cargo, warehousing, terminal services, cold chain and support services</td><td>Moderate to High — through concession fee, lease rent, revenue share and transfer terms</td><td>High to Very High</td><td>Strongest formal PPP option for large logistics parks</td></tr>
+              <tr><td><strong>Concession / LDO</strong></td><td>Logistics operations, warehouse leasing, truck terminal, cargo handling, cold chain, service yards and tenant operations</td><td>Moderate to High — through lease rent, concession fee, revenue share and improved land value</td><td>Very High</td><td>Very suitable for mine land where owner retains land and operator manages business</td></tr>
+              <tr><td><strong>Hybrid</strong></td><td>Mixed revenue from logistics use, private operators, public support, warehousing, service facilities and grants</td><td>Variable to High depending on revenue-sharing structure</td><td>Very High</td><td>Most suitable for balancing mine-closure, livelihood, logistics efficiency and commercial objectives</td></tr>
+            </tbody>
+          </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="prism2-nav-row">
+        <button class="prism2-btn-prev" id="prism2-prev-I" onclick="prism2Prev()">&#8592; Previous</button>
+        <div class="prism2-progress-dots" style="display:flex;gap:5px;align-items:center;">
+          <span class="pdot "data-p="P"></span>
+          <span class="pdot "data-p="R"></span>
+          <span class="pdot active "data-p="I"></span>
+          <span class="pdot "data-p="S"></span>
+          <span class="pdot "data-p="M"></span>
+        </div>
+        <button class="prism2-btn-next" id="prism2-next-I" onclick="prism2Next()">Next pillar &#8594;</button>
+      </div>
+    </div><!-- /I -->
+
+    <!-- ── S PANEL ── -->
+    <div class="prism2-content-panel" id="prism2-panel-S" style="--pc:#5a3d9e;--pb:#edeaf8;--cb:#f6f4fc;">
+      <div class="prism2-panel-header">
+        <div class="prism2-panel-header-letter">S</div>
+        <div class="prism2-panel-header-text">
+          <div class="prism2-panel-eyebrow">STRATEGIC STRUCTURING</div>
+          <p class="prism2-panel-desc">Owner-side readiness checklist before first RFP, post-award workstreams, and indicative implementation pathway for logistics park development on closed coal mine land.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Preparations Needed Before RFP</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">The following section identifies the key owner-side preparatory actions that should ideally be completed before issuing the first Request for Proposal. These actions are aimed at reducing uncertainty for prospective bidders, improving project bankability, clarifying site availability, identifying approval pathways and risks, and defining the technical and commercial scope of the project. Completing these preparatory steps before tendering can improve bid quality, attract credible responses, and reduce the risk of delays during project implementation.</p>
+          <p class="spv-body-text">Before issuing an RFP for a Logistics Park / Multi-Modal Logistics Park based mine repurposing project, the mine owner should prepare the following in priority order:</p>
+          <ol class="spv-list">
+            <li>Land and closure confirmation — Confirm land ownership, mine-closure status, post-mining land-use permissibility and whether logistics / warehousing / transport infrastructure can be legally developed on the site.</li>
+            <li>Legal and concession screening — Review land-use restrictions, lease rights, concession period, revenue-sharing permissibility, user-charge rights, warehouse leasing rights, sub-licensing rights and asset-transfer conditions.</li>
+            <li>Safety and no-go zone mapping — Identify safe and unsafe zones, including unstable dumps, highwalls, subsidence-prone areas, unsafe water bodies, abandoned structures, restricted mine infrastructure and required buffer areas.</li>
+            <li>Preliminary technical site assessment — Prepare topographic survey, geotechnical screening, soil-bearing assessment, drainage review, flood-risk note and heavy-vehicle circulation feasibility for roads, yards and warehouse platforms.</li>
+            <li>Connectivity and multimodal screening — Assess highway access, approach-road width, nearest railway siding / station, possibility of rail spur, industrial-corridor linkage, first-mile / last-mile connectivity and PM GatiShakti alignment.</li>
+            <li>Cargo-demand and market assessment — Estimate potential cargo from nearby industries, mines, agriculture markets, MSMEs, e-commerce users, cold-chain users, rail terminals, ports or consumption centres.</li>
+            <li>Preliminary logistics zoning and land-use plan — Prepare a basic layout showing entry / exit, truck terminal, warehouses, open storage, cold chain, container yard, repair bay, parking, utility zones, green buffer and future expansion land.</li>
+            <li>Environmental and statutory screening — Assess dust, traffic emissions, noise, stormwater, waste handling, fire safety, hazardous-material restrictions, pollution-control requirements and local-body / industrial development permissions.</li>
+            <li>Utility and digital-readiness assessment — Assess power, water, drainage, sewage, telecom, internet, CCTV, weighbridge integration, gate automation and digital logistics-management requirements.</li>
+            <li>Implementation model and project structuring — Select the preferred model such as Concession / Lease-Develop-Operate, DBFOT, Hybrid, BOOT or EPC + O&amp;M, using PPP / DBFOT logic where the project is large and commercially bankable.</li>
+            <li>Cost, revenue and bankability assessment — Prepare broad CAPEX, 5-year O&amp;M estimate, lease-rent potential, warehouse-rental potential, parking charges, handling charges, user fees, revenue-share logic and viability-gap requirement, if any.</li>
+            <li>Draft RFP scope and bid conditions — Prepare bidder scope covering design, finance, construction, operation, maintenance, safety compliance, local employment, environmental safeguards, minimum investment, phasing and performance standards.</li>
+            <li>Bid evaluation framework — Define evaluation criteria covering logistics experience, financial capacity, PPP / concession experience, cargo tie-ups, technical proposal, O&amp;M plan, local livelihood commitments and revenue offer.</li>
+            <li>Owner-side approvals and enabling-scope note — Identify what the owner will provide before award, such as land access, fencing, safety buffers, basic road link, utility connection, closure-related permissions and support for statutory clearances.</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Activities to be taken After Selecting the Agency</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">The following section lists the principal activities that may be undertaken by the selected contractor, developer, concessionaire, operator, or implementation agency after award of the project. These activities generally include detailed site investigations, engineering design, statutory submissions and approvals, equipment procurement, construction, commissioning, operational planning, staff training, and performance monitoring. The distinction between pre-RFP owner preparedness and post-award implementation responsibilities helps ensure an appropriate and efficient allocation of effort across the project development cycle.</p>
+          <p class="spv-body-text">After award, the selected concessionaire / developer / logistics operator / O&amp;M agency can take up the following activities in chronological order:</p>
+          <ol class="spv-list">
+            <li>Detailed site investigation — Undertake detailed topographic survey, drone mapping, geotechnical investigation, soil testing, pavement investigation, drainage study and final safe-zone verification.</li>
+            <li>Detailed Project Report and final master plan — Prepare the DPR, final logistics master plan, phasing plan, financial model, risk-allocation plan and implementation schedule for approval by the mine owner.</li>
+            <li>Detailed engineering and design — Prepare detailed designs for internal roads, truck terminal, warehouse platforms, drainage, utilities, weighbridge, parking, cold chain, container yard, fire systems and security systems.</li>
+            <li>Statutory approvals and clearances — Obtain required approvals from local authority, fire department, pollution-control authority, electrical inspectorate, factory / warehouse authority, railway authority where applicable and other competent agencies.</li>
+            <li>SPV / project company and financial closure — Where required under PPP / DBFOT / concession structure, form the project SPV, execute project agreements, achieve financial closure and submit performance security.</li>
+            <li>Tenanting and cargo-linkage plan — Secure letters of interest or agreements with warehouse users, transporters, 3PL players, e-commerce users, cold-chain users, industrial units and cargo aggregators.</li>
+            <li>Procurement and contractor mobilization — Procure construction contractors, material-handling systems, warehouse equipment, digital systems, weighbridges, fire-safety systems, CCTV, gate systems and O&amp;M service providers.</li>
+            <li>Site development and enabling works — Carry out site grading, compaction, boundary works, internal roads, stormwater drainage, utilities, lighting, green buffer, safety barricading and access-control infrastructure.</li>
+            <li>Construction of logistics assets — Develop warehouses, truck terminal, open storage yard, repair / maintenance bay, admin block, driver facilities, cold storage, container yard and rail-linked facilities where feasible.</li>
+            <li>Digital and operational systems setup — Install gate automation, RFID / barcode systems, weighbridge software, warehouse-management system, transport-management system, CCTV, fire-alarm system and command / control room.</li>
+            <li>Local livelihood and vendor integration — Onboard local youth, drivers, handling workers, security staff, housekeeping teams, repair-service providers, food kiosks, transport operators and MSME service vendors as per concession obligations.</li>
+            <li>Trial operations and safety audit — Conduct trial truck movement, warehouse loading tests, fire-safety checks, emergency drills, traffic-flow testing, digital-system testing and third-party safety / compliance audit.</li>
+            <li>Commercial commissioning — Commission the logistics park after completion of minimum development obligations, statutory approvals, tenant readiness, operational staffing and safety certification.</li>
+            <li>Regular operation and performance monitoring — Carry out O&amp;M, cargo handling, warehouse leasing, truck-terminal management, billing, reporting, environmental monitoring, safety audits and compliance reporting to the mine owner.</li>
+            <li>Phased expansion — Expand warehouses, cold chain, rail terminal, container yard, value-added logistics, EV charging or additional plots based on cargo demand, utilization levels, revenue performance and owner approval.</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Indicative Implementation Pathway</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <p class="spv-body-text">The following implementation pathway presents a practical high-level sequence for advancing the proposed repurposing concept from initial approval through to project execution and long-term operation. It outlines the broad stages of concept approval, preliminary studies, model selection, bid preparation, procurement, detailed design, statutory approvals, construction, commissioning, and ongoing operation. This pathway is indicative and should be adapted to reflect the specific complexity, regulatory requirements, financing structure, and site conditions applicable to the project.</p>
+          <div class="impl-cards" style="grid-template-columns: repeat(2,1fr);">
+            <div class="impl-card"><div class="impl-card-num">01</div><div class="impl-card-title">Concept approval and owner-side structuring.</div></div>
+            <div class="impl-card"><div class="impl-card-num">02</div><div class="impl-card-title">Screening of closed mine sites for logistics-park / multi-modal logistics suitability.</div></div>
+            <div class="impl-card"><div class="impl-card-num">03</div><div class="impl-card-title">Geotechnical, subsidence, drainage, soil-bearing, contamination, access, power, water, telecom and safety-zone studies.</div></div>
+            <div class="impl-card"><div class="impl-card-num">04</div><div class="impl-card-title">Cargo-demand assessment and market sounding with logistics operators, warehouse developers, transporters, e-commerce players, cold-chain operators, and government logistics agencies.</div></div>
+            <div class="impl-card"><div class="impl-card-num">05</div><div class="impl-card-title">Concept planning and phasing strategy for warehouses, truck terminal, internal roads, open storage, cold chain, service yards and future rail connectivity, where feasible.</div></div>
+            <div class="impl-card"><div class="impl-card-num">06</div><div class="impl-card-title">Identification of owner-side enabling scope — land preparation, fencing, access road, drainage, utilities, safety buffers, power supply and basic site infrastructure.</div></div>
+            <div class="impl-card"><div class="impl-card-num">07</div><div class="impl-card-title">Selection of preferred implementation model — Hybrid, Concession / Lease-Develop-Operate, DBFOT, BOOT, or EPC + O&amp;M.</div></div>
+            <div class="impl-card"><div class="impl-card-num">08</div><div class="impl-card-title">Preparation of DPR / bid documents / concession structure, including land-use conditions, revenue model, local employment obligations, safety requirements and environmental safeguards.</div></div>
+            <div class="impl-card"><div class="impl-card-num">09</div><div class="impl-card-title">Issuance of RFQ / RFP.</div></div>
+            <div class="impl-card"><div class="impl-card-num">10</div><div class="impl-card-title">Selection of concessionaire / developer / logistics operator.</div></div>
+            <div class="impl-card"><div class="impl-card-num">11</div><div class="impl-card-title">Detailed design, statutory approvals, tenanting strategy, commercial structuring and financial closure.</div></div>
+            <div class="impl-card"><div class="impl-card-num">12</div><div class="impl-card-title">Site grading, infrastructure development, warehouse / truck terminal / utility construction and installation of digital systems.</div></div>
+            <div class="impl-card"><div class="impl-card-num">13</div><div class="impl-card-title">Commissioning, trial operations, tenant onboarding and phased commercial operation.</div></div>
+            <div class="impl-card"><div class="impl-card-num">14</div><div class="impl-card-title">Operations, maintenance, monitoring, local employment implementation and phased expansion.</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="prism2-nav-row">
+        <button class="prism2-btn-prev" id="prism2-prev-S" onclick="prism2Prev()">&#8592; Previous</button>
+        <div class="prism2-progress-dots" style="display:flex;gap:5px;align-items:center;">
+          <span class="pdot "data-p="P"></span>
+          <span class="pdot "data-p="R"></span>
+          <span class="pdot "data-p="I"></span>
+          <span class="pdot active "data-p="S"></span>
+          <span class="pdot "data-p="M"></span>
+        </div>
+        <button class="prism2-btn-next" id="prism2-next-S" onclick="prism2Next()">Next pillar &#8594;</button>
+      </div>
+    </div><!-- /S -->
+
+    <!-- ── M PANEL ── -->
+    <div class="prism2-content-panel" id="prism2-panel-M" style="--pc:#1a7a5e;--pb:#e1f3ec;--cb:#f0faf5;">
+      <div class="prism2-panel-header">
+        <div class="prism2-panel-header-letter">M</div>
+        <div class="prism2-panel-header-text">
+          <div class="prism2-panel-eyebrow">MONITORING GUIDANCE</div>
+          <p class="prism2-panel-desc">Way forward recommendations, key references, and abbreviations for logistics park and MMLP development on mine closure sites.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Way Forward</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">The following way forward summarizes the preferred development approach for the proposed repurposing option, based on the assessment presented in PRISM (Post Mining Repurposing Implementation and Strategy Models). It identifies the most suitable implementation models in order of preference, highlights key technical and due-diligence considerations, and outlines the recommended next steps and broad development logic. This section is intended to guide internal decision-making and support the project owner in progressing from concept-stage evaluation toward feasibility assessment, project structuring, regulatory approvals, and implementation planning.</p>
+        <p class="spv-body-text"><strong>Preferred Models, in order:</strong> (1) Concession / Lease-Develop-Operate, (2) DBFOT, (3) Hybrid</p>
+        <p class="spv-body-text"><strong>Why preferred:</strong> Concession / Lease-Develop-Operate is preferred because logistics parks require private warehousing capability, tenant development, cargo demand and specialist operation. The mine owner retains land control while transferring market and operating risks.</p>
+        <p class="spv-body-text"><strong>Secondary option:</strong> EPC + O&amp;M may be used only where the owner wants strong control over user charges, local employment and facility standards under a clear public or captive logistics use case.</p>
+        <p class="spv-body-text"><strong>Suggestable technical care:</strong> Road / rail access, cargo demand, land stability, truck movement, drainage, utilities, fire safety, warehousing layout, weighbridge, security and tenant demand must be assessed.</p>
+        <p class="spv-body-text"><strong>Recommended development logic:</strong> Start with land screening, cargo mapping and access planning. Develop in phases through warehousing, truck terminal, cold chain, e-commerce and value-added logistics based on tenant absorption.</p>
+        <p class="spv-body-text" style="font-style:italic; margin-top:1.2rem;"><strong>Disclaimer —</strong> All repurposing interventions proposed under P.R.I.S.M. shall remain subject to applicable mining laws, land-use regulations, environmental approvals, mine-closure conditions, forest and biodiversity regulations, groundwater permissions, and any other statutory approvals as may be applicable. Land ownership is proposed to remain with the mine owner / competent authority unless otherwise permitted under applicable law.</p>
+      </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>References</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <ul class="spv-list" >
+            <li>Bharatmala Pariyojana — Ministry of Road Transport and Highways, Government of India</li>
+            <li>PM GatiShakti National Master Plan — DPIIT, Government of India</li>
+            <li>National Logistics Policy 2022 — Ministry of Commerce and Industry, Government of India</li>
+            <li>Multi-Modal Logistics Parks (MMLP) Programme Guidelines — MoRTH, Government of India</li>
+            <li>Mine Closure Guidelines — Ministry of Coal / Coal Controller's Organisation, Government of India</li>
+            <li>Model Concession Agreement for Logistics Parks — NITI Aayog / MoRTH, Government of India</li>
+            <li>The World Bank. (2021). <em>Mine closure: A toolbox for governments.</em> World Bank.</li>
+            <li>The World Bank. (2022). <em>Repurposing mining lands and assets for regional development in coal transition regions.</em> World Bank.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span>Abbreviations</span><span class="accordion-chevron">&#8964;</span>
+        </button>
+        <div class="accordion-body" style="display:none;">
+          <table class="spv-table">
+            <thead><tr><th>Abbreviation</th><th>Full Form</th></tr></thead>
+            <tbody>
+              <tr><td><strong>BOO</strong></td><td>Build, Own, Operate</td></tr>
+              <tr><td><strong>BOOT</strong></td><td>Build, Own, Operate, Transfer</td></tr>
+              <tr><td><strong>CAPEX</strong></td><td>Capital Expenditure</td></tr>
+              <tr><td><strong>CCO</strong></td><td>Coal Controller's Organisation</td></tr>
+              <tr><td><strong>CSR</strong></td><td>Corporate Social Responsibility</td></tr>
+              <tr><td><strong>DBFOT</strong></td><td>Design, Build, Finance, Operate, Transfer</td></tr>
+              <tr><td><strong>DPIIT</strong></td><td>Department for Promotion of Industry and Internal Trade</td></tr>
+              <tr><td><strong>DPR</strong></td><td>Detailed Project Report</td></tr>
+              <tr><td><strong>EPC</strong></td><td>Engineering, Procurement and Construction</td></tr>
+              <tr><td><strong>ESG</strong></td><td>Environmental, Social and Governance</td></tr>
+              <tr><td><strong>FM</strong></td><td>Facility Management</td></tr>
+              <tr><td><strong>MMLP</strong></td><td>Multi-Modal Logistics Park</td></tr>
+              <tr><td><strong>MoRTH</strong></td><td>Ministry of Road Transport and Highways</td></tr>
+              <tr><td><strong>O&amp;M</strong></td><td>Operation and Maintenance</td></tr>
+              <tr><td><strong>PPP</strong></td><td>Public-Private Partnership</td></tr>
+              <tr><td><strong>RFP</strong></td><td>Request for Proposal</td></tr>
+              <tr><td><strong>VGF</strong></td><td>Viability Gap Funding</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="prism2-nav-row">
+        <button class="prism2-btn-prev" id="prism2-prev-M" onclick="prism2Prev()">&#8592; Previous</button>
+        <div class="prism2-progress-dots" style="display:flex;gap:5px;align-items:center;">
+          <span class="pdot "data-p="P"></span>
+          <span class="pdot "data-p="R"></span>
+          <span class="pdot "data-p="I"></span>
+          <span class="pdot "data-p="S"></span>
+          <span class="pdot active "data-p="M"></span>
+        </div>
+      </div>
+
+      <!-- Framework completion card -->
+      <div style="margin:0 26px 16px;padding:16px 20px;border-radius:12px;background:#f4faf7;border:1.5px dashed #a8d5c2;display:flex;align-items:center;gap:14px;">
+        <div style="width:36px;height:36px;border-radius:50%;background:#d1ece2;border:1.5px solid #a8d5c2;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#1a7a5e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2.5 8 6 11.5 13.5 4"/></svg>
+        </div>
+        <div style="flex:1;min-width:0;">
+          <div style="font-size:.82rem;font-weight:700;color:#1a7a5e;letter-spacing:.01em;">PRISM Framework Complete</div>
+          <div style="font-size:.75rem;color:#4a7a6a;margin-top:2px;line-height:1.5;">All five pillars reviewed — explore case studies to see how similar projects were executed.</div>
+        </div>
+        <button onclick="showSPVTab('casestudies');setTimeout(function(){window.dispatchEvent(new Event('resize'))},30)" style="flex-shrink:0;font-size:.75rem;font-weight:600;padding:7px 14px;border-radius:8px;border:1.5px solid #a8d5c2;background:#fff;color:#1a7a5e;cursor:pointer;transition:background .2s,border-color .2s;" onmouseover="this.style.background='#e6f5ef'" onmouseout="this.style.background='#fff'">Case Studies &#8599;</button>
+      </div>
+
+      <!-- Download PRISM PDF card -->
+      <div style="margin:0 26px 28px;padding:18px 22px;border-radius:12px;background:linear-gradient(135deg,#f0f7ff 0%,#e8f4fd 100%);border:1.5px solid #c5ddf5;display:flex;align-items:center;gap:16px;">
+        <div style="width:40px;height:40px;border-radius:50%;background:#daeafa;border:1.5px solid #b8d4ef;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#1a5ca8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v10M5 8l4 4 4-4"/><rect x="3" y="14" width="12" height="2" rx="1"/></svg>
+        </div>
+        <div style="flex:1;min-width:0;">
+          <div style="font-size:.82rem;font-weight:700;color:#1a5ca8;letter-spacing:.01em;">Download PRISM Framework</div>
+          <div style="font-size:.75rem;color:#3a6a98;margin-top:2px;line-height:1.5;">Save a print-ready PDF of all five pillars for offline reference.</div>
+        </div>
+        <button onclick="downloadPRISM()" style="flex-shrink:0;font-size:.75rem;font-weight:600;padding:8px 16px;border-radius:8px;border:1.5px solid #b8d4ef;background:#fff;color:#1a5ca8;cursor:pointer;transition:background .2s,border-color .2s;display:flex;align-items:center;gap:6px;" onmouseover="this.style.background='#daeafa'" onmouseout="this.style.background='#fff'">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 1v7M3.5 5.5l3 3 3-3"/><rect x="1.5" y="10" width="10" height="1.5" rx=".75"/></svg>
+          Download PDF
+        </button>
+      </div>
+
+    </div><!-- /M -->
+  </div><!-- /pr-content-wrap -->
+</div><!-- /pr-shell -->
+
+<script>
+function prNav(key) {
+  if (typeof prism2Show === 'function') prism2Show(key);
+  document.querySelectorAll('#spv-panel-prism .pr-nav-item').forEach(function(n) {
+    n.classList.toggle('active', n.dataset.key === key);
+  });
+  var hl = document.getElementById('pr-hl');
+  var active = document.querySelector('#spv-panel-prism .pr-nav-item[data-key="' + key + '"]');
+  if (hl && active) {
+    var accent = getComputedStyle(active).getPropertyValue('--pr-accent').trim();
+    hl.style.setProperty('--pr-hl', accent);
+    hl.style.top = active.offsetTop + 'px';
+    hl.style.height = active.offsetHeight + 'px';
+  }
+}
+</script>
+
+    </div>
+  </div><!-- /spv-panel-prism -->
+
+  <div id="spv-panel-casestudies" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+      <div class="lit-wrap">
+        <div class="lit-outer">
+          <div class="lit-track-clip">
+            <div class="lit-track" id="litTrack-all">
+
+              <a class="lit-card" href="https://engineeringjournals.stmjournals.in/index.php/TTEA/article/download/6623/5486" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#1a7a5e;--lit-glow:rgba(26,122,94,.18);--lit-tint:rgba(26,122,94,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">A Study on Site Selection Component of Model Logistics Park: A Case of Uttar Pradesh</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Open Access Article</span></div>
+                    <div class="lit-card-source">Source: <span>STM Journals</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/lp-precedent-warehouse.jpg" alt="Logistics park site selection case study Uttar Pradesh" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://portfolio.cept.ac.in/fp/transportation-detailed-feasibility-project-studio-ut4003-monsoon-2021/detailed-feasibility-study-of-logistic-park-monsoon-2021-put20166" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#C85000;--lit-glow:rgba(200,80,0,.18);--lit-tint:rgba(200,80,0,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Detailed Feasibility Study of Logistic Park</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Feasibility Study</span></div>
+                    <div class="lit-card-source">Source: <span>CEPT University</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/lp-hero-logistics.jpg" alt="Detailed feasibility study logistic park" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://www.sciencedirect.com/science/article/abs/pii/S0967070X24002609" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#1a5ca8;--lit-glow:rgba(26,92,168,.18);--lit-tint:rgba(26,92,168,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">From Death to Birth: Do Logistics Parks Help Local Renewals in Logistics-Intensive Areas?</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Open Access Article</span></div>
+                    <div class="lit-card-source">Source: <span>ScienceDirect (Elsevier)</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs-convention-hannover.jpg" alt="Logistics parks and local renewal in logistics-intensive areas" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://www.eria.org/RPR_FY2014_No.44_Chapter_8.pdf" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#5a3d9e;--lit-glow:rgba(90,61,158,.18);--lit-tint:rgba(90,61,158,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">The Datong Coal Mine Group Ltd and Its Tashan Circular Economy Park: A Business Case</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Case Study Report</span></div>
+                    <div class="lit-card-source">Source: <span>ERIA</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs-china-datong.jpg" alt="Datong coal mine Tashan circular economy park" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://coal.nic.in/sites/default/files/2023-05/23-05-2023.pdf" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#b06a10;--lit-glow:rgba(176,106,16,.18);--lit-tint:rgba(176,106,16,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Integrated Coal Logistics Plan for Coal Mines/Blocks</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Report</span></div>
+                    <div class="lit-card-source">Source: <span>coal.nic.in</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs-mds-ncl-dumpers.jpg" alt="Integrated coal logistics plan for coal mines" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://blog.siemens.com/2023/01/development-of-logistics-parks-in-india-a-step-towards-supply-chain-efficiency-with-less-carbon-emission/" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#d97706;--lit-glow:rgba(217,119,6,.18);--lit-tint:rgba(217,119,6,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Development of Logistics Parks in India: A Step Towards Supply Chain Efficiency with Less Carbon Emission</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Article</span></div>
+                    <div class="lit-card-source">Source: <span>Siemens Blog</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/lp-precedent-warehouse.jpg" alt="Development of logistics parks in India supply chain efficiency" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://cenjows.in/wp-content/uploads/2025/12/Logistic-Parks-Tha-Game-Changers.pdf" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#0891b2;--lit-glow:rgba(8,145,178,.18);--lit-tint:rgba(8,145,178,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Logistic Parks — The Game Changers</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Report</span></div>
+                    <div class="lit-card-source">Source: <span>cenjows.in</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/lp-hero-logistics.jpg" alt="Logistic parks as game changers in supply chain" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://environmentclearance.nic.in/DownloadPfdFile.aspx?FileName=UULLnxgbSh8p4ZepPPsWuzkuijwnpXrca72ameMvqDgT4Ip4btKgrLZBrrFWlgnEjRvj1lnN3NScc4mo777xGl7WofKF2QSKYoMG3aVba79oOZRXfmiWgywntg2kfp2Jm7fcZ9ZavtgPY5IawBY9/RhNpEM3ltp2CxEB4yv2R4/au6DxP3mpOxfKzMah351w&FilePath=93ZZBm8LWEXfg+HAlQix2fE2t8z/pgnoBhDlYdZCxzUlDadBGu7t8v4JoQvNU6UB5LhQNdumqRbMnvX0zQAnqi1K2JKB09VvpaTb1T9d2kw=" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#1a7a5e;--lit-glow:rgba(26,122,94,.18);--lit-tint:rgba(26,122,94,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">LOGOS Industrial Warehouse and Logistic Park</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Environmental Clearance Report</span></div>
+                    <div class="lit-card-source">Source: <span>environmentclearance.nic.in</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs-lp-harworth.jpg" alt="LOGOS industrial warehouse and logistic park" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://emergentgroup.com.au/optimising-pit-to-port-logistics/" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#C85000;--lit-glow:rgba(200,80,0,.18);--lit-tint:rgba(200,80,0,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Optimising Pit-to-Port Logistics</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Article</span></div>
+                    <div class="lit-card-source">Source: <span>emergentgroup.com.au</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs-mds-dump-truck.jpg" alt="Optimising pit to port logistics for mining" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://www.nature.com/articles/s41598-025-23591-x" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#1a5ca8;--lit-glow:rgba(26,92,168,.18);--lit-tint:rgba(26,92,168,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Location Optimization of Cold Chain Logistics Parks Based on Bayesian Probability</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Open Access Article</span></div>
+                    <div class="lit-card-source">Source: <span>Nature / Scientific Reports</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/lp-precedent-warehouse.jpg" alt="Cold chain logistics park location optimization" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://www.adb.org/sites/default/files/publication/614876/adb-brief-142-multimodal-logistics-parks-india.pdf" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#5a3d9e;--lit-glow:rgba(90,61,158,.18);--lit-tint:rgba(90,61,158,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Developing Multimodal Logistics Parks in India</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>ADB Brief</span></div>
+                    <div class="lit-card-source">Source: <span>adb.org</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/mmlp-bengaluru-render.jpg" alt="Developing multimodal logistics parks in India ADB" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://www.mdpi.com/2076-3417/15/21/11722" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#b06a10;--lit-glow:rgba(176,106,16,.18);--lit-tint:rgba(176,106,16,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Simulation-Driven Mining Logistics Towards Sustainable and Reliable Production</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Open Access Article</span></div>
+                    <div class="lit-card-source">Source: <span>MDPI Applied Sciences</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/cs-mds-mine-openpit.jpg" alt="Simulation-driven mining logistics for sustainable production" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://onlinepubs.trb.org/Onlinepubs/trr/1989/1222/1222-002.pdf" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#d97706;--lit-glow:rgba(217,119,6,.18);--lit-tint:rgba(217,119,6,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Coal Logistics System (COLS)</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Report</span></div>
+                    <div class="lit-card-source">Source: <span>Transportation Research Board</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/ncl-singrauli-shovel-dumper.jpg" alt="Coal logistics system COLS transportation research" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+              <a class="lit-card" href="https://www.researchgate.net/publication/321581961_Port_logistic_park_-_a_case_study" target="_blank" rel="noopener noreferrer"
+                 style="--lit-accent:#0891b2;--lit-glow:rgba(8,145,178,.18);--lit-tint:rgba(8,145,178,.06);">
+                <div class="lit-card-body">
+                  <div class="lit-card-title">Port Logistic Park — A Case Study</div>
+                  <div class="lit-card-meta">
+                    <div class="lit-card-type"><span>Case Study Report</span></div>
+                    <div class="lit-card-source">Source: <span>ResearchGate</span></div>
+                  </div>
+                </div>
+                <div class="lit-card-img"><img src="../images/lp-hero-logistics.jpg" alt="Port logistic park case study" loading="lazy"></div>
+                <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> View</div>
+              </a>
+
+            </div><!-- /lit-track -->
+          </div><!-- /lit-track-clip -->
+          <div class="lit-nav">
+            <button class="lit-nav-btn" id="litPrev-all" onclick="litMove('all',-1)" aria-label="Previous">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <div class="lit-dots" id="litDots-all"></div>
+            <button class="lit-nav-btn" id="litNext-all" onclick="litMove('all',1)" aria-label="Next">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+          </div>
+        </div><!-- /lit-outer -->
+      </div><!-- /lit-wrap -->
+    </div>
+  </div><!-- /spv-panel-casestudies -->
+
+  <div id="spv-panel-tender" class="spv-panel" style="display:none;">
+  <div class="spv-content">
+
+  <div class="t5-wrap">
+    <div class="t5-topbar">
+      <div class="t5-pills">
+        <button class="t5-pill t5-pill--all active" onclick="t5Filter('all')">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          All Documents <span class="t5-pill-count" id="t5cnt-all">9</span>
+        </button>
+        <button class="t5-pill--rfp t5-pill" data-sec="rfp" onclick="t5Filter('rfp')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          RFP <span class="t5-pill-count" id="t5cnt-rfp">3</span>
+        </button>
+        <button class="t5-pill--nit t5-pill" data-sec="nit" onclick="t5Filter('nit')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+          NIT <span class="t5-pill-count" id="t5cnt-nit">2</span>
+        </button>
+        <button class="t5-pill--rpt t5-pill" data-sec="rpt" onclick="t5Filter('rpt')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          Reports &amp; DPR <span class="t5-pill-count" id="t5cnt-rpt">4</span>
+        </button>
+      </div>
+      <div class="t5-right">
+        <div class="t5-search-wrap">
+          <svg class="t5-search-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input id="t5SearchInput" class="t5-search" type="text" placeholder="Search documents…" oninput="t5Search(this.value)">
+        </div>
+        <span class="t5-counter" id="t5Counter"></span>
+      </div>
+    </div>
+    <div id="t5Sections">
+      <div class="t5-section" data-sec="rfp" style="animation-delay:0.05s">
+        <div class="t5-section-header">
+          <div class="t5-section-bar" style="background:#0F6E56"></div>
+          <span class="t5-section-label" style="color:#0F6E56">Requests for Proposal (RFP)</span>
+          <span class="t5-section-count">3 documents</span>
+        </div>
+        <div class="t5-list">
+          <a class="t5-row t5-row--rfp" data-sec="rfp"
+             data-title="consultancy services for preparation of detailed project report for development of multimodal logistics park at jogighopa and external trunk connectivity infrastructure to the multimodal logistics park site at jogighoра."
+             href="https://www.nhidcl.com/sites/default/files/tenders/tendors/uploads/e3731/tendor/RFP%2017052018.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0F6E56">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Consultancy Services for preparation of Detailed Project Report for Development of Multimodal Logistics Park at Jogighopa and External Trunk Connectivity Infrastructure to the Multimodal Logistics Park site at Jogighoра.</div>
+              <div class="t5-sub">nhidcl.com</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">RFP</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rfp" data-sec="rfp"
+             data-title="request for proposal for selection of transaction advisor for development &amp; operations of multi-modal logistics park at jogighopa in ppp mode"
+             href="https://www.nhidcl.com/sites/default/files/tender/rfp_5_1_0.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0F6E56">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Request for Proposal for Selection of Transaction Advisor for Development &amp; Operations of Multi-modal Logistics Park at Jogighopa in PPP Mode</div>
+              <div class="t5-sub">PPP Mode · nhidcl.com</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">RFP</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rfp" data-sec="rfp"
+             data-title="request for proposal (rfp) for appointment of design and project management consultant for the construction of the new integrated warehouse and logistics zone at noida international airport(nia) in india."
+             href="https://www.aisats.in/storage/file/26C77mJIA8HEEV2eySqFXWkOCCMjIoIEjHIbPeG5.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0F6E56">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Request for Proposal (RFP) for Appointment of Design and Project Management Consultant for the Construction of the New Integrated Warehouse and Logistics Zone at Noida International Airport(nia) in India.</div>
+              <div class="t5-sub">aisats.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">RFP</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+        </div>
+      </div><!-- /rfp section -->
+      <div class="t5-section" data-sec="nit" style="animation-delay:0.10s">
+        <div class="t5-section-header">
+          <div class="t5-section-bar" style="background:#B45309"></div>
+          <span class="t5-section-label" style="color:#B45309">Notice Inviting Tender (NIT)</span>
+          <span class="t5-section-count">2 documents</span>
+        </div>
+        <div class="t5-list">
+          <a class="t5-row t5-row--nit" data-sec="nit"
+             data-title="appointment of strategic alliance management operator (samo)providing management, handling and operation services at cfs-logistic park"
+             href="https://cewacor.nic.in/Uploads/Attachment/MSEVendor//366e8c11-c103-47fd-926e-92bca89bbf2c_14DecModeltender.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#B45309">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Appointment of Strategic Alliance Management Operator (SAMO)Providing Management, Handling and Operation Services at CFS-Logistic Park</div>
+              <div class="t5-sub">cewacor.nic.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">NIT</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--nit" data-sec="nit"
+             data-title="operation, maintenance &amp; management contract of logistic hub at sez phase 2, pithampur, distt. dhar. (for three years)"
+             href="https://www.mpakvnindore.com/images/tender/20210129184321LOGISTICTENDERDOCUMENT.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#B45309">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Operation, Maintenance &amp; Management contract of Logistic Hub at Sez phase 2, Pithampur, Distt. Dhar. (for Three years)</div>
+              <div class="t5-sub">mpakvnindore.com</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">NIT</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+        </div>
+      </div><!-- /nit section -->
+      <div class="t5-section" data-sec="rpt" style="animation-delay:0.30s">
+        <div class="t5-section-header">
+          <div class="t5-section-bar" style="background:#0369a1"></div>
+          <span class="t5-section-label" style="color:#0369a1">Reports &amp; DPR</span>
+          <span class="t5-section-count">4 documents</span>
+        </div>
+        <div class="t5-list">
+          <a class="t5-row t5-row--rpt" data-sec="rpt"
+             data-title="chhattisgarh state logistic park policy 2018"
+             href="https://csidc.in/wp-content/uploads/2022/09/Logistics-Park-Policy-English.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0369a1">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Chhattisgarh state logistic park policy 2018</div>
+              <div class="t5-sub">csidc.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">Report</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rpt" data-sec="rpt"
+             data-title="detailed project report for mmlh at greater noida in uttar pradesh under dmic project"
+             href="https://environmentclearance.nic.in/DownloadPfdFile.aspx?FileName=8CAQIgY1AFCyf/tnlpFJUWcTKgEgPai3L9iiltn6eY+sPUR0klShRUNw1ixlERxOZbCZmnraXNK+iDH62Vna1yak0FKMBDYjCinloWnTG3E=&amp;FilePath=93ZZBm8LWEXfg+HAlQix2fE2t8z/pgnoBhDlYdZCxzUlDadBGu7t8v4JoQvNU6UBlSmL0YQ7WQYaxkvlQvexKQ==" target="_blank" rel="noopener"
+             style="--row-accent:#0369a1">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Detailed Project Report for Mmlh at Greater Noida in Uttar Pradesh under Dmic project</div>
+              <div class="t5-sub">environmentclearance.nic.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">DPR</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rpt" data-sec="rpt"
+             data-title="prefeasibility study for mmlp at jogighopa"
+             href="https://iwai.nic.in/sites/default/files/Prefeasibility%20Study%20for%20MMLP%20at%20Jogighopa.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0369a1">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Prefeasibility Study for Mmlp at Jogighopa</div>
+              <div class="t5-sub">iwai.nic.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">Report</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rpt" data-sec="rpt"
+             data-title="prefeasibility report logistics park in karnataka"
+             href="https://idd.karnataka.gov.in/storage/pdf-files/49.Logpark.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0369a1">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Prefeasibility Report Logistics Park in Karnataka</div>
+              <div class="t5-sub">idd.karnataka.gov.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">Report</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+        </div>
+      </div><!-- /rpt section -->
+    </div><!-- /t5Sections -->
+  </div><!-- /t5-wrap -->
+
+  </div>
+  </div><!-- /spv-panel-tender -->
+
+  <div id="spv-panel-media" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+
+    <div class="media-stack">
+
+      <a class="media-row" href="https://youtu.be/uyDyIobVQvg?si=5jqlFdeHg23IMKUi" target="_blank" rel="noopener noreferrer"
+         style="--mr-accent:#1a7a5e;--mr-tint:rgba(26,122,94,.1);">
+        <div class="media-row-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a7a5e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        </div>
+        <div class="media-row-main">
+          <div class="media-row-tag">Video · Logistics Infrastructure</div>
+          <div class="media-row-title">Multi Modal Logistic Parks: Revolutionizing India's Logistics Landscape</div>
+          <div class="media-row-source">
+            <svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><line x1="2" y1="8" x2="14" y2="8"/><path d="M8 2a10 10 0 010 12M8 2a10 10 0 000 12"/></svg>
+            youtu.be
+          </div>
+        </div>
+        <div class="media-row-arrow">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/></svg>
+        </div>
+      </a>
+
+      <a class="media-row" href="https://www.jiem.org/index.php/jiem/article/view/746/516" target="_blank" rel="noopener noreferrer"
+         style="--mr-accent:#C85000;--mr-tint:rgba(200,80,0,.1);">
+        <div class="media-row-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C85000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg>
+        </div>
+        <div class="media-row-main">
+          <div class="media-row-tag">Article · Coal Logistics</div>
+          <div class="media-row-title">On the Analysis of Building a Public Information Platform Based on e-Commerce for Coal Logistics</div>
+          <div class="media-row-source">
+            <svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><line x1="2" y1="8" x2="14" y2="8"/><path d="M8 2a10 10 0 010 12M8 2a10 10 0 000 12"/></svg>
+            jiem.org
+          </div>
+        </div>
+        <div class="media-row-arrow">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/></svg>
+        </div>
+      </a>
+
+      <a class="media-row" href="https://www.godwitt.in/resources/how-industrial-parks-are-reshaping-supply-chains-and-warehousing-in-india" target="_blank" rel="noopener noreferrer"
+         style="--mr-accent:#1a5ca8;--mr-tint:rgba(26,92,168,.1);">
+        <div class="media-row-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a5ca8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        </div>
+        <div class="media-row-main">
+          <div class="media-row-tag">Article · Supply Chain</div>
+          <div class="media-row-title">How Industrial Parks Are Reshaping Supply Chains and Warehousing in India</div>
+          <div class="media-row-source">
+            <svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><line x1="2" y1="8" x2="14" y2="8"/><path d="M8 2a10 10 0 010 12M8 2a10 10 0 000 12"/></svg>
+            godwitt.in
+          </div>
+        </div>
+        <div class="media-row-arrow">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/></svg>
+        </div>
+      </a>
+
+      <a class="media-row" href="https://mcclurevision.com/logistics-park-site-design-key-considerations/" target="_blank" rel="noopener noreferrer"
+         style="--mr-accent:#5a3d9e;--mr-tint:rgba(90,61,158,.1);">
+        <div class="media-row-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5a3d9e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
+        <div class="media-row-main">
+          <div class="media-row-tag">Article · Site Design</div>
+          <div class="media-row-title">Logistics Park Site Design: Key Considerations</div>
+          <div class="media-row-source">
+            <svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><line x1="2" y1="8" x2="14" y2="8"/><path d="M8 2a10 10 0 010 12M8 2a10 10 0 000 12"/></svg>
+            mcclurevision.com
+          </div>
+        </div>
+        <div class="media-row-arrow">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/></svg>
+        </div>
+      </a>
+
+      <a class="media-row" href="https://www.adb.org/publications/multimodal-logistics-parks-india" target="_blank" rel="noopener noreferrer"
+         style="--mr-accent:#b06a10;--mr-tint:rgba(176,106,16,.1);">
+        <div class="media-row-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#b06a10" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        </div>
+        <div class="media-row-main">
+          <div class="media-row-tag">ADB Publication · India</div>
+          <div class="media-row-title">Developing Multimodal Logistics Parks in India</div>
+          <div class="media-row-source">
+            <svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><line x1="2" y1="8" x2="14" y2="8"/><path d="M8 2a10 10 0 010 12M8 2a10 10 0 000 12"/></svg>
+            adb.org
+          </div>
+        </div>
+        <div class="media-row-arrow">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/></svg>
+        </div>
+      </a>
+
+    </div><!-- /media-stack -->
+
+    </div>
+    <p style="font-size:0.72rem; color:var(--color-text-secondary); font-style:italic; margin-top:16px;">Links open external websites. Coal Controller Organisation does not endorse third-party content.</p>
+  </div><!-- /spv-panel-media -->
+
+  <div id="spv-panel-agencies" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+      <div class="agencies-logo-grid">
+ 
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img" style="background:#fff; border-radius:10px;">
+            <img src="../images/agencies/Welspun-Enterprises-logo.svg" alt="Welspun One Logistics Parks" style="max-width:100%; max-height:60px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">Welspun One Logistics Parks</div>
+          <div class="agency-logo-type">Grade-A warehouse &amp; logistics park design, civil build &amp; commissioning</div>
+        </div>
+ 
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img" style="background:#ffffff; border-radius:10px;">
+            <img src="../images/agencies/IndoSpace%20Logistics%20Parks.png" alt="IndoSpace Logistics Parks" style="max-width:100%; max-height:60px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">IndoSpace Logistics Parks</div>
+          <div class="agency-logo-type">Industrial &amp; logistics real estate development from land to finished warehouse</div>
+        </div>
+ 
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img" style="background:#ffffff; border-radius:10px;">
+            <img src="../images/agencies/ESR%20India.svg" alt="ESR India" style="max-width:100%; max-height:60px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">ESR India</div>
+          <div class="agency-logo-type">Logistics &amp; industrial warehouse park construction from scratch</div>
+        </div>
+ 
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img agency-logo-inner--img--dark" style="background:#1a5ca8; border-radius:10px;">
+            <img src="../images/agencies/landt-logo.png" alt="L&amp;T Construction" style="max-width:100%; max-height:60px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">L&amp;T Construction</div>
+          <div class="agency-logo-type">Large logistics park civil, structural steel &amp; MEP EPC</div>
+        </div>
+ 
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img" style="background:#ffffff; border-radius:10px;">
+            <img src="../images/agencies/NCC%20Ltd%20(Nagarjuna%20Construction%20Co.).png" alt="NCC Ltd (Nagarjuna Construction)" style="max-width:100%; max-height:60px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">NCC Ltd (Nagarjuna Construction)</div>
+          <div class="agency-logo-type">Civil EPC for warehouse, loading docks &amp; logistics infrastructure</div>
+        </div>
+ 
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img" style="background:#ffffff; border-radius:10px;">
+            <img src="../images/agencies/Shapoorji%20Pallonji%20&%20Co%20Ltd.svg" alt="Shapoorji Pallonji &amp; Co Ltd" style="max-width:100%; max-height:60px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">Shapoorji Pallonji &amp; Co Ltd</div>
+          <div class="agency-logo-type">Logistics park civil, structural &amp; utilities infrastructure build</div>
+        </div>
+ 
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img" style="background:#ffffff; border-radius:10px;">
+            <img src="../images/agencies/Tata%20Projects%20Ltd.webp" alt="Tata Projects Ltd" style="max-width:100%; max-height:60px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">Tata Projects Ltd</div>
+          <div class="agency-logo-type">Turnkey logistics &amp; industrial warehouse infrastructure EPC</div>
+        </div>
+ 
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img" style="background:#1a5ca8; border-radius:10px;">
+            <img src="../images/agencies/Dilip%20Buildcon%20Ltd.png" alt="Dilip Buildcon Ltd" style="max-width:100%; max-height:60px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">Dilip Buildcon Ltd</div>
+          <div class="agency-logo-type">Logistics zone roads, drainage, yard &amp; civil infrastructure construction</div>
+        </div>
+ 
+        <div class="agency-logo-card">
+          <div class="agency-logo-inner agency-logo-inner--img" style="background:#ffffff; border-radius:10px;">
+            <img src="../images/agencies/Capacit'e%20Infraprojects%20Ltd.svg" alt="Capacit'e Infraprojects Ltd" style="max-width:100%; max-height:60px; object-fit:contain;">
+          </div>
+          <div class="agency-logo-name">Capacit'e Infraprojects Ltd</div>
+          <div class="agency-logo-type">Warehouse shed, utility building &amp; logistics infrastructure civil build</div>
+        </div>
+ 
+      </div><!-- /agencies-logo-grid -->
+
+      <!-- Disclaimer -->
+      <div style="margin-top:28px; padding:14px 18px; background:rgba(33,128,141,.05); border:1px solid rgba(33,128,141,.18); border-radius:8px; display:flex; gap:12px; align-items:flex-start;">
+        <svg style="flex-shrink:0; margin-top:2px;" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#21808d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <p style="margin:0; font-family:var(--font-sans); font-size:0.8rem; color:var(--color-text-secondary); line-height:1.65;">
+          <strong style="color:var(--color-text); font-weight:600;">Disclaimer:</strong>
+          Inclusion of an agency on this list does not constitute endorsement, empanelment, or recommendation by the Coal Controller Organisation or the Ministry of Coal, Government of India. Mine owners and project proponents are advised to conduct their own due diligence process before engaging any agency.
+        </p>
+      </div>
+
+    </div>
+  </div><!-- /spv-panel-agencies -->
+
+  <div id="spv-panel-experts" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+      <div style="padding:60px 24px;text-align:center;color:#94a3b8;">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#cbd5e1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin:0 auto 18px;display:block;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <div style="font-size:1rem;font-weight:600;color:#64748b;margin-bottom:6px;">Experts — Coming Soon</div>
+        <div style="font-size:.875rem;color:#94a3b8;max-width:420px;margin:0 auto;line-height:1.65;">Domain experts in logistics planning, multimodal transport, cold-chain development, PPP concession structuring, and mine-land repurposing will be profiled here.</div>
+      </div>
+      <div style="margin-top:28px;padding:14px 18px;background:rgba(33,128,141,.05);border:1px solid rgba(33,128,141,.18);border-radius:8px;display:flex;gap:12px;align-items:flex-start;">
+        <svg style="flex-shrink:0;margin-top:2px;" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#21808d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <p style="margin:0;font-family:var(--font-sans);font-size:0.8rem;color:var(--color-text-secondary);line-height:1.65;"><strong style="color:var(--color-text);font-weight:600;">Disclaimer:</strong> Inclusion of an expert does not constitute endorsement, empanelment, or recommendation by the Coal Controller Organisation or the Ministry of Coal, Government of India. Users are advised to independently verify credentials and suitability before engaging any individual.</p>
+      </div>
+    </div>
+  </div><!-- /spv-panel-experts -->
+
+  <!-- Footer -->
+  <footer id="site-footer-sf">
+    &copy; 2026 Coal Controller Organisation, Ministry of Coal, Government of India.
+  </footer>
+
+</div><!-- /page -->
+
+<script>
+const PRISM2_COLORS = {P:'#C85000', R:'#1a5ca8', I:'#b06a10', S:'#5a3d9e', M:'#1a7a5e'};
+const PRISM2_BG     = {P:'#fff0e6', R:'#e4eef9', I:'#faedda', S:'#edeaf8', M:'#e1f3ec'};
+</script>
+
+<script src="./category.js"></script>
+
+<script>
+window.prism2Next = function() {
+  if (prism2Current < PRISM2_ORDER.length - 1) prNav(PRISM2_ORDER[prism2Current + 1]);
+};
+window.prism2Prev = function() {
+  if (prism2Current > 0) prNav(PRISM2_ORDER[prism2Current - 1]);
+};
+
+function downloadPRISM() {
+  var rawTitle = document.title || '';
+  var catName  = rawTitle.split('—')[0].split('-')[0].trim() || 'Category';
+
+  var PC = {P:'#C85000',R:'#1a5ca8',I:'#b06a10',S:'#5a3d9e',M:'#1a7a5e'};
+  var PB = {P:'#fff8f3',R:'#f3f7fd',I:'#fdf7f0',S:'#f7f5fd',M:'#f1faf6'};
+  var PN = {P:'Project Vision',R:'Repurposing Pathways',I:'Investment Dynamics',S:'Strategic Structuring',M:'Monitoring &amp; Management'};
+  var PE = {P:'POST-MINING',R:'REPURPOSING',I:'INVESTMENT',S:'STRATEGY',M:'MANAGEMENT'};
+
+  var introHeadEl = document.querySelector('.pr-intro-heading');
+  var introBodyEl = document.querySelector('.pr-intro-body');
+  var introHead   = introHeadEl ? introHeadEl.textContent : 'A structured framework for mine repurposing from concept to implementation';
+  var introBody   = introBodyEl ? introBodyEl.innerHTML   : '';
+
+  var pillarsHTML = '';
+  ['P','R','I','S','M'].forEach(function(k) {
+    var panel = document.getElementById('prism2-panel-' + k);
+    if (!panel) return;
+
+    var eyebrowEl   = panel.querySelector('.prism2-panel-eyebrow');
+    var titleEl     = panel.querySelector('.prism2-panel-title');
+    var descEl      = panel.querySelector('.prism2-panel-desc');
+    var eyebrow     = eyebrowEl  ? eyebrowEl.textContent  : PE[k];
+    var panelTitle  = titleEl    ? titleEl.textContent    : PN[k];
+    var descHTML    = descEl     ? descEl.innerHTML       : '';
+
+    var accHTML = '';
+    panel.querySelectorAll('.accordion-item').forEach(function(item) {
+      var spans = item.querySelectorAll('.accordion-btn span');
+      var btnText = '';
+      for (var s = 0; s < spans.length; s++) {
+        var t = spans[s].textContent.trim();
+        if (t && t !== '⥤' && t !== '˅') { btnText = t; break; }
+      }
+      var body = item.querySelector('.accordion-body');
+      if (!body) return;
+      var clone = body.cloneNode(true);
+      clone.style.display = '';
+      /* Remove scroll-wrapper overflow so tables span full width */
+      clone.querySelectorAll('.spv-table-wrap').forEach(function(w){w.style.overflowX='visible';});
+      accHTML += '<div class="acc-item">' +
+        '<div class="acc-heading">' + btnText + '</div>' +
+        '<div class="acc-body">' + clone.innerHTML + '</div>' +
+        '</div>';
+    });
+
+    pillarsHTML +=
+      '<div class="pillar" style="border-left-color:' + PC[k] + ';">' +
+        '<div class="pillar-hdr" style="background:' + PC[k] + '18;">' +
+          '<div class="pillar-letter" style="color:' + PC[k] + ';">' + k + '</div>' +
+          '<div class="pillar-info">' +
+            '<div class="pillar-eyebrow" style="color:' + PC[k] + ';">' + eyebrow + '</div>' +
+            '<div class="pillar-name">' + panelTitle + '</div>' +
+            (descHTML ? '<div class="pillar-desc">' + descHTML + '</div>' : '') +
+          '</div>' +
+        '</div>' +
+        '<div class="pillar-content">' + accHTML + '</div>' +
+      '</div>';
+  });
+
+  var css = [
+    '*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}',
+    'body{font-family:"Segoe UI",Arial,sans-serif;font-size:10pt;color:#1a1a1a;line-height:1.65;background:#fff}',
+    '@page{size:A4;margin:16mm 14mm}',
+    /* ── Cover ── */
+    '.cover{margin-bottom:28pt;padding-bottom:22pt;border-bottom:1.5pt solid #ddd}',
+    '.rainbow{height:5pt;border-radius:99pt;background:linear-gradient(to right,#7C3AB5,#4f6de0,#0ea5e9,#1D9E75,#3B6D11,#BA7517,#C85000,#A32D2D);margin-bottom:18pt}',
+    '.cover-eye{font-size:7.5pt;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#888;margin-bottom:7pt}',
+    '.cover-title{font-size:24pt;font-weight:800;color:#111;line-height:1.15;margin-bottom:5pt}',
+    '.cover-sub{font-size:11pt;font-weight:600;color:#444;margin-bottom:11pt}',
+    '.cover-body{font-size:9pt;color:#555;line-height:1.75}',
+    /* ── Pillars ── */
+    '.pillars{display:flex;flex-direction:column;gap:20pt}',
+    '.pillar{border-left:4pt solid #ccc;border-radius:6pt;overflow:hidden;page-break-inside:avoid}',
+    '.pillar-hdr{padding:13pt 15pt 11pt;display:flex;align-items:flex-start;gap:12pt}',
+    '.pillar-letter{font-size:30pt;font-weight:800;line-height:1;flex-shrink:0;width:38pt;opacity:.85}',
+    '.pillar-info{flex:1}',
+    '.pillar-eyebrow{font-size:7pt;font-weight:700;letter-spacing:.11em;text-transform:uppercase;margin-bottom:2pt}',
+    '.pillar-name{font-size:12.5pt;font-weight:700;color:#111;margin-bottom:3pt}',
+    '.pillar-desc{font-size:8.5pt;color:#555;line-height:1.6}',
+    /* ── Accordion ── */
+    '.pillar-content{background:#fff}',
+    '.acc-item{border-top:1pt solid #e8e8e0}',
+    '.acc-heading{font-size:9pt;font-weight:700;padding:8pt 13pt;color:#2a2a2a;background:#fafaf8}',
+    '.acc-body{font-size:8.5pt;line-height:1.75;color:#444;padding:9pt 13pt 11pt}',
+    /* ── Body content ── */
+    '.spv-body-text{margin-bottom:7pt}',
+    'p{margin-bottom:7pt}',
+    '.spv-list,.spv-list-unstyled{margin:5pt 0 7pt 16pt}',
+    'ul,ol{margin:5pt 0 7pt 16pt}',
+    '.spv-list li,ul li,ol li{margin-bottom:3pt}',
+    /* ── Tables ── */
+    '.spv-table-wrap{margin:7pt 0;overflow:visible}',
+    '.spv-table{width:100%;border-collapse:collapse;font-size:8pt}',
+    '.spv-table th{background:#f0f0ea;font-weight:700;text-align:left;padding:5pt 7pt;border:1pt solid #ccc;vertical-align:top}',
+    '.spv-table td{padding:4.5pt 7pt;border:1pt solid #ccc;vertical-align:top}',
+    '.spv-table tr:nth-child(even) td{background:#f9f9f7}',
+    /* ── Strong/em ── */
+    'strong{font-weight:700}',
+    'em{font-style:italic}',
+    /* ── Info/note boxes (if any) ── */
+    '.spv-note,.spv-info{background:#f5f5f0;border-left:3pt solid #aaa;padding:8pt 10pt;margin:6pt 0;font-size:8.5pt}'
+  ].join('\n');
+
+  var html = '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">' +
+    '<title>PRISM — ' + catName + '<\/title>' +
+    '<style>' + css + '<\/style><\/head><body>' +
+    '<div class="cover">' +
+      '<div class="rainbow"><\/div>' +
+      '<div class="cover-eye">PRISM Framework — Post-Mining Repurposing &amp; Implementation Strategy Models<\/div>' +
+      '<div class="cover-title">' + catName + '<\/div>' +
+      '<div class="cover-sub">' + introHead + '<\/div>' +
+      (introBody ? '<div class="cover-body">' + introBody + '<\/div>' : '') +
+    '<\/div>' +
+    '<div class="pillars">' + pillarsHTML + '<\/div>' +
+    '<\/body><\/html>';
+
+  var win = window.open('', '_blank', 'width=960,height=750');
+  if (!win) { alert('Please allow pop-ups for this site to download the PDF.'); return; }
+  win.document.write(html);
+  win.document.close();
+  win.focus();
+  setTimeout(function() { win.print(); }, 700);
+}
+
+(function() {
+  var panel = document.getElementById('spv-panel-prism');
+  if (!panel) return;
+  new MutationObserver(function() {
+    if (panel.style.display !== 'none') setTimeout(function() { prNav('P'); }, 10);
+  }).observe(panel, { attributes: true, attributeFilter: ['style'] });
+})();
+</script>
+
+<!-- browse-back-script -->
+<script>
+(function(){
+  if(new URLSearchParams(location.search).get('from')==='browse'){
+    var btn=document.querySelector('.back-btn');
+    if(btn){
+      btn.onclick=function(){window.location.href='../browse.html';};
+      btn.setAttribute('aria-label','Back to Browse');
+      for(var i=btn.childNodes.length-1;i>=0;i--){
+        var n=btn.childNodes[i];
+        if(n.nodeType===3&&n.textContent.trim()){n.textContent=' Back to Browse';break;}
+      }
+    }
+    var cr=document.querySelector('.sf-breadcrumb span:not(.sep)');
+    if(cr)cr.textContent='All Categories';
+  }
+})();
+</script>
+</body>
+</html>

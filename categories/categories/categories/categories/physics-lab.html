@@ -1,0 +1,1877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Physics Lab — SUVIKALP | Coal Controller Organisation</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="./category.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+/* Per-page custom overrides (optional) */
+/* ── Tender card ─────────────────────────────────────────── */
+.tender-card { border:1px solid #e5e7eb; border-radius:10px; padding:1rem 1.1rem; margin-bottom:.7rem; background:#fff; display:flex; gap:.85rem; align-items:flex-start; box-shadow:0 1px 4px rgba(0,0,0,.04); transition:box-shadow .2s,transform .2s; }
+.tender-card:hover { box-shadow:0 4px 14px rgba(0,0,0,.08); transform:translateY(-2px); }
+.tender-icon { font-size:1.4rem; flex-shrink:0; margin-top:.15rem; }
+.tender-title { font-size:.9rem; font-weight:700; color:var(--color-teal-600,#21808d); margin-bottom:.25rem; }
+.tender-desc { font-size:.8rem; color:#6b7280; line-height:1.65; }
+</style>
+</head>
+<body>
+<header id="site-header">
+  <div class="header-left">
+    <div class="header-tool-title">
+      <span class="hindi">सुविकल्प:</span> Mine Repurposing Tool
+    </div>
+    <div class="header-tool-sub">
+      Select factors and sub-factors to discover suitable repurposing options for your mining site
+    </div>
+  </div>
+  <div class="header-right">
+    <a href="https://coalcontroller.gov.in/" target="_blank" rel="noopener" title="CCO Home">
+    <div class="header-cco-lockup">
+      <img class="header-cco-logo" src="data:image/png;base64,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" alt="Coal Controller Organisation emblem">
+      <div class="header-cco-text">
+        <!-- text intentionally empty: organisation name is encoded in the emblem logo -->
+      </div>
+    </div>
+    </a>
+  </div>
+</header>
+
+<div class="page">
+
+  <!-- Back bar -->
+  <div class="sf-backbar">
+    <button class="back-btn" onclick="window.location.href='../index.html'" aria-label="Back to results">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M10 3L5 8l5 5"/>
+      </svg>
+      Back to Results
+    </button>
+    <span class="sf-breadcrumb">
+      <span>Final Recommendations</span>
+      <span class="sep">/</span>
+      <span style="color:var(--teal);font-weight:500;">Physics Lab / R&amp;D Facility</span>
+    </span>
+  </div>
+
+  <!-- Hero Image -->
+  <div class="spv-hero-wrap">
+    <img src="../images/physics-lab-hero.jpg" alt="Physics Laboratory and R&D Facility — underground science infrastructure repurposed from a closed mine" class="spv-hero-img">
+    <div class="spv-hero-overlay"></div>
+    <div class="spv-hero-title">Physics Lab</div>
+  </div>
+
+  <!-- Main Tab navigation -->
+  <nav class="spv-tabs" aria-label="Detail sections">
+    <button class="spv-tab active" data-tab="about"       onclick="showSPVTab('about')">About</button>
+    <button class="spv-tab"        data-tab="prism"        onclick="showSPVTab('prism');prNav(PRISM2_ORDER[prism2Current])">P.R.I.S.M</button>
+    <button class="spv-tab"        data-tab="casestudies"  onclick="showSPVTab('casestudies');setTimeout(function(){window.dispatchEvent(new Event('resize'))},30)">Case Studies</button>
+    <button class="spv-tab"        data-tab="tender"       onclick="showSPVTab('tender')">Sample Tender Documents</button>
+    <button class="spv-tab"        data-tab="media"        onclick="showSPVTab('media')">Media/Web</button>
+    <button class="spv-tab"        data-tab="agencies"    onclick="showSPVTab('agencies')">Agencies</button>
+<!-- EXPERTS TAB HIDDEN (page not yet complete)
+<button class="spv-tab"        data-tab="experts"      onclick="showSPVTab('experts')">Experts</button>
+-->
+  </nav>
+
+  <!-- TAB: About -->
+    <div id="spv-panel-about" class="spv-panel">
+    <div class="spv-content">
+    <div class="about-hero-row">
+      <div class="about-hero-slide-col">
+        <div class="about-hero-label-wrap">
+          <div class="about-hero-label">Global Precedent</div>
+          <span class="about-hero-label-bar"></span>
+        </div>
+        <div class="proj-slideshow">
+          <img src="../images/pl-prec-ino.jpg" alt="India-based Neutrino Observatory (INO) — ICAL detector prototype testing, Bodi Hills, Theni, Tamil Nadu — 1.3 km deep underground neutrino lab" class="proj-slide-img" loading="lazy">
+          <div class="proj-slide-overlay">
+            <span class="proj-caption">India-based Neutrino Observatory (INO) — ICAL Detector, Bodi Hills, Theni, Tamil Nadu</span>
+          </div>
+        </div>
+      </div>
+      <div class="about-hero-text-col">
+        <div class="about-intro">
+          <div class="about-intro-block about-intro-primary">
+            <p class="spv-body-text" style="margin:0;">
+              A <strong>Physics Lab / Laboratory / R&amp;D Facility</strong> is a knowledge-based mine-closure repurposing option that converts suitable closed or abandoned mine infrastructure into a science, testing, training, innovation, and applied research asset. It can take the form of a teaching laboratory, applied physics and instrumentation lab, NABL-accredited calibration lab, mine-environment R&amp;D facility, underground geoscience lab, or a hybrid science park — depending on site conditions, regional demand, and funding model.
+            </p>
+          </div>
+          <div class="about-intro-block about-intro-secondary">
+            <p class="spv-body-text" style="margin:0;">
+              Unlike heavy industrial repurposing, a laboratory-led reuse model creates a <strong>knowledge-based post-mining economy</strong>. It can support technical education, reskilling of local youth and mine workers, applied research, NABL calibration services, environmental monitoring, mine-closure data collection, renewable-energy testing, and STEM outreach — while productively reusing existing mine buildings, workshops, power systems, and communication infrastructure with lower land intensity than most alternative uses.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div><!-- /about-hero-row -->
+
+<!-- ② Government Schemes — scrollable ticker -->
+<div class="about-section">
+  <div class="about-section-eyebrow">Policy &amp; Support</div>
+  <h3 class="about-section-title">Policy Levers enabling Physics Lab &amp; R&amp;D Facility development on mine land</h3>
+  <div class="schemes-outer">
+    <button class="schemes-nav-btn schemes-prev" onclick="schemesNav(-1)" aria-label="Previous">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <div class="schemes-ticker-wrap">
+      <div class="schemes-ticker" id="schemesTicker">
+        <div class="scheme-card">
+          <div class="scheme-card-icon">🔬</div>
+          <div class="scheme-card-tag">DST</div>
+          <div class="scheme-card-title">DST FIST Programme</div>
+          <div class="scheme-card-desc">Fund for Improvement of S&amp;T Infrastructure — provides grants for scientific instruments, laboratory equipment, and support facilities to universities, colleges, and research institutions.</div>
+        </div>
+        <div class="scheme-card">
+          <div class="scheme-card-icon">🧪</div>
+          <div class="scheme-card-tag">DST / SERB</div>
+          <div class="scheme-card-title">SERB Research Grants (CRG / MATRICS)</div>
+          <div class="scheme-card-desc">Science and Engineering Research Board grants for individual and collaborative applied research projects — relevant for mine-environment monitoring, geotechnical R&amp;D, and instrumentation science.</div>
+        </div>
+        <div class="scheme-card">
+          <div class="scheme-card-icon">🏭</div>
+          <div class="scheme-card-tag">CSIR</div>
+          <div class="scheme-card-title">CSIR Technology Programmes</div>
+          <div class="scheme-card-desc">Council of Scientific and Industrial Research collaborative R&amp;D between academia and industry — including NML, CIMFR, and NEERI labs which support mine-environment, materials, and geotechnical research relevant to mine repurposing.</div>
+        </div>
+        <div class="scheme-card">
+          <div class="scheme-card-icon">⚖️</div>
+          <div class="scheme-card-tag">DPIIT / BIS</div>
+          <div class="scheme-card-title">NABL Accreditation Support (ISO/IEC 17025)</div>
+          <div class="scheme-card-desc">National Accreditation Board for Testing and Calibration Laboratories — accreditation pathway for testing and calibration labs seeking commercial recognition. Mine repurposing projects can apply for NABL-accredited services in electrical, mechanical, environmental, and NDT domains.</div>
+        </div>
+        <div class="scheme-card">
+          <div class="scheme-card-icon">⛏️</div>
+          <div class="scheme-card-tag">MoC / CCO</div>
+          <div class="scheme-card-title">Mine Repurposing Framework — MoC</div>
+          <div class="scheme-card-desc">CCO framework mandating productive and safe reuse of closed mine land and infrastructure; laboratory, R&amp;D, and science outreach facilities are eligible repurposing categories under mine-closure guidelines.</div>
+        </div>
+        <div class="scheme-card">
+          <div class="scheme-card-icon">🎓</div>
+          <div class="scheme-card-tag">MSDE / NSDC</div>
+          <div class="scheme-card-title">Skill India / PMKVY — Lab &amp; Technical Roles</div>
+          <div class="scheme-card-desc">Pradhan Mantri Kaushal Vikas Yojana supports reskilling of mine workers and local youth for laboratory assistant, field monitoring technician, electronics technician, calibration support, and facility management roles.</div>
+        </div>
+        <!-- duplicate set for seamless loop -->
+        <div class="scheme-card" aria-hidden="true">
+          <div class="scheme-card-icon">🔬</div>
+          <div class="scheme-card-tag">DST</div>
+          <div class="scheme-card-title">DST FIST Programme</div>
+          <div class="scheme-card-desc">Fund for Improvement of S&amp;T Infrastructure — provides grants for scientific instruments, laboratory equipment, and support facilities to universities, colleges, and research institutions.</div>
+        </div>
+        <div class="scheme-card" aria-hidden="true">
+          <div class="scheme-card-icon">🧪</div>
+          <div class="scheme-card-tag">DST / SERB</div>
+          <div class="scheme-card-title">SERB Research Grants (CRG / MATRICS)</div>
+          <div class="scheme-card-desc">Science and Engineering Research Board grants for individual and collaborative applied research projects — relevant for mine-environment monitoring, geotechnical R&amp;D, and instrumentation science.</div>
+        </div>
+        <div class="scheme-card" aria-hidden="true">
+          <div class="scheme-card-icon">🏭</div>
+          <div class="scheme-card-tag">CSIR</div>
+          <div class="scheme-card-title">CSIR Technology Programmes</div>
+          <div class="scheme-card-desc">Council of Scientific and Industrial Research collaborative R&amp;D — including NML, CIMFR, and NEERI labs which support mine-environment, materials, and geotechnical research relevant to mine repurposing.</div>
+        </div>
+        <div class="scheme-card" aria-hidden="true">
+          <div class="scheme-card-icon">⚖️</div>
+          <div class="scheme-card-tag">DPIIT / BIS</div>
+          <div class="scheme-card-title">NABL Accreditation Support (ISO/IEC 17025)</div>
+          <div class="scheme-card-desc">National Accreditation Board for Testing and Calibration Laboratories — accreditation pathway for testing and calibration labs seeking commercial recognition in electrical, mechanical, environmental, and NDT domains.</div>
+        </div>
+        <div class="scheme-card" aria-hidden="true">
+          <div class="scheme-card-icon">⛏️</div>
+          <div class="scheme-card-tag">MoC / CCO</div>
+          <div class="scheme-card-title">Mine Repurposing Framework — MoC</div>
+          <div class="scheme-card-desc">CCO framework mandating productive and safe reuse of closed mine land and infrastructure; laboratory, R&amp;D, and science outreach facilities are eligible repurposing categories under mine-closure guidelines.</div>
+        </div>
+        <div class="scheme-card" aria-hidden="true">
+          <div class="scheme-card-icon">🎓</div>
+          <div class="scheme-card-tag">MSDE / NSDC</div>
+          <div class="scheme-card-title">Skill India / PMKVY — Lab &amp; Technical Roles</div>
+          <div class="scheme-card-desc">Pradhan Mantri Kaushal Vikas Yojana supports reskilling of mine workers and local youth for laboratory assistant, field monitoring technician, electronics technician, calibration support, and facility management roles.</div>
+        </div>
+      </div>
+    </div>
+    <button class="schemes-nav-btn schemes-next" onclick="schemesNav(1)" aria-label="Next">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+  
+<!-- TAB: P.R.I.S.M -->
+  <div id="spv-panel-prism" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+
+<style>
+/* ── PRISM intro banner ── */
+  .pr-intro {
+    padding: 22px 24px 20px;
+    background: rgba(33,128,141,.05);
+    border: 1px solid rgba(33,128,141,.15);
+    border-radius: 14px;
+    margin-bottom: 20px;
+  }
+  .pr-intro-badges {
+    display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 16px;
+  }
+  .pr-intro-badge {
+    display: inline-flex; flex-direction: column; align-items: center;
+    gap: 3px; padding: 6px 10px 7px;
+    border-radius: 8px; border: 1px solid;
+    min-width: 48px;
+  }
+  .pr-intro-badge-letter {
+    font-size: 16px; font-weight: 800; line-height: 1;
+  }
+  .pr-intro-badge-word {
+    font-size: 8.5px; font-weight: 600; letter-spacing: .04em;
+    text-transform: uppercase; line-height: 1; opacity: .8;
+  }
+  .pr-intro-eyebrow {
+    font-size: 15px; font-weight: 700; letter-spacing: .01em;
+    text-transform: none; color: #21808d; margin-bottom: 8px;
+    font-style: normal; line-height: 1.35;
+  }
+  .pr-intro-heading {
+    font-size: 16px; font-weight: 700; color: #0f172a;
+    margin-bottom: 10px; line-height: 1.35; font-style: normal;
+  }
+  .pr-intro-body {
+    font-size: 13.5px; color: #374151; line-height: 1.85; font-style: normal;
+  }
+
+  /* ── Shell — overflow:clip clips border-radius without trapping sticky ── */
+  .pr-shell {
+    display: flex;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    overflow: clip;
+    background: #fff;
+  }
+
+  /* ── Sidebar ── */
+  .pr-sidebar {
+    width: 220px; flex-shrink: 0;
+    border-right: 1px solid #e8edf2;
+    padding: 16px 0 16px;
+    background: #f8fafc;
+    position: sticky;
+    top: 125px;
+    align-self: flex-start;
+    max-height: calc(100vh - 155px);
+    overflow-y: auto;
+    overflow-x: visible;
+  }
+  .pr-sidebar-label {
+    font-size: 11px; font-weight: 700; letter-spacing: .14em;
+    text-transform: uppercase; color: #7a8a9a;
+    padding: 0 16px 14px; font-style: normal;
+  }
+
+  /* ── Sliding highlight bar — moved by JS ── */
+  .pr-nav-highlight {
+    position: absolute; left: 0; right: 0;
+    pointer-events: none; z-index: 0;
+    will-change: top, height;
+    background: color-mix(in srgb, var(--pr-hl, #C85000) 9%, transparent);
+    transition:
+      top .4s cubic-bezier(.4, 0, .2, 1),
+      height .4s cubic-bezier(.4, 0, .2, 1),
+      background .38s ease;
+  }
+  .pr-nav-highlight::before {
+    content: '';
+    position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+    background: var(--pr-hl, #C85000);
+    border-radius: 0 2px 2px 0;
+    transition: background .38s ease;
+  }
+
+  /* ── Nav item — no background transitions; highlight handles it ── */
+  .pr-nav-item {
+    position: relative; z-index: 1;
+    display: flex; align-items: center; gap: 12px;
+    padding: 13px 16px;
+    cursor: pointer;
+    font-style: normal;
+  }
+  .pr-nav-item::after { display: none; }
+  .pr-nav-item:hover, .pr-nav-item.active { background: transparent; transform: none; }
+
+  /* ── Badge — spring scale + glow ring on active ── */
+  .pr-nav-badge {
+    width: 34px; height: 34px; border-radius: 50%; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 800;
+    border: 1.5px solid #d1d5db;
+    color: #9ca3af;
+    background: #fff;
+    position: relative; z-index: 1;
+    transition:
+      background .35s cubic-bezier(.4, 0, .2, 1),
+      color .3s ease,
+      border-color .35s ease,
+      transform .45s cubic-bezier(.34, 1.56, .64, 1),
+      box-shadow .35s ease;
+  }
+  .pr-nav-item.active .pr-nav-badge {
+    background: var(--pr-accent);
+    color: #fff;
+    border-color: var(--pr-accent);
+    transform: scale(1.12);
+    box-shadow:
+      0 0 0 4px color-mix(in srgb, var(--pr-accent) 18%, transparent),
+      0 3px 10px color-mix(in srgb, var(--pr-accent) 32%, transparent);
+  }
+  .pr-nav-item:hover:not(.active) .pr-nav-badge {
+    border-color: var(--pr-accent);
+    color: var(--pr-accent);
+    background: color-mix(in srgb, var(--pr-accent) 7%, #fff);
+    transform: scale(1.07);
+  }
+
+  /* ── Nav text ── */
+  .pr-nav-letter {
+    font-size: 13px; font-weight: 600; color: #374151;
+    line-height: 1.25; font-style: normal;
+    position: relative; z-index: 1;
+    transition: color .25s ease, font-weight .2s;
+  }
+  .pr-nav-sub {
+    font-size: 10px; color: #9ca3af; margin-top: 2px;
+    font-style: normal; line-height: 1.3;
+    position: relative; z-index: 1;
+    transition: color .25s ease;
+  }
+  .pr-nav-item.active .pr-nav-letter { color: var(--pr-accent); font-weight: 700; }
+  .pr-nav-item:hover:not(.active) .pr-nav-letter { color: var(--pr-accent); }
+  .pr-nav-item.active .pr-nav-sub { color: var(--pr-accent); opacity: .7; }
+
+  /* ── Stagger-in when PRISM tab opens ── */
+  @keyframes nav-slide-in {
+    from { opacity: 0; transform: translateX(-10px); }
+    to   { opacity: 1; transform: translateX(0); }
+  }
+  .pr-nav-item { opacity: 0; animation: nav-slide-in .32s cubic-bezier(.4,0,.2,1) both; }
+  .pr-nav-item:nth-child(3) { animation-delay: .02s; }
+  .pr-nav-item:nth-child(4) { animation-delay: .07s; }
+  .pr-nav-item:nth-child(5) { animation-delay: .12s; }
+  .pr-nav-item:nth-child(6) { animation-delay: .17s; }
+  .pr-nav-item:nth-child(7) { animation-delay: .22s; }
+
+  /* ── Content pane ── */
+  .pr-content-wrap { flex: 1; min-width: 0; }
+  .pr-content-wrap .prism2-content-panel { border-radius: 0; box-shadow: none; }
+
+  /* ── Panel header tint (Option A) ── */
+  .prism2-content-panel .prism2-panel-header {
+    background: color-mix(in srgb, var(--pc) 5%, #fff);
+  }
+</style>
+
+<!-- ── PRISM intro banner ── -->
+<div class="pr-intro">
+  <div class="pr-intro-eyebrow">PRISM – Post-Mining Repurposing and Implementation Strategy Models</div>
+  <div class="pr-intro-heading">A structured framework for mine repurposing from concept to implementation</div>
+  <div class="pr-intro-body">PRISM is a structured framework designed to support identified post-mining repurposing opportunities by evaluating suitable implementation pathways, financial and revenue-generation models, and the implementation requirements, roles, and responsibilities of mine owners, developers, operators, and other stakeholders throughout the project lifecycle. Built around five integrated pillars, PRISM guides Physics Lab / Science and Innovation Campus projects from concept to operation.</div>
+      </div>
+
+<!-- ── Sidebar shell ── -->
+<div class="pr-shell">
+  <div class="pr-sidebar">
+    <div class="pr-sidebar-label">Pillars</div>
+    <div class="pr-nav-highlight" id="pr-hl"></div>
+    <div class="pr-nav-item active" style="--pr-accent:#C85000;" data-key="P" onclick="prNav('P')">
+      <div class="pr-nav-badge">P</div>
+      <div><div class="pr-nav-letter">Project vision</div></div>
+    </div>
+    <div class="pr-nav-item" style="--pr-accent:#1a5ca8;" data-key="R" onclick="prNav('R')">
+      <div class="pr-nav-badge">R</div>
+      <div><div class="pr-nav-letter">Repurposing pathways</div></div>
+    </div>
+    <div class="pr-nav-item" style="--pr-accent:#b06a10;" data-key="I" onclick="prNav('I')">
+      <div class="pr-nav-badge">I</div>
+      <div><div class="pr-nav-letter">Investment dynamics</div></div>
+    </div>
+    <div class="pr-nav-item" style="--pr-accent:#5a3d9e;" data-key="S" onclick="prNav('S')">
+      <div class="pr-nav-badge">S</div>
+      <div><div class="pr-nav-letter">Strategic structuring</div></div>
+    </div>
+    <div class="pr-nav-item" style="--pr-accent:#1a7a5e;" data-key="M" onclick="prNav('M')">
+      <div class="pr-nav-badge">M</div>
+      <div><div class="pr-nav-letter">Monitoring guidance</div></div>
+    </div>
+  </div><!-- /pr-sidebar -->
+
+  <div class="pr-content-wrap">
+
+  <!-- ── P Panel ─────────────────────────────────────────── -->
+  <div class="prism2-content-panel active" id="prism2-panel-P" style="--pc:#C85000;--pb:#fff0e6;--cb:#fff8f3;">
+    <div class="prism2-panel-header">
+      <div class="prism2-panel-header-letter">P</div>
+      <div class="prism2-panel-header-text">
+        <div class="prism2-panel-eyebrow">PROJECT VISION</div>
+        <p class="prism2-panel-desc">Post-mining context, Physics Lab / Science and Innovation Campus configurations, site suitability, and indicative scale benchmarks for education, STEM, and science outreach repurposing.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">
+        <span>Project Overview</span>
+        <span class="accordion-chevron">&#8964;</span>
+      </button>
+      <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">This concept proposes the development of a <strong>Physics Lab / Science and Innovation Campus</strong> within or around a closed, reclaimed, or repurposed coal mine area as part of a broader post-mining land-use, education, scientific-capacity, and local livelihood strategy.</p>
+        <p class="spv-body-text">The objective is to transform suitable mine land, reclaimed industrial land, existing administrative buildings, workshops, training centres, warehouses, unused colonies, and selected legacy infrastructure into a science-based education, research, training, outreach, testing, and innovation asset that supports school and college practical learning, youth skill development, STEM education, mine-region knowledge transition, technical training, local employment, institutional collaboration, and long-term lease or concession revenue.</p>
+        <p class="spv-body-text">This should be treated as a <strong>selective repurposing option</strong>, not a universal one. A closed coal mine is suitable for a Physics Lab / Science and Innovation Campus only if it can satisfy critical requirements relating to safe and stable land free from subsidence risk, confirmed mine-closure permissibility, building safety and structural stability, adequate road access, power supply, water supply and sanitation, distance from unstable pit edges, highwalls, dumps, shafts and contaminated water bodies, suitability for students, trainees, researchers, teachers, visitors and community users, and environmental safety.</p>
+        <p class="spv-body-text">Depending on site potential and project ambition, the proposed project may include one or more of the following components:</p>
+        <ul class="spv-list">
+          <li>School-level physics laboratory for Classes 6–12 practical demonstrations</li>
+          <li>College-level undergraduate physics laboratory</li>
+          <li>Advanced instrumentation laboratory</li>
+          <li>Optics, photonics, laser and spectroscopy laboratory</li>
+          <li>Electronics, sensors and embedded systems laboratory</li>
+          <li>Renewable-energy and energy-storage demonstration laboratory</li>
+          <li>Mechanics, heat, sound and materials laboratory</li>
+          <li>Astronomy, space science and remote sensing demonstration zone</li>
+          <li>Geophysics, mine-environment and earth-science demonstration laboratory</li>
+          <li>Computational physics, simulation, data analytics and AI-enabled modelling lab</li>
+          <li>Science museum / discovery centre / visitor gallery</li>
+          <li>Science-on-wheels / mobile physics lab for nearby schools</li>
+          <li>Teacher-training and laboratory-assistant training centre</li>
+          <li>Maker space, fabrication lab, robotics lab, 3D printing and instrumentation workshop</li>
+          <li>Innovation incubation room for student projects and local startups</li>
+          <li>Green open-air science park with physics exhibits</li>
+          <li>Mine-history and energy-transition interpretation centre</li>
+        </ul>
+        <p class="spv-body-text">The Ministry of Coal mine-closure guidelines support productive, safe, and socially useful post-mining assets — providing a policy basis for education-campus repurposing, subject to site suitability and approvals.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">
+        <span>Strategic Rationale</span>
+        <span class="accordion-chevron">&#8964;</span>
+      </button>
+      <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">A Physics Lab / Science and Innovation Campus can be a strong repurposing option where a closed mine site offers a combination of safe reclaimed land or stable existing buildings, proximity to schools, colleges, ITIs and polytechnics, existing utilities, workshops and security, and social need for practical science education and technical skilling.</p>
+        <p class="spv-body-text">This option differs from ordinary school infrastructure, tourism, or conventional welfare projects because it is <strong>education-intensive, technology-enabled, demonstration-led and institutionally managed</strong>. It is not merely a classroom asset — it is a long-term knowledge and skill-development asset that can support science education, local employment, equipment servicing, teacher training, public outreach, research collaboration and innovation ecosystems.</p>
+        <p class="spv-body-text">Key strategic benefits include:</p>
+        <ul class="spv-list">
+          <li>Productive reuse of mine land and existing infrastructure</li>
+          <li>Conversion of a closed mine from an extraction site into a science and knowledge campus</li>
+          <li>Support for practical physics education and hands-on STEM learning</li>
+          <li>Improvement in science access for nearby schools, rural students and mining communities</li>
+          <li>Creation of local employment in laboratory operations, maintenance, training, security, equipment repair, fabrication, visitor management and science outreach</li>
+          <li>Retraining pathways for local youth and selected mine workers in electrical systems, instrumentation, measurement, safety, equipment maintenance and technical support</li>
+          <li>Support for teacher capacity building and practical demonstration-based learning</li>
+          <li>Local development through school visits, workshops, science fairs, competitions, internships and innovation challenges</li>
+          <li>Possibility of hosting district-level or regional science-resource facilities</li>
+          <li>Long-term lease, concession, training-fee, institutional-partnership, CSR, grant, incubation or service-revenue potential</li>
+          <li>Strong alignment with mine repurposing, just transition, STEM education, skill development, scientific temper and community development</li>
+        </ul>
+        <p class="spv-body-text">The concept should be advanced only where the mine site can support safe public and student use. Building safety, mine-safety buffer, child safety, reliable utilities, trained staffing, community acceptance, institutional funding, and recurring maintenance matter more than mere availability of vacant mine land.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">
+        <span>Site Suitability and Technical Specification Matrix</span>
+        <span class="accordion-chevron">&#8964;</span>
+      </button>
+      <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">The following matrix provides a structured checklist for assessing the suitability of the proposed site. It identifies key physical, technical, environmental, infrastructure, legal, and owner-side readiness parameters that should be reviewed before the project is advanced to the next stage of development. The purpose of this matrix is to help the project owner understand existing site conditions, technical requirements, potential constraints, and preparatory actions required before feasibility studies, approvals, or tendering are initiated.</p>
+        <div class="table-wrap"><table class="spv-table">
+          <thead><tr><th>Main Category</th><th>Sub-category</th><th>What to Assess / Prepare</th><th>Why it Matters for Physics Lab</th><th>Typical Owner-side Readiness Before Tender</th></tr></thead>
+          <tbody>
+            <tr><td>Land / Area</td><td>Total land and building area</td><td>Available land, usable rooms, open area, parking, access and safety buffer</td><td>Determines lab size, visitor capacity and future expansion</td><td>Land and building area note</td></tr>
+            <tr><td>Land / Area</td><td>Existing building condition</td><td>Availability of training centre, workshop, school building, office or community hall</td><td>Reuse reduces cost and supports mine-closure repurposing</td><td>Building inventory and condition note</td></tr>
+            <tr><td>Land / Area</td><td>Structural safety</td><td>Roof, walls, floor, cracks, dampness, settlement, corrosion and load capacity</td><td>Ensures safe public and student use</td><td>Structural audit plan</td></tr>
+            <tr><td>Land / Area</td><td>Mine safety buffer</td><td>Distance from pits, highwalls, shafts, dumps, subsidence zones and unsafe water bodies</td><td>Keeps students and visitors away from mine hazards</td><td>Mine-safety and no-go zone map</td></tr>
+            <tr><td>Land / Area</td><td>Space suitability</td><td>Lab room, demonstration room, store, office, washrooms, circulation and exits</td><td>Ensures safe and functional laboratory operation</td><td>Preliminary space-use plan</td></tr>
+            <tr><td>Site Context</td><td>Accessibility</td><td>Road access, school-bus movement, pedestrian access, parking and emergency access</td><td>Enables regular use by students, teachers and community visitors</td><td>Access and logistics note</td></tr>
+            <tr><td>Site Context</td><td>User catchment</td><td>Nearby schools, colleges, ITIs, polytechnics, villages and mine colonies</td><td>Determines likely demand and operating model</td><td>User-catchment note</td></tr>
+            <tr><td>Site Context</td><td>Security and public safety</td><td>Boundary, gate control, visitor management, child safety and equipment security</td><td>Protects users, instruments and property</td><td>Security and safety note</td></tr>
+            <tr><td>Site Context</td><td>Institutional linkage</td><td>Education department, schools, university, ITI, CSR, NGO or science partner</td><td>Ensures long-term use and programme support</td><td>Partnership mapping note</td></tr>
+            <tr><td>Functional Planning</td><td>Target users and lab level</td><td>School, college, teacher-training, community or applied-science use</td><td>Defines experiment level, equipment and staffing</td><td>User and lab-level concept</td></tr>
+            <tr><td>Functional Planning</td><td>Capacity and schedule</td><td>Students per batch, daily visitors, school visits, workshops and outreach</td><td>Determines furniture, equipment quantity and staffing</td><td>Capacity and calendar note</td></tr>
+            <tr><td>Functional Planning</td><td>Core learning themes</td><td>Mechanics, heat, optics, electricity, magnetism, electronics, sensors and renewable energy</td><td>Defines educational scope and procurement requirement</td><td>Curriculum-theme note</td></tr>
+            <tr><td>Power &amp; Utilities</td><td>Electrical supply</td><td>Load, wiring, earthing, safe sockets, UPS and backup power</td><td>Physics experiments require safe and reliable power</td><td>Electrical safety and load note</td></tr>
+            <tr><td>Power &amp; Utilities</td><td>Lighting and ventilation</td><td>Natural light, LED lighting, optics blackout provision, ventilation and emergency lighting</td><td>Supports safe experiments and comfortable learning</td><td>Lighting and ventilation note</td></tr>
+            <tr><td>Power &amp; Utilities</td><td>Internet and ICT</td><td>Broadband, Wi-Fi, projector, smart board, computers, virtual labs and CCTV</td><td>Supports digital learning and monitoring</td><td>ICT readiness note</td></tr>
+            <tr><td>Laboratory &amp; Technical</td><td>Physics equipment</td><td>Mechanics, optics, heat, electricity, magnetism, electronics and measuring instruments</td><td>Core requirement for hands-on physics learning</td><td>Equipment list and quantity estimate</td></tr>
+            <tr><td>Laboratory &amp; Technical</td><td>Renewable-energy and mine-science demo</td><td>Solar trainer, wind model, battery model, pulley, ventilation, pressure and gas-sensor demonstrations</td><td>Links physics with energy transition and mine heritage</td><td>Demonstration concept note</td></tr>
+            <tr><td>Laboratory &amp; Technical</td><td>Maintenance and calibration</td><td>Equipment servicing, calibration checks, AMC, repair support and consumables</td><td>Keeps the lab functional after commissioning</td><td>AMC and maintenance plan</td></tr>
+            <tr><td>Safety &amp; Compliance</td><td>Electrical safety</td><td>Earthing, MCB/RCCB, insulated sockets, cable management and periodic inspection</td><td>Reduces the main operational risk in physics labs</td><td>Electrical safety plan</td></tr>
+            <tr><td>Safety &amp; Compliance</td><td>Fire and life safety</td><td>Fire extinguishers, exits, signage, emergency lighting and evacuation plan</td><td>Required for safe public-building operation</td><td>Fire-safety concept</td></tr>
+            <tr><td>Safety &amp; Compliance</td><td>Child and experiment safety</td><td>Supervision, safe storage, low-risk experiments, first aid and emergency contacts</td><td>Protects school students and young visitors</td><td>Child-safety protocol</td></tr>
+            <tr><td>Environmental &amp; Social</td><td>Contamination screening</td><td>Coal dust, oil, grease, asbestos risk, heavy metals, dampness and indoor air quality</td><td>Ensures the learning space is safe and healthy</td><td>Environmental screening</td></tr>
+            <tr><td>Environmental &amp; Social</td><td>Community acceptance and inclusion</td><td>Parent confidence, school participation, girls' access, disability access and local-language signage</td><td>Supports regular and inclusive use</td><td>Stakeholder and inclusion plan</td></tr>
+            <tr><td>Environmental &amp; Social</td><td>Local livelihood</td><td>Lab assistants, science explainers, security, housekeeping, maintenance and transport</td><td>Converts mine closure into local employment opportunity</td><td>Local employment plan</td></tr>
+            <tr><td>Legal / Approvals</td><td>Land and closure permissibility</td><td>Ownership, leaseability, institutional use and mine-closure compatibility</td><td>Confirms whether the site can legally be reused</td><td>Land and closure note</td></tr>
+            <tr><td>Legal / Approvals</td><td>Building and safety approvals</td><td>Change of use, local building permission, fire safety, electrical inspection and occupancy</td><td>Required before public use</td><td>Approval pathway note</td></tr>
+            <tr><td>Legal / Approvals</td><td>Education partnership approvals</td><td>MoU with schools, district education office, university, ITI, CSR or NGO partner</td><td>Ensures regular utilization and programme support</td><td>Institutional MoU note</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">
+        <span>Indicative Project Scale and Configuration Matrix</span>
+        <span class="accordion-chevron">&#8964;</span>
+      </button>
+      <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">The following matrix presents an indicative relationship between available site area, project scale, technical configuration, and likely development potential. It is intended to support preliminary planning and should be refined through detailed feasibility studies, site surveys, engineering assessments, and relevant technical and commercial evaluations.</p>
+        <div class="table-wrap"><table class="spv-table">
+          <thead><tr><th>Land Area</th><th>Indicative Scale</th><th>Recommended Built-up Area</th><th>Typical Configuration</th><th>Typical Use Case</th><th>Key Site Considerations</th></tr></thead>
+          <tbody>
+            <tr><td>0.05–0.15 ha</td><td>Micro / pilot physics lab</td><td>600–1,500 sq. ft.; 20–40 students per batch</td><td>One physics lab, small equipment store, demonstration table, basic optics/electricity/mechanics kits</td><td>School practical support, mine-colony school lab, pilot CSR science facility</td><td>Suitable where a safe room or small building exists; focus on low-risk experiments</td></tr>
+            <tr><td>0.15–0.50 ha</td><td>Small physics and STEM lab</td><td>1,500–5,000 sq. ft.</td><td>Physics lab, electronics corner, digital classroom, store, teacher room and small outdoor science exhibits</td><td>Cluster support for nearby schools, teacher training, local youth science clubs</td><td>Requires stable building, internet, power backup and strong operating partner</td></tr>
+            <tr><td>0.50–1.50 ha</td><td>Medium district-level physics learning centre</td><td>5,000–15,000 sq. ft. plus outdoor demonstration zone</td><td>Multiple physics labs, electronics/instrumentation lab, renewable-energy demo, teacher-training room, auditorium and outdoor physics park</td><td>District-level science education, ITI/polytechnic support, science fairs and mobile outreach</td><td>Requires professional management, visitor planning, safety compliance and annual operating budget</td></tr>
+            <tr><td>1.50–5.00 ha</td><td>Large mine-area science and applied physics campus</td><td>15,000–50,000 sq. ft.</td><td>Physics labs, maker space, science gallery, mine-science interpretation centre, renewable-energy yard, auditorium, mobile science-lab base and training rooms</td><td>Regional science learning hub, post-mining transition centre, CSR flagship project</td><td>Requires master planning, institutional partnership, fire safety, parking and long-term O&amp;M</td></tr>
+            <tr><td>5.00 ha+</td><td>Flagship science education and innovation park</td><td>50,000 sq. ft.+ with science park</td><td>Multi-lab campus, science museum, innovation hub, planetarium/digital dome option, teacher academy, outdoor physics park and regional outreach unit</td><td>State-level STEM campus, mine heritage and science tourism, education-transition landmark</td><td>Rare for mine areas; requires major funding, professional operator, approvals and strong visitor demand</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </div>
+
+    <div class="prism2-nav-row">
+      <button class="prism2-btn-prev" id="prism2-prev-P" onclick="prism2Prev()" disabled>&#8592; Previous</button>
+      <div class="prism2-progress-dots" style="display:flex;gap:5px;align-items:center;">
+        <span class="pdot active" data-p="P"></span>
+        <span class="pdot" data-p="R"></span>
+        <span class="pdot" data-p="I"></span>
+        <span class="pdot" data-p="S"></span>
+        <span class="pdot" data-p="M"></span>
+      </div>
+      <button class="prism2-btn-next" id="prism2-next-P" onclick="prism2Next()">Next pillar &#8594;</button>
+    </div>
+  </div><!-- /P panel -->
+
+  <!-- ── R Panel ─────────────────────────────────────────── -->
+  <div class="prism2-content-panel" id="prism2-panel-R" style="--pc:#1a5ca8;--pb:#e4eef9;--cb:#f0f5fd;">
+    <div class="prism2-panel-header">
+      <div class="prism2-panel-header-letter">R</div>
+      <div class="prism2-panel-header-text">
+        <div class="prism2-panel-eyebrow">REPURPOSING PATHWAYS</div>
+        <p class="prism2-panel-desc">Seven implementation models for Physics Lab / Science and Innovation Campus development — from owner-led EPC to hybrid public-education and PPP concession structures.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">
+        <span>Implementation Options</span>
+        <span class="accordion-chevron">&#8964;</span>
+      </button>
+      <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">The following table outlines the possible implementation models that may be considered for developing the proposed repurposing project. These models differ in terms of ownership structure, funding responsibility, private sector participation, operational control, and long-term risk allocation. The purpose of this table is to help the project owner compare broad development routes and select an implementation approach that aligns with its financial capacity, institutional preference, risk appetite, and long-term asset management objectives.</p>
+        <div class="table-wrap"><table class="spv-table">
+          <thead><tr><th>Main Group</th><th>Model</th><th>Core Feature</th><th>Broad Suitability</th></tr></thead>
+          <tbody>
+            <tr><td>Owner-led</td><td><strong>EPC</strong></td><td>The owner funds, develops and retains full ownership of the Physics Lab, while a contractor designs, refurbishes, supplies equipment and constructs / installs the facility</td><td>Suitable where the owner has CSR / mine-closure funding capacity and wants full control over educational use, branding, access and community benefit</td></tr>
+            <tr><td>Owner-led</td><td><strong>EPC + O&amp;M / Facility Management</strong></td><td>The owner funds and owns the Physics Lab, while a specialized science-education or facility-management agency operates, maintains, schedules and manages the lab</td><td>Highly suitable where the owner wants long-term control but requires specialist support for demonstrations, equipment upkeep, school coordination and science communication</td></tr>
+            <tr><td>Developer-led / PPP</td><td><strong>BOOT</strong></td><td>A private / institutional developer finances, builds, owns and operates the Physics Lab during a concession period and transfers it back to the owner at the end of the term</td><td>Suitable where the project has revenue potential through training, memberships, institutional subscriptions and CSR-backed operations</td></tr>
+            <tr><td>Developer-led / PPP</td><td><strong>BOO</strong></td><td>A private or institutional developer finances, develops, owns and operates the facility on a long-term basis without mandatory transfer</td><td>Suitable only where long-term private / institutional ownership is acceptable and the owner mainly wants land reuse and lease income</td></tr>
+            <tr><td>Developer-led / PPP</td><td><strong>DBFOT</strong></td><td>A private concessionaire designs, builds, finances, operates and transfers the Physics Lab under a structured PPP arrangement</td><td>Suitable for larger science-learning campuses requiring professional development, visitor management, training revenue, public-service obligations and eventual transfer</td></tr>
+            <tr><td>Developer-led / PPP</td><td><strong>Concession / Lease-Develop-Operate</strong></td><td>The owner provides land, building, access and development rights, while the concessionaire develops, equips, operates and commercializes the Physics Lab under defined conditions</td><td>Suitable where the owner wants to retain land control but allow an education, science-centre, CSR, university or technical partner to invest and operate</td></tr>
+            <tr><td>Mixed</td><td><strong>Hybrid</strong></td><td>The owner funds land, building repair, safety works and basic infrastructure, while private / institutional partners fund equipment, operations, curriculum, outreach, teacher training and advanced modules</td><td>Particularly suitable where the project has strong community value, moderate revenue potential and needs public-purpose control with professional operation</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">
+        <span>Comparative Assessment of Key Models</span>
+        <span class="accordion-chevron">&#8964;</span>
+      </button>
+      <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">The following comparative assessment evaluates the major implementation models across key decision parameters such as investment requirement, ownership control, financing responsibility, contractual complexity, risk transfer, and long-term economic benefit. This matrix is intended to support early-stage decision-making. The final choice of model should be guided by the specific circumstances of the project, including its scale, commercial viability, applicable policy framework, and the owner's institutional preference.</p>
+        <div class="table-wrap"><table class="spv-table">
+          <thead><tr><th>Evaluation Parameter</th><th>EPC</th><th>EPC + O&amp;M</th><th>BOOT</th><th>BOO</th><th>DBFOT</th><th>Concession / Lease-Develop-Operate</th><th>Hybrid</th></tr></thead>
+          <tbody>
+            <tr><td>Upfront investment by Mine Owner</td><td>High</td><td>High</td><td>Low to Moderate</td><td>Low</td><td>Low to Moderate</td><td>Low to Moderate</td><td>Varies</td></tr>
+            <tr><td>Ownership retained by Mine Owner from start</td><td>Yes</td><td>Yes</td><td>No during concession</td><td>No</td><td>Usually no during concession</td><td>Land generally retained by owner</td><td>Varies</td></tr>
+            <tr><td>Long-term control over the facility</td><td>High</td><td>High</td><td>Moderate, improves after transfer</td><td>Low</td><td>Moderate to High through concession terms</td><td>Moderate to High through concession terms</td><td>High if structured properly</td></tr>
+            <tr><td>Suitability where owner already has funds</td><td>High</td><td>Very High</td><td>Moderate</td><td>Low to Moderate</td><td>Moderate</td><td>Moderate</td><td>High</td></tr>
+            <tr><td>Suitability where owner wants to reduce upfront CAPEX</td><td>Low</td><td>Low to Moderate</td><td>High</td><td>High</td><td>High</td><td>High</td><td>High</td></tr>
+            <tr><td>Contractual complexity</td><td>Low to Moderate</td><td>Moderate</td><td>High</td><td>High</td><td>Very High</td><td>High</td><td>High</td></tr>
+            <tr><td>Need for specialized science-education expertise</td><td>High</td><td>Very High</td><td>High</td><td>High</td><td>High</td><td>High</td><td>High</td></tr>
+            <tr><td>Suitability for community education objectives</td><td>High</td><td>Very High</td><td>High, if protected</td><td>Moderate</td><td>Very High, if safeguarded</td><td>High to Very High, if safeguarded</td><td>Very High</td></tr>
+            <tr><td>Suitability for phased development / modular expansion</td><td>Moderate</td><td>High</td><td>Moderate</td><td>Moderate</td><td>High</td><td>High</td><td>Very High</td></tr>
+            <tr><td>Suitability for local employment and service ecosystem</td><td>Moderate to High</td><td>High</td><td>High</td><td>Moderate</td><td>High to Very High</td><td>High to Very High</td><td>Very High</td></tr>
+            <tr><td>Overall suitability for mine-area Physics Lab</td><td>Moderate</td><td>Very High</td><td>Moderate to High</td><td>Moderate</td><td>High</td><td>High</td><td>Very High</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">
+        <span>Model-Wise Responsibility Logic</span>
+        <span class="accordion-chevron">&#8964;</span>
+      </button>
+      <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">The following table explains how major project responsibilities are typically allocated under different implementation models. It covers key functional areas such as site availability, financing, design and construction, regulatory approvals, operation and maintenance, revenue collection, asset ownership, and end-of-term transfer. This helps clarify the respective roles of the project owner, private developer, EPC contractor, operator, or concessionaire.</p>
+        <div class="table-wrap"><table class="spv-table">
+          <thead><tr><th>Responsibility Area</th><th>EPC</th><th>EPC + O&amp;M / FM</th><th>BOOT</th><th>BOO</th><th>DBFOT</th><th>Concession / Lease-Develop-Operate</th><th>Hybrid</th></tr></thead>
+          <tbody>
+            <tr><td>Site / Land Availability</td><td>Owner</td><td>Owner</td><td>Usually owner / authority</td><td>Owner / authority or developer</td><td>Usually owner / authority</td><td>Owner / authority</td><td>Variable</td></tr>
+            <tr><td>Mine Closure Compatibility</td><td>Owner</td><td>Owner</td><td>Shared</td><td>Shared</td><td>Shared</td><td>Shared</td><td>Shared</td></tr>
+            <tr><td>Financing</td><td>Owner</td><td>Owner</td><td>Private developer</td><td>Private developer</td><td>Private concessionaire</td><td>Private concessionaire, sometimes with owner support</td><td>Shared / variable</td></tr>
+            <tr><td>Building Survey &amp; Repair</td><td>Owner / EPC contractor</td><td>Owner / EPC contractor with operator input</td><td>Developer</td><td>Developer</td><td>Developer / concessionaire</td><td>Concessionaire / developer</td><td>Shared</td></tr>
+            <tr><td>Physics Equipment Procurement</td><td>EPC contractor</td><td>EPC contractor with O&amp;M input</td><td>Developer</td><td>Developer</td><td>Concessionaire</td><td>Concessionaire / operator</td><td>Variable</td></tr>
+            <tr><td>Safety Systems</td><td>Owner / EPC contractor</td><td>Owner with O&amp;M support</td><td>Developer</td><td>Developer</td><td>Concessionaire</td><td>Concessionaire / operator</td><td>Shared</td></tr>
+            <tr><td>Education Partnerships</td><td>Owner</td><td>Owner with operator support</td><td>Developer / shared</td><td>Developer</td><td>Concessionaire / shared</td><td>Concessionaire / shared</td><td>Shared</td></tr>
+            <tr><td>Operations</td><td>Owner</td><td>Specialist operator / FM agency</td><td>Developer during concession term</td><td>Developer</td><td>Concessionaire during concession term</td><td>Concessionaire / operator</td><td>Shared</td></tr>
+            <tr><td>Equipment Calibration / Upkeep</td><td>Owner</td><td>O&amp;M / specialist agency</td><td>Developer</td><td>Developer</td><td>Concessionaire</td><td>Concessionaire / operator</td><td>Shared</td></tr>
+            <tr><td>School Visit Scheduling</td><td>Owner</td><td>Operator / FM agency</td><td>Developer / operator</td><td>Developer / operator</td><td>Concessionaire</td><td>Concessionaire / operator</td><td>Shared</td></tr>
+            <tr><td>Local Employment / Vendor Inclusion</td><td>Owner-controlled</td><td>Owner-controlled with operator support</td><td>Contract-based</td><td>Contract-based</td><td>Contract-based</td><td>Contract-based</td><td>Strongly configurable</td></tr>
+            <tr><td>Transfer at End of Term</td><td>No</td><td>No</td><td>Yes</td><td>No</td><td>Yes</td><td>As agreed</td><td>As agreed</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </div>
+
+    <div class="prism2-nav-row">
+      <button class="prism2-btn-prev" id="prism2-prev-R" onclick="prism2Prev()">&#8592; Previous</button>
+      <div class="prism2-progress-dots" style="display:flex;gap:5px;align-items:center;">
+        <span class="pdot" data-p="P"></span>
+        <span class="pdot active" data-p="R"></span>
+        <span class="pdot" data-p="I"></span>
+        <span class="pdot" data-p="S"></span>
+        <span class="pdot" data-p="M"></span>
+      </div>
+      <button class="prism2-btn-next" id="prism2-next-R" onclick="prism2Next()">Next pillar &#8594;</button>
+    </div>
+  </div><!-- /R panel -->
+
+  <!-- ── I Panel ─────────────────────────────────────────── -->
+  <div class="prism2-content-panel" id="prism2-panel-I" style="--pc:#b06a10;--pb:#faedda;--cb:#fef8f0;">
+    <div class="prism2-panel-header">
+      <div class="prism2-panel-header-letter">I</div>
+      <div class="prism2-panel-header-text">
+        <div class="prism2-panel-eyebrow">INVESTMENT DYNAMICS</div>
+        <p class="prism2-panel-desc">Funding logic, revenue streams, livelihood potential, and combined comparison for Physics Lab / Science and Innovation Campus investment — from owner equity to hybrid public-education partnerships.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">
+        <span>Funding Logic</span>
+        <span class="accordion-chevron">&#8964;</span>
+      </button>
+      <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">The following table presents the broad funding logic for each implementation model. It explains who is expected to finance the project, the level of owner-side funding requirement, and the commercial rationale behind each structure. This section is intended to help the project owner assess whether the project is more suitable for owner-funded development, private investment, public-private partnership, or a hybrid funding arrangement.</p>
+        <div class="table-wrap"><table class="spv-table">
+          <thead><tr><th>Model</th><th>Primary Funding Source</th><th>Owner Funding Requirement</th><th>Commercial Logic</th></tr></thead>
+          <tbody>
+            <tr><td>EPC</td><td>Owner's budget, mine-closure support, CSR funding, district mineral funds where permissible, education grants, institutional support or public-sector funding</td><td>High</td><td>The owner directly finances and develops the Physics Lab, retains full ownership and controls community access, school use, branding and educational outcomes</td></tr>
+            <tr><td>EPC + O&amp;M / Facility Management</td><td>Owner's budget, CSR, mine-closure funds where permissible, education / skilling support; O&amp;M funded through annual budget, school subscription, training fees, CSR or government partnership</td><td>High</td><td>The owner finances and retains ownership while a specialized agency operates the lab, maintains equipment, conducts demonstrations, manages school visits and ensures recurring educational use</td></tr>
+            <tr><td>BOOT</td><td>Private developer equity, education-sector investors, CSR-backed institutional funding, training-service revenue, school subscriptions and possible public support</td><td>Low to Moderate</td><td>The developer finances, builds, owns and operates the facility during the concession period, recovering investment through training fees, institutional contracts, CSR support, workshops and memberships before transferring the asset</td></tr>
+            <tr><td>BOO</td><td>Private developer equity, institutional funding, education-chain funding, CSR-linked investment and commercial borrowing</td><td>Low</td><td>The private developer finances, develops, owns and operates the facility on a long-term basis. The mine owner benefits mainly through lease rent, annual fee and negotiated access obligations</td></tr>
+            <tr><td>DBFOT</td><td>Private concessionaire equity, project finance, CSR commitments, education grants, public support and user-fee revenue</td><td>Low to Moderate</td><td>The private party designs, builds, finances, operates and transfers the Physics Lab under a structured PPP arrangement; revenue from school access packages, teacher training, science camps and skilling courses</td></tr>
+            <tr><td>Concession / Lease-Develop-Operate</td><td>Private concessionaire investment, institutional education partner, CSR partner, university partner, technical training partner and limited owner-side enabling support</td><td>Low to Moderate</td><td>The owner provides land, building, access and development rights; the concessionaire invests in refurbishment, equipment, safety systems, operations and commercialization; owner benefits through lease rentals, concession fees and revenue share</td></tr>
+            <tr><td>Hybrid</td><td>Shared funding from owner, CSR, education department, district administration, science institutions, universities, NGOs, skilling agencies and private partners</td><td>Variable</td><td>The owner may fund land, building repair, safety works and utilities, while partners fund equipment, curriculum, trainers, outreach, teacher training and advanced labs; particularly suitable where the project has strong public value but limited direct commercial revenue</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">
+        <span>Revenue Generation by Model</span>
+        <span class="accordion-chevron">&#8964;</span>
+      </button>
+      <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">The following table explains how revenue may be generated under different implementation models and identifies who is likely to receive the principal project income. It also describes the nature and extent of the financial benefit available to the project owner, whether through direct project revenue, lease income, concession fees, revenue sharing, or eventual asset transfer.</p>
+        <div class="table-wrap"><table class="spv-table">
+          <thead><tr><th>Model</th><th>How Revenue is Generated</th><th>Who Receives Main Revenue</th><th>Owner's Financial Benefit</th></tr></thead>
+          <tbody>
+            <tr><td>EPC</td><td>Owner-led operation: school visit fees, annual institutional memberships, teacher-training fees, science camps, workshops, CSR sponsorship, district education programmes, exhibitions and paid training modules</td><td>Owner</td><td>Full financial benefit from operating revenues, but owner bears setup cost, staff cost, equipment replacement, building upkeep, safety compliance and utilization risk</td></tr>
+            <tr><td>EPC + O&amp;M / FM</td><td>School subscriptions, training fees, paid workshops, science exhibitions, CSR programmes, technical-skilling modules and event hosting, net of payments to O&amp;M agency</td><td>Owner, with agreed payments to operator</td><td>High financial benefit if utilization is strong, since owner retains core revenue rights and asset ownership while paying specialist agencies for operation and maintenance</td></tr>
+            <tr><td>BOOT</td><td>User charges, institutional packages, training programmes, workshops, memberships, CSR-supported sessions, school contracts, skill courses and approved commercial activities during the concession term</td><td>Developer / concessionaire during concession term</td><td>Indirect or deferred through lease rent, concession fee, revenue share, local economic uplift and eventual transfer of the facility</td></tr>
+            <tr><td>BOO</td><td>Long-term private operation: training revenue, memberships, science events, school packages, commercial STEM courses and sponsored programmes</td><td>Developer / private owner</td><td>Limited direct financial benefit, generally through lease income, fixed concession charges, annual fee or negotiated community-access obligations</td></tr>
+            <tr><td>DBFOT</td><td>Structured concession revenue: school access charges, public-programme support, teacher training, CSR-backed science education, skills courses, exhibitions and community events</td><td>Developer / concessionaire during concession term</td><td>Benefit through concession fee, lease income, revenue share, possible performance-linked payments and transfer of the facility at the end of the concession term</td></tr>
+            <tr><td>Concession / Lease-Develop-Operate</td><td>Annual school packages, training modules, science festivals, equipment-use fees, CSR-funded programmes, skill courses and visitor programmes</td><td>Concessionaire / operator, as per agreement</td><td>Financial benefit through lease rental, concession fee, development premium, annual payment, revenue share and broader social value</td></tr>
+            <tr><td>Hybrid</td><td>Combined public support, CSR support, user fees, school subscriptions, government education programmes, technical training, events and shared commercial income</td><td>Shared as per agreement</td><td>Variable financial benefit depending on allocation of funding, ownership, revenue rights, public support, operator role and concession terms</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">
+        <span>Which Model is Better for Local Livelihood and Jobs</span>
+        <span class="accordion-chevron">&#8964;</span>
+      </button>
+      <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">The following table assesses the likely local livelihood and employment potential of each implementation model. It considers the extent to which each model can support construction-phase jobs, long-term operational employment, local procurement opportunities, skill development, community participation, and associated support services. This section is particularly relevant where the repurposing project is expected to contribute to post-mining economic transition and sustained local community benefit.</p>
+        <div class="table-wrap"><table class="spv-table">
+          <thead><tr><th>Model</th><th>Local Job Potential</th><th>Why</th><th>Overall Suggestibility for Local Livelihood</th></tr></thead>
+          <tbody>
+            <tr><td>EPC</td><td>Moderate to High</td><td>Development generates jobs in building repair, electrical work, furniture installation, painting, landscaping, security, housekeeping and local transport. Long-term jobs depend on whether the owner localizes lab assistants, demonstrators, maintenance support, front-desk staff and outreach workers</td><td>Moderate to High</td></tr>
+            <tr><td>EPC + O&amp;M / FM</td><td>High</td><td>In addition to setup jobs, this model creates sustained roles in lab operations, equipment maintenance, science demonstration, school coordination, safety supervision, security, housekeeping, outdoor exhibit maintenance and mobile-lab support. Since the owner retains control, local hiring conditions can be directly enforced</td><td>High / Very Suitable</td></tr>
+            <tr><td>BOOT</td><td>High</td><td>The model generates construction and long-term operational jobs during the concession period. Local livelihood outcomes can be strong if concession conditions require local hiring, apprenticeships, local procurement, training of youth as lab assistants / science explainers and inclusion of local service providers</td><td>High</td></tr>
+            <tr><td>BOO</td><td>Moderate</td><td>The model creates setup and operating jobs, but local livelihood benefits depend heavily on the private operator's staffing policy, automation level, fee model and whether local participation requirements are contractually mandated</td><td>Moderate</td></tr>
+            <tr><td>DBFOT</td><td>High to Very High</td><td>A formal PPP structure allows local hiring, training, apprenticeship, vendor participation, community days, school-access obligations and local service procurement to be built into concession conditions</td><td>Very High</td></tr>
+            <tr><td>Concession / Lease-Develop-Operate</td><td>High to Very High</td><td>This model supports direct and indirect employment through operations, science demonstrations, local transport, maintenance, housekeeping, security, outreach, equipment repair, visitor management and training. Success depends on strong concession terms and explicit local-inclusion requirements</td><td>Very High</td></tr>
+            <tr><td>Hybrid</td><td>Very High</td><td>A hybrid structure can combine public transition objectives with specialist education capability, allowing explicit provisions for local youth training, mine-worker family participation, technician training, women's employment, local vendors, science volunteers and community outreach</td><td>Very High / Highly Suitable</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">
+        <span>Combined Comparison: Revenue, Profitability, and Livelihood</span>
+        <span class="accordion-chevron">&#8964;</span>
+      </button>
+      <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">The following combined comparison brings together three important dimensions of project structuring: revenue potential, owner-side financial benefit, and local livelihood generation. It provides a consolidated view of how each implementation model performs across commercial, institutional, and community-development perspectives. This matrix is intended to support balanced decision-making where the objective extends beyond financial return to include sustainable site reuse and long-term local economic benefit.</p>
+        <p class="spv-body-text">The following combined comparison brings together revenue potential, owner-side financial benefit, and local livelihood generation. It provides a consolidated view of how each implementation model performs across commercial, institutional, and community-development perspectives, supporting balanced decision-making where the objective extends beyond financial return.</p>
+        <div class="table-wrap"><table class="spv-table">
+          <thead><tr><th>Model</th><th>Main Revenue Source</th><th>Owner Profitability</th><th>Local Job Creation Potential</th><th>Overall Comment</th></tr></thead>
+          <tbody>
+            <tr><td>EPC</td><td>School visits, training fees, workshops, institutional subscriptions, CSR programmes and science events</td><td>Moderate to High, if utilization is strong; owner bears full setup and operating burden</td><td>Moderate to High</td><td>Suitable where the owner wants full control over a social and educational asset and has capacity to fund and manage it</td></tr>
+            <tr><td>EPC + O&amp;M / FM</td><td>School access packages, training programmes, teacher workshops, CSR-backed outreach and events, with operations supported by a specialist agency</td><td>High in social-return terms and moderate to high financially if recurring use is assured</td><td>High</td><td>One of the best owner-led models because it combines ownership, professional operation and local livelihood potential</td></tr>
+            <tr><td>BOOT</td><td>Fees, memberships, training, CSR programmes and institutional contracts during concession</td><td>Moderate, generally through lease rent, concession fee, revenue share and eventual asset transfer</td><td>High</td><td>Suitable where the owner wants to reduce upfront capital exposure while ensuring transfer and public-use obligations</td></tr>
+            <tr><td>BOO</td><td>Long-term commercial income: STEM courses, events, school contracts and training services</td><td>Low to Moderate, since most operating revenue stays with private owner</td><td>Moderate</td><td>Suitable only where long-term private control is acceptable and direct owner revenue is not the primary objective</td></tr>
+            <tr><td>DBFOT</td><td>Training, institutional packages, public programmes, CSR support, exhibitions and visitor services</td><td>Moderate to High depending on concession fee, revenue share and transfer conditions</td><td>High to Very High</td><td>Strong PPP option for a larger district or regional science-learning facility</td></tr>
+            <tr><td>Concession / Lease-Develop-Operate</td><td>School packages, science camps, training modules, events and CSR-linked programmes</td><td>Moderate, generally through lease rentals, concession fee, revenue share and social value</td><td>High to Very High</td><td>Very suitable where the owner wants to retain land control but outsource development and operation to an experienced education / science partner</td></tr>
+            <tr><td>Hybrid</td><td>CSR support, education grants, owner support, school fees, training revenue, events and shared commercial income</td><td>Variable to High in social-return terms; financial return depends on structure</td><td>Very High</td><td>Highly suitable where the project is primarily a mine-closure community asset with education, skilling and local livelihood objectives</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </div>
+
+    <div class="prism2-nav-row">
+      <button class="prism2-btn-prev" id="prism2-prev-I" onclick="prism2Prev()">&#8592; Previous</button>
+      <div class="prism2-progress-dots" style="display:flex;gap:5px;align-items:center;">
+        <span class="pdot" data-p="P"></span>
+        <span class="pdot" data-p="R"></span>
+        <span class="pdot active" data-p="I"></span>
+        <span class="pdot" data-p="S"></span>
+        <span class="pdot" data-p="M"></span>
+      </div>
+      <button class="prism2-btn-next" id="prism2-next-I" onclick="prism2Next()">Next pillar &#8594;</button>
+    </div>
+  </div><!-- /I panel -->
+
+  <!-- ── S Panel ─────────────────────────────────────────── -->
+  <div class="prism2-content-panel" id="prism2-panel-S" style="--pc:#5a3d9e;--pb:#edeaf8;--cb:#f5f3fd;">
+    <div class="prism2-panel-header">
+      <div class="prism2-panel-header-letter">S</div>
+      <div class="prism2-panel-header-text">
+        <div class="prism2-panel-eyebrow">STRATEGIC STRUCTURING</div>
+        <p class="prism2-panel-desc">Pre-RFP owner readiness, post-award developer scope, and the indicative implementation pathway for Physics Lab / Science and Innovation Campus projects on mine sites.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">
+        <span>Preparations Needed Before RFP</span>
+        <span class="accordion-chevron">&#8964;</span>
+      </button>
+      <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">The following section identifies the key owner-side preparatory actions that should ideally be completed before issuing the first Request for Proposal. These actions are aimed at reducing uncertainty for prospective bidders, improving project bankability, clarifying site availability, identifying approval pathways and risks, and defining the technical and commercial scope of the project. Completing these preparatory steps before tendering can improve bid quality, attract credible responses, and reduce the risk of delays during project implementation.</p>
+        <ol class="spv-list">
+          <li>Land, mine-closure and permissibility confirmation — confirm land ownership, mine-closure status, post-mining land-use permissibility, public-access restrictions, building-use permissions and whether the site can be offered for Physics Lab / science education development through owner-led, lease, concession, PPP or hybrid mode.</li>
+          <li>Site and building safety screening — screen the proposed site for public-use suitability, including distance from open pits, mine voids, unstable highwalls, dumps, shafts, water bodies, subsidence zones and restricted mine infrastructure.</li>
+          <li>Structural audit and refurbishment requirement — assess existing building condition, floor strength, roof condition, dampness, ventilation, lighting, cracks, electrical wiring, sanitation, accessibility and repair requirement.</li>
+          <li>User-demand and catchment assessment — identify nearby schools, colleges, ITIs, polytechnics, villages, mine colonies and student population, and assess likely annual use, batch size and outreach requirement.</li>
+          <li>Functional lab scope decision — decide whether the first phase will be a school physics lab, district physics lab, STEM lab, mine-science demonstration centre, teacher-training lab, mobile science-lab base or full science campus.</li>
+          <li>Preliminary space planning — prepare room-wise layout covering physics lab, demonstration area, storage, preparation room, electronics corner, digital classroom, staff room, office, washrooms, outdoor science park and parking.</li>
+          <li>Equipment and technology list — prepare a level-wise equipment list for mechanics, heat, optics, electricity, magnetism, electronics, measurement, sensors, renewable energy, digital learning and mine-science demonstrations.</li>
+          <li>Power, ICT and utility assessment — confirm electrical load, wiring upgrade requirement, earthing, internet, UPS, projector / smart board, CCTV, emergency lighting, water and sanitation readiness.</li>
+          <li>Safety and compliance screening — prepare initial fire-safety, electrical-safety, child-safety, laboratory-safety, first-aid, evacuation and accessibility notes.</li>
+          <li>Environmental and indoor-condition screening — check for coal dust, oil contamination, asbestos risk, dampness, indoor air quality, noise, dust, nearby industrial hazards and any remediation requirement.</li>
+          <li>Institutional partnership and operating model assessment — identify possible partners such as schools, education department, science centres, universities, ITIs, polytechnics, NGOs, CSR foundations and laboratory-management agencies.</li>
+          <li>Implementation model and risk-allocation decision — select the preferred model such as Hybrid, EPC + O&amp;M, Concession / Lease-Develop-Operate, DBFOT, BOOT or EPC based on project size, CAPEX, owner control, recurring funding and expected utilization.</li>
+          <li>Draft RFP scope and bid framework — prepare bidder scope covering design, building refurbishment, equipment supply, installation, safety compliance, staffing, operations, maintenance, outreach, local employment, reporting, revenue sharing and handback obligations.</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">
+        <span>Activities to be taken After Selecting the Agency</span>
+        <span class="accordion-chevron">&#8964;</span>
+      </button>
+      <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">The following section lists the principal activities that may be undertaken by the selected contractor, developer, concessionaire, operator, or implementation agency after award of the project. These activities generally include detailed site investigations, engineering design, statutory submissions and approvals, equipment procurement, construction, commissioning, operational planning, staff training, and performance monitoring. The distinction between pre-RFP owner preparedness and post-award implementation responsibilities helps ensure an appropriate and efficient allocation of effort across the project development cycle.</p>
+        <ol class="spv-list">
+          <li>Detailed site and building assessment — undertake detailed building measurement, structural review, electrical audit, ventilation review, accessibility audit, fire-safety assessment, site-risk mapping and utility verification.</li>
+          <li>Detailed laboratory planning — prepare final room layout, bench arrangement, demonstration zones, storage plan, equipment flow, visitor circulation, emergency exits and outdoor physics park layout.</li>
+          <li>Detailed equipment specification — finalize experiment-wise equipment lists for mechanics, heat, optics, electricity, magnetism, electronics, digital sensors, renewable-energy demonstrations and mine-science exhibits.</li>
+          <li>Statutory approvals and permissions — obtain building-use permission, fire-safety clearance, electrical safety approvals, local-body permissions, school / institutional MoUs and other applicable permissions.</li>
+          <li>Final design and refurbishment — complete civil repairs, flooring, painting, damp-proofing, ceiling, lighting, ventilation, doors, windows, partitions, washrooms, accessibility features and outdoor development.</li>
+          <li>Electrical, ICT and safety installation — install wiring, distribution boards, earthing, MCB/RCCB, UPS, internet, CCTV, smart classroom systems, emergency lights, extinguishers, signage and public-address systems.</li>
+          <li>Furniture and storage installation — install lab benches, stools, demonstration table, instrument cupboards, storage racks, preparation counters, lockable cabinets and display boards.</li>
+          <li>Equipment procurement and installation — procure, test and install physics instruments, electronics kits, optics benches, measuring instruments, renewable-energy trainers, sensors, data loggers, computers and demonstration models.</li>
+          <li>Curriculum and operating manual preparation — prepare experiment manuals, safety manuals, teacher guides, student worksheets, visitor protocols, maintenance checklists and annual activity calendar.</li>
+          <li>Staff recruitment and training — appoint lab manager, lab assistants, science communicators, technicians, safety supervisor, front-desk staff, security, housekeeping and outreach coordinators, with preference for trained local youth where feasible.</li>
+          <li>School and community outreach integration — sign visit schedules with schools, colleges, ITIs and community organizations, and plan science fairs, teacher training, mobile-lab visits and local science clubs.</li>
+          <li>Testing and trial operation — conduct equipment testing, safety drills, student pilot batches, teacher feedback sessions, emergency drills, demonstration dry runs and final readiness review.</li>
+          <li>Commercial / public operation and compliance monitoring — begin regular operation after readiness certification, and continue safety inspections, equipment maintenance, attendance tracking, learning-outcome reporting, revenue tracking and annual performance review.</li>
+          <li>Phased expansion or optimization — expand to advanced electronics, robotics, astronomy, renewable energy, mining-instrumentation, mobile science van, science park or regional science centre only after stable utilization and funding validation.</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">
+        <span>Indicative Implementation Pathway</span>
+        <span class="accordion-chevron">&#8964;</span>
+      </button>
+      <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">The following implementation pathway presents a practical high-level sequence for advancing the proposed repurposing concept from initial approval through to project execution and long-term operation. This pathway is indicative and should be adapted to reflect the specific complexity, regulatory requirements, financing structure, and site conditions applicable to the project.</p>
+        <ol class="spv-list">
+          <li>Concept approval and owner-side structuring.</li>
+          <li>Screening of closed mine sites / buildings for safe public education use.</li>
+          <li>Land, closure-plan, mine-safety, structural, access, utility and environmental screening.</li>
+          <li>User-demand assessment covering schools, colleges, ITIs, mine colonies and nearby villages.</li>
+          <li>Preliminary environmental, safety and accessibility screening.</li>
+          <li>Market sounding with science-education agencies, laboratory suppliers, universities, CSR partners, NGOs, science centres and facility operators.</li>
+          <li>Concept planning and phasing strategy.</li>
+          <li>Identification of owner-side enabling scope such as building repair, safety works, access, utilities and basic furniture.</li>
+          <li>Selection of preferred implementation model.</li>
+          <li>Preparation of concept report, space plan, equipment list, O&amp;M scope, bid documents and concession / service structure.</li>
+          <li>Issuance of RFQ / RFP.</li>
+          <li>Selection of concessionaire / developer / EPC contractor / O&amp;M agency.</li>
+          <li>Detailed design, approvals, procurement and staffing.</li>
+          <li>Building refurbishment, laboratory installation and safety setup.</li>
+          <li>Trial operation, teacher orientation, student pilot sessions and public opening.</li>
+          <li>Regular operation, local employment, science outreach, performance monitoring and phased expansion where feasible.</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="prism2-nav-row">
+      <button class="prism2-btn-prev" id="prism2-prev-S" onclick="prism2Prev()">&#8592; Previous</button>
+      <div class="prism2-progress-dots" style="display:flex;gap:5px;align-items:center;">
+        <span class="pdot" data-p="P"></span>
+        <span class="pdot" data-p="R"></span>
+        <span class="pdot" data-p="I"></span>
+        <span class="pdot active" data-p="S"></span>
+        <span class="pdot" data-p="M"></span>
+      </div>
+      <button class="prism2-btn-next" id="prism2-next-S" onclick="prism2Next()">Next pillar &#8594;</button>
+    </div>
+  </div><!-- /S panel -->
+
+  <!-- ── M Panel ─────────────────────────────────────────── -->
+  <div class="prism2-content-panel" id="prism2-panel-M" style="--pc:#1a7a5e;--pb:#e1f3ec;--cb:#f0faf5;">
+    <div class="prism2-panel-header">
+      <div class="prism2-panel-header-letter">M</div>
+      <div class="prism2-panel-header-text">
+        <div class="prism2-panel-eyebrow">MONITORING GUIDANCE</div>
+        <p class="prism2-panel-desc">Way forward, preferred models, key references, and abbreviations for Physics Lab / Science and Innovation Campus projects on closed mine sites.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">
+        <span>Way Forward</span>
+        <span class="accordion-chevron">&#8964;</span>
+      </button>
+      <div class="accordion-body" style="display:none;">
+        <p class="spv-body-text">The following way forward summarizes the preferred development approach for the proposed repurposing option, based on the assessment presented in PRISM (Post Mining Repurposing Implementation and Strategy Models). It identifies the most suitable implementation models in order of preference, highlights key technical and due-diligence considerations, and outlines the recommended next steps and broad development logic. This section is intended to guide internal decision-making and support the project owner in progressing from concept-stage evaluation toward feasibility assessment, project structuring, regulatory approvals, and implementation planning.</p>
+        <p class="spv-body-text"><strong>Preferred Models, in order:</strong> (1) Hybrid, (2) EPC + O&amp;M / Facility Management, (3) Concession / Lease-Develop-Operate</p>
+        <p class="spv-body-text"><strong>Why preferred:</strong> Hybrid is preferred because a Physics Lab in a closed mine area is primarily a community-development and education-transition asset rather than a high-profit commercial asset. The owner can provide land, building, basic safety works and public-purpose control, while specialist education, science, CSR, university or technical partners can provide equipment, curriculum, operations, outreach and training. EPC + O&amp;M / Facility Management is also highly suitable because the mine owner retains ownership and social control, while a professional operator ensures that the facility does not become an unused building after inauguration. This model is strong where the owner can fund the project but lacks in-house science-lab operating capacity. Concession / Lease-Develop-Operate is suitable where the site has strong user demand, visitor potential, training revenue or CSR-backed viability and where an experienced education / science partner is willing to invest and operate under defined public-service obligations.</p>
+        <p class="spv-body-text"><strong>Secondary option:</strong> DBFOT or BOOT may be used for larger district-level science campuses, mine-science parks or multi-lab STEM hubs where revenue potential, long concession tenure and professional operation can justify private investment.</p>
+        <p class="spv-body-text"><strong>Suggestable technical care:</strong> Building safety, mine-safety buffer, child safety, electrical safety, fire safety, indoor air quality, equipment durability, trained staffing, operating budget, institutional partnership, accessibility, local-language learning and recurring maintenance must be screened carefully.</p>
+        <p class="spv-body-text"><strong>Recommended development logic:</strong> Apply knockout screening first: safe building / land, mine-hazard separation, structural safety, user demand, power and internet availability, operating partner and recurring funding. Only passing sites should move to detailed space planning, equipment specification and tendering.</p>
+        <p class="spv-body-text" style="font-style:italic; margin-top:1.2rem;"><strong>Disclaimer —</strong> All repurposing interventions proposed under P.R.I.S.M. shall remain subject to applicable mining laws, land-use regulations, environmental approvals, mine-closure conditions, building regulations, fire and life-safety requirements, electrical-safety rules, education-sector permissions, public-access safety requirements and any other statutory approvals as may be applicable. Land ownership is proposed to remain with the mine owner / competent authority unless otherwise permitted under applicable law.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">
+        <span>References</span>
+        <span class="accordion-chevron">&#8964;</span>
+      </button>
+      <div class="accordion-body" style="display:none;">
+        <ul class="spv-list" >
+          <li>Ministry of Coal, Government of India. 2025. <em>RECLAIM: A Community Development Framework – A Practitioners' Guide to Community Development in Mine Affected Regions of India.</em> New Delhi: Ministry of Coal and Coal Controller Organisation.</li>
+          <li>Central Board of Secondary Education. 2018. <em>Affiliation Bye-Laws, Chapter 4: Physical Infrastructure.</em> New Delhi: CBSE.</li>
+          <li>Atal Innovation Mission, NITI Aayog. 2018. <em>Guidelines for Setting Up of Atal Tinkering Laboratories.</em> New Delhi: NITI Aayog, Government of India.</li>
+          <li>Ministry of Culture, Government of India. 2024. <em>Scheme for Promotion of Culture of Science: Science Cities, Science Centres and Innovation Hubs.</em> New Delhi: Ministry of Culture.</li>
+          <li>National Council of Science Museums. 2025. <em>National Council of Science Museums: Science Centres and Museums Network Information.</em> Kolkata: NCSM, Ministry of Culture, Government of India.</li>
+          <li>Bureau of Indian Standards. 2016. <em>National Building Code of India 2016, Part 4: Fire and Life Safety.</em> New Delhi: Bureau of Indian Standards.</li>
+          <li>National Education Policy. 2020. <em>National Education Policy 2020.</em> New Delhi: Ministry of Education, Government of India.</li>
+          <li>National Curriculum Framework for School Education. 2023. <em>National Curriculum Framework for School Education 2023.</em> New Delhi: National Council of Educational Research and Training.</li>
+          <li>Simpson, G. B., et al. 2025. "Integrating the Sustainable Development Goals into Post-Mining Land Use Planning." <em>Sustainable Development / Post-Mining Land Use Literature.</em></li>
+          <li>Krzemień, A., et al. 2026. "Closure as a New Beginning: Repurposing Post-Mining Infrastructure and Land for Sustainable Regional Development." <em>Applied Sciences, 16</em>(4), 1916.</li>
+          <li>Labkafe. 2025. "Complete Physics Lab Design Guide: Furniture &amp; Setup Requirements." Labkafe Technical Blog, 29 April 2025.</li>
+          <li>UNESCO. 2017. <em>Education for Sustainable Development Goals: Learning Objectives.</em> Paris: United Nations Educational, Scientific and Cultural Organization.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">
+        <span>Abbreviations</span>
+        <span class="accordion-chevron">&#8964;</span>
+      </button>
+      <div class="accordion-body" style="display:none;">
+        <div class="table-wrap"><table class="spv-table">
+          <thead><tr><th>Abbreviation</th><th>Full Form</th></tr></thead>
+          <tbody>
+            <tr><td>AIM</td><td>Atal Innovation Mission</td></tr>
+            <tr><td>AMC</td><td>Annual Maintenance Contract</td></tr>
+            <tr><td>ATL</td><td>Atal Tinkering Laboratory</td></tr>
+            <tr><td>BIS</td><td>Bureau of Indian Standards</td></tr>
+            <tr><td>BOO</td><td>Build, Own, Operate</td></tr>
+            <tr><td>BOOT</td><td>Build, Own, Operate, Transfer</td></tr>
+            <tr><td>CAPEX</td><td>Capital Expenditure</td></tr>
+            <tr><td>CBSE</td><td>Central Board of Secondary Education</td></tr>
+            <tr><td>CCTV</td><td>Closed-Circuit Television</td></tr>
+            <tr><td>CSR</td><td>Corporate Social Responsibility</td></tr>
+            <tr><td>DBFOT</td><td>Design, Build, Finance, Operate, Transfer</td></tr>
+            <tr><td>DPR</td><td>Detailed Project Report</td></tr>
+            <tr><td>EPC</td><td>Engineering, Procurement and Construction</td></tr>
+            <tr><td>FM</td><td>Facility Management</td></tr>
+            <tr><td>ICT</td><td>Information and Communication Technology</td></tr>
+            <tr><td>ITI</td><td>Industrial Training Institute</td></tr>
+            <tr><td>LED</td><td>Light Emitting Diode</td></tr>
+            <tr><td>MCB</td><td>Miniature Circuit Breaker</td></tr>
+            <tr><td>MoU</td><td>Memorandum of Understanding</td></tr>
+            <tr><td>NBC</td><td>National Building Code</td></tr>
+            <tr><td>NCSM</td><td>National Council of Science Museums</td></tr>
+            <tr><td>NCF</td><td>National Curriculum Framework</td></tr>
+            <tr><td>NEP</td><td>National Education Policy</td></tr>
+            <tr><td>O&amp;M</td><td>Operation and Maintenance</td></tr>
+            <tr><td>OPEX</td><td>Operating Expenditure</td></tr>
+            <tr><td>PPP</td><td>Public-Private Partnership</td></tr>
+            <tr><td>P.R.I.S.M</td><td>Post Mining Repurposing Implementation and Strategy Models</td></tr>
+            <tr><td>RCCB</td><td>Residual Current Circuit Breaker</td></tr>
+            <tr><td>RE</td><td>Renewable Energy</td></tr>
+            <tr><td>RFP</td><td>Request for Proposal</td></tr>
+            <tr><td>RFQ</td><td>Request for Qualification</td></tr>
+            <tr><td>STEM</td><td>Science, Technology, Engineering and Mathematics</td></tr>
+            <tr><td>UPS</td><td>Uninterruptible Power Supply</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </div>
+
+    <div class="prism2-nav-row">
+      <button class="prism2-btn-prev" id="prism2-prev-M" onclick="prism2Prev()">&#8592; Previous</button>
+      <div class="prism2-progress-dots" style="display:flex;gap:5px;align-items:center;">
+        <span class="pdot" data-p="P"></span>
+        <span class="pdot" data-p="R"></span>
+        <span class="pdot" data-p="I"></span>
+        <span class="pdot" data-p="S"></span>
+        <span class="pdot active" data-p="M"></span>
+      </div>
+    </div>
+    <!-- Framework completion card -->
+    <div style="margin:0 26px 16px;padding:16px 20px;border-radius:12px;background:#f4faf7;border:1.5px dashed #a8d5c2;display:flex;align-items:center;gap:14px;">
+      <div style="width:36px;height:36px;border-radius:50%;background:#d1ece2;border:1.5px solid #a8d5c2;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#1a7a5e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2.5 8 6 11.5 13.5 4"/></svg>
+      </div>
+      <div style="flex:1;min-width:0;">
+        <div style="font-size:.82rem;font-weight:700;color:#1a7a5e;letter-spacing:.01em;">PRISM Framework Complete</div>
+        <div style="font-size:.75rem;color:#4a7a6a;margin-top:2px;line-height:1.5;">All five pillars reviewed &#8212; explore case studies to see how similar projects were executed.</div>
+      </div>
+      <button onclick="showSPVTab('casestudies');setTimeout(function(){window.dispatchEvent(new Event('resize'))},30)" style="flex-shrink:0;font-size:.75rem;font-weight:600;padding:7px 14px;border-radius:8px;border:1.5px solid #a8d5c2;background:#fff;color:#1a7a5e;cursor:pointer;transition:background .2s,border-color .2s;" onmouseover="this.style.background='#e6f5ef'" onmouseout="this.style.background='#fff'">Case Studies &#8599;</button>
+    </div>
+
+    <!-- Download PRISM PDF card -->
+    <div style="margin:0 26px 28px;padding:18px 22px;border-radius:12px;background:linear-gradient(135deg,#f0f7ff 0%,#e8f4fd 100%);border:1.5px solid #c5ddf5;display:flex;align-items:center;gap:16px;">
+      <div style="width:40px;height:40px;border-radius:50%;background:#daeafa;border:1.5px solid #b8d4ef;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#1a5ca8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v10M5 8l4 4 4-4"/><rect x="3" y="14" width="12" height="2" rx="1"/></svg>
+      </div>
+      <div style="flex:1;min-width:0;">
+        <div style="font-size:.82rem;font-weight:700;color:#1a5ca8;letter-spacing:.01em;">Download PRISM Framework</div>
+        <div style="font-size:.75rem;color:#3a6a98;margin-top:2px;line-height:1.5;">Save a print-ready PDF of all five pillars for offline reference.</div>
+      </div>
+      <button onclick="downloadPRISM()" style="flex-shrink:0;font-size:.75rem;font-weight:600;padding:8px 16px;border-radius:8px;border:1.5px solid #b8d4ef;background:#fff;color:#1a5ca8;cursor:pointer;transition:background .2s,border-color .2s;display:flex;align-items:center;gap:6px;" onmouseover="this.style.background='#daeafa'" onmouseout="this.style.background='#fff'">
+        <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 1v7M3.5 5.5l3 3 3-3"/><rect x="1.5" y="10" width="10" height="1.5" rx=".75"/></svg>
+        Download PDF
+      </button>
+    </div>
+
+  </div><!-- /M panel -->
+
+  </div><!-- /pr-content-wrap -->
+</div><!-- /pr-shell -->
+
+    </div>
+  </div>
+
+  <!-- TAB: Case Studies -->
+    <div id="spv-panel-casestudies" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+      <div class="lit-wrap">
+        <div class="lit-outer">
+          <div class="lit-track-clip">
+            <div class="lit-track" id="litTrack-all">
+
+<!-- 1: SUPL website — row 15, FIRST -->
+<a class="lit-card" href="https://supl.org.au/" target="_blank" rel="noopener noreferrer"
+   style="--lit-accent:#1a7a5e;--lit-glow:rgba(26,122,94,.18);--lit-tint:rgba(26,122,94,.06);">
+  <div class="lit-card-body">
+    <div class="lit-card-title">Stawell Underground Physics Laboratory (SUPL) — 1 km depth, Stawell Gold Mine, Victoria, Australia</div>
+    <div class="lit-card-meta">
+      <div class="lit-card-type"><span>Website Link</span></div>
+      <div class="lit-card-source">Source: <span>supl.org.au</span></div>
+    </div>
+  </div>
+  <div class="lit-card-img"><img src="../images/cs-pl-supl.jpg" alt="SUPL Stawell Underground Physics Laboratory — Southern hemisphere dark matter search in active gold mine" loading="lazy"></div>
+  <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/><polyline points="9 9 10 9"/></svg> View</div>
+</a>
+
+<!-- 2: row 14 — Stawell dark matter paper -->
+<a class="lit-card" href="https://arxiv.org/abs/1605.03299" target="_blank" rel="noopener noreferrer"
+   style="--lit-accent:#1a5ca8;--lit-glow:rgba(26,92,168,.18);--lit-tint:rgba(26,92,168,.06);">
+  <div class="lit-card-body">
+    <div class="lit-card-title">The Southern Hemisphere Hunt for Dark Matter at the Stawell Underground Physics Laboratory (SUPL), Australia</div>
+    <div class="lit-card-meta">
+      <div class="lit-card-type"><span>Open Access Paper</span></div>
+      <div class="lit-card-source">Source: <span>arXiv.org</span></div>
+    </div>
+  </div>
+  <div class="lit-card-img"><img src="../images/cs/cs-phylab-5.png" alt="Stawell Underground Physics Laboratory — dark matter detection in active gold mine, Victoria, Australia" loading="lazy"></div>
+  <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/><polyline points="9 9 10 9"/></svg> View</div>
+</a>
+
+<!-- 3: row 16 — KAGRA construction paper -->
+<a class="lit-card" href="https://www.researchgate.net/publication/327962856_Construction_of_KAGRA_An_underground_gravitational-wave_observatory" target="_blank" rel="noopener noreferrer"
+   style="--lit-accent:#7c3aed;--lit-glow:rgba(124,58,237,.18);--lit-tint:rgba(124,58,237,.06);">
+  <div class="lit-card-body">
+    <div class="lit-card-title">Construction of KAGRA: An Underground Gravitational-Wave Observatory in the Kamioka Mine, Japan</div>
+    <div class="lit-card-meta">
+      <div class="lit-card-type"><span>Open Access Paper</span></div>
+      <div class="lit-card-source">Source: <span>ResearchGate</span></div>
+    </div>
+  </div>
+  <div class="lit-card-img"><img src="../images/cs-pl-kagra.jpg" alt="KAGRA underground gravitational wave observatory — 3 km interferometer in Kamioka mine tunnels, Japan" loading="lazy"></div>
+  <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/><polyline points="9 9 10 9"/></svg> View</div>
+</a>
+
+<!-- 4: row 17 — World underground compendium -->
+<a class="lit-card" href="https://www.researchgate.net/publication/1902140_The_world_underground_scientific_facilities_A_compendium" target="_blank" rel="noopener noreferrer"
+   style="--lit-accent:#21808d;--lit-glow:rgba(33,128,141,.18);--lit-tint:rgba(33,128,141,.06);">
+  <div class="lit-card-body">
+    <div class="lit-card-title">The World Underground Scientific Facilities: A Compendium (Bettini, 2012)</div>
+    <div class="lit-card-meta">
+      <div class="lit-card-type"><span>Open Access Paper</span></div>
+      <div class="lit-card-source">Source: <span>ResearchGate</span></div>
+    </div>
+  </div>
+  <div class="lit-card-img"><img src="../images/cs/cs-phylab-2.png" alt="World underground scientific facilities compendium — global survey of mine-based physics and geoscience labs" loading="lazy"></div>
+  <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/><polyline points="9 9 10 9"/></svg> View</div>
+</a>
+
+<!-- 5: row 5 — SURF website -->
+<a class="lit-card" href="https://sanfordlab.org/" target="_blank" rel="noopener noreferrer"
+   style="--lit-accent:#1a7a5e;--lit-glow:rgba(26,122,94,.18);--lit-tint:rgba(26,122,94,.06);">
+  <div class="lit-card-body">
+    <div class="lit-card-title">Sanford Underground Research Facility (SURF) — Former Homestake Gold Mine, South Dakota, USA</div>
+    <div class="lit-card-meta">
+      <div class="lit-card-type"><span>Website Link</span></div>
+      <div class="lit-card-source">Source: <span>sanfordlab.org</span></div>
+    </div>
+  </div>
+  <div class="lit-card-img"><img src="../images/cs-pl-surf.jpg" alt="Sanford Underground Research Facility — underground cavern in former Homestake gold mine, South Dakota" loading="lazy"></div>
+  <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/><polyline points="9 9 10 9"/></svg> View</div>
+</a>
+
+<!-- 7: row 6 — SURF at Homestake paper -->
+<a class="lit-card" href="https://www.researchgate.net/publication/259578314_The_Sanford_Underground_Research_Facility_at_Homestake" target="_blank" rel="noopener noreferrer"
+   style="--lit-accent:#1a5ca8;--lit-glow:rgba(26,92,168,.18);--lit-tint:rgba(26,92,168,.06);">
+  <div class="lit-card-body">
+    <div class="lit-card-title">The Sanford Underground Research Facility at Homestake (Lesko, 2015)</div>
+    <div class="lit-card-meta">
+      <div class="lit-card-type"><span>Open Access Paper</span></div>
+      <div class="lit-card-source">Source: <span>ResearchGate</span></div>
+    </div>
+  </div>
+  <div class="lit-card-img"><img src="../images/cs/cs-phylab-4.png" alt="Underground research cavern at SURF — former Homestake gold mine repurposed for physics" loading="lazy"></div>
+  <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/><polyline points="9 9 10 9"/></svg> View</div>
+</a>
+
+<!-- 8: row 7 — DUSEL -->
+<a class="lit-card" href="https://arxiv.org/abs/1108.0959" target="_blank" rel="noopener noreferrer"
+   style="--lit-accent:#7c3aed;--lit-glow:rgba(124,58,237,.18);--lit-tint:rgba(124,58,237,.06);">
+  <div class="lit-card-body">
+    <div class="lit-card-title">Deep Underground Science and Engineering Laboratory (DUSEL) — Preliminary Design Report</div>
+    <div class="lit-card-meta">
+      <div class="lit-card-type"><span>Open Access Paper</span></div>
+      <div class="lit-card-source">Source: <span>arXiv.org</span></div>
+    </div>
+  </div>
+  <div class="lit-card-img"><img src="../images/cs-pl-dusel.jpg" alt="Deep underground laboratory design — DUSEL preliminary design report" loading="lazy"></div>
+  <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/><polyline points="9 9 10 9"/></svg> View</div>
+</a>
+
+<!-- 9: row 8 — SNOLAB website -->
+<a class="lit-card" href="https://www.snolab.ca/about/about-snolab/" target="_blank" rel="noopener noreferrer"
+   style="--lit-accent:#1a7a5e;--lit-glow:rgba(26,122,94,.18);--lit-tint:rgba(26,122,94,.06);">
+  <div class="lit-card-body">
+    <div class="lit-card-title">SNOLAB — World's Deepest Physics Laboratory in Vale's Creighton Nickel Mine, Sudbury, Canada (2 km depth, 5,000 m² clean lab)</div>
+    <div class="lit-card-meta">
+      <div class="lit-card-type"><span>Website Link</span></div>
+      <div class="lit-card-source">Source: <span>snolab.ca</span></div>
+    </div>
+  </div>
+  <div class="lit-card-img"><img src="../images/cs-pl-snolab.jpg" alt="SNOLAB underground clean laboratory 2 km deep in Vale Creighton nickel mine, Sudbury, Ontario" loading="lazy"></div>
+  <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/><polyline points="9 9 10 9"/></svg> View</div>
+</a>
+
+<!-- 10: row 9 — SNOLAB evaluation paper -->
+<a class="lit-card" href="https://arxiv.org/abs/2308.12253" target="_blank" rel="noopener noreferrer"
+   style="--lit-accent:#1a5ca8;--lit-glow:rgba(26,92,168,.18);--lit-tint:rgba(26,92,168,.06);">
+  <div class="lit-card-body">
+    <div class="lit-card-title">Evaluation of SNOLAB Background Mitigation Procedures Through ICP-MS Based Dust Monitoring Methodology</div>
+    <div class="lit-card-meta">
+      <div class="lit-card-type"><span>Open Access Paper</span></div>
+      <div class="lit-card-source">Source: <span>arXiv.org</span></div>
+    </div>
+  </div>
+  <div class="lit-card-img"><img src="../images/cs-pl-snolab-paper.jpg" alt="SNOLAB underground clean lab background mitigation — dust monitoring in mine-based physics facility" loading="lazy"></div>
+  <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/><polyline points="9 9 10 9"/></svg> View</div>
+</a>
+
+<!-- 11: row 10 — Callio Lab IOP -->
+<a class="lit-card" href="https://iopscience.iop.org/article/10.1088/1742-6596/888/1/012156" target="_blank" rel="noopener noreferrer"
+   style="--lit-accent:#16a34a;--lit-glow:rgba(22,163,74,.18);--lit-tint:rgba(22,163,74,.06);">
+  <div class="lit-card-body">
+    <div class="lit-card-title">Callio Lab — A New Deep Underground Laboratory in the Pyhäsalmi Mine, Finland</div>
+    <div class="lit-card-meta">
+      <div class="lit-card-type"><span>Open Access Paper</span></div>
+      <div class="lit-card-source">Source: <span>IOP Publishing</span></div>
+    </div>
+  </div>
+  <div class="lit-card-img"><img src="../images/cs/cs-phylab-2.png" alt="Callio Lab underground research facility in Pyhäsalmi zinc-copper mine, Finland" loading="lazy"></div>
+  <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/><polyline points="9 9 10 9"/></svg> View</div>
+</a>
+
+<!-- 12: row 11 — Calliolab plans paper -->
+<a class="lit-card" href="https://www.researchgate.net/publication/316673226_New_underground_laboratory_in_the_Pyhasalmi_mine_Calliolab_and_plans_for_the_future_scientific_activities" target="_blank" rel="noopener noreferrer"
+   style="--lit-accent:#7c3aed;--lit-glow:rgba(124,58,237,.18);--lit-tint:rgba(124,58,237,.06);">
+  <div class="lit-card-body">
+    <div class="lit-card-title">New Underground Laboratory in the Pyhäsalmi Mine (Calliolab) and Plans for Future Scientific Activities</div>
+    <div class="lit-card-meta">
+      <div class="lit-card-type"><span>Open Access Paper</span></div>
+      <div class="lit-card-source">Source: <span>ResearchGate</span></div>
+    </div>
+  </div>
+  <div class="lit-card-img"><img src="../images/cs-convention-wieliczka.jpg" alt="Pyhäsalmi mine underground laboratory — scientific activities and future plans" loading="lazy"></div>
+  <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/><polyline points="9 9 10 9"/></svg> View</div>
+</a>
+
+<!-- 13: row 12 — Pyhäsalmi possibilities -->
+<a class="lit-card" href="https://arxiv.org/abs/1810.00909" target="_blank" rel="noopener noreferrer"
+   style="--lit-accent:#1a5ca8;--lit-glow:rgba(26,92,168,.18);--lit-tint:rgba(26,92,168,.06);">
+  <div class="lit-card-body">
+    <div class="lit-card-title">Possibilities for Underground Physics in the Pyhäsalmi Mine (Räihä et al., 2018)</div>
+    <div class="lit-card-meta">
+      <div class="lit-card-type"><span>Open Access Paper</span></div>
+      <div class="lit-card-source">Source: <span>arXiv.org</span></div>
+    </div>
+  </div>
+  <div class="lit-card-img"><img src="../images/cs-pl-pyhasalmi.jpg" alt="Underground physics possibilities in Pyhäsalmi mine — dark matter, neutrinos, geoscience" loading="lazy"></div>
+  <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/><polyline points="9 9 10 9"/></svg> View</div>
+</a>
+
+<!-- 14: row 13 — Boulby -->
+<a class="lit-card" href="https://www.infraportal.org.uk/case-study/physical-sciences-and-engineering/boulby-underground-laboratory" target="_blank" rel="noopener noreferrer"
+   style="--lit-accent:#21808d;--lit-glow:rgba(33,128,141,.18);--lit-tint:rgba(33,128,141,.06);">
+  <div class="lit-card-body">
+    <div class="lit-card-title">Boulby Underground Laboratory — Case Study, Physical Sciences and Engineering (UK Infrastructure Portal)</div>
+    <div class="lit-card-meta">
+      <div class="lit-card-type"><span>Link</span></div>
+      <div class="lit-card-source">Source: <span>infraportal.org.uk</span></div>
+    </div>
+  </div>
+  <div class="lit-card-img"><img src="../images/cs-pl-boulby.jpg" alt="Boulby Underground Laboratory — deep salt mine converted to dark matter and astroparticle physics research, UK" loading="lazy"></div>
+  <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/><polyline points="9 9 10 9"/></svg> View</div>
+</a>
+
+<!-- 15: row 3 — Lousal Portugal — LAST -->
+<a class="lit-card" href="https://www.sciencedirect.com/science/article/pii/S2214790X26000791" target="_blank" rel="noopener noreferrer"
+   style="--lit-accent:#21808d;--lit-glow:rgba(33,128,141,.18);--lit-tint:rgba(33,128,141,.06);">
+  <div class="lit-card-body">
+    <div class="lit-card-title">From extraction to engagement: Post-mining transition and science communication in Lousal, Portugal</div>
+    <div class="lit-card-meta">
+      <div class="lit-card-type"><span>Open Access Article</span></div>
+      <div class="lit-card-source">Source: <span>ScienceDirect (Elsevier)</span></div>
+    </div>
+  </div>
+  <div class="lit-card-img"><img src="../images/cs/cs-lousal.jpg" alt="Lousal mine museum and science communication centre, Portugal — post-mining transition" loading="lazy"></div>
+  <div class="lit-card-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/><polyline points="9 9 10 9"/></svg> View</div>
+</a>
+
+            </div><!-- /lit-track -->
+          </div><!-- /lit-track-clip -->
+          <div class="lit-nav">
+            <button class="lit-nav-btn" id="litPrev-all" onclick="litMove('all',-1)" aria-label="Previous">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <div class="lit-dots" id="litDots-all"></div>
+            <button class="lit-nav-btn" id="litNext-all" onclick="litMove('all',1)" aria-label="Next">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+          </div>
+        </div><!-- /lit-outer -->
+      </div><!-- /lit-wrap -->
+    </div>
+  </div>
+
+  
+<!-- TAB: Tender Documents -->
+  <div id="spv-panel-tender" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+      <div class="t5-wrap">
+    <div class="t5-topbar">
+      <div class="t5-pills">
+        <button class="t5-pill t5-pill--all active" onclick="t5Filter('all')">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          All Documents <span class="t5-pill-count" id="t5cnt-all">16</span>
+        </button>
+        <button class="t5-pill--rfp t5-pill" data-sec="rfp" onclick="t5Filter('rfp')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          RFP <span class="t5-pill-count" id="t5cnt-rfp">9</span>
+        </button>
+        <button class="t5-pill--nit t5-pill" data-sec="nit" onclick="t5Filter('nit')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+          NIT <span class="t5-pill-count" id="t5cnt-nit">1</span>
+        </button>
+        <button class="t5-pill--eoi t5-pill" data-sec="eoi" onclick="t5Filter('eoi')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          EOI <span class="t5-pill-count" id="t5cnt-eoi">1</span>
+        </button>
+        <button class="t5-pill--rpt t5-pill" data-sec="rpt" onclick="t5Filter('rpt')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          Reports &amp; DPR <span class="t5-pill-count" id="t5cnt-rpt">5</span>
+        </button>
+      </div>
+      <div class="t5-right">
+        <div class="t5-search-wrap">
+          <svg class="t5-search-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input id="t5SearchInput" class="t5-search" type="text" placeholder="Search documents…" oninput="t5Search(this.value)">
+        </div>
+        <span class="t5-counter" id="t5Counter"></span>
+      </div>
+    </div>
+    <div id="t5Sections">
+      <div class="t5-section" data-sec="rfp" style="animation-delay:0.05s">
+        <div class="t5-section-header">
+          <div class="t5-section-bar" style="background:#0F6E56"></div>
+          <span class="t5-section-label" style="color:#0F6E56">Requests for Proposal (RFP)</span>
+          <span class="t5-section-count">9 documents</span>
+        </div>
+        <div class="t5-list">
+          <a class="t5-row t5-row--rfp" data-sec="rfp"
+             data-title="request for proposal (rfp) supply, installation, commissioning and training of high-performance cpu based cluster"
+             href="https://www.cafral.org.in/sfControl/content/NewsEvent/1219202540010PMFinal_RFP_HPC_v2.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0F6E56">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Request for Proposal (RFP) Supply, Installation, Commissioning and Training of High-Performance Cpu Based Cluster</div>
+              <div class="t5-sub">R&amp;D · cafral.org.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">RFP</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rfp" data-sec="rfp"
+             data-title="request for proposal (rfp) for architectural &amp; engineering consultancy services for the development of land and buildings in the 85 acres of land (zone – ii) of ncr-bsc, faridabad"
+             href="https://rcb.res.in/files/2024-10/tender_ths-civil_engg.-rfp-18-19-01_1579670234.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0F6E56">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Request for Proposal (RFP) for Architectural &amp; Engineering Consultancy Services for the development of land and buildings in the 85 acres of land (Zone – II) of Ncr-bsc, Faridabad</div>
+              <div class="t5-sub">R&amp;D · rcb.res.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">RFP</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rfp" data-sec="rfp"
+             data-title="appointment of consultant for comprehensive planning and designing of the proposed aiims at kalyani, wb"
+             href="https://pmssy.mohfw.gov.in/files/tender/KALYANI_RFP.pdf?utm_source=chatgpt.com" target="_blank" rel="noopener"
+             style="--row-accent:#0F6E56">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Appointment of Consultant for Comprehensive Planning and designing of the proposed Aiims at Kalyani, Wb</div>
+              <div class="t5-sub">R&amp;D · pmssy.mohfw.gov.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">RFP</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rfp" data-sec="rfp"
+             data-title="rfp for establishment of state-of-the-art ar/vr/mr laboratory and immersive learning ecosystem at rashtriya raksha university, ahmedabad."
+             href="https://fulfilment.gem.gov.in/contract/slafds?fileDownloadPath=SLA_UPLOAD_PATH/2025/Sep/GEM_2025_B_6697626/CLM0010/ATC_b8c8cb27-9dad-439c-8b051758170479291_os@rsu.ac.in.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0F6E56">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">RFP for Establishment of State-of-the-Art Ar/vr/mr Laboratory and Immersive Learning Ecosystem at Rashtriya Raksha University, Ahmedabad.</div>
+              <div class="t5-sub">R&amp;D · fulfilment.gem.gov.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">RFP</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rfp" data-sec="rfp"
+             data-title="request for proposal for setting up microbiology section and installation of equipments by food safety and standards authority of india"
+             href="https://fssai.gov.in/upload/uploadfiles/files/Tender_RFP_Procurement_Equipments_Lab_CFL_Kolkata.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0F6E56">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Request for Proposal for Setting up Microbiology Section and Installation of Equipments by Food Safety and Standards Authority of India</div>
+              <div class="t5-sub">R&amp;D · fssai.gov.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">RFP</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rfp" data-sec="rfp"
+             data-title="rfp for engagement of program management agency (pma) for scheme for setting up/up-gradation of food testing laboratories"
+             href="https://www.mofpi.gov.in/sites/default/files/rfp_27.08.2025_1_1.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0F6E56">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">RFP for Engagement of Program Management Agency (PMA) for Scheme for Setting Up/up-gradation of Food Testing Laboratories</div>
+              <div class="t5-sub">R&amp;D · mofpi.gov.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">RFP</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rfp" data-sec="rfp"
+             data-title="rfp for hiring of agency for professional manpower support for water testing laboratory at state, district and sub-divisional level under rural water supply and sanitation(rwss), odisha"
+             href="https://panchayat.odisha.gov.in/sites/default/files/2024-07/RFP%20for%20hiring%20%20agency%20for%20professional%20manpower%20support%20for%20Water%20Testing%20Laboratory%20under%20RWSS%2C%20odisha.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0F6E56">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">RFP for Hiring of Agency for Professional Manpower Support for Water Testing Laboratory at State, District and Sub-Divisional Level under Rural Water Supply and Sanitation(RWSS), Odisha</div>
+              <div class="t5-sub">R&amp;D · panchayat.odisha.gov.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">RFP</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rfp" data-sec="rfp"
+             data-title="appointment of consultant for architectural &amp; engineering design services for incite &amp; allied works at gujarat biotechnology university"
+             href="https://gbu.edu.in/wp-content/uploads/2024/06/RFP_INCITE_Appointment-of-Consultant_Vol-I-21062024.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0F6E56">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Appointment of Consultant for Architectural &amp; Engineering Design Services for InCITE &amp; Allied Works at Gujarat Biotechnology University</div>
+              <div class="t5-sub">Incubation center · gbu.edu.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">RFP</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rfp" data-sec="rfp"
+             data-title="name of work: rfp for establishment of state-of-the-art ar/vr/mr laboratory and immersive learning ecosystem at rashtriya raksha university, ahmedabad."
+             href="https://fulfilment.gem.gov.in/contract/slafds?fileDownloadPath=SLA_UPLOAD_PATH/2025/Sep/GEM_2025_B_6697626/CLM0010/ATC_b8c8cb27-9dad-439c-8b051758170479291_os@rsu.ac.in.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0F6E56">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Name of Work: RFP for Establishment of State-of-the-Art Ar/vr/mr Laboratory and Immersive Learning Ecosystem at Rashtriya Raksha University, Ahmedabad.</div>
+              <div class="t5-sub">AR/VR educational center · fulfilment.gem.gov.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">RFP</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+        </div>
+      </div><!-- /rfp section -->
+      <div class="t5-section" data-sec="nit" style="animation-delay:0.10s">
+        <div class="t5-section-header">
+          <div class="t5-section-bar" style="background:#B45309"></div>
+          <span class="t5-section-label" style="color:#B45309">Notice Inviting Tender (NIT)</span>
+          <span class="t5-section-count">1 document</span>
+        </div>
+        <div class="t5-list">
+          <a class="t5-row t5-row--nit" data-sec="nit"
+             data-title="notice inviting tender (nit) national competitive bidding for laboratory services"
+             href="https://nhmodisha.gov.in/wp-content/uploads/2022/11/RFP-Document-2022-Laboratory-Services-Final.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#B45309">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Notice Inviting Tender (NIT) National Competitive Bidding for Laboratory Services</div>
+              <div class="t5-sub">nhmodisha.gov.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">NIT</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+        </div>
+      </div><!-- /nit section -->
+      <div class="t5-section" data-sec="eoi" style="animation-delay:0.15s">
+        <div class="t5-section-header">
+          <div class="t5-section-bar" style="background:#0a7377"></div>
+          <span class="t5-section-label" style="color:#0a7377">Expression of Interest (EOI)</span>
+          <span class="t5-section-count">1 document</span>
+        </div>
+        <div class="t5-list">
+          <a class="t5-row t5-row--eoi" data-sec="eoi"
+             data-title="global expression of interest (eoi) for “selection of technology partners for joint r&amp;d / co-production / system integration for business development in indian and overseas markets”"
+             href="https://www.celindia.co.in/tender-description/23739" target="_blank" rel="noopener"
+             style="--row-accent:#0a7377">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Global Expression of Interest (EOI) for “Selection of Technology Partners for Joint R&amp;D / Co-Production / System Integration for Business Development in Indian and Overseas Markets”</div>
+              <div class="t5-sub">R&amp;D · celindia.co.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">EOI</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+        </div>
+      </div><!-- /eoi section -->
+      <div class="t5-section" data-sec="rpt" style="animation-delay:0.30s">
+        <div class="t5-section-header">
+          <div class="t5-section-bar" style="background:#0369a1"></div>
+          <span class="t5-section-label" style="color:#0369a1">Reports &amp; DPR</span>
+          <span class="t5-section-count">5 documents</span>
+        </div>
+        <div class="t5-list">
+          <a class="t5-row t5-row--rpt" data-sec="rpt"
+             data-title="detailed project report on setting up of national institute for rural industrialisation"
+             href="https://mgiri.org/wp-content/uploads/2020/06/dpr.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0369a1">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Detailed Project Report on Setting up of National Institute for Rural Industrialisation</div>
+              <div class="t5-sub">Educational + Reserach institue +livelihood center · mgiri.org</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">DPR</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rpt" data-sec="rpt"
+             data-title="detailed project report on science and technology resource center (strc) at gondwana university, gadchiroli"
+             href="https://strc.org.in/wp-content/uploads/2024/12/STRC-DPR-2013.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0369a1">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Detailed Project Report on Science and Technology Resource Center (STRC) at Gondwana University, Gadchiroli</div>
+              <div class="t5-sub">strc.org.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">DPR</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rpt" data-sec="rpt"
+             data-title="prefeasibility report for setting up of diagnostic centre at district hospital dharwad"
+             href="https://abhinavinfo.com/idd_new/assets/pdf/pre_feasibility_studies/70b_DiagnosticLab_Dharwad.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0369a1">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Prefeasibility Report for Setting up of Diagnostic Centre at District Hospital Dharwad</div>
+              <div class="t5-sub">abhinavinfo.com</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">Report</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rpt" data-sec="rpt"
+             data-title="draft detailed project report new technology centre, baddi (general engineering)"
+             href="https://www.dcmsme.gov.in/Scheme_Guidelines1/DPR%20Baddi.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0369a1">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Draft Detailed Project Report New Technology Centre, Baddi (General Engineering)</div>
+              <div class="t5-sub">dcmsme.gov.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">DPR</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+          <a class="t5-row t5-row--rpt" data-sec="rpt"
+             data-title="feasibility study report"
+             href="https://www.iict.ac.in/dpr/4-YFeasibility%20Study%20Report.pdf" target="_blank" rel="noopener"
+             style="--row-accent:#0369a1">
+            <div class="t5-icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="t5-text">
+              <div class="t5-title">Feasibility Study Report</div>
+              <div class="t5-sub">iict.ac.in</div>
+            </div>
+            <div class="t5-right-side">
+              <span class="t5-badge">Report</span>
+              <span class="t5-ext-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+            </div>
+          </a>
+        </div>
+      </div><!-- /rpt section -->
+    </div><!-- /t5Sections -->
+  </div><!-- /t5-wrap -->
+  </div>
+  </div>
+
+  <!-- TAB: Media/Web -->
+  <div id="spv-panel-media" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+      <style>
+.mr-sec-hdr{display:flex;align-items:center;gap:10px;margin:28px 0 4px;padding-bottom:10px;border-bottom:1px solid #f1f5f9}
+        .mr-sec-hdr:first-child{margin-top:0}
+        .mr-sec-bar{width:3px;height:18px;border-radius:2px;flex-shrink:0}
+        .mr-sec-title{font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-family:var(--font-sans)}
+        .mr-sec-count{font-size:10px;color:#94a3b8;background:#f1f5f9;padding:1px 8px;border-radius:10px;font-family:var(--font-sans);margin-left:auto}
+</style>
+      <div class="media-stack">
+
+        <a class="media-row" href="https://calliolab.com/" target="_blank" rel="noopener noreferrer" style="--mr-accent:#1a7a5e;--mr-tint:rgba(26,122,94,.1);">
+          <div class="media-row-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a7a5e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+          <div class="media-row-main">
+            <div class="media-row-tag">Website Link · Finland</div>
+            <div class="media-row-title">Callio Lab</div>
+            <div class="media-row-source"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><line x1="2" y1="8" x2="14" y2="8"/><path d="M8 2a10 10 0 010 12M8 2a10 10 0 000 12"/></svg>calliolab.com</div>
+          </div>
+          <div class="media-row-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/></svg></div>
+        </a>
+
+        <a class="media-row" href="https://www.boulby.stfc.ac.uk/Pages/home.aspx" target="_blank" rel="noopener noreferrer" style="--mr-accent:#C85000;--mr-tint:rgba(200,80,0,.1);">
+          <div class="media-row-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C85000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+          <div class="media-row-main">
+            <div class="media-row-tag">Website Link · UK · STFC</div>
+            <div class="media-row-title">Boulby Underground Laboratory</div>
+            <div class="media-row-source"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><line x1="2" y1="8" x2="14" y2="8"/><path d="M8 2a10 10 0 010 12M8 2a10 10 0 000 12"/></svg>boulby.stfc.ac.uk</div>
+          </div>
+          <div class="media-row-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/></svg></div>
+        </a>
+
+        <a class="media-row" href="https://gwcenter.icrr.u-tokyo.ac.jp/en/about-kagra-project" target="_blank" rel="noopener noreferrer" style="--mr-accent:#1a5ca8;--mr-tint:rgba(26,92,168,.1);">
+          <div class="media-row-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a5ca8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+          <div class="media-row-main">
+            <div class="media-row-tag">Website Link · Japan · ICRR</div>
+            <div class="media-row-title">About KAGRA Project</div>
+            <div class="media-row-source"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><line x1="2" y1="8" x2="14" y2="8"/><path d="M8 2a10 10 0 010 12M8 2a10 10 0 000 12"/></svg>gwcenter.icrr.u-tokyo.ac.jp</div>
+          </div>
+          <div class="media-row-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><path d="M14 2l-7 7M10 2h4v4"/></svg></div>
+        </a>
+
+      </div><!-- /media-stack -->
+    <p style="font-size:0.72rem; color:var(--color-text-secondary); font-style:italic; margin-top:16px;">Links open external websites. Coal Controller Organisation does not endorse third-party content.</p>
+    </div>
+  </div>
+
+  <!-- TAB: Agencies -->
+    <div id="spv-panel-agencies" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+
+  <div class="agencies-logo-grid">
+
+    <div class="agency-logo-card">
+      <div class="agency-logo-inner agency-logo-inner--img agency-logo-inner--img--dark" style="background:#1a5ca8; border-radius:10px;">
+        <img src="../images/agencies/landt-logo.png" alt="Larsen &amp; Toubro Construction" style="max-width:100%;max-height:60px;object-fit:contain;">
+      </div>
+      <div class="agency-logo-name">Larsen &amp; Toubro Construction</div>
+      <div class="agency-logo-type">Cleanroom &amp; precision lab civil, structural, MEP &amp; HVAC works from shell to commission</div>
+    </div>
+
+    <div class="agency-logo-card">
+      <div class="agency-logo-inner agency-logo-inner--img agency-logo-inner--img--dark" style="background:#00215e; border-radius:10px;">
+        <img src="../images/agencies/kewaunee.png" alt="Kewaunee Scientific India Pvt Ltd" style="max-width:100%;max-height:60px;object-fit:contain;">
+      </div>
+      <div class="agency-logo-name">Kewaunee Scientific India Pvt Ltd</div>
+      <div class="agency-logo-type">Lab furniture, fume hoods, casework &amp; anti-vibration benching — designed, made &amp; installed</div>
+    </div>
+
+    <div class="agency-logo-card">
+      <div class="agency-logo-inner agency-logo-inner--img" style="background:#f5f5f5; border-radius:10px;">
+        <img src="../images/agencies/godrej.jpg" alt="Godrej &amp; Boyce" style="max-width:100%;max-height:60px;object-fit:contain;">
+      </div>
+      <div class="agency-logo-name">Godrej &amp; Boyce – Precision Systems Div.</div>
+      <div class="agency-logo-type">Modular lab fit-out: benching, storage, fume hoods &amp; safety furniture supply &amp; installation</div>
+    </div>
+
+    <div class="agency-logo-card">
+      <div class="agency-logo-inner agency-logo-inner--img" style="background:#f5f5f5; border-radius:10px;">
+        <img src="../images/agencies/Thermofisher.png" alt="Thermo Fisher Scientific India" style="max-width:100%;max-height:60px;object-fit:contain;">
+      </div>
+      <div class="agency-logo-name">Thermo Fisher Scientific India</div>
+      <div class="agency-logo-type">Lab equipment supply, installation &amp; analytical instrument commissioning</div>
+    </div>
+
+    <div class="agency-logo-card">
+      <div class="agency-logo-inner agency-logo-inner--img agency-logo-inner--img--dark" style="background:#003865; border-radius:10px;">
+        <img src="../images/agencies/agilent.png" alt="Agilent Technologies India" style="max-width:100%;max-height:60px;object-fit:contain;">
+      </div>
+      <div class="agency-logo-name">Agilent Technologies India</div>
+      <div class="agency-logo-type">Scientific instrumentation supply, lab system installation &amp; commissioning</div>
+    </div>
+
+    <div class="agency-logo-card">
+      <div class="agency-logo-inner agency-logo-inner--img" style="background:#f5f5f5; border-radius:10px;">
+        <img src="../images/agencies/linde-logo-desktop.avif" alt="Linde India Ltd" style="max-width:100%;max-height:60px;object-fit:contain;">
+      </div>
+      <div class="agency-logo-name">Linde India Ltd</div>
+      <div class="agency-logo-type">Lab gas pipeline systems, cylinder manifolds &amp; gas distribution network installation</div>
+    </div>
+
+    <div class="agency-logo-card">
+      <div class="agency-logo-inner agency-logo-inner--img" style="background:#f5f5f5; border-radius:10px;">
+        <img src="../images/agencies/saintglobain.webp" alt="Saint-Gobain India" style="max-width:100%;max-height:60px;object-fit:contain;">
+      </div>
+      <div class="agency-logo-name">Saint-Gobain India (lab division)</div>
+      <div class="agency-logo-type">Lab safety glazing, partition walls &amp; controlled-environment enclosure fit-out</div>
+    </div>
+
+    <div class="agency-logo-card">
+      <div class="agency-logo-inner agency-logo-inner--img" style="background:#f5f5f5; border-radius:10px;">
+        <img src="../images/agencies/vwr-part-of-avantor-logo-1.svg" alt="VWR International (Avantor) India" style="max-width:100%;max-height:60px;object-fit:contain;">
+      </div>
+      <div class="agency-logo-name">VWR International (Avantor) India</div>
+      <div class="agency-logo-type">Lab consumables, equipment supply, fume hood &amp; bench infrastructure setup</div>
+    </div>
+
+  </div><!-- /.agencies-logo-grid -->
+
+  <div style="margin-top:28px;padding:14px 18px;background:rgba(33,128,141,.05);border:1px solid rgba(33,128,141,.18);border-radius:8px;display:flex;gap:12px;align-items:flex-start;">
+    <svg style="flex-shrink:0;margin-top:2px;" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#21808d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+    <p style="margin:0;font-family:var(--font-sans);font-size:0.8rem;color:var(--color-text-secondary);line-height:1.65;">
+      <strong style="color:var(--color-text);font-weight:600;">Disclaimer:</strong>
+      Inclusion of an agency on this list does not constitute endorsement, empanelment, or recommendation by the Coal Controller Organisation or the Ministry of Coal, Government of India. Mine owners and project proponents are advised to conduct their own due diligence process before engaging any agency.
+    </p>
+  </div>
+
+    </div>
+  </div>
+
+  
+<!-- TAB: Experts -->
+  <div id="spv-panel-experts" class="spv-panel" style="display:none;">
+    <div class="spv-content">
+      <p class="spv-body-text" style="padding:1.5rem 0;color:#6b7280;font-style:italic;">Experts — domain expert profiles coming soon.</p>
+      <div style="margin-top:28px;padding:14px 18px;background:rgba(33,128,141,.05);border:1px solid rgba(33,128,141,.18);border-radius:8px;display:flex;gap:12px;align-items:flex-start;">
+        <svg style="flex-shrink:0;margin-top:2px;" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#21808d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <p style="margin:0;font-family:var(--font-sans);font-size:0.8rem;color:var(--color-text-secondary);line-height:1.65;"><strong style="color:var(--color-text);font-weight:600;">Disclaimer:</strong> Inclusion of an expert does not constitute endorsement, empanelment, or recommendation by the Coal Controller Organisation or the Ministry of Coal, Government of India. Users are advised to independently verify credentials and suitability before engaging any individual.</p>
+      </div>
+    </div>
+  </div>
+
+    <!-- Footer -->
+  <footer id="site-footer-sf">
+    &copy; 2026 Coal Controller Organisation, Ministry of Coal, Government of India.
+  </footer>
+
+</div><!-- /page -->
+
+<!-- Per-page PRISM colour config (injected by build.py) -->
+<script>
+const PRISM2_COLORS = {P:'#C85000', R:'#1a5ca8', I:'#b06a10', S:'#5a3d9e', M:'#1a7a5e'};
+const PRISM2_BG     = {P:'#fff0e6', R:'#e4eef9', I:'#faedda', S:'#edeaf8', M:'#e1f3ec'};
+</script>
+<script src="./category.js"></script>
+
+<script>
+/* ── prNav: sidebar-aware PRISM navigation for pr-shell layout ── */
+function prNav(key) {
+  prism2Show(key); /* category.js: toggles .active on panels + updates prism2Current */
+
+  /* Update sidebar nav items */
+  document.querySelectorAll('#spv-panel-prism .pr-nav-item').forEach(function(n) {
+    n.classList.toggle('active', n.dataset.key === key);
+  });
+
+  /* Slide the highlight bar */
+  var hl = document.getElementById('pr-hl');
+  var activeItem = document.querySelector('#spv-panel-prism .pr-nav-item[data-key="' + key + '"]');
+  if (hl && activeItem) {
+    var accent = getComputedStyle(activeItem).getPropertyValue('--pr-accent').trim();
+    hl.style.setProperty('--pr-hl', accent);
+    hl.style.top    = activeItem.offsetTop + 'px';
+    hl.style.height = activeItem.offsetHeight + 'px';
+  }
+
+  /* Sync progress dots */
+  document.querySelectorAll('#spv-panel-prism .pdot').forEach(function(d) {
+    d.classList.toggle('active', d.dataset.p === key);
+  });
+}
+
+/* Override prev/next so they also update the sidebar highlight */
+function prism2Next() {
+  if (prism2Current < PRISM2_ORDER.length - 1)
+    prNav(PRISM2_ORDER[prism2Current + 1]);
+}
+function prism2Prev() {
+  if (prism2Current > 0)
+    prNav(PRISM2_ORDER[prism2Current - 1]);
+}
+
+/* Initialise sidebar on DOMContentLoaded */
+
+function downloadPRISM() {
+  var rawTitle = document.title || '';
+  var catName  = rawTitle.split('—')[0].split('-')[0].trim() || 'Category';
+
+  var PC = {P:'#C85000',R:'#1a5ca8',I:'#b06a10',S:'#5a3d9e',M:'#1a7a5e'};
+  var PB = {P:'#fff8f3',R:'#f3f7fd',I:'#fdf7f0',S:'#f7f5fd',M:'#f1faf6'};
+  var PN = {P:'Project Vision',R:'Repurposing Pathways',I:'Investment Dynamics',S:'Strategic Structuring',M:'Monitoring &amp; Management'};
+  var PE = {P:'POST-MINING',R:'REPURPOSING',I:'INVESTMENT',S:'STRATEGY',M:'MANAGEMENT'};
+
+  var introHeadEl = document.querySelector('.pr-intro-heading');
+  var introBodyEl = document.querySelector('.pr-intro-body');
+  var introHead   = introHeadEl ? introHeadEl.textContent : 'A structured framework for mine repurposing from concept to implementation';
+  var introBody   = introBodyEl ? introBodyEl.innerHTML   : '';
+
+  var pillarsHTML = '';
+  ['P','R','I','S','M'].forEach(function(k) {
+    var panel = document.getElementById('prism2-panel-' + k);
+    if (!panel) return;
+
+    var eyebrowEl   = panel.querySelector('.prism2-panel-eyebrow');
+    var titleEl     = panel.querySelector('.prism2-panel-title');
+    var descEl      = panel.querySelector('.prism2-panel-desc');
+    var eyebrow     = eyebrowEl  ? eyebrowEl.textContent  : PE[k];
+    var panelTitle  = titleEl    ? titleEl.textContent    : PN[k];
+    var descHTML    = descEl     ? descEl.innerHTML       : '';
+
+    var accHTML = '';
+    panel.querySelectorAll('.accordion-item').forEach(function(item) {
+      var spans = item.querySelectorAll('.accordion-btn span');
+      var btnText = '';
+      for (var s = 0; s < spans.length; s++) {
+        var t = spans[s].textContent.trim();
+        if (t && t !== '⥤' && t !== '˅') { btnText = t; break; }
+      }
+      var body = item.querySelector('.accordion-body');
+      if (!body) return;
+      var clone = body.cloneNode(true);
+      clone.style.display = '';
+      /* Remove scroll-wrapper overflow so tables span full width */
+      clone.querySelectorAll('.spv-table-wrap').forEach(function(w){w.style.overflowX='visible';});
+      accHTML += '<div class="acc-item">' +
+        '<div class="acc-heading">' + btnText + '</div>' +
+        '<div class="acc-body">' + clone.innerHTML + '</div>' +
+        '</div>';
+    });
+
+    pillarsHTML +=
+      '<div class="pillar" style="border-left-color:' + PC[k] + ';">' +
+        '<div class="pillar-hdr" style="background:' + PC[k] + '18;">' +
+          '<div class="pillar-letter" style="color:' + PC[k] + ';">' + k + '</div>' +
+          '<div class="pillar-info">' +
+            '<div class="pillar-eyebrow" style="color:' + PC[k] + ';">' + eyebrow + '</div>' +
+            '<div class="pillar-name">' + panelTitle + '</div>' +
+            (descHTML ? '<div class="pillar-desc">' + descHTML + '</div>' : '') +
+          '</div>' +
+        '</div>' +
+        '<div class="pillar-content">' + accHTML + '</div>' +
+      '</div>';
+  });
+
+  var css = [
+    '*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}',
+    'body{font-family:"Segoe UI",Arial,sans-serif;font-size:10pt;color:#1a1a1a;line-height:1.65;background:#fff}',
+    '@page{size:A4;margin:16mm 14mm}',
+    /* ── Cover ── */
+    '.cover{margin-bottom:28pt;padding-bottom:22pt;border-bottom:1.5pt solid #ddd}',
+    '.rainbow{height:5pt;border-radius:99pt;background:linear-gradient(to right,#7C3AB5,#4f6de0,#0ea5e9,#1D9E75,#3B6D11,#BA7517,#C85000,#A32D2D);margin-bottom:18pt}',
+    '.cover-eye{font-size:7.5pt;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#888;margin-bottom:7pt}',
+    '.cover-title{font-size:24pt;font-weight:800;color:#111;line-height:1.15;margin-bottom:5pt}',
+    '.cover-sub{font-size:11pt;font-weight:600;color:#444;margin-bottom:11pt}',
+    '.cover-body{font-size:9pt;color:#555;line-height:1.75}',
+    /* ── Pillars ── */
+    '.pillars{display:flex;flex-direction:column;gap:20pt}',
+    '.pillar{border-left:4pt solid #ccc;border-radius:6pt;overflow:hidden;page-break-inside:avoid}',
+    '.pillar-hdr{padding:13pt 15pt 11pt;display:flex;align-items:flex-start;gap:12pt}',
+    '.pillar-letter{font-size:30pt;font-weight:800;line-height:1;flex-shrink:0;width:38pt;opacity:.85}',
+    '.pillar-info{flex:1}',
+    '.pillar-eyebrow{font-size:7pt;font-weight:700;letter-spacing:.11em;text-transform:uppercase;margin-bottom:2pt}',
+    '.pillar-name{font-size:12.5pt;font-weight:700;color:#111;margin-bottom:3pt}',
+    '.pillar-desc{font-size:8.5pt;color:#555;line-height:1.6}',
+    /* ── Accordion ── */
+    '.pillar-content{background:#fff}',
+    '.acc-item{border-top:1pt solid #e8e8e0}',
+    '.acc-heading{font-size:9pt;font-weight:700;padding:8pt 13pt;color:#2a2a2a;background:#fafaf8}',
+    '.acc-body{font-size:8.5pt;line-height:1.75;color:#444;padding:9pt 13pt 11pt}',
+    /* ── Body content ── */
+    '.spv-body-text{margin-bottom:7pt}',
+    'p{margin-bottom:7pt}',
+    '.spv-list,.spv-list-unstyled{margin:5pt 0 7pt 16pt}',
+    'ul,ol{margin:5pt 0 7pt 16pt}',
+    '.spv-list li,ul li,ol li{margin-bottom:3pt}',
+    /* ── Tables ── */
+    '.spv-table-wrap{margin:7pt 0;overflow:visible}',
+    '.spv-table{width:100%;border-collapse:collapse;font-size:8pt}',
+    '.spv-table th{background:#f0f0ea;font-weight:700;text-align:left;padding:5pt 7pt;border:1pt solid #ccc;vertical-align:top}',
+    '.spv-table td{padding:4.5pt 7pt;border:1pt solid #ccc;vertical-align:top}',
+    '.spv-table tr:nth-child(even) td{background:#f9f9f7}',
+    /* ── Strong/em ── */
+    'strong{font-weight:700}',
+    'em{font-style:italic}',
+    /* ── Info/note boxes (if any) ── */
+    '.spv-note,.spv-info{background:#f5f5f0;border-left:3pt solid #aaa;padding:8pt 10pt;margin:6pt 0;font-size:8.5pt}'
+  ].join('\n');
+
+  var html = '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">' +
+    '<title>PRISM — ' + catName + '<\/title>' +
+    '<style>' + css + '<\/style><\/head><body>' +
+    '<div class="cover">' +
+      '<div class="rainbow"><\/div>' +
+      '<div class="cover-eye">PRISM Framework — Post-Mining Repurposing &amp; Implementation Strategy Models<\/div>' +
+      '<div class="cover-title">' + catName + '<\/div>' +
+      '<div class="cover-sub">' + introHead + '<\/div>' +
+      (introBody ? '<div class="cover-body">' + introBody + '<\/div>' : '') +
+    '<\/div>' +
+    '<div class="pillars">' + pillarsHTML + '<\/div>' +
+    '<\/body><\/html>';
+
+  var win = window.open('', '_blank', 'width=960,height=750');
+  if (!win) { alert('Please allow pop-ups for this site to download the PDF.'); return; }
+  win.document.write(html);
+  win.document.close();
+  win.focus();
+  setTimeout(function() { win.print(); }, 700);
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  prNav('P');
+});
+</script>
+
+<!-- browse-back-script -->
+<script>
+(function(){
+  if(new URLSearchParams(location.search).get('from')==='browse'){
+    var btn=document.querySelector('.back-btn');
+    if(btn){
+      btn.onclick=function(){window.location.href='../browse.html';};
+      btn.setAttribute('aria-label','Back to Browse');
+      for(var i=btn.childNodes.length-1;i>=0;i--){
+        var n=btn.childNodes[i];
+        if(n.nodeType===3&&n.textContent.trim()){n.textContent=' Back to Browse';break;}
+      }
+    }
+    var cr=document.querySelector('.sf-breadcrumb span:not(.sep)');
+    if(cr)cr.textContent='All Categories';
+  }
+})();
+</script>
+</body>
+</html>
