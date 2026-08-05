@@ -7,28 +7,32 @@
   <link rel="stylesheet" href="../style.css">
   <link rel="stylesheet" href="./category.css">
   <style>
-    .sgft-content { max-width: 1080px; margin: 0 auto; padding: 26px 24px 48px; }
+    .sgft-content { max-width: 1560px; margin: 0 auto; padding: 20px 28px 36px; }
 
-    .sgft-intro { margin: 0 0 18px; }
+    .sgft-intro { margin: 0 0 16px; }
     .sgft-intro p {
       font-family: var(--font-sans);
-      font-size: var(--fs-md);
+      font-size: 1.05rem;
       line-height: 1.55;
       color: var(--color-text-secondary);
     }
     .sgft-intro p strong { color: var(--color-text); font-weight: 600; }
 
-    .sgft-layout-row { display: flex; align-items: flex-start; gap: 20px; }
+    .sgft-layout-row { display: flex; align-items: flex-start; gap: 24px; }
 
     .sgft-qblock {
-      flex: 0 1 480px; max-width: 480px; min-width: 0;
+      /* capped rather than matched 1:1 with the live panel — an equal-halves split left this
+         card's centered, width-limited content swimming in empty space on wide screens.
+         flex-basis stays 0% (not a px value) because the layout switches to flex-direction:
+         column below 960px, where a px basis would set a fixed HEIGHT instead of width. */
+      flex: 1 1 0%; max-width: 660px; min-width: 0;
       background: var(--color-surface); border: 1px solid var(--color-card-border);
       border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);
       overflow: hidden;
     }
 
     /* only instruments the current question actually touches get a card here */
-    .sgft-live-panel { flex: 1; min-width: 0; }
+    .sgft-live-panel { flex: 1 1 0%; min-width: 0; }
     .sgft-live-title { margin: 0 0 2px; font-family: var(--font-sans); font-size: 1.05rem; font-weight: 700; color: var(--color-teal-700); }
     .sgft-live-sub { margin: 0 0 14px; font-family: var(--font-sans); font-size: var(--fs-sm); color: var(--color-text-secondary); }
     .sgft-live-grid { display: flex; flex-direction: column; gap: 10px; }
@@ -84,6 +88,14 @@
       width: 22px; height: 22px; flex-shrink: 0; border-radius: 50%;
       background: var(--color-teal-700); display: flex; align-items: center; justify-content: center;
     }
+    /* in the final-result recommendation panel, the accent bar matches the row's own
+       tier colour (red/amber/green) instead of always being teal */
+    .sgft-live-reco-box.sgft-final-low  { border-left-color: var(--color-red-500); }
+    .sgft-live-reco-box.sgft-final-mid  { border-left-color: var(--gold); }
+    .sgft-live-reco-box.sgft-final-high { border-left-color: #166534; }
+    .sgft-live-reco-box.sgft-final-low  .sgft-live-reco-icon-wrap { background: var(--color-red-500); }
+    .sgft-live-reco-box.sgft-final-mid  .sgft-live-reco-icon-wrap { background: var(--gold); }
+    .sgft-live-reco-box.sgft-final-high .sgft-live-reco-icon-wrap { background: #166534; }
     .sgft-live-reco-icon-wrap svg { width: 12px; height: 12px; color: #fff; }
     .sgft-live-reco-label { display: block; margin: 0 0 3px; font-family: var(--font-sans); font-size: 0.66rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--color-teal-700); }
     .sgft-live-reco-text { margin: 0; font-family: var(--font-sans); font-size: var(--fs-sm); line-height: 1.6; color: var(--color-text-secondary); white-space: pre-line; }
@@ -99,10 +111,10 @@
     }
     #sgft-abbr-tip.open { display: block; }
 
-    .sgft-progress-head { padding: 16px 24px 14px; border-bottom: 1px solid var(--color-card-border); }
+    .sgft-progress-head { padding: 16px 32px 14px; border-bottom: 1px solid var(--color-card-border); }
     .sgft-progress-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
-    .sgft-progress-label { font-family: var(--font-sans); font-size: var(--fs-sm); font-weight: 600; color: var(--color-text); }
-    .sgft-progress-time { font-family: var(--font-sans); font-size: var(--fs-xs); color: var(--color-text-secondary); }
+    .sgft-progress-label { font-family: var(--font-sans); font-size: 0.9rem; font-weight: 600; color: var(--color-text); }
+    .sgft-progress-time { font-family: var(--font-sans); font-size: 0.8rem; color: var(--color-text-secondary); }
 
     .sgft-progress-track { position: relative; height: 18px; display: flex; align-items: center; justify-content: space-between; }
     .sgft-progress-track::before {
@@ -123,18 +135,18 @@
     .sgft-progress-dot.current { border-color: var(--color-primary); background: var(--color-surface); transform: scale(1.25); }
     .sgft-progress-dot:hover { border-color: var(--color-teal-700); }
 
-    .sgft-qbody { padding: 26px 24px 8px; text-align: center; }
-    .sgft-qnum { margin: 0 0 10px; font-family: var(--font-sans); font-size: var(--fs-xs); font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--color-primary); }
-    .sgft-qtitle { margin: 0 0 6px; font-family: var(--font-sans); font-size: var(--fs-lg); font-weight: 600; line-height: 1.4; }
-    .sgft-qbody .sgft-info-wrap { display: block; margin: 0 0 18px; }
-    .sgft-qbody .sgft-info-content { max-width: 44ch; margin: 6px auto 0; text-align: left; }
+    .sgft-qbody { padding: 26px 32px 8px; text-align: center; }
+    .sgft-qnum { margin: 0 0 8px; font-family: var(--font-sans); font-size: var(--fs-xs); font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--color-primary); }
+    .sgft-qtitle { margin: 0 0 6px; font-family: var(--font-sans); font-size: 1.45rem; font-weight: 600; line-height: 1.4; max-width: 560px; margin-left: auto; margin-right: auto; }
+    .sgft-qbody .sgft-info-wrap { display: block; margin: 0 0 16px; }
+    .sgft-qbody .sgft-info-content { max-width: 560px; margin: 6px auto 0; text-align: left; }
 
-    .sgft-qoptions { display: flex; flex-direction: column; gap: 8px; max-width: 360px; margin: 0 auto; }
+    .sgft-qoptions { display: flex; flex-direction: column; gap: 10px; max-width: 480px; width: 100%; margin: 0 auto; }
     .sgft-qopt {
       border: 1.5px solid var(--color-card-border); border-radius: var(--radius);
       background: var(--color-surface); color: var(--color-text);
-      font-family: var(--font-sans); font-size: var(--fs-base); font-weight: 500;
-      padding: 12px 16px; cursor: pointer; transition: all .15s ease; text-align: left;
+      font-family: var(--font-sans); font-size: 1.05rem; font-weight: 500;
+      padding: 13px 18px; cursor: pointer; transition: all .15s ease; text-align: left;
       display: flex; align-items: center; gap: 10px;
     }
     .sgft-qopt::before {
@@ -145,7 +157,7 @@
     .sgft-qopt.selected { border-color: var(--color-primary); background: var(--color-teal-border); color: var(--color-teal-700); font-weight: 600; }
     .sgft-qopt.selected::before { border-color: var(--color-primary); border-width: 5px; }
 
-    .sgft-qnav { display: flex; justify-content: space-between; align-items: center; padding: 14px 24px 18px; }
+    .sgft-qnav { display: flex; justify-content: space-between; align-items: center; padding: 14px 32px 18px; }
     .sgft-qnav-btn {
       display: inline-flex; align-items: center; gap: 6px;
       border: 1px solid var(--color-card-border); background: var(--color-surface); color: var(--color-text-secondary);
@@ -168,16 +180,16 @@
     .sgft-info-btn:hover, .sgft-info-btn.open { color: var(--color-teal-700); }
     .sgft-info-content {
       display: none; position: relative;
-      margin: 8px 0 10px; padding: 11px 14px 11px 38px;
+      margin: 8px 0 10px; padding: 14px 18px 16px 42px;
       border-radius: var(--radius-lg);
-      font-family: var(--font-sans); font-size: var(--fs-sm);
-      line-height: 1.6; white-space: pre-line; font-weight: 400;
+      font-family: var(--font-sans); font-size: 0.95rem;
+      line-height: 1.6; font-weight: 400;
       animation: sgftInfoIn .18s ease;
     }
     .sgft-info-content::before {
-      content: "i"; position: absolute; left: 11px; top: 11px;
-      width: 17px; height: 17px; border-radius: 50%; color: #fff;
-      font-size: 0.64rem; font-weight: 700; font-style: normal; line-height: 1;
+      content: "i"; position: absolute; left: 14px; top: 15px;
+      width: 18px; height: 18px; border-radius: 50%; color: #fff;
+      font-size: 0.68rem; font-weight: 700; font-style: normal; line-height: 1;
       display: flex; align-items: center; justify-content: center;
     }
     @keyframes sgftInfoIn {
@@ -190,46 +202,133 @@
     .sgft-qbody .sgft-info-content { background: var(--color-gray-200); color: var(--color-text-secondary); border: 1px solid var(--color-card-border); }
     .sgft-qbody .sgft-info-content::before { background: var(--color-primary); }
 
+    /* "More info" bullet list — replaces the old run-on "1) ... 2) ..." paragraph */
+    .sgft-info-para { margin: 0; }
+    .sgft-info-points { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+    /* position:relative + absolute marker (not display:flex on the li) — flexing the li
+       itself would split its text nodes and any inline <a> into separate flex items,
+       each wrapping independently instead of flowing together as one paragraph */
+    .sgft-info-points li { position: relative; padding-left: 13px; }
+    .sgft-info-points li::before {
+      content: ""; position: absolute; left: 0; top: 8px; width: 5px; height: 5px; border-radius: 50%;
+      background: currentColor; opacity: .4;
+    }
+
+    /* "Refer to" — links pulled out of the body text into their own numbered list */
+    .sgft-info-refer { margin-top: 12px; padding-top: 12px; border-top: 1px dashed var(--color-card-border); }
+    .sgft-info-refer-label { margin: 0 0 6px; font-family: var(--font-sans); font-size: 0.72rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--color-teal-700); }
+    .sgft-info-refer-list { margin: 0; padding-left: 19px; display: flex; flex-direction: column; gap: 6px; }
+    .sgft-info-refer-list li { font-family: var(--font-sans); font-size: 0.9rem; }
+    .sgft-info-refer-list li::marker { font-weight: 700; color: var(--color-teal-700); }
+
+    /* consistent hyperlink treatment wherever links sit inside flowing content */
+    .sgft-info-content a, .sgft-reco-steps a, .sgft-reco-text a, .sgft-final-reasons a {
+      color: var(--color-teal-700); font-weight: 600;
+      text-decoration: underline; text-underline-offset: 2px;
+    }
+    .sgft-info-content a:hover, .sgft-reco-steps a:hover, .sgft-reco-text a:hover, .sgft-final-reasons a:hover {
+      color: var(--color-primary);
+    }
+
     .sgft-final-result { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--color-card-border); }
 
     .sgft-final-hero-sub { margin: 2px 0 0; font-family: var(--font-sans); font-size: var(--fs-sm); color: var(--color-text-secondary); }
 
-    .sgft-final-acc { border: 1px solid var(--color-card-border); border-radius: var(--radius-lg); overflow: hidden; }
-    .sgft-final-row { border-bottom: 1px solid var(--color-card-border); }
+    /* summary strip — quick-scan counts above the accordion */
+    .sgft-final-summary { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 18px; }
+    .sgft-final-chip {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 13px; border-radius: var(--radius-full);
+      font-family: var(--font-sans); font-size: 0.8rem; font-weight: 700;
+    }
+    .sgft-final-chip svg { width: 13px; height: 13px; flex-shrink: 0; }
+    .sgft-final-chip.sgft-final-low  { background: #fef2f2; color: var(--color-red-500); }
+    .sgft-final-chip.sgft-final-mid  { background: #fffbeb; color: #92400e; }
+    .sgft-final-chip.sgft-final-high { background: #ecfdf5; color: #166534; }
+
+    .sgft-final-acc { border: 1px solid var(--color-card-border); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm); }
+    .sgft-final-row { border-bottom: 1px solid var(--color-card-border); border-left: 4px solid transparent; transition: background-color .15s ease, border-color .15s ease; }
     .sgft-final-row:last-child { border-bottom: none; }
-    .sgft-final-head { width: 100%; display: flex; align-items: center; gap: 12px; padding: 14px 16px; background: none; border: none; cursor: pointer; text-align: left; font-family: var(--font-sans); }
-    .sgft-final-stripe { width: 4px; align-self: stretch; border-radius: var(--radius-full); flex-shrink: 0; }
+    .sgft-final-row.sgft-final-low  { border-left-color: var(--color-red-500); }
+    .sgft-final-row.sgft-final-mid  { border-left-color: var(--gold); }
+    .sgft-final-row.sgft-final-high { border-left-color: #166534; }
+    .sgft-final-row.sgft-final-low:hover  { background: #fef2f2; }
+    .sgft-final-row.sgft-final-mid:hover  { background: #fffbeb; }
+    .sgft-final-row.sgft-final-high:hover { background: #ecfdf5; }
+
+    .sgft-final-head { width: 100%; display: flex; align-items: center; gap: 14px; padding: 16px 18px; background: none; border: none; cursor: pointer; text-align: left; font-family: var(--font-sans); }
+
+    .sgft-final-icon {
+      width: 38px; height: 38px; border-radius: 50%; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .sgft-final-icon svg { width: 18px; height: 18px; }
+    .sgft-final-icon.sgft-final-low  { background: #fef2f2; color: var(--color-red-500); }
+    .sgft-final-icon.sgft-final-mid  { background: #fffbeb; color: #92400e; }
+    .sgft-final-icon.sgft-final-high { background: #ecfdf5; color: #166534; }
+
     .sgft-final-name { flex: 1; font-family: var(--font-sans); font-size: var(--fs-base); font-weight: 600; }
-    .sgft-final-tier { font-family: var(--font-sans); font-size: 0.76rem; font-weight: 700; padding: 3px 10px; border-radius: var(--radius-full); }
+    .sgft-final-tier {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-family: var(--font-sans); font-size: 0.76rem; font-weight: 700; padding: 4px 11px; border-radius: var(--radius-full);
+    }
+    .sgft-final-tier svg { width: 11px; height: 11px; flex-shrink: 0; }
     .sgft-final-chevron { width: 16px; height: 16px; color: var(--color-text-secondary); transition: transform .2s ease; flex-shrink: 0; }
     .sgft-final-chevron-spacer { width: 16px; flex-shrink: 0; }
     .sgft-final-row.open .sgft-final-chevron { transform: rotate(180deg); }
     .sgft-final-body { max-height: 0; overflow: hidden; transition: max-height .25s ease; }
     .sgft-final-row.open .sgft-final-body { max-height: 2400px; }
-    .sgft-final-body-inner { display: flex; flex-direction: column; padding: 0 16px 16px 32px; }
-    .sgft-final-text { font-family: var(--font-sans); font-size: var(--fs-base); line-height: 1.65; color: var(--color-text-secondary); margin: 0 0 8px; }
-    .sgft-final-text:last-child { margin-bottom: 0; }
+    .sgft-final-body-inner { display: flex; flex-direction: column; padding: 0 18px 18px 52px; }
+
+    .sgft-final-reasons { list-style: none; margin: 0 0 12px; padding: 0; display: flex; flex-direction: column; gap: 9px; }
+    /* position:relative + absolute marker, not display:flex on the li — see the note
+       on .sgft-info-points above for why flexing the li itself breaks inline text/links */
+    .sgft-final-reasons li {
+      position: relative; padding-left: 14px;
+      font-family: var(--font-sans); font-size: 0.95rem; line-height: 1.6; color: var(--color-text-secondary);
+    }
+    .sgft-final-reasons li::before {
+      content: ""; position: absolute; left: 0; top: 8px; width: 5px; height: 5px; border-radius: 50%;
+      background: var(--color-text-secondary); opacity: .45;
+    }
 
     .sgft-final-reco-toggle {
-      position: relative; margin: 2px 0 0;
-      display: inline-flex; align-items: center; gap: 4px;
-      border: none; background: none; padding: 0;
-      font-family: var(--font-sans); font-size: 0.8rem; font-weight: 700;
-      color: var(--color-teal-700); text-decoration: underline; text-underline-offset: 2px;
-      cursor: pointer;
+      position: relative;
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 13px; border-radius: var(--radius-full);
+      border: 1px solid var(--color-teal-700); background: none;
+      font-family: var(--font-sans); font-size: 0.78rem; font-weight: 700;
+      color: var(--color-teal-700); text-decoration: none;
+      cursor: pointer; transition: background-color .15s ease;
     }
+    .sgft-final-reco-toggle:hover, .sgft-final-reco-toggle.open { background: var(--color-teal-border); }
     .sgft-final-reco-toggle svg { width: 11px; height: 11px; transition: transform .18s ease; flex-shrink: 0; }
     .sgft-final-reco-toggle.open svg { transform: rotate(180deg); }
-    .sgft-final-reco-panel { display: none; flex-direction: column; gap: 8px; margin-top: 8px; }
+    .sgft-final-reco-panel { display: none; flex-direction: column; gap: 12px; margin-top: 10px; }
     .sgft-final-reco-panel.open { display: flex; animation: sgftInfoIn .18s ease; }
 
-    .sgft-final-actions-row { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; margin-top: 2px; }
+    .sgft-reco-block { display: flex; flex-direction: column; gap: 6px; }
+    .sgft-reco-body { flex: 1; min-width: 0; }
+    .sgft-reco-text { margin: 0; font-family: var(--font-sans); font-size: 0.95rem; line-height: 1.6; color: var(--color-text-secondary); }
+    .sgft-reco-steps { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+    /* position:relative + absolute marker, not display:flex on the li — see the note
+       on .sgft-info-points above for why flexing the li itself breaks inline text/links */
+    .sgft-reco-steps li {
+      position: relative; padding-left: 13px;
+      font-family: var(--font-sans); font-size: 0.95rem; line-height: 1.6; color: var(--color-text-secondary);
+    }
+    .sgft-reco-steps li::before {
+      content: ""; position: absolute; left: 0; top: 8px; width: 5px; height: 5px; border-radius: 50%;
+      background: var(--color-teal-700); opacity: .6;
+    }
+
+    .sgft-final-actions-row { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; margin-top: 2px; }
 
     .sgft-final-proc {
       display: flex; width: fit-content; align-items: center; gap: 4px;
-      margin-left: auto; padding: 5px 11px;
+      margin-left: auto; padding: 6px 13px;
       border-radius: var(--radius-full);
-      font-family: var(--font-sans); font-size: 0.76rem; font-weight: 600;
+      font-family: var(--font-sans); font-size: 0.78rem; font-weight: 700;
       text-decoration: none;
       border: 1px solid currentColor;
       transition: background-color .15s ease, transform .1s ease;
@@ -242,25 +341,18 @@
     .sgft-final-proc.sgft-final-mid  { color: #92400e; background: #fffbeb; }
     .sgft-final-proc.sgft-final-high { color: #166534; background: #ecfdf5; }
 
-    .sgft-final-stripe.sgft-final-low  { background: var(--color-red-500); }
-    .sgft-final-stripe.sgft-final-mid  { background: var(--gold); }
-    .sgft-final-stripe.sgft-final-high { background: #166534; }
     .sgft-final-tier.sgft-final-low  { background: #fef2f2; color: var(--color-red-500); }
     .sgft-final-tier.sgft-final-mid  { background: #fffbeb; color: #92400e; }
     .sgft-final-tier.sgft-final-high { background: #ecfdf5; color: #166534; }
 
-    .sgft-final-row { transition: background-color .15s ease; }
-    .sgft-final-row.sgft-final-low:hover  { background: #fef2f2; }
-    .sgft-final-row.sgft-final-mid:hover  { background: #fffbeb; }
-    .sgft-final-row.sgft-final-high:hover { background: #ecfdf5; }
     .sgft-final-eyebrow { margin: 0 0 6px; font-family: var(--font-sans); font-size: 0.72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--color-primary); }
     .sgft-final-result-title { margin: 0 0 4px; font-family: var(--font-sans); font-size: var(--fs-lg); font-weight: 700; }
     .sgft-final-result-sub { margin: 0 0 20px; font-family: var(--font-sans); font-size: var(--fs-sm); color: var(--color-text-secondary); }
 
-    @media (max-width: 860px) {
+    @media (max-width: 960px) {
       .sgft-layout-row { flex-direction: column; }
-      .sgft-qblock { max-width: none; }
-      .sgft-live-panel { width: 100%; }
+      .sgft-qblock { max-width: none; width: 100%; }
+      .sgft-live-panel { width: 100%; max-width: none; }
     }
     @media (max-width: 560px) {
       .sgft-content { padding: 20px 14px 40px; }
@@ -303,9 +395,7 @@
     <div class="sgft-content">
       <h1 class="spv-section-title">Green Finance</h1>
       <div class="sgft-intro">
-        <p>Answer <strong>7 quick questions</strong> to see a preliminary eligibility status for
-          Green Bonds, Carbon Credit, <abbr title="Green Climate Fund">GCF</abbr> and Green Loans,
-          based on the Agroforestry financing criteria.</p>
+        <p>Answer <strong>7</strong> quick questions to check your preliminary eligibility for Green Bonds, Carbon Credits, Green Climate Fund (GCF) and Green Loans</p>
       </div>
 
       <section id="page-questions">
@@ -314,7 +404,7 @@
             <div class="sgft-progress-head">
               <div class="sgft-progress-top">
                 <span class="sgft-progress-label" id="progress-label">Question 1 of 7</span>
-                <span class="sgft-progress-time">&sim;2 min &middot; 7 questions</span>
+                <span class="sgft-progress-time">&middot;</span>
               </div>
               <div class="sgft-progress-track" id="progress-track">
                 <div class="sgft-progress-fill" id="progress-fill"></div>
@@ -348,6 +438,7 @@
           <p class="sgft-final-eyebrow">Final Result</p>
           <h2 class="sgft-final-result-title">Combined eligibility across all 7 answers</h2>
           <p class="sgft-final-result-sub">Tap any instrument to see why, and what to do next.</p>
+          <div class="sgft-final-summary" id="final-summary"></div>
           <div class="sgft-final-acc" id="final-acc"></div>
         </section>
       </section>
@@ -365,51 +456,53 @@
     "use strict";
 
     // id, title, info text and answer options for each question, in order
+    // <br><a href=\"\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\"> &nearr;</a>
     const QUESTIONS = [
       {
         id: "q1",
-        title: "Does the project broadly align with the host country's national climate strategy and plans or <abbr title='Nationally Determined Contribution'>NDC</abbr>?",
-        info: "Proposals not aligned with national climate priorities may not receive <abbr title='National Designated Authority'>NDA</abbr> endorsement.<br><a href=\"https://unfccc.int/sites/default/files/NDC/2022-06/INDIA%20INDC%20TO%20UNFCCC.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">See India's NDC submission to the UNFCCC &nearr;</a>",
+        title: "Does the project align with India's Nationally Determined Contribution (NDC) and national climate strategy/ plans? ",
+        info: "1) Nationally Determined Contributions (NDCs) are national climate action plans under the Paris Agreement, outlining targets to reduce greenhouse gas emissions, build climate resilience, and transition to clean energy. <br>2) The National Action Plan on Climate Change (NAPCC) outlines a national strategy that aims to enable thecountry to adapt to climate change and enhance the ecological  sustainability of India‘s development path.<br><br><a href=\"https://unfccc.int/sites/default/files/NDC/2022-08/India%20Updated%20First%20Nationally%20Determined%20Contrib.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">India’s Updated First NDC Under Paris Agreement &nearr;</a><br><a href=\"https://unfccc.int/sites/default/files/2026-04/INDIA%20NDC%202031-35.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">India’s Nationally Determined Contribution (2031-2035) &nearr;</a><br><a href=\"https://static.pib.gov.in/WriteReadData/specificdocs/documents/2021/dec/doc202112101.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">National Action Plan on Climate Change (NAPCC) (FAQ) &nearr;</a>",
         options: [{ value: "yes", label: "Yes" }, { value: "no", label: "No" }]
       },
       {
         id: "q2",
-        title: "Does the project possess legal land-use rights and all required FPIC (Free, Prior, Informed Consent) approvals?",
-        info: "1. Project need to adhere to Minimum Social Safeguards (MSS) also uphold ethical and inclusive social practices<br>2. Project activities should contribute to environmental goals",
+        title: "Does the project possess legal land-use permissions and all required FPIC (Free, Prior, Informed &Consent) approvals?",
+        info: "Ensure the project has valid land-use rights and all required approvals, including  Free, Prior and Informed Consent (FPIC), which means informing, consulting, and obtaining consent from affected Indigenous or local communities before starting project activities.<br><br><a href=\"https://ses-toolkit.info.undp.org/sites/g/files/zskgke446/files/SES%20Document%20Library/Uploaded%20October%202016/FINAL%20FPIC%20FAQ%20Guidance%20-%20June%2015%202022.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">SES Supplemental Guidance FAQs on Applying Free Prior Informed Consent (FPIC) &nearr;</a><br><a href=\"https://www.greenclimate.fund/sites/default/files/document/ipp-operational-guidelines.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Free, Prior and Informed Consent | Green Climate Fund &nearr;</a>",
         options: [{ value: "yes", label: "Yes" }, { value: "no", label: "No" }]
       },
       {
         id: "q3",
-        title: "Will the project comply with the governing environmental and social laws and standards?",
-        info: "Compliance with environmental and social safeguards are key prerequisite for eligibility.",
+        title: "Will the project comply with all applicable environmental and social laws, regulations and standards?",
+        info: "The project should comply with all applicable environmental and social requirements, including required permits, approvals, and standards. This includes protecting the environment, ensuring worker health and safety, consulting affected communities where required, protecting biodiversity, and regularly monitoring project impacts.<br><br><a href=\"https://www.greenclimate.fund/access-funding/sustainability-and-inclusion/environmental-social-safeguards\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Environmental and social safeguards | Green Climate Fund &nearr;</a><br><a href=\"https://www.ifc.org/en/insights-reports/2012/ifc-performance-standards\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Performance Standards on Environmental and Social Sustainability | International Finance Corporation (IFC) &nearr;</a><br><a href=\"https://www.ifc.org/en/insights-reports/general-environmental-health-and-safety-guidelines\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Environmental, Health, and Safety Guidelines &nearr;</a><br><a href=\"https://thedocs.worldbank.org/en/doc/837721522762050108-0290022018/original/ESFFramework.pdf#page=29&zoom=80\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Work Bank Environmental and Social Framework &nearr;</a><br><a href=\"https://verra.org/documents/vcs-esg-risk-assessment-template-v5-0\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">VCS ESG Risk Assessment Template &nearr;</a><br><a href=\"https://equator-principles.com/app/uploads/The-Equator-Principles_EP4_July2020.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">EQUATOR PRINCIPLES &nearr;</a>",
         options: [{ value: "yes", label: "Yes" }, { value: "no", label: "No" }, { value: "partially", label: "Partially" }]
       },
       {
         id: "q4",
-        title: "Does the project require external financial support to become commercially viable?",
-        info: "Bankability of the project determines the Green Finance Eligbility. For <abbr title='Green Climate Fund'>GCF</abbr> fully bankable projects without a funding gap do not qualify.",
-        options: [
-          { value: "commercial", label: "No" },
-          { value: "concessional", label: "Not viable without concessional support" },
-          { value: "carbon", label: "Not viable without carbon credit" }
-        ]
+        title: "Is project required by any existing law, regulations or legally binding mandate?",
+        info: "For example, the project proposes to restore 100 hectares. However, the law requires restoration of 40 hectares only. In such scenario, restoration of 40 Ha will be considered as Mandated by Law or Legally Binding, whereas 60 Ha will be considered as voluntarily or Non-Legally binding.<br><br><a href=\"https://verra.org/documents/vcs-standard-v5-0/\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Right to operate | Verra Standard &nearr;</a>",
+        options: [{ value: "yes", label: "Yes" }, { value: "no", label: "No" }, { value: "partially", label: "Partially" }]
+      
       },
       {
         id: "q5",
-        title: "Is the project required by any existing law, regulation or legally binding mandate?",
-        info: "Project implementation a legal obligation or required by law",
-        options: [{ value: "yes", label: "Yes" }, { value: "no", label: "No" }, { value: "partially", label: "Partially" }]
+        title: "Does the project require external financial support to become commercially viable?",
+        info: "Example: The project requires an investment of ₹30 crore. The owner invests ₹10 crore from its own funds. <br>If the remaining ₹20 crore can only be financed through grants, concessional loans, or other subsidized funding, the project is <strong>Not viable without concessional support</strong>.<br>If the project receives ₹10 crore through a green loan or grant but depends on earning ₹10 crore from carbon credit revenue to recover its investment, the project is <strong>Not viable without carbon credit revenue</strong>.<br><br><a href=\"https://www.greenclimate.fund/sites/default/files/document/policy-cofinancing.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Policy on Co-financing | Green Climate Fund &nearr;</a><br><a href=\"https://verra.org/documents/vcs-standard-v5-0/\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Additionality | Verra Standard &nearr;</a>",
+        options: [
+          { value: "commercial", label: "No" },
+          { value: "concessional", label: "Not viable without concessional support" },
+          { value: "carbon", label: "Not viable without carbon credit revenue" }
+        ]
       },
       {
         id: "q6",
-        title: "Is a use-of-proceeds Monitoring and Evaluation (M&E) plan included or planned for the project?",
-        info: "Required to track the use of proceeds and impact of project as per compliance",
+        title: "Is a Monitoring and Evaluation (M&E) plan included or planned for the project?",
+        info: "Monitoring and Evaluation (M&E) plan must outline how project progress, the use of funds/proceeds, and the environmental and social outcomes,  will be monitored, measured, and reported throughout the project lifecycle. The plan must align with applicable requirements of green financing mechanism.<br><br><a href=\"https://www.greenclimate.fund/about/governance/policies-and-strategies/results-monitoring-evaluation\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Policies: Results, Monitoring and Evaluation | Green Climate Fund &nearr;</a><br><a href=\"https://www.icmagroup.org/assets/documents/Sustainable-finance/2025-updates/Green-Bond-Principles-GBP-June-2025.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\"> ICMA Green Bond Principles &nearr;</a><br><a href=\"https://www.icmagroup.org/assets/documents/Sustainable-finance/2026-updates/Handbook-Harmonised-Framework-for-Impact-Reporting-June-2026.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Harmonised Framework for Impact Reporting &nearr;</a><br><a href=\"https://verra.org/programs/verified-carbon-standard/project-description-and-monitoring-report/#developing-a-monitoring-report\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Monitoring Report | Carbon Credit | VERRA  &nearr;</a><br><a href=\"https://www.greenclimate.fund/sites/default/files/document/irmf-policy.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Integrated Result Management Framework | Green Climate Fund &nearr;</a>",
         options: [{ value: "yes", label: "Yes" }, { value: "no", label: "No" }, { value: "partially", label: "Partially" }]
       },
       {
         id: "q7",
-        title: "Is this same project or piece of land currently signed up with any other carbon credit or greenhouse gas program?",
-        info: "Only 1 carbon credit programme per project",
+        title: "Is this project or piece of land currently registered under, or receiving support from, any other environmental, climate, or green financing program?",
+        info: "For example, A project receives a government grant to restore 100 hectares of land. The project then applies for another green financing mechanism (Green Climate Fund, Green Loans, Green Bonds, Carbon Credit) to receive funding for the same 100 hectares and the same restoration activity. This may not be eligible, as the same activity is already receiving support from another source.<br><br><a href=\"https://verra.org/documents/vcs-standard-v5-0/\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Double Counting | Verra Standard &nearr;</a><br><a href=\"https://www.globalcarboncouncil.com/wp-content/uploads/2022/03/Standard-on-Avoidance-of-Double-Counting-V1.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Standard on Avoidance of Double Counting &nearr;</a><br><a href=\"https://www.greenclimate.fund/sites/default/files/document/principles-demonstrating-impact-potential-gcf-supported-activities.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Principles for demonstrating the impact potential of GCF-supported activities &nearr;</a>",
         options: [{ value: "yes", label: "Yes" }, { value: "no", label: "No" }, { value: "partially", label: "Partially" }]
       }
     ];
@@ -450,7 +543,20 @@
       });
     }
 
-    const TIER_LABEL = { ineligible: "Ineligible", moderate: "Moderately Eligible", high: "Highly Eligible" };
+    const TIER_LABEL = { ineligible: "Ineligible", moderate: "Moderately Eligible", high: "Eligible" };
+
+    // small inline icons — tier status badge + per-instrument identity, used in the final result accordion
+    const TIER_ICON = {
+      ineligible: '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="6.25"/><path d="M6 6l4 4M10 6l-4 4"/></svg>',
+      moderate: '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2.6l6 10.4H2L8 2.6z"/><line x1="8" y1="6.6" x2="8" y2="9.3"/><circle cx="8" cy="11.5" r="0.6" fill="currentColor" stroke="none"/></svg>',
+      high: '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="6.25"/><path d="M5.4 8.3l1.8 1.8 3.4-4.4"/></svg>'
+    };
+    const INSTRUMENT_ICON = {
+      gb: '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="8.5" height="12" rx="1"/><line x1="4" y1="5" x2="7.5" y2="5"/><line x1="4" y1="7.6" x2="7.5" y2="7.6"/><circle cx="11.5" cy="11" r="3"/><path d="M11.5 9.4V11l1.1.8"/></svg>',
+      cc: '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13.2 2.8C7.6 2.5 3.3 5.6 2.9 11c-.1 1 0 1.6 0 1.6s5.2-.4 7.3-5.4c-2.7 2.7-5 3.3-6 3.4C5 5.3 8.6 2.6 13.2 2.8z"/></svg>',
+      gcf: '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="6"/><path d="M2 8h12"/><path d="M8 2c2.2 2.4 2.2 9.6 0 12M8 2c-2.2 2.4-2.2 9.6 0 12"/></svg>',
+      gl: '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6.2L8 2.5l6 3.7"/><line x1="1.5" y1="6.2" x2="14.5" y2="6.2"/><line x1="3.3" y1="6.2" x2="3.3" y2="12.3"/><line x1="6.4" y1="6.2" x2="6.4" y2="12.3"/><line x1="9.6" y1="6.2" x2="9.6" y2="12.3"/><line x1="12.7" y1="6.2" x2="12.7" y2="12.3"/><line x1="1.5" y1="13.6" x2="14.5" y2="13.6"/></svg>'
+    };
 
     // one entry per question, one entry per answer, one tier per instrument
     // (gb/cc/gcf/gl). Skip an instrument key on an answer if that answer
@@ -458,13 +564,14 @@
     // reason = why it got that tier, reco = what to do about it.
     const RULES = {
       q1: {
-        yes: { gb: "high", gcf: "high", gl: "high" },
+        yes: { gb: "high", cc: "high", gcf: "high", gl: "high" },
         no: {
-          gb: "ineligible", gcf: "ineligible", gl: "ineligible",
+          gb: "ineligible", cc: "ineligible", gcf: "ineligible", gl: "ineligible",
           reco: {
-            gb: "Issuers are encouraged to use guidance from the Climate Transition Finance Handbook. For climate change mitigation",
-            gcf: "Review the country's <abbr title='Nationally Determined Contribution'>NDC</abbr>, national renewable energy plan, or sector strategy\nAdjust project scope or target beneficiaries to match prioritised sectors in the <abbr title='Nationally Determined Contribution'>NDC</abbr>\nEngage the <abbr title='National Designated Authority'>NDA</abbr> to understand what Agroforestry contributions are explicitly planned and endorsed",
-            gl: "Seek alignment with voluntary guidelines on a \"best-efforts basis\" and should \"disclose how they are progressing\" against each recommended element of a transition strategy, explaining any areas of non-alignment"
+            gb: "1. Include activities that contribute to India's climate and sustainable development priorities.<br> 2. Refer to the <a href=\"https://www.icmagroup.org/assets/documents/Regulatory/Green-Bonds/Climate-Transition-Finance-Handbook-December-2020-091220.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Climate Transition Finance Handbook &nearr;</a> to ensure the project's climate change mitigation measures comply with the prescribed guidance.<br>3. Verify that project align with national environmental policies, including <a href=\"https://ibkp.dbt.gov.in/DBT_Content_Test/CMS/Guidelines/20190411103521431_National%20Environment%20Policy,%202006.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">National Environment Policy, 2006 &nearr;</a>.",
+            cc: "1. Include activities that contribute to India's climate and sustainable development priorities.<br> 2. Demonstrate the project's contribution to greenhouse gas emission reductions, carbon sequestration, renewable energy, or ecosystem restoration.<br> 3. Where relevant and feasible, align the project's sustainable development benefits with national priorities.",
+            gcf: "1. Review the country's NDC, national renewable energy plan, or sector strategy.<br> 2. Adjust project scope or target beneficiaries to match prioritised sectors in the NDC.<br>3. Coordinate with the MoEFCC/ NDA (National Designated Authorities) to understand and determine the expected contributions",
+            gl: "1. Include activities that contribute to India's climate and sustainable development priorities.<br> 2. Refer to the <a href=\"https://www.icmagroup.org/assets/documents/Regulatory/Green-Bonds/Climate-Transition-Finance-Handbook-December-2020-091220.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Climate Transition Finance Handbook &nearr;</a> to ensure the project's climate change mitigation measures comply with the prescribed guidance.<br>3. Verify that project align with national environmental policies, including <a href=\"https://ibkp.dbt.gov.in/DBT_Content_Test/CMS/Guidelines/20190411103521431_National%20Environment%20Policy,%202006.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">National Environment Policy, 2006 &nearr;</a>."
           }
         }
       },
@@ -477,29 +584,57 @@
           gb: "ineligible", cc: "ineligible", gcf: "ineligible", gl: "ineligible",
           reason: { cc: "The project developer cannot demonstrate legal authority to operate the project or claim ownership of the carbon benefits. Without legal rights to the land or carbon benefits, ownership of the emission reductions is uncertain." },
           reco: {
-            gb: "Issuers are encouraged to seek through their processes to identify mitigants to known and likely risks of material negative social and/or environmental impacts from the project(s), which may include relevant trade-off analysis and monitoring undertaken where the issuer assesses the potential risks to be meaningful.\nIssuer should refer remediation plan guided by <abbr title='International Finance Corporation'>IFC</abbr>, Equator Principles or other international social standards and ensure full legal and social compliance is documented and verified by an external reviewer.",
-            cc: "Project owner need to obtain legal ownership or land-use rights. Secure contracts transferring carbon rights to the project developer. Resolve land tenure or ownership disputes prior to project validation.",
-            gcf: "The project must secure legal land-use rights and obtain required community/Indigenous consent (FPIC) before it can qualify for green financing.",
-            gl: "Issuers are encouraged to seek through their processes to identify mitigants to known and likely risks of material negative social and/or environmental impacts from the project(s), which may include relevant trade-off analysis and monitoring undertaken where the issuer assesses the potential risks to be meaningful.\nIssuer should refer remediation plan guided by <abbr title='International Finance Corporation'>IFC</abbr>, Equator Principles or other international social standards and ensure full legal and social compliance is documented and verified by an external reviewer."
+            gb: "1. Ensure that all land ownership/lease documents, mine closure approvals, environmental clearances, forest approvals (if applicable), and other statutory permissions required for the project are valid and up to date.<br> 2. Consult local communities and other affected stakeholders, and maintain written records of meetings, feedback, and consent where required by law or the selected carbon credit standard.<br> 3. Ensure <a href=\"https://hlrn.org.in/documents/Indian_Law_and_Policy.htm\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">legal and social compliance &nearr;</a> and obtain independent verification.<br> 4. Prepare a remediation plan aligned with <a href=\"https://www.ifc.org/en/insights-reports/2012/ifc-performance-standards\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">IFC Performance Standards &nearr;</a>, the<br><a href=\"https://equator-principles.com/\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\"> Equator Principles &nearr;</a>.",
+            cc: "1. Ensure that all land ownership/lease documents, mine closure approvals, environmental clearances, forest approvals (if applicable), and other statutory permissions required for the project are valid and up to date.<br> 2. Consult local communities and other affected stakeholders, and maintain written records of meetings, feedback, and consent where required by law or the selected carbon credit standard.<br> 3. Keep all legal approvals, permits, and stakeholder consultation records organized, as these will be reviewed during the project's independent validation.",
+            gcf: "1. Ensure that all land ownership/lease documents, mine closure approvals, environmental clearances, forest approvals (if applicable), and other statutory permissions required for the project are valid and up to date.<br> 2. Consult local communities and other affected stakeholders, and maintain written records of meetings, feedback, and consent where required by law or the selected carbon credit standard.<br> 3. Keep all legal approvals, permits, and stakeholder consultation records organized, as these will be reviewed during the project's independent validation.",
+            gl: "1. Ensure that all land ownership/lease documents, mine closure approvals, environmental clearances, forest approvals (if applicable), and other statutory permissions required for the project are valid and up to date.<br> 2. Consult local communities and other affected stakeholders, and maintain written records of meetings, feedback, and consent where required by law or the selected carbon credit standard.<br> 3. Ensure <a href=\"https://hlrn.org.in/documents/Indian_Law_and_Policy.htm\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">legal and social compliance &nearr;</a> and obtain independent verification.<br> 4. Prepare a remediation plan aligned with <a href=\"https://www.ifc.org/en/insights-reports/2012/ifc-performance-standards\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">IFC Performance Standards &nearr;</a>, the<br><a href=\"https://equator-principles.com/\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\"> Equator Principles &nearr;</a>."
           }
         }
       },
       q3: {
         yes: {
-          gb: "high", gcf: "high", gl: "high",
+          gb: "high", cc: "high", gcf: "high", gl: "high",
           reason: { gcf: "Must comply with <abbr title='International Finance Corporation'>IFC</abbr>-aligned safeguards to prevent harm." },
-          reco: { gcf: "<abbr title='Green Climate Fund'>GCF</abbr> requires compliance with its <abbr title='Environmental and Social Safeguards'>ESS</abbr> (<abbr title='International Finance Corporation'>IFC</abbr> Performance Standards). Commission a scoping-level <abbr title='Environmental and Social Impact Assessment'>ESIA</abbr> immediately- this is required before concept note submission.\nIdentify a qualified environmental and social consultant with <abbr title='International Finance Corporation'>IFC</abbr> PS experience\nDocument the E&S risk category (A/B/C) as it determines depth of assessment required" }
         },
         no: {
-          gb: "ineligible", gcf: "ineligible", gl: "ineligible",
+          gb: "ineligible", cc: "ineligible", gcf: "ineligible", gl: "ineligible",
           reco: {
-            gb: "GBP recommend that issuers clearly communicate to investors their environmental sustainability objectives overall, and how they will identify and manage potential environmental and social risks associated with the selected projects.\n\nProjects must meet two critical pillars:\nDo No Significant Harm (DNSH): While contributing to one environmental goal, the project must not undermine others (e.g., an energy project must not destroy local habitats)\nMinimum Social Safeguards (MSS): The project must adhere to human rights and labor standards, such as the Labor Code, ensuring safe working conditions and prohibiting forced or child labor\nAppoint an External Reviewer (such as an SPO provider) to confirm the project's alignment with these standards",
-            gl: "GLP recommend that issuers clearly communicate to investors their environmental sustainability objectives overall, and how they will identify and manage potential environmental and social risks associated with the selected projects.\n\nProjects must meet two critical pillars:\nDo No Significant Harm (DNSH): While contributing to one environmental goal, the project must not undermine others (e.g., an energy project must not destroy local habitats)\nMinimum Social Safeguards (MSS): The project must adhere to human rights and labor standards, such as the Labor Code, ensuring safe working conditions and prohibiting forced or child labor\nAppoint an External Reviewer (such as an SPO provider) to confirm the project's alignment with these standards"
+            gb: "<br><a href=\"https://www.icmagroup.org/sustainable-finance/the-principles-guidelines-and-handbooks/green-bond-principles-gbp/\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Green Bond Principles (GBP) &nearr;</a> recommend communicating overall environmental sustainability objectives, and how they will identify and manage potential environmental and social risks associated with the selected projects.<br> Projects must meet two critical pillars:<br> 1.<a href=\"https://commission.europa.eu/document/download/993e026c-4118-46ed-b7ff-5224c19aa254_en?filename=2021_02_18_epc_do_not_significant_harm_-technical_guidance_by_the_commission.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\"> Do No Significant Harm (DNSH) &nearr;</a>: While contributing to one environmental goal, the project must not undermine others (e.g., an energy project must not destroy local habitats).<br> 2. <a href=\"https://www.ohchr.org/sites/default/files/Documents/Publications/GuidingPrinciplesBusinessHR_EN.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Minimum Social Safeguards (MSS) &nearr;</a>: The project must adhere to human rights and labor standards, such as the Labor Code, ensuring safe working conditions and prohibiting forced or child labor.<br> Appoint an External Reviewer (such as an SPO provider) to confirm the project’s alignment with these standards",
+            cc: "1. Obtain all required environmental and social permits, approvals, and clearances before starting the project.<br> 2. Identify environmental and social risks and implement measures to avoid or reduce their impacts.<br>3. Regularly monitor the project and update mitigation measures whenever new risks are identified.<br>4. Comply with applicable Environmental, Social and Governance (ESG) safeguard requirements throughout the project.",
+            gcf: "1. Conduct environmental and social risk screening using GCF Environmental and Social Safeguards (ESS) requirements.<br> 2. Prepare an Environmental and Social Management Plan (ESMP) based on the identified risk category.<br> 3. Document the E&S risk category as it determines depth of assessment required.<br> 4. Ensure compliance with the GCF Environmental and Social Policy and relevant Performance Standards.<br> 5. Establish grievance redress mechanisms as required under GCF safeguards.<br> 6. Submit environmental and social assessment documentation as part of the GCF funding proposal.",
+            gl: "<br><a href=\"https://www.icmagroup.org/assets/documents/Regulatory/Green-Bonds/LMA_Green_Loan_Principles_Booklet-220318.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Green Loan Principles (GLP) &nearr;</a> recommend communicating overall environmental sustainability objectives, and how they will identify and manage potential environmental and social risks associated with the selected projects.<br> Projects must meet two critical pillars:<br> 1.<a href=\"https://commission.europa.eu/document/download/993e026c-4118-46ed-b7ff-5224c19aa254_en?filename=2021_02_18_epc_do_not_significant_harm_-technical_guidance_by_the_commission.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\"> Do No Significant Harm (DNSH) &nearr;</a>: While contributing to one environmental goal, the project must not undermine others (e.g., an energy project must not destroy local habitats).<br> 2. <a href=\"https://www.ohchr.org/sites/default/files/Documents/Publications/GuidingPrinciplesBusinessHR_EN.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Minimum Social Safeguards (MSS) &nearr;</a>: The project must adhere to human rights and labor standards, such as the Labor Code, ensuring safe working conditions and prohibiting forced or child labor.<br> Appoint an External Reviewer (such as an SPO provider) to confirm the project’s alignment with these standards"
           }
         },
-        partially: { gb: "ineligible", gcf: "ineligible", gl: "ineligible" }
+        partially: { gb: "moderate", cc: "moderate", gcf: "moderate", gl: "moderate",
+        reco: {
+          gb:"1. Develop specific actions to resolve the non-compliance or minimize the negative impacts resulting from the gaps.<br> 2. Explicitly articulate how internal practices cover <strong>Minimum Safeguards</strong> and the <strong>Do No Significant Harm</strong> (DNSH) principle",
+          cc: "1. Obtain all required environmental and social permits, approvals, and clearances before starting the project.<br> 2. Identify environmental and social risks and implement measures to avoid or reduce their impacts.<br>3. Regularly monitor the project and update mitigation measures whenever new risks are identified.<br>4. Comply with applicable Environmental, Social and Governance (ESG) safeguard requirements throughout the project.",
+          gcf: "1. Conduct environmental and social risk screening using GCF Environmental and Social Safeguards (ESS) requirements.<br> 2. Prepare an Environmental and Social Management Plan (ESMP) based on the identified risk category.<br> 3. Document the E&S risk category as it determines depth of assessment required.<br> 4. Ensure compliance with the GCF Environmental and Social Policy and relevant Performance Standards.<br> 5. Establish grievance redress mechanisms as required under GCF safeguards.<br> 6. Submit environmental and social assessment documentation as part of the GCF funding proposal.",
+          gl:"1. Develop specific actions to resolve the non-compliance or minimize the negative impacts resulting from the gaps.<br> 2. Explicitly articulate how internal practices cover <strong>Minimum Safeguards</strong> and the <strong>Do No Significant Harm</strong> (DNSH) principle"
+        }
+        }
       },
       q4: {
+        yes: {
+          gb: "high", cc: "ineligible", gcf: "high", gl: "high",
+          reco: {
+            cc: "1. Add voluntary activities that reduce greenhouse gas emissions or restore the environment beyond legal requirements.<br> 2. Claim carbon credits only for the voluntary activities, not for activities required by law."
+          }
+        },
+        no: {
+          gb: "high", cc: "high", gcf: "high", gl: "high",
+          reason: {
+            cc: "The activity is entirely voluntary and exceeds legal requirements.", 
+          }
+        },
+        partially: {
+          gb: "high", cc: "moderate", gcf: "high", gl: "high",
+         reco: {
+            cc: "1. Include more voluntary activities that go beyond legal requirements.<br> 2. Clearly separate legally required activities from voluntary activities in the project plan.<br> 3. Apply for carbon credits only for the voluntary activities that are not required by law."
+          }
+        }
+      },
+      q5: {
         commercial: {
           gb: "high", cc: "ineligible", gcf: "ineligible", gl: "high",
           reason: {
@@ -507,56 +642,26 @@
             gcf: "<abbr title='Green Climate Fund'>GCF</abbr> will not fund projects that can attract commercial finance on their own terms — this would crowd out private investment."
           },
           reco: {
-            cc: "Redesign the project to include voluntary activities beyond business-as-usual. Identify additional measures that only become feasible with carbon finance.",
-            gcf: "<abbr title='Green Climate Fund'>GCF</abbr> will not fund projects that can attract commercial finance on their own terms — this would crowd out private investment. You may required to\n(1) document the specific financing barriers (e.g. high perceived risk, currency mismatch, tenor mismatch)\n(2) Prepare a financial model demonstrating the funding gap with and without <abbr title='Green Climate Fund'>GCF</abbr> support\n(3) Consider re-scoping to include underserved segments (e.g. off-grid, small commercial) where the market gap is clearer"
+            cc: "Redesign the project to include voluntary activities beyond business-as-usual.<br> Identify additional measures that only become feasible with carbon finance.",
+            gcf: "Green Climate Fundwill not fund projects that can attract commercial finance on their own terms — this would crowd out private investment. You may required to\n(1) document the specific financing barriers (e.g. high perceived risk, currency mismatch, tenor mismatch)\n(2) Prepare a financial model demonstrating the funding gap with and without <abbr title='Green Climate Fund'>GCF</abbr> support\n(3) Consider re-scoping to include underserved segments (e.g. off-grid, small commercial) where the market gap is clearer"
           }
         },
         concessional: {
           gb: "moderate", cc: "moderate", gcf: "high", gl: "moderate",
           reason: { cc: "Only part of the project depends on carbon finance — some activities may already be financially viable while others require carbon revenue." },
           reco: {
-            cc: "Conduct a financial analysis showing carbon revenue improves project viability. Demonstrate investment barriers, technology barriers, or financial risks. Clearly identify activities that rely on carbon finance.",
-            gl: "Project is financially attractive on it's own"
+            gb:"All projects can successfully access green bond financing by leveraging specific institutional structures, specialized funds, and project classifications designed to bridge the viability gap.\n 1. Assess the project's standalone commercial viability.\n 2. Identify the financing gap.\n 3. Check feasiability of integrating into a Sovereign Green Bond.\n 4. If a private project is not commercially viable, it may qualify for green bond proceeds if it is part of a public sector deployment aimed at reducing the carbon intensity of the economy.\n 5. Refer <a href=\"https://www.ifc.org/content/dam/ifc/doc/mgrt/202203-ifc-green-bond-handbook.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">IFC Green Bond Handbook &nearr;</a> ",
+            cc: "1. Conduct a financial analysis showing carbon revenue improves project viability.\n 2. Demonstrate investment barriers, technology barriers, or financial risks.\n 3. Clearly identify activities that rely on carbon finance.",
+            gl: "All projects can successfully access green bond financing by leveraging specific institutional structures, specialized funds, and project classifications designed to bridge the viability gap.\n 1. Assess the project's standalone commercial viability.\n 2. Identify the financing gap.\n 3. Check feasiability of integrating into a Sovereign Green Bond.\n 4. If a private project is not commercially viable, it may qualify for green bond proceeds if it is part of a public sector deployment aimed at reducing the carbon intensity of the economy.\n 5. Refer <a href=\"https://www.icmagroup.org/assets/documents/Regulatory/Green-Bonds/LMA_Green_Loan_Principles_Booklet-220318.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Green Loan Principles &nearr;</a> "
           }
         },
         carbon: {
           gb: "moderate", cc: "high", gcf: "moderate", gl: "moderate",
           reason: { cc: "Carbon finance is necessary for the project to proceed." },
           reco: {
-            gl: "Project is financially attractive on it's own"
-          }
-        }
-      },
-      q5: {
-        yes: {
-          gb: "high", cc: "ineligible", gcf: "high", gl: "high",
-          reason: {
-            gb: "Irrelevant factor for determining ineligibility.",
-            cc: "The activity is legally required, and carbon credits cannot be issued for actions undertaken solely to comply with legal obligations.",
-            gcf: "Irrelevant factor.",
-            gl: "Irrelevant factor for determining ineligibility."
-          },
-          reco: {
-            cc: "Add voluntary restoration or emission reduction activities beyond regulatory requirements. Exclude legally mandated activities from the carbon project boundary."
-          }
-        },
-        no: {
-          gb: "high", cc: "high", gcf: "high", gl: "high",
-          reason: {
-            gb: "Irrelevant factor for determining ineligibility.",
-            cc: "The activity is entirely voluntary and exceeds legal requirements.",
-            gcf: "Irrelevant factor."
-          }
-        },
-        partially: {
-          gb: "high", cc: "moderate", gcf: "high", gl: "high",
-          reason: {
-            gb: "Irrelevant factor for determining ineligibility.",
-            cc: "Some activities are legally required, but additional voluntary activities go beyond compliance.",
-            gcf: "Irrelevant factor."
-          },
-          reco: {
-            cc: "Clearly separate mandatory activities from voluntary activities. Claim carbon credits only for actions beyond legal requirements. Maintain evidence demonstrating the additional voluntary scope."
+            gb:"All projects can successfully access green bond financing by leveraging specific institutional structures, specialized funds, and project classifications designed to bridge the viability gap.\n 1. Assess the project's standalone commercial viability.\n 2. Identify the financing gap.\n 3. Check feasiability of integrating into a Sovereign Green Bond.\n 4. If a private project is not commercially viable, it may qualify for green bond proceeds if it is part of a public sector deployment aimed at reducing the carbon intensity of the economy.\n 5. Refer <a href=\"https://www.ifc.org/content/dam/ifc/doc/mgrt/202203-ifc-green-bond-handbook.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">IFC Green Bond Handbook &nearr;</a> ",
+            gcf: "Green Climate Fund will not fund projects that can attract commercial finance on their own terms — this would crowd out private investment. You may required to\n (1) document the specific financing barriers (e.g. high perceived risk, currency mismatch, tenor mismatch)\n (2) Prepare a financial model demonstrating the funding gap with and without Green Climate Fund support\n (3) Consider re-scoping to include underserved segments (e.g. off-grid, small commercial) where the market gap is clearer",
+            gl: "All projects can successfully access green bond financing by leveraging specific institutional structures, specialized funds, and project classifications designed to bridge the viability gap.\n 1. Assess the project's standalone commercial viability.\n 2. Identify the financing gap.\n 3. Check feasiability of integrating into a Sovereign Green Bond.\n 4. If a private project is not commercially viable, it may qualify for green bond proceeds if it is part of a public sector deployment aimed at reducing the carbon intensity of the economy.\n 5. Refer <a href=\"https://www.icmagroup.org/assets/documents/Regulatory/Green-Bonds/LMA_Green_Loan_Principles_Booklet-220318.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Green Loan Principles &nearr;</a> "
           }
         }
       },
@@ -574,15 +679,20 @@
           gb: "ineligible", cc: "ineligible", gcf: "ineligible", gl: "ineligible",
           reason: { cc: "Verifiable monitoring is essential for calculating carbon credits — without reliable data, emission reductions cannot be verified." },
           reco: {
-            gb: "Monitoring is a regular part of the review and approval process for green projects, ensuring they align with environmental missions and development priorities\nProponents are strongly recommended to adopt the <abbr title='International Capital Market Association'>ICMA</abbr> Harmonised Framework for Impact Reporting",
-            cc: "Direct measurement via calibrated grid-interface meters is a hard requirement. Projects unable to install meters cannot meet monitoring requirements.",
-            gcf: "<abbr title='Green Climate Fund'>GCF</abbr> requires a results-based M&E framework aligned with its Performance Measurement Framework.\nDesign an M&E plan with indicators tied to <abbr title='Green Climate Fund'>GCF</abbr> core indicators (PMF-M Core 1, 2, 3)\nInclude gender-disaggregated data collection in the M&E framework\nEstablish a results reporting schedule aligned with <abbr title='Green Climate Fund'>GCF</abbr> reporting requirements",
-            gl: "Monitoring is a regular part of the review and approval process for green projects, ensuring they align with environmental missions and development priorities\nProponents are strongly recommended to adopt the <abbr title='International Capital Market Association'>ICMA</abbr> Harmonised Framework for Impact Reporting"
+            gb: "1. Develop a Monitoring, Reporting and Verification (MRV) plan.\n 2. Install necessary monitoring equipment.\n 3. Assign monitoring responsibilities.\n 4. Establish data management and record-keeping procedures.\n 5. Establish quality assurance and quality control procedures before project registration.\n 6. Adopt a standardized <br><a href=\"https://www.icmagroup.org/assets/documents/Sustainable-finance/2023-updates/Handbook-Harmonised-framework-for-impact-reporting-June-2023-220623.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">ICMA Harmonized Framework &nearr;</a> impact reporting.",
+            cc: "1. Develop a Monitoring, Reporting and Verification (MRV) plan.\n 2. Install necessary monitoring equipment.\n 3. Assign monitoring responsibilities.\n 4. Establish data management and record-keeping procedures.\n 5. Establish quality assurance and quality control procedures before project registration.",
+            gcf: "Green Climate Fund requires a results-based M&E framework aligned with its Performance Measurement Framework.\n Design an M&E plan with indicators tied to Green Climate Fund core indicators (PMF-M Core 1, 2, 3)\n Include gender-disaggregated data collection in the M&E framework\n Establish a results reporting schedule aligned with Green Climate Fund reporting requirements",
+            gl: "1. Develop a Monitoring, Reporting and Verification (MRV) plan.\n 2. Install necessary monitoring equipment.\n 3. Assign monitoring responsibilities.\n 4. Establish data management and record-keeping procedures.\n 5. Establish quality assurance and quality control procedures before project registration.\n 6. Adopt a standardized <br><a href=\"https://www.icmagroup.org/assets/documents/Sustainable-finance/2023-updates/Handbook-Harmonised-framework-for-impact-reporting-June-2023-220623.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">ICMA Harmonized Framework &nearr;</a> impact reporting."
           }
         },
         partially: {
-          cc: "moderate",
-          reco: { cc: "Develop a Monitoring, Reporting and Verification (MRV) plan. Install necessary monitoring equipment. Assign monitoring responsibilities. Establish data management and record-keeping procedures." }
+          gb:"moderate", cc: "moderate", gcf: "moderate", gl: "moderate",
+          reco: { 
+            gb: "1. Develop a Monitoring, Reporting and Verification (MRV) plan.\n 2. Install necessary monitoring equipment.\n 3. Assign monitoring responsibilities.\n 4. Establish data management and record-keeping procedures.\n 5. Establish quality assurance and quality control procedures before project registration.\n 6. Adopt a standardized <br><a href=\"https://www.icmagroup.org/assets/documents/Sustainable-finance/2023-updates/Handbook-Harmonised-framework-for-impact-reporting-June-2023-220623.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">ICMA Harmonized Framework &nearr;</a> impact reporting.",
+            cc: "Develop a Monitoring, Reporting and Verification (MRV) plan. Install necessary monitoring equipment. Assign monitoring responsibilities. Establish data management and record-keeping procedures.",
+            gcf: "Green Climate Fund requires a results-based M&E framework aligned with its Performance Measurement Framework.\n Design an M&E plan with indicators tied to Green Climate Fund core indicators (PMF-M Core 1, 2, 3)\n Include gender-disaggregated data collection in the M&E framework\n Establish a results reporting schedule aligned with Green Climate Fund reporting requirements",
+            gl: "1. Develop a Monitoring, Reporting and Verification (MRV) plan.\n 2. Install necessary monitoring equipment.\n 3. Assign monitoring responsibilities.\n 4. Establish data management and record-keeping procedures.\n 5. Establish quality assurance and quality control procedures before project registration.\n 6. Adopt a standardized <br><a href=\"https://www.icmagroup.org/assets/documents/Sustainable-finance/2023-updates/Handbook-Harmonised-framework-for-impact-reporting-June-2023-220623.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">ICMA Harmonized Framework &nearr;</a> impact reporting."
+          }
         }
       },
       q7: {
@@ -590,10 +700,10 @@
           gb: "ineligible", cc: "ineligible", gcf: "ineligible", gl: "ineligible",
           reason: { cc: "The project is currently active under another carbon credit program — the same emission reductions cannot receive carbon credits twice (double counting)." },
           reco: {
-            gb: "Only be included if they run no risk of 'double-counting' through any other mechanism/financing instrument",
-            cc: "Withdraw the project from the other program. Ensure previous credits are cancelled or the project is officially inactive before applying to Verra.",
+            gb: "1. At no time should the same Green Project's net proceeds be concurrently allocated to more than one outstanding GSS (Green, Social, or Sustainability) bond or other green financing instrument.\n 2. A project can receive support from multiple sources (e.g., a green loan and a green bond) if the funds are applied to different parts or tranches of the project.\n Only be included if they run no risk of 'double-counting' as per <a href=\"https://www.icmagroup.org/sustainable-finance/the-principles-guidelines-and-handbooks/green-bond-principles-gbp/\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Green Bonds Principles &nearr;</a> or through any other mechanism/financing instrument",
+            cc: "1. Withdraw the project from the other program.\n 2. Ensure previous credits are cancelled or the project is officially inactive .",
             gcf: "Fix accounting boundary: no dual claim as carbon credit + <abbr title='Nationally Determined Contribution'>NDC</abbr> + <abbr title='Green Climate Fund'>GCF</abbr> — avoid overlap.\nAdd no-double-counting attestation in <abbr title='Environmental and Social Safeguards'>ESS</abbr>/Funding Proposal.\nApply corresponding adjustments (Article 6) via <abbr title='National Designated Authority'>NDA</abbr> for cross-border claims.\nSeparate MRV (results) from financial reporting (flows).\nAccredited Entities due diligence to include double-counting check.\nVerify with MoEFCC/NDA that reductions aren't already in <abbr title='Nationally Determined Contribution'>NDC</abbr> baseline.",
-            gl: "Only be included if they run no risk of 'double-counting' through any other mechanism/financing instrument"
+            gl: "1. At no time should the same Green Project's net proceeds be concurrently allocated to more than one outstanding GSS (Green, Social, or Sustainability) bond or other green financing instrument.\n 2. A project can receive support from multiple sources (e.g., a green loan and a green bond) if the funds are applied to different parts or tranches of the project.\n Only be included if they run no risk of 'double-counting' as per <a href=\"https://www.icmagroup.org/assets/documents/Regulatory/Green-Bonds/LMA_Green_Loan_Principles_Booklet-220318.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Green Loan Principles &nearr;</a> or through any other mechanism/financing instrument"
           }
         },
         no: {
@@ -601,9 +711,14 @@
           reason: { cc: "The project is not registered or applying under any other carbon credit program." }
         },
         partially: {
-          cc: "moderate",
+          gb: "moderate", cc: "moderate", gcf: "moderate", gl: "moderate",
           reason: { cc: "Previously registered, but now inactive or being withdrawn. The project may become eligible if evidence is provided that no further credits will be issued elsewhere." },
-          reco: { cc: "Obtain official withdrawal/de-registration from the other program. Demonstrate that no duplicate carbon credits have been issued. Maintain documentation proving exclusive ownership of emission reductions." }
+          reco: { 
+            gb: "1. If only a portion of a project is supported by another program, the remaining unfunded green portion can still be eligible for green bond proceeds on a pro-rata basis.\n 2. The issuer must demonstrate a formal internal process, such as a sub-account or sub-portfolio, to rigorously track and prove that the new bond proceeds are being applied to unique green expenditures not covered by the other program.\n Refer <a href=\"https://www.ifc.org/content/dam/ifc/doc/mgrt/202203-ifc-green-bond-handbook.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Green Bond Handbook &nearr;</a> ",
+            cc: "1. Obtain official withdrawal/de-registration from the other program.\n 2. Demonstrate that no duplicate carbon credits have been issued.\n 3. Maintain documentation proving exclusive ownership of emission reductions.",
+            gcf: "Fix accounting boundary: no dual claim as carbon credit + <abbr title='Nationally Determined Contribution'>NDC</abbr> + <abbr title='Green Climate Fund'>GCF</abbr> — avoid overlap.\nAdd no-double-counting attestation in <abbr title='Environmental and Social Safeguards'>ESS</abbr>/Funding Proposal.\nApply corresponding adjustments (Article 6) via <abbr title='National Designated Authority'>NDA</abbr> for cross-border claims.\nSeparate MRV (results) from financial reporting (flows).\nAccredited Entities due diligence to include double-counting check.\nVerify with MoEFCC/NDA that reductions aren't already in <abbr title='Nationally Determined Contribution'>NDC</abbr> baseline.",
+            gl: "1. If only a portion of a project is supported by another program, the remaining unfunded green portion can still be eligible for green bond proceeds on a pro-rata basis.\n 2. The issuer must demonstrate a formal internal process, such as a sub-account or sub-portfolio, to rigorously track and prove that the new bond proceeds are being applied to unique green expenditures not covered by the other program."
+          }
         }
       }
     };
@@ -613,7 +728,7 @@
     const INSTRUMENTS = [
       { id: "gb", title: "Green Bonds", abbr: "GB" },
       { id: "cc", title: "Carbon Credit", abbr: "CC" },
-      { id: "gcf", title: "<abbr title='Green Climate Fund'>GCF</abbr> Funding", abbr: "GCF" },
+      { id: "gcf", title: "Green Climate Fund", abbr: "GCF" },
       { id: "gl", title: "Green Loans", abbr: "GL" }
     ];
 
@@ -686,8 +801,42 @@
 
     const TIER_STRIPE_CLASS = { ineligible: "sgft-final-low", moderate: "sgft-final-mid", high: "sgft-final-high" };
 
+    // best-news-first: lets the user see what's working before what isn't
+    const TIER_SUMMARY_ORDER = ["high", "moderate", "ineligible"];
+
+    function renderFinalSummary(rows) {
+      const summary = document.getElementById("final-summary");
+      const counts = { ineligible: 0, moderate: 0, high: 0 };
+      rows.forEach((r) => { counts[r.tier]++; });
+
+      summary.innerHTML = TIER_SUMMARY_ORDER
+        .filter((tier) => counts[tier] > 0)
+        .map((tier) => {
+          const stripeClass = TIER_STRIPE_CLASS[tier];
+          const count = counts[tier];
+          const noun = count === 1 ? "instrument" : "instruments";
+          return `<span class="sgft-final-chip ${stripeClass}">${TIER_ICON[tier]}${count} ${TIER_LABEL[tier]} ${noun}</span>`;
+        }).join("");
+    }
+
+    // splits a reco string into discrete bullet points on every line break —
+    // source text writes each point on its own line, separated inconsistently by
+    // <br> tags or literal newlines, and numbered inconsistently ("1.", "(1)", or
+    // not numbered at all) — so every line simply becomes its own bullet, with
+    // any leading "1." / "(1)" style marker stripped since the bullet supplies it.
+    function formatRecoSteps(html) {
+      const points = html.split(/<br\s*\/?>|\n/i)
+        .map((s) => s.trim())
+        .filter(Boolean)
+        .map((s) => s.replace(/^\(?\d+[).]\s*/, ""));
+      if (!points.length) return "";
+
+      return `<ul class="sgft-reco-steps">${points.map((i) => `<li>${i}</li>`).join("")}</ul>`;
+    }
+
     function renderFinalAccordion(rows) {
       const acc = document.getElementById("final-acc");
+      renderFinalSummary(rows);
       if (!rows.length) {
         acc.innerHTML = `<p class="sgft-final-hero-sub" style="padding:16px;">No instruments affected.</p>`;
         return;
@@ -697,32 +846,41 @@
       if (openIdx === -1) openIdx = rows.findIndex((r) => r.tier === "moderate");
       if (openIdx === -1) openIdx = 0;
 
-      acc.innerHTML = rows.map(({ id, title, tier, reasons, recos }, i) => {
+      acc.innerHTML = rows.map(({ id, title, tier, reasons, recoPairs }, i) => {
         const stripeClass = TIER_STRIPE_CLASS[tier];
         const procedureHref = PROCEDURE_LINKS[id];
         const procedureLink = procedureHref
-          ? `<a class="sgft-final-proc ${stripeClass}" href="${procedureHref}" target="_blank" rel="noopener noreferrer">Explore Procedure <span aria-hidden="true">&nearr;</span></a>`
+          ? `<a class="sgft-final-proc ${stripeClass}" href="${procedureHref}" target="_blank" rel="noopener noreferrer">Steps to apply <span aria-hidden="true">&nearr;</span></a>`
           : "";
-        const hasBody = reasons.length > 0 || recos.length > 0 || procedureLink;
+        const hasBody = reasons.length > 0 || recoPairs.length > 0 || procedureLink;
+        // the recommendation is the single most useful thing to see for an ineligible
+        // instrument, so open it by default instead of making users hunt for it
+        const recoDefaultOpen = tier === "ineligible" && recoPairs.length > 0;
+        const recoLabel = "Recommendation";
+
         return `<div class="sgft-final-row ${stripeClass} ${i === openIdx ? "open" : ""}">
           <button type="button" class="sgft-final-head">
-            <span class="sgft-final-stripe ${stripeClass}"></span>
+            <span class="sgft-final-icon ${stripeClass}">${INSTRUMENT_ICON[id] || ""}</span>
             <span class="sgft-final-name">${title}</span>
-            <span class="sgft-final-tier ${stripeClass}">${TIER_LABEL[tier]}</span>
+            <span class="sgft-final-tier ${stripeClass}">${TIER_ICON[tier]}${TIER_LABEL[tier]}</span>
             ${hasBody ? `<svg class="sgft-final-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg>` : `<span class="sgft-final-chevron-spacer"></span>`}
           </button>
           ${hasBody ? `<div class="sgft-final-body">
             <div class="sgft-final-body-inner">
-              ${reasons.map((r) => `<p class="sgft-final-text">${r}</p>`).join("")}
+              ${reasons.length ? `<ul class="sgft-final-reasons">${reasons.map((r) => `<li>${r}</li>`).join("")}</ul>` : ""}
               <div class="sgft-final-actions-row">
-                ${recos.length ? `<button type="button" class="sgft-final-reco-toggle" aria-label="${id === "cc" ? "Show enhancement measures" : "Show recommendation"}">${id === "cc" ? "Enhancement Measures" : "Recommendation"} <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg></button>` : ""}
+                ${recoPairs.length ? `<button type="button" class="sgft-final-reco-toggle ${recoDefaultOpen ? "open" : ""}" aria-label="Show recommendation">${recoLabel} <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg></button>` : ""}
                 ${procedureLink}
               </div>
-              ${recos.length ? `<div class="sgft-final-reco-panel">
-                  ${recos.map((r) => `<div class="sgft-live-reco-box">
-                    <span class="sgft-live-reco-icon-wrap"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4l5 4-5 4"/></svg></span>
-                    <p class="sgft-live-reco-text">${r}</p>
-                  </div>`).join("")}
+              ${recoPairs.length ? `<div class="sgft-final-reco-panel ${recoDefaultOpen ? "open" : ""}">
+                  ${recoPairs.map(({ reco }) => {
+                    return `<div class="sgft-reco-block">
+                      <div class="sgft-live-reco-box ${stripeClass}">
+                        <span class="sgft-live-reco-icon-wrap"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4l5 4-5 4"/></svg></span>
+                        <div class="sgft-reco-body">${formatRecoSteps(reco)}</div>
+                      </div>
+                    </div>`;
+                  }).join("")}
                 </div>` : ""}
             </div>
           </div>` : ""}
@@ -762,12 +920,23 @@
         if (!hits.length) return null;
         const worstTier = hits.reduce((worst, h) => (TIER_RANK[h.tier] < TIER_RANK[worst] ? h.tier : worst), hits[0].tier);
         const atWorst = hits.filter((h) => h.tier === worstTier);
+
+        // keep each reco paired with the reason it addresses (deduped on the combination)
+        const seenPairs = new Set();
+        const pairs = [];
+        atWorst.forEach((h) => {
+          const key = h.reason + "||" + h.reco;
+          if (seenPairs.has(key) || (!h.reason && !h.reco)) return;
+          seenPairs.add(key);
+          pairs.push({ reason: h.reason, reco: h.reco });
+        });
+
         return {
           id,
           title,
           tier: worstTier,
-          reasons: [...new Set(atWorst.map((h) => h.reason).filter(Boolean))],
-          recos: [...new Set(atWorst.map((h) => h.reco).filter(Boolean))]
+          reasons: [...new Set(pairs.map((p) => p.reason).filter(Boolean))],
+          recoPairs: pairs.filter((p) => p.reco)
         };
       }).filter(Boolean).sort((a, b) => TIER_RANK[b.tier] - TIER_RANK[a.tier]);
 
@@ -796,11 +965,46 @@
       });
     }
 
+    // splits a question's "More info" text into a bullet list of explanatory points
+    // plus a separately numbered "Refer to" list of its reference links — the source
+    // text already writes explanation, then a blank line, then one link per line
+    function formatInfoContent(html) {
+      const parts = html.split(/(?:<br\s*\/?>\s*){2,}/i);
+      const bodyHtml = parts[0] || "";
+      const linksHtml = parts.slice(1).join("<br>");
+
+      const points = bodyHtml.split(/<br\s*\/?>/i)
+        .map((s) => s.trim())
+        .filter(Boolean)
+        .map((s) => s.replace(/^\s*\d+[).]\s*/, ""));
+      const bodyOut = points.length > 1
+        ? `<ul class="sgft-info-points">${points.map((p) => `<li>${p}</li>`).join("")}</ul>`
+        : `<p class="sgft-info-para">${points[0] || bodyHtml}</p>`;
+
+      const linkRe = /<a\s+href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/gi;
+      const links = [];
+      let m;
+      while ((m = linkRe.exec(linksHtml))) {
+        const label = m[2].replace(/\s*&nearr;\s*$/i, "").trim();
+        links.push({ href: m[1], label });
+      }
+      const linksOut = links.length
+        ? `<div class="sgft-info-refer">
+             <p class="sgft-info-refer-label">Refer to</p>
+             <ol class="sgft-info-refer-list">
+               ${links.map((l) => `<li><a href="${l.href}" target="_blank" rel="noopener noreferrer">${l.label} <span aria-hidden="true">&nearr;</span></a></li>`).join("")}
+             </ol>
+           </div>`
+        : "";
+
+      return bodyOut + linksOut;
+    }
+
     function renderQuestion() {
       const q = QUESTIONS[step];
       document.getElementById("q-num").textContent = "Question " + (step + 1);
       document.getElementById("q-title").innerHTML = q.title;
-      document.getElementById("q-info-content").innerHTML = q.info;
+      document.getElementById("q-info-content").innerHTML = formatInfoContent(q.info);
       document.getElementById("q-info-content").classList.remove("open");
       buildLivePreview(q.id);
 
