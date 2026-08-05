@@ -395,7 +395,7 @@
     <div class="sgft-content">
       <h1 class="spv-section-title">Green Finance</h1>
       <div class="sgft-intro">
-        <p>Answer <strong>7</strong> quick questions to check your preliminary eligibility for Green Bonds, Carbon Credits, Green Climate Fund (GCF) and Green Loans</p>
+        <p>Answer <strong>8</strong> quick questions to check your preliminary eligibility for Green Bonds, Carbon Credits, Green Climate Fund (GCF) and Green Loans</p>
       </div>
 
       <section id="page-questions">
@@ -403,7 +403,7 @@
           <div class="sgft-qblock">
             <div class="sgft-progress-head">
               <div class="sgft-progress-top">
-                <span class="sgft-progress-label" id="progress-label">Question 1 of 7</span>
+                <span class="sgft-progress-label" id="progress-label">Question 1 of 8</span>
                 <span class="sgft-progress-time">&middot;</span>
               </div>
               <div class="sgft-progress-track" id="progress-track">
@@ -436,7 +436,7 @@
 
         <section id="final-result" class="sgft-final-result" hidden>
           <p class="sgft-final-eyebrow">Final Result</p>
-          <h2 class="sgft-final-result-title">Combined eligibility across all 7 answers</h2>
+          <h2 class="sgft-final-result-title">Combined eligibility across all 8 answers</h2>
           <p class="sgft-final-result-sub">Tap any instrument to see why, and what to do next.</p>
           <div class="sgft-final-summary" id="final-summary"></div>
           <div class="sgft-final-acc" id="final-acc"></div>
@@ -503,6 +503,12 @@
         title: "Will you ensure third-party verification for sustainable financial instruments and green projects?",
         info: "The auditing and certification institutions play a key role in verifying this alignment of the project with standards to ensure the accuracy of green disclosures",
         options: [{ value: "yes", label: "Yes" }, { value: "no", label: "No" }]
+      },
+      {
+        id: "q8",
+        title: "Is this project or piece of land currently registered under, or receiving support from, any other environmental, climate, or green financing program?",
+        info: "For example, A project receives a government grant to restore 100 hectares of land. The project then applies for another green financing mechanism (Green Climate Fund, Green Loans, Green Bonds, Carbon Credit) to receive funding for the same 100 hectares and the same restoration activity. This may not be eligible, as the same activity is already receiving support from another source.<br><br><a href=\"https://verra.org/documents/vcs-standard-v5-0/\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Double Counting | Verra Standard &nearr;</a><br><a href=\"https://www.globalcarboncouncil.com/wp-content/uploads/2022/03/Standard-on-Avoidance-of-Double-Counting-V1.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Standard on Avoidance of Double Counting &nearr;</a><br><a href=\"https://www.greenclimate.fund/sites/default/files/document/principles-demonstrating-impact-potential-gcf-supported-activities.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Principles for demonstrating the impact potential of GCF-supported activities &nearr;</a>",
+        options: [{ value: "yes", label: "Yes" }, { value: "no", label: "No" }, { value: "partially", label: "Partially" }]
       }
     ];
 
@@ -681,6 +687,32 @@
             gl: "Aquaculture is only recognized as a \"green\" activity if it simultaneously makes a substantial contribution to climate goals and satisfies the comprehensive ESG safeguards validated by third party by ensuring sustainable management and protection of water and marine resources."
           }
         }
+      },
+      q8: {
+        yes: {
+          gb: "ineligible", cc: "ineligible", gcf: "ineligible", gl: "ineligible",
+          reason: { cc: "The project is currently active under another carbon credit program — the same emission reductions cannot receive carbon credits twice (double counting)." },
+          reco: {
+            gb: "1. At no time should the same Green Project's net proceeds be concurrently allocated to more than one outstanding GSS (Green, Social, or Sustainability) bond or other green financing instrument.\n 2. A project can receive support from multiple sources (e.g., a green loan and a green bond) if the funds are applied to different parts or tranches of the project.\n Only be included if they run no risk of 'double-counting' as per <a href=\"https://www.icmagroup.org/sustainable-finance/the-principles-guidelines-and-handbooks/green-bond-principles-gbp/\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Green Bonds Principles &nearr;</a> or through any other mechanism/financing instrument",
+            cc: "1. Withdraw the project from the other program.\n 2. Ensure previous credits are cancelled or the project is officially inactive .",
+            gcf: "Fix accounting boundary: no dual claim as carbon credit + <abbr title='Nationally Determined Contribution'>NDC</abbr> + <abbr title='Green Climate Fund'>GCF</abbr> — avoid overlap.\nAdd no-double-counting attestation in <abbr title='Environmental and Social Safeguards'>ESS</abbr>/Funding Proposal.\nApply corresponding adjustments (Article 6) via <abbr title='National Designated Authority'>NDA</abbr> for cross-border claims.\nSeparate MRV (results) from financial reporting (flows).\nAccredited Entities due diligence to include double-counting check.\nVerify with MoEFCC/NDA that reductions aren't already in <abbr title='Nationally Determined Contribution'>NDC</abbr> baseline.",
+            gl: "1. At no time should the same Green Project's net proceeds be concurrently allocated to more than one outstanding GSS (Green, Social, or Sustainability) bond or other green financing instrument.\n 2. A project can receive support from multiple sources (e.g., a green loan and a green bond) if the funds are applied to different parts or tranches of the project.\n Only be included if they run no risk of 'double-counting' as per <a href=\"https://www.icmagroup.org/assets/documents/Regulatory/Green-Bonds/LMA_Green_Loan_Principles_Booklet-220318.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Green Loan Principles &nearr;</a> or through any other mechanism/financing instrument"
+          }
+        },
+        no: {
+          gb: "high", cc: "high", gcf: "high", gl: "high",
+          reason: { cc: "The project is not registered or applying under any other carbon credit program." }
+        },
+        partially: {
+          gb: "moderate", cc: "moderate", gcf: "moderate", gl: "moderate",
+          reason: { cc: "Previously registered, but now inactive or being withdrawn. The project may become eligible if evidence is provided that no further credits will be issued elsewhere." },
+          reco: {
+            gb: "1. If only a portion of a project is supported by another program, the remaining unfunded green portion can still be eligible for green bond proceeds on a pro-rata basis.\n 2. The issuer must demonstrate a formal internal process, such as a sub-account or sub-portfolio, to rigorously track and prove that the new bond proceeds are being applied to unique green expenditures not covered by the other program.\n Refer <a href=\"https://www.ifc.org/content/dam/ifc/doc/mgrt/202203-ifc-green-bond-handbook.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Green Bond Handbook &nearr;</a> ",
+            cc: "1. Obtain official withdrawal/de-registration from the other program.\n 2. Demonstrate that no duplicate carbon credits have been issued.\n 3. Maintain documentation proving exclusive ownership of emission reductions.",
+            gcf: "Fix accounting boundary: no dual claim as carbon credit + <abbr title='Nationally Determined Contribution'>NDC</abbr> + <abbr title='Green Climate Fund'>GCF</abbr> — avoid overlap.\nAdd no-double-counting attestation in <abbr title='Environmental and Social Safeguards'>ESS</abbr>/Funding Proposal.\nApply corresponding adjustments (Article 6) via <abbr title='National Designated Authority'>NDA</abbr> for cross-border claims.\nSeparate MRV (results) from financial reporting (flows).\nAccredited Entities due diligence to include double-counting check.\nVerify with MoEFCC/NDA that reductions aren't already in <abbr title='Nationally Determined Contribution'>NDC</abbr> baseline.",
+            gl: "1. If only a portion of a project is supported by another program, the remaining unfunded green portion can still be eligible for green bond proceeds on a pro-rata basis.\n 2. The issuer must demonstrate a formal internal process, such as a sub-account or sub-portfolio, to rigorously track and prove that the new bond proceeds are being applied to unique green expenditures not covered by the other program."
+          }
+        }
       }
     };
 
@@ -701,9 +733,10 @@
     // reference procedure docs for instruments that have one on file —
     // GCF has no procedure doc yet, so it's simply left out
     const PROCEDURE_LINKS = {
-      gb: "./procedure/Procedure_Green_Bonds.docx",
+      gb: "./procedure/green-bonds-steps-to-apply.html",
       cc: "./procedure/india-carbon-credit-eligibility.html",
-      gl: "./procedure/Procedure_Green_Loans.docx"
+      gcf: "./procedure/GCF-India-Access-Guide.html",
+      gl: "./procedure/green-loans-procedure.html"
     };
 
     function buildLivePreview(qid) {

@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Green Bonds — Steps to Apply | SUVIKALP</title>
+<style>
+  :root{
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --color-primary: #0d9488;
+    --color-teal-700: #0f766e;
+    --color-teal-900: #134e4a;
+    --color-teal-border: #ccfbf1;
+    --color-teal-tint: #f0fdfa;
+    --color-surface: #ffffff;
+    --color-text: #111827;
+    --color-text-secondary: #5b6572;
+    --color-card-border: #e3e7eb;
+    --color-gray-200: #eef1f3;
+    --color-gray-50: #f8fafa;
+    --color-red-500: #dc2626;
+    --gold: #b45309;
+    --radius: 8px;
+    --radius-lg: 14px;
+    --radius-full: 999px;
+    --shadow-sm: 0 1px 2px rgba(16,24,32,.06);
+    --shadow-md: 0 6px 20px rgba(16,24,32,.08);
+    --fs-xs: 0.75rem;
+    --fs-sm: 0.85rem;
+    --fs-md: 0.95rem;
+    --fs-base: 1rem;
+    --fs-lg: 1.3rem;
+    --fs-xl: 1.9rem;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--color-gray-50);color:var(--color-text);font-family:var(--font-sans);}
+  a{color:var(--color-teal-700);}
+  img{max-width:100%;}
+
+  /* ---------- header (matches SUVIKALP tool shell) ---------- */
+  #site-header{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 32px;background:var(--color-surface);
+    border-bottom:1px solid var(--color-card-border);
+    position:sticky;top:0;z-index:50;
+  }
+  .header-tool-title{font-size:1.05rem;font-weight:700;color:var(--color-teal-900);}
+  .header-tool-title .hindi{color:var(--color-primary);}
+  .header-tool-sub{font-size:var(--fs-sm);color:var(--color-text-secondary);margin-top:2px;}
+  .header-cco-lockup{display:flex;align-items:center;gap:10px;}
+  .header-cco-logo{height:42px;width:auto;}
+
+  /* ---------- back / breadcrumb bar ---------- */
+  .gbp-backbar{
+    max-width:1200px;margin:0 auto;padding:16px 32px 0;
+    display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;
+  }
+  .back-btn{
+    display:inline-flex;align-items:center;gap:6px;border:1px solid var(--color-card-border);
+    background:var(--color-surface);color:var(--color-text-secondary);font-family:var(--font-sans);
+    font-size:var(--fs-sm);font-weight:600;padding:7px 14px;border-radius:var(--radius-full);
+    cursor:pointer;transition:background .15s;
+  }
+  .back-btn:hover{background:var(--color-teal-tint);color:var(--color-teal-700);}
+  .back-btn svg{width:14px;height:14px;}
+  .gbp-breadcrumb{font-family:var(--font-sans);font-size:var(--fs-sm);color:var(--color-text-secondary);}
+  .gbp-breadcrumb .sep{margin:0 6px;opacity:.5;}
+  .gbp-breadcrumb .current{color:var(--color-primary);font-weight:600;}
+
+  /* ---------- hero ---------- */
+  .gbp-hero{max-width:1200px;margin:0 auto;padding:26px 32px 8px;}
+  .gbp-eyebrow{
+    display:inline-block;font-size:var(--fs-xs);font-weight:700;letter-spacing:.07em;
+    text-transform:uppercase;color:var(--color-teal-700);background:var(--color-teal-tint);
+    border:1px solid var(--color-teal-border);padding:4px 11px;border-radius:var(--radius-full);
+    margin-bottom:12px;
+  }
+  .gbp-hero h1{margin:0 0 10px;font-size:var(--fs-xl);font-weight:700;line-height:1.25;letter-spacing:-.01em;}
+  .gbp-hero p{margin:0;max-width:760px;font-size:var(--fs-md);line-height:1.65;color:var(--color-text-secondary);}
+  .gbp-note{
+    max-width:760px;margin:16px 0 0;padding:12px 16px;border-radius:var(--radius);
+    background:#fffbeb;border:1px solid #fde68a;font-size:var(--fs-sm);line-height:1.6;color:#78430b;
+  }
+  .gbp-note strong{color:#5c3208;}
+
+  /* ---------- in-page nav ---------- */
+  .gbp-nav-wrap{position:sticky;top:73px;z-index:40;background:var(--color-gray-50);
+    border-bottom:1px solid var(--color-card-border);padding:10px 0;margin-top:22px;}
+  .gbp-nav{max-width:1200px;margin:0 auto;padding:0 32px;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;}
+  .gbp-nav::-webkit-scrollbar{display:none;}
+  .gbp-nav a{
+    flex-shrink:0;font-size:var(--fs-sm);font-weight:600;color:var(--color-text-secondary);
+    text-decoration:none;padding:7px 14px;border-radius:var(--radius-full);border:1px solid var(--color-card-border);
+    background:var(--color-surface);white-space:nowrap;transition:all .15s;
+  }
+  .gbp-nav a:hover, .gbp-nav a.active{color:var(--color-teal-700);border-color:var(--color-primary);background:var(--color-teal-tint);}
+
+  /* ---------- content shell ---------- */
+  .gbp-content{max-width:1200px;margin:0 auto;padding:0 32px 60px;}
+  .gbp-section{padding:44px 0;border-bottom:1px solid var(--color-card-border);scroll-margin-top:140px;}
+  .gbp-section:last-child{border-bottom:none;}
+  .gbp-section-head{display:flex;align-items:baseline;gap:12px;margin-bottom:6px;}
+  .gbp-section-num{font-family:var(--font-sans);font-size:var(--fs-sm);font-weight:700;color:var(--color-primary);}
+  .gbp-section h2{margin:0 0 6px;font-size:1.4rem;font-weight:700;letter-spacing:-.01em;}
+  .gbp-section-sub{margin:0 0 26px;font-size:var(--fs-md);color:var(--color-text-secondary);max-width:760px;line-height:1.6;}
+
+  /* ---------- stepper (pre/post issuance) ---------- */
+  .gbp-phase-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+  .gbp-phase{background:var(--color-surface);border:1px solid var(--color-card-border);border-radius:var(--radius-lg);
+    box-shadow:var(--shadow-sm);padding:22px 22px 8px;}
+  .gbp-phase-title{display:flex;align-items:center;gap:10px;margin:0 0 4px;font-size:1.02rem;font-weight:700;}
+  .gbp-phase-badge{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;
+    border-radius:50%;background:var(--color-teal-700);color:#fff;font-size:.72rem;font-weight:700;flex-shrink:0;}
+  .gbp-phase-sub{margin:0 0 18px;font-size:var(--fs-sm);color:var(--color-text-secondary);}
+  .gbp-steps{list-style:none;margin:0;padding:0;}
+  .gbp-steps li{
+    display:flex;gap:12px;padding:14px 0;border-top:1px dashed var(--color-card-border);
+    font-size:var(--fs-md);line-height:1.55;
+  }
+  .gbp-steps li:first-child{border-top:none;}
+  .gbp-step-n{flex-shrink:0;width:24px;height:24px;border-radius:50%;border:1.5px solid var(--color-primary);
+    color:var(--color-teal-700);font-size:.72rem;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px;}
+
+  /* ---------- checklist accordion ---------- */
+  .gbp-acc{border:1px solid var(--color-card-border);border-radius:var(--radius-lg);overflow:hidden;background:var(--color-surface);}
+  .gbp-acc-row{border-bottom:1px solid var(--color-card-border);}
+  .gbp-acc-row:last-child{border-bottom:none;}
+  .gbp-acc-head{
+    width:100%;display:flex;align-items:center;gap:14px;padding:16px 18px;background:none;border:none;
+    cursor:pointer;text-align:left;font-family:var(--font-sans);
+  }
+  .gbp-acc-num{flex-shrink:0;width:30px;height:30px;border-radius:50%;background:var(--color-teal-tint);
+    color:var(--color-teal-700);font-size:.8rem;font-weight:700;display:flex;align-items:center;justify-content:center;}
+  .gbp-acc-name{flex:1;font-size:var(--fs-base);font-weight:600;}
+  .gbp-acc-chev{width:16px;height:16px;color:var(--color-text-secondary);transition:transform .2s ease;flex-shrink:0;}
+  .gbp-acc-row.open .gbp-acc-chev{transform:rotate(180deg);}
+  .gbp-acc-body{max-height:0;overflow:hidden;transition:max-height .25s ease;}
+  .gbp-acc-row.open .gbp-acc-body{max-height:600px;}
+  .gbp-acc-body-inner{padding:0 18px 18px 62px;}
+  .gbp-acc-body-inner p{margin:0 0 10px;font-size:var(--fs-base);line-height:1.65;color:var(--color-text-secondary);}
+  .gbp-acc-body-inner ul{margin:0;padding-left:18px;}
+  .gbp-acc-body-inner li{font-size:var(--fs-base);line-height:1.7;color:var(--color-text-secondary);}
+
+  /* ---------- document / template cards ---------- */
+  .gbp-card-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
+  .gbp-doc-card{
+    display:flex;align-items:flex-start;gap:12px;padding:15px 16px;border:1px solid var(--color-card-border);
+    border-radius:var(--radius-lg);background:var(--color-surface);text-decoration:none;color:var(--color-text);
+    transition:border-color .15s,box-shadow .15s;box-shadow:var(--shadow-sm);
+  }
+  .gbp-doc-card:hover{border-color:var(--color-primary);box-shadow:var(--shadow-md);}
+  .gbp-doc-icon{flex-shrink:0;width:34px;height:34px;border-radius:var(--radius);background:var(--color-teal-tint);
+    color:var(--color-teal-700);display:flex;align-items:center;justify-content:center;}
+  .gbp-doc-icon svg{width:17px;height:17px;}
+  .gbp-doc-name{font-size:var(--fs-sm);font-weight:600;line-height:1.4;}
+  .gbp-doc-meta{font-size:var(--fs-xs);color:var(--color-text-secondary);margin-top:2px;}
+  .gbp-contact-line{
+    margin-top:20px;padding:13px 16px;border-radius:var(--radius);background:var(--color-teal-tint);
+    border:1px solid var(--color-teal-border);font-size:var(--fs-sm);color:var(--color-teal-900);
+  }
+
+  /* ---------- governance ---------- */
+  .gbp-gov-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:8px;}
+  .gbp-gov-card{background:var(--color-surface);border:1px solid var(--color-card-border);border-radius:var(--radius-lg);
+    padding:16px 15px;box-shadow:var(--shadow-sm);}
+  .gbp-gov-role{font-size:var(--fs-sm);font-weight:700;color:var(--color-teal-700);margin:0 0 6px;}
+  .gbp-gov-desc{font-size:var(--fs-sm);line-height:1.55;color:var(--color-text-secondary);margin:0;}
+
+  .gbp-subhead{font-size:1rem;font-weight:700;margin:34px 0 4px;}
+  .gbp-subhead-sub{font-size:var(--fs-sm);color:var(--color-text-secondary);margin:0 0 16px;}
+
+  .gbp-tier-flow{display:flex;flex-direction:column;gap:12px;max-width:640px;}
+  .gbp-tier-row{
+    display:flex;gap:14px;align-items:flex-start;padding:14px 16px;border-radius:var(--radius-lg);
+    border:1px solid var(--color-card-border);background:var(--color-surface);box-shadow:var(--shadow-sm);
+  }
+  .gbp-tier-badge{flex-shrink:0;width:30px;height:30px;border-radius:50%;background:var(--color-teal-700);
+    color:#fff;font-size:.72rem;font-weight:700;display:flex;align-items:center;justify-content:center;}
+  .gbp-tier-title{font-size:var(--fs-base);font-weight:700;margin:0 0 3px;}
+  .gbp-tier-desc{font-size:var(--fs-sm);color:var(--color-text-secondary);margin:0;line-height:1.55;}
+  .gbp-tier-arrow{display:flex;justify-content:center;color:var(--color-card-border);margin:-4px 0;}
+  .gbp-tier-arrow svg{width:16px;height:16px;}
+
+  /* ---------- exchange / alt-route cards ---------- */
+  .gbp-ex-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .gbp-ex-card{
+    padding:18px 17px;border-radius:var(--radius-lg);border:1px solid var(--color-card-border);
+    background:var(--color-surface);box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:8px;
+  }
+  .gbp-ex-name{font-size:var(--fs-base);font-weight:700;line-height:1.3;}
+  .gbp-ex-name a{color:var(--color-text);text-decoration:none;}
+  .gbp-ex-name a:hover{color:var(--color-teal-700);text-decoration:underline;}
+  .gbp-ex-desc{font-size:var(--fs-sm);color:var(--color-text-secondary);line-height:1.55;margin:0;flex:1;}
+  .gbp-ex-tag{align-self:flex-start;font-size:var(--fs-xs);font-weight:700;letter-spacing:.03em;text-transform:uppercase;
+    color:var(--color-teal-700);background:var(--color-teal-tint);padding:3px 9px;border-radius:var(--radius-full);}
+
+  /* ---------- contact directory ---------- */
+  .gbp-contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .gbp-contact-card{padding:16px 17px;border-radius:var(--radius-lg);border:1px solid var(--color-card-border);
+    background:var(--color-surface);box-shadow:var(--shadow-sm);}
+  .gbp-contact-role{font-size:var(--fs-xs);font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--color-primary);margin:0 0 6px;}
+  .gbp-contact-name{font-size:var(--fs-base);font-weight:700;margin:0 0 4px;}
+  .gbp-contact-detail{font-size:var(--fs-sm);color:var(--color-text-secondary);line-height:1.6;margin:0;}
+  .gbp-contact-detail a{color:var(--color-teal-700);}
+
+  /* ---------- sources ---------- */
+  .gbp-sources{list-style:none;margin:0;padding:0;counter-reset:src;}
+  .gbp-sources li{
+    counter-increment:src;position:relative;padding:12px 0 12px 34px;font-size:var(--fs-base);
+    border-top:1px solid var(--color-card-border);line-height:1.55;
+  }
+  .gbp-sources li:first-child{border-top:none;}
+  .gbp-sources li::before{
+    content:counter(src);position:absolute;left:0;top:12px;width:22px;height:22px;border-radius:50%;
+    background:var(--color-teal-tint);color:var(--color-teal-700);font-size:.72rem;font-weight:700;
+    display:flex;align-items:center;justify-content:center;
+  }
+
+  /* ---------- disclaimer / footer ---------- */
+  .gbp-disclaimer{
+    max-width:1200px;margin:0 auto;padding:0 32px 30px;
+  }
+  .gbp-disclaimer-box{
+    border:1px solid var(--color-card-border);background:var(--color-gray-200);border-radius:var(--radius-lg);
+    padding:16px 18px;font-size:var(--fs-xs);line-height:1.65;color:var(--color-text-secondary);
+  }
+  .gbp-disclaimer-box strong{color:var(--color-text);}
+  #site-footer-sf{
+    text-align:center;padding:22px 20px;font-size:var(--fs-xs);color:var(--color-text-secondary);
+    border-top:1px solid var(--color-card-border);
+  }
+  #site-footer-sf a{font-weight:600;}
+
+  /* ---------- timeline (indicative durations) ---------- */
+  .gbp-timeline{display:flex;flex-direction:column;}
+  .gbp-tl-row{display:flex;gap:16px;padding:16px 0;border-top:1px dashed var(--color-card-border);}
+  .gbp-tl-row:first-child{border-top:none;padding-top:2px;}
+  .gbp-tl-marker{flex-shrink:0;width:32px;height:32px;border-radius:50%;background:var(--color-teal-tint);
+    color:var(--color-teal-700);font-weight:700;font-size:.8rem;display:flex;align-items:center;justify-content:center;}
+  .gbp-tl-body{flex:1;min-width:0;}
+  .gbp-tl-top{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:4px;}
+  .gbp-tl-title{font-weight:700;font-size:var(--fs-base);margin:0;}
+  .gbp-tl-dur{flex-shrink:0;font-size:var(--fs-xs);font-weight:700;color:var(--color-teal-700);
+    background:var(--color-teal-tint);padding:2px 10px;border-radius:var(--radius-full);white-space:nowrap;}
+  .gbp-tl-desc{font-size:var(--fs-sm);color:var(--color-text-secondary);margin:0;line-height:1.55;}
+  .gbp-tl-total{
+    margin-top:6px;padding:13px 16px;border-radius:var(--radius);background:var(--color-teal-tint);
+    border:1px solid var(--color-teal-border);font-size:var(--fs-sm);color:var(--color-teal-900);
+  }
+
+  /* ---------- related-tool links (Resources & Tools) ---------- */
+  .gbp-related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:8px;}
+  .gbp-related-card{
+    display:block;padding:16px 17px;border-radius:var(--radius-lg);border:1px solid var(--color-card-border);
+    background:var(--color-surface);box-shadow:var(--shadow-sm);text-decoration:none;color:var(--color-text);
+    transition:border-color .15s,box-shadow .15s;
+  }
+  .gbp-related-card:hover{border-color:var(--color-primary);box-shadow:var(--shadow-md);}
+  .gbp-related-name{font-size:var(--fs-base);font-weight:700;margin:0 0 5px;}
+  .gbp-related-desc{font-size:var(--fs-sm);color:var(--color-text-secondary);margin:0;line-height:1.5;}
+
+  @media (max-width:900px){
+    .gbp-phase-grid,.gbp-card-grid{grid-template-columns:1fr;}
+    .gbp-gov-grid{grid-template-columns:repeat(2,1fr);}
+    .gbp-ex-grid,.gbp-contact-grid,.gbp-related-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:640px){
+    #site-header{padding:12px 18px;}
+    .gbp-hero,.gbp-content,.gbp-backbar,.gbp-disclaimer,.gbp-nav{padding-left:18px;padding-right:18px;}
+    .gbp-gov-grid,.gbp-ex-grid,.gbp-contact-grid,.gbp-related-grid{grid-template-columns:1fr;}
+    .gbp-hero h1{font-size:1.5rem;}
+    .gbp-acc-body-inner{padding-left:18px;}
+    .gbp-tl-dur{margin-left:0;}
+  }
+</style>
+</head>
+<body>
+
+  <header id="site-header">
+    <div class="header-left">
+      <div class="header-tool-title"><span class="hindi">सुविकल्प:</span> Mine Repurposing Tool</div>
+      <div class="header-tool-sub">Green Finance — Green Bonds: Steps to Apply</div>
+    </div>
+    <div class="header-right">
+      <div class="header-cco-lockup">
+        <img class="header-cco-logo" src="data:image/png;base64,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" alt="Coal Controller Organisation emblem">
+      </div>
+    </div>
+  </header>
+
+  <div class="gbp-backbar">
+    <button class="back-btn" onclick="window.location.href='./agroforestry-green-finance-tool.html'" aria-label="Back to Green Finance">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3L5 8l5 5"/></svg>
+      Back to Green Finance
+    </button>
+    <span class="gbp-breadcrumb">
+      <span>Green Finance</span><span class="sep">/</span><span class="current">Green Bonds — Steps to Apply</span>
+    </span>
+  </div>
+
+  <div class="gbp-hero">
+    <span class="gbp-eyebrow">Work in Progress</span>
+    <h1>Green Bonds — Steps to Apply</h1>
+    <p>Green Bonds facilitate capital flows from responsible investors in developed countries into green projects in emerging economies. This page walks an issuer through the full application journey — who is eligible, how the market is governed, what a green bond actually requires, and what to prepare, in what order.</p>
+    <div class="gbp-note"><strong>Before you start:</strong> given the higher transaction costs of bond issuance, the minimum bond size needed for tradeability, and the fact that only bonds above a certain size are tracked by market indices, issuers with smaller green portfolios may find a green loan a more practical route than issuing a green bond outright.</div>
+  </div>
+
+  <div class="gbp-nav-wrap">
+    <nav class="gbp-nav" id="gbp-nav">
+      <a href="#intro">Introduction</a>
+      <a href="#eligible">Eligible Entities</a>
+      <a href="#governance">Governance &amp; Rules</a>
+      <a href="#characteristics">Specific Characteristics</a>
+      <a href="#process">Application Process</a>
+      <a href="#checklist">Document Checklist</a>
+      <a href="#timeline">Timeline</a>
+      <a href="#contacts">Who to Contact</a>
+      <a href="#resources">Resources &amp; Tools</a>
+    </nav>
+  </div>
+
+  <div class="gbp-content">
+
+    <!-- ================= 01 INTRODUCTION ================= -->
+    <section class="gbp-section" id="intro">
+      <div class="gbp-section-head"><span class="gbp-section-num">01</span><h2>Brief Introduction</h2></div>
+      <p class="gbp-section-sub">What a green bond is, and why an issuer would choose one.</p>
+      <p style="max-width:780px;font-size:var(--fs-base);line-height:1.7;color:var(--color-text-secondary);margin:0 0 14px;">A Green Bond is a fixed-income debt instrument where the proceeds raised are used <strong style="color:var(--color-text);">exclusively</strong> to finance or refinance, in part or in full, new and/or existing eligible green projects. Unlike a general-purpose bond, its proceeds are earmarked, tracked, and reported on separately — which is what lets responsible investors channel capital into projects with a measurable environmental benefit, often at a lower cost of capital for the issuer.</p>
+      <p style="max-width:780px;font-size:var(--fs-base);line-height:1.7;color:var(--color-text-secondary);margin:0;">The market standard that defines what counts as a "green" bond is the <strong style="color:var(--color-text);">Green Bond Principles (GBP)</strong>, a voluntary framework administered by the International Capital Market Association (ICMA). The rest of this page follows that framework end-to-end — from who can issue, through governance, defining characteristics, the application steps, paperwork, an indicative timeline, and who to reach out to along the way.</p>
+    </section>
+
+    <!-- ================= 02 ELIGIBLE ENTITIES ================= -->
+    <section class="gbp-section" id="eligible">
+      <div class="gbp-section-head"><span class="gbp-section-num">02</span><h2>Eligible Entities — Who Will Be Eligible</h2></div>
+      <p class="gbp-section-sub">The GBP framework is issuer-agnostic — any of the following can issue a green bond, provided the underlying project qualifies (see below).</p>
+
+      <div class="gbp-ex-grid">
+        <div class="gbp-ex-card">
+          <span class="gbp-ex-tag">Public Sector</span>
+          <p class="gbp-ex-name">Sovereign &amp; National Governments</p>
+          <p class="gbp-ex-desc">National governments issuing Sovereign Green Bonds to fund public green infrastructure — in India, overseen by the Green Finance Working Committee and Public Debt Management Cell.</p>
+        </div>
+        <div class="gbp-ex-card">
+          <span class="gbp-ex-tag">Private Sector</span>
+          <p class="gbp-ex-name">Corporates &amp; Private Issuers</p>
+          <p class="gbp-ex-desc">Companies raising capital — typically via an underwriter or investment bank — to finance eligible green projects on their balance sheet.</p>
+        </div>
+        <div class="gbp-ex-card">
+          <span class="gbp-ex-tag">Financial Sector</span>
+          <p class="gbp-ex-name">Financial Institutions &amp; Banks</p>
+          <p class="gbp-ex-desc">Banks and financial institutions issuing green bonds to on-lend the proceeds as green loans, or to refinance an existing green loan portfolio.</p>
+        </div>
+        <div class="gbp-ex-card">
+          <span class="gbp-ex-tag">Sub-national</span>
+          <p class="gbp-ex-name">Municipal &amp; Public Sector Entities</p>
+          <p class="gbp-ex-desc">Municipalities and public bodies, including via green aggregators that bundle several smaller local projects into one exchange-tradable bond.</p>
+        </div>
+        <div class="gbp-ex-card">
+          <span class="gbp-ex-tag">Project Level</span>
+          <p class="gbp-ex-name">Project Developers &amp; SPVs</p>
+          <p class="gbp-ex-desc">Individual project developers or special-purpose vehicles, particularly where the project is too small for a standard public listing (see Alternative Routes under Application Process).</p>
+        </div>
+      </div>
+
+      <p class="gbp-subhead">The project itself must also qualify</p>
+      <p class="gbp-subhead-sub">Regardless of who the issuer is, the underlying project must clearly fall under an eligible green category:</p>
+      <div class="gbp-card-grid" style="grid-template-columns:repeat(2,1fr);">
+        <div class="gbp-gov-card"><p class="gbp-gov-role">Renewable Energy</p><p class="gbp-gov-desc">Solar, wind, hydro and other renewable generation projects.</p></div>
+        <div class="gbp-gov-card"><p class="gbp-gov-role">Energy Efficiency &amp; Green Buildings</p><p class="gbp-gov-desc">Efficiency retrofits and certified green construction.</p></div>
+        <div class="gbp-gov-card"><p class="gbp-gov-role">Clean Transportation</p><p class="gbp-gov-desc">Electric vehicles, metro systems and other low-emission transport.</p></div>
+        <div class="gbp-gov-card"><p class="gbp-gov-role">Waste, Water &amp; Biodiversity</p><p class="gbp-gov-desc">Waste management, water conservation, and biodiversity projects.</p></div>
+      </div>
+    </section>
+
+    <!-- ================= 03 GOVERNANCE & RULES ================= -->
+    <section class="gbp-section" id="governance">
+      <div class="gbp-section-head"><span class="gbp-section-num">03</span><h2>Governance &amp; Rules</h2></div>
+      <p class="gbp-section-sub">The International Capital Market Association (ICMA) acts as Secretariat to the Green Bond Principles (GBP) — a set of voluntary, principles-based rules rather than a mandatory regulatory regime. Governance operates at two levels: global market coordination, and issuer-specific / sovereign oversight.</p>
+
+      <p class="gbp-subhead">Global market governance — ICMA and the Principles</p>
+      <p class="gbp-subhead-sub">The global standards for green bonds are managed through a collaborative, market-driven structure.</p>
+      <div class="gbp-gov-grid">
+        <div class="gbp-gov-card"><p class="gbp-gov-role">Executive Committee</p><p class="gbp-gov-desc">The sole executive body of the Principles — 24 elected member organisations, split evenly across issuers, investors and underwriters. Reviews and updates the guidelines annually.</p></div>
+        <div class="gbp-gov-card"><p class="gbp-gov-role">Secretariat (ICMA)</p><p class="gbp-gov-desc">Provides administrative support and coordination for the GBP and the Principles generally.</p></div>
+        <div class="gbp-gov-card"><p class="gbp-gov-role">Advisory Council</p><p class="gbp-gov-desc">Complements the Executive Committee with input and market outreach, bringing in wider stakeholders including exchanges and rating agencies.</p></div>
+        <div class="gbp-gov-card"><p class="gbp-gov-role">Working Groups</p><p class="gbp-gov-desc">Focus on specific technical areas — for example, the Impact Reporting Working Group, which develops best-practice reporting metrics.</p></div>
+      </div>
+
+      <p class="gbp-subhead">Sovereign &amp; national governance — India's Sovereign Green Bonds</p>
+      <p class="gbp-subhead-sub">Individual countries run their own governing structures for national programmes. India's is a two-tier process.</p>
+      <div class="gbp-tier-flow">
+        <div class="gbp-tier-row">
+          <span class="gbp-tier-badge">1</span>
+          <div><p class="gbp-tier-title">Green Finance Working Committee (GFWC)</p><p class="gbp-tier-desc">Chaired by the Chief Economic Adviser. Oversees and validates key decisions on green bond issuances, with representatives from the Ministry of Finance, the Ministry of Environment, Forests and Climate Change, and NITI Aayog.</p></div>
+        </div>
+        <div class="gbp-tier-arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3v10M4 9l4 4 4-4"/></svg></div>
+        <div class="gbp-tier-row">
+          <span class="gbp-tier-badge">2</span>
+          <div><p class="gbp-tier-title">Public Debt Management Cell (PDMC)</p><p class="gbp-tier-desc">Situated within the Ministry of Finance. Responsible for managing, tracking and allocating the proceeds from sovereign green bond issuances.</p></div>
+        </div>
+        <div class="gbp-tier-arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3v10M4 9l4 4 4-4"/></svg></div>
+        <div class="gbp-tier-row">
+          <span class="gbp-tier-badge">3</span>
+          <div><p class="gbp-tier-title">Comptroller and Auditor General (CAG) of India</p><p class="gbp-tier-desc">Acts as the independent auditing authority, verifying the allocation and utilisation of green bond funds.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 04 SPECIFIC CHARACTERISTICS ================= -->
+    <section class="gbp-section" id="characteristics">
+      <div class="gbp-section-head"><span class="gbp-section-num">04</span><h2>Specific Characteristics</h2></div>
+      <p class="gbp-section-sub">What actually distinguishes a green bond from an ordinary bond — the four core components of the GBP, plus one structural point worth knowing upfront.</p>
+      <div class="gbp-gov-grid">
+        <div class="gbp-gov-card"><p class="gbp-gov-role">1. Use of Proceeds</p><p class="gbp-gov-desc">Proceeds must be exclusively and formally earmarked for eligible green project categories, described in the legal documentation for the security.</p></div>
+        <div class="gbp-gov-card"><p class="gbp-gov-role">2. Process for Project Evaluation &amp; Selection</p><p class="gbp-gov-desc">The issuer must clearly communicate its environmental sustainability objectives and the process for determining project eligibility.</p></div>
+        <div class="gbp-gov-card"><p class="gbp-gov-role">3. Management of Proceeds</p><p class="gbp-gov-desc">Net proceeds should be credited to a sub-account, moved to a sub-portfolio, or otherwise tracked in an appropriate, ring-fenced manner.</p></div>
+        <div class="gbp-gov-card"><p class="gbp-gov-role">4. Reporting</p><p class="gbp-gov-desc">Issuers must keep readily available, and update annually, information on the use of proceeds and the expected environmental impact.</p></div>
+      </div>
+      <p class="gbp-subhead">Two more things worth knowing</p>
+      <div class="gbp-card-grid" style="grid-template-columns:repeat(2,1fr);">
+        <div class="gbp-gov-card"><p class="gbp-gov-role">External Review Is Standard Practice</p><p class="gbp-gov-desc">While not always legally mandatory, a pre-issuance Second-Party Opinion (SPO) is strongly expected by the market to confirm the framework aligns with the GBP and avoids "greenwashing".</p></div>
+        <div class="gbp-gov-card"><p class="gbp-gov-role">Usually Full Recourse to the Issuer</p><p class="gbp-gov-desc">Most green bonds carry the same credit risk as the issuer's other debt — investors are relying on the issuer's overall creditworthiness, not just the underlying project's cash flows.</p></div>
+      </div>
+    </section>
+
+    <!-- ================= 05 APPLICATION PROCESS ================= -->
+    <section class="gbp-section" id="process">
+      <div class="gbp-section-head"><span class="gbp-section-num">05</span><h2>Application Process</h2></div>
+      <p class="gbp-section-sub">The lifecycle splits into two phases: preparing and structuring the bond before it goes to market, then allocating and reporting on proceeds after issuance.</p>
+
+      <div class="gbp-phase-grid">
+        <div class="gbp-phase">
+          <p class="gbp-phase-title"><span class="gbp-phase-badge">A</span> Issuing a Green Bond</p>
+          <p class="gbp-phase-sub">Pre-issuance</p>
+          <ul class="gbp-steps">
+            <li><span class="gbp-step-n">1</span> Define a green bond framework</li>
+            <li><span class="gbp-step-n">2</span> Define how the project meets green bond eligibility criteria (use of proceeds)</li>
+            <li><span class="gbp-step-n">3</span> Put in place a project selection process and select eligible projects (selection of projects and assets)</li>
+            <li><span class="gbp-step-n">4</span> Set up accounts and processes to earmark and allocate proceeds — "ring fence" the proceeds (management of proceeds)</li>
+            <li><span class="gbp-step-n">5</span> Establish reporting processes</li>
+            <li><span class="gbp-step-n">6</span> Get a pre-issuance external review</li>
+          </ul>
+        </div>
+        <div class="gbp-phase">
+          <p class="gbp-phase-title"><span class="gbp-phase-badge">B</span> Launch the Bond into the Market</p>
+          <p class="gbp-phase-sub">Post-issuance</p>
+          <ul class="gbp-steps">
+            <li><span class="gbp-step-n">1</span> Allocate proceeds to the projects</li>
+            <li><span class="gbp-step-n">2</span> Monitor the projects</li>
+            <li><span class="gbp-step-n">3</span> Publish an impact report</li>
+            <li><span class="gbp-step-n">4</span> Post-issuance audit, if necessary</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="gbp-subhead">Where to list it</p>
+      <p class="gbp-subhead-sub">To attract international and institutional investors, list the bond on a recognised sustainable exchange — for example the Luxembourg Green Exchange, LSE Sustainable Bond Market, Euronext ESG Bonds, Nasdaq Sustainable Debt Market, or SGX Sustainable Fixed Income.</p>
+
+      <p class="gbp-subhead">If the project is too small for a public listing</p>
+      <div class="gbp-ex-grid">
+        <div class="gbp-ex-card">
+          <p class="gbp-ex-name">Private Placement</p>
+          <p class="gbp-ex-desc">Sell the bonds directly to a select group of institutional investors — pension funds, insurance companies — without a public exchange listing.</p>
+        </div>
+        <div class="gbp-ex-card">
+          <p class="gbp-ex-name">Sustainable Crowd-Investing</p>
+          <p class="gbp-ex-desc">Use specialised green crowdfunding platforms to raise capital directly from retail investors.</p>
+        </div>
+        <div class="gbp-ex-card">
+          <p class="gbp-ex-name">Green Aggregators</p>
+          <p class="gbp-ex-desc">Partner with development banks that bundle smaller local projects into one large, exchange-tradable green bond.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 06 DOCUMENT CHECKLIST ================= -->
+    <section class="gbp-section" id="checklist">
+      <div class="gbp-section-head"><span class="gbp-section-num">06</span><h2>Document Checklist</h2></div>
+      <p class="gbp-section-sub">Six things to have in place before a green bond can be brought to market. Tap any item for detail.</p>
+
+      <div class="gbp-acc" id="gbp-checklist-acc"></div>
+
+      <p class="gbp-subhead">Templates to fill in</p>
+      <p class="gbp-subhead-sub">Issuers wishing to be listed in the Database must complete and forward the relevant template to the Secretariat, and/or make their external review reports publicly available.</p>
+
+      <p class="gbp-subhead" style="margin-top:20px;">For issuers</p>
+      <div class="gbp-card-grid">
+        <a class="gbp-doc-card" href="https://www.icmagroup.org/assets/Green-Bond-Information-Template_2023-07-06.docx" target="_blank" rel="noopener noreferrer">
+          <span class="gbp-doc-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 1.5h6l2.5 2.5v10.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 .5-.5z"/><path d="M10 1.5V4a.5.5 0 0 0 .5.5H13"/><path d="M5.5 8.5h5M5.5 11h5M5.5 6h2"/></svg></span>
+          <span><span class="gbp-doc-name">Green Bond Information Template</span><br><span class="gbp-doc-meta">.docx · ICMA</span></span>
+        </a>
+        <a class="gbp-doc-card" href="https://www.icmagroup.org/assets/Social-Bond-Information-Template_2023-07-06.docx" target="_blank" rel="noopener noreferrer">
+          <span class="gbp-doc-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 1.5h6l2.5 2.5v10.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 .5-.5z"/><path d="M10 1.5V4a.5.5 0 0 0 .5.5H13"/><path d="M5.5 8.5h5M5.5 11h5M5.5 6h2"/></svg></span>
+          <span><span class="gbp-doc-name">Social Bond Information Template</span><br><span class="gbp-doc-meta">.docx · ICMA</span></span>
+        </a>
+        <a class="gbp-doc-card" href="https://www.icmagroup.org/assets/Sustainability-Bond-Information-Template_2023-07-06.docx" target="_blank" rel="noopener noreferrer">
+          <span class="gbp-doc-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 1.5h6l2.5 2.5v10.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 .5-.5z"/><path d="M10 1.5V4a.5.5 0 0 0 .5.5H13"/><path d="M5.5 8.5h5M5.5 11h5M5.5 6h2"/></svg></span>
+          <span><span class="gbp-doc-name">Sustainability Bond Information Template</span><br><span class="gbp-doc-meta">.docx · ICMA</span></span>
+        </a>
+        <a class="gbp-doc-card" href="https://www.icmagroup.org/assets/Sustainability-Linked-Bond-Information-Template_2023-07-06.docx" target="_blank" rel="noopener noreferrer">
+          <span class="gbp-doc-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 1.5h6l2.5 2.5v10.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 .5-.5z"/><path d="M10 1.5V4a.5.5 0 0 0 .5.5H13"/><path d="M5.5 8.5h5M5.5 11h5M5.5 6h2"/></svg></span>
+          <span><span class="gbp-doc-name">Sustainability-Linked Bond Information Template</span><br><span class="gbp-doc-meta">.docx · ICMA</span></span>
+        </a>
+      </div>
+
+      <p class="gbp-subhead">For external reviewers</p>
+      <div class="gbp-card-grid">
+        <a class="gbp-doc-card" href="https://www.icmagroup.org/assets/documents/Sustainable-finance/2023-updates/External-Review-Form-Use-of-Proceeds-Bonds-2023-220623.docx" target="_blank" rel="noopener noreferrer">
+          <span class="gbp-doc-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 1.5h6l2.5 2.5v10.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 .5-.5z"/><path d="M10 1.5V4a.5.5 0 0 0 .5.5H13"/><path d="M5.5 8.5h5M5.5 11h5M5.5 6h2"/></svg></span>
+          <span><span class="gbp-doc-name">Use of Proceeds Bonds — External Review Form</span><br><span class="gbp-doc-meta">.docx · ICMA</span></span>
+        </a>
+        <a class="gbp-doc-card" href="https://www.icmagroup.org/assets/documents/Sustainable-finance/2023-updates/External-Review-Form-Sustainability-Linked-Bonds-2023-220623.docx" target="_blank" rel="noopener noreferrer">
+          <span class="gbp-doc-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 1.5h6l2.5 2.5v10.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 .5-.5z"/><path d="M10 1.5V4a.5.5 0 0 0 .5.5H13"/><path d="M5.5 8.5h5M5.5 11h5M5.5 6h2"/></svg></span>
+          <span><span class="gbp-doc-name">Sustainability-Linked Bond — External Review Form</span><br><span class="gbp-doc-meta">.docx · ICMA</span></span>
+        </a>
+      </div>
+
+      <div class="gbp-contact-line">Completed templates and forms for disclosure to the market should be sent to the Secretariat at <a href="mailto:sustainabilitybonds@icmagroup.org">sustainabilitybonds@icmagroup.org</a>.</div>
+    </section>
+
+    <!-- ================= 07 TIMELINE ================= -->
+    <section class="gbp-section" id="timeline">
+      <div class="gbp-section-head"><span class="gbp-section-num">07</span><h2>Timeline to Avail Green Bonds</h2></div>
+      <p class="gbp-section-sub">An indicative sequence and duration for a first-time issuer. Actual timing varies with issuer readiness, deal size, and market conditions — treat this as a planning guide, not a guarantee.</p>
+
+      <div class="gbp-timeline">
+        <div class="gbp-tl-row">
+          <span class="gbp-tl-marker">1</span>
+          <div class="gbp-tl-body">
+            <div class="gbp-tl-top"><p class="gbp-tl-title">Framework development &amp; internal approvals</p><span class="gbp-tl-dur">~4–8 weeks</span></div>
+            <p class="gbp-tl-desc">Draft the green bond framework, confirm eligible project categories, and secure internal sign-off.</p>
+          </div>
+        </div>
+        <div class="gbp-tl-row">
+          <span class="gbp-tl-marker">2</span>
+          <div class="gbp-tl-body">
+            <div class="gbp-tl-top"><p class="gbp-tl-title">Second-Party Opinion (SPO)</p><span class="gbp-tl-dur">~2–4 weeks</span></div>
+            <p class="gbp-tl-desc">Engage an SPO provider to review the framework. Can often run in parallel with the later stages of framework drafting.</p>
+          </div>
+        </div>
+        <div class="gbp-tl-row">
+          <span class="gbp-tl-marker">3</span>
+          <div class="gbp-tl-body">
+            <div class="gbp-tl-top"><p class="gbp-tl-title">Mandate an underwriter &amp; structure the deal</p><span class="gbp-tl-dur">~4–6 weeks</span></div>
+            <p class="gbp-tl-desc">Appoint an investment bank or underwriter, agree deal size and tenor, and prepare legal documentation.</p>
+          </div>
+        </div>
+        <div class="gbp-tl-row">
+          <span class="gbp-tl-marker">4</span>
+          <div class="gbp-tl-body">
+            <div class="gbp-tl-top"><p class="gbp-tl-title">Exchange listing preparation &amp; regulatory filings</p><span class="gbp-tl-dur">~2–4 weeks</span></div>
+            <p class="gbp-tl-desc">Prepare listing particulars and complete any regulatory filings required by the chosen exchange.</p>
+          </div>
+        </div>
+        <div class="gbp-tl-row">
+          <span class="gbp-tl-marker">5</span>
+          <div class="gbp-tl-body">
+            <div class="gbp-tl-top"><p class="gbp-tl-title">Marketing, book-building &amp; pricing</p><span class="gbp-tl-dur">~1–2 weeks</span></div>
+            <p class="gbp-tl-desc">Investor roadshow, order book-building, and final pricing of the issue.</p>
+          </div>
+        </div>
+        <div class="gbp-tl-row">
+          <span class="gbp-tl-marker">6</span>
+          <div class="gbp-tl-body">
+            <div class="gbp-tl-top"><p class="gbp-tl-title">Issuance &amp; settlement</p><span class="gbp-tl-dur">~3–5 business days</span></div>
+            <p class="gbp-tl-desc">The bond is priced, allotted, and settled — proceeds move into the ring-fenced account.</p>
+          </div>
+        </div>
+        <div class="gbp-tl-row">
+          <span class="gbp-tl-marker">7</span>
+          <div class="gbp-tl-body">
+            <div class="gbp-tl-top"><p class="gbp-tl-title">Post-issuance allocation &amp; impact reporting</p><span class="gbp-tl-dur">Annually, ongoing</span></div>
+            <p class="gbp-tl-desc">Publish allocation reports until proceeds are fully deployed, and impact reports for the life of the bond.</p>
+          </div>
+        </div>
+      </div>
+      <div class="gbp-tl-total"><strong>Indicative total:</strong> roughly 3–6 months from kick-off to pricing for a first-time issuer, with post-issuance reporting continuing annually for the life of the bond.</div>
+    </section>
+
+    <!-- ================= 08 WHO TO CONTACT ================= -->
+    <section class="gbp-section" id="contacts">
+      <div class="gbp-section-head"><span class="gbp-section-num">08</span><h2>Who to Contact</h2></div>
+      <p class="gbp-section-sub">For questions on the GBP framework itself, reach the ICMA Secretariat. For financing support, IFC is a common route.</p>
+
+      <div class="gbp-contact-line" style="margin-top:0;margin-bottom:20px;">GBP Secretariat (ICMA) — for framework, listing and disclosure questions: <a href="mailto:sustainabilitybonds@icmagroup.org">sustainabilitybonds@icmagroup.org</a></div>
+
+      <p class="gbp-subhead" style="margin-top:0;">IFC Contact Directory</p>
+      <p class="gbp-subhead-sub">IFC Headquarters — 2121 Pennsylvania Avenue, NW, Washington D.C. 20433, United States · +1 (202) 473-1000</p>
+      <div class="gbp-contact-grid">
+        <div class="gbp-contact-card">
+          <p class="gbp-contact-role">Head of Corporate Communications</p>
+          <p class="gbp-contact-name">Jim Rosenberg</p>
+          <p class="gbp-contact-detail">Washington D.C.<br>+1 (202) 473-0551<br><a href="mailto:IFCmedia@ifc.org">IFCmedia@ifc.org</a></p>
+        </div>
+        <div class="gbp-contact-card">
+          <p class="gbp-contact-role">Regional Director, South Asia</p>
+          <p class="gbp-contact-name">Imad N. Fakhoury</p>
+          <p class="gbp-contact-detail"><a href="mailto:infoindia@ifc.org">infoindia@ifc.org</a></p>
+        </div>
+        <div class="gbp-contact-card">
+          <p class="gbp-contact-role">Principal Country Officer</p>
+          <p class="gbp-contact-name">Roshika Singh</p>
+          <p class="gbp-contact-detail"><a href="mailto:infoindia@ifc.org">infoindia@ifc.org</a></p>
+        </div>
+        <div class="gbp-contact-card">
+          <p class="gbp-contact-role">Country Office</p>
+          <p class="gbp-contact-name">New Delhi, India</p>
+          <p class="gbp-contact-detail">6th Floor, Worldmark-3, Aerocity, New Delhi, India 110037<br><span style="color:var(--color-text-secondary)">(Serves: India)</span></p>
+        </div>
+        <div class="gbp-contact-card">
+          <p class="gbp-contact-role">Country Office</p>
+          <p class="gbp-contact-name">Mumbai, India</p>
+          <p class="gbp-contact-detail">Godrej BKC, Unit-1, 3rd Floor, Plot C-68, G Block, Bandra Kurla Complex, Bandra East, Mumbai, India 400 051<br><span style="color:var(--color-text-secondary)">(Serves: India)</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 09 RESOURCES & TOOLS ================= -->
+    <section class="gbp-section" id="resources">
+      <div class="gbp-section-head"><span class="gbp-section-num">09</span><h2>Resources &amp; Tools</h2></div>
+      <p class="gbp-section-sub">Primary sources referenced on this page, plus related tools elsewhere in Green Finance.</p>
+
+      <ol class="gbp-sources">
+        <li><a href="https://www.icmagroup.org/sustainable-finance/the-principles-guidelines-and-handbooks/green-bond-principles-gbp/" target="_blank" rel="noopener noreferrer">GBP official website</a></li>
+        <li><a href="https://www.icmagroup.org/assets/Hindi-GBP-2021_06.pdf" target="_blank" rel="noopener noreferrer">GBP Report for India (Hindi)</a></li>
+        <li><a href="https://www.icmagroup.org/assets/documents/Sustainable-finance/2023-updates/Pre-issuance-Check-List-for-Green-Bonds-Green-Bond-Programmes-June-2023-220623.pdf" target="_blank" rel="noopener noreferrer">Pre-issuance Checklist for Green Bonds / Green Bond Programmes</a></li>
+        <li><a href="https://www.icmagroup.org/assets/documents/Sustainable-finance/2025-updates/Guidance-on-Allocation-Reporting-June-2025.pdf" target="_blank" rel="noopener noreferrer">Guidance on Allocation Reporting</a></li>
+        <li><a href="https://www.ifc.org/content/dam/ifc/doc/mgrt/202203-ifc-green-bond-handbook.pdf" target="_blank" rel="noopener noreferrer">Green Bond Handbook: A Step-by-Step Guide to Issuing a Green Bond</a></li>
+        <li><a href="https://dea.gov.in/files/policy_and_guidelines_document/FrameworkSovereignGreenBonds.pdf" target="_blank" rel="noopener noreferrer">Framework for Sovereign Green Bonds — Government of India</a></li>
+      </ol>
+
+      <p class="gbp-subhead">Related tools in Green Finance</p>
+      <div class="gbp-related-grid">
+        <a class="gbp-related-card" href="./spo-providers.html">
+          <p class="gbp-related-name">SPO Providers Directory</p>
+          <p class="gbp-related-desc">Global and India-focused Second-Party Opinion providers, for Document Checklist step 3.</p>
+        </a>
+        <a class="gbp-related-card" href="./green-loans-procedure.html">
+          <p class="gbp-related-name">Green Loans — Procedure</p>
+          <p class="gbp-related-desc">A more practical route for issuers with smaller green portfolios (see the note above).</p>
+        </a>
+        <a class="gbp-related-card" href="./agroforestry-green-finance-tool.html">
+          <p class="gbp-related-name">Preliminary Green Finance Screening</p>
+          <p class="gbp-related-desc">Answer 7 quick questions to check eligibility across Green Bonds, Carbon Credit, GCF and Green Loans.</p>
+        </a>
+      </div>
+    </section>
+
+  </div>
+
+  <div class="gbp-disclaimer">
+    <div class="gbp-disclaimer-box">
+      <strong>Disclaimer:</strong> the information on this page has been compiled from third-party sources and is intended for general information only. It is not intended to be, and should not be relied upon as, legal, financial, investment, tax, regulatory, business or other professional advice. The timeline in Section 07 is indicative and illustrative only. The Coal Controller Organisation of India is not responsible for the accuracy, reliability or completeness of this information and does not warrant that it is accurate, suitable or complete; neither CCI, its employees, representatives, nor its members bear any liability arising from or relating to its use.
+    </div>
+  </div>
+
+  <footer id="site-footer-sf">
+    &copy; 2026 Coal Controller Organisation, Ministry of Coal, Government of India.&nbsp;&nbsp;
+    <a href="https://coalcontroller.gov.in/suvikalp.html" target="_blank" rel="noopener noreferrer">Original SUVIKALP tool &nearr;</a>
+    <span style="display:block;margin-top:8px;font-size:.75em;opacity:.7;">This is a prototype under development — not an official publication.</span>
+  </footer>
+
+<script>
+  "use strict";
+
+  const CHECKLIST = [
+    {
+      title: "Establish a Green Bond Framework",
+      body: "<p>Create a formal document defining your project's environmental objectives. It must align with global standards like the Green Bond Principles (GBP) established by the International Capital Market Association.</p>"
+    },
+    {
+      title: "Verify Your \"Use of Proceeds\"",
+      body: "<p>Your project must clearly fall under eligible green categories:</p><ul><li>Renewable energy (solar, wind, hydro)</li><li>Energy efficiency and green buildings</li><li>Clean transportation (EVs, metro systems)</li><li>Waste management, water conservation, and biodiversity</li></ul>"
+    },
+    {
+      title: "Obtain a Second-Party Opinion (SPO)",
+      body: "<p>To prove your project avoids \"greenwashing\" and genuinely meets sustainability criteria, hire an independent reviewer, rating agency, or environmental consultant to validate your framework. See the Resources &amp; Tools section for an SPO provider directory.</p>"
+    },
+    {
+      title: "Issue the Bond",
+      body: "<p>Work with an underwriter or investment bank to structure the debt. The bond is then issued into the market. If your project size is too small for a standard corporate bond, consider accessing funds via specialised financing facilities.</p>"
+    },
+    {
+      title: "Track and Manage the Proceeds",
+      body: "<p>Create a segregated account to track incoming funds. The money raised can only be disbursed to the specified eligible projects.</p>"
+    },
+    {
+      title: "Report on Progress",
+      body: "<p>You are legally required to provide regular allocation and impact reports. These show investors how their funds were spent and the exact environmental impact achieved (e.g., carbon emissions reduced).</p>"
+    }
+  ];
+
+  const acc = document.getElementById("gbp-checklist-acc");
+  acc.innerHTML = CHECKLIST.map((item, i) => `
+    <div class="gbp-acc-row">
+      <button type="button" class="gbp-acc-head">
+        <span class="gbp-acc-num">${i + 1}</span>
+        <span class="gbp-acc-name">${item.title}</span>
+        <svg class="gbp-acc-chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg>
+      </button>
+      <div class="gbp-acc-body"><div class="gbp-acc-body-inner">${item.body}</div></div>
+    </div>
+  `).join("");
+
+  acc.querySelectorAll(".gbp-acc-head").forEach((btn) => {
+    btn.addEventListener("click", () => btn.closest(".gbp-acc-row").classList.toggle("open"));
+  });
+  // open the first item by default
+  acc.querySelector(".gbp-acc-row")?.classList.add("open");
+
+  // in-page nav active-state on scroll
+  const navLinks = Array.from(document.querySelectorAll("#gbp-nav a"));
+  const sections = navLinks.map((a) => document.querySelector(a.getAttribute("href")));
+  const setActive = () => {
+    let current = sections[0];
+    const y = window.scrollY + 160;
+    sections.forEach((s) => { if (s && s.offsetTop <= y) current = s; });
+    navLinks.forEach((a) => a.classList.toggle("active", document.querySelector(a.getAttribute("href")) === current));
+  };
+  document.addEventListener("scroll", setActive, { passive: true });
+  setActive();
+</script>
+</body>
+</html>

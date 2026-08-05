@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GCF Access Dossier — India | Green Climate Fund Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f1e9d8;
+  --paper-dark:#e6dabf;
+  --card:#fbf7ee;
+  --ink:#221d14;
+  --ink-soft:#5b5442;
+  --forest:#153029;
+  --forest-deep:#0a1e18;
+  --leaf:#3d7a5a;
+  --leaf-soft:#dee9de;
+  --gold:#b1802a;
+  --gold-soft:#f2e3bd;
+  --clay:#9c4430;
+  --clay-soft:#f5e0d8;
+  --line:#cdbe9c;
+  --white:#fffdf6;
+  --shadow: 0 1px 0 rgba(34,29,20,.06);
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  font-family:'Public Sans',sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.6;
+}
+::selection{background:var(--gold-soft);}
+a{color:var(--leaf);}
+
+/* ---------- texture ---------- */
+.grain{
+  position:fixed;inset:0;pointer-events:none;z-index:999;opacity:.035;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ---------- header ---------- */
+header.masthead{
+  background:linear-gradient(160deg,var(--forest) 0%, var(--forest-deep) 100%);
+  color:var(--white);
+  padding:34px 5vw 40px;
+  position:relative;
+  overflow:hidden;
+  border-bottom:6px solid var(--gold);
+}
+header.masthead::after{
+  content:"";position:absolute;right:-80px;top:-80px;width:320px;height:320px;border-radius:50%;
+  background:radial-gradient(circle at 30% 30%, rgba(177,128,42,.28), transparent 70%);
+}
+.masthead-top{
+  display:flex;justify-content:space-between;align-items:flex-start;gap:24px;flex-wrap:wrap;
+  max-width:1180px;margin:0 auto;
+  position:relative;z-index:1;
+}
+.file-stamp{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold-soft);
+  border:1px solid rgba(255,255,255,.25);
+  padding:6px 12px;border-radius:2px;
+  display:inline-flex;align-items:center;gap:8px;
+}
+.file-stamp .dot{width:6px;height:6px;border-radius:50%;background:#7fdca0;box-shadow:0 0 6px #7fdca0;}
+h1.title{
+  font-family:'Source Serif 4',serif;
+  font-weight:700;
+  font-size:clamp(30px,4vw,46px);
+  margin:16px 0 10px;
+  max-width:760px;
+  letter-spacing:-.5px;
+}
+.subtitle{max-width:640px;color:rgba(255,253,246,.78);font-size:15.5px;font-weight:400;}
+.masthead-meta{
+  font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--gold-soft);
+  text-align:right;line-height:1.9;letter-spacing:.5px;
+}
+.masthead-meta b{color:var(--white);}
+
+/* ---------- layout ---------- */
+.wrap{
+  max-width:1180px;margin:0 auto;
+  display:grid;grid-template-columns:250px 1fr;gap:0;
+  align-items:start;
+}
+nav.tabs{
+  position:sticky;top:0;
+  padding:28px 14px 60px 5vw;
+  max-height:100vh;overflow-y:auto;
+}
+nav.tabs .rail-label{
+  font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:2px;color:var(--ink-soft);
+  text-transform:uppercase;margin:0 0 12px 14px;
+}
+.tab-btn{
+  display:flex;align-items:baseline;gap:10px;
+  width:100%;text-align:left;background:none;border:none;
+  font-family:'Public Sans',sans-serif;font-size:14px;font-weight:600;color:var(--ink-soft);
+  padding:10px 14px;border-radius:3px;cursor:pointer;
+  border-left:3px solid transparent;
+  transition:background .15s, color .15s, border-color .15s;
+}
+.tab-btn .num{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--gold);font-weight:600;}
+.tab-btn:hover{background:var(--paper-dark);color:var(--ink);}
+.tab-btn.active{background:var(--card);color:var(--forest);border-left-color:var(--gold);box-shadow:var(--shadow);}
+
+main{
+  padding:28px 5vw 100px 34px;
+  min-width:0;
+}
+.panel{display:none;animation:fade .25s ease;}
+.panel.active{display:block;}
+@keyframes fade{from{opacity:0;transform:translateY(4px);}to{opacity:1;transform:none;}}
+
+.panel-head{
+  display:flex;align-items:center;gap:16px;margin-bottom:22px;padding-bottom:16px;
+  border-bottom:2px solid var(--forest);
+}
+.panel-num{
+  font-family:'Source Serif 4',serif;font-weight:700;font-size:20px;color:var(--white);
+  background:var(--forest);width:44px;height:44px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.panel-head h2{font-family:'Source Serif 4',serif;font-size:25px;color:var(--forest);margin:0;}
+.panel-head .kicker{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;display:block;margin-bottom:4px;}
+
+h3.h{font-family:'Source Serif 4',serif;font-size:18px;color:var(--forest);margin:30px 0 12px;}
+p{font-size:14.5px;margin:0 0 12px;color:var(--ink);}
+.lede{font-size:16px;color:var(--ink-soft);max-width:74ch;}
+small.src{display:block;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--ink-soft);margin-top:6px;opacity:.75;}
+
+/* ---------- cards / grids ---------- */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0;}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:16px 0;}
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:5px;padding:18px 20px;
+  border-top:3px solid var(--leaf);
+}
+.card h4{font-family:'Source Serif 4',serif;font-size:15.5px;color:var(--forest);margin:0 0 8px;}
+.card p{font-size:13.3px;color:var(--ink-soft);margin:0;}
+.card .fig{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--leaf);font-weight:600;margin-top:8px;display:block;}
+
+.callout{border-radius:5px;padding:16px 20px;margin:18px 0;font-size:13.8px;}
+.callout strong{display:block;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:1.4px;text-transform:uppercase;margin-bottom:6px;}
+.callout.warn{background:var(--gold-soft);border-left:4px solid var(--gold);color:#5c4415;}
+.callout.danger{background:var(--clay-soft);border-left:4px solid var(--clay);color:#6d2c1c;}
+.callout.info{background:var(--leaf-soft);border-left:4px solid var(--leaf);color:#204632;}
+
+table{width:100%;border-collapse:collapse;font-size:13.6px;margin:16px 0;background:var(--card);}
+th{background:var(--forest);color:var(--white);text-align:left;padding:10px 13px;font-weight:600;font-size:12.4px;}
+td{padding:10px 13px;border-bottom:1px solid var(--line);vertical-align:top;}
+tr:last-child td{border-bottom:none;}
+tr:nth-child(even) td{background:var(--paper-dark);}
+
+.badge{display:inline-block;padding:2px 10px;border-radius:12px;font-size:10.6px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;}
+.badge.g{background:#d6ecdb;color:#1b5334;}
+.badge.gold{background:var(--gold-soft);color:#6b4b13;}
+.badge.r{background:var(--clay-soft);color:#7a2e1c;}
+
+/* ---------- flow diagram ---------- */
+.flow{display:flex;flex-direction:column;gap:0;margin:22px 0;}
+.flow-step{display:flex;gap:16px;position:relative;padding-bottom:26px;}
+.flow-step:last-child{padding-bottom:0;}
+.flow-step::before{
+  content:"";position:absolute;left:17px;top:36px;bottom:0;width:2px;
+  background:repeating-linear-gradient(to bottom, var(--gold) 0 4px, transparent 4px 9px);
+}
+.flow-step:last-child::before{display:none;}
+.flow-dot{
+  width:36px;height:36px;border-radius:50%;background:var(--forest);color:var(--white);
+  display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;
+  font-weight:600;font-size:13px;flex-shrink:0;z-index:1;
+}
+.flow-body h5{font-family:'Public Sans',sans-serif;font-weight:700;font-size:14.3px;color:var(--forest);margin:4px 0 3px;}
+.flow-body p{font-size:13.3px;margin:0;color:var(--ink-soft);}
+
+/* ---------- accordion ---------- */
+.acc{border:1px solid var(--line);border-radius:5px;margin:10px 0;overflow:hidden;background:var(--card);}
+.acc-head{
+  width:100%;background:none;border:none;text-align:left;padding:14px 18px;cursor:pointer;
+  display:flex;justify-content:space-between;align-items:center;font-family:'Public Sans',sans-serif;
+  font-weight:700;font-size:14.5px;color:var(--forest);
+}
+.acc-head .chev{transition:transform .2s;color:var(--gold);}
+.acc.open .acc-head .chev{transform:rotate(180deg);}
+.acc-body{max-height:0;overflow:hidden;transition:max-height .3s ease;padding:0 18px;}
+.acc.open .acc-body{padding:0 18px 18px;}
+
+/* ---------- toggle group (checklist tracks) ---------- */
+.toggle-row{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 20px;}
+.toggle-btn{
+  font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.5px;text-transform:uppercase;
+  padding:8px 14px;border-radius:20px;border:1px solid var(--forest);background:none;color:var(--forest);
+  cursor:pointer;font-weight:600;
+}
+.toggle-btn.active{background:var(--forest);color:var(--white);}
+
+.checklist{list-style:none;margin:0;padding:0;}
+.checklist li{
+  display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px dashed var(--line);
+  font-size:13.8px;
+}
+.checklist li:last-child{border-bottom:none;}
+.checklist input{margin-top:3px;accent-color:var(--leaf);width:15px;height:15px;flex-shrink:0;cursor:pointer;}
+.checklist label{cursor:pointer;}
+.checklist label.checked{color:var(--ink-soft);text-decoration:line-through;}
+.checklist-group{display:none;}
+.checklist-group.active{display:block;}
+.progress-wrap{background:var(--paper-dark);border-radius:20px;height:8px;overflow:hidden;margin:12px 0 4px;}
+.progress-bar{background:var(--leaf);height:100%;width:0%;transition:width .25s;}
+.progress-label{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink-soft);}
+
+/* ---------- contact cards ---------- */
+.contact-card{
+  background:var(--card);border:1px solid var(--line);border-left:4px solid var(--gold);
+  border-radius:4px;padding:16px 20px;margin:12px 0;
+}
+.contact-card h4{font-family:'Source Serif 4',serif;font-size:15.5px;color:var(--forest);margin:0 0 2px;}
+.contact-role{font-family:'IBM Plex Mono',monospace;font-size:10.5px;text-transform:uppercase;letter-spacing:1px;color:var(--gold);margin-bottom:8px;display:block;}
+.contact-line{font-size:13.3px;margin:3px 0;}
+.contact-line b{color:var(--forest);}
+
+/* ---------- calculator ---------- */
+.calc-box{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:22px;margin:16px 0;}
+.calc-box h4{font-family:'Source Serif 4',serif;color:var(--forest);font-size:16px;margin:0 0 4px;}
+.calc-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:14px 0;}
+.field label{font-size:12.5px;font-weight:600;color:var(--ink-soft);display:block;margin-bottom:5px;}
+.field input,.field select{
+  width:100%;padding:9px 11px;border:1px solid var(--line);border-radius:4px;font-size:14px;
+  font-family:'Public Sans',sans-serif;background:var(--white);color:var(--ink);
+}
+.calc-result{
+  margin-top:14px;padding:14px 18px;border-radius:5px;background:var(--paper-dark);
+  font-family:'IBM Plex Mono',monospace;font-size:13.5px;
+}
+.calc-result .num{font-size:22px;font-weight:600;color:var(--forest);}
+
+/* ---------- links list ---------- */
+.link-list{list-style:none;padding:0;margin:0;}
+.link-list li{border-bottom:1px solid var(--line);padding:12px 0;}
+.link-list a{font-weight:600;font-size:14px;color:var(--forest);text-decoration:none;}
+.link-list a:hover{text-decoration:underline;}
+.link-list .desc{display:block;font-size:12.8px;color:var(--ink-soft);margin-top:2px;}
+
+/* ---------- footer ---------- */
+footer{
+  background:var(--forest-deep);color:rgba(255,253,246,.65);
+  padding:30px 5vw;font-size:12.5px;text-align:center;
+}
+footer b{color:var(--gold-soft);}
+
+/* ---------- misc ---------- */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:26px;}
+@media(max-width:900px){
+  .wrap{grid-template-columns:1fr;}
+  nav.tabs{
+    position:static;display:flex;overflow-x:auto;gap:6px;padding:16px 5vw;
+    max-height:none;white-space:nowrap;border-bottom:1px solid var(--line);
+  }
+  nav.tabs .rail-label{display:none;}
+  .tab-btn{border-left:none;border-bottom:3px solid transparent;flex-shrink:0;}
+  .tab-btn.active{border-left:none;border-bottom-color:var(--gold);}
+  main{padding:24px 5vw 80px;}
+  .grid2,.grid3,.calc-row,.two-col{grid-template-columns:1fr;}
+  .masthead-meta{text-align:left;}
+}
+</style>
+</head>
+<body>
+<div class="grain"></div>
+
+<header class="masthead">
+  <div class="masthead-top">
+    <div>
+      <span class="file-stamp"><span class="dot"></span>FILE OPEN · GCF-IN-2026</span>
+      <h1 class="title">Green Climate Fund (GCF)</h1>
+      <p class="subtitle">A single reference for eligibility, the funding tracks, India's clearance process, required paperwork and who to actually call.</p>
+    </div>
+    <div class="masthead-meta">
+      NDA (India)&nbsp;&nbsp;<b>MoEFCC</b><br>
+      Established&nbsp;&nbsp;<b>2010 · UNFCCC</b><br>
+      Headquarters&nbsp;&nbsp;<b>Songdo, South Korea</b><br>
+      Cumulative approvals&nbsp;&nbsp;<b>USD 15.9bn · 286 projects</b>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+<nav class="tabs" id="tabNav">
+  <div class="rail-label">Dossier Index</div>
+  <button class="tab-btn active" data-tab="t1"><span class="num">01</span> Overview &amp; Eligibility</button>
+  <button class="tab-btn" data-tab="t2"><span class="num">02</span> Funding Tracks</button>
+  <button class="tab-btn" data-tab="t3"><span class="num">03</span> Investment Criteria</button>
+  <button class="tab-btn" data-tab="t4"><span class="num">04</span> NDC Alignment</button>
+  <button class="tab-btn" data-tab="t5"><span class="num">05</span> Who to Approach</button>
+  <button class="tab-btn" data-tab="t6"><span class="num">06</span> Application Process</button>
+  <button class="tab-btn" data-tab="t7"><span class="num">07</span> Document Checklist</button>
+  <button class="tab-btn" data-tab="t8"><span class="num">08</span> Why Proposals Fail</button>
+  <button class="tab-btn" data-tab="t9"><span class="num">09</span> Timelines</button>
+  <button class="tab-btn" data-tab="t10"><span class="num">10</span> Governance &amp; Rules</button>
+  <button class="tab-btn" data-tab="t11"><span class="num">11</span> Resources &amp; Tools</button>
+</nav>
+
+<main>
+
+<!-- ============ 01 OVERVIEW ============ -->
+<section class="panel active" id="t1">
+  <div class="panel-head"><div class="panel-num">01</div><div><span class="kicker">Section One</span><h2>What is the GCF, and who can actually get it?</h2></div></div>
+
+  <p class="lede">The Green Climate Fund (GCF) is the world's largest dedicated multilateral climate fund, established in 2010 as a financial mechanism of the UNFCCC and operating under the guidance of the Paris Agreement. It funds both <b>mitigation</b> (reducing/avoiding emissions) and <b>adaptation</b> (building resilience) in developing countries, targeting a 50:50 balance between the two.</p>
+
+  <div class="callout danger">
+    <strong>Critical reality check</strong>
+    You — as an individual, company, NGO, or state department — <b>cannot apply to the GCF directly.</b> GCF channels every dollar through an <b>Accredited Entity (AE)</b>: an organisation that has gone through GCF's own due-diligence accreditation. If you're not accredited yourself, you partner with one that is, and it submits the proposal on your behalf while you act as the <b>Executing Entity</b> implementing on the ground.
+  </div>
+
+  <h3 class="h">How the money actually flows</h3>
+  <div class="flow">
+    <div class="flow-step"><div class="flow-dot">1</div><div class="flow-body"><h5>GCF Board &amp; Secretariat</h5><p>Approves funding proposals; holds the resource pool (~USD 9–15bn+ in confirmed pledges across replenishment cycles).</p></div></div>
+    <div class="flow-step"><div class="flow-dot">2</div><div class="flow-body"><h5>Accredited Entities (AE)</h5><p>National, regional or international bodies — public, private or non-governmental — cleared to develop, submit and manage GCF-funded activity.</p></div></div>
+    <div class="flow-step"><div class="flow-dot">3</div><div class="flow-body"><h5>Executing Entities / Project Proponents</h5><p>Implement the approved project or programme on the ground, usually under a sub-agreement with the AE — this is most likely you.</p></div></div>
+    <div class="flow-step"><div class="flow-dot">4</div><div class="flow-body"><h5>Financial instruments deployed</h5><p>Grants, concessional/senior/subordinated loans, equity, guarantees and results-based payments — often blended together.</p></div></div>
+  </div>
+  <p style="font-size:12.8px;color:var(--ink-soft);">Every step above is shadowed by India's <b>National Designated Authority (NDA)</b> — MoEFCC — which must confirm country ownership before anything reaches the GCF Board.</p>
+
+  <h3 class="h">The six routes into GCF funding for an Indian project</h3>
+  <table>
+    <tr><th>Route</th><th>Who it's for</th><th>Best suited for</th></tr>
+    <tr><td><b>Direct Access</b> via an existing Indian AE (NABARD, SIDBI, etc.)</td><td>State bodies, ULBs, MSMEs, corporates, NGOs, research institutions, financial institutions</td><td>Most project developers — strong domestic ownership, no accreditation needed</td></tr>
+    <tr><td><b>International Access</b> via an international AE (UNDP, ADB, FAO, etc.)</td><td>National/sub-national governments, private entities, NGOs working with an international AE active in India</td><td>Large, technically complex or multi-country projects needing specialised expertise</td></tr>
+    <tr><td><b>Project-Specific Assessment Approach (PSAA)</b></td><td>Entities not yet accredited, with one strong, ready project</td><td>A single large or innovative project where full accreditation isn't justified</td></tr>
+    <tr><td><b>Project Preparation Facility (PPF)</b></td><td>AEs and PSAA applicants only (accessed indirectly by proponents through their AE)</td><td>Turning a concept into a bankable Funding Proposal</td></tr>
+    <tr><td><b>Direct Accreditation</b> (become an AE yourself)</td><td>Indian institutions with ≥3 years' track record and sound fiduciary systems, nominated by MoEFCC</td><td>Banks/NBFCs/state agencies wanting to originate and manage their own GCF pipeline</td></tr>
+    <tr><td><b>Readiness &amp; Preparatory Support</b></td><td>MoEFCC, states/UTs, DAEs, and (through the NDA) civil society/private stakeholders</td><td>Capacity building and pipeline development — not direct project financing</td></tr>
+  </table>
+
+  <div class="callout info">
+    <strong>Good news</strong>
+    GCF funds public sector, private sector and civil-society projects alike, across eight strategic result areas spanning energy, transport, buildings/cities, forests &amp; land use, health/food/water security, ecosystems, livelihoods and infrastructure. Whatever sector your project sits in, it very likely falls inside GCF's mandate — the real filter is whether you can prove additionality, credible impact and country ownership.
+  </div>
+  <small class="src">Sources: greenclimate.fund/about · GCF Governing Instrument · MoEFCC–IIFM–UNDP, "Engaging with the Green Climate Fund: A Digital Toolkit for India" (2024)</small>
+</section>
+
+<!-- ============ 02 FUNDING TRACKS ============ -->
+<section class="panel" id="t2">
+  <div class="panel-head"><div class="panel-num">02</div><div><span class="kicker">Section Two</span><h2>The funding tracks — and which one is yours</h2></div></div>
+  <p class="lede">GCF offers several access mechanisms. Picking the right one on day one saves months. Use the quick decision path below, then the full comparison table.</p>
+
+  <h3 class="h">Quick decision path</h3>
+  <div class="flow">
+    <div class="flow-step"><div class="flow-dot">A</div><div class="flow-body"><h5>Is your GCF ask ≤ USD 10 million AND minimal/no environmental-social risk (Category C)?</h5><p>→ Use the <b>Simplified Approval Process (SAP)</b>. Faster, lighter documentation, same six criteria.</p></div></div>
+    <div class="flow-step"><div class="flow-dot">B</div><div class="flow-body"><h5>Not accredited, but you have one strong, ready project rather than a pipeline?</h5><p>→ Use the <b>Project-Specific Assessment Approach (PSAA)</b> — project-level screening, no institutional accreditation needed.</p></div></div>
+    <div class="flow-step"><div class="flow-dot">C</div><div class="flow-body"><h5>Concept is good but not yet "fundable" — needs studies, ESIA, financial structuring?</h5><p>→ Request <b>Project Preparation Facility (PPF)</b> support (up to USD 1.5m) through your AE, or ask MoEFCC about <b>Readiness</b> support first.</p></div></div>
+    <div class="flow-step"><div class="flow-dot">D</div><div class="flow-body"><h5>Everything else — larger, more complex, or higher-risk (Category A/B) proposals</h5><p>→ Use the <b>Regular / Full Funding Proposal track (PAP)</b> — no upper size cap, but heavier documentation and longer review.</p></div></div>
+  </div>
+
+  <h3 class="h">SAP vs. Regular (PAP) at a glance</h3>
+  <table>
+    <tr><th>Feature</th><th>Simplified Approval Process (SAP)</th><th>Regular / Full Proposal (PAP)</th></tr>
+    <tr><td>GCF funding limit</td><td>Up to USD 10 million</td><td>USD 10M–250M+ (micro / small / medium / large bands, no hard cap for large)</td></tr>
+    <tr><td>Environmental &amp; social risk</td><td>Category C only — minimal/no risk</td><td>Category A, B or C</td></tr>
+    <tr><td>Documentation</td><td>Lighter — no full ESIA required</td><td>Full ESIA, gender assessment, feasibility study, financial model, etc.</td></tr>
+    <tr><td>Indicative approval timeline</td><td>~6–9 months from FP submission</td><td>~12–24 months from FP submission</td></tr>
+    <tr><td>Must demonstrate</td><td>Ready to scale, proven technology, paradigm-shift potential</td><td>Full climate rationale, financial soundness, replication plan</td></tr>
+  </table>
+
+  <h3 class="h">All five mechanisms, side by side</h3>
+  <div class="grid3">
+    <div class="card"><h4>Regular / PAP</h4><p>Default track for any size/risk. Submitted only by AEs. Concept Note (optional) → Funding Proposal → Secretariat + iTAP review → Board decision → legal agreement.</p><span class="fig">No upper limit</span></div>
+    <div class="card"><h4>SAP</h4><p>Streamlined track for small, low-risk, scalable projects. Same 6 criteria, lighter package, faster Secretariat turnaround.</p><span class="fig">≤ USD 10M</span></div>
+    <div class="card"><h4>PSAA</h4><p>Project-specific fiduciary/ESS screening for non-accredited entities with one ready project — skips full institutional accreditation.</p><span class="fig">Single project only</span></div>
+    <div class="card"><h4>Readiness &amp; Preparatory Support</h4><p>Grants + technical assistance for capacity building and pipeline development, delivered through the NDA. Not project financing.</p><span class="fig">Up to USD 7M / country / 4-yr cycle</span></div>
+    <div class="card"><h4>Project Preparation Facility (PPF)</h4><p>Helps AEs/PSAA applicants turn a concept into a bankable Funding Proposal — studies, ESS/gender work, financial structuring.</p><span class="fig">Up to USD 1.5M per application</span></div>
+    <div class="card"><h4>Direct Accreditation</h4><p>Become an AE yourself (DAE/IAE/Enhanced DAE) to originate and manage your own pipeline long-term, rather than routing through NABARD/SIDBI.</p><span class="fig">~3-year track record required</span></div>
+  </div>
+
+  <div class="callout warn">
+    <strong>On co-financing</strong>
+    GCF strongly prefers it isn't the only money in a project. Industry norm is GCF covering roughly <b>20–40% of total project cost</b>, the rest from government grants, bank loans, state budgets or your own equity. A co-financing ratio of <b>3:1 or better</b> (₹3 from elsewhere for every ₹1 from GCF) meaningfully strengthens a proposal — though some approved India projects (e.g. the Odisha groundwater programme) had GCF covering as little as ~21% of total cost, so there is no fixed rule, only a directional preference.
+  </div>
+  <small class="src">Sources: greenclimate.fund/access-funding/project-approval-process · greenclimate.fund/projects/sap · greenclimate.fund/projects/ppf · greenclimate.fund/readiness · GCF Policy on Co-financing</small>
+</section>
+
+<!-- ============ 03 INVESTMENT CRITERIA ============ -->
+<section class="panel" id="t3">
+  <div class="panel-head"><div class="panel-num">03</div><div><span class="kicker">Section Three</span><h2>The six investment criteria — the core of eligibility</h2></div></div>
+  <p class="lede">Every proposal, regardless of size, sector or track, is scored against these six criteria by GCF's Independent Technical Advisory Panel (iTAP). There's no published pass mark — but a weak showing on even one criterion is a common cause of rejection or repeated revision cycles.</p>
+
+  <div class="grid2">
+    <div class="card"><h4>1 · Impact potential</h4><p><b>Mitigation:</b> tonnes of CO₂-equivalent avoided or sequestered over the project lifetime, calculated (not estimated) using a recognised methodology (IPCC, Verra VCS, Gold Standard). <b>Adaptation:</b> number of direct + indirect beneficiaries and the measurable reduction in climate vulnerability.</p></div>
+    <div class="card"><h4>2 · Paradigm-shift potential</h4><p>Can this change a market, sector or policy landscape beyond itself? Will it be replicated, crowd in private finance, or shift institutional behaviour at scale? A one-off project with no scale-up plan scores poorly here.</p></div>
+    <div class="card"><h4>3 · Sustainable development potential</h4><p>Co-benefits beyond climate: economic (jobs, incomes), social (gender equity, poverty reduction), environmental (biodiversity, water, air) and health. A substantive <b>gender</b> co-benefit is specifically expected, not optional.</p></div>
+    <div class="card"><h4>4 · Needs of the recipient</h4><p>Why does this population or geography need GCF money specifically? What financial, institutional or technical barrier prevents it happening without GCF — i.e., what is the market failure or financing gap you are closing?</p></div>
+    <div class="card"><h4>5 · Country ownership</h4><p>Explicit alignment with India's NDC, NAPCC, relevant State Action Plan (SAPCC) and sectoral missions; genuine stakeholder consultation; and — non-negotiably — the NDA's No-Objection Letter.</p></div>
+    <div class="card"><h4>6 · Efficiency &amp; effectiveness</h4><p>Economic/financial soundness — IRR, NPV or payback period — plus the headline metric, <b>cost per tonne of CO₂ avoided</b>, and the co-financing ratio mobilised alongside GCF's contribution.</p></div>
+  </div>
+
+  <h3 class="h">Efficiency benchmarks worth knowing</h3>
+  <table>
+    <tr><th>Metric</th><th>Comfortable range</th><th>Will draw scrutiny</th></tr>
+    <tr><td>Cost per tonne CO₂e (general)</td><td>USD 5–30 / tonne</td><td>USD 100+ / tonne without strong adaptation co-benefits framing</td></tr>
+    <tr><td>Co-financing share (GCF as % of total cost)</td><td>~20–40% of total project cost</td><td>GCF funding the near-entirety of project cost, with no clear justification</td></tr>
+    <tr><td>Formula</td><td colspan="2" style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;">Cost per tonne = Total GCF funding (USD) ÷ Total lifetime CO₂e avoided or sequestered (tonnes)</td></tr>
+  </table>
+  <p style="font-size:12.8px;color:var(--ink-soft);">GCF does not publish a minimum tonnage or a hard efficiency threshold — what matters is that your claimed impact is credible, methodologically sound, and proportionate to what you're asking for. Use the calculator in Section 11 to check your own numbers.</p>
+  <small class="src">Sources: GCF Investment Framework · greenclimate.fund/access-funding/project-approval-process/investment-framework · GCF Toolkit Module 4</small>
+</section>
+
+<!-- ============ 04 NDC ALIGNMENT ============ -->
+<section class="panel" id="t4">
+  <div class="panel-head"><div class="panel-num">04</div><div><span class="kicker">Section Four</span><h2>India's NDC — exactly what "country ownership" means</h2></div></div>
+  <p class="lede">India's Nationally Determined Contribution (NDC) is your project's policy passport. Without an explicit, specific link to it, a proposal fails the "country ownership" criterion outright — a generic sentence ("this aligns with India's NDC") is not enough.</p>
+
+  <table>
+    <tr><th>Target</th><th>Commitment</th><th>Applies to</th></tr>
+    <tr><td>Emissions intensity</td><td>Reduce GDP emissions intensity by 45% from 2005 levels by 2030</td><td>Every proposal — reference this regardless of sector</td></tr>
+    <tr><td>Non-fossil power capacity</td><td>50% of installed electricity capacity from non-fossil sources by 2030 (COP26 "Panchamrit": 500 GW non-fossil capacity by 2030)</td><td>Energy-generation and grid-linked projects</td></tr>
+    <tr><td>Carbon sink</td><td>Additional carbon sink of 2.5–3 billion tonnes CO₂e through forest and tree cover by 2030</td><td>Forestry, land-use, agroforestry, ecosystem/conservation projects</td></tr>
+    <tr><td>Net zero</td><td>Net zero emissions by 2070</td><td>Long-term framing context for any proposal</td></tr>
+  </table>
+
+  <h3 class="h">How to actually write the alignment section</h3>
+  <div class="callout info">
+    <strong>Template language</strong>
+    "This project directly contributes to India's Updated NDC target of [specific target] by [mechanism]. By [core project activity] in [state/district], the project is expected to [quantified contribution] toward the national target, and aligns with [relevant national policy] and the [State]'s State Action Plan on Climate Change (SAPCC)."
+  </div>
+
+  <h3 class="h">National policy documents to reference</h3>
+  <div class="grid2">
+    <div class="card"><h4>National Action Plan on Climate Change (NAPCC)</h4><p>Eight national missions spanning solar, energy efficiency, water, agriculture, the Himalayan ecosystem, sustainable habitat, Green India, and strategic knowledge — cite whichever mission your project sits under.</p></div>
+    <div class="card"><h4>State Action Plan on Climate Change (SAPCC)</h4><p>Every state has one. Explicitly citing your state's SAPCC and how your project delivers one of its stated priorities is a strong sub-national country-ownership signal — available on MoEFCC's website.</p></div>
+    <div class="card"><h4>Mission LiFE</h4><p>"Lifestyle for Environment" — India's non-quantitative NDC commitment on everyday individual climate action. Useful framing for community-facing or behaviour-change components.</p></div>
+    <div class="card"><h4>National Adaptation Fund for Climate Change (NAFCC)</h4><p>India's domestic adaptation financing vehicle — reference where your project has adaptation/resilience components complementary to NAFCC-funded work.</p></div>
+    <div class="card"><h4>Long-Term Low Emission Development Strategy (LT-LEDS)</h4><p>India's seven key transitions toward 2070 net zero — submitted at COP27. Useful for framing long-horizon, transformational projects.</p></div>
+    <div class="card"><h4>Sector-specific missions/schemes</h4><p>e.g. National Solar Mission, PM-KUSUM, National Agroforestry Policy, National Mission for a Green India, Integrated Coastal Zone Management — cite whichever is directly relevant to your sector.</p></div>
+  </div>
+  <small class="src">Sources: India's Updated NDC (UNFCCC submission, 2022) · India's LT-LEDS (COP27) · MoEFCC SAPCC repository</small>
+</section>
+
+<!-- ============ 05 WHO TO APPROACH ============ -->
+<section class="panel" id="t5">
+  <div class="panel-head"><div class="panel-num">05</div><div><span class="kicker">Section Five</span><h2>Who to approach in India — in sequence</h2></div></div>
+  <p class="lede">You need to engage a specific sequence of institutions. Approach the NDA first — its early support accelerates everything downstream — then your chosen Accredited Entity.</p>
+
+  <div class="callout danger">
+    <strong>Watch for phishing</strong>
+    GCF and MoEFCC both warn that scam emails circulate offering grants or "partnerships" in their name. Verify every communication through official greenclimate.fund or moef.gov.in channels only.
+  </div>
+
+  <h3 class="h">1 · India's National Designated Authority (approach first)</h3>
+  <div class="contact-card">
+    <h4>Ministry of Environment, Forest and Climate Change (MoEFCC)</h4>
+    <span class="contact-role">India's NDA for GCF · Climate Change Division</span>
+    <p class="contact-line">Issues the mandatory No-Objection Letter; sets national priorities and country programming; nominates entities for accreditation.</p>
+    <p class="contact-line"><b>Ms. Rajasree Ray</b> — Economic Advisor / GCF National Focal Point · Indira Paryavaran Bhavan, Jor Bagh Road, New Delhi–110003 · 011-2081-9197 · rajasree.r@nic.in</p>
+    <p class="contact-line"><b>Mr. Ved Prakash Mishra</b> — Joint Secretary · +91 11 2081 9359 · mishra.vp@gov.in</p>
+    <p class="contact-line">Website: <a href="https://moef.gov.in" target="_blank">moef.gov.in</a></p>
+  </div>
+
+  <h3 class="h">2 · India's Direct Access Entities (national gateways)</h3>
+  <div class="contact-card">
+    <h4>National Bank for Agriculture and Rural Development (NABARD)</h4>
+    <span class="contact-role">Direct Access Entity — Public · India's most active GCF gateway</span>
+    <p class="contact-line">Department of Climate Change &amp; Sustainable Development (DCAS): dcas@nabard.org · Plot C-24, G Block, Bandra Kurla Complex, Mumbai–400051</p>
+    <p class="contact-line"><b>Mr. Shaji K V</b> — Chairman · +91 022 2653 0000 · chairmansectt@nabard.org</p>
+    <p class="contact-line"><b>Shri S D Rohilla</b> — Chief General Manager · sd.rohilla@nabard.org</p>
+  </div>
+  <div class="contact-card">
+    <h4>Small Industries Development Bank of India (SIDBI)</h4>
+    <span class="contact-role">Direct Access Entity — Private sector / MSME focus</span>
+    <p class="contact-line">Climate Finance Cell: gcf-cell@sidbi.in · SIDBI Tower, 15 Ashok Marg, Lucknow–226001</p>
+    <p class="contact-line"><b>Ms. Mamta Kumari</b> — Deputy General Manager · +91 9555545548 · mamta@sidbi.in</p>
+  </div>
+  <div class="contact-card">
+    <h4>IDFC First Bank</h4>
+    <span class="contact-role">Direct Access Entity — Private sector</span>
+    <p class="contact-line"><b>Mr. Ashish Kumar</b> — Head, Financial Institutions Group · Naman Chambers, C-32, G-Block, BKC, Bandra East, Mumbai · +91-22-71325700 · ashish.kumar@idfcfirstbank.com</p>
+  </div>
+  <div class="contact-card">
+    <h4>Yes Bank Limited · Indo Enviro Integrated Solutions</h4>
+    <span class="contact-role">Direct Access Entities — additional accredited routes</span>
+    <p class="contact-line">Yes Bank: <b>Mr. Nitesh Chandra</b>, Sustainable Finance &amp; Reporting · nitesh.chandra@yesbank.in</p>
+    <p class="contact-line">Indo Enviro: <b>Ms. Sandeep Shrivastava</b>, Head – ESG · sshrivastava@everenviro.com</p>
+  </div>
+
+  <h3 class="h">3 · International Access Entities (if national AEs aren't the right fit)</h3>
+  <div class="two-col">
+    <div class="contact-card">
+      <h4>UNDP India</h4><span class="contact-role">International Access Entity</span>
+      <p class="contact-line">Strong readiness-programme track record in India. <a href="https://www.in.undp.org" target="_blank">in.undp.org</a></p>
+    </div>
+    <div class="contact-card">
+      <h4>Asian Development Bank (ADB)</h4><span class="contact-role">International Access Entity</span>
+      <p class="contact-line"><b>Ms. Nisha Krishnan</b> — Senior Climate Change Specialist · adb-gcf@adb.org</p>
+    </div>
+  </div>
+
+  <h3 class="h">4 · GCF Secretariat — India-facing team</h3>
+  <table>
+    <tr><th>Name</th><th>Role</th><th>Email</th></tr>
+    <tr><td>Satya Shiva Saswat</td><td>Institutional Focal Point</td><td>ssaswat@gcfund.org</td></tr>
+    <tr><td>Roma Gianina Panopio</td><td>Institutional Focal Point</td><td>gpanopio@gcfund.org</td></tr>
+    <tr><td>Diane Jegam</td><td>Regional Manager, Asia</td><td>diane.jegam@gcfund.org</td></tr>
+    <tr><td>Mayuresh Patange</td><td>Private Sector Manager</td><td>mpatange@gcfund.org</td></tr>
+  </table>
+  <p style="font-size:12.5px;color:var(--ink-soft);">Accreditation queries specifically: accreditation@gcfund.org</p>
+  <small class="src">Sources: greenclimate.fund/countries/india — "Country contacts" · greenclimate.fund/partners/accredited-entities</small>
+</section>
+
+<!-- ============ 06 APPLICATION PROCESS ============ -->
+<section class="panel" id="t6">
+  <div class="panel-head"><div class="panel-num">06</div><div><span class="kicker">Section Six</span><h2>Step-by-step application process</h2></div></div>
+  <p class="lede">The overall journey is the same shape regardless of track — only the depth of documentation and review time changes. Expand the track relevant to you below for the exact sequence.</p>
+
+  <h3 class="h">The journey, idea to disbursement</h3>
+  <div class="flow">
+    <div class="flow-step"><div class="flow-dot">1</div><div class="flow-body"><h5>Identify a project aligned with India's NDC &amp; national priorities</h5></div></div>
+    <div class="flow-step"><div class="flow-dot">2</div><div class="flow-body"><h5>Approach an Accredited Entity active in India, or the NDA (MoEFCC), for early guidance</h5></div></div>
+    <div class="flow-step"><div class="flow-dot">3</div><div class="flow-body"><h5>Jointly check alignment with the 6 investment criteria &amp; pick the right track (Regular / SAP / PSAA)</h5></div></div>
+    <div class="flow-step"><div class="flow-dot">4</div><div class="flow-body"><h5>Develop &amp; submit a Concept Note for early Secretariat feedback (optional but strongly recommended; mandatory before any PPF request)</h5></div></div>
+    <div class="flow-step"><div class="flow-dot">5</div><div class="flow-body"><h5>MoEFCC issues the No-Objection Letter confirming country ownership</h5></div></div>
+    <div class="flow-step"><div class="flow-dot">6</div><div class="flow-body"><h5>AE develops and submits the full Funding Proposal via the GCF Partner Portal</h5></div></div>
+    <div class="flow-step"><div class="flow-dot">7</div><div class="flow-body"><h5>GCF Secretariat appraisal + independent Technical Advisory Panel (iTAP) review</h5></div></div>
+    <div class="flow-step"><div class="flow-dot">8</div><div class="flow-body"><h5>GCF Board considers and decides — approve / approve with conditions / reject</h5></div></div>
+    <div class="flow-step"><div class="flow-dot">9</div><div class="flow-body"><h5>Legal arrangements: Funded Activity Agreement signed; first disbursement released</h5></div></div>
+    <div class="flow-step"><div class="flow-dot">10</div><div class="flow-body"><h5>Implementation, monitoring, reporting and eventual project closure</h5></div></div>
+  </div>
+  <p style="font-size:12.5px;color:var(--ink-soft);">GCF has committed to completing its Concept Note and Funding Proposal review within 9 months or less, excluding time proponents spend developing the proposal itself.</p>
+
+  <h3 class="h">Track-specific sequences</h3>
+
+  <div class="acc" data-acc>
+    <button class="acc-head">Regular / Full Proposal (PAP) — 10 stages <span class="chev">▾</span></button>
+    <div class="acc-body">
+      <ol style="font-size:13.6px;padding-left:20px;">
+        <li>Country programming — Secretariat, NDA and AEs set strategic priorities</li>
+        <li>Origination — project idea developed by the AE with the NDA</li>
+        <li>Concept Note submitted (voluntary, recommended)</li>
+        <li>Secretariat screens the CN against the Investment Framework</li>
+        <li>Full Funding Proposal developed per the Investment &amp; Results Management Frameworks</li>
+        <li>Secretariat appraisal + iTAP assessment</li>
+        <li>FP package compiled, published, shared with the Board</li>
+        <li>Board reviews and decides</li>
+        <li>Legal arrangements finalised; Funded Activity Agreement signed; funds disbursed</li>
+        <li>Implementation, monitoring/reporting, project closure</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="acc" data-acc>
+    <button class="acc-head">Simplified Approval Process (SAP) — 8 steps <span class="chev">▾</span></button>
+    <div class="acc-body">
+      <ol style="font-size:13.6px;padding-left:20px;">
+        <li>AE/PSAA applicant checks the proposal against the 3 SAP eligibility criteria</li>
+        <li>SAP Concept Note prepared on the digital SAP template</li>
+        <li>Secretariat screening of the Concept Note</li>
+        <li>SAP Funding Proposal prepared (reduced documentation)</li>
+        <li>Streamlined Secretariat appraisal</li>
+        <li>GCF Board considers and decides</li>
+        <li>Legal arrangements &amp; disbursement</li>
+        <li>Implementation &amp; simplified monitoring/reporting</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="acc" data-acc>
+    <button class="acc-head">Project-Specific Assessment Approach (PSAA) — 8 steps <span class="chev">▾</span></button>
+    <div class="acc-body">
+      <ol style="font-size:13.6px;padding-left:20px;">
+        <li>Submit the PSAA questionnaire to GCF</li>
+        <li>GCF grants access to the Partner Portal on receipt</li>
+        <li>Project-specific (not institution-wide) fiduciary &amp; ESS capacity screening</li>
+        <li>Concept Note developed and submitted (mandatory before any PPF request)</li>
+        <li>Funding Proposal developed and submitted</li>
+        <li>Secretariat appraisal and iTAP review</li>
+        <li>GCF Board decision</li>
+        <li>Legal arrangements specific to the single project &amp; disbursement</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="acc" data-acc>
+    <button class="acc-head">Readiness &amp; Preparatory Support — 8 steps <span class="chev">▾</span></button>
+    <div class="acc-body">
+      <ol style="font-size:13.6px;padding-left:20px;">
+        <li>NDA identifies capacity or pipeline-development needs</li>
+        <li>NDA selects a Delivery Partner (an AE or another qualified body)</li>
+        <li>NDA and Delivery Partner jointly develop the Readiness proposal</li>
+        <li>Proposal submitted via Fluxx, GCF's online submission tool</li>
+        <li>Secretariat review — ~90 business days regular, ~110 for NAP/adaptation-planning proposals</li>
+        <li>Readiness Grant Agreement approved and signed</li>
+        <li>Grant implementation by the Delivery Partner against agreed schedule</li>
+        <li>Progress reporting, evaluation, proposal completion</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="acc" data-acc>
+    <button class="acc-head">Project Preparation Facility (PPF) — 8 steps <span class="chev">▾</span></button>
+    <div class="acc-body">
+      <ol style="font-size:13.6px;padding-left:20px;">
+        <li>Concept Note endorsed by GCF (mandatory prerequisite)</li>
+        <li>AE or PSAA applicant submits the PPF request using the specific template</li>
+        <li>No-Objection Letter from the NDA</li>
+        <li>GCF reviews and approves the PPF request</li>
+        <li>Funding disbursed, or a PPF Service consultant contracted from GCF's pre-qualified panel</li>
+        <li>Preparation activities carried out — feasibility studies, ESS/gender studies, financial structuring</li>
+        <li>Outputs feed directly into the full Funding Proposal</li>
+        <li>Progress reporting against the approved PPF work plan</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="acc" data-acc>
+    <button class="acc-head">Direct Accreditation (becoming an AE) — 7 steps <span class="chev">▾</span></button>
+    <div class="acc-body">
+      <ol style="font-size:13.6px;padding-left:20px;">
+        <li>Pre-Screening Questionnaire submitted during a designated GCF window</li>
+        <li>NDA nomination (DAEs only) sent to accreditation@gcfund.org</li>
+        <li>Registration on GCF's Online Accreditation System (OAS)</li>
+        <li>Full application (Sections I–VII) submitted within the 2-month window; fee paid</li>
+        <li>Secretariat completeness check, then ~9-month Accreditation Panel review</li>
+        <li>GCF Board decision (approve / condition / decline)</li>
+        <li>Accreditation Master Agreement signed; project-specific Funded Activity Agreements follow</li>
+      </ol>
+    </div>
+  </div>
+  <small class="src">Sources: greenclimate.fund/project-cycle · greenclimate.fund/access-funding/project-approval-process · greenclimate.fund/accreditation/process · greenclimate.fund/readiness · greenclimate.fund/projects/ppf</small>
+</section>
+
+<!-- ============ 07 DOCUMENT CHECKLIST ============ -->
+<section class="panel" id="t7">
+  <div class="panel-head"><div class="panel-num">07</div><div><span class="kicker">Section Seven</span><h2>Documents you must prepare</h2></div></div>
+  <p class="lede">Select a track to see its checklist. Progress is saved in this browser so you can return to it.</p>
+
+  <div class="toggle-row" id="checklistToggles">
+    <button class="toggle-btn active" data-group="cl-sap">SAP</button>
+    <button class="toggle-btn" data-group="cl-pap">Regular / PAP</button>
+    <button class="toggle-btn" data-group="cl-psaa">PSAA</button>
+    <button class="toggle-btn" data-group="cl-ppf">PPF</button>
+    <button class="toggle-btn" data-group="cl-readiness">Readiness</button>
+    <button class="toggle-btn" data-group="cl-accred">Accreditation</button>
+  </div>
+
+  <div class="progress-wrap"><div class="progress-bar" id="progressBar"></div></div>
+  <span class="progress-label" id="progressLabel">0 of 0 complete</span>
+
+  <ul class="checklist checklist-group active" id="cl-sap">
+    <li><input type="checkbox" id="c1"><label for="c1">SAP Concept Note (using the GCF digital template)</label></li>
+    <li><input type="checkbox" id="c2"><label for="c2">No-Objection Letter from MoEFCC (NDA)</label></li>
+    <li><input type="checkbox" id="c3"><label for="c3">Simplified Environmental &amp; Social Action Plan (ESAP), light version</label></li>
+    <li><input type="checkbox" id="c4"><label for="c4">Gender Assessment &amp; Gender Action Plan</label></li>
+    <li><input type="checkbox" id="c5"><label for="c5">Stakeholder Consultation Summary</label></li>
+    <li><input type="checkbox" id="c6"><label for="c6">Indicative Budget and Procurement Plan</label></li>
+    <li><input type="checkbox" id="c7"><label for="c7">Implementation Schedule (Gantt chart)</label></li>
+    <li><input type="checkbox" id="c8"><label for="c8">Logical Framework (log frame) with indicators &amp; targets</label></li>
+    <li><input type="checkbox" id="c9"><label for="c9">Risk Assessment Matrix</label></li>
+    <li><input type="checkbox" id="c10"><label for="c10">Co-financing commitment letters</label></li>
+  </ul>
+
+  <ul class="checklist checklist-group" id="cl-pap">
+    <li><input type="checkbox" id="p1"><label for="p1">Full Funding Proposal document (GCF FP template, typically 40–80 pages)</label></li>
+    <li><input type="checkbox" id="p2"><label for="p2">No-Objection Letter from MoEFCC</label></li>
+    <li><input type="checkbox" id="p3"><label for="p3">Full Feasibility Study (technical, financial, economic)</label></li>
+    <li><input type="checkbox" id="p4"><label for="p4">Environmental &amp; Social Impact Assessment (ESIA)</label></li>
+    <li><input type="checkbox" id="p5"><label for="p5">Biodiversity Assessment (where relevant)</label></li>
+    <li><input type="checkbox" id="p6"><label for="p6">Gender Assessment and Gender Action Plan</label></li>
+    <li><input type="checkbox" id="p7"><label for="p7">Stakeholder Engagement Plan + consultation records</label></li>
+    <li><input type="checkbox" id="p8"><label for="p8">Detailed Budget + Procurement Plan</label></li>
+    <li><input type="checkbox" id="p9"><label for="p9">Financial model (10–20 year projections)</label></li>
+    <li><input type="checkbox" id="p10"><label for="p10">GHG/CO₂ accounting methodology and calculations</label></li>
+    <li><input type="checkbox" id="p11"><label for="p11">Implementation Schedule + Monitoring &amp; Evaluation Framework (IRMF-aligned)</label></li>
+    <li><input type="checkbox" id="p12"><label for="p12">Co-financing commitment letters</label></li>
+    <li><input type="checkbox" id="p13"><label for="p13">Legal agreements with executing entities</label></li>
+    <li><input type="checkbox" id="p14"><label for="p14">Grievance Redress Mechanism description</label></li>
+    <li><input type="checkbox" id="p15"><label for="p15">Term sheet (for loans, guarantees, or equity instruments)</label></li>
+  </ul>
+
+  <ul class="checklist checklist-group" id="cl-psaa">
+    <li><input type="checkbox" id="ps1"><label for="ps1">Completed PSAA questionnaire</label></li>
+    <li><input type="checkbox" id="ps2"><label for="ps2">Concept Note (mandatory if a PPF request will follow)</label></li>
+    <li><input type="checkbox" id="ps3"><label for="ps3">Project-specific fiduciary &amp; ESS capacity information</label></li>
+    <li><input type="checkbox" id="ps4"><label for="ps4">Funding Proposal package (same core annexes as Regular, scaled to project)</label></li>
+    <li><input type="checkbox" id="ps5"><label for="ps5">No-Objection Letter from MoEFCC</label></li>
+  </ul>
+
+  <ul class="checklist checklist-group" id="cl-ppf">
+    <li><input type="checkbox" id="pf1"><label for="pf1">GCF-endorsed Concept Note</label></li>
+    <li><input type="checkbox" id="pf2"><label for="pf2">PPF application/template with scope of activities and budget</label></li>
+    <li><input type="checkbox" id="pf3"><label for="pf3">No-Objection Letter from MoEFCC</label></li>
+    <li><input type="checkbox" id="pf4"><label for="pf4">Terms of reference for studies/consultants to be procured</label></li>
+    <li><input type="checkbox" id="pf5"><label for="pf5">Post-approval PPF progress reports schedule</label></li>
+  </ul>
+
+  <ul class="checklist checklist-group" id="cl-readiness">
+    <li><input type="checkbox" id="r1"><label for="r1">Readiness &amp; Preparatory Support proposal (GCF template)</label></li>
+    <li><input type="checkbox" id="r2"><label for="r2">Delivery Partner capacity assessment (if not an AE)</label></li>
+    <li><input type="checkbox" id="r3"><label for="r3">Detailed work plan and budget</label></li>
+    <li><input type="checkbox" id="r4"><label for="r4">Endorsement / request letter from the NDA</label></li>
+    <li><input type="checkbox" id="r5"><label for="r5">M&amp;E plan aligned with the Readiness Results Management Framework</label></li>
+  </ul>
+
+  <ul class="checklist checklist-group" id="cl-accred">
+    <li><input type="checkbox" id="ac1"><label for="ac1">Completed Pre-Screening Questionnaire</label></li>
+    <li><input type="checkbox" id="ac2"><label for="ac2">NDA Nomination Letter (for DAEs)</label></li>
+    <li><input type="checkbox" id="ac3"><label for="ac3">Completed OAS registration form</label></li>
+    <li><input type="checkbox" id="ac4"><label for="ac4">Full accreditation application (institutional profile, fiduciary self-assessment, ESS &amp; gender policies, track record)</label></li>
+    <li><input type="checkbox" id="ac5"><label for="ac5">Audited financial statements</label></li>
+    <li><input type="checkbox" id="ac6"><label for="ac6">Accreditation application fee payment confirmation</label></li>
+    <li><input type="checkbox" id="ac7"><label for="ac7">Signed Accreditation Master Agreement (post-approval)</label></li>
+  </ul>
+
+  <div class="callout warn">
+    <strong>Gender is mandatory, not optional</strong>
+    Every GCF proposal — regardless of track or sector — must include a gender assessment and gender action plan, with sex-disaggregated data and specific inclusion measures. Proposals without a substantive gender component are consistently penalised by the iTAP.
+  </div>
+  <small class="src">Sources: greenclimate.fund/document pages · greenclimate.fund/projects/sap/resources · greenclimate.fund/projects/ppf · greenclimate.fund/readiness</small>
+</section>
+
+<!-- ============ 08 REJECTION REASONS ============ -->
+<section class="panel" id="t8">
+  <div class="panel-head"><div class="panel-num">08</div><div><span class="kicker">Section Eight</span><h2>Why proposals get rejected — and how to avoid it</h2></div></div>
+  <p class="lede">These patterns recur across sectors and tracks. Screen your own proposal against every row before submission.</p>
+  <table>
+    <tr><th>Common reason</th><th>How to avoid it</th></tr>
+    <tr><td>Weak additionality — "this would happen anyway"</td><td>Prove the financing gap with data: show commercial lenders won't fund it, or that the cost of capital without GCF is prohibitive.</td></tr>
+    <tr><td>No paradigm-shift potential — one-off project, no replication plan</td><td>Include a genuine theory of change: how the project transforms the sector, catalyses others, or shifts policy. Add a specific scale-up plan.</td></tr>
+    <tr><td>Poor impact methodology — vague or unverifiable claims</td><td>Use a recognised methodology (IPCC, Verra VCS, Gold Standard) and show your calculation explicitly. Engage a climate-finance consultant if needed.</td></tr>
+    <tr><td>Missing or weak gender component</td><td>Build in a gender assessment from the start, with sex-disaggregated data and concrete inclusion actions — not an afterthought section.</td></tr>
+    <tr><td>No NDA No-Objection Letter</td><td>Engage MoEFCC early. This is non-negotiable — a proposal without it is automatically incomplete.</td></tr>
+    <tr><td>High cost per tonne of CO₂</td><td>Revisit scale and design; larger scale generally improves efficiency. If cost/tonne exceeds ~USD 50–100, strengthen adaptation co-benefits framing or redesign.</td></tr>
+    <tr><td>Weak stakeholder engagement</td><td>Document real, meaningful consultation — minutes, attendance records, community sign-off. Tokenistic consultation is penalised by the iTAP.</td></tr>
+    <tr><td>Doubts about fund-management capacity</td><td>Ensure the executing entity has audited accounts, sound financial/HR systems, and a track record managing grants — your AE will conduct due diligence on this.</td></tr>
+  </table>
+  <small class="src">Compiled from GCF Board decision patterns, iTAP guidance and India NDA/AE practitioner records.</small>
+</section>
+
+<!-- ============ 09 TIMELINES ============ -->
+<section class="panel" id="t9">
+  <div class="panel-head"><div class="panel-num">09</div><div><span class="kicker">Section Nine</span><h2>Key timelines and realistic expectations</h2></div></div>
+  <table>
+    <tr><th>Stage</th><th>SAP (≤ USD 10M)</th><th>Regular / PAP (&gt; USD 10M)</th></tr>
+    <tr><td>Concept development + NDA/AE engagement</td><td>2–4 months</td><td>3–6 months</td></tr>
+    <tr><td>Concept Note submission + Secretariat feedback</td><td>2–4 months</td><td>3–6 months</td></tr>
+    <tr><td>Full proposal preparation</td><td>3–6 months</td><td>6–18 months</td></tr>
+    <tr><td>Secretariat review + iTAP assessment</td><td>3–5 months</td><td>4–8 months</td></tr>
+    <tr><td>Board approval + legal agreements</td><td>2–3 months</td><td>3–6 months</td></tr>
+    <tr><td><b>Total: idea → first disbursement</b></td><td><b>~12–18 months</b></td><td><b>~24–42 months</b></td></tr>
+  </table>
+
+  <div class="grid2">
+    <div class="card"><h4>Readiness &amp; Preparatory Support</h4><p>~90 business days Secretariat review for regular proposals (~110 for NAP/adaptation-planning); ~180–200 days from submission to first-tranche disbursement on average.</p></div>
+    <div class="card"><h4>Direct Accreditation</h4><p>~9-month Accreditation Panel review after completeness check, plus Board scheduling (Board meets ~3 times a year) and Accreditation Master Agreement signature.</p></div>
+  </div>
+
+  <div class="callout danger">
+    <strong>Reality check</strong>
+    These are optimistic, best-case estimates. Many real projects take <b>3–5 years</b> from concept to first disbursement, with multiple revision cycles along the way. Line up other funding sources to sustain the project during this period — do not make it entirely dependent on GCF materialising by a fixed date.
+  </div>
+  <small class="src">Sources: greenclimate.fund/project-cycle · greenclimate.fund/readiness (WHO Readiness Q&amp;A) · India NDA/AE practitioner timelines</small>
+</section>
+
+<!-- ============ 10 GOVERNANCE ============ -->
+<section class="panel" id="t10">
+  <div class="panel-head"><div class="panel-num">10</div><div><span class="kicker">Section Ten</span><h2>Governing rules, regulations &amp; India's clearance structure</h2></div></div>
+
+  <h3 class="h">India's institutional chain</h3>
+  <div class="flow">
+    <div class="flow-step"><div class="flow-dot">1</div><div class="flow-body"><h5>National Designated Authority — MoEFCC (Secretary level)</h5><p>Policy guidance and final sign-off on country ownership.</p></div></div>
+    <div class="flow-step"><div class="flow-dot">2</div><div class="flow-body"><h5>GCF Empowered Committee (GCF-EC) &amp; GCF Focal Point, Climate Change Division</h5><p>GCF-EC (chaired by the MoEFCC Secretary, 16+ members drawn from MoEFCC, MEA, Finance, Power, MNRE, Housing &amp; Urban Affairs, Agriculture, Earth Sciences, Jal Shakti, Health, Science &amp; Technology and NITI Aayog) determines national priorities, sets DAE/project eligibility criteria, and approves India's GCF projects.</p></div></div>
+    <div class="flow-step"><div class="flow-dot">3</div><div class="flow-body"><h5>Climate Change Division, MoEFCC</h5><p>Day-to-day secretariat function — processes Concept Notes, coordinates GCF-EC review, and drafts the No-Objection Letter.</p></div></div>
+  </div>
+
+  <h3 class="h">How a No-Objection Letter (NOL) is issued</h3>
+  <div class="flow">
+    <div class="flow-step"><div class="flow-dot">1</div><div class="flow-body"><h5>Concept Note submitted to the NDA through the AE/DAE</h5></div></div>
+    <div class="flow-step"><div class="flow-dot">2</div><div class="flow-body"><h5>CN circulated to GCF-EC members for comments/feedback</h5></div></div>
+    <div class="flow-step"><div class="flow-dot">3</div><div class="flow-body"><h5>Comments shared with the AE/DAE; CN revised and resubmitted</h5></div></div>
+    <div class="flow-step"><div class="flow-dot">4</div><div class="flow-body"><h5>CN reviewed in a GCF-EC meeting chaired by the MoEFCC Secretary</h5></div></div>
+    <div class="flow-step"><div class="flow-dot">5</div><div class="flow-body"><h5>If approved — SAP/PPF proposals receive the NOL on the Concept Note directly (mandatory); other proposals proceed to Funding Proposal stage, verified against the CN, then NOL issued</h5><p>If not approved, a revised CN can be resubmitted after incorporating GCF-EC comments.</p></div></div>
+  </div>
+
+  <h3 class="h">Documents required for an NOL</h3>
+  <ul class="checklist" style="max-width:520px;">
+    <li>· Concept Note (GCF template)</li>
+    <li>· Recommendation of the Executing Entity</li>
+    <li>· Approval of the State Level Steering Committee, if applicable</li>
+  </ul>
+
+  <h3 class="h">Governing policy documents</h3>
+  <div class="grid2">
+    <div class="card"><h4>GCF Governing Instrument</h4><p>The foundational legal document establishing GCF's mandate and governance.</p></div>
+    <div class="card"><h4>Accreditation Framework (RAF)</h4><p>Revised Accreditation Framework — fees, criteria, legal-arrangement policies (effective 31 Oct 2025).</p></div>
+    <div class="card"><h4>Investment Framework</h4><p>The six investment criteria, co-financing policy, and portfolio targets in full legal detail.</p></div>
+    <div class="card"><h4>Environmental &amp; Social Safeguards (ESS) Policy</h4><p>GCF's eight ESS performance standards for funded activities and their risk categorisation (A/B/C).</p></div>
+    <div class="card"><h4>Gender Policy</h4><p>Gender-responsive requirements across the entire project cycle.</p></div>
+    <div class="card"><h4>Information Disclosure Policy</h4><p>Rules on confidentiality and public disclosure of proposals.</p></div>
+  </div>
+  <small class="src">Sources: GCF Toolkit Module 2 · greenclimate.fund/about/policies · greenclimate.fund/document/governing-instrument · UNFCCC Financial Mechanism</small>
+</section>
+
+<!-- ============ 11 RESOURCES & CALCULATOR ============ -->
+<section class="panel" id="t11">
+  <div class="panel-head"><div class="panel-num">11</div><div><span class="kicker">Section Eleven</span><h2>Resources, tools &amp; calculators</h2></div></div>
+
+  <h3 class="h">Cost-per-tonne CO₂ calculator</h3>
+  <div class="calc-box">
+    <h4>Efficiency check (Investment Criterion 6)</h4>
+    <p style="font-size:12.8px;">Enter your figures to see where your project lands against GCF's informal comfort range.</p>
+    <div class="calc-row">
+      <div class="field"><label>Total GCF funding requested (USD)</label><input type="number" id="gcfAmt" placeholder="e.g. 5000000"></div>
+      <div class="field"><label>Total lifetime CO₂e avoided/sequestered (tonnes)</label><input type="number" id="co2Amt" placeholder="e.g. 250000"></div>
+    </div>
+    <button class="toggle-btn active" style="width:auto;" onclick="calcCost()">Calculate</button>
+    <div class="calc-result" id="costResult">Enter both figures above.</div>
+  </div>
+
+  <h3 class="h">Co-financing ratio calculator</h3>
+  <div class="calc-box">
+    <h4>Country ownership &amp; efficiency check</h4>
+    <div class="calc-row">
+      <div class="field"><label>GCF funding requested (USD)</label><input type="number" id="gcfShare" placeholder="e.g. 5000000"></div>
+      <div class="field"><label>Co-financing secured from other sources (USD)</label><input type="number" id="coFinance" placeholder="e.g. 12000000"></div>
+    </div>
+    <button class="toggle-btn active" style="width:auto;" onclick="calcCoFinance()">Calculate</button>
+    <div class="calc-result" id="coFinanceResult">Enter both figures above.</div>
+  </div>
+
+  <h3 class="h">Which track fits your project?</h3>
+  <div class="calc-box">
+    <h4>Track recommender</h4>
+    <div class="calc-row">
+      <div class="field"><label>GCF funding you're requesting</label>
+        <select id="qAmt"><option value="under10">Up to USD 10 million</option><option value="over10">More than USD 10 million</option></select>
+      </div>
+      <div class="field"><label>Environmental &amp; social risk</label>
+        <select id="qRisk"><option value="c">Minimal/no risk (Category C)</option><option value="ab">Moderate or high risk (Category A/B)</option></select>
+      </div>
+      <div class="field"><label>Is your organisation GCF-accredited?</label>
+        <select id="qAccred"><option value="no">No, not accredited</option><option value="yes">Yes / partnering with one</option></select>
+      </div>
+      <div class="field"><label>Proposal readiness</label>
+        <select id="qReady"><option value="ready">Concept is fully developed &amp; bankable</option><option value="early">Still needs studies / structuring</option></select>
+      </div>
+    </div>
+    <button class="toggle-btn active" style="width:auto;" onclick="recommendTrack()">Get recommendation</button>
+    <div class="calc-result" id="trackResult">Answer the questions above.</div>
+  </div>
+
+  <h3 class="h">Official links &amp; templates</h3>
+  <ul class="link-list">
+    <li><a href="https://www.greenclimate.fund" target="_blank">greenclimate.fund</a><span class="desc">GCF's main portal — every policy, template and country page</span></li>
+    <li><a href="https://www.greenclimate.fund/project-cycle" target="_blank">Project Cycle</a><span class="desc">The full 6-stage project cycle, explained</span></li>
+    <li><a href="https://www.greenclimate.fund/access-funding/project-approval-process" target="_blank">Project Approval Process</a><span class="desc">Regular, SAP and PSAA explained together</span></li>
+    <li><a href="https://www.greenclimate.fund/access-funding/project-approval-process/investment-framework" target="_blank">Investment Framework</a><span class="desc">The six investment criteria in full legal detail</span></li>
+    <li><a href="https://www.greenclimate.fund/projects/sap/resources" target="_blank">SAP Resources</a><span class="desc">Guidelines, templates, sector-specific technical guidance, e-learning course</span></li>
+    <li><a href="https://www.greenclimate.fund/readiness" target="_blank">Readiness &amp; Preparatory Support</a><span class="desc">Programme overview and current 2024–2027 strategy</span></li>
+    <li><a href="https://www.greenclimate.fund/projects/ppf" target="_blank">Project Preparation Facility</a><span class="desc">Eligible activities, application guidance</span></li>
+    <li><a href="https://www.greenclimate.fund/accreditation/process" target="_blank">Accreditation Process</a><span class="desc">The 7-step accreditation walkthrough</span></li>
+    <li><a href="https://www.greenclimate.fund/accreditation/pre-screening" target="_blank">Accreditation Pre-Screening</a><span class="desc">Pre-screening questionnaire, windows and FAQs</span></li>
+    <li><a href="https://www.greenclimate.fund/about/partners/ae" target="_blank">Accredited Entities Directory</a><span class="desc">Full current list — always check for updates beyond NABARD/SIDBI</span></li>
+    <li><a href="https://www.greenclimate.fund/about/partners/nda" target="_blank">NDA Directory</a><span class="desc">Directory of all country NDAs/Focal Points</span></li>
+    <li><a href="https://www.greenclimate.fund/documents" target="_blank">Document Library</a><span class="desc">Every GCF template, guideline and Board decision</span></li>
+    <li><a href="https://www.greenclimate.fund/countries/india" target="_blank">India Country Page</a><span class="desc">India-specific news, portfolio and updates</span></li>
+    <li><a href="https://moef.gov.in" target="_blank">MoEFCC — moef.gov.in</a><span class="desc">India's NDA — official ministry site, incl. state SAPCC repository</span></li>
+    <li><a href="https://unfccc.int/process/the-convention/financial-mechanism/green-climate-fund" target="_blank">UNFCCC — Financial Mechanism</a><span class="desc">GCF's role under the Paris Agreement Financial Mechanism</span></li>
+  </ul>
+
+  <div class="callout warn">
+    <strong>Before you rely on any figure here</strong>
+    GCF frameworks are periodically revised by the Board (most recently the Revised Accreditation Framework, effective 31 October 2025). Numbers, thresholds and contacts in this dossier reflect publicly available guidance as compiled — always verify current details on greenclimate.fund and with MoEFCC before submitting.
+  </div>
+</section>
+
+</main>
+</div>
+
+<footer>
+  Compiled from GCF official documentation (greenclimate.fund), MoEFCC–IIFM–UNDP's <i>"Engaging with the Green Climate Fund: A Digital Toolkit for India"</i> (2024), and India's NDC submissions. <b>Not affiliated with the Green Climate Fund or the Government of India.</b> Verify all figures before relying on them for a submission.
+</footer>
+
+<script>
+// ---------- tab switching ----------
+document.querySelectorAll('.tab-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById(btn.dataset.tab).classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+});
+
+// ---------- accordions ----------
+document.querySelectorAll('[data-acc]').forEach(acc=>{
+  const head=acc.querySelector('.acc-head');
+  const body=acc.querySelector('.acc-body');
+  head.addEventListener('click',()=>{
+    const isOpen=acc.classList.contains('open');
+    document.querySelectorAll('[data-acc]').forEach(a=>{a.classList.remove('open');a.querySelector('.acc-body').style.maxHeight=null;});
+    if(!isOpen){acc.classList.add('open'); body.style.maxHeight=body.scrollHeight+40+'px';}
+  });
+});
+
+// ---------- checklist toggles ----------
+const clToggles=document.querySelectorAll('#checklistToggles .toggle-btn');
+clToggles.forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    clToggles.forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.checklist-group').forEach(g=>g.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById(btn.dataset.group).classList.add('active');
+    updateProgress();
+  });
+});
+
+function updateProgress(){
+  const activeGroup=document.querySelector('.checklist-group.active');
+  if(!activeGroup)return;
+  const boxes=activeGroup.querySelectorAll('input[type=checkbox]');
+  let checked=0;
+  boxes.forEach(b=>{if(b.checked)checked++;});
+  const pct=boxes.length?Math.round(checked/boxes.length*100):0;
+  document.getElementById('progressBar').style.width=pct+'%';
+  document.getElementById('progressLabel').innerText=checked+' of '+boxes.length+' complete';
+}
+
+document.querySelectorAll('.checklist input[type=checkbox]').forEach(box=>{
+  const saved=localStorage.getItem('gcf_'+box.id);
+  if(saved==='1'){box.checked=true; box.nextElementSibling.classList.add('checked');}
+  box.addEventListener('change',()=>{
+    localStorage.setItem('gcf_'+box.id, box.checked?'1':'0');
+    box.nextElementSibling.classList.toggle('checked', box.checked);
+    updateProgress();
+  });
+});
+updateProgress();
+
+// ---------- calculators ----------
+function calcCost(){
+  const gcf=parseFloat(document.getElementById('gcfAmt').value);
+  const co2=parseFloat(document.getElementById('co2Amt').value);
+  const el=document.getElementById('costResult');
+  if(!gcf||!co2){el.innerHTML='Enter both figures above.';return;}
+  const cost=gcf/co2;
+  let verdict, color;
+  if(cost<=30){verdict='Within the comfortable USD 5–30/tonne range.';color='var(--leaf)';}
+  else if(cost<=100){verdict='Above the comfortable range — be ready to justify via strong adaptation/co-benefit framing.';color='var(--gold)';}
+  else{verdict='High cost per tonne — likely to draw efficiency-criterion scrutiny. Consider redesigning scale or scope.';color='var(--clay)';}
+  el.innerHTML='<span class="num" style="color:'+color+'">USD '+cost.toFixed(2)+' / tonne CO₂e</span><br>'+verdict;
+}
+
+function calcCoFinance(){
+  const gcf=parseFloat(document.getElementById('gcfShare').value);
+  const co=parseFloat(document.getElementById('coFinance').value);
+  const el=document.getElementById('coFinanceResult');
+  if(!gcf||!co){el.innerHTML='Enter both figures above.';return;}
+  const total=gcf+co;
+  const gcfPct=(gcf/total*100);
+  const ratio=(co/gcf);
+  let verdict,color;
+  if(gcfPct<=40){verdict='GCF share is within the typical 20–40% comfort range for co-financing.';color='var(--leaf)';}
+  else{verdict='GCF is covering more than the typical 40% share — strengthen the case for why more co-financing isn\'t available, or seek additional partners.';color='var(--gold)';}
+  el.innerHTML='<span class="num" style="color:'+color+'">'+gcfPct.toFixed(1)+'% of total cost from GCF</span><br>Co-financing ratio ≈ '+ratio.toFixed(1)+' : 1 (other funds : GCF)<br>'+verdict;
+}
+
+function recommendTrack(){
+  const amt=document.getElementById('qAmt').value;
+  const risk=document.getElementById('qRisk').value;
+  const accred=document.getElementById('qAccred').value;
+  const ready=document.getElementById('qReady').value;
+  const el=document.getElementById('trackResult');
+  let rec='';
+  if(ready==='early'){
+    rec='Start with <b>Readiness &amp; Preparatory Support</b> (via MoEFCC) or request <b>Project Preparation Facility</b> funds through an AE to develop your concept into a bankable proposal first.';
+  } else if(amt==='under10' && risk==='c'){
+    rec='Use the <b>Simplified Approval Process (SAP)</b> — fastest route, lighter documentation, same six criteria.';
+  } else if(accred==='no'){
+    rec='Consider the <b>Project-Specific Assessment Approach (PSAA)</b> if you have one strong, ready project — or partner with an existing Accredited Entity such as NABARD or SIDBI via <b>Direct Access</b>.';
+  } else {
+    rec='Use the <b>Regular / Full Funding Proposal (PAP)</b> track through your Accredited Entity.';
+  }
+  el.innerHTML=rec;
+}
+</script>
+</body>
+</html>
