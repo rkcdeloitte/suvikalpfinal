@@ -1292,6 +1292,45 @@ ul.spv-list li::before {
   .spv-hero-title { font-size: 2.4rem; left: 28px; }
 }
 
+/* #site-header stays a fixed, known height (dependents like .spv-tabs
+   and .page assume this) — nav pills wrap onto a second row that
+   scrolls horizontally instead of clipping off-screen, so height
+   stays deterministic and in sync with the offsets below. */
+@media (max-width: 1080px) {
+  #site-header {
+    height: 112px;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    padding: 10px 20px;
+    row-gap: 6px;
+  }
+  .header-left { flex: 1 1 100%; min-width: 0; }
+  .header-tool-title {
+    font-size: 1.25rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .header-tool-sub { display: none; }
+  .header-right {
+    flex: 1 1 100%;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start;
+    gap: 10px;
+    padding-bottom: 2px;
+  }
+  .header-divider { display: none; }
+  .page { padding-top: 112px; }
+  .spv-tabs { top: 112px; }
+}
+
+@media (max-width: 768px) {
+  #site-header { height: 92px; }
+  .page { padding-top: 92px; }
+  .spv-tabs { top: 92px; }
+}
+
 @media (max-width: 768px) {
   .header-tool-sub { display: none; }
   .top-cards { grid-template-columns: 1fr; }
