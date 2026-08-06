@@ -1395,7 +1395,7 @@ function prNav(key) {
   <footer id="site-footer-sf">
     &copy; 2026 Coal Controller Organisation, Ministry of Coal, Government of India.&nbsp;&nbsp;
     <a href="https://coalcontroller.gov.in/suvikalp.html" target="_blank" rel="noopener noreferrer">Original SUVIKALP tool &nearr;</a>
-    <span style="display:block;margin-top:8px;font-size:.75em;opacity:.7;">This is a prototype under development — not an official publication.</span>
+
   </footer>
 
 </div><!-- /page -->
@@ -1546,6 +1546,24 @@ function downloadPRISM() {
   new MutationObserver(function() {
     if (panel.style.display !== 'none') setTimeout(function() { prNav('P'); }, 10);
   }).observe(panel, { attributes: true, attributeFilter: ['style'] });
+})();
+</script>
+<!-- browse-back-script -->
+<script>
+(function(){
+  if(new URLSearchParams(location.search).get('from')==='browse'){
+    var btn=document.querySelector('.back-btn');
+    if(btn){
+      btn.onclick=function(){window.location.href='../browse.html';};
+      btn.setAttribute('aria-label','Back to Browse');
+      for(var i=btn.childNodes.length-1;i>=0;i--){
+        var n=btn.childNodes[i];
+        if(n.nodeType===3&&n.textContent.trim()){n.textContent=' Back to Browse';break;}
+      }
+    }
+    var cr=document.querySelector('.sf-breadcrumb span:not(.sep)');
+    if(cr)cr.textContent='All Categories';
+  }
 })();
 </script>
 </body>
