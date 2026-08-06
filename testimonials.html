@@ -80,15 +80,28 @@ header#site-header{background:#21808d;color:#fff;height:72px;display:flex;align-
 .spot-row::-webkit-scrollbar{ height:8px; }
 .spot-row::-webkit-scrollbar-track{ background:transparent; }
 .spot-row::-webkit-scrollbar-thumb{ background:var(--card-border); border-radius:8px; }
-.spot-row .spot-card{ flex:0 0 auto; width:100%; max-width:420px; scroll-snap-align:start; }
-@media (max-width:820px){ .spot-row .spot-card{ width:86vw; max-width:420px; } }
+.spot-row .spot-card{ flex:0 0 100%; scroll-snap-align:start; }
+
+.spot-nav{ position:absolute; top:50%; transform:translateY(-50%); width:36px; height:36px; border-radius:50%; background:var(--cream-100); border:1px solid var(--card-border); box-shadow:var(--shadow-md); display:flex; align-items:center; justify-content:center; cursor:pointer; color:var(--slate-900); z-index:5; padding:0; transition:background .15s, opacity .15s; }
+.spot-nav svg{ width:15px; height:15px; }
+.spot-nav:hover{ background:var(--teal-bg); }
+.spot-nav:disabled{ opacity:.35; cursor:default; }
+.spot-nav:disabled:hover{ background:var(--cream-100); }
+.spot-nav.prev{ left:-18px; }
+.spot-nav.next{ right:-18px; }
+.spot-nav.hidden{ display:none; }
+@media (max-width:820px){ .spot-nav.prev{ left:-14px; } .spot-nav.next{ right:-14px; } }
+@media (max-width:600px){ .spot-nav{ width:30px; height:30px; } .spot-nav.prev{ left:-15px; } .spot-nav.next{ right:-15px; } }
 
 .feed-wrap{ min-width:0; }
 
 .spot-card{ background:var(--cream-100); border:1px solid var(--card-border); border-radius:20px; padding:40px 42px 34px; box-shadow:var(--shadow-lg); position:relative; overflow:hidden; }
 .spot-card::before{ content:""; position:absolute; top:0; left:0; right:0; height:5px; background:var(--pc,var(--teal-500)); }
-.spot-tag{ display:inline-flex; align-items:center; gap:6px; font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:var(--pc,var(--teal-600)); margin-bottom:20px; }
+.spot-tag-row{ display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:20px; flex-wrap:wrap; }
+.spot-tag{ display:inline-flex; align-items:center; gap:6px; font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:var(--pc,var(--teal-600)); }
 .spot-tag svg{ width:12px; height:12px; }
+.spot-back{ background:none; border:none; padding:4px 10px; border-radius:20px; font-family:var(--font); font-size:.74rem; font-weight:600; color:var(--teal-600); cursor:pointer; white-space:nowrap; }
+.spot-back:hover{ background:var(--teal-bg); color:var(--teal-700); }
 .spot-quote{ font-size:1.35rem; line-height:1.44; font-weight:600; letter-spacing:-.008em; margin:0 0 24px; }
 .spot-metric{ display:inline-flex; flex-direction:column; padding:14px 20px; border-radius:14px; background:var(--teal-bg); border:1px solid var(--teal-border); margin-bottom:24px; }
 .spot-metric b{ font-size:1.4rem; font-weight:700; color:var(--teal-700); font-variant-numeric:tabular-nums; }
@@ -107,7 +120,9 @@ header#site-header{background:#21808d;color:#fff;height:72px;display:flex;align-
 .feed-viewport:hover .feed.auto-scroll{ animation-play-state:paused; }
 @keyframes feedScroll{ from{ transform:translateY(0); } to{ transform:translateY(-50%); } }
 @media (prefers-reduced-motion:reduce){ .feed.auto-scroll{ animation:none; } }
-.frow{ background:var(--cream-100); border:1px solid var(--card-border); border-left:3px solid var(--pc,var(--teal-500)); border-radius:12px; padding:16px 18px; box-shadow:var(--shadow-md); }
+.frow{ background:var(--cream-100); border:1px solid var(--card-border); border-left:3px solid var(--pc,var(--teal-500)); border-radius:12px; padding:16px 18px; box-shadow:var(--shadow-md); cursor:pointer; transition:box-shadow .15s, transform .15s; }
+.frow:hover{ box-shadow:var(--shadow-lg); transform:translateY(-1px); }
+.frow.active{ box-shadow:0 0 0 2px var(--pc,var(--teal-500)); }
 .frow-quote{ font-size:.86rem; line-height:1.5; margin:0 0 10px; color:var(--slate-900); opacity:.9; }
 .frow-who{ display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
 .frow-badge{ width:26px; height:26px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:.64rem; color:#fff; flex-shrink:0; background:var(--pc,var(--teal-500)); }
@@ -244,7 +259,13 @@ footer{text-align:center;font-size:.75rem;color:var(--slate-500);padding:20px;}
 <div class="testi-section hidden" id="testiSection">
   <div class="testi-layout">
     <div class="spot-row-wrap">
+      <button type="button" class="spot-nav prev hidden" id="spotPrev" aria-label="Previous featured testimonial">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3l-5 5 5 5"/></svg>
+      </button>
       <div class="spot-row" id="spotRow"></div>
+      <button type="button" class="spot-nav next hidden" id="spotNext" aria-label="Next featured testimonial">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5"/></svg>
+      </button>
     </div>
     <div class="feed-wrap">
       <div class="feed-label">More testimonials</div>
@@ -703,7 +724,7 @@ db.collection('testimonials').where('status','==','approved')
     }
     emptyWall.classList.add('hidden');
 
-    const docs = snap.docs.map(d => d.data());
+    const docs = snap.docs.map(d => ({ ...d.data(), id: d.id }));
     document.getElementById('statProfessionals').textContent = docs.length;
     document.getElementById('statOrgs').textContent = new Set(docs.map(d => d.company)).size;
 
@@ -727,7 +748,8 @@ db.collection('testimonials').where('status','==','approved')
     // most recent one fills the row so the layout never looks unfinished.
     let featuredList = sorted.filter(d => d.featured === true);
     if (!featuredList.length) featuredList = sorted.slice(0, 1);
-    document.getElementById('spotRow').innerHTML = featuredList.map(renderSpotlight).join('');
+    currentFeaturedList = featuredList;
+    currentById = new Map(sorted.map(d => [d.id, d]));
 
     const featuredSet = new Set(featuredList);
     const rest = sorted.filter(d => !featuredSet.has(d));
@@ -750,6 +772,16 @@ db.collection('testimonials').where('status','==','approved')
       feedList.classList.add('hidden');
       feedEmpty.classList.remove('hidden');
     }
+
+    // If a visitor is mid-preview (see "click a feed card" below), keep
+    // showing that same testimonial with fresh data if it still exists;
+    // otherwise fall back to the real featured row.
+    if (previewId && currentById.has(previewId)) {
+      renderSpotPreview(currentById.get(previewId), { markActive: false });
+    } else {
+      previewId = null;
+      renderFeaturedRow();
+    }
   }, err => {
     document.getElementById('testiSection').classList.add('hidden');
     const emptyWall = document.getElementById('emptyWall');
@@ -758,14 +790,122 @@ db.collection('testimonials').where('status','==','approved')
     console.error(err);
   });
 
-function renderSpotlight(d){
+// ── Click any "More testimonials" card to preview it in the spotlight ──
+// This is a client-side-only swap (no database write) — any visitor can
+// browse full testimonials this way without needing admin access.
+let currentFeaturedList = [];
+let currentById = new Map();
+let previewId = null;
+
+function renderFeaturedRow(){
+  document.getElementById('spotRow').innerHTML = currentFeaturedList.map(d => renderSpotlight(d)).join('');
+  setupSpotNav(currentFeaturedList.length);
+}
+
+function renderSpotPreview(d, { markActive = true } = {}){
+  previewId = d.id;
+  stopSpotAutoScroll();
+  document.getElementById('spotRow').innerHTML = renderSpotlight(d, true);
+  document.getElementById('spotPrev').classList.add('hidden');
+  document.getElementById('spotNext').classList.add('hidden');
+  const backBtn = document.getElementById('spotBackBtn');
+  if (backBtn) backBtn.onclick = () => { previewId = null; renderFeaturedRow(); setActiveFeedRow(null); };
+  if (markActive) setActiveFeedRow(d.id);
+}
+
+function setActiveFeedRow(id){
+  document.querySelectorAll('#feedList .frow').forEach(row => {
+    row.classList.toggle('active', !!id && row.dataset.id === id);
+  });
+}
+
+document.getElementById('feedList').addEventListener('click', (e) => {
+  const row = e.target.closest('.frow');
+  if (!row) return;
+  const d = currentById.get(row.dataset.id);
+  if (!d) return;
+  renderSpotPreview(d);
+  document.getElementById('spotRow').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+});
+
+// ── Featured-row arrow navigation + auto-scroll ─────────────────
+// Arrows only show when there's more than one featured card, scrolling one
+// full card at a time and disabling an arrow once you hit that end of the
+// row. The row also auto-advances on its own (smooth, one card at a time,
+// looping back to the start), pausing on hover/touch and while a visitor
+// is previewing a card from "More testimonials".
+let spotNavBound = false;
+let spotAutoTimer = null;
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+function setupSpotNav(count){
+  const row = document.getElementById('spotRow');
+  const prevBtn = document.getElementById('spotPrev');
+  const nextBtn = document.getElementById('spotNext');
+
+  stopSpotAutoScroll();
+
+  if (count <= 1) {
+    prevBtn.classList.add('hidden');
+    nextBtn.classList.add('hidden');
+    return;
+  }
+  prevBtn.classList.remove('hidden');
+  nextBtn.classList.remove('hidden');
+
+  const updateNavState = () => {
+    const max = row.scrollWidth - row.clientWidth;
+    prevBtn.disabled = row.scrollLeft <= 4;
+    nextBtn.disabled = row.scrollLeft >= max - 4;
+  };
+  const scrollByCard = (dir) => {
+    row.scrollBy({ left: dir * row.clientWidth, behavior: 'smooth' });
+  };
+
+  if (!spotNavBound) {
+    prevBtn.addEventListener('click', () => scrollByCard(-1));
+    nextBtn.addEventListener('click', () => scrollByCard(1));
+    row.addEventListener('scroll', updateNavState);
+    window.addEventListener('resize', updateNavState);
+    row.addEventListener('mouseenter', stopSpotAutoScroll);
+    row.addEventListener('mouseleave', () => startSpotAutoScroll(currentFeaturedList.length));
+    row.addEventListener('touchstart', stopSpotAutoScroll, { passive: true });
+    spotNavBound = true;
+  }
+  updateNavState();
+  startSpotAutoScroll(count);
+}
+
+function startSpotAutoScroll(count){
+  stopSpotAutoScroll();
+  if (count <= 1 || prefersReducedMotion) return;
+  const row = document.getElementById('spotRow');
+  spotAutoTimer = setInterval(() => {
+    if (previewId) return; // don't auto-advance while a visitor is previewing a card
+    const max = row.scrollWidth - row.clientWidth;
+    if (row.scrollLeft >= max - 4) {
+      row.scrollTo({ left: 0, behavior: 'smooth' });
+    } else {
+      row.scrollBy({ left: row.clientWidth, behavior: 'smooth' });
+    }
+  }, 4500);
+}
+
+function stopSpotAutoScroll(){
+  if (spotAutoTimer) { clearInterval(spotAutoTimer); spotAutoTimer = null; }
+}
+
+function renderSpotlight(d, isPreview){
   const color = sectorColor(d.sector);
   const stars = d.rating ? '★'.repeat(d.rating) + '☆'.repeat(5 - d.rating) : '';
   return `
     <div class="spot-card" style="--pc:${color};">
-      <div class="spot-tag">
-        <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1l1.6 4.8H15l-4 3 1.5 4.9L8 10.8 3.5 13.7 5 8.8l-4-3h5.4z"/></svg>
-        Featured testimonial
+      <div class="spot-tag-row">
+        <div class="spot-tag">
+          <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1l1.6 4.8H15l-4 3 1.5 4.9L8 10.8 3.5 13.7 5 8.8l-4-3h5.4z"/></svg>
+          ${isPreview ? 'Selected testimonial' : 'Featured testimonial'}
+        </div>
+        ${isPreview ? `<button type="button" class="spot-back" id="spotBackBtn">← Back to featured</button>` : ''}
       </div>
       <p class="spot-quote">"${escapeHtml(d.message)}"</p>
       ${d.impact ? `<div class="spot-metric"><b>${escapeHtml(d.impact)}</b></div>` : ''}
@@ -780,7 +920,7 @@ function renderSpotlight(d){
 function renderFeedRow(d){
   const color = sectorColor(d.sector);
   const stars = d.rating ? '★'.repeat(d.rating) + '☆'.repeat(5 - d.rating) : '';
-  return `<div class="frow" style="--pc:${color};">
+  return `<div class="frow" data-id="${d.id}" style="--pc:${color};">
     <p class="frow-quote">"${escapeHtml(d.message)}"</p>
     <div class="frow-who">
       <div class="frow-badge" style="background:${color};">${initials(d.name)}</div>
