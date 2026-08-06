@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Green Finance — Mushroom Cultivation | SUVIKALP</title>
+  <title>Green Finance — Mushroom Farm | SUVIKALP</title>
   <link rel="stylesheet" href="../style.css">
   <link rel="stylesheet" href="./category.css">
   <style>
@@ -366,7 +366,7 @@
   <header id="site-header">
     <div class="header-left">
       <div class="header-tool-title"><span class="hindi">सुविकल्प:</span> Mine Repurposing Tool</div>
-      <div class="header-tool-sub">Mushroom Cultivation — Preliminary Green Finance Screening</div>
+      <div class="header-tool-sub">Mushroom Farm — Preliminary Green Finance Screening</div>
     </div>
   <div class="header-right">
     <a href="https://coalcontroller.gov.in/" rel="noopener" title="CCO Home">
@@ -381,14 +381,14 @@
   <div class="page">
 
     <div class="sf-backbar">
-      <button class="back-btn" onclick="window.location.href='./mushroom-farm.html'" aria-label="Back to Mushroom Cultivation">
+      <button class="back-btn" onclick="window.location.href='./mushroom-farm.html'" aria-label="Back to Mushroom Farm">
         <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M10 3L5 8l5 5"/>
         </svg>
-        Back to Mushroom Cultivation
+        Back to Mushroom Farm
       </button>
       <span class="sf-breadcrumb">
-        <span>Mushroom Cultivation</span>
+        <span>Mushroom Farm</span>
         <span class="sep">/</span>
         <span style="color:var(--color-primary);font-weight:500;">Green Finance</span>
       </span>
@@ -460,128 +460,54 @@
     // id, title, info text and answer options for each question, in order
     // <br><a href=\"\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\"> &nearr;</a>
     const QUESTIONS = [
-  {
-    "id": "q1",
-    "title": "Does the project broadly align with the host country's national climate strategy and plans or NDC?",
-    "info": "1) Nationally Determined Contributions (NDCs) are national climate action plans under the Paris Agreement, outlining targets to reduce greenhouse gas emissions, build climate resilience, and transition to clean energy. <br>2) The National Action Plan on Climate Change (NAPCC) outlines a national strategy that aims to enable thecountry to adapt to climate change and enhance the ecological  sustainability of India‘s development path.<br><br><a href=\"https://unfccc.int/sites/default/files/NDC/2022-08/India%20Updated%20First%20Nationally%20Determined%20Contrib.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">India’s Updated First NDC Under Paris Agreement &nearr;</a><br><a href=\"https://unfccc.int/sites/default/files/2026-04/INDIA%20NDC%202031-35.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">India’s Nationally Determined Contribution (2031-2035) &nearr;</a><br><a href=\"https://static.pib.gov.in/WriteReadData/specificdocs/documents/2021/dec/doc202112101.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">National Action Plan on Climate Change (NAPCC) (FAQ) &nearr;</a>",
-    "options": [
       {
-        "value": "yes",
-        "label": "Yes"
+        id: "q1",
+        title: "Does the project align with India's Nationally Determined Contribution (NDC) and national climate strategy/ plans? ",
+        info: "1) Nationally Determined Contributions (NDCs) are national climate action plans under the Paris Agreement, outlining targets to reduce greenhouse gas emissions, build climate resilience, and transition to clean energy. <br>2) The National Action Plan on Climate Change (NAPCC) outlines a national strategy that aims to enable thecountry to adapt to climate change and enhance the ecological  sustainability of India‘s development path.<br><br><a href=\"https://unfccc.int/sites/default/files/NDC/2022-08/India%20Updated%20First%20Nationally%20Determined%20Contrib.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">India’s Updated First NDC Under Paris Agreement &nearr;</a><br><a href=\"https://unfccc.int/sites/default/files/2026-04/INDIA%20NDC%202031-35.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">India’s Nationally Determined Contribution (2031-2035) &nearr;</a><br><a href=\"https://static.pib.gov.in/WriteReadData/specificdocs/documents/2021/dec/doc202112101.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">National Action Plan on Climate Change (NAPCC) (FAQ) &nearr;</a>",
+        options: [{ value: "yes", label: "Yes" }, { value: "no", label: "No" }]
       },
       {
-        "value": "no",
-        "label": "No"
+        id: "q2",
+        title: "Does the project possess legal land-use permissions and all required FPIC (Free, Prior, Informed &Consent) approvals?",
+        info: "Ensure the project has valid land-use rights and all required approvals, including  Free, Prior and Informed Consent (FPIC), which means informing, consulting, and obtaining consent from affected Indigenous or local communities before starting project activities.<br><br><a href=\"https://ses-toolkit.info.undp.org/sites/g/files/zskgke446/files/SES%20Document%20Library/Uploaded%20October%202016/FINAL%20FPIC%20FAQ%20Guidance%20-%20June%2015%202022.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">SES Supplemental Guidance FAQs on Applying Free Prior Informed Consent (FPIC) &nearr;</a><br><a href=\"https://www.greenclimate.fund/sites/default/files/document/ipp-operational-guidelines.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Free, Prior and Informed Consent | Green Climate Fund &nearr;</a>",
+        options: [{ value: "yes", label: "Yes" }, { value: "no", label: "No" }]
+      },
+      {
+        id: "q3",
+        title: "Will the project comply with all applicable environmental and social laws, regulations and standards?",
+        info: "The project should comply with all applicable environmental and social requirements, including required permits, approvals, and standards. This includes protecting the environment, ensuring worker health and safety, consulting affected communities where required, protecting biodiversity, and regularly monitoring project impacts.<br><br><a href=\"https://www.greenclimate.fund/access-funding/sustainability-and-inclusion/environmental-social-safeguards\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Environmental and social safeguards | Green Climate Fund &nearr;</a><br><a href=\"https://www.ifc.org/en/insights-reports/2012/ifc-performance-standards\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Performance Standards on Environmental and Social Sustainability | International Finance Corporation (IFC) &nearr;</a><br><a href=\"https://www.ifc.org/en/insights-reports/general-environmental-health-and-safety-guidelines\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Environmental, Health, and Safety Guidelines &nearr;</a><br><a href=\"https://thedocs.worldbank.org/en/doc/837721522762050108-0290022018/original/ESFFramework.pdf#page=29&zoom=80\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Work Bank Environmental and Social Framework &nearr;</a><br><a href=\"https://verra.org/documents/vcs-esg-risk-assessment-template-v5-0\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">VCS ESG Risk Assessment Template &nearr;</a><br><a href=\"https://equator-principles.com/app/uploads/The-Equator-Principles_EP4_July2020.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">EQUATOR PRINCIPLES &nearr;</a>",
+        options: [{ value: "yes", label: "Yes" }, { value: "no", label: "No" }, { value: "partially", label: "Partially" }]
+      },
+      {
+        id: "q4",
+        title: "Is project required by any existing law, regulations or legally binding mandate?",
+        info: "For example, the project proposes to restore 100 hectares. However, the law requires restoration of 40 hectares only. In such scenario, restoration of 40 Ha will be considered as Mandated by Law or Legally Binding, whereas 60 Ha will be considered as voluntarily or Non-Legally binding.<br><br><a href=\"https://verra.org/documents/vcs-standard-v5-0/\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Right to operate | Verra Standard &nearr;</a>",
+        options: [{ value: "yes", label: "Yes" }, { value: "no", label: "No" }, { value: "partially", label: "Partially" }]
+      
+      },
+      {
+        id: "q5",
+        title: "Does the project require external financial support to become commercially viable?",
+        info: "Example: The project requires an investment of ₹30 crore. The owner invests ₹10 crore from its own funds. <br>If the remaining ₹20 crore can only be financed through grants, concessional loans, or other subsidized funding, the project is <strong>Not viable without concessional support</strong>.<br>If the project receives ₹10 crore through a green loan or grant but depends on earning ₹10 crore from carbon credit revenue to recover its investment, the project is <strong>Not viable without carbon credit revenue</strong>.<br><br><a href=\"https://www.greenclimate.fund/sites/default/files/document/policy-cofinancing.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Policy on Co-financing | Green Climate Fund &nearr;</a><br><a href=\"https://verra.org/documents/vcs-standard-v5-0/\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Additionality | Verra Standard &nearr;</a>",
+        options: [
+          { value: "commercial", label: "No" },
+          { value: "concessional", label: "Not viable without concessional support" },
+          { value: "carbon", label: "Not viable without carbon credit revenue" }
+        ]
+      },
+      {
+        id: "q6",
+        title: "Is a Monitoring and Evaluation (M&E) plan included or planned for the project?",
+        info: "Monitoring and Evaluation (M&E) plan must outline how project progress, the use of funds/proceeds, and the environmental and social outcomes,  will be monitored, measured, and reported throughout the project lifecycle. The plan must align with applicable requirements of green financing mechanism.<br><br><a href=\"https://www.greenclimate.fund/about/governance/policies-and-strategies/results-monitoring-evaluation\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Policies: Results, Monitoring and Evaluation | Green Climate Fund &nearr;</a><br><a href=\"https://www.icmagroup.org/assets/documents/Sustainable-finance/2025-updates/Green-Bond-Principles-GBP-June-2025.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\"> ICMA Green Bond Principles &nearr;</a><br><a href=\"https://www.icmagroup.org/assets/documents/Sustainable-finance/2026-updates/Handbook-Harmonised-Framework-for-Impact-Reporting-June-2026.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Harmonised Framework for Impact Reporting &nearr;</a><br><a href=\"https://verra.org/programs/verified-carbon-standard/project-description-and-monitoring-report/#developing-a-monitoring-report\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Monitoring Report | Carbon Credit | VERRA  &nearr;</a><br><a href=\"https://www.greenclimate.fund/sites/default/files/document/irmf-policy.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Integrated Result Management Framework | Green Climate Fund &nearr;</a>",
+        options: [{ value: "yes", label: "Yes" }, { value: "no", label: "No" }, { value: "partially", label: "Partially" }]
+      },
+      {
+        id: "q7",
+        title: "Is this project or piece of land currently registered under, or receiving support from, any other environmental, climate, or green financing program?",
+        info: "For example, A project receives a government grant to restore 100 hectares of land. The project then applies for another green financing mechanism (Green Climate Fund, Green Loans, Green Bonds, Carbon Credit) to receive funding for the same 100 hectares and the same restoration activity. This may not be eligible, as the same activity is already receiving support from another source.<br><br><a href=\"https://verra.org/documents/vcs-standard-v5-0/\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Double Counting | Verra Standard &nearr;</a><br><a href=\"https://www.globalcarboncouncil.com/wp-content/uploads/2022/03/Standard-on-Avoidance-of-Double-Counting-V1.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Standard on Avoidance of Double Counting &nearr;</a><br><a href=\"https://www.greenclimate.fund/sites/default/files/document/principles-demonstrating-impact-potential-gcf-supported-activities.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Principles for demonstrating the impact potential of GCF-supported activities &nearr;</a>",
+        options: [{ value: "yes", label: "Yes" }, { value: "no", label: "No" }, { value: "partially", label: "Partially" }]
       }
-    ]
-  },
-  {
-    "id": "q2",
-    "title": "Does the project possess legal land-use rights and all required FPIC (Free, Prior, Informed &Consent) approvals?",
-    "info": "Ensure the project has valid land-use rights and all required approvals, including  Free, Prior and Informed Consent (FPIC), which means informing, consulting, and obtaining consent from affected Indigenous or local communities before starting project activities.<br><br><a href=\"https://ses-toolkit.info.undp.org/sites/g/files/zskgke446/files/SES%20Document%20Library/Uploaded%20October%202016/FINAL%20FPIC%20FAQ%20Guidance%20-%20June%2015%202022.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">SES Supplemental Guidance FAQs on Applying Free Prior Informed Consent (FPIC) &nearr;</a><br><a href=\"https://www.greenclimate.fund/sites/default/files/document/ipp-operational-guidelines.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Free, Prior and Informed Consent | Green Climate Fund &nearr;</a>",
-    "options": [
-      {
-        "value": "yes",
-        "label": "Yes"
-      },
-      {
-        "value": "no",
-        "label": "No"
-      }
-    ]
-  },
-  {
-    "id": "q3",
-    "title": "Will the project comply with the environmental and social standards?",
-    "info": "The project should comply with all applicable environmental and social requirements, including required permits, approvals, and standards. This includes protecting the environment, ensuring worker health and safety, consulting affected communities where required, protecting biodiversity, and regularly monitoring project impacts.<br><br><a href=\"https://www.greenclimate.fund/access-funding/sustainability-and-inclusion/environmental-social-safeguards\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Environmental and social safeguards | Green Climate Fund &nearr;</a><br><a href=\"https://www.ifc.org/en/insights-reports/2012/ifc-performance-standards\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Performance Standards on Environmental and Social Sustainability | International Finance Corporation (IFC) &nearr;</a><br><a href=\"https://www.ifc.org/en/insights-reports/general-environmental-health-and-safety-guidelines\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Environmental, Health, and Safety Guidelines &nearr;</a><br><a href=\"https://thedocs.worldbank.org/en/doc/837721522762050108-0290022018/original/ESFFramework.pdf#page=29&zoom=80\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Work Bank Environmental and Social Framework &nearr;</a><br><a href=\"https://verra.org/documents/vcs-esg-risk-assessment-template-v5-0\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">VCS ESG Risk Assessment Template &nearr;</a><br><a href=\"https://equator-principles.com/app/uploads/The-Equator-Principles_EP4_July2020.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">EQUATOR PRINCIPLES &nearr;</a>",
-    "options": [
-      {
-        "value": "yes",
-        "label": "Yes"
-      },
-      {
-        "value": "no",
-        "label": "No"
-      },
-      {
-        "value": "partially",
-        "label": "Partially"
-      }
-    ]
-  },
-  {
-    "id": "q4",
-    "title": "Does the project require external funds to become commercially viable?",
-    "info": "Example: The project requires an investment of ₹30 crore. The owner invests ₹10 crore from its own funds. <br>If the remaining ₹20 crore can only be financed through grants, concessional loans, or other subsidized funding, the project is <strong>Not viable without concessional support</strong>.<br>If the project receives ₹10 crore through a green loan or grant but depends on earning ₹10 crore from carbon credit revenue to recover its investment, the project is <strong>Not viable without carbon credit revenue</strong>.<br><br><a href=\"https://www.greenclimate.fund/sites/default/files/document/policy-cofinancing.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Policy on Co-financing | Green Climate Fund &nearr;</a><br><a href=\"https://verra.org/documents/vcs-standard-v5-0/\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Additionality | Verra Standard &nearr;</a>",
-    "options": [
-      {
-        "value": "no",
-        "label": "No"
-      },
-      {
-        "value": "not_viable_without_concessional_support",
-        "label": "Not viable without concessional support"
-      },
-      {
-        "value": "not_viable_without_carbon_credit",
-        "label": "Not viable without carbon credit"
-      }
-    ]
-  },
-  {
-    "id": "q5",
-    "title": "Is project required by any existing law, regulations or legally binding mandate?",
-    "info": "For example, the project proposes to restore 100 hectares. However, the law requires restoration of 40 hectares only. In such scenario, restoration of 40 Ha will be considered as Mandated by Law or Legally Binding, whereas 60 Ha will be considered as voluntarily or Non-Legally binding.<br><br><a href=\"https://verra.org/documents/vcs-standard-v5-0/\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Right to operate | Verra Standard &nearr;</a>",
-    "options": [
-      {
-        "value": "yes",
-        "label": "Yes"
-      },
-      {
-        "value": "no",
-        "label": "No"
-      },
-      {
-        "value": "partially",
-        "label": "Partially"
-      }
-    ]
-  },
-  {
-    "id": "q6",
-    "title": "Is use of proceeds Monitoring and Evaluation (M&E) plan included or planned for the project?",
-    "info": "Monitoring and Evaluation (M&E) plan must outline how project progress, the use of funds/proceeds, and the environmental and social outcomes,  will be monitored, measured, and reported throughout the project lifecycle. The plan must align with applicable requirements of green financing mechanism.<br><br><a href=\"https://www.greenclimate.fund/about/governance/policies-and-strategies/results-monitoring-evaluation\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Policies: Results, Monitoring and Evaluation | Green Climate Fund &nearr;</a><br><a href=\"https://www.icmagroup.org/assets/documents/Sustainable-finance/2025-updates/Green-Bond-Principles-GBP-June-2025.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\"> ICMA Green Bond Principles &nearr;</a><br><a href=\"https://www.icmagroup.org/assets/documents/Sustainable-finance/2026-updates/Handbook-Harmonised-Framework-for-Impact-Reporting-June-2026.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Harmonised Framework for Impact Reporting &nearr;</a><br><a href=\"https://verra.org/programs/verified-carbon-standard/project-description-and-monitoring-report/#developing-a-monitoring-report\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Monitoring Report | Carbon Credit | VERRA  &nearr;</a><br><a href=\"https://www.greenclimate.fund/sites/default/files/document/irmf-policy.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Integrated Result Management Framework | Green Climate Fund &nearr;</a>",
-    "options": [
-      {
-        "value": "yes",
-        "label": "Yes"
-      },
-      {
-        "value": "no",
-        "label": "No"
-      }
-    ]
-  },
-  {
-    "id": "q7",
-    "title": "Is this project or piece of land currently registered under, or receiving support from, any other environmental, climate, or green financing program?",
-    "info": "For example, A project receives a government grant to restore 100 hectares of land. The project then applies for another green financing mechanism (Green Climate Fund, Green Loans, Green Bonds, Carbon Credit) to receive funding for the same 100 hectares and the same restoration activity. This may not be eligible, as the same activity is already receiving support from another source.<br><br><a href=\"https://verra.org/documents/vcs-standard-v5-0/\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Double Counting | Verra Standard &nearr;</a><br><a href=\"https://www.globalcarboncouncil.com/wp-content/uploads/2022/03/Standard-on-Avoidance-of-Double-Counting-V1.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Standard on Avoidance of Double Counting &nearr;</a><br><a href=\"https://www.greenclimate.fund/sites/default/files/document/principles-demonstrating-impact-potential-gcf-supported-activities.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Principles for demonstrating the impact potential of GCF-supported activities &nearr;</a>",
-    "options": [
-      {
-        "value": "yes",
-        "label": "Yes"
-      },
-      {
-        "value": "no",
-        "label": "No"
-      },
-      {
-        "value": "partially",
-        "label": "Partially"
-      }
-    ]
-  }
-];
+    ];
 
     // answers picked so far, e.g. { q1: "yes", q2: "no" }
     const answers = {};
@@ -639,231 +565,165 @@
     // doesn't affect it (e.g. Carbon Credit isn't touched by Q1).
     // reason = why it got that tier, reco = what to do about it.
     const RULES = {
-  "q1": {
-    "yes": {
-      "gb": "high",
-      "gcf": "high",
-      "reason": {
-        "gcf": "Ineligible. Proposals not aligned with national climate priorities will not receive NDA endorsement."
+      q1: {
+        yes: { gb: "high", cc: "high", gcf: "high", gl: "high" },
+        no: {
+          gb: "ineligible", cc: "ineligible", gcf: "ineligible", gl: "ineligible",
+          reco: {
+            gb: "1. Include activities that contribute to India's climate and sustainable development priorities.<br> 2. Refer to the <a href=\"https://www.icmagroup.org/assets/documents/Regulatory/Green-Bonds/Climate-Transition-Finance-Handbook-December-2020-091220.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Climate Transition Finance Handbook &nearr;</a> to ensure the project's climate change mitigation measures comply with the prescribed guidance.<br>3. Verify that project align with national environmental policies, including <a href=\"https://ibkp.dbt.gov.in/DBT_Content_Test/CMS/Guidelines/20190411103521431_National%20Environment%20Policy,%202006.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">National Environment Policy, 2006 &nearr;</a>.",
+            cc: "1. Include activities that contribute to India's climate and sustainable development priorities.<br> 2. Demonstrate the project's contribution to greenhouse gas emission reductions, carbon sequestration, renewable energy, or ecosystem restoration.<br> 3. Where relevant and feasible, align the project's sustainable development benefits with national priorities.",
+            gcf: "1. Review the country's NDC, national renewable energy plan, or sector strategy.<br> 2. Adjust project scope or target beneficiaries to match prioritised sectors in the NDC.<br>3. Coordinate with the MoEFCC/ NDA (National Designated Authorities) to understand and determine the expected contributions",
+            gl: "1. Include activities that contribute to India's climate and sustainable development priorities.<br> 2. Refer to the <a href=\"https://www.icmagroup.org/assets/documents/Regulatory/Green-Bonds/Climate-Transition-Finance-Handbook-December-2020-091220.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Climate Transition Finance Handbook &nearr;</a> to ensure the project's climate change mitigation measures comply with the prescribed guidance.<br>3. Verify that project align with national environmental policies, including <a href=\"https://ibkp.dbt.gov.in/DBT_Content_Test/CMS/Guidelines/20190411103521431_National%20Environment%20Policy,%202006.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">National Environment Policy, 2006 &nearr;</a>."
+          }
+        }
       },
-      "reco": {
-        "gcf": "Review the country's NDC, national renewable energy plan, or sector strategy\nAdjust project scope or target beneficiaries to match prioritised sectors in the NDC\nEngage the NDA to understand what Mushroom Farm contributions are explicitly planned and endorsed"
+      q2: {
+        yes: {
+          gb: "high", cc: "high", gcf: "high", gl: "high",
+          reason: { cc: "The project developer must have the legal authority to implement the project and demonstrate ownership or control over the project area through valid land rights, leases, permits, or agreements." }
+        },
+        no: {
+          gb: "ineligible", cc: "ineligible", gcf: "ineligible", gl: "ineligible",
+          reason: { cc: "The project developer cannot demonstrate legal authority to operate the project or claim ownership of the carbon benefits. Without legal rights to the land or carbon benefits, ownership of the emission reductions is uncertain." },
+          reco: {
+            gb: "1. Ensure that all land ownership/lease documents, mine closure approvals, environmental clearances, forest approvals (if applicable), and other statutory permissions required for the project are valid and up to date.<br> 2. Consult local communities and other affected stakeholders, and maintain written records of meetings, feedback, and consent where required by law or the selected carbon credit standard.<br> 3. Ensure <a href=\"https://hlrn.org.in/documents/Indian_Law_and_Policy.htm\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">legal and social compliance &nearr;</a> and obtain independent verification.<br> 4. Prepare a remediation plan aligned with <a href=\"https://www.ifc.org/en/insights-reports/2012/ifc-performance-standards\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">IFC Performance Standards &nearr;</a>, the<br><a href=\"https://equator-principles.com/\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\"> Equator Principles &nearr;</a>.",
+            cc: "1. Ensure that all land ownership/lease documents, mine closure approvals, environmental clearances, forest approvals (if applicable), and other statutory permissions required for the project are valid and up to date.<br> 2. Consult local communities and other affected stakeholders, and maintain written records of meetings, feedback, and consent where required by law or the selected carbon credit standard.<br> 3. Keep all legal approvals, permits, and stakeholder consultation records organized, as these will be reviewed during the project's independent validation.",
+            gcf: "1. Ensure that all land ownership/lease documents, mine closure approvals, environmental clearances, forest approvals (if applicable), and other statutory permissions required for the project are valid and up to date.<br> 2. Consult local communities and other affected stakeholders, and maintain written records of meetings, feedback, and consent where required by law or the selected carbon credit standard.<br> 3. Keep all legal approvals, permits, and stakeholder consultation records organized, as these will be reviewed during the project's independent validation.",
+            gl: "1. Ensure that all land ownership/lease documents, mine closure approvals, environmental clearances, forest approvals (if applicable), and other statutory permissions required for the project are valid and up to date.<br> 2. Consult local communities and other affected stakeholders, and maintain written records of meetings, feedback, and consent where required by law or the selected carbon credit standard.<br> 3. Ensure <a href=\"https://hlrn.org.in/documents/Indian_Law_and_Policy.htm\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">legal and social compliance &nearr;</a> and obtain independent verification.<br> 4. Prepare a remediation plan aligned with <a href=\"https://www.ifc.org/en/insights-reports/2012/ifc-performance-standards\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">IFC Performance Standards &nearr;</a>, the<br><a href=\"https://equator-principles.com/\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\"> Equator Principles &nearr;</a>."
+          }
+        }
       },
-      "gl": "high"
-    },
-    "no": {
-      "gb": "ineligible",
-      "reco": {
-        "gb": "Issuers are encouraged to seek alignment with voluntary guidelines on a \"best-efforts basis\" and should \"disclose how they are progressing\" against each recommended element of a transition strategy, explaining any areas of non-alignment",
-        "gl": "Issuers are encouraged to seek alignment with voluntary guidelines on a \"best-efforts basis\" and should \"disclose how they are progressing\" against each recommended element of a transition strategy, explaining any areas of non-alignment"
+      q3: {
+        yes: {
+          gb: "high", cc: "high", gcf: "high", gl: "high",
+          reason: { gcf: "Must comply with <abbr title='International Finance Corporation'>IFC</abbr>-aligned safeguards to prevent harm." },
+        },
+        no: {
+          gb: "ineligible", cc: "ineligible", gcf: "ineligible", gl: "ineligible",
+          reco: {
+            gb: "<br><a href=\"https://www.icmagroup.org/sustainable-finance/the-principles-guidelines-and-handbooks/green-bond-principles-gbp/\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Green Bond Principles (GBP) &nearr;</a> recommend communicating overall environmental sustainability objectives, and how they will identify and manage potential environmental and social risks associated with the selected projects.<br> Projects must meet two critical pillars:<br> 1.<a href=\"https://commission.europa.eu/document/download/993e026c-4118-46ed-b7ff-5224c19aa254_en?filename=2021_02_18_epc_do_not_significant_harm_-technical_guidance_by_the_commission.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\"> Do No Significant Harm (DNSH) &nearr;</a>: While contributing to one environmental goal, the project must not undermine others (e.g., an energy project must not destroy local habitats).<br> 2. <a href=\"https://www.ohchr.org/sites/default/files/Documents/Publications/GuidingPrinciplesBusinessHR_EN.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Minimum Social Safeguards (MSS) &nearr;</a>: The project must adhere to human rights and labor standards, such as the Labor Code, ensuring safe working conditions and prohibiting forced or child labor.<br> Appoint an External Reviewer (such as an SPO provider) to confirm the project’s alignment with these standards",
+            cc: "1. Obtain all required environmental and social permits, approvals, and clearances before starting the project.<br> 2. Identify environmental and social risks and implement measures to avoid or reduce their impacts.<br>3. Regularly monitor the project and update mitigation measures whenever new risks are identified.<br>4. Comply with applicable Environmental, Social and Governance (ESG) safeguard requirements throughout the project.",
+            gcf: "1. Conduct environmental and social risk screening using GCF Environmental and Social Safeguards (ESS) requirements.<br> 2. Prepare an Environmental and Social Management Plan (ESMP) based on the identified risk category.<br> 3. Document the E&S risk category as it determines depth of assessment required.<br> 4. Ensure compliance with the GCF Environmental and Social Policy and relevant Performance Standards.<br> 5. Establish grievance redress mechanisms as required under GCF safeguards.<br> 6. Submit environmental and social assessment documentation as part of the GCF funding proposal.",
+            gl: "<br><a href=\"https://www.icmagroup.org/assets/documents/Regulatory/Green-Bonds/LMA_Green_Loan_Principles_Booklet-220318.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Green Loan Principles (GLP) &nearr;</a> recommend communicating overall environmental sustainability objectives, and how they will identify and manage potential environmental and social risks associated with the selected projects.<br> Projects must meet two critical pillars:<br> 1.<a href=\"https://commission.europa.eu/document/download/993e026c-4118-46ed-b7ff-5224c19aa254_en?filename=2021_02_18_epc_do_not_significant_harm_-technical_guidance_by_the_commission.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\"> Do No Significant Harm (DNSH) &nearr;</a>: While contributing to one environmental goal, the project must not undermine others (e.g., an energy project must not destroy local habitats).<br> 2. <a href=\"https://www.ohchr.org/sites/default/files/Documents/Publications/GuidingPrinciplesBusinessHR_EN.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Minimum Social Safeguards (MSS) &nearr;</a>: The project must adhere to human rights and labor standards, such as the Labor Code, ensuring safe working conditions and prohibiting forced or child labor.<br> Appoint an External Reviewer (such as an SPO provider) to confirm the project’s alignment with these standards"
+          }
+        },
+        partially: { gb: "moderate", cc: "moderate", gcf: "moderate", gl: "moderate",
+        reco: {
+          gb:"1. Develop specific actions to resolve the non-compliance or minimize the negative impacts resulting from the gaps.<br> 2. Explicitly articulate how internal practices cover <strong>Minimum Safeguards</strong> and the <strong>Do No Significant Harm</strong> (DNSH) principle",
+          cc: "1. Obtain all required environmental and social permits, approvals, and clearances before starting the project.<br> 2. Identify environmental and social risks and implement measures to avoid or reduce their impacts.<br>3. Regularly monitor the project and update mitigation measures whenever new risks are identified.<br>4. Comply with applicable Environmental, Social and Governance (ESG) safeguard requirements throughout the project.",
+          gcf: "1. Conduct environmental and social risk screening using GCF Environmental and Social Safeguards (ESS) requirements.<br> 2. Prepare an Environmental and Social Management Plan (ESMP) based on the identified risk category.<br> 3. Document the E&S risk category as it determines depth of assessment required.<br> 4. Ensure compliance with the GCF Environmental and Social Policy and relevant Performance Standards.<br> 5. Establish grievance redress mechanisms as required under GCF safeguards.<br> 6. Submit environmental and social assessment documentation as part of the GCF funding proposal.",
+          gl:"1. Develop specific actions to resolve the non-compliance or minimize the negative impacts resulting from the gaps.<br> 2. Explicitly articulate how internal practices cover <strong>Minimum Safeguards</strong> and the <strong>Do No Significant Harm</strong> (DNSH) principle"
+        }
+        }
       },
-      "gcf": "ineligible",
-      "gl": "ineligible"
-    }
-  },
-  "q2": {
-    "yes": {
-      "gb": "high",
-      "reco": {
-        "gb": "Adhering to Minimum Social Safeguards (MSS) - Taxonomy-aligned\ngreen activities need adhere to human rights and labor standards. Minimum Social\nSafeguards (MSS) help ensure that while economic activities contribute to environmental\ngoals, they also uphold ethical and inclusive social practices. For instance, afforestation\nprojects should engage local communities and protect their rights without causing\ndisplacement and/or green technology supply chains must ensure safe working conditions\nand prevent labor exploitation.",
-        "cc": "The project must secure legal land-use rights and obtain required community/Indigenous consent (FPIC) before it can qualify for green financing.",
-        "gcf": "The project must secure legal land-use rights and obtain required community/Indigenous consent (FPIC) before it can qualify for green financing.",
-        "gl": "Adhering to Minimum Social Safeguards (MSS) - Taxonomy-aligned\ngreen activities need adhere to human rights and labor standards. Minimum Social\nSafeguards (MSS) help ensure that while economic activities contribute to environmental\ngoals, they also uphold ethical and inclusive social practices. For instance, afforestation\nprojects should engage local communities and protect their rights without causing\ndisplacement and/or green technology supply chains must ensure safe working conditions\nand prevent labor exploitation."
+      q4: {
+        yes: {
+          gb: "high", cc: "ineligible", gcf: "high", gl: "high",
+          reco: {
+            cc: "1. Add voluntary activities that reduce greenhouse gas emissions or restore the environment beyond legal requirements.<br> 2. Claim carbon credits only for the voluntary activities, not for activities required by law."
+          }
+        },
+        no: {
+          gb: "high", cc: "high", gcf: "high", gl: "high",
+          reason: {
+            cc: "The activity is entirely voluntary and exceeds legal requirements.", 
+          }
+        },
+        partially: {
+          gb: "high", cc: "moderate", gcf: "high", gl: "high",
+         reco: {
+            cc: "1. Include more voluntary activities that go beyond legal requirements.<br> 2. Clearly separate legally required activities from voluntary activities in the project plan.<br> 3. Apply for carbon credits only for the voluntary activities that are not required by law."
+          }
+        }
       },
-      "cc": "high",
-      "reason": {
-        "cc": "The project must secure legal land-use rights and obtain required community/Indigenous consent (FPIC) before it can qualify for green financing.",
-        "gcf": "The project must secure legal land-use rights and obtain required community/Indigenous consent (FPIC) before it can qualify for green financing."
+      q5: {
+        commercial: {
+          gb: "high", cc: "ineligible", gcf: "ineligible", gl: "high",
+          reason: {
+            cc: "The project would proceed regardless of carbon credits, so it is not additional — carbon finance isn't the deciding factor.",
+            gcf: "<abbr title='Green Climate Fund'>GCF</abbr> will not fund projects that can attract commercial finance on their own terms — this would crowd out private investment."
+          },
+          reco: {
+            cc: "Redesign the project to include voluntary activities beyond business-as-usual.<br> Identify additional measures that only become feasible with carbon finance.",
+            gcf: "Green Climate Fundwill not fund projects that can attract commercial finance on their own terms — this would crowd out private investment. You may required to\n(1) document the specific financing barriers (e.g. high perceived risk, currency mismatch, tenor mismatch)\n(2) Prepare a financial model demonstrating the funding gap with and without <abbr title='Green Climate Fund'>GCF</abbr> support\n(3) Consider re-scoping to include underserved segments (e.g. off-grid, small commercial) where the market gap is clearer"
+          }
+        },
+        concessional: {
+          gb: "moderate", cc: "moderate", gcf: "high", gl: "moderate",
+          reason: { cc: "Only part of the project depends on carbon finance — some activities may already be financially viable while others require carbon revenue." },
+          reco: {
+            gb:"All projects can successfully access green bond financing by leveraging specific institutional structures, specialized funds, and project classifications designed to bridge the viability gap.\n 1. Assess the project's standalone commercial viability.\n 2. Identify the financing gap.\n 3. Check feasiability of integrating into a Sovereign Green Bond.\n 4. If a private project is not commercially viable, it may qualify for green bond proceeds if it is part of a public sector deployment aimed at reducing the carbon intensity of the economy.\n 5. Refer <a href=\"https://www.ifc.org/content/dam/ifc/doc/mgrt/202203-ifc-green-bond-handbook.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">IFC Green Bond Handbook &nearr;</a> ",
+            cc: "1. Conduct a financial analysis showing carbon revenue improves project viability.\n 2. Demonstrate investment barriers, technology barriers, or financial risks.\n 3. Clearly identify activities that rely on carbon finance.",
+            gl: "All projects can successfully access green bond financing by leveraging specific institutional structures, specialized funds, and project classifications designed to bridge the viability gap.\n 1. Assess the project's standalone commercial viability.\n 2. Identify the financing gap.\n 3. Check feasiability of integrating into a Sovereign Green Bond.\n 4. If a private project is not commercially viable, it may qualify for green bond proceeds if it is part of a public sector deployment aimed at reducing the carbon intensity of the economy.\n 5. Refer <a href=\"https://www.icmagroup.org/assets/documents/Regulatory/Green-Bonds/LMA_Green_Loan_Principles_Booklet-220318.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Green Loan Principles &nearr;</a> "
+          }
+        },
+        carbon: {
+          gb: "moderate", cc: "high", gcf: "moderate", gl: "moderate",
+          reason: { cc: "Carbon finance is necessary for the project to proceed." },
+          reco: {
+            gb:"All projects can successfully access green bond financing by leveraging specific institutional structures, specialized funds, and project classifications designed to bridge the viability gap.\n 1. Assess the project's standalone commercial viability.\n 2. Identify the financing gap.\n 3. Check feasiability of integrating into a Sovereign Green Bond.\n 4. If a private project is not commercially viable, it may qualify for green bond proceeds if it is part of a public sector deployment aimed at reducing the carbon intensity of the economy.\n 5. Refer <a href=\"https://www.ifc.org/content/dam/ifc/doc/mgrt/202203-ifc-green-bond-handbook.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">IFC Green Bond Handbook &nearr;</a> ",
+            gcf: "Green Climate Fund will not fund projects that can attract commercial finance on their own terms — this would crowd out private investment. You may required to\n (1) document the specific financing barriers (e.g. high perceived risk, currency mismatch, tenor mismatch)\n (2) Prepare a financial model demonstrating the funding gap with and without Green Climate Fund support\n (3) Consider re-scoping to include underserved segments (e.g. off-grid, small commercial) where the market gap is clearer",
+            gl: "All projects can successfully access green bond financing by leveraging specific institutional structures, specialized funds, and project classifications designed to bridge the viability gap.\n 1. Assess the project's standalone commercial viability.\n 2. Identify the financing gap.\n 3. Check feasiability of integrating into a Sovereign Green Bond.\n 4. If a private project is not commercially viable, it may qualify for green bond proceeds if it is part of a public sector deployment aimed at reducing the carbon intensity of the economy.\n 5. Refer <a href=\"https://www.icmagroup.org/assets/documents/Regulatory/Green-Bonds/LMA_Green_Loan_Principles_Booklet-220318.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Green Loan Principles &nearr;</a> "
+          }
+        }
       },
-      "gcf": "high",
-      "gl": "high"
-    },
-    "no": {
-      "gb": "ineligible",
-      "reco": {
-        "gb": "Adhering to Minimum Social Safeguards (MSS) - Taxonomy-aligned\ngreen activities need adhere to human rights and labor standards. Minimum Social\nSafeguards (MSS) help ensure that while economic activities contribute to environmental\ngoals, they also uphold ethical and inclusive social practices. For instance, afforestation\nprojects should engage local communities and protect their rights without causing\ndisplacement and/or green technology supply chains must ensure safe working conditions\nand prevent labor exploitation."
+      q6: {
+        yes: {
+          gb: "high", cc: "high", gcf: "high", gl: "high",
+          reason: {
+            gb: "M&E is both a planned and required component for projects financed through green bonds.",
+            cc: "Monitoring systems, responsible personnel, and data collection processes are already in place.",
+            gcf: "<abbr title='Green Climate Fund'>GCF</abbr> requires a results-based M&E framework aligned with its Performance Measurement Framework.",
+            gl: "M&E is both a planned and required component for projects financed through green loans."
+          }
+        },
+        no: {
+          gb: "ineligible", cc: "ineligible", gcf: "ineligible", gl: "ineligible",
+          reason: { cc: "Verifiable monitoring is essential for calculating carbon credits — without reliable data, emission reductions cannot be verified." },
+          reco: {
+            gb: "1. Develop a Monitoring, Reporting and Verification (MRV) plan.\n 2. Install necessary monitoring equipment.\n 3. Assign monitoring responsibilities.\n 4. Establish data management and record-keeping procedures.\n 5. Establish quality assurance and quality control procedures before project registration.\n 6. Adopt a standardized <br><a href=\"https://www.icmagroup.org/assets/documents/Sustainable-finance/2023-updates/Handbook-Harmonised-framework-for-impact-reporting-June-2023-220623.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">ICMA Harmonized Framework &nearr;</a> impact reporting.",
+            cc: "1. Develop a Monitoring, Reporting and Verification (MRV) plan.\n 2. Install necessary monitoring equipment.\n 3. Assign monitoring responsibilities.\n 4. Establish data management and record-keeping procedures.\n 5. Establish quality assurance and quality control procedures before project registration.",
+            gcf: "Green Climate Fund requires a results-based M&E framework aligned with its Performance Measurement Framework.\n Design an M&E plan with indicators tied to Green Climate Fund core indicators (PMF-M Core 1, 2, 3)\n Include gender-disaggregated data collection in the M&E framework\n Establish a results reporting schedule aligned with Green Climate Fund reporting requirements",
+            gl: "1. Develop a Monitoring, Reporting and Verification (MRV) plan.\n 2. Install necessary monitoring equipment.\n 3. Assign monitoring responsibilities.\n 4. Establish data management and record-keeping procedures.\n 5. Establish quality assurance and quality control procedures before project registration.\n 6. Adopt a standardized <br><a href=\"https://www.icmagroup.org/assets/documents/Sustainable-finance/2023-updates/Handbook-Harmonised-framework-for-impact-reporting-June-2023-220623.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">ICMA Harmonized Framework &nearr;</a> impact reporting."
+          }
+        },
+        partially: {
+          gb:"moderate", cc: "moderate", gcf: "moderate", gl: "moderate",
+          reco: { 
+            gb: "1. Develop a Monitoring, Reporting and Verification (MRV) plan.\n 2. Install necessary monitoring equipment.\n 3. Assign monitoring responsibilities.\n 4. Establish data management and record-keeping procedures.\n 5. Establish quality assurance and quality control procedures before project registration.\n 6. Adopt a standardized <br><a href=\"https://www.icmagroup.org/assets/documents/Sustainable-finance/2023-updates/Handbook-Harmonised-framework-for-impact-reporting-June-2023-220623.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">ICMA Harmonized Framework &nearr;</a> impact reporting.",
+            cc: "Develop a Monitoring, Reporting and Verification (MRV) plan. Install necessary monitoring equipment. Assign monitoring responsibilities. Establish data management and record-keeping procedures.",
+            gcf: "Green Climate Fund requires a results-based M&E framework aligned with its Performance Measurement Framework.\n Design an M&E plan with indicators tied to Green Climate Fund core indicators (PMF-M Core 1, 2, 3)\n Include gender-disaggregated data collection in the M&E framework\n Establish a results reporting schedule aligned with Green Climate Fund reporting requirements",
+            gl: "1. Develop a Monitoring, Reporting and Verification (MRV) plan.\n 2. Install necessary monitoring equipment.\n 3. Assign monitoring responsibilities.\n 4. Establish data management and record-keeping procedures.\n 5. Establish quality assurance and quality control procedures before project registration.\n 6. Adopt a standardized <br><a href=\"https://www.icmagroup.org/assets/documents/Sustainable-finance/2023-updates/Handbook-Harmonised-framework-for-impact-reporting-June-2023-220623.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">ICMA Harmonized Framework &nearr;</a> impact reporting."
+          }
+        }
       },
-      "cc": "ineligible",
-      "gcf": "ineligible",
-      "gl": "ineligible"
-    }
-  },
-  "q3": {
-    "yes": {
-      "gb": "high",
-      "cc": "high",
-      "gcf": "high",
-      "reason": {
-        "gcf": "Must comply with IFC-aligned safeguards to prevent harm"
-      },
-      "reco": {
-        "gcf": "GCF requires compliance with its ESS (IFC Performance Standards). Commission a scoping-level ESIA immediately- this is required before concept note submission.\nIdentify a qualified environmental and social consultant with IFC PS experience\nDocument the E&S risk category (A/B/C) as it determines depth of assessment required"
-      },
-      "gl": "high"
-    },
-    "no": {
-      "gb": "ineligible",
-      "reco": {
-        "gb": "Projects must meet two critical pillars:\nDo No Significant Harm (DNSH): While contributing to one environmental goal, the project must not undermine others (e.g., an energy project must not destroy local habitats)\nMinimum Social Safeguards (MSS): The project must adhere to human rights and labor standards, such as the Labor Code, ensuring safe working conditions and prohibiting forced or child labor\nAppoint an External Reviewer (such as an SPO provider) to confirm the project’s alignment with these standards",
-        "gl": "Projects must meet two critical pillars:\nDo No Significant Harm (DNSH): While contributing to one environmental goal, the project must not undermine others (e.g., an energy project must not destroy local habitats)\nMinimum Social Safeguards (MSS): The project must adhere to human rights and labor standards, such as the Labor Code, ensuring safe working conditions and prohibiting forced or child labor\nAppoint an External Reviewer (such as an SPO provider) to confirm the project’s alignment with these standards"
-      },
-      "cc": "ineligible",
-      "gcf": "ineligible",
-      "gl": "ineligible"
-    },
-    "partially": {
-      "gb": "ineligible",
-      "cc": "ineligible",
-      "gcf": "ineligible",
-      "gl": "ineligible"
-    }
-  },
-  "q4": {
-    "no": {
-      "gb": "high",
-      "reason": {
-        "gb": "Project is not financially attractive on it's own, green bonds used to bridge investment gaps for projects that are not yet commercially attractive on their own.",
-        "cc": "Projects that are financially viable without carbon revenue cannot demonstrate additionality through the investment test. Consider whether avoided/barrier arguments apply.",
-        "gcf": "Ineligible. GCF will not fund projects that can attract commercial finance on their own terms — this would crowd out private investment.",
-        "gl": "Project is financially attractive on it's own"
-      },
-      "cc": "ineligible",
-      "gcf": "ineligible",
-      "reco": {
-        "gcf": "GCF will not fund projects that can attract commercial finance on their own terms — this would crowd out private investment. You may required to (1) document the specific financing barriers (e.g. high perceived risk, currency mismatch, tenor mismatch)\n(2) Prepare a financial model demonstrating the funding gap with and without GCF support\n(3) Consider re-scoping to include underserved segments (e.g. off-grid, small commercial) where the market gap is clearer"
-      },
-      "gl": "high"
-    },
-    "not_viable_without_concessional_support": {
-      "gb": "high",
-      "reason": {
-        "gb": "Project is not financially attractive on it's own, green bonds used to bridge investment gaps for projects that are not yet commercially attractive on their own.",
-        "gl": "Project is NOT financially attractive on it's own"
-      },
-      "cc": "ineligible",
-      "gcf": "high",
-      "gl": "moderate"
-    },
-    "not_viable_without_carbon_credit": {
-      "gb": "moderate",
-      "cc": "high",
-      "gcf": "moderate",
-      "gl": "moderate"
-    }
-  },
-  "q5": {
-    "yes": {
-      "gb": "high",
-      "reason": {
-        "gb": "Irrelevant factor for determining ineligibility",
-        "cc": "Carbon credit not eligible for projects that are mandated under statutory laws. Beyond that, eligible",
-        "gcf": "Irrelevant Factor",
-        "gl": "Irrelevant factor for determining ineligibility"
-      },
-      "reco": {
-        "gb": "Strongly eligible for Green Bonds",
-        "cc": "\"Fully mandated projects fail the regulatory surplus test. VCS Standard requires the project to go beyond legal obligations..\""
-      },
-      "cc": "ineligible",
-      "gcf": "high",
-      "gl": "high"
-    },
-    "no": {
-      "gb": "high",
-      "reason": {
-        "gb": "Irrelevant factor for determining ineligibility",
-        "gcf": "Irrelevant Factor"
-      },
-      "reco": {
-        "gb": "Eligible for Green Bonds"
-      },
-      "cc": "high",
-      "gcf": "high",
-      "gl": "high"
-    },
-    "partially": {
-      "gb": "high",
-      "reason": {
-        "gb": "Irrelevant factor for determining ineligibility",
-        "gcf": "Irrelevant Factor"
-      },
-      "reco": {
-        "gb": "Eligible for Green Bonds"
-      },
-      "cc": "moderate",
-      "gcf": "high",
-      "gl": "high"
-    }
-  },
-  "q6": {
-    "yes": {
-      "gb": "high",
-      "reason": {
-        "gb": "Monitoring and Evaluation (M&E) is both a planned and required component for projects financed through green bonds",
-        "cc": "Direct measurement via calibrated grid-interface meters is a hard requirement of VMR0017 Section 9.2. Projects unable to install meters cannot meet monitoring requirements.",
-        "gcf": "GCF requires a results-based M&E framework aligned with its Performance Measurement Framework.",
-        "gl": "Monitoring and Evaluation (M&E) is both a planned and required component for projects financed through green bonds"
-      },
-      "cc": "high",
-      "gcf": "high",
-      "reco": {
-        "gcf": "GCF requires a results-based M&E framework aligned with its Performance Measurement Framework.\nDesign an M&E plan with indicators tied to GCF core indicators (PMF-M Core 1, 2, 3)\nInclude gender-disaggregated data collection in the M&E framework\nEstablish a results reporting schedule aligned with GCF reporting requirements"
-      },
-      "gl": "high"
-    },
-    "no": {
-      "gb": "ineligible",
-      "reco": {
-        "gb": "Monitoring is a regular part of the review and approval process for green projects, ensuring they align with environmental missions and development priorities\nProponents are strongly recommended to adopt the ICMA Harmonised Framework for Impact Reporting",
-        "gl": "Monitoring is a regular part of the review and approval process for green projects, ensuring they align with environmental missions and development priorities\nProponents are strongly recommended to adopt the ICMA Harmonised Framework for Impact Reporting"
-      },
-      "cc": "ineligible",
-      "gcf": "ineligible",
-      "gl": "ineligible"
-    }
-  },
-  "q7": {
-    "yes": {
-      "gb": "ineligible",
-      "cc": "ineligible",
-      "gcf": "ineligible",
-      "gl": "ineligible",
-      "reason": {
-        "cc": "The project is currently active under another carbon credit program — the same emission reductions cannot receive carbon credits twice (double counting)."
-      },
-      "reco": {
-        "gb": "1. At no time should the same Green Project's net proceeds be concurrently allocated to more than one outstanding GSS (Green, Social, or Sustainability) bond or other green financing instrument.\n 2. A project can receive support from multiple sources (e.g., a green loan and a green bond) if the funds are applied to different parts or tranches of the project.\n Only be included if they run no risk of 'double-counting' as per <a href=\"https://www.icmagroup.org/sustainable-finance/the-principles-guidelines-and-handbooks/green-bond-principles-gbp/\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Green Bonds Principles &nearr;</a> or through any other mechanism/financing instrument",
-        "cc": "1. Withdraw the project from the other program.\n 2. Ensure previous credits are cancelled or the project is officially inactive .",
-        "gcf": "Fix accounting boundary: no dual claim as carbon credit + <abbr title='Nationally Determined Contribution'>NDC</abbr> + <abbr title='Green Climate Fund'>GCF</abbr> — avoid overlap.\nAdd no-double-counting attestation in <abbr title='Environmental and Social Safeguards'>ESS</abbr>/Funding Proposal.\nApply corresponding adjustments (Article 6) via <abbr title='National Designated Authority'>NDA</abbr> for cross-border claims.\nSeparate MRV (results) from financial reporting (flows).\nAccredited Entities due diligence to include double-counting check.\nVerify with MoEFCC/NDA that reductions aren't already in <abbr title='Nationally Determined Contribution'>NDC</abbr> baseline.",
-        "gl": "1. At no time should the same Green Project's net proceeds be concurrently allocated to more than one outstanding GSS (Green, Social, or Sustainability) bond or other green financing instrument.\n 2. A project can receive support from multiple sources (e.g., a green loan and a green bond) if the funds are applied to different parts or tranches of the project.\n Only be included if they run no risk of 'double-counting' as per <a href=\"https://www.icmagroup.org/assets/documents/Regulatory/Green-Bonds/LMA_Green_Loan_Principles_Booklet-220318.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Green Loan Principles &nearr;</a> or through any other mechanism/financing instrument"
+      q7: {
+        yes: {
+          gb: "ineligible", cc: "ineligible", gcf: "ineligible", gl: "ineligible",
+          reason: { cc: "The project is currently active under another carbon credit program — the same emission reductions cannot receive carbon credits twice (double counting)." },
+          reco: {
+            gb: "1. At no time should the same Green Project's net proceeds be concurrently allocated to more than one outstanding GSS (Green, Social, or Sustainability) bond or other green financing instrument.\n 2. A project can receive support from multiple sources (e.g., a green loan and a green bond) if the funds are applied to different parts or tranches of the project.\n Only be included if they run no risk of 'double-counting' as per <a href=\"https://www.icmagroup.org/sustainable-finance/the-principles-guidelines-and-handbooks/green-bond-principles-gbp/\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Green Bonds Principles &nearr;</a> or through any other mechanism/financing instrument",
+            cc: "1. Withdraw the project from the other program.\n 2. Ensure previous credits are cancelled or the project is officially inactive .",
+            gcf: "Fix accounting boundary: no dual claim as carbon credit + <abbr title='Nationally Determined Contribution'>NDC</abbr> + <abbr title='Green Climate Fund'>GCF</abbr> — avoid overlap.\nAdd no-double-counting attestation in <abbr title='Environmental and Social Safeguards'>ESS</abbr>/Funding Proposal.\nApply corresponding adjustments (Article 6) via <abbr title='National Designated Authority'>NDA</abbr> for cross-border claims.\nSeparate MRV (results) from financial reporting (flows).\nAccredited Entities due diligence to include double-counting check.\nVerify with MoEFCC/NDA that reductions aren't already in <abbr title='Nationally Determined Contribution'>NDC</abbr> baseline.",
+            gl: "1. At no time should the same Green Project's net proceeds be concurrently allocated to more than one outstanding GSS (Green, Social, or Sustainability) bond or other green financing instrument.\n 2. A project can receive support from multiple sources (e.g., a green loan and a green bond) if the funds are applied to different parts or tranches of the project.\n Only be included if they run no risk of 'double-counting' as per <a href=\"https://www.icmagroup.org/assets/documents/Regulatory/Green-Bonds/LMA_Green_Loan_Principles_Booklet-220318.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Green Loan Principles &nearr;</a> or through any other mechanism/financing instrument"
+          }
+        },
+        no: {
+          gb: "high", cc: "high", gcf: "high", gl: "high",
+          reason: { cc: "The project is not registered or applying under any other carbon credit program." }
+        },
+        partially: {
+          gb: "moderate", cc: "moderate", gcf: "moderate", gl: "moderate",
+          reason: { cc: "Previously registered, but now inactive or being withdrawn. The project may become eligible if evidence is provided that no further credits will be issued elsewhere." },
+          reco: { 
+            gb: "1. If only a portion of a project is supported by another program, the remaining unfunded green portion can still be eligible for green bond proceeds on a pro-rata basis.\n 2. The issuer must demonstrate a formal internal process, such as a sub-account or sub-portfolio, to rigorously track and prove that the new bond proceeds are being applied to unique green expenditures not covered by the other program.\n Refer <a href=\"https://www.ifc.org/content/dam/ifc/doc/mgrt/202203-ifc-green-bond-handbook.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Green Bond Handbook &nearr;</a> ",
+            cc: "1. Obtain official withdrawal/de-registration from the other program.\n 2. Demonstrate that no duplicate carbon credits have been issued.\n 3. Maintain documentation proving exclusive ownership of emission reductions.",
+            gcf: "Fix accounting boundary: no dual claim as carbon credit + <abbr title='Nationally Determined Contribution'>NDC</abbr> + <abbr title='Green Climate Fund'>GCF</abbr> — avoid overlap.\nAdd no-double-counting attestation in <abbr title='Environmental and Social Safeguards'>ESS</abbr>/Funding Proposal.\nApply corresponding adjustments (Article 6) via <abbr title='National Designated Authority'>NDA</abbr> for cross-border claims.\nSeparate MRV (results) from financial reporting (flows).\nAccredited Entities due diligence to include double-counting check.\nVerify with MoEFCC/NDA that reductions aren't already in <abbr title='Nationally Determined Contribution'>NDC</abbr> baseline.",
+            gl: "1. If only a portion of a project is supported by another program, the remaining unfunded green portion can still be eligible for green bond proceeds on a pro-rata basis.\n 2. The issuer must demonstrate a formal internal process, such as a sub-account or sub-portfolio, to rigorously track and prove that the new bond proceeds are being applied to unique green expenditures not covered by the other program."
+          }
+        }
       }
-    },
-    "no": {
-      "gb": "high",
-      "cc": "high",
-      "gcf": "high",
-      "gl": "high",
-      "reason": {
-        "cc": "The project is not registered or applying under any other carbon credit program."
-      }
-    },
-    "partially": {
-      "gb": "moderate",
-      "cc": "moderate",
-      "gcf": "moderate",
-      "gl": "moderate",
-      "reason": {
-        "cc": "Previously registered, but now inactive or being withdrawn. The project may become eligible if evidence is provided that no further credits will be issued elsewhere."
-      },
-      "reco": {
-        "gb": "1. If only a portion of a project is supported by another program, the remaining unfunded green portion can still be eligible for green bond proceeds on a pro-rata basis.\n 2. The issuer must demonstrate a formal internal process, such as a sub-account or sub-portfolio, to rigorously track and prove that the new bond proceeds are being applied to unique green expenditures not covered by the other program.\n Refer <a href=\"https://www.ifc.org/content/dam/ifc/doc/mgrt/202203-ifc-green-bond-handbook.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Green Bond Handbook &nearr;</a> ",
-        "cc": "1. Obtain official withdrawal/de-registration from the other program.\n 2. Demonstrate that no duplicate carbon credits have been issued.\n 3. Maintain documentation proving exclusive ownership of emission reductions.",
-        "gcf": "Fix accounting boundary: no dual claim as carbon credit + <abbr title='Nationally Determined Contribution'>NDC</abbr> + <abbr title='Green Climate Fund'>GCF</abbr> — avoid overlap.\nAdd no-double-counting attestation in <abbr title='Environmental and Social Safeguards'>ESS</abbr>/Funding Proposal.\nApply corresponding adjustments (Article 6) via <abbr title='National Designated Authority'>NDA</abbr> for cross-border claims.\nSeparate MRV (results) from financial reporting (flows).\nAccredited Entities due diligence to include double-counting check.\nVerify with MoEFCC/NDA that reductions aren't already in <abbr title='Nationally Determined Contribution'>NDC</abbr> baseline.",
-        "gl": "1. If only a portion of a project is supported by another program, the remaining unfunded green portion can still be eligible for green bond proceeds on a pro-rata basis.\n 2. The issuer must demonstrate a formal internal process, such as a sub-account or sub-portfolio, to rigorously track and prove that the new bond proceeds are being applied to unique green expenditures not covered by the other program."
-      }
-    }
-  }
-};
+    };
 
     const QUESTION_IDS = QUESTIONS.map((q) => q.id);
 
@@ -1038,7 +898,7 @@
       });
     }
 
-    // combines all 6 answers: worst tier wins per instrument, and every
+    // combines all 7 answers: worst tier wins per instrument, and every
     // reason/reco tied to that worst tier is listed (deduped)
     function buildFinalResult() {
       const hitsByInstrument = {};
