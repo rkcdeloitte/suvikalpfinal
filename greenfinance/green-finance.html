@@ -84,9 +84,9 @@
     </div>
   </div>
   <div class="header-right">
-    <a href="../browse.html" class="header-browse-link" aria-label="Back to Browse">
+    <a href="../browse.html" class="header-browse-link" id="gf-back-link" aria-label="Back to Browse">
       <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M10 3L5 8l5 5"/></svg>
-      Back to Browse
+      <span id="gf-back-label">Back to Browse</span>
     </a>
     <div class="header-divider"></div>
     <a href="https://coalcontroller.gov.in/" rel="noopener" title="CCO Home">
@@ -212,6 +212,21 @@ CATS.forEach(function(c, i){
 });
 
 renderPreview(CATS[0]);
+
+(function(){
+  var backLink = document.getElementById('gf-back-link');
+  var backLabel = document.getElementById('gf-back-label');
+  if (!backLink || !backLabel) return;
+  // document.referrer is unreliable (browsers withhold it for file:// navigation and in many
+  // cross-origin cases), so the entry point is passed explicitly via a ?from= query param
+  // instead: index.html links here with ?from=home, browse.html with ?from=browse.
+  var from = new URLSearchParams(location.search).get('from');
+  if (from === 'home') {
+    backLink.href = '../index.html';
+    backLink.setAttribute('aria-label', 'Back to Home');
+    backLabel.textContent = 'Back to Home';
+  }
+})();
 </script>
 
 </body>

@@ -2,18 +2,18 @@
 // TODO: Replace with your real config from:
 // Firebase Console → Project settings (gear icon) → General → "Your apps" → Web app (</>)
 const firebaseConfig = {
-  apiKey: "AIzaSyCT_TZay97l4VS0fuPDfCOBgtmJZrKWxsY",
-  authDomain: "suvikalp-testimonials.firebaseapp.com",
-  projectId: "suvikalp-testimonials",
-  storageBucket: "suvikalp-testimonials.firebasestorage.app",
-  messagingSenderId: "561899501506",
-  appId: "1:561899501506:web:3f6fa4018a4b24e7a0085b"
+  apiKey: "AIzaSyDrtpNj5sk7zUnUZ5mCbL7akNVTIPcHvis",
+  authDomain: "suvikalp-testimonials-6b0c5.firebaseapp.com",
+  projectId: "suvikalp-testimonials-6b0c5",
+  storageBucket: "suvikalp-testimonials-6b0c5.firebasestorage.app",
+  messagingSenderId: "1077025207566",
+  appId: "1:1077025207566:web:2708a2db1007a79b8fd35f"
 };
 
 // TODO: Email address(es) allowed to sign in to admin.html.
 // Must match the user you create in Firebase Console → Authentication → Users → Add user.
 const ADMIN_EMAILS = [
-  "rkcdeloitte@gmail.com"
+  "nirutpal.cco@gov.in"
 ];
 
 firebase.initializeApp(firebaseConfig);

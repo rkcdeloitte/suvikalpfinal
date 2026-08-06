@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Green Finance — Agroforestry | SUVIKALP</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="./category.css">
+  <style>
+    .sgft-content { max-width: 1560px; margin: 0 auto; padding: 20px 28px 36px; }
+
+    .sgft-intro { margin: 0 0 16px; }
+    .sgft-intro p {
+      font-family: var(--font-sans);
+      font-size: 1.05rem;
+      line-height: 1.55;
+      color: var(--color-text-secondary);
+    }
+    .sgft-intro p strong { color: var(--color-text); font-weight: 600; }
+
+    .sgft-layout-row { display: flex; align-items: flex-start; gap: 24px; }
+
+    .sgft-qblock {
+      /* capped rather than matched 1:1 with the live panel — an equal-halves split left this
+         card's centered, width-limited content swimming in empty space on wide screens.
+         flex-basis stays 0% (not a px value) because the layout switches to flex-direction:
+         column below 960px, where a px basis would set a fixed HEIGHT instead of width. */
+      flex: 1 1 0%; max-width: 660px; min-width: 0;
+      background: var(--color-surface); border: 1px solid var(--color-card-border);
+      border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);
+      overflow: hidden;
+    }
+
+    /* only instruments the current question actually touches get a card here */
+    .sgft-live-panel { flex: 1 1 0%; min-width: 0; }
+    .sgft-live-title { margin: 0 0 2px; font-family: var(--font-sans); font-size: 1.05rem; font-weight: 700; color: var(--color-teal-700); }
+    .sgft-live-sub { margin: 0 0 14px; font-family: var(--font-sans); font-size: var(--fs-sm); color: var(--color-text-secondary); }
+    .sgft-live-grid { display: flex; flex-direction: column; gap: 10px; }
+    .sgft-live-empty { padding: 20px 16px; border-radius: var(--radius-lg); background: var(--color-gray-200); text-align: center; font-family: var(--font-sans); font-size: var(--fs-sm); color: var(--color-text-secondary); }
+    .sgft-live-card {
+      position: relative; border-radius: var(--radius-lg); border: 1px solid var(--color-card-border);
+      padding: 14px 16px;
+      animation: sgftLivePop .28s ease;
+    }
+    @keyframes sgftLivePop {
+      0% { transform: scale(.97); opacity: .5; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .sgft-live-t-low  { background: #fef2f2; }
+    .sgft-live-t-mid  { background: #fffbeb; }
+    .sgft-live-t-high { background: #ecfdf5; }
+    .sgft-live-card-ring { position: absolute; top: 14px; right: 14px; width: 42px; height: 42px; }
+    .sgft-live-card-ring svg { transform: rotate(-90deg); }
+    .sgft-live-card-ring-label { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: var(--font-sans); font-size: 0.56rem; font-weight: 700; }
+    .sgft-live-card-name { margin: 0 0 2px; padding-right: 56px; font-family: var(--font-sans); font-size: 0.92rem; font-weight: 700; line-height: 1.25; color: var(--color-text); }
+    .sgft-live-card-tier { margin: 0 0 8px; padding-right: 56px; font-family: var(--font-sans); font-size: 0.8rem; font-weight: 700; }
+    .sgft-live-t-low  .sgft-live-card-tier { color: var(--color-red-500); }
+    .sgft-live-t-mid  .sgft-live-card-tier { color: #92400e; }
+    .sgft-live-t-high .sgft-live-card-tier { color: #166534; }
+
+    .sgft-live-card-info-btn {
+      position: relative; margin-top: 2px;
+      display: inline-flex; align-items: center; gap: 4px;
+      border: none; background: none; padding: 0;
+      font-family: var(--font-sans); font-size: 0.76rem; font-weight: 700;
+      text-decoration: underline; text-underline-offset: 2px;
+      cursor: pointer;
+    }
+    .sgft-live-t-low  .sgft-live-card-info-btn { color: var(--color-red-500); }
+    .sgft-live-t-mid  .sgft-live-card-info-btn { color: #92400e; }
+    .sgft-live-t-high .sgft-live-card-info-btn { color: #166534; }
+    .sgft-live-card-info-btn svg { width: 11px; height: 11px; transition: transform .18s ease; flex-shrink: 0; }
+    .sgft-live-card-info-btn.open svg { transform: rotate(180deg); }
+
+    .sgft-live-card-info {
+      display: none; flex-direction: column; gap: 8px; margin-top: 10px;
+      animation: sgftInfoIn .18s ease;
+    }
+    .sgft-live-card-info.open { display: flex; }
+
+    .sgft-live-reco-box {
+      display: flex; gap: 10px; align-items: flex-start;
+      padding: 12px 13px 12px 12px; background: var(--color-surface);
+      border: 1px solid var(--color-card-border); border-left: 3px solid var(--color-teal-700);
+      border-radius: var(--radius); box-shadow: 0 1px 2px rgba(0,0,0,.04);
+    }
+    .sgft-live-reco-icon-wrap {
+      width: 22px; height: 22px; flex-shrink: 0; border-radius: 50%;
+      background: var(--color-teal-700); display: flex; align-items: center; justify-content: center;
+    }
+    .sgft-live-reco-icon-wrap svg { width: 12px; height: 12px; color: #fff; }
+    .sgft-live-reco-label { display: block; margin: 0 0 3px; font-family: var(--font-sans); font-size: 0.66rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--color-teal-700); }
+    .sgft-live-reco-text { margin: 0; font-family: var(--font-sans); font-size: var(--fs-sm); line-height: 1.6; color: var(--color-text-secondary); white-space: pre-line; }
+
+    /* custom tooltip for abbr tags — swaps out the native title="" delay */
+    .sgft-abbr { border-bottom: 1px dotted var(--color-text-secondary); cursor: help; }
+    #sgft-abbr-tip {
+      display: none; position: fixed; z-index: 200;
+      padding: 5px 9px; border-radius: var(--radius);
+      background: var(--color-slate-900); color: #fff; font-family: var(--font-sans);
+      font-size: 0.7rem; font-weight: 500; white-space: nowrap;
+      box-shadow: var(--shadow-md);
+    }
+    #sgft-abbr-tip.open { display: block; }
+
+    .sgft-progress-head { padding: 16px 32px 14px; border-bottom: 1px solid var(--color-card-border); }
+    .sgft-progress-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+    .sgft-progress-label { font-family: var(--font-sans); font-size: 0.9rem; font-weight: 600; color: var(--color-text); }
+    .sgft-progress-time { font-family: var(--font-sans); font-size: 0.8rem; color: var(--color-text-secondary); }
+
+    .sgft-progress-track { position: relative; height: 18px; display: flex; align-items: center; justify-content: space-between; }
+    .sgft-progress-track::before {
+      content: ""; position: absolute; left: 0; right: 0; top: 50%;
+      height: 4px; border-radius: var(--radius-full); background: var(--color-gray-200); transform: translateY(-50%);
+    }
+    .sgft-progress-fill {
+      position: absolute; left: 0; top: 50%; height: 4px; z-index: 1;
+      border-radius: var(--radius-full); background: var(--color-primary);
+      transform: translateY(-50%); transition: width .35s ease;
+    }
+    .sgft-progress-dot {
+      position: relative; z-index: 2; width: 14px; height: 14px; border-radius: 50%;
+      border: 2px solid var(--color-gray-200); background: var(--color-surface);
+      padding: 0; cursor: pointer; transition: border-color .2s, background .2s, transform .2s;
+    }
+    .sgft-progress-dot.done { border-color: var(--color-primary); background: var(--color-primary); }
+    .sgft-progress-dot.current { border-color: var(--color-primary); background: var(--color-surface); transform: scale(1.25); }
+    .sgft-progress-dot:hover { border-color: var(--color-teal-700); }
+
+    .sgft-qbody { padding: 26px 32px 8px; text-align: center; }
+    .sgft-qnum { margin: 0 0 8px; font-family: var(--font-sans); font-size: var(--fs-xs); font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--color-primary); }
+    .sgft-qtitle { margin: 0 0 6px; font-family: var(--font-sans); font-size: 1.45rem; font-weight: 600; line-height: 1.4; max-width: 560px; margin-left: auto; margin-right: auto; }
+    .sgft-qbody .sgft-info-wrap { display: block; margin: 0 0 16px; }
+    .sgft-qbody .sgft-info-content { max-width: 560px; margin: 6px auto 0; text-align: left; }
+
+    .sgft-qoptions { display: flex; flex-direction: column; gap: 10px; max-width: 480px; width: 100%; margin: 0 auto; }
+    .sgft-qopt {
+      border: 1.5px solid var(--color-card-border); border-radius: var(--radius);
+      background: var(--color-surface); color: var(--color-text);
+      font-family: var(--font-sans); font-size: 1.05rem; font-weight: 500;
+      padding: 13px 18px; cursor: pointer; transition: all .15s ease; text-align: left;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .sgft-qopt::before {
+      content: ""; width: 16px; height: 16px; border-radius: 50%; flex-shrink: 0;
+      border: 1.5px solid var(--color-border); transition: border-color .15s, background .15s;
+    }
+    .sgft-qopt:hover { border-color: var(--color-primary); background: var(--color-teal-border); }
+    .sgft-qopt.selected { border-color: var(--color-primary); background: var(--color-teal-border); color: var(--color-teal-700); font-weight: 600; }
+    .sgft-qopt.selected::before { border-color: var(--color-primary); border-width: 5px; }
+
+    .sgft-qnav { display: flex; justify-content: space-between; align-items: center; padding: 14px 32px 18px; }
+    .sgft-qnav-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      border: 1px solid var(--color-card-border); background: var(--color-surface); color: var(--color-text-secondary);
+      font-family: var(--font-sans); font-size: var(--fs-sm); font-weight: 600;
+      padding: 9px 16px; border-radius: var(--radius); cursor: pointer; transition: background .15s;
+    }
+    .sgft-qnav-btn:disabled { opacity: .4; cursor: not-allowed; }
+    .sgft-qnav-btn.primary { background: var(--color-primary); color: #fff; border-color: var(--color-primary); }
+    .sgft-qnav-btn.primary:hover:not(:disabled) { background: var(--color-teal-700); }
+    .sgft-qnav-btn.primary:disabled { background: var(--color-gray-200); color: var(--color-text-secondary); border-color: transparent; }
+
+
+    .sgft-info-wrap { display: inline; margin-left: 8px; }
+    .sgft-info-btn {
+      border: none; background: none; padding: 0;
+      color: var(--color-primary); font-family: var(--font-sans);
+      font-size: 0.72rem; font-weight: 600; text-decoration: underline;
+      cursor: pointer; flex-shrink: 0; white-space: nowrap;
+    }
+    .sgft-info-btn:hover, .sgft-info-btn.open { color: var(--color-teal-700); }
+    .sgft-info-content {
+      display: none; position: relative;
+      margin: 8px 0 10px; padding: 14px 18px 16px 42px;
+      border-radius: var(--radius-lg);
+      font-family: var(--font-sans); font-size: 0.95rem;
+      line-height: 1.6; font-weight: 400;
+      animation: sgftInfoIn .18s ease;
+    }
+    .sgft-info-content::before {
+      content: "i"; position: absolute; left: 14px; top: 15px;
+      width: 18px; height: 18px; border-radius: 50%; color: #fff;
+      font-size: 0.68rem; font-weight: 700; font-style: normal; line-height: 1;
+      display: flex; align-items: center; justify-content: center;
+    }
+    @keyframes sgftInfoIn {
+      from { opacity: 0; transform: translateY(-4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .sgft-info-content.open { display: block; }
+    .sgft-info-content ul { margin: 0; padding-left: 16px; }
+
+    .sgft-qbody .sgft-info-content { background: var(--color-gray-200); color: var(--color-text-secondary); border: 1px solid var(--color-card-border); }
+    .sgft-qbody .sgft-info-content::before { background: var(--color-primary); }
+
+    /* "More info" bullet list — replaces the old run-on "1) ... 2) ..." paragraph */
+    .sgft-info-para { margin: 0; }
+    .sgft-info-points { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+    .sgft-info-points li { display: flex; gap: 8px; align-items: flex-start; }
+    .sgft-info-points li::before {
+      content: ""; width: 5px; height: 5px; margin-top: 8px; border-radius: 50%;
+      background: currentColor; opacity: .4; flex-shrink: 0;
+    }
+
+    /* "Refer to" — links pulled out of the body text into their own numbered list */
+    .sgft-info-refer { margin-top: 12px; padding-top: 12px; border-top: 1px dashed var(--color-card-border); }
+    .sgft-info-refer-label { margin: 0 0 6px; font-family: var(--font-sans); font-size: 0.72rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--color-teal-700); }
+    .sgft-info-refer-list { margin: 0; padding-left: 19px; display: flex; flex-direction: column; gap: 6px; }
+    .sgft-info-refer-list li { font-family: var(--font-sans); font-size: 0.9rem; }
+    .sgft-info-refer-list li::marker { font-weight: 700; color: var(--color-teal-700); }
+
+    /* consistent hyperlink treatment wherever links sit inside flowing content */
+    .sgft-info-content a, .sgft-reco-steps a, .sgft-reco-text a, .sgft-final-reasons a {
+      color: var(--color-teal-700); font-weight: 600;
+      text-decoration: underline; text-underline-offset: 2px;
+    }
+    .sgft-info-content a:hover, .sgft-reco-steps a:hover, .sgft-reco-text a:hover, .sgft-final-reasons a:hover {
+      color: var(--color-primary);
+    }
+
+    .sgft-final-result { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--color-card-border); }
+
+    .sgft-final-hero-sub { margin: 2px 0 0; font-family: var(--font-sans); font-size: var(--fs-sm); color: var(--color-text-secondary); }
+
+    /* summary strip — quick-scan counts above the accordion */
+    .sgft-final-summary { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 18px; }
+    .sgft-final-chip {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 13px; border-radius: var(--radius-full);
+      font-family: var(--font-sans); font-size: 0.8rem; font-weight: 700;
+    }
+    .sgft-final-chip svg { width: 13px; height: 13px; flex-shrink: 0; }
+    .sgft-final-chip.sgft-final-low  { background: #fef2f2; color: var(--color-red-500); }
+    .sgft-final-chip.sgft-final-mid  { background: #fffbeb; color: #92400e; }
+    .sgft-final-chip.sgft-final-high { background: #ecfdf5; color: #166534; }
+
+    .sgft-final-acc { border: 1px solid var(--color-card-border); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm); }
+    .sgft-final-row { border-bottom: 1px solid var(--color-card-border); border-left: 4px solid transparent; transition: background-color .15s ease, border-color .15s ease; }
+    .sgft-final-row:last-child { border-bottom: none; }
+    .sgft-final-row.sgft-final-low  { border-left-color: var(--color-red-500); }
+    .sgft-final-row.sgft-final-mid  { border-left-color: var(--gold); }
+    .sgft-final-row.sgft-final-high { border-left-color: #166534; }
+    .sgft-final-row.sgft-final-low:hover  { background: #fef2f2; }
+    .sgft-final-row.sgft-final-mid:hover  { background: #fffbeb; }
+    .sgft-final-row.sgft-final-high:hover { background: #ecfdf5; }
+
+    .sgft-final-head { width: 100%; display: flex; align-items: center; gap: 14px; padding: 16px 18px; background: none; border: none; cursor: pointer; text-align: left; font-family: var(--font-sans); }
+
+    .sgft-final-icon {
+      width: 38px; height: 38px; border-radius: 50%; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .sgft-final-icon svg { width: 18px; height: 18px; }
+    .sgft-final-icon.sgft-final-low  { background: #fef2f2; color: var(--color-red-500); }
+    .sgft-final-icon.sgft-final-mid  { background: #fffbeb; color: #92400e; }
+    .sgft-final-icon.sgft-final-high { background: #ecfdf5; color: #166534; }
+
+    .sgft-final-name { flex: 1; font-family: var(--font-sans); font-size: var(--fs-base); font-weight: 600; }
+    .sgft-final-tier {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-family: var(--font-sans); font-size: 0.76rem; font-weight: 700; padding: 4px 11px; border-radius: var(--radius-full);
+    }
+    .sgft-final-tier svg { width: 11px; height: 11px; flex-shrink: 0; }
+    .sgft-final-chevron { width: 16px; height: 16px; color: var(--color-text-secondary); transition: transform .2s ease; flex-shrink: 0; }
+    .sgft-final-chevron-spacer { width: 16px; flex-shrink: 0; }
+    .sgft-final-row.open .sgft-final-chevron { transform: rotate(180deg); }
+    .sgft-final-body { max-height: 0; overflow: hidden; transition: max-height .25s ease; }
+    .sgft-final-row.open .sgft-final-body { max-height: 2400px; }
+    .sgft-final-body-inner { display: flex; flex-direction: column; padding: 0 18px 18px 52px; }
+
+    .sgft-final-reasons { list-style: none; margin: 0 0 12px; padding: 0; display: flex; flex-direction: column; gap: 9px; }
+    .sgft-final-reasons li {
+      display: flex; gap: 9px; align-items: flex-start;
+      font-family: var(--font-sans); font-size: 0.95rem; line-height: 1.6; color: var(--color-text-secondary);
+    }
+    .sgft-final-reasons li::before {
+      content: ""; width: 5px; height: 5px; margin-top: 8px; border-radius: 50%;
+      background: var(--color-text-secondary); opacity: .45; flex-shrink: 0;
+    }
+
+    .sgft-final-reco-toggle {
+      position: relative;
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 13px; border-radius: var(--radius-full);
+      border: 1px solid var(--color-teal-700); background: none;
+      font-family: var(--font-sans); font-size: 0.78rem; font-weight: 700;
+      color: var(--color-teal-700); text-decoration: none;
+      cursor: pointer; transition: background-color .15s ease;
+    }
+    .sgft-final-reco-toggle:hover, .sgft-final-reco-toggle.open { background: var(--color-teal-border); }
+    .sgft-final-reco-toggle svg { width: 11px; height: 11px; transition: transform .18s ease; flex-shrink: 0; }
+    .sgft-final-reco-toggle.open svg { transform: rotate(180deg); }
+    .sgft-final-reco-count { font-weight: 600; opacity: .75; }
+    .sgft-final-reco-panel { display: none; flex-direction: column; gap: 12px; margin-top: 10px; }
+    .sgft-final-reco-panel.open { display: flex; animation: sgftInfoIn .18s ease; }
+
+    .sgft-reco-block { display: flex; flex-direction: column; gap: 6px; }
+    .sgft-reco-body { flex: 1; min-width: 0; }
+    .sgft-reco-text { margin: 0; font-family: var(--font-sans); font-size: 0.95rem; line-height: 1.6; color: var(--color-text-secondary); }
+    .sgft-reco-steps { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+    .sgft-reco-steps li {
+      display: flex; gap: 8px; align-items: flex-start;
+      font-family: var(--font-sans); font-size: 0.95rem; line-height: 1.6; color: var(--color-text-secondary);
+    }
+    .sgft-reco-steps li::before {
+      content: ""; width: 5px; height: 5px; margin-top: 8px; border-radius: 50%;
+      background: var(--color-teal-700); opacity: .6; flex-shrink: 0;
+    }
+
+    .sgft-final-actions-row { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; margin-top: 2px; }
+
+    .sgft-final-proc {
+      display: flex; width: fit-content; align-items: center; gap: 4px;
+      margin-left: auto; padding: 6px 13px;
+      border-radius: var(--radius-full);
+      font-family: var(--font-sans); font-size: 0.78rem; font-weight: 700;
+      text-decoration: none;
+      border: 1px solid currentColor;
+      transition: background-color .15s ease, transform .1s ease;
+    }
+    .sgft-final-proc span { display: inline-block; transition: transform .15s ease; }
+    .sgft-final-proc:hover { transform: translateY(-1px); }
+    .sgft-final-proc:hover span { transform: translate(1px, -1px); }
+    .sgft-final-proc:active { transform: translateY(0); }
+    .sgft-final-proc.sgft-final-low  { color: var(--color-red-500); background: #fef2f2; }
+    .sgft-final-proc.sgft-final-mid  { color: #92400e; background: #fffbeb; }
+    .sgft-final-proc.sgft-final-high { color: #166534; background: #ecfdf5; }
+
+    .sgft-final-tier.sgft-final-low  { background: #fef2f2; color: var(--color-red-500); }
+    .sgft-final-tier.sgft-final-mid  { background: #fffbeb; color: #92400e; }
+    .sgft-final-tier.sgft-final-high { background: #ecfdf5; color: #166534; }
+
+    .sgft-final-eyebrow { margin: 0 0 6px; font-family: var(--font-sans); font-size: 0.72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--color-primary); }
+    .sgft-final-result-title { margin: 0 0 4px; font-family: var(--font-sans); font-size: var(--fs-lg); font-weight: 700; }
+    .sgft-final-result-sub { margin: 0 0 20px; font-family: var(--font-sans); font-size: var(--fs-sm); color: var(--color-text-secondary); }
+
+    @media (max-width: 960px) {
+      .sgft-layout-row { flex-direction: column; }
+      .sgft-qblock { max-width: none; width: 100%; }
+      .sgft-live-panel { width: 100%; max-width: none; }
+    }
+    @media (max-width: 560px) {
+      .sgft-content { padding: 20px 14px 40px; }
+      .sgft-qbody { padding: 22px 16px 6px; }
+      .sgft-progress-head { padding: 14px 16px 12px; }
+      .sgft-qnav { padding: 12px 16px 16px; }
+    }
+  </style>
+</head>
+<body>
+  <header id="site-header">
+    <div class="header-left">
+      <div class="header-tool-title"><span class="hindi">सुविकल्प:</span> Mine Repurposing Tool</div>
+      <div class="header-tool-sub">Agroforestry — Preliminary Green Finance Screening</div>
+    </div>
+  <div class="header-right">
+    <a href="https://coalcontroller.gov.in/" rel="noopener" title="CCO Home">
+    <div class="header-cco-lockup">
+      <img class="header-cco-logo" src="data:image/png;base64,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" alt="Coal Controller Organisation emblem">
+      <div class="header-cco-text"></div>
+    </div>
+    </a>
+  </div>
+  </header>
+
+  <div class="page">
+
+    <div class="sf-backbar">
+      <button class="back-btn" onclick="window.location.href='./agroforestry.html'" aria-label="Back to Agroforestry">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M10 3L5 8l5 5"/>
+        </svg>
+        Back to Agroforestry
+      </button>
+      <span class="sf-breadcrumb">
+        <span>Agroforestry</span>
+        <span class="sep">/</span>
+        <span style="color:var(--color-primary);font-weight:500;">Green Finance</span>
+      </span>
+    </div>
+
+    <div class="sgft-content">
+      <h1 class="spv-section-title">Green Finance</h1>
+      <div class="sgft-intro">
+        <p>Answer <strong>7</strong> quick questions to check your preliminary eligibility for Green Bonds, Carbon Credits, Green Climate Fund (GCF) and Green Loans</p>
+      </div>
+
+      <section id="page-questions">
+        <div class="sgft-layout-row">
+          <div class="sgft-qblock">
+            <div class="sgft-progress-head">
+              <div class="sgft-progress-top">
+                <span class="sgft-progress-label" id="progress-label">Question 1 of 7</span>
+                <span class="sgft-progress-time">&middot;</span>
+              </div>
+              <div class="sgft-progress-track" id="progress-track">
+                <div class="sgft-progress-fill" id="progress-fill"></div>
+              </div>
+            </div>
+
+            <div class="sgft-qbody">
+              <p class="sgft-qnum" id="q-num">Question 1</p>
+              <h2 class="sgft-qtitle" id="q-title"></h2>
+              <span class="sgft-info-wrap">
+                <button type="button" class="sgft-info-btn" id="q-info-btn" aria-label="More information">More info</button>
+                <span class="sgft-info-content" id="q-info-content"></span>
+              </span>
+              <div class="sgft-qoptions" id="q-options"></div>
+            </div>
+
+            <div class="sgft-qnav">
+              <button type="button" class="sgft-qnav-btn" id="btn-prev">&larr; Previous</button>
+              <button type="button" class="sgft-qnav-btn primary" id="btn-next" disabled>Next &rarr;</button>
+            </div>
+          </div>
+
+          <aside class="sgft-live-panel" aria-label="Live eligibility status">
+            <p class="sgft-live-title">Live Status</p>
+            <p class="sgft-live-sub">Updates as you answer</p>
+            <div class="sgft-live-grid" id="live-grid"></div>
+          </aside>
+        </div>
+
+        <section id="final-result" class="sgft-final-result" hidden>
+          <p class="sgft-final-eyebrow">Final Eligibility</p>
+          <h2 class="sgft-final-result-title"></h2>
+          <p class="sgft-final-result-sub">Tap any instrument to see why, and what to do next.</p>
+          <div class="sgft-final-summary" id="final-summary"></div>
+          <div class="sgft-final-acc" id="final-acc"></div>
+        </section>
+      </section>
+    </div>
+
+    <footer id="site-footer-sf">
+      &copy; 2026 Coal Controller Organisation, Ministry of Coal, Government of India.&nbsp;&nbsp;
+      <a href="https://coalcontroller.gov.in/suvikalp.html" target="_blank" rel="noopener noreferrer">Original SUVIKALP tool &nearr;</a>
+      <span style="display:block;margin-top:8px;font-size:.75em;opacity:.7;">This is a prototype under development — not an official publication.</span>
+    </footer>
+
+  </div>
+
+  <script>
+    "use strict";
+
+    // id, title, info text and answer options for each question, in order
+    // <br><a href=\"\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\"> &nearr;</a>
+    const QUESTIONS = [
+      {
+        id: "q1",
+        title: "Does the project align with India's Nationally Determined Contribution (NDC) and national climate strategy/ plans? ",
+        info: "1) Nationally Determined Contributions (NDCs) are national climate action plans under the Paris Agreement, outlining targets to reduce greenhouse gas emissions, build climate resilience, and transition to clean energy. <br>2) The National Action Plan on Climate Change (NAPCC) outlines a national strategy that aims to enable thecountry to adapt to climate change and enhance the ecological  sustainability of India‘s development path.<br><br><a href=\"https://unfccc.int/sites/default/files/NDC/2022-08/India%20Updated%20First%20Nationally%20Determined%20Contrib.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">India’s Updated First NDC Under Paris Agreement &nearr;</a><br><a href=\"https://unfccc.int/sites/default/files/2026-04/INDIA%20NDC%202031-35.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">India’s Nationally Determined Contribution (2031-2035) &nearr;</a><br><a href=\"https://static.pib.gov.in/WriteReadData/specificdocs/documents/2021/dec/doc202112101.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">National Action Plan on Climate Change (NAPCC) (FAQ) &nearr;</a>",
+        options: [{ value: "yes", label: "Yes" }, { value: "no", label: "No" }]
+      },
+      {
+        id: "q2",
+        title: "Does the project possess legal land-use permissions and all required FPIC (Free, Prior, Informed &Consent) approvals?",
+        info: "Ensure the project has valid land-use rights and all required approvals, including  Free, Prior and Informed Consent (FPIC), which means informing, consulting, and obtaining consent from affected Indigenous or local communities before starting project activities.<br><br><a href=\"https://ses-toolkit.info.undp.org/sites/g/files/zskgke446/files/SES%20Document%20Library/Uploaded%20October%202016/FINAL%20FPIC%20FAQ%20Guidance%20-%20June%2015%202022.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">SES Supplemental Guidance FAQs on Applying Free Prior Informed Consent (FPIC) &nearr;</a><br><a href=\"https://www.greenclimate.fund/sites/default/files/document/ipp-operational-guidelines.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Free, Prior and Informed Consent | Green Climate Fund &nearr;</a>",
+        options: [{ value: "yes", label: "Yes" }, { value: "no", label: "No" }]
+      },
+      {
+        id: "q3",
+        title: "Will the project comply with all applicable environmental and social laws, regulations and standards?",
+        info: "The project should comply with all applicable environmental and social requirements, including required permits, approvals, and standards. This includes protecting the environment, ensuring worker health and safety, consulting affected communities where required, protecting biodiversity, and regularly monitoring project impacts.<br><br><a href=\"https://www.greenclimate.fund/access-funding/sustainability-and-inclusion/environmental-social-safeguards\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Environmental and social safeguards | Green Climate Fund &nearr;</a><br><a href=\"https://www.ifc.org/en/insights-reports/2012/ifc-performance-standards\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Performance Standards on Environmental and Social Sustainability | International Finance Corporation (IFC) &nearr;</a><br><a href=\"https://www.ifc.org/en/insights-reports/general-environmental-health-and-safety-guidelines\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Environmental, Health, and Safety Guidelines &nearr;</a><br><a href=\"https://thedocs.worldbank.org/en/doc/837721522762050108-0290022018/original/ESFFramework.pdf#page=29&zoom=80\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Work Bank Environmental and Social Framework &nearr;</a><br><a href=\"https://verra.org/documents/vcs-esg-risk-assessment-template-v5-0\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">VCS ESG Risk Assessment Template &nearr;</a><br><a href=\"https://equator-principles.com/app/uploads/The-Equator-Principles_EP4_July2020.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">EQUATOR PRINCIPLES &nearr;</a>",
+        options: [{ value: "yes", label: "Yes" }, { value: "no", label: "No" }, { value: "partially", label: "Partially" }]
+      },
+      {
+        id: "q4",
+        title: "Is project required by any existing law, regulations or legally binding mandate?",
+        info: "For example, the project proposes to restore 100 hectares. However, the law requires restoration of 40 hectares only. In such scenario, restoration of 40 Ha will be considered as Mandated by Law or Legally Binding, whereas 60 Ha will be considered as voluntarily or Non-Legally binding.<br><br><a href=\"https://verra.org/documents/vcs-standard-v5-0/\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Right to operate | Verra Standard &nearr;</a>",
+        options: [{ value: "yes", label: "Yes" }, { value: "no", label: "No" }, { value: "partially", label: "Partially" }]
+      
+      },
+      {
+        id: "q5",
+        title: "Does the project require external financial support to become commercially viable?",
+        info: "Example: The project requires an investment of ₹30 crore. The owner invests ₹10 crore from its own funds. <br>If the remaining ₹20 crore can only be financed through grants, concessional loans, or other subsidized funding, the project is <strong>Not viable without concessional support</strong>.<br>If the project receives ₹10 crore through a green loan or grant but depends on earning ₹10 crore from carbon credit revenue to recover its investment, the project is <strong>Not viable without carbon credit revenue</strong>.<br><br><a href=\"https://www.greenclimate.fund/sites/default/files/document/policy-cofinancing.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Policy on Co-financing | Green Climate Fund &nearr;</a><br><a href=\"https://verra.org/documents/vcs-standard-v5-0/\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Additionality | Verra Standard &nearr;</a>",
+        options: [
+          { value: "commercial", label: "No" },
+          { value: "concessional", label: "Not viable without concessional support" },
+          { value: "carbon", label: "Not viable without carbon credit revenue" }
+        ]
+      },
+      {
+        id: "q6",
+        title: "Is a Monitoring and Evaluation (M&E) plan included or planned for the project?",
+        info: "Monitoring and Evaluation (M&E) plan must outline how project progress, the use of funds/proceeds, and the environmental and social outcomes,  will be monitored, measured, and reported throughout the project lifecycle. The plan must align with applicable requirements of green financing mechanism.<br><br><a href=\"https://www.greenclimate.fund/about/governance/policies-and-strategies/results-monitoring-evaluation\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Policies: Results, Monitoring and Evaluation | Green Climate Fund &nearr;</a><br><a href=\"https://www.icmagroup.org/assets/documents/Sustainable-finance/2025-updates/Green-Bond-Principles-GBP-June-2025.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\"> ICMA Green Bond Principles &nearr;</a><br><a href=\"https://www.icmagroup.org/assets/documents/Sustainable-finance/2026-updates/Handbook-Harmonised-Framework-for-Impact-Reporting-June-2026.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Harmonised Framework for Impact Reporting &nearr;</a><br><a href=\"https://verra.org/programs/verified-carbon-standard/project-description-and-monitoring-report/#developing-a-monitoring-report\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Monitoring Report | Carbon Credit | VERRA  &nearr;</a><br><a href=\"https://www.greenclimate.fund/sites/default/files/document/irmf-policy.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Integrated Result Management Framework | Green Climate Fund &nearr;</a>",
+        options: [{ value: "yes", label: "Yes" }, { value: "no", label: "No" }, { value: "partially", label: "Partially" }]
+      },
+      {
+        id: "q7",
+        title: "Is this project or piece of land currently registered under, or receiving support from, any other environmental, climate, or green financing program?",
+        info: "For example, A project receives a government grant to restore 100 hectares of land. The project then applies for another green financing mechanism (Green Climate Fund, Green Loans, Green Bonds, Carbon Credit) to receive funding for the same 100 hectares and the same restoration activity. This may not be eligible, as the same activity is already receiving support from another source.<br><br><a href=\"https://verra.org/documents/vcs-standard-v5-0/\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Double Counting | Verra Standard &nearr;</a><br><a href=\"https://www.globalcarboncouncil.com/wp-content/uploads/2022/03/Standard-on-Avoidance-of-Double-Counting-V1.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Standard on Avoidance of Double Counting &nearr;</a><br><a href=\"https://www.greenclimate.fund/sites/default/files/document/principles-demonstrating-impact-potential-gcf-supported-activities.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Principles for demonstrating the impact potential of GCF-supported activities &nearr;</a>",
+        options: [{ value: "yes", label: "Yes" }, { value: "no", label: "No" }, { value: "partially", label: "Partially" }]
+      }
+    ];
+
+    // answers picked so far, e.g. { q1: "yes", q2: "no" }
+    const answers = {};
+    let step = 0;
+
+    // custom tooltip for <abbr> tags — call enhanceAbbreviations() after
+    // inserting any new HTML that might contain them
+    const abbrTip = document.createElement("div");
+    abbrTip.id = "sgft-abbr-tip";
+    document.body.appendChild(abbrTip);
+
+    function showAbbrTip(el) {
+      abbrTip.textContent = el.dataset.full;
+      abbrTip.classList.add("open");
+      const rect = el.getBoundingClientRect();
+      let left = rect.left + rect.width / 2 - abbrTip.offsetWidth / 2;
+      const maxLeft = window.innerWidth - abbrTip.offsetWidth - 8;
+      if (left > maxLeft) left = maxLeft;
+      if (left < 8) left = 8;
+      abbrTip.style.left = left + "px";
+      abbrTip.style.top = (rect.top - abbrTip.offsetHeight - 6) + "px";
+    }
+    function hideAbbrTip() { abbrTip.classList.remove("open"); }
+
+    function enhanceAbbreviations() {
+      document.querySelectorAll("abbr[title]").forEach((el) => {
+        el.classList.add("sgft-abbr");
+        el.dataset.full = el.getAttribute("title");
+        el.removeAttribute("title");
+        el.setAttribute("tabindex", "0");
+        el.addEventListener("mouseenter", () => showAbbrTip(el));
+        el.addEventListener("mouseleave", hideAbbrTip);
+        el.addEventListener("focus", () => showAbbrTip(el));
+        el.addEventListener("blur", hideAbbrTip);
+      });
+    }
+
+    const TIER_LABEL = { ineligible: "Ineligible", moderate: "Moderately Eligible", high: "Eligible" };
+
+    // small inline icons — tier status badge + per-instrument identity, used in the final result accordion
+    const TIER_ICON = {
+      ineligible: '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="6.25"/><path d="M6 6l4 4M10 6l-4 4"/></svg>',
+      moderate: '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2.6l6 10.4H2L8 2.6z"/><line x1="8" y1="6.6" x2="8" y2="9.3"/><circle cx="8" cy="11.5" r="0.6" fill="currentColor" stroke="none"/></svg>',
+      high: '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="6.25"/><path d="M5.4 8.3l1.8 1.8 3.4-4.4"/></svg>'
+    };
+    const INSTRUMENT_ICON = {
+      gb: '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="8.5" height="12" rx="1"/><line x1="4" y1="5" x2="7.5" y2="5"/><line x1="4" y1="7.6" x2="7.5" y2="7.6"/><circle cx="11.5" cy="11" r="3"/><path d="M11.5 9.4V11l1.1.8"/></svg>',
+      cc: '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13.2 2.8C7.6 2.5 3.3 5.6 2.9 11c-.1 1 0 1.6 0 1.6s5.2-.4 7.3-5.4c-2.7 2.7-5 3.3-6 3.4C5 5.3 8.6 2.6 13.2 2.8z"/></svg>',
+      gcf: '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="6"/><path d="M2 8h12"/><path d="M8 2c2.2 2.4 2.2 9.6 0 12M8 2c-2.2 2.4-2.2 9.6 0 12"/></svg>',
+      gl: '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6.2L8 2.5l6 3.7"/><line x1="1.5" y1="6.2" x2="14.5" y2="6.2"/><line x1="3.3" y1="6.2" x2="3.3" y2="12.3"/><line x1="6.4" y1="6.2" x2="6.4" y2="12.3"/><line x1="9.6" y1="6.2" x2="9.6" y2="12.3"/><line x1="12.7" y1="6.2" x2="12.7" y2="12.3"/><line x1="1.5" y1="13.6" x2="14.5" y2="13.6"/></svg>'
+    };
+
+    // one entry per question, one entry per answer, one tier per instrument
+    // (gb/cc/gcf/gl). Skip an instrument key on an answer if that answer
+    // doesn't affect it (e.g. Carbon Credit isn't touched by Q1).
+    // reason = why it got that tier, reco = what to do about it.
+    const RULES = {
+      q1: {
+        yes: { gb: "high", cc: "high", gcf: "high", gl: "high" },
+        no: {
+          gb: "ineligible", cc: "ineligible", gcf: "ineligible", gl: "ineligible",
+          reco: {
+            gb: "1. Include activities that contribute to India's climate and sustainable development priorities.<br> 2. Refer to the <a href=\"https://www.icmagroup.org/assets/documents/Regulatory/Green-Bonds/Climate-Transition-Finance-Handbook-December-2020-091220.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Climate Transition Finance Handbook &nearr;</a> to ensure the project's climate change mitigation measures comply with the prescribed guidance.<br>3. Verify that project align with national environmental policies, including <a href=\"https://ibkp.dbt.gov.in/DBT_Content_Test/CMS/Guidelines/20190411103521431_National%20Environment%20Policy,%202006.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">National Environment Policy, 2006 &nearr;</a>.",
+            cc: "1. Include activities that contribute to India's climate and sustainable development priorities.<br> 2. Demonstrate the project's contribution to greenhouse gas emission reductions, carbon sequestration, renewable energy, or ecosystem restoration.<br> 3. Where relevant and feasible, align the project's sustainable development benefits with national priorities.",
+            gcf: "1. Review the country's NDC, national renewable energy plan, or sector strategy.<br> 2. Adjust project scope or target beneficiaries to match prioritised sectors in the NDC.<br>3. Coordinate with the MoEFCC/ NDA (National Designated Authorities) to understand and determine the expected contributions",
+            gl: "1. Include activities that contribute to India's climate and sustainable development priorities.<br> 2. Refer to the <a href=\"https://www.icmagroup.org/assets/documents/Regulatory/Green-Bonds/Climate-Transition-Finance-Handbook-December-2020-091220.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Climate Transition Finance Handbook &nearr;</a> to ensure the project's climate change mitigation measures comply with the prescribed guidance.<br>3. Verify that project align with national environmental policies, including <a href=\"https://ibkp.dbt.gov.in/DBT_Content_Test/CMS/Guidelines/20190411103521431_National%20Environment%20Policy,%202006.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">National Environment Policy, 2006 &nearr;</a>."
+          }
+        }
+      },
+      q2: {
+        yes: {
+          gb: "high", cc: "high", gcf: "high", gl: "high",
+          reason: { cc: "The project developer must have the legal authority to implement the project and demonstrate ownership or control over the project area through valid land rights, leases, permits, or agreements." }
+        },
+        no: {
+          gb: "ineligible", cc: "ineligible", gcf: "ineligible", gl: "ineligible",
+          reason: { cc: "The project developer cannot demonstrate legal authority to operate the project or claim ownership of the carbon benefits. Without legal rights to the land or carbon benefits, ownership of the emission reductions is uncertain." },
+          reco: {
+            gb: "1. Ensure that all land ownership/lease documents, mine closure approvals, environmental clearances, forest approvals (if applicable), and other statutory permissions required for the project are valid and up to date.<br> 2. Consult local communities and other affected stakeholders, and maintain written records of meetings, feedback, and consent where required by law or the selected carbon credit standard.<br> 3. Ensure <a href=\"https://hlrn.org.in/documents/Indian_Law_and_Policy.htm\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">legal and social compliance &nearr;</a> and obtain independent verification.<br> 4. Prepare a remediation plan aligned with <a href=\"https://www.ifc.org/en/insights-reports/2012/ifc-performance-standards\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">IFC Performance Standards &nearr;</a>, the<br><a href=\"https://equator-principles.com/\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\"> Equator Principles &nearr;</a>.",
+            cc: "1. Ensure that all land ownership/lease documents, mine closure approvals, environmental clearances, forest approvals (if applicable), and other statutory permissions required for the project are valid and up to date.<br> 2. Consult local communities and other affected stakeholders, and maintain written records of meetings, feedback, and consent where required by law or the selected carbon credit standard.<br> 3. Keep all legal approvals, permits, and stakeholder consultation records organized, as these will be reviewed during the project's independent validation.",
+            gcf: "1. Ensure that all land ownership/lease documents, mine closure approvals, environmental clearances, forest approvals (if applicable), and other statutory permissions required for the project are valid and up to date.<br> 2. Consult local communities and other affected stakeholders, and maintain written records of meetings, feedback, and consent where required by law or the selected carbon credit standard.<br> 3. Keep all legal approvals, permits, and stakeholder consultation records organized, as these will be reviewed during the project's independent validation.",
+            gl: "1. Ensure that all land ownership/lease documents, mine closure approvals, environmental clearances, forest approvals (if applicable), and other statutory permissions required for the project are valid and up to date.<br> 2. Consult local communities and other affected stakeholders, and maintain written records of meetings, feedback, and consent where required by law or the selected carbon credit standard.<br> 3. Ensure <a href=\"https://hlrn.org.in/documents/Indian_Law_and_Policy.htm\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">legal and social compliance &nearr;</a> and obtain independent verification.<br> 4. Prepare a remediation plan aligned with <a href=\"https://www.ifc.org/en/insights-reports/2012/ifc-performance-standards\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">IFC Performance Standards &nearr;</a>, the<br><a href=\"https://equator-principles.com/\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\"> Equator Principles &nearr;</a>."
+          }
+        }
+      },
+      q3: {
+        yes: {
+          gb: "high", cc: "high", gcf: "high", gl: "high",
+          reason: { gcf: "Must comply with <abbr title='International Finance Corporation'>IFC</abbr>-aligned safeguards to prevent harm." },
+        },
+        no: {
+          gb: "ineligible", cc: "ineligible", gcf: "ineligible", gl: "ineligible",
+          reco: {
+            gb: "<br><a href=\"https://www.icmagroup.org/sustainable-finance/the-principles-guidelines-and-handbooks/green-bond-principles-gbp/\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Green Bond Principles (GBP) &nearr;</a> recommend communicating overall environmental sustainability objectives, and how they will identify and manage potential environmental and social risks associated with the selected projects.<br> Projects must meet two critical pillars:<br> 1.<a href=\"https://commission.europa.eu/document/download/993e026c-4118-46ed-b7ff-5224c19aa254_en?filename=2021_02_18_epc_do_not_significant_harm_-technical_guidance_by_the_commission.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\"> Do No Significant Harm (DNSH) &nearr;</a>: While contributing to one environmental goal, the project must not undermine others (e.g., an energy project must not destroy local habitats).<br> 2. <a href=\"https://www.ohchr.org/sites/default/files/Documents/Publications/GuidingPrinciplesBusinessHR_EN.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Minimum Social Safeguards (MSS) &nearr;</a>: The project must adhere to human rights and labor standards, such as the Labor Code, ensuring safe working conditions and prohibiting forced or child labor.<br> Appoint an External Reviewer (such as an SPO provider) to confirm the project’s alignment with these standards",
+            cc: "1. Obtain all required environmental and social permits, approvals, and clearances before starting the project.<br> 2. Identify environmental and social risks and implement measures to avoid or reduce their impacts.<br>3. Regularly monitor the project and update mitigation measures whenever new risks are identified.<br>4. Comply with applicable Environmental, Social and Governance (ESG) safeguard requirements throughout the project.",
+            gcf: "1. Conduct environmental and social risk screening using GCF Environmental and Social Safeguards (ESS) requirements.<br> 2. Prepare an Environmental and Social Management Plan (ESMP) based on the identified risk category.<br> 3. Document the E&S risk category as it determines depth of assessment required.<br> 4. Ensure compliance with the GCF Environmental and Social Policy and relevant Performance Standards.<br> 5. Establish grievance redress mechanisms as required under GCF safeguards.<br> 6. Submit environmental and social assessment documentation as part of the GCF funding proposal.",
+            gl: "<br><a href=\"https://www.icmagroup.org/assets/documents/Regulatory/Green-Bonds/LMA_Green_Loan_Principles_Booklet-220318.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Green Loan Principles (GLP) &nearr;</a> recommend communicating overall environmental sustainability objectives, and how they will identify and manage potential environmental and social risks associated with the selected projects.<br> Projects must meet two critical pillars:<br> 1.<a href=\"https://commission.europa.eu/document/download/993e026c-4118-46ed-b7ff-5224c19aa254_en?filename=2021_02_18_epc_do_not_significant_harm_-technical_guidance_by_the_commission.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\"> Do No Significant Harm (DNSH) &nearr;</a>: While contributing to one environmental goal, the project must not undermine others (e.g., an energy project must not destroy local habitats).<br> 2. <a href=\"https://www.ohchr.org/sites/default/files/Documents/Publications/GuidingPrinciplesBusinessHR_EN.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Minimum Social Safeguards (MSS) &nearr;</a>: The project must adhere to human rights and labor standards, such as the Labor Code, ensuring safe working conditions and prohibiting forced or child labor.<br> Appoint an External Reviewer (such as an SPO provider) to confirm the project’s alignment with these standards"
+          }
+        },
+        partially: { gb: "moderate", cc: "moderate", gcf: "moderate", gl: "moderate",
+        reco: {
+          gb:"1. Develop specific actions to resolve the non-compliance or minimize the negative impacts resulting from the gaps.<br> 2. Explicitly articulate how internal practices cover <strong>Minimum Safeguards</strong> and the <strong>Do No Significant Harm</strong> (DNSH) principle",
+          cc: "1. Obtain all required environmental and social permits, approvals, and clearances before starting the project.<br> 2. Identify environmental and social risks and implement measures to avoid or reduce their impacts.<br>3. Regularly monitor the project and update mitigation measures whenever new risks are identified.<br>4. Comply with applicable Environmental, Social and Governance (ESG) safeguard requirements throughout the project.",
+          gcf: "1. Conduct environmental and social risk screening using GCF Environmental and Social Safeguards (ESS) requirements.<br> 2. Prepare an Environmental and Social Management Plan (ESMP) based on the identified risk category.<br> 3. Document the E&S risk category as it determines depth of assessment required.<br> 4. Ensure compliance with the GCF Environmental and Social Policy and relevant Performance Standards.<br> 5. Establish grievance redress mechanisms as required under GCF safeguards.<br> 6. Submit environmental and social assessment documentation as part of the GCF funding proposal.",
+          gl:"1. Develop specific actions to resolve the non-compliance or minimize the negative impacts resulting from the gaps.<br> 2. Explicitly articulate how internal practices cover <strong>Minimum Safeguards</strong> and the <strong>Do No Significant Harm</strong> (DNSH) principle"
+        }
+        }
+      },
+      q4: {
+        yes: {
+          gb: "high", cc: "ineligible", gcf: "high", gl: "high",
+          reco: {
+            cc: "1. Add voluntary activities that reduce greenhouse gas emissions or restore the environment beyond legal requirements.<br> 2. Claim carbon credits only for the voluntary activities, not for activities required by law."
+          }
+        },
+        no: {
+          gb: "high", cc: "high", gcf: "high", gl: "high",
+          reason: {
+            cc: "The activity is entirely voluntary and exceeds legal requirements.", 
+          }
+        },
+        partially: {
+          gb: "high", cc: "moderate", gcf: "high", gl: "high",
+         reco: {
+            cc: "1. Include more voluntary activities that go beyond legal requirements.<br> 2. Clearly separate legally required activities from voluntary activities in the project plan.<br> 3. Apply for carbon credits only for the voluntary activities that are not required by law."
+          }
+        }
+      },
+      q5: {
+        commercial: {
+          gb: "high", cc: "ineligible", gcf: "ineligible", gl: "high",
+          reason: {
+            cc: "The project would proceed regardless of carbon credits, so it is not additional — carbon finance isn't the deciding factor.",
+            gcf: "<abbr title='Green Climate Fund'>GCF</abbr> will not fund projects that can attract commercial finance on their own terms — this would crowd out private investment."
+          },
+          reco: {
+            cc: "Redesign the project to include voluntary activities beyond business-as-usual.<br> Identify additional measures that only become feasible with carbon finance.",
+            gcf: "Green Climate Fundwill not fund projects that can attract commercial finance on their own terms — this would crowd out private investment. You may required to\n(1) document the specific financing barriers (e.g. high perceived risk, currency mismatch, tenor mismatch)\n(2) Prepare a financial model demonstrating the funding gap with and without <abbr title='Green Climate Fund'>GCF</abbr> support\n(3) Consider re-scoping to include underserved segments (e.g. off-grid, small commercial) where the market gap is clearer"
+          }
+        },
+        concessional: {
+          gb: "moderate", cc: "moderate", gcf: "high", gl: "moderate",
+          reason: { cc: "Only part of the project depends on carbon finance — some activities may already be financially viable while others require carbon revenue." },
+          reco: {
+            gb:"All projects can successfully access green bond financing by leveraging specific institutional structures, specialized funds, and project classifications designed to bridge the viability gap.\n 1. Assess the project's standalone commercial viability.\n 2. Identify the financing gap.\n 3. Check feasiability of integrating into a Sovereign Green Bond.\n 4. If a private project is not commercially viable, it may qualify for green bond proceeds if it is part of a public sector deployment aimed at reducing the carbon intensity of the economy.\n 5. Refer <a href=\"https://www.ifc.org/content/dam/ifc/doc/mgrt/202203-ifc-green-bond-handbook.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">IFC Green Bond Handbook &nearr;</a> ",
+            cc: "1. Conduct a financial analysis showing carbon revenue improves project viability.\n 2. Demonstrate investment barriers, technology barriers, or financial risks.\n 3. Clearly identify activities that rely on carbon finance.",
+            gl: "All projects can successfully access green bond financing by leveraging specific institutional structures, specialized funds, and project classifications designed to bridge the viability gap.\n 1. Assess the project's standalone commercial viability.\n 2. Identify the financing gap.\n 3. Check feasiability of integrating into a Sovereign Green Bond.\n 4. If a private project is not commercially viable, it may qualify for green bond proceeds if it is part of a public sector deployment aimed at reducing the carbon intensity of the economy.\n 5. Refer <a href=\"https://www.icmagroup.org/assets/documents/Regulatory/Green-Bonds/LMA_Green_Loan_Principles_Booklet-220318.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Green Loan Principles &nearr;</a> "
+          }
+        },
+        carbon: {
+          gb: "moderate", cc: "high", gcf: "moderate", gl: "moderate",
+          reason: { cc: "Carbon finance is necessary for the project to proceed." },
+          reco: {
+            gb:"All projects can successfully access green bond financing by leveraging specific institutional structures, specialized funds, and project classifications designed to bridge the viability gap.\n 1. Assess the project's standalone commercial viability.\n 2. Identify the financing gap.\n 3. Check feasiability of integrating into a Sovereign Green Bond.\n 4. If a private project is not commercially viable, it may qualify for green bond proceeds if it is part of a public sector deployment aimed at reducing the carbon intensity of the economy.\n 5. Refer <a href=\"https://www.ifc.org/content/dam/ifc/doc/mgrt/202203-ifc-green-bond-handbook.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">IFC Green Bond Handbook &nearr;</a> ",
+            gcf: "Green Climate Fund will not fund projects that can attract commercial finance on their own terms — this would crowd out private investment. You may required to\n (1) document the specific financing barriers (e.g. high perceived risk, currency mismatch, tenor mismatch)\n (2) Prepare a financial model demonstrating the funding gap with and without Green Climate Fund support\n (3) Consider re-scoping to include underserved segments (e.g. off-grid, small commercial) where the market gap is clearer",
+            gl: "All projects can successfully access green bond financing by leveraging specific institutional structures, specialized funds, and project classifications designed to bridge the viability gap.\n 1. Assess the project's standalone commercial viability.\n 2. Identify the financing gap.\n 3. Check feasiability of integrating into a Sovereign Green Bond.\n 4. If a private project is not commercially viable, it may qualify for green bond proceeds if it is part of a public sector deployment aimed at reducing the carbon intensity of the economy.\n 5. Refer <a href=\"https://www.icmagroup.org/assets/documents/Regulatory/Green-Bonds/LMA_Green_Loan_Principles_Booklet-220318.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Green Loan Principles &nearr;</a> "
+          }
+        }
+      },
+      q6: {
+        yes: {
+          gb: "high", cc: "high", gcf: "high", gl: "high",
+          reason: {
+            gb: "M&E is both a planned and required component for projects financed through green bonds.",
+            cc: "Monitoring systems, responsible personnel, and data collection processes are already in place.",
+            gcf: "<abbr title='Green Climate Fund'>GCF</abbr> requires a results-based M&E framework aligned with its Performance Measurement Framework.",
+            gl: "M&E is both a planned and required component for projects financed through green loans."
+          }
+        },
+        no: {
+          gb: "ineligible", cc: "ineligible", gcf: "ineligible", gl: "ineligible",
+          reason: { cc: "Verifiable monitoring is essential for calculating carbon credits — without reliable data, emission reductions cannot be verified." },
+          reco: {
+            gb: "1. Develop a Monitoring, Reporting and Verification (MRV) plan.\n 2. Install necessary monitoring equipment.\n 3. Assign monitoring responsibilities.\n 4. Establish data management and record-keeping procedures.\n 5. Establish quality assurance and quality control procedures before project registration.\n 6. Adopt a standardized <br><a href=\"https://www.icmagroup.org/assets/documents/Sustainable-finance/2023-updates/Handbook-Harmonised-framework-for-impact-reporting-June-2023-220623.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">ICMA Harmonized Framework &nearr;</a> impact reporting.",
+            cc: "1. Develop a Monitoring, Reporting and Verification (MRV) plan.\n 2. Install necessary monitoring equipment.\n 3. Assign monitoring responsibilities.\n 4. Establish data management and record-keeping procedures.\n 5. Establish quality assurance and quality control procedures before project registration.",
+            gcf: "Green Climate Fund requires a results-based M&E framework aligned with its Performance Measurement Framework.\n Design an M&E plan with indicators tied to Green Climate Fund core indicators (PMF-M Core 1, 2, 3)\n Include gender-disaggregated data collection in the M&E framework\n Establish a results reporting schedule aligned with Green Climate Fund reporting requirements",
+            gl: "1. Develop a Monitoring, Reporting and Verification (MRV) plan.\n 2. Install necessary monitoring equipment.\n 3. Assign monitoring responsibilities.\n 4. Establish data management and record-keeping procedures.\n 5. Establish quality assurance and quality control procedures before project registration.\n 6. Adopt a standardized <br><a href=\"https://www.icmagroup.org/assets/documents/Sustainable-finance/2023-updates/Handbook-Harmonised-framework-for-impact-reporting-June-2023-220623.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">ICMA Harmonized Framework &nearr;</a> impact reporting."
+          }
+        },
+        partially: {
+          gb:"moderate", cc: "moderate", gcf: "moderate", gl: "moderate",
+          reco: { 
+            gb: "1. Develop a Monitoring, Reporting and Verification (MRV) plan.\n 2. Install necessary monitoring equipment.\n 3. Assign monitoring responsibilities.\n 4. Establish data management and record-keeping procedures.\n 5. Establish quality assurance and quality control procedures before project registration.\n 6. Adopt a standardized <br><a href=\"https://www.icmagroup.org/assets/documents/Sustainable-finance/2023-updates/Handbook-Harmonised-framework-for-impact-reporting-June-2023-220623.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">ICMA Harmonized Framework &nearr;</a> impact reporting.",
+            cc: "Develop a Monitoring, Reporting and Verification (MRV) plan. Install necessary monitoring equipment. Assign monitoring responsibilities. Establish data management and record-keeping procedures.",
+            gcf: "Green Climate Fund requires a results-based M&E framework aligned with its Performance Measurement Framework.\n Design an M&E plan with indicators tied to Green Climate Fund core indicators (PMF-M Core 1, 2, 3)\n Include gender-disaggregated data collection in the M&E framework\n Establish a results reporting schedule aligned with Green Climate Fund reporting requirements",
+            gl: "1. Develop a Monitoring, Reporting and Verification (MRV) plan.\n 2. Install necessary monitoring equipment.\n 3. Assign monitoring responsibilities.\n 4. Establish data management and record-keeping procedures.\n 5. Establish quality assurance and quality control procedures before project registration.\n 6. Adopt a standardized <br><a href=\"https://www.icmagroup.org/assets/documents/Sustainable-finance/2023-updates/Handbook-Harmonised-framework-for-impact-reporting-June-2023-220623.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">ICMA Harmonized Framework &nearr;</a> impact reporting."
+          }
+        }
+      },
+      q7: {
+        yes: {
+          gb: "ineligible", cc: "ineligible", gcf: "ineligible", gl: "ineligible",
+          reason: { cc: "The project is currently active under another carbon credit program — the same emission reductions cannot receive carbon credits twice (double counting)." },
+          reco: {
+            gb: "1. At no time should the same Green Project's net proceeds be concurrently allocated to more than one outstanding GSS (Green, Social, or Sustainability) bond or other green financing instrument.\n 2. A project can receive support from multiple sources (e.g., a green loan and a green bond) if the funds are applied to different parts or tranches of the project.\n Only be included if they run no risk of 'double-counting' as per <a href=\"https://www.icmagroup.org/sustainable-finance/the-principles-guidelines-and-handbooks/green-bond-principles-gbp/\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Green Bonds Principles &nearr;</a> or through any other mechanism/financing instrument",
+            cc: "1. Withdraw the project from the other program.\n 2. Ensure previous credits are cancelled or the project is officially inactive .",
+            gcf: "Fix accounting boundary: no dual claim as carbon credit + <abbr title='Nationally Determined Contribution'>NDC</abbr> + <abbr title='Green Climate Fund'>GCF</abbr> — avoid overlap.\nAdd no-double-counting attestation in <abbr title='Environmental and Social Safeguards'>ESS</abbr>/Funding Proposal.\nApply corresponding adjustments (Article 6) via <abbr title='National Designated Authority'>NDA</abbr> for cross-border claims.\nSeparate MRV (results) from financial reporting (flows).\nAccredited Entities due diligence to include double-counting check.\nVerify with MoEFCC/NDA that reductions aren't already in <abbr title='Nationally Determined Contribution'>NDC</abbr> baseline.",
+            gl: "1. At no time should the same Green Project's net proceeds be concurrently allocated to more than one outstanding GSS (Green, Social, or Sustainability) bond or other green financing instrument.\n 2. A project can receive support from multiple sources (e.g., a green loan and a green bond) if the funds are applied to different parts or tranches of the project.\n Only be included if they run no risk of 'double-counting' as per <a href=\"https://www.icmagroup.org/assets/documents/Regulatory/Green-Bonds/LMA_Green_Loan_Principles_Booklet-220318.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Green Loan Principles &nearr;</a> or through any other mechanism/financing instrument"
+          }
+        },
+        no: {
+          gb: "high", cc: "high", gcf: "high", gl: "high",
+          reason: { cc: "The project is not registered or applying under any other carbon credit program." }
+        },
+        partially: {
+          gb: "moderate", cc: "moderate", gcf: "moderate", gl: "moderate",
+          reason: { cc: "Previously registered, but now inactive or being withdrawn. The project may become eligible if evidence is provided that no further credits will be issued elsewhere." },
+          reco: { 
+            gb: "1. If only a portion of a project is supported by another program, the remaining unfunded green portion can still be eligible for green bond proceeds on a pro-rata basis.\n 2. The issuer must demonstrate a formal internal process, such as a sub-account or sub-portfolio, to rigorously track and prove that the new bond proceeds are being applied to unique green expenditures not covered by the other program.\n Refer <a href=\"https://www.ifc.org/content/dam/ifc/doc/mgrt/202203-ifc-green-bond-handbook.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--color-teal-700);\">Green Bond Handbook &nearr;</a> ",
+            cc: "1. Obtain official withdrawal/de-registration from the other program.\n 2. Demonstrate that no duplicate carbon credits have been issued.\n 3. Maintain documentation proving exclusive ownership of emission reductions.",
+            gcf: "Fix accounting boundary: no dual claim as carbon credit + <abbr title='Nationally Determined Contribution'>NDC</abbr> + <abbr title='Green Climate Fund'>GCF</abbr> — avoid overlap.\nAdd no-double-counting attestation in <abbr title='Environmental and Social Safeguards'>ESS</abbr>/Funding Proposal.\nApply corresponding adjustments (Article 6) via <abbr title='National Designated Authority'>NDA</abbr> for cross-border claims.\nSeparate MRV (results) from financial reporting (flows).\nAccredited Entities due diligence to include double-counting check.\nVerify with MoEFCC/NDA that reductions aren't already in <abbr title='Nationally Determined Contribution'>NDC</abbr> baseline.",
+            gl: "1. If only a portion of a project is supported by another program, the remaining unfunded green portion can still be eligible for green bond proceeds on a pro-rata basis.\n 2. The issuer must demonstrate a formal internal process, such as a sub-account or sub-portfolio, to rigorously track and prove that the new bond proceeds are being applied to unique green expenditures not covered by the other program."
+          }
+        }
+      }
+    };
+
+    const QUESTION_IDS = QUESTIONS.map((q) => q.id);
+
+    const INSTRUMENTS = [
+      { id: "gb", title: "Green Bonds", abbr: "GB" },
+      { id: "cc", title: "Carbon Credit", abbr: "CC" },
+      { id: "gcf", title: "Green Climate Fund", abbr: "GCF" },
+      { id: "gl", title: "Green Loans", abbr: "GL" }
+    ];
+
+    const TIER_RANK = { ineligible: 0, moderate: 1, high: 2 };
+    const TIER_FRACTION = { ineligible: 0.22, moderate: 0.55, high: 0.92 };
+    const TIER_RING_COLOR = { ineligible: "var(--color-red-500)", moderate: "var(--gold)", high: "#166534" };
+    const TIER_CARD_CLASS = { ineligible: "sgft-live-t-low", moderate: "sgft-live-t-mid", high: "sgft-live-t-high" };
+
+    // reference procedure docs for instruments that have one on file —
+    // GCF has no procedure doc yet, so it's simply left out
+    const PROCEDURE_LINKS = {
+      gb: "./procedure/green-bonds-procedure.html",
+      cc: "./procedure/india-carbon-credit-eligibility.html",
+      gcf: "./procedure/GCF-India-Access-Guide.html",
+      gl: "./procedure/green-loans-procedure.html"
+    };
+
+    function buildLivePreview(qid) {
+      const grid = document.getElementById("live-grid");
+      const rule = qid && RULES[qid] && RULES[qid][answers[qid]];
+
+      const touched = INSTRUMENTS
+        .map(({ id, title, abbr }) => ({
+          id, title, abbr,
+          tier: rule ? rule[id] : undefined,
+          reason: (rule && rule.reason && rule.reason[id]) || "",
+          reco: (rule && rule.reco && rule.reco[id]) || ""
+        }))
+        .filter((i) => i.tier !== undefined)
+        .sort((a, b) => TIER_RANK[a.tier] - TIER_RANK[b.tier]);
+
+      if (!touched.length) {
+        grid.innerHTML = `<p class="sgft-live-empty">Answer a question to see its impact here.</p>`;
+        enhanceAbbreviations();
+        return;
+      }
+
+      const r = 17;
+      const circumference = 2 * Math.PI * r;
+      grid.innerHTML = touched.map(({ title, abbr, tier, reason, reco }) => {
+        const cardClass = TIER_CARD_CLASS[tier];
+        const ringColor = TIER_RING_COLOR[tier];
+        const offset = circumference * (1 - TIER_FRACTION[tier]);
+        const tierLabel = TIER_LABEL[tier];
+        const hasInfo = Boolean(reco);
+        const infoToggle = hasInfo
+          ? `<button type="button" class="sgft-live-card-info-btn" aria-label="More information">More info <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg></button>
+             <div class="sgft-live-card-info">
+               <div class="sgft-live-reco-box">
+                 <span class="sgft-live-reco-icon-wrap"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4l5 4-5 4"/></svg></span>
+                 <div><span class="sgft-live-reco-label">Recommendation</span><p class="sgft-live-reco-text">${reco}</p></div>
+               </div>
+             </div>`
+          : "";
+        return `<div class="sgft-live-card ${cardClass}">
+          <div class="sgft-live-card-ring">
+            <svg width="42" height="42" viewBox="0 0 42 42">
+              <circle cx="21" cy="21" r="${r}" fill="none" stroke="var(--color-card-border)" stroke-width="5"/>
+              <circle cx="21" cy="21" r="${r}" fill="none" stroke="${ringColor}" stroke-width="5" stroke-dasharray="${circumference.toFixed(1)}" stroke-dashoffset="${offset.toFixed(1)}" stroke-linecap="round" transform="rotate(-90 21 21)"/>
+            </svg>
+            <span class="sgft-live-card-ring-label">${abbr}</span>
+          </div>
+          <p class="sgft-live-card-name">${title}</p>
+          <p class="sgft-live-card-tier">${tierLabel}</p>
+          ${infoToggle}
+        </div>`;
+      }).join("");
+
+      enhanceAbbreviations();
+    }
+
+    const TIER_STRIPE_CLASS = { ineligible: "sgft-final-low", moderate: "sgft-final-mid", high: "sgft-final-high" };
+
+    // best-news-first: lets the user see what's working before what isn't
+    const TIER_SUMMARY_ORDER = ["high", "moderate", "ineligible"];
+
+    function renderFinalSummary(rows) {
+      const summary = document.getElementById("final-summary");
+      const counts = { ineligible: 0, moderate: 0, high: 0 };
+      rows.forEach((r) => { counts[r.tier]++; });
+
+      summary.innerHTML = TIER_SUMMARY_ORDER
+        .filter((tier) => counts[tier] > 0)
+        .map((tier) => {
+          const stripeClass = TIER_STRIPE_CLASS[tier];
+          const count = counts[tier];
+          const noun = count === 1 ? "instrument" : "instruments";
+          return `<span class="sgft-final-chip ${stripeClass}">${TIER_ICON[tier]}${count} ${TIER_LABEL[tier]} ${noun}</span>`;
+        }).join("");
+    }
+
+    // splits a reco string on its existing <br> line breaks into discrete bullet
+    // points — source text often writes "1. ... <br> 2. ..." as one run-on
+    // paragraph, so this turns that into a real list (dropping the "N." prefix,
+    // since these render as plain bullets rather than a numbered list). Some reco
+    // strings also use <br> as a plain line wrap inside a single point (e.g. a
+    // sentence broken mid-thought right before a link) rather than as a new-point
+    // separator — any segment that doesn't start with its own "N." is folded back
+    // into the previous point instead of becoming a misleading extra bullet.
+    // Leading unnumbered text (context before the list starts) is kept as an
+    // intro paragraph above the list.
+    function formatRecoSteps(html) {
+      const segments = html.split(/<br\s*\/?>/i).map((s) => s.trim()).filter(Boolean);
+      const numberedCount = segments.filter((seg) => /^\d+\.\s*/.test(seg)).length;
+      if (segments.length <= 1 || numberedCount < 2) {
+        return { html: `<p class="sgft-reco-text">${html.replace(/<br\s*\/?>/gi, " ")}</p>`, count: 0 };
+      }
+
+      const points = [];
+      let intro = "";
+      segments.forEach((seg) => {
+        if (/^\d+\.\s*/.test(seg)) {
+          points.push(seg.replace(/^\s*\d+\.\s*/, ""));
+        } else if (points.length) {
+          points[points.length - 1] += " " + seg;
+        } else {
+          intro += (intro ? " " : "") + seg;
+        }
+      });
+
+      const introHtml = intro ? `<p class="sgft-reco-text">${intro}</p>` : "";
+      return {
+        html: `${introHtml}<ul class="sgft-reco-steps">${points.map((i) => `<li>${i}</li>`).join("")}</ul>`,
+        count: points.length
+      };
+    }
+
+    function renderFinalAccordion(rows) {
+      const acc = document.getElementById("final-acc");
+      renderFinalSummary(rows);
+      if (!rows.length) {
+        acc.innerHTML = `<p class="sgft-final-hero-sub" style="padding:16px;">No instruments affected.</p>`;
+        return;
+      }
+      // worst tier opens by default, wherever it sits in the list
+      let openIdx = rows.findIndex((r) => r.tier === "ineligible");
+      if (openIdx === -1) openIdx = rows.findIndex((r) => r.tier === "moderate");
+      if (openIdx === -1) openIdx = 0;
+
+      acc.innerHTML = rows.map(({ id, title, tier, reasons, recoPairs }, i) => {
+        const stripeClass = TIER_STRIPE_CLASS[tier];
+        const procedureHref = PROCEDURE_LINKS[id];
+        const procedureLink = procedureHref
+          ? `<a class="sgft-final-proc ${stripeClass}" href="${procedureHref}" target="_blank" rel="noopener noreferrer">Explore Procedure <span aria-hidden="true">&nearr;</span></a>`
+          : "";
+        const hasBody = reasons.length > 0 || recoPairs.length > 0 || procedureLink;
+        // the recommendation is the single most useful thing to see for an ineligible
+        // instrument, so open it by default instead of making users hunt for it
+        const recoDefaultOpen = tier === "ineligible" && recoPairs.length > 0;
+        const recoLabel = id === "cc" ? "Enhancement Measures" : "Recommendation";
+        const totalSteps = recoPairs.reduce((sum, p) => sum + formatRecoSteps(p.reco).count, 0);
+        const recoButtonLabel = totalSteps > 1 ? `${recoLabel} <span class="sgft-final-reco-count">${totalSteps} steps</span>` : recoLabel;
+        const showCaption = recoPairs.length > 1;
+
+        return `<div class="sgft-final-row ${stripeClass} ${i === openIdx ? "open" : ""}">
+          <button type="button" class="sgft-final-head">
+            <span class="sgft-final-icon ${stripeClass}">${INSTRUMENT_ICON[id] || ""}</span>
+            <span class="sgft-final-name">${title}</span>
+            <span class="sgft-final-tier ${stripeClass}">${TIER_ICON[tier]}${TIER_LABEL[tier]}</span>
+            ${hasBody ? `<svg class="sgft-final-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg>` : `<span class="sgft-final-chevron-spacer"></span>`}
+          </button>
+          ${hasBody ? `<div class="sgft-final-body">
+            <div class="sgft-final-body-inner">
+              ${reasons.length ? `<ul class="sgft-final-reasons">${reasons.map((r) => `<li>${r}</li>`).join("")}</ul>` : ""}
+              <div class="sgft-final-actions-row">
+                ${recoPairs.length ? `<button type="button" class="sgft-final-reco-toggle ${recoDefaultOpen ? "open" : ""}" aria-label="${id === "cc" ? "Show enhancement measures" : "Show recommendation"}">${recoButtonLabel} <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg></button>` : ""}
+                ${procedureLink}
+              </div>
+              ${recoPairs.length ? `<div class="sgft-final-reco-panel ${recoDefaultOpen ? "open" : ""}">
+                  ${recoPairs.map(({ caption, reco }) => {
+                    const steps = formatRecoSteps(reco);
+                    return `<div class="sgft-reco-block">
+                      ${showCaption ? `<p class="sgft-reco-caption">${caption}</p>` : ""}
+                      <div class="sgft-live-reco-box">
+                        <span class="sgft-live-reco-icon-wrap"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4l5 4-5 4"/></svg></span>
+                        <div class="sgft-reco-body">${steps.html}</div>
+                      </div>
+                    </div>`;
+                  }).join("")}
+                </div>` : ""}
+            </div>
+          </div>` : ""}
+        </div>`;
+      }).join("");
+
+      acc.querySelectorAll(".sgft-final-head").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const row = btn.closest(".sgft-final-row");
+          if (row.querySelector(".sgft-final-body")) row.classList.toggle("open");
+        });
+      });
+    }
+
+    // combines all 7 answers: worst tier wins per instrument, and every
+    // reason/reco tied to that worst tier is listed (deduped)
+    function buildFinalResult() {
+      const hitsByInstrument = {};
+      INSTRUMENTS.forEach(({ id }) => { hitsByInstrument[id] = []; });
+
+      QUESTION_IDS.forEach((q, qIdx) => {
+        const rule = RULES[q] && RULES[q][answers[q]];
+        if (!rule) return;
+        INSTRUMENTS.forEach(({ id }) => {
+          if (rule[id] === undefined) return;
+          hitsByInstrument[id].push({
+            tier: rule[id],
+            reason: (rule.reason && rule.reason[id]) || "",
+            reco: (rule.reco && rule.reco[id]) || "",
+            qIdx
+          });
+        });
+      });
+
+      const TIER_RANK = { ineligible: 0, moderate: 1, high: 2 };
+      const rows = INSTRUMENTS.map(({ id, title }) => {
+        const hits = hitsByInstrument[id];
+        if (!hits.length) return null;
+        const worstTier = hits.reduce((worst, h) => (TIER_RANK[h.tier] < TIER_RANK[worst] ? h.tier : worst), hits[0].tier);
+        const atWorst = hits.filter((h) => h.tier === worstTier);
+
+        // keep each reco paired with the reason it addresses (deduped on the combination),
+        // so a row with multiple recommendations can still show which fixes what — falling
+        // back to "Question N" when the data doesn't define an explicit reason, so stacked
+        // boxes are never left unlabeled and indistinguishable from one another
+        const seenPairs = new Set();
+        const pairs = [];
+        atWorst.forEach((h) => {
+          const key = h.reason + "||" + h.reco;
+          if (seenPairs.has(key) || (!h.reason && !h.reco)) return;
+          seenPairs.add(key);
+          pairs.push({ reason: h.reason, reco: h.reco, caption: h.reason || ("From Question " + (h.qIdx + 1)) });
+        });
+
+        return {
+          id,
+          title,
+          tier: worstTier,
+          reasons: [...new Set(pairs.map((p) => p.reason).filter(Boolean))],
+          recoPairs: pairs.filter((p) => p.reco)
+        };
+      }).filter(Boolean).sort((a, b) => TIER_RANK[b.tier] - TIER_RANK[a.tier]);
+
+      renderFinalAccordion(rows);
+      enhanceAbbreviations();
+    }
+
+    // one dot per question, click to jump straight there
+    const progressTrack = document.getElementById("progress-track");
+    QUESTIONS.forEach((q, i) => {
+      const dot = document.createElement("button");
+      dot.type = "button";
+      dot.className = "sgft-progress-dot";
+      dot.setAttribute("aria-label", "Go to question " + (i + 1));
+      dot.addEventListener("click", () => { step = i; renderQuestion(); });
+      progressTrack.appendChild(dot);
+    });
+    const dots = progressTrack.querySelectorAll(".sgft-progress-dot");
+
+    function renderProgress() {
+      document.getElementById("progress-label").textContent = "Question " + (step + 1) + " of " + QUESTIONS.length;
+      document.getElementById("progress-fill").style.width = (((step + 1) / QUESTIONS.length) * 100) + "%";
+      dots.forEach((d, i) => {
+        d.classList.toggle("done", i < step);
+        d.classList.toggle("current", i === step);
+      });
+    }
+
+    // splits a question's "More info" text into a bullet list of explanatory points
+    // plus a separately numbered "Refer to" list of its reference links — the source
+    // text already writes explanation, then a blank line, then one link per line
+    function formatInfoContent(html) {
+      const parts = html.split(/(?:<br\s*\/?>\s*){2,}/i);
+      const bodyHtml = parts[0] || "";
+      const linksHtml = parts.slice(1).join("<br>");
+
+      const points = bodyHtml.split(/<br\s*\/?>/i)
+        .map((s) => s.trim())
+        .filter(Boolean)
+        .map((s) => s.replace(/^\s*\d+[).]\s*/, ""));
+      const bodyOut = points.length > 1
+        ? `<ul class="sgft-info-points">${points.map((p) => `<li>${p}</li>`).join("")}</ul>`
+        : `<p class="sgft-info-para">${points[0] || bodyHtml}</p>`;
+
+      const linkRe = /<a\s+href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/gi;
+      const links = [];
+      let m;
+      while ((m = linkRe.exec(linksHtml))) {
+        const label = m[2].replace(/\s*&nearr;\s*$/i, "").trim();
+        links.push({ href: m[1], label });
+      }
+      const linksOut = links.length
+        ? `<div class="sgft-info-refer">
+             <p class="sgft-info-refer-label">Refer to</p>
+             <ol class="sgft-info-refer-list">
+               ${links.map((l) => `<li><a href="${l.href}" target="_blank" rel="noopener noreferrer">${l.label} <span aria-hidden="true">&nearr;</span></a></li>`).join("")}
+             </ol>
+           </div>`
+        : "";
+
+      return bodyOut + linksOut;
+    }
+
+    function renderQuestion() {
+      const q = QUESTIONS[step];
+      document.getElementById("q-num").textContent = "Question " + (step + 1);
+      document.getElementById("q-title").innerHTML = q.title;
+      document.getElementById("q-info-content").innerHTML = formatInfoContent(q.info);
+      document.getElementById("q-info-content").classList.remove("open");
+      buildLivePreview(q.id);
+
+      const optWrap = document.getElementById("q-options");
+      optWrap.innerHTML = "";
+      q.options.forEach((opt) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "sgft-qopt";
+        btn.textContent = opt.label;
+        if (answers[q.id] === opt.value) btn.classList.add("selected");
+        btn.addEventListener("click", () => {
+          answers[q.id] = opt.value;
+          renderQuestion();
+        });
+        optWrap.appendChild(btn);
+      });
+
+      document.getElementById("btn-prev").disabled = step === 0;
+      const nextBtn = document.getElementById("btn-next");
+      nextBtn.disabled = !answers[q.id];
+      nextBtn.textContent = step === QUESTIONS.length - 1 ? "See result →" : "Next →";
+
+      renderProgress();
+    }
+
+    document.getElementById("btn-prev").addEventListener("click", () => {
+      if (step > 0) { step--; renderQuestion(); }
+    });
+    document.getElementById("btn-next").addEventListener("click", () => {
+      const q = QUESTIONS[step];
+      if (!answers[q.id]) return;
+      if (step < QUESTIONS.length - 1) {
+        step++;
+        renderQuestion();
+      } else {
+        buildFinalResult();
+        const finalResult = document.getElementById("final-result");
+        finalResult.hidden = false;
+        finalResult.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    });
+
+    // delegated so it still works after buttons get rebuilt on every answer
+    document.addEventListener("click", (e) => {
+      const btn = e.target.closest(".sgft-info-btn");
+      if (btn) btn.nextElementSibling.classList.toggle("open");
+
+      const liveBtn = e.target.closest(".sgft-live-card-info-btn");
+      if (liveBtn) {
+        liveBtn.classList.toggle("open");
+        liveBtn.nextElementSibling.classList.toggle("open");
+      }
+
+      const recoBtn = e.target.closest(".sgft-final-reco-toggle");
+      if (recoBtn) {
+        recoBtn.classList.toggle("open");
+        recoBtn.closest(".sgft-final-body-inner").querySelector(".sgft-final-reco-panel").classList.toggle("open");
+      }
+    });
+
+    renderQuestion();
+  </script>
+</body>
+</html>

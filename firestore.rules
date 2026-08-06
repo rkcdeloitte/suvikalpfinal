@@ -12,7 +12,7 @@ service cloud.firestore {
       // The owner can read their own regardless of status. Admin can read all.
       allow read: if resource.data.status == 'approved'
                   || (request.auth != null && request.auth.uid == resource.data.uid)
-                  || (request.auth != null && request.auth.token.email in ['rkcdeloitte@gmail.com']);
+                  || (request.auth != null && request.auth.token.email in ['nirutpal.cco@gov.in']);
 
       // Any signed-in user can submit a testimonial, but it must be tied to
       // their own uid and always created as 'pending' — no self-approval.
@@ -22,13 +22,13 @@ service cloud.firestore {
 
       // Only the admin can change status (approve/reject).
       allow update: if request.auth != null
-                    && request.auth.token.email in ['rkcdeloitte@gmail.com'];
+                    && request.auth.token.email in ['nirutpal.cco@gov.in'];
 
       // The admin can delete any testimonial. The owner can withdraw their own
       // — but only while it's still pending, so they can't erase an approved
       // or rejected decision after the fact.
       allow delete: if request.auth != null
-                    && (request.auth.token.email in ['rkcdeloitte@gmail.com']
+                    && (request.auth.token.email in ['nirutpal.cco@gov.in']
                         || (request.auth.uid == resource.data.uid && resource.data.status == 'pending'));
     }
   }
