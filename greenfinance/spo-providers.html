@@ -3,72 +3,123 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SUVIKALP — Green Finance Hub | Coal Controller Organisation</title>
 <link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="../categories/category.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+<title>Second-Party Opinion (SPO) Providers | SUVIKALP</title>
 <style>
-  :root { --font-family-base: 'Noto Sans', 'Segoe UI', sans-serif; }
-  body { font-family: var(--font-family-base); }
-  .page { padding-top:70px; }
-
-  .gf-shell { display:grid; grid-template-columns:300px 1fr; gap:0; max-width:1320px; margin:0 auto; align-items:start; }
-  @media (max-width:860px){ .gf-shell{ grid-template-columns:1fr; } }
-
-  /* Sidebar directory */
-  .gf-sidebar { border-right:1px solid var(--color-card-border); padding:26px 20px; background:var(--color-surface); position:sticky; top:70px; align-self:start; max-height:calc(100vh - 70px); overflow-y:auto; }
-  @media (max-width:860px){ .gf-sidebar{ position:static; max-height:none; border-right:none; border-bottom:1px solid var(--color-card-border); } }
-  .gf-sidebar h2 { font-family:'Inter',sans-serif; font-size:1rem; font-weight:700; margin-bottom:4px; color:var(--color-text); }
-  .gf-sidebar > p.gf-count { font-size:.78rem; color:var(--color-text-secondary); margin-bottom:16px; }
-  .gf-search-wrap { position:relative; margin-bottom:16px; }
-  .gf-search { width:100%; padding:10px 14px 10px 36px; border-radius:var(--radius-full); border:1.5px solid var(--color-border); font-family:'Inter',sans-serif; font-size:.85rem; }
-  .gf-search:focus { outline:none; border-color:var(--color-primary); }
-  .gf-search-wrap svg { position:absolute; left:12px; top:50%; transform:translateY(-50%); width:15px; height:15px; stroke:var(--color-text-secondary); pointer-events:none; }
-  .gf-list { display:flex; flex-direction:column; gap:2px; }
-  .gf-list-item { display:flex; align-items:center; gap:10px; padding:9px 10px; border-radius:var(--radius); text-decoration:none; color:var(--color-text); font-size:.85rem; font-weight:500; transition: background .15s, color .15s; cursor:pointer; border:none; background:none; width:100%; text-align:left; font-family:inherit; }
-  .gf-list-item:hover, .gf-list-item.active { background:var(--color-teal-bg); color:var(--color-primary); font-weight:600; }
-  .gf-list-item img { width:30px; height:30px; border-radius:6px; object-fit:cover; flex-shrink:0; }
-  .gf-list-item .arrow { margin-left:auto; opacity:0; transition:opacity .15s; flex-shrink:0; }
-  .gf-list-item .arrow svg { width:13px; height:13px; }
-  .gf-list-item:hover .arrow, .gf-list-item.active .arrow { opacity:1; }
-  .gf-list-empty { padding:16px 10px; font-size:.82rem; color:var(--color-text-secondary); text-align:center; }
-
-  /* Main panel */
-  .gf-main { padding:34px 40px 60px; }
-  @media (max-width:600px){ .gf-main{ padding:26px 18px 50px; } }
-  .gf-eyebrow { font-family:'Inter',sans-serif; font-size:.72rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--color-primary); margin-bottom:8px; }
-  .gf-main h1 { font-family:'Inter',sans-serif; font-size:1.7rem; font-weight:700; color:var(--color-text); margin-bottom:10px; letter-spacing:-.01em; }
-  .gf-main > p.lead { font-size:.9rem; color:var(--color-text-secondary); max-width:640px; line-height:1.65; margin-bottom:28px; }
-
-  .gf-preview {
-    display:flex; gap:20px; align-items:center; background:var(--color-surface); border:1px solid var(--color-card-border);
-    border-radius:var(--radius-lg); padding:20px; box-shadow:var(--shadow-sm); margin-bottom:36px; flex-wrap:wrap;
+  :root{
+    --fs-xs: 0.75rem;
+    --fs-sm: 0.85rem;
+    --fs-md: 0.95rem;
+    --fs-base: 1rem;
+    --fs-lg: 1.3rem;
+    --fs-xl: 1.9rem;
   }
-  .gf-preview img { width:140px; height:100px; object-fit:cover; border-radius:var(--radius); flex-shrink:0; }
-  .gf-preview-body { flex:1; min-width:220px; }
-  .gf-preview-body .gf-preview-tag { font-family:'Inter',sans-serif; font-size:.68rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--color-primary); margin-bottom:6px; }
-  .gf-preview-body h3 { font-family:'Inter',sans-serif; font-size:1.2rem; font-weight:700; margin-bottom:6px; color:var(--color-text); }
-  .gf-preview-body p { font-size:.83rem; color:var(--color-text-secondary); margin-bottom:14px; line-height:1.55; }
-  .gf-btn-primary {
-    display:inline-flex; align-items:center; gap:8px; background:var(--color-primary); color:#fff; font-family:'Inter',sans-serif;
-    font-size:.85rem; font-weight:700; padding:10px 18px; border-radius:var(--radius-full); text-decoration:none;
-    box-shadow:0 4px 12px rgba(33,128,141,.28); transition: background .2s;
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--color-background);color:var(--color-text);font-family:var(--font-sans);}
+  a{color:var(--color-teal-700);}
+  img{max-width:100%;}
+
+  /* ---------- back / breadcrumb bar ---------- */
+  .spo-backbar{
+    max-width:1200px;margin:0 auto;padding:16px 32px 0;
+    display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;
   }
-  .gf-btn-primary:hover { background:var(--color-primary-hover); }
-  .gf-btn-primary svg { width:14px; height:14px; }
+  .back-btn{
+    display:inline-flex;align-items:center;gap:6px;border:1px solid var(--color-card-border);
+    background:var(--color-surface);color:var(--color-text-secondary);font-family:var(--font-sans);
+    font-size:var(--fs-sm);font-weight:600;padding:7px 14px;border-radius:var(--radius-full);
+    cursor:pointer;transition:background .15s;
+  }
+  .back-btn:hover{background:var(--color-teal-bg);color:var(--color-teal-700);}
+  .back-btn svg{width:14px;height:14px;}
+  .spo-breadcrumb{font-family:var(--font-sans);font-size:var(--fs-sm);color:var(--color-text-secondary);}
+  .spo-breadcrumb .sep{margin:0 6px;opacity:.5;}
+  .spo-breadcrumb .current{color:var(--color-primary);font-weight:600;}
 
-  .gf-section-label { font-family:'Inter',sans-serif; font-size:.95rem; font-weight:700; color:var(--color-text); margin-bottom:4px; margin-top:6px; }
-  .gf-section-sub { font-size:.8rem; color:var(--color-text-secondary); margin-bottom:16px; }
+  /* ---------- hero ---------- */
+  .spo-hero{max-width:1200px;margin:0 auto;padding:26px 32px 8px;}
+  .spo-eyebrow{
+    display:inline-block;font-size:var(--fs-xs);font-weight:700;letter-spacing:.07em;
+    text-transform:uppercase;color:var(--color-teal-700);background:var(--color-teal-bg);
+    border:1px solid var(--color-teal-border);padding:4px 11px;border-radius:var(--radius-full);
+    margin-bottom:12px;
+  }
+  .spo-hero h1{margin:0 0 10px;font-size:var(--fs-xl);font-weight:700;line-height:1.25;letter-spacing:-.01em;}
+  .spo-hero p{margin:0;max-width:780px;font-size:var(--fs-md);line-height:1.65;color:var(--color-text-secondary);}
+  .spo-note{
+    max-width:780px;margin:16px 0 0;padding:12px 16px;border-radius:var(--radius);
+    background:#fffbeb;border:1px solid #fde68a;font-size:var(--fs-sm);line-height:1.6;color:#78430b;
+  }
+  .spo-note strong{color:#5c3208;}
 
-  .gf-inst-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-bottom:44px; }
-  @media (max-width:760px){ .gf-inst-grid{ grid-template-columns:repeat(2,1fr);} }
-  @media (max-width:420px){ .gf-inst-grid{ grid-template-columns:1fr;} }
-  .gf-inst-card { display:block; border:1.5px solid var(--color-card-border); border-radius:var(--radius-lg); padding:18px; background:var(--color-surface); }
-  .gf-inst-icon { width:38px; height:38px; border-radius:var(--radius); background:var(--color-teal-bg); display:flex; align-items:center; justify-content:center; margin-bottom:10px; font-size:1.05rem; }
-  .gf-inst-card b { display:block; font-family:'Inter',sans-serif; font-size:.88rem; color:var(--color-text); margin-bottom:4px; }
-  .gf-inst-card span { font-size:.74rem; color:var(--color-text-secondary); line-height:1.5; }
+  /* ---------- in-page nav ---------- */
+  .spo-nav-wrap{position:sticky;top:72px;z-index:40;background:var(--color-background);
+    border-bottom:1px solid var(--color-card-border);padding:10px 0;margin-top:22px;}
+  .spo-nav{max-width:1200px;margin:0 auto;padding:0 32px;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;}
+  .spo-nav::-webkit-scrollbar{display:none;}
+  .spo-nav a{
+    flex-shrink:0;font-size:var(--fs-sm);font-weight:600;color:var(--color-text-secondary);
+    text-decoration:none;padding:7px 14px;border-radius:var(--radius-full);border:1px solid var(--color-card-border);
+    background:var(--color-surface);white-space:nowrap;transition:all .15s;
+  }
+  .spo-nav a:hover, .spo-nav a.active{color:var(--color-teal-700);border-color:var(--color-primary);background:var(--color-teal-bg);}
 
+  /* ---------- content shell ---------- */
+  .spo-content{max-width:1200px;margin:0 auto;padding:0 32px 60px;}
+  .spo-section{padding:44px 0;border-bottom:1px solid var(--color-card-border);scroll-margin-top:140px;}
+  .spo-section:last-child{border-bottom:none;}
+  .spo-section-head{display:flex;align-items:baseline;gap:12px;margin-bottom:6px;}
+  .spo-section-num{font-family:var(--font-sans);font-size:var(--fs-sm);font-weight:700;color:var(--color-primary);}
+  .spo-section h2{margin:0 0 6px;font-size:1.4rem;font-weight:700;letter-spacing:-.01em;}
+  .spo-section-sub{margin:0 0 26px;font-size:var(--fs-md);color:var(--color-text-secondary);max-width:780px;line-height:1.6;}
+
+  /* ---------- SPO provider cards ---------- */
+  .spo-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+  .spo-card{
+    background:var(--color-surface);border:1px solid var(--color-card-border);border-radius:var(--radius-lg);
+    padding:20px 22px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:10px;
+    transition:border-color .15s,box-shadow .15s;
+  }
+  .spo-card:hover{border-color:var(--color-primary);box-shadow:var(--shadow-md);}
+  .spo-card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;}
+  .spo-card-name{font-size:1.02rem;font-weight:700;line-height:1.3;margin:0;}
+  .spo-card-name a{color:var(--color-text);text-decoration:none;}
+  .spo-card-name a:hover{color:var(--color-teal-700);text-decoration:underline;}
+  .spo-card-mark{flex-shrink:0;width:38px;height:38px;border-radius:var(--radius);background:var(--color-teal-bg);
+    color:var(--color-teal-700);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.95rem;}
+  .spo-card-desc{font-size:var(--fs-sm);line-height:1.65;color:var(--color-text-secondary);margin:0;flex:1;}
+  .spo-card-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:2px;padding-top:12px;border-top:1px solid var(--color-card-border);}
+  .spo-card-link{display:inline-flex;align-items:center;gap:5px;font-size:var(--fs-sm);font-weight:600;color:var(--color-teal-700);text-decoration:none;}
+  .spo-card-link svg{width:12px;height:12px;}
+  .spo-card-link:hover{text-decoration:underline;}
+  .spo-tag{font-size:var(--fs-xs);font-weight:700;letter-spacing:.03em;text-transform:uppercase;
+    color:var(--color-teal-700);background:var(--color-teal-bg);padding:3px 9px;border-radius:var(--radius-full);white-space:nowrap;}
+  .spo-tag.gold{color:var(--gold);background:#fef3e2;}
+
+  /* ---------- disclaimer / footer ---------- */
+  .spo-disclaimer{max-width:1200px;margin:0 auto;padding:0 32px 30px;}
+  .spo-disclaimer-box{
+    border:1px solid var(--color-card-border);background:var(--color-gray-200);border-radius:var(--radius-lg);
+    padding:16px 18px;font-size:var(--fs-xs);line-height:1.65;color:var(--color-text-secondary);
+  }
+  .spo-disclaimer-box strong{color:var(--color-text);}
+  #site-footer-sf{
+    text-align:center;padding:22px 20px;font-size:var(--fs-xs);color:var(--color-text-secondary);
+    border-top:1px solid var(--color-card-border);
+  }
+  #site-footer-sf a{font-weight:600;}
+
+  @media (max-width:900px){
+    .spo-grid{grid-template-columns:1fr;}
+  }
+  @media (max-width:640px){
+    .spo-hero,.spo-content,.spo-backbar,.spo-disclaimer,.spo-nav{padding-left:18px;padding-right:18px;}
+    .spo-hero h1{font-size:1.5rem;}
+  }
 </style>
 </head>
 <body>
@@ -79,15 +130,10 @@
       <span class="hindi">सुविकल्प:</span> Mine Repurposing Tool
     </div>
     <div class="header-tool-sub">
-      Check preliminary eligibility for Green Bonds, Carbon Credits, GCF &amp; Green Loans
+      Green Finance — Second-Party Opinion (SPO) Providers
     </div>
   </div>
   <div class="header-right">
-    <a href="../browse.html" class="header-browse-link" aria-label="Back to Browse">
-      <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M10 3L5 8l5 5"/></svg>
-      Back to Browse
-    </a>
-    <div class="header-divider"></div>
     <a href="https://coalcontroller.gov.in/" rel="noopener" title="CCO Home">
     <div class="header-cco-lockup">
       <img class="header-cco-logo" src="data:image/png;base64,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" alt="Coal Controller Organisation emblem">
@@ -97,121 +143,160 @@
   </div>
 </header>
 <div class="page">
-  <div class="gf-shell">
 
-    <aside class="gf-sidebar">
-      <h2>Project categories</h2>
-      <p class="gf-count" id="gf-count">17 categories screened for green finance</p>
-      <div class="gf-search-wrap">
-        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="7" cy="7" r="5.2"/><path d="M11 11l3.5 3.5"/></svg>
-        <input class="gf-search" id="gf-search" placeholder="Search categories…" oninput="filterList(this.value)" autocomplete="off">
-      </div>
-      <div class="gf-list" id="gf-list"></div>
-      <p class="gf-list-empty" id="gf-list-empty" style="display:none;">No categories match your search.</p>
-    </aside>
-
-    <main class="gf-main">
-      <div class="gf-eyebrow">Green Finance</div>
-      <h1>Check eligibility, category by category</h1>
-      <p class="lead">Select a project on the left to preview its Green Finance screening — a short questionnaire that checks preliminary eligibility against Green Bonds, Carbon Credits, the Green Climate Fund (GCF) and Green Loans.</p>
-
-      <div class="gf-preview" id="gf-preview"></div>
-
-      <div class="gf-section-label">Financing instruments</div>
-      <p class="gf-section-sub">Every category screening checks eligibility against the same four instruments.</p>
-      <div class="gf-inst-grid">
-        <div class="gf-inst-card">
-          <div class="gf-inst-icon">🌍</div><b>Green Climate Fund</b>
-          <span>Concessional climate finance for adaptation &amp; mitigation.</span>
-        </div>
-        <div class="gf-inst-card">
-          <div class="gf-inst-icon">🍃</div><b>Carbon Credit</b>
-          <span>Verified emission-reduction credits, tradable on carbon markets.</span>
-        </div>
-        <div class="gf-inst-card">
-          <div class="gf-inst-icon">📜</div><b>Green Bonds</b>
-          <span>Debt instruments earmarked for climate &amp; environmental use.</span>
-        </div>
-        <div class="gf-inst-card">
-          <div class="gf-inst-icon">🏦</div><b>Green Loans</b>
-          <span>Preferential lending for sustainability-linked project finance.</span>
-        </div>
-      </div>
-
-    </main>
+  <div class="spo-backbar">
+    <button class="back-btn" onclick="window.location.href='../categories/agroforestry-green-finance-tool.html'" aria-label="Back to Green Finance">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3L5 8l5 5"/></svg>
+      Back to Green Finance
+    </button>
+    <span class="spo-breadcrumb">
+      <span>Green Finance</span><span class="sep">/</span><span class="current">SPO Providers</span>
+    </span>
   </div>
 
-  <footer id="site-footer">&copy; 2026 Coal Controller Organisation, Ministry of Coal, Government of India.</footer>
-</div>
+  <div class="spo-hero">
+    <span class="spo-eyebrow">Work in Progress</span>
+    <h1>Second-Party Opinion (SPO) Providers</h1>
+    <p>A Second-Party Opinion is an independent assessment of a green, social, sustainability, or sustainability-linked financing framework against recognised market principles — such as the ICMA Green Bond Principles or the Green Loan Principles. Getting an SPO is a key credibility step before taking a green bond or green loan to market. Below is a directory of recognised SPO providers, both global and India-focused.</p>
+    <div class="spo-note"><strong>Note:</strong> in India, entities offering ESG ratings and second-party opinions on debt instruments may also be registered with SEBI as an ESG Rating Provider (ERP) — this carries additional regulatory weight for official disclosures.</div>
+  </div>
+
+  <div class="spo-nav-wrap">
+    <nav class="spo-nav" id="spo-nav">
+      <a href="#global">Global Providers</a>
+      <a href="#india">India-Focused Providers</a>
+    </nav>
+  </div>
+
+  <div class="spo-content">
+
+    <!-- ================= GLOBAL ================= -->
+    <section class="spo-section" id="global">
+      <div class="spo-section-head"><span class="spo-section-num">01</span><h2>Global SPO Providers</h2></div>
+      <p class="spo-section-sub">International rating agencies and ESG research firms offering pre- and post-issuance SPOs recognised across major exchanges.</p>
+
+      <div class="spo-grid">
+        <div class="spo-card">
+          <div class="spo-card-top">
+            <p class="spo-card-name"><a href="https://www.sustainalytics.com/" target="_blank" rel="noopener noreferrer">Morningstar Sustainalytics</a></p>
+            <span class="spo-card-mark">MS</span>
+          </div>
+          <p class="spo-card-desc">Provides climate and ESG data that creates transparency around company commitments and actions, delivers reporting capabilities that help ensure compliance with evolving regulations, and partners with issuers to bring investor-aligned sustainable bonds to market.</p>
+          <div class="spo-card-foot">
+            <span class="spo-tag">Global</span>
+            <a class="spo-card-link" href="https://www.sustainalytics.com/" target="_blank" rel="noopener noreferrer">Visit site <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h7v7M13 3L3 13"/></svg></a>
+          </div>
+        </div>
+
+        <div class="spo-card">
+          <div class="spo-card-top">
+            <p class="spo-card-name"><a href="https://www.moodys.com/" target="_blank" rel="noopener noreferrer">Moody's</a></p>
+            <span class="spo-card-mark">M</span>
+          </div>
+          <p class="spo-card-desc">Reviews financing frameworks against ICMA principles and can provide supplementary opinions aligned with the Climate Transition Finance Handbook.</p>
+          <div class="spo-card-foot">
+            <span class="spo-tag">Global</span>
+            <a class="spo-card-link" href="https://www.moodys.com/" target="_blank" rel="noopener noreferrer">Visit site <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h7v7M13 3L3 13"/></svg></a>
+          </div>
+        </div>
+
+        <div class="spo-card">
+          <div class="spo-card-top">
+            <p class="spo-card-name"><a href="https://www.spglobal.com/en" target="_blank" rel="noopener noreferrer">S&amp;P Global Ratings</a></p>
+            <span class="spo-card-mark">S&amp;P</span>
+          </div>
+          <p class="spo-card-desc">A full-service provider of sustainable financing opinions across both pre-issuance and post-issuance stages.</p>
+          <div class="spo-card-foot">
+            <span class="spo-tag">Global</span>
+            <a class="spo-card-link" href="https://www.spglobal.com/en" target="_blank" rel="noopener noreferrer">Visit site <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h7v7M13 3L3 13"/></svg></a>
+          </div>
+        </div>
+
+        <div class="spo-card">
+          <div class="spo-card-top">
+            <p class="spo-card-name"><a href="https://www.iss-corporate.com/" target="_blank" rel="noopener noreferrer">ISS-Corporate</a></p>
+            <span class="spo-card-mark">ISS</span>
+          </div>
+          <p class="spo-card-desc">Provides Second-Party Opinions for Green, Social, Sustainability, and Sustainability-Linked / Transition Bonds, benchmarked against ICMA and other international standards.</p>
+          <div class="spo-card-foot">
+            <span class="spo-tag">Global</span>
+            <a class="spo-card-link" href="https://www.iss-corporate.com/" target="_blank" rel="noopener noreferrer">Visit site <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h7v7M13 3L3 13"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= INDIA ================= -->
+    <section class="spo-section" id="india">
+      <div class="spo-section-head"><span class="spo-section-num">02</span><h2>India-Focused SPO Providers</h2></div>
+      <p class="spo-section-sub">Domestic ESG rating agencies with dedicated capability for Indian issuers and frameworks; several also hold SEBI registration as ESG Rating Providers (ERPs).</p>
+
+      <div class="spo-grid">
+        <div class="spo-card">
+          <div class="spo-card-top">
+            <p class="spo-card-name"><a href="https://www.icraesgratings.in/" target="_blank" rel="noopener noreferrer">ICRA ESG Ratings Limited</a></p>
+            <span class="spo-card-mark">ICRA</span>
+          </div>
+          <p class="spo-card-desc">An Indian SPO provider launched specifically for ESG debt frameworks. Strong for Indian issuers, with capability that is actively expanding.</p>
+          <div class="spo-card-foot">
+            <span class="spo-tag">India</span>
+            <a class="spo-card-link" href="https://www.icraesgratings.in/" target="_blank" rel="noopener noreferrer">Visit site <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h7v7M13 3L3 13"/></svg></a>
+          </div>
+        </div>
+
+        <div class="spo-card">
+          <div class="spo-card-top">
+            <p class="spo-card-name"><a href="https://www.careedgeesg.com/" target="_blank" rel="noopener noreferrer">CareEdge-ESG</a></p>
+            <span class="spo-card-mark">CE</span>
+          </div>
+          <p class="spo-card-desc">A SEBI-approved ESG Rating Provider (ERP) offering comprehensive ESG ratings across listed companies and funds.</p>
+          <div class="spo-card-foot">
+            <span class="spo-tag gold">SEBI-approved ERP</span>
+            <a class="spo-card-link" href="https://www.careedgeesg.com/" target="_blank" rel="noopener noreferrer">Visit site <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h7v7M13 3L3 13"/></svg></a>
+          </div>
+        </div>
+
+        <div class="spo-card">
+          <div class="spo-card-top">
+            <p class="spo-card-name"><a href="https://www.crisil.com/" target="_blank" rel="noopener noreferrer">CRISIL</a></p>
+            <span class="spo-card-mark">CR</span>
+          </div>
+          <p class="spo-card-desc">A SEBI-approved ESG Rating Provider (ERP), giving its ratings significant regulatory weight for official disclosures.</p>
+          <div class="spo-card-foot">
+            <span class="spo-tag gold">SEBI-approved ERP</span>
+            <a class="spo-card-link" href="https://www.crisil.com/" target="_blank" rel="noopener noreferrer">Visit site <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h7v7M13 3L3 13"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <div class="spo-disclaimer">
+    <div class="spo-disclaimer-box">
+      <strong>Disclaimer:</strong> the information on this page has been compiled from third-party sources and is intended for general information only. It is not intended to be, and should not be relied upon as, legal, financial, investment, tax, regulatory, business or other professional advice. Coal Controller of India is not responsible for the accuracy, reliability, currency or completeness of this information and does not warrant that it is accurate, suitable or complete; neither CCI, its employees, representatives, nor its members bear any liability arising from or relating to its use. Inclusion in this directory is not an endorsement of any provider.
+    </div>
+  </div>
+
+  <footer id="site-footer-sf">
+    &copy; 2026 Coal Controller Organisation, Ministry of Coal, Government of India.&nbsp;&nbsp;
+    <a href="https://coalcontroller.gov.in/suvikalp.html" target="_blank" rel="noopener noreferrer">Original SUVIKALP tool &nearr;</a>
+  </footer>
 
 <script>
-var CATS = [
-  { title:'Agroforestry', img:'../images/agroforestry-hero-new.jpg', url:'agroforestry-green-finance-tool.html', desc:'Timber, fruit and fodder tree systems on reclaimed mine land.' },
-  { title:'Apiculture', img:'../images/apiculture-hero.jpg', url:'apiculture-green-finance-tool.html', desc:'Beekeeping and pollination services on rehabilitated land.' },
-  { title:'Aquaculture', img:'../images/aquaculture-hero.jpg', url:'aquaculture-green-finance-tool.html', desc:'Fish and shrimp farming in flooded mine voids.' },
-  { title:'Battery Energy Storage (BESS)', img:'../images/bess-hero.jpg', url:'bess-green-finance-tool.html', desc:'Grid-scale storage repurposing mine infrastructure.' },
-  { title:'Botanical Garden', img:'../images/botanical-garden-hero1.jpg', url:'botanical-garden-green-finance-tool.html', desc:'Public gardens and conservation collections on reclaimed sites.' },
-  { title:'Dairy Farming', img:'../images/dairy-hero-cf.jpg', url:'dairy-farm-green-finance-tool.html', desc:'Dairy operations on reclaimed pasture land.' },
-  { title:'Eco Park', img:'../images/ecopark-hero.jpg', url:'ecopark-green-finance-tool.html', desc:'Recreational green space restoring former mine land.' },
-  { title:'Floating Solar (FSPV)', img:'../images/floating-solar-banner.jpg', url:'floating-solar-green-finance-tool.html', desc:'Solar arrays sited on mine-void water bodies.' },
-  { title:'Mushroom Cultivation', img:'../images/mf-hero.jpg', url:'mushroom-farm-green-finance-tool.html', desc:'Climate-controlled mushroom farming in old workings.' },
-  { title:'Pollinator / Wildlife Corridors', img:'../images/pollinator-thumb.jpg', url:'pollinator-wildlife-corridors-green-finance-tool.html', desc:'Habitat corridors linking fragmented ecosystems.' },
-  { title:'Preservation Centre / Cold Chain', img:'../images/cs-geo-preservation.jpg', url:'preservation-centre-green-finance-tool.html', desc:'Cold-chain and archival storage in stable underground voids.' },
-  { title:'Pumped Hydro Storage', img:'../images/pumped-hydro-hero.jpg', url:'pumped-hydro-green-finance-tool.html', desc:'Grid balancing using elevation difference in mine pits.' },
-  { title:'Solar PV Farms', img:'../images/solar-pv1.jpg', url:'solar-green-finance-tool.html', desc:'Ground-mounted solar on reclaimed overburden land.' },
-  { title:'Waste Recycling Centre', img:'../images/recycling-hero.jpg', url:'recycling-green-finance-tool.html', desc:'Material recovery facilities on brownfield sites.' },
-  { title:'Wetland Restoration', img:'../images/lausitzer-seenland-wetlands.jpg', url:'wetlands-restoration-green-finance-tool.html', desc:'Ecological wetlands restored from flooded mine pits.' },
-  { title:'Wildlife Sanctuary', img:'../images/rw-hero-deer.jpg', url:'wildlife-sanctuary-green-finance-tool.html', desc:'Protected habitat for native species on reclaimed land.' },
-  { title:'Wind Farms', img:'../images/wf-hero.jpg', url:'wind-farm-green-finance-tool.html', desc:'Wind generation capacity on high-elevation overburden.' }
-];
-
-var list = document.getElementById('gf-list');
-var listEmpty = document.getElementById('gf-list-empty');
-var preview = document.getElementById('gf-preview');
-var countEl = document.getElementById('gf-count');
-countEl.textContent = CATS.length + ' categories screened for green finance';
-
-var arrowSvg = '<span class="arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>';
-
-function renderPreview(c){
-  preview.innerHTML = '<img src="'+c.img+'" alt="'+c.title+'">'
-   + '<div class="gf-preview-body"><div class="gf-preview-tag">Green Finance Screening</div><h3>'+c.title+'</h3><p>'+c.desc+'</p>'
-   + '<a class="gf-btn-primary" href="'+c.url+'">Start Green Finance screening '
-   + '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></div>';
-}
-
-function setActive(a){
-  Array.prototype.forEach.call(list.children, function(el){ el.classList.remove('active'); });
-  a.classList.add('active');
-}
-
-function filterList(q){
-  q = q.toLowerCase().trim();
-  var visible = 0;
-  Array.prototype.forEach.call(list.children, function(el){
-    var match = el.dataset.title.indexOf(q) > -1;
-    el.style.display = match ? 'flex' : 'none';
-    if (match) visible++;
-  });
-  listEmpty.style.display = visible === 0 ? 'block' : 'none';
-}
-
-CATS.forEach(function(c, i){
-  var btn = document.createElement('button');
-  btn.type = 'button';
-  btn.className = 'gf-list-item' + (i === 0 ? ' active' : '');
-  btn.dataset.title = c.title.toLowerCase();
-  btn.innerHTML = '<img src="'+c.img+'" alt="" loading="lazy">' + c.title + arrowSvg;
-  btn.addEventListener('click', function(){
-    setActive(btn);
-    renderPreview(c);
-  });
-  btn.addEventListener('dblclick', function(){ window.location.href = c.url; });
-  list.appendChild(btn);
-});
-
-renderPreview(CATS[0]);
+  "use strict";
+  // in-page nav active-state on scroll
+  const navLinks = Array.from(document.querySelectorAll("#spo-nav a"));
+  const sections = navLinks.map((a) => document.querySelector(a.getAttribute("href")));
+  const setActive = () => {
+    let current = sections[0];
+    const y = window.scrollY + 160;
+    sections.forEach((s) => { if (s && s.offsetTop <= y) current = s; });
+    navLinks.forEach((a) => a.classList.toggle("active", document.querySelector(a.getAttribute("href")) === current));
+  };
+  document.addEventListener("scroll", setActive, { passive: true });
+  setActive();
 </script>
-
+</div>
 </body>
 </html>

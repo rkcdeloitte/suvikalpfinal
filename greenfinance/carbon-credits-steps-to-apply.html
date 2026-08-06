@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="../categories/category.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+<title>Carbon Credits — Steps to Apply | SUVIKALP</title>
+<style>
+  :root{
+    --fs-xs: 0.75rem;
+    --fs-sm: 0.85rem;
+    --fs-md: 0.95rem;
+    --fs-base: 1rem;
+    --fs-lg: 1.3rem;
+    --fs-xl: 1.9rem;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--color-background);color:var(--color-text);font-family:var(--font-sans);}
+  a{color:var(--color-teal-700);}
+  img{max-width:100%;}
+
+  /* ---------- back / breadcrumb bar ---------- */
+  .cc-backbar{
+    max-width:1200px;margin:0 auto;padding:16px 32px 0;
+    display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;
+  }
+  .back-btn{
+    display:inline-flex;align-items:center;gap:6px;border:1px solid var(--color-card-border);
+    background:var(--color-surface);color:var(--color-text-secondary);font-family:var(--font-sans);
+    font-size:var(--fs-sm);font-weight:600;padding:7px 14px;border-radius:var(--radius-full);
+    cursor:pointer;transition:background .15s;
+  }
+  .back-btn:hover{background:var(--color-teal-bg);color:var(--color-teal-700);}
+  .back-btn svg{width:14px;height:14px;}
+  .cc-breadcrumb{font-family:var(--font-sans);font-size:var(--fs-sm);color:var(--color-text-secondary);}
+  .cc-breadcrumb .sep{margin:0 6px;opacity:.5;}
+  .cc-breadcrumb .current{color:var(--color-primary);font-weight:600;}
+
+  /* ---------- hero ---------- */
+  .cc-hero{max-width:1200px;margin:0 auto;padding:26px 32px 8px;}
+  .cc-eyebrow{
+    display:inline-block;font-size:var(--fs-xs);font-weight:700;letter-spacing:.07em;
+    text-transform:uppercase;color:var(--color-teal-700);background:var(--color-teal-bg);
+    border:1px solid var(--color-teal-border);padding:4px 11px;border-radius:var(--radius-full);
+    margin-bottom:12px;
+  }
+  .cc-hero h1{margin:0 0 10px;font-size:var(--fs-xl);font-weight:700;line-height:1.25;letter-spacing:-.01em;}
+  .cc-hero p{margin:0 0 10px;max-width:780px;font-size:var(--fs-md);line-height:1.65;color:var(--color-text-secondary);}
+  .cc-note{
+    max-width:780px;margin:16px 0 0;padding:12px 16px;border-radius:var(--radius);
+    background:#fffbeb;border:1px solid #fde68a;font-size:var(--fs-sm);line-height:1.6;color:#78430b;
+  }
+  .cc-note strong{color:#5c3208;}
+
+  /* ---------- in-page nav ---------- */
+  .cc-nav-wrap{position:sticky;top:72px;z-index:40;background:var(--color-background);
+    border-bottom:1px solid var(--color-card-border);padding:10px 0;margin-top:22px;}
+  .cc-nav{max-width:1200px;margin:0 auto;padding:0 32px;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;}
+  .cc-nav::-webkit-scrollbar{display:none;}
+  .cc-nav a{
+    flex-shrink:0;font-size:var(--fs-sm);font-weight:600;color:var(--color-text-secondary);
+    text-decoration:none;padding:7px 14px;border-radius:var(--radius-full);border:1px solid var(--color-card-border);
+    background:var(--color-surface);white-space:nowrap;transition:all .15s;
+  }
+  .cc-nav a:hover, .cc-nav a.active{color:var(--color-teal-700);border-color:var(--color-primary);background:var(--color-teal-bg);}
+
+  /* ---------- content shell ---------- */
+  .cc-content{max-width:1200px;margin:0 auto;padding:0 32px 60px;}
+  .cc-section{padding:44px 0;border-bottom:1px solid var(--color-card-border);scroll-margin-top:140px;}
+  .cc-section:last-child{border-bottom:none;}
+  .cc-section-head{display:flex;align-items:baseline;gap:12px;margin-bottom:6px;}
+  .cc-section-num{font-family:var(--font-sans);font-size:var(--fs-sm);font-weight:700;color:var(--color-primary);}
+  .cc-section h2{margin:0 0 6px;font-size:1.4rem;font-weight:700;letter-spacing:-.01em;}
+  .cc-section-sub{margin:0 0 26px;font-size:var(--fs-md);color:var(--color-text-secondary);max-width:780px;line-height:1.6;}
+
+  .cc-subhead{font-size:1rem;font-weight:700;margin:34px 0 4px;}
+  .cc-subhead:first-of-type{margin-top:0;}
+  .cc-subhead-sub{font-size:var(--fs-sm);color:var(--color-text-secondary);margin:0 0 16px;max-width:780px;line-height:1.6;}
+
+  /* ---------- 3-ways-to-earn pills ---------- */
+  .cc-way-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .cc-way-card{background:var(--color-surface);border:1px solid var(--color-card-border);border-radius:var(--radius-lg);
+    padding:18px 17px;box-shadow:var(--shadow-sm);}
+  .cc-way-tag{display:inline-block;font-size:var(--fs-xs);font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+    color:var(--color-teal-700);background:var(--color-teal-bg);padding:3px 10px;border-radius:var(--radius-full);margin-bottom:8px;}
+  .cc-way-title{font-size:var(--fs-base);font-weight:700;margin:0 0 4px;}
+  .cc-way-desc{font-size:var(--fs-sm);color:var(--color-text-secondary);margin:0;line-height:1.55;}
+
+  /* ---------- grid card patterns ---------- */
+  .cc-grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .cc-grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+  .cc-card{background:var(--color-surface);border:1px solid var(--color-card-border);border-radius:var(--radius-lg);
+    padding:17px 16px;box-shadow:var(--shadow-sm);}
+  .cc-card-title{font-size:var(--fs-sm);font-weight:700;color:var(--color-teal-700);margin:0 0 6px;}
+  .cc-card-desc{font-size:var(--fs-sm);line-height:1.55;color:var(--color-text-secondary);margin:0;}
+  .cc-card-link{display:inline-block;margin-top:8px;font-size:var(--fs-xs);font-weight:600;}
+
+  /* ---------- specific characteristics table ---------- */
+  .cc-table-wrap{overflow-x:auto;border:1px solid var(--color-card-border);border-radius:var(--radius-lg);background:var(--color-surface);box-shadow:var(--shadow-sm);}
+  table.cc-table{width:100%;border-collapse:collapse;font-size:var(--fs-sm);}
+  table.cc-table th{text-align:left;font-size:var(--fs-xs);font-weight:700;letter-spacing:.04em;text-transform:uppercase;
+    color:var(--color-primary);padding:13px 16px;background:var(--color-teal-bg);border-bottom:1px solid var(--color-card-border);white-space:nowrap;}
+  table.cc-table td{padding:14px 16px;border-bottom:1px solid var(--color-card-border);color:var(--color-text-secondary);line-height:1.55;vertical-align:top;}
+  table.cc-table tr:last-child td{border-bottom:none;}
+  table.cc-table td.cc-td-strong{color:var(--color-text);font-weight:600;white-space:nowrap;}
+
+  /* ---------- lifecycle 4-step flow ---------- */
+  .cc-flow-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+  .cc-flow-card{background:var(--color-surface);border:1px solid var(--color-card-border);border-radius:var(--radius-lg);
+    padding:18px 16px;box-shadow:var(--shadow-sm);position:relative;}
+  .cc-flow-num{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;
+    background:var(--color-teal-700);color:#fff;font-size:.78rem;font-weight:700;margin-bottom:10px;}
+  .cc-flow-title{font-size:var(--fs-sm);font-weight:700;margin:0 0 6px;}
+  .cc-flow-desc{font-size:var(--fs-xs);line-height:1.55;color:var(--color-text-secondary);margin:0;}
+  .cc-flow-revenue{grid-column:1/-1;margin-top:2px;padding:14px 16px;border-radius:var(--radius);background:var(--color-teal-bg);
+    border:1px solid var(--color-teal-border);font-size:var(--fs-sm);color:var(--color-teal-700);}
+
+  /* ---------- VCS steps accordion ---------- */
+  .cc-acc{border:1px solid var(--color-card-border);border-radius:var(--radius-lg);overflow:hidden;background:var(--color-surface);}
+  .cc-acc-row{border-bottom:1px solid var(--color-card-border);}
+  .cc-acc-row:last-child{border-bottom:none;}
+  .cc-acc-head{
+    width:100%;display:flex;align-items:center;gap:14px;padding:16px 18px;background:none;border:none;
+    cursor:pointer;text-align:left;font-family:var(--font-sans);
+  }
+  .cc-acc-num{flex-shrink:0;width:30px;height:30px;border-radius:50%;background:var(--color-teal-bg);
+    color:var(--color-teal-700);font-size:.8rem;font-weight:700;display:flex;align-items:center;justify-content:center;}
+  .cc-acc-name{flex:1;font-size:var(--fs-base);font-weight:600;}
+  .cc-acc-chev{width:16px;height:16px;color:var(--color-text-secondary);transition:transform .2s ease;flex-shrink:0;}
+  .cc-acc-row.open .cc-acc-chev{transform:rotate(180deg);}
+  .cc-acc-body{max-height:0;overflow:hidden;transition:max-height .3s ease;}
+  .cc-acc-row.open .cc-acc-body{max-height:900px;}
+  .cc-acc-body-inner{padding:0 18px 18px 62px;}
+  .cc-acc-body-inner p{margin:0 0 10px;font-size:var(--fs-base);line-height:1.65;color:var(--color-text-secondary);}
+  .cc-acc-body-inner ul{margin:0 0 10px;padding-left:18px;}
+  .cc-acc-body-inner li{font-size:var(--fs-base);line-height:1.7;color:var(--color-text-secondary);}
+  .cc-acc-body-inner .cc-doclinks{margin-top:8px;display:flex;flex-wrap:wrap;gap:8px;}
+  .cc-acc-body-inner .cc-doclinks a{font-size:var(--fs-xs);font-weight:600;padding:5px 10px;border-radius:var(--radius-full);
+    background:var(--color-teal-bg);border:1px solid var(--color-teal-border);color:var(--color-teal-700);text-decoration:none;}
+  .cc-acc-body-inner .cc-doclinks a:hover{text-decoration:underline;}
+
+  /* ---------- checklist accordion (grouped) ---------- */
+  .cc-check-group{border:1px solid var(--color-card-border);border-radius:var(--radius-lg);background:var(--color-surface);
+    box-shadow:var(--shadow-sm);padding:18px 20px;margin-bottom:14px;}
+  .cc-check-group h3{margin:0 0 4px;font-size:var(--fs-base);font-weight:700;color:var(--color-teal-700);}
+  .cc-check-group p{margin:0 0 12px;font-size:var(--fs-sm);color:var(--color-text-secondary);line-height:1.55;}
+  .cc-check-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:8px 20px;}
+  .cc-check-list li{font-size:var(--fs-sm);line-height:1.6;color:var(--color-text);display:flex;gap:8px;align-items:flex-start;}
+  .cc-check-list li::before{content:"☐";flex-shrink:0;color:var(--color-teal-700);font-size:.95rem;}
+
+  /* ---------- warning / mistakes card ---------- */
+  .cc-warning{border:1px solid var(--color-red-border,#fecaca);background:var(--color-red-tint,#fef2f2);border-radius:var(--radius-lg);padding:18px 20px;}
+  .cc-warning-title{display:flex;align-items:center;gap:8px;font-size:var(--fs-base);font-weight:700;color:var(--color-red-500);margin:0 0 10px;}
+  .cc-warning-title svg{width:17px;height:17px;flex-shrink:0;}
+  .cc-warning ul{margin:0;padding-left:20px;}
+  .cc-warning li{font-size:var(--fs-base);line-height:1.65;color:#7f1d1d;margin-bottom:8px;}
+  .cc-warning li:last-child{margin-bottom:0;}
+  .cc-warning li strong{color:#5c1414;}
+
+  .cc-before-submit{margin:0;padding-left:0;list-style:none;}
+  .cc-before-submit li{display:flex;gap:8px;align-items:flex-start;font-size:var(--fs-base);line-height:1.6;color:var(--color-text-secondary);margin-bottom:8px;}
+  .cc-before-submit li::before{content:"✔";color:var(--color-teal-700);font-weight:700;flex-shrink:0;}
+
+  /* ---------- timeline ---------- */
+  .cc-timeline{display:flex;flex-direction:column;}
+  .cc-tl-row{display:flex;gap:16px;padding:14px 0;border-top:1px dashed var(--color-card-border);}
+  .cc-tl-row:first-child{border-top:none;padding-top:2px;}
+  .cc-tl-marker{flex-shrink:0;width:32px;height:32px;border-radius:50%;background:var(--color-teal-bg);
+    color:var(--color-teal-700);font-weight:700;font-size:.8rem;display:flex;align-items:center;justify-content:center;}
+  .cc-tl-body{flex:1;min-width:0;}
+  .cc-tl-top{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:4px;}
+  .cc-tl-title{font-weight:700;font-size:var(--fs-base);margin:0;}
+  .cc-tl-dur{flex-shrink:0;font-size:var(--fs-xs);font-weight:700;color:var(--color-teal-700);
+    background:var(--color-teal-bg);padding:2px 10px;border-radius:var(--radius-full);white-space:nowrap;}
+
+  /* ---------- resources ---------- */
+  .cc-res-table-wrap{overflow-x:auto;border:1px solid var(--color-card-border);border-radius:var(--radius-lg);background:var(--color-surface);box-shadow:var(--shadow-sm);margin-bottom:20px;}
+  table.cc-res-table{width:100%;border-collapse:collapse;font-size:var(--fs-sm);}
+  table.cc-res-table th{text-align:left;font-size:var(--fs-xs);font-weight:700;letter-spacing:.04em;text-transform:uppercase;
+    color:var(--color-primary);padding:11px 16px;background:var(--color-teal-bg);border-bottom:1px solid var(--color-card-border);}
+  table.cc-res-table td{padding:11px 16px;border-bottom:1px solid var(--color-card-border);color:var(--color-text-secondary);line-height:1.5;}
+  table.cc-res-table tr:last-child td{border-bottom:none;}
+
+  .cc-linklist{list-style:none;margin:0 0 20px;padding:0;}
+  .cc-linklist li{padding:9px 0;border-top:1px solid var(--color-card-border);font-size:var(--fs-sm);line-height:1.5;}
+  .cc-linklist li:first-child{border-top:none;}
+
+  /* ---------- contact directory ---------- */
+  .cc-contact-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
+  .cc-contact-card{padding:16px 17px;border-radius:var(--radius-lg);border:1px solid var(--color-card-border);
+    background:var(--color-surface);box-shadow:var(--shadow-sm);}
+  .cc-contact-role{font-size:var(--fs-xs);font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--color-primary);margin:0 0 6px;}
+  .cc-contact-name{font-size:var(--fs-base);font-weight:700;margin:0 0 4px;}
+  .cc-contact-detail{font-size:var(--fs-sm);color:var(--color-text-secondary);line-height:1.6;margin:0;}
+  .cc-contact-detail a{color:var(--color-teal-700);}
+
+  /* ---------- FAQ accordion ---------- */
+  .cc-faq-group{margin-bottom:22px;}
+  .cc-faq-group h3{font-size:1rem;font-weight:700;margin:0 0 10px;color:var(--color-teal-700);}
+  .cc-faq{border:1px solid var(--color-card-border);border-radius:var(--radius-lg);overflow:hidden;background:var(--color-surface);}
+  .cc-faq-row{border-bottom:1px solid var(--color-card-border);}
+  .cc-faq-row:last-child{border-bottom:none;}
+  .cc-faq-head{width:100%;display:flex;align-items:center;gap:12px;padding:13px 16px;background:none;border:none;
+    cursor:pointer;text-align:left;font-family:var(--font-sans);}
+  .cc-faq-q{flex:1;font-size:var(--fs-sm);font-weight:600;}
+  .cc-faq-chev{width:14px;height:14px;color:var(--color-text-secondary);transition:transform .2s ease;flex-shrink:0;}
+  .cc-faq-row.open .cc-faq-chev{transform:rotate(180deg);}
+  .cc-faq-body{max-height:0;overflow:hidden;transition:max-height .25s ease;}
+  .cc-faq-row.open .cc-faq-body{max-height:400px;}
+  .cc-faq-body-inner{padding:0 16px 14px 16px;font-size:var(--fs-sm);line-height:1.6;color:var(--color-text-secondary);}
+  .cc-faq-body-inner a{color:var(--color-teal-700);}
+
+  /* ---------- disclaimer / footer ---------- */
+  .cc-disclaimer{max-width:1200px;margin:0 auto;padding:0 32px 30px;}
+  .cc-disclaimer-box{
+    border:1px solid var(--color-card-border);background:var(--color-gray-200);border-radius:var(--radius-lg);
+    padding:16px 18px;font-size:var(--fs-xs);line-height:1.65;color:var(--color-text-secondary);
+  }
+  .cc-disclaimer-box strong{color:var(--color-text);}
+  #site-footer-sf{
+    text-align:center;padding:22px 20px;font-size:var(--fs-xs);color:var(--color-text-secondary);
+    border-top:1px solid var(--color-card-border);
+  }
+  #site-footer-sf a{font-weight:600;}
+
+  @media (max-width:900px){
+    .cc-way-grid,.cc-grid-3{grid-template-columns:1fr 1fr;}
+    .cc-grid-4,.cc-flow-grid{grid-template-columns:1fr 1fr;}
+    .cc-contact-grid{grid-template-columns:1fr;}
+    .cc-check-list{grid-template-columns:1fr;}
+  }
+  @media (max-width:640px){
+    .cc-hero,.cc-content,.cc-backbar,.cc-disclaimer,.cc-nav{padding-left:18px;padding-right:18px;}
+    .cc-way-grid,.cc-grid-3,.cc-grid-4,.cc-flow-grid{grid-template-columns:1fr;}
+    .cc-hero h1{font-size:1.5rem;}
+    .cc-acc-body-inner{padding-left:18px;}
+    table.cc-table{font-size:var(--fs-xs);}
+  }
+</style>
+</head>
+<body>
+
+<header id="site-header">
+  <div class="header-left">
+    <div class="header-tool-title">
+      <span class="hindi">सुविकल्प:</span> Mine Repurposing Tool
+    </div>
+    <div class="header-tool-sub">
+      Green Finance — Carbon Credits: Steps to Apply
+    </div>
+  </div>
+  <div class="header-right">
+    <a href="https://coalcontroller.gov.in/" rel="noopener" title="CCO Home">
+    <div class="header-cco-lockup">
+      <img class="header-cco-logo" src="data:image/png;base64,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" alt="Coal Controller Organisation emblem">
+      <div class="header-cco-text"></div>
+    </div>
+    </a>
+  </div>
+</header>
+<div class="page">
+
+  <div class="cc-backbar">
+    <button class="back-btn" onclick="window.location.href='./green-finance.html'" aria-label="Back to Green Finance">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3L5 8l5 5"/></svg>
+      Back to Green Finance
+    </button>
+    <span class="cc-breadcrumb">
+      <span>Green Finance</span><span class="sep">/</span><span class="current">Carbon Credits — Steps to Apply</span>
+    </span>
+  </div>
+
+  <div class="cc-hero">
+   
+    <h1>Carbon Credits — Steps to Apply</h1>
+    <p>Carbon credits are tradable certificates, each representing one tonne of greenhouse gas emissions reduced, removed, or avoided. Organizations can buy these credits to meet their climate goals while supporting sustainable development.</p>
+  </div>
+
+  <div class="cc-nav-wrap">
+    <nav class="cc-nav" id="cc-nav">
+      <a href="#intro">What Are Carbon Credits?</a>
+      <a href="#brief-intro">Brief Introduction</a>
+      <a href="#eligible">Eligibility</a>
+      <a href="#governance">Governance &amp; Rules</a>
+      <a href="#characteristics">Specific Characteristics</a>
+      <a href="#lifecycle">Lifecycle</a>
+      <a href="#process">VCS Registration Process</a>
+      <a href="#checklist">Document Checklist</a>
+      <a href="#delays">Common Delays</a>
+      <a href="#timeline">Timeline</a>
+      <a href="#resources">Resources &amp; Tools</a>
+      <a href="#contacts">Who to Contact</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+  </div>
+
+  <div class="cc-content">
+
+    <!-- ================= 01 WHAT ARE CARBON CREDITS ================= -->
+    <section class="cc-section" id="intro">
+      <div class="cc-section-head"><span class="cc-section-num">01</span><h2>What Are Carbon Credits?</h2></div>
+      <blockquote style="width:100%;margin:0 0 22px;padding:14px 18px;border-left:3px solid var(--color-primary);background:var(--color-teal-bg);border-radius:0 var(--radius) var(--radius) 0;font-size:var(--fs-base);line-height:1.7;color:var(--color-text);font-style:italic;">"Carbon credits are tradable certificates, each representing one tonne of greenhouse gas emissions reduced, removed, or avoided. Organizations can buy these credits to meet their climate goals while supporting sustainable development."</blockquote>
+
+      <p class="cc-subhead" style="margin-top:0;">Three Ways to Earn One</p>
+      <div class="cc-way-grid">
+        <div class="cc-way-card"><span class="cc-way-tag">Avoid</span><p class="cc-way-title">Stop it before it happens</p><p class="cc-way-desc">Keep a forest standing instead of letting it fall.</p></div>
+        <div class="cc-way-card"><span class="cc-way-tag">Reduce</span><p class="cc-way-title">Cut it at the source</p><p class="cc-way-desc">Capture methane. Swap diesel for solar. Run cleaner.</p></div>
+        <div class="cc-way-card"><span class="cc-way-tag">Remove</span><p class="cc-way-title">Take it back out</p><p class="cc-way-desc">Plant trees. Rebuild wetlands. Undo the damage.</p></div>
+      </div>
+
+      <p class="cc-subhead">The Numbers Don't Lie</p>
+      <p style="max-width:780px;font-size:var(--fs-base);font-weight:700;line-height:1.6;color:var(--color-text);margin:0;">1,000 tonnes avoided = 1,000 credits earned = real money in the bank</p>
+    </section>
+
+    <!-- ================= 02 BRIEF INTRODUCTION ================= -->
+    <section class="cc-section" id="brief-intro">
+      <div class="cc-section-head"><span class="cc-section-num">02</span><h2>Brief Introduction</h2></div>
+      <p class="cc-subhead" style="margin-top:0;">Role of the Carbon Standard</p>
+      <div style="max-width:780px;aspect-ratio:16/9;border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--color-card-border);box-shadow:var(--shadow-sm);">
+        <iframe src="https://www.youtube.com/embed/Md-NN2QrQ3I" title="Role of the Carbon Standard" style="width:100%;height:100%;border:0;display:block;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+    </section>
+
+    <!-- ================= 03 WHO IS ELIGIBLE ================= -->
+    <section class="cc-section" id="eligible">
+      <div class="cc-section-head"><span class="cc-section-num">03</span><h2>Who Is Eligible to Earn Carbon Credits?</h2></div>
+      <p class="cc-section-sub">Eligibility requirements vary slightly between carbon credit standards and programmes, but most follow the common principles below.</p>
+
+      <div class="cc-grid-3">
+        <div class="cc-card">
+          <p class="cc-card-title">Eligible Project Proponent</p>
+          <p class="cc-card-desc">Any company, government agency, local authority, NGO, cooperative, community group, farmer group, or individual with the legal authority to implement and manage the project may be eligible.</p>
+        </div>
+        <div class="cc-card">
+          <p class="cc-card-title">Eligible Project Activity</p>
+          <p class="cc-card-desc">The project must reduce, remove, or avoid GHG emissions through an eligible activity recognised by the selected carbon credit standard or programme.</p>
+        </div>
+        <div class="cc-card">
+          <p class="cc-card-title">Approved Methodology</p>
+          <p class="cc-card-desc">The project must follow an approved methodology or protocol that defines how emission reductions or removals will be measured, monitored, and verified.</p>
+        </div>
+        <div class="cc-card">
+          <p class="cc-card-title">Legal Rights &amp; Compliance</p>
+          <p class="cc-card-desc">The project developer must have the legal authority to carry out the project and claim the carbon benefits, and comply with all applicable laws, permits, approvals, and environmental and social requirements.</p>
+        </div>
+        <div class="cc-card">
+          <p class="cc-card-title">Additionality</p>
+          <p class="cc-card-desc">You must show the emission reduction depends on carbon revenue — a project that is already commercially viable without it will struggle to qualify.</p>
+        </div>
+        <div class="cc-card">
+          <p class="cc-card-title">Monitoring &amp; Verification</p>
+          <p class="cc-card-desc">The project must be capable of monitoring, reporting, and independently verifying its GHG emission reductions or removals.</p>
+        </div>
+        <div class="cc-card">
+          <p class="cc-card-title">No Double Counting</p>
+          <p class="cc-card-desc">The same GHG emission reductions or removals must not be claimed, registered, or issued under more than one carbon credit programme or environmental market.</p>
+        </div>
+        <div class="cc-card">
+          <p class="cc-card-title">Adequate Documentation</p>
+          <p class="cc-card-desc">The project must maintain complete technical, legal, environmental, and monitoring records to demonstrate compliance with the selected carbon credit standard.</p>
+        </div>
+        <div class="cc-card">
+          <p class="cc-card-title">Long-Term Commitment</p>
+          <p class="cc-card-desc">The project developer must be able to implement, maintain, and monitor the project throughout its required crediting or monitoring period.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 03 GOVERNANCE & RULES ================= -->
+    <section class="cc-section" id="governance">
+      <div class="cc-section-head"><span class="cc-section-num">04</span><h2>Governance &amp; Rules</h2></div>
+      <p class="cc-section-sub">Carbon credit projects must comply with the rules, requirements, and methodologies established by the selected carbon credit programme. These frameworks ensure that GHG emission reductions or removals are measurable, verified, transparent, and credible.</p>
+
+      <p class="cc-subhead">Domestic (India) — Indian Carbon Market (ICM)</p>
+      <p class="cc-subhead-sub">India's national carbon credit framework, established by the Government of India to reduce GHG emissions and support the country's climate commitments. It provides a structured system for developing eligible carbon projects, measuring and verifying emission reductions, issuing carbon credits, and enabling their trading within India.</p>
+      <div class="cc-grid-4">
+        <div class="cc-card"><p class="cc-card-title">Governing Ministry</p><p class="cc-card-desc">Ministry of Power (MoP) — the market operates under the Carbon Credit Trading Scheme (CCTS).</p></div>
+        <div class="cc-card"><p class="cc-card-title">Administrator</p><p class="cc-card-desc">Bureau of Energy Efficiency (BEE) serves as the Administrator of the scheme.</p></div>
+        <div class="cc-card"><p class="cc-card-title">Regulator</p><p class="cc-card-desc">Central Electricity Regulatory Commission (CERC) regulates the carbon credit market.</p></div>
+        <div class="cc-card"><p class="cc-card-title">Registry</p><p class="cc-card-desc">Grid Controller of India Limited (GRID-INDIA) maintains records of carbon credits and related transactions, issuing Carbon Credit Certificates (CCCs).</p></div>
+      </div>
+      <p style="margin:14px 0 0;font-size:var(--fs-sm);"><a href="https://indiancarbonmarket.gov.in/" target="_blank" rel="noopener noreferrer">Official Website — indiancarbonmarket.gov.in ↗</a></p>
+
+      <p class="cc-subhead">International Standards</p>
+      <p class="cc-subhead-sub">Voluntary carbon credit standards recognised by buyers worldwide.</p>
+      <div class="cc-grid-4">
+        <div class="cc-card">
+          <p class="cc-card-title">Verra (VCS)</p>
+          <p class="cc-card-desc">The world's most widely used voluntary carbon credit standard, covering afforestation, mine land restoration, renewable energy, methane capture, and more.</p>
+          <a class="cc-card-link" href="https://verra.org/programs/verified-carbon-standard/" target="_blank" rel="noopener noreferrer">verra.org ↗</a>
+        </div>
+        <div class="cc-card">
+          <p class="cc-card-title">Gold Standard</p>
+          <p class="cc-card-desc">Focuses on both climate action and sustainable development — improving livelihoods, protecting biodiversity, enhancing community well-being.</p>
+          <a class="cc-card-link" href="https://www.goldstandard.org/" target="_blank" rel="noopener noreferrer">goldstandard.org ↗</a>
+        </div>
+        <div class="cc-card">
+          <p class="cc-card-title">Global Carbon Council (GCC)</p>
+          <p class="cc-card-desc">Established by GORD in 2016 — the first international carbon credit programme developed in the Global South.</p>
+          <a class="cc-card-link" href="https://globalcarboncouncil.com/" target="_blank" rel="noopener noreferrer">globalcarboncouncil.com ↗</a>
+        </div>
+        <div class="cc-card">
+          <p class="cc-card-title">American Carbon Registry (ACR)</p>
+          <p class="cc-card-desc">Science-based standards; requires reductions to be real, additional, permanent, accurately quantified, verified, and protected against double counting.</p>
+          <a class="cc-card-link" href="https://acrcarbon.org/" target="_blank" rel="noopener noreferrer">acrcarbon.org ↗</a>
+        </div>
+      </div>
+      <p style="margin:14px 0 0;font-size:var(--fs-sm);">Supporting link: <a href="https://winrock.org/wp-content/uploads/2017/01/Winrock-ACR-Handout1.pdf" target="_blank" rel="noopener noreferrer">Winrock ACR Handout ↗</a></p>
+    </section>
+
+    <!-- ================= 04 SPECIFIC CHARACTERISTICS ================= -->
+    <section class="cc-section" id="characteristics">
+      <div class="cc-section-head"><span class="cc-section-num">05</span><h2>Specific Characteristics</h2></div>
+      <p class="cc-section-sub">How the major standards compare on focus, strength, and market recognition.</p>
+      <div class="cc-table-wrap">
+        <table class="cc-table">
+          <thead><tr><th>Standard</th><th>Primary Focus</th><th>Unique Strength</th><th>Market Recognition</th><th>Best Suited For</th></tr></thead>
+          <tbody>
+            <tr><td class="cc-td-strong">Indian Carbon Market (ICM)</td><td>India's national carbon market</td><td>Government-backed framework under the Carbon Credit Trading Scheme (CCTS)</td><td>National</td><td>Projects developed in India under the national carbon market</td></tr>
+            <tr><td class="cc-td-strong">Verra (VCS)</td><td>High-quality carbon credit projects</td><td>One of the world's largest voluntary carbon credit programmes with extensive methodology coverage</td><td>Very High (Global)</td><td>Large-scale and diverse carbon projects</td></tr>
+            <tr><td class="cc-td-strong">Gold Standard</td><td>Climate action and sustainable development</td><td>Strong emphasis on environmental and social co-benefits and SDGs</td><td>High (Global)</td><td>Community-based and sustainable development projects</td></tr>
+            <tr><td class="cc-td-strong">Global Carbon Council (GCC)</td><td>Carbon credits and sustainable development</td><td>First international carbon credit programme established in the Global South</td><td>Growing (Global)</td><td>Projects in emerging and developing economies</td></tr>
+            <tr><td class="cc-td-strong">American Carbon Registry (ACR)</td><td>Science-based carbon accounting</td><td>One of the world's oldest voluntary carbon credit programmes with rigorous methodologies</td><td>High (International)</td><td>Innovative and science-based carbon projects</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ================= 05 LIFECYCLE ================= -->
+    <section class="cc-section" id="lifecycle">
+      <div class="cc-section-head"><span class="cc-section-num">06</span><h2>General Stages of a Carbon Credit's Lifecycle</h2></div>
+      <p class="cc-section-sub">Four stages, from project design through to retirement — plus the revenue that keeps it all running.</p>
+      <div class="cc-flow-grid">
+        <div class="cc-flow-card"><span class="cc-flow-num">1</span><p class="cc-flow-title">Carbon Credit Project Development</p><p class="cc-flow-desc">Projects are developed with activities that result in GHG emission reductions or carbon removals. These are measured and quantified using an approved carbon credit methodology.</p></div>
+        <div class="cc-flow-card"><span class="cc-flow-num">2</span><p class="cc-flow-title">Project Validation &amp; Registration</p><p class="cc-flow-desc">The project is validated by an independent third party and registered under a recognised carbon credit standard (e.g. Verra, Gold Standard, GCC). Emission reductions are then monitored and verified per the standard's requirements.</p></div>
+        <div class="cc-flow-card"><span class="cc-flow-num">3</span><p class="cc-flow-title">Carbon Credit Issuance</p><p class="cc-flow-desc">After successful verification, the carbon credit standard issues carbon credits to the project based on verified emission reductions or removals. Credits are recorded in the programme's registry and can be sold through carbon markets or direct agreements.</p></div>
+        <div class="cc-flow-card"><span class="cc-flow-num">4</span><p class="cc-flow-title">Purchase &amp; Retirement of Carbon Credits</p><p class="cc-flow-desc">Organisations or individuals purchase carbon credits to compensate for their GHG emissions. Once used, credits are retired in the registry to ensure they cannot be used or claimed again.</p></div>
+        <div class="cc-flow-revenue"><strong>Carbon Credit Revenue:</strong> revenue generated from the sale of carbon credits supports the implementation, operation, monitoring, and long-term sustainability of carbon projects.</div>
+      </div>
+    </section>
+
+    <!-- ================= 06 VCS PROCESS ================= -->
+    <section class="cc-section" id="process">
+      <div class="cc-section-head"><span class="cc-section-num">07</span><h2>Verra (VCS) — Project Development &amp; Registration Process</h2></div>
+      <p class="cc-section-sub">The full ten-step journey to develop and register a project, and issue carbon credits, under the Verified Carbon Standard. Tap any step for detail and supporting documents.</p>
+      <div class="cc-acc" id="cc-process-acc"></div>
+    </section>
+
+    <!-- ================= 07 DOCUMENT CHECKLIST ================= -->
+    <section class="cc-section" id="checklist">
+      <div class="cc-section-head"><span class="cc-section-num">08</span><h2>Document Checklist</h2></div>
+      <p class="cc-section-sub">Six categories of documents to assemble across the project lifecycle, from legal identity through to credit issuance.</p>
+
+      <div class="cc-check-group">
+        <h3>1. Legal &amp; Administrative Documents</h3>
+        <p>Establish the legal identity of the project proponent and demonstrate the legal right to implement the project and claim carbon credits.</p>
+        <ul class="cc-check-list">
+          <li>Entity Registration Documents (Company Registration, PAN, etc.)</li>
+          <li>Proof of Land Ownership / Lease / Right to Operate</li>
+          <li>Declaration of Right to Carbon Credits</li>
+          <li>Applicable Government Permits and Environmental Clearances</li>
+        </ul>
+      </div>
+      <div class="cc-check-group">
+        <h3>2. Project Design Documents</h3>
+        <p>Describe the project, demonstrate its eligibility, and explain how GHG emission reductions or removals will be achieved and monitored.</p>
+        <ul class="cc-check-list">
+          <li>Project Description (PDD)</li>
+          <li>Selected Approved Methodology</li>
+          <li>Baseline Assessment</li>
+          <li>Additionality Assessment</li>
+          <li>Monitoring Plan</li>
+          <li>Project Maps / Boundary Information</li>
+        </ul>
+      </div>
+      <div class="cc-check-group">
+        <h3>3. Environmental &amp; Social Documents</h3>
+        <p>Identify potential environmental and social risks and describe how stakeholders will be engaged throughout the project lifecycle.</p>
+        <ul class="cc-check-list">
+          <li>ESG Risk Assessment</li>
+          <li>Stakeholder Engagement Plan</li>
+          <li>Stakeholder Consultation Records</li>
+        </ul>
+      </div>
+      <div class="cc-check-group">
+        <h3>4. Validation &amp; Registration Documents</h3>
+        <p>Submitted during the independent validation and project registration process.</p>
+        <ul class="cc-check-list">
+          <li>Validation Report (prepared by the accredited VVB)</li>
+          <li>Validation Representation</li>
+          <li>Verra Registry Account Details</li>
+          <li>Registration Submission Documents</li>
+        </ul>
+      </div>
+      <div class="cc-check-group">
+        <h3>5. Monitoring &amp; Verification Documents</h3>
+        <p>Demonstrate the project's monitored performance and verified GHG emission reductions or removals.</p>
+        <ul class="cc-check-list">
+          <li>Monitoring Report</li>
+          <li>ESG Risk Monitoring Report</li>
+          <li>Verification Report (prepared by the accredited VVB)</li>
+          <li>Verification Representation</li>
+        </ul>
+      </div>
+      <div class="cc-check-group">
+        <h3>6. Carbon Credit Issuance</h3>
+        <p>Required for requesting and receiving Verified Carbon Units (VCUs).</p>
+        <ul class="cc-check-list">
+          <li>Issuance Request</li>
+          <li>Registry Account Details for VCU Issuance</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ================= 08 COMMON DELAYS ================= -->
+    <section class="cc-section" id="delays">
+      <div class="cc-section-head"><span class="cc-section-num">09</span><h2>Common Reasons for Project Delays or Rejection</h2></div>
+      <p class="cc-section-sub">Before submitting your carbon credit project, review these common issues to improve the chances of successful validation, registration, and credit issuance.</p>
+
+      <div class="cc-warning">
+        <p class="cc-warning-title"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 1.5 1 14h14L8 1.5z"/><path d="M8 6v4M8 12h.01"/></svg>Frequent pitfalls</p>
+        <ul>
+          <li><strong>Weak Additionality</strong> — unable to demonstrate that carbon finance is necessary for the project to proceed.</li>
+          <li><strong>Incorrect Methodology</strong> — using an unsuitable or outdated methodology, or failing to meet its requirements.</li>
+          <li><strong>Incomplete Documentation</strong> — missing or inconsistent project documents, calculations, maps, or supporting evidence.</li>
+          <li><strong>Unclear Legal Rights</strong> — insufficient proof of land ownership, project rights, or the legal right to claim carbon credits.</li>
+          <li><strong>Poor Monitoring Records</strong> — incomplete monitoring data, missing field records, or inadequate supporting evidence during verification.</li>
+          <li><strong>Double Counting</strong> — the same emission reductions claimed under multiple programmes or by more than one entity.</li>
+          <li><strong>ESG &amp; Stakeholder Issues</strong> — failure to address environmental, social, governance (ESG), or stakeholder engagement requirements.</li>
+          <li><strong>Validation &amp; Verification Findings</strong> — corrective actions or non-conformities identified by the VVB remain unresolved.</li>
+        </ul>
+      </div>
+
+      <p class="cc-subhead">Before You Submit</p>
+      <ul class="cc-before-submit">
+        <li>Demonstrate additionality clearly.</li>
+        <li>Use the correct approved methodology.</li>
+        <li>Complete all required project documentation.</li>
+        <li>Confirm legal rights and regulatory compliance.</li>
+        <li>Maintain accurate monitoring records.</li>
+        <li>Address stakeholder and ESG requirements.</li>
+        <li>Resolve all VVB findings before submission.</li>
+      </ul>
+    </section>
+
+    <!-- ================= 09 TIMELINE ================= -->
+    <section class="cc-section" id="timeline">
+      <div class="cc-section-head"><span class="cc-section-num">10</span><h2>Project Timeline</h2></div>
+      <p class="cc-section-sub">An indicative sequence and duration for a first-time Verra project. Actual timelines may vary based on project complexity, methodology, documentation, monitoring requirements, and the review process of Verra and the accredited VVB.</p>
+
+      <div class="cc-timeline">
+        <div class="cc-tl-row"><span class="cc-tl-marker">1</span><div class="cc-tl-body"><div class="cc-tl-top"><p class="cc-tl-title">Project planning &amp; eligibility assessment</p><span class="cc-tl-dur">2–4 weeks</span></div></div></div>
+        <div class="cc-tl-row"><span class="cc-tl-marker">2</span><div class="cc-tl-body"><div class="cc-tl-top"><p class="cc-tl-title">Registry account creation</p><span class="cc-tl-dur">1–7 days</span></div></div></div>
+        <div class="cc-tl-row"><span class="cc-tl-marker">3</span><div class="cc-tl-body"><div class="cc-tl-top"><p class="cc-tl-title">Methodology selection</p><span class="cc-tl-dur">1–3 weeks</span></div></div></div>
+        <div class="cc-tl-row"><span class="cc-tl-marker">4</span><div class="cc-tl-body"><div class="cc-tl-top"><p class="cc-tl-title">Project documentation preparation</p><span class="cc-tl-dur">2–6 months</span></div></div></div>
+        <div class="cc-tl-row"><span class="cc-tl-marker">5</span><div class="cc-tl-body"><div class="cc-tl-top"><p class="cc-tl-title">Validation by VVB</p><span class="cc-tl-dur">2–6 months</span></div></div></div>
+        <div class="cc-tl-row"><span class="cc-tl-marker">6</span><div class="cc-tl-body"><div class="cc-tl-top"><p class="cc-tl-title">Verra review &amp; 30-day public consultation</p><span class="cc-tl-dur">2–3 months</span></div><p class="cc-tl-desc">Includes the mandatory 30-day public comment period.</p></div></div>
+        <div class="cc-tl-row"><span class="cc-tl-marker">7</span><div class="cc-tl-body"><div class="cc-tl-top"><p class="cc-tl-title">Project implementation &amp; monitoring</p><span class="cc-tl-dur">6–24 months</span></div><p class="cc-tl-desc">Or as required by the methodology before first verification.</p></div></div>
+        <div class="cc-tl-row"><span class="cc-tl-marker">8</span><div class="cc-tl-body"><div class="cc-tl-top"><p class="cc-tl-title">Verification by VVB</p><span class="cc-tl-dur">1–3 months</span></div></div></div>
+        <div class="cc-tl-row"><span class="cc-tl-marker">9</span><div class="cc-tl-body"><div class="cc-tl-top"><p class="cc-tl-title">Verra review &amp; VCU issuance</p><span class="cc-tl-dur">1–2 months</span></div></div></div>
+      </div>
+    </section>
+
+    <!-- ================= 10 RESOURCES & TOOLS ================= -->
+    <section class="cc-section" id="resources">
+      <div class="cc-section-head"><span class="cc-section-num">11</span><h2>Resources &amp; Tools</h2></div>
+      <p class="cc-section-sub">Official links, requirement documents, procedural documents, templates, and India CCTS resources.</p>
+
+      <p class="cc-subhead" style="margin-top:0;">Official Links</p>
+      <div class="cc-res-table-wrap">
+        <table class="cc-res-table">
+          <tbody>
+            <tr><td>Verra Website</td><td><a href="https://verra.org" target="_blank" rel="noopener noreferrer">verra.org ↗</a></td></tr>
+            <tr><td>Verra Registry</td><td><a href="https://registry.verra.org" target="_blank" rel="noopener noreferrer">registry.verra.org ↗</a></td></tr>
+            <tr><td>Document Library</td><td><a href="https://verra.org/document-library/" target="_blank" rel="noopener noreferrer">verra.org/document-library ↗</a></td></tr>
+            <tr><td>Methodologies</td><td><a href="https://verra.org/methodologies-main/" target="_blank" rel="noopener noreferrer">verra.org/methodologies-main ↗</a></td></tr>
+            <tr><td>VVB Directory</td><td><a href="https://verra.org/project/vvb/" target="_blank" rel="noopener noreferrer">verra.org/project/vvb ↗</a></td></tr>
+            <tr><td>Public Consultations</td><td><a href="https://verra.org/consultations/" target="_blank" rel="noopener noreferrer">verra.org/consultations ↗</a></td></tr>
+            <tr><td>Project Database</td><td><a href="https://registry.verra.org/app/search/VCS" target="_blank" rel="noopener noreferrer">registry.verra.org/app/search/VCS ↗</a></td></tr>
+            <tr><td>Fee Schedule</td><td><a href="https://verra.org/wp-content/uploads/2024/11/2024-Fee-Schedule-Revision-Overview_Nov-26_Webinar.pdf" target="_blank" rel="noopener noreferrer">Fee Schedule PDF ↗</a> · <a href="https://youtu.be/G4nAP67UcKI?si=Arfn0MH1YE3NzgHa" target="_blank" rel="noopener noreferrer">Explainer video ↗</a></td></tr>
+            <tr><td>FAQs</td><td><a href="https://verra.org/frequently-asked-questions/" target="_blank" rel="noopener noreferrer">verra.org/frequently-asked-questions ↗</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="cc-subhead">Requirement Documents</p>
+      <p class="cc-subhead-sub">Set out the core principles and requirements for developing projects.</p>
+      <ul class="cc-linklist">
+        <li><a href="https://verra.org/wp-content/uploads/2025/12/VCS-Program-Guide-v5.0.pdf" target="_blank" rel="noopener noreferrer">VCS Program Guide, Version 5.0 ↗</a></li>
+        <li><a href="https://verra.org/wp-content/uploads/2025/12/VCS-Standard-v5.0.pdf" target="_blank" rel="noopener noreferrer">VCS Standard, Version 5.0 ↗</a></li>
+        <li><a href="https://verra.org/documents/vcs-methodology-requirements-v5-0/" target="_blank" rel="noopener noreferrer">VCS Methodology Requirements, v5.0 ↗</a></li>
+        <li><a href="https://verra.org/documents/vcs-program-definitions-v5-0/" target="_blank" rel="noopener noreferrer">VCS Program Definitions, v5.0 ↗</a></li>
+        <li><a href="https://verra.org/documents/verra-program-fee-schedule-v1-1/" target="_blank" rel="noopener noreferrer">Verra Program Fee Schedule, v1.1 ↗</a></li>
+      </ul>
+
+      <p class="cc-subhead">Procedural Documents</p>
+      <p class="cc-subhead-sub">Describe the steps required to perform different functions of the VCS Program.</p>
+      <ul class="cc-linklist">
+        <li><a href="https://verra.org/wp-content/uploads/2025/12/Registration-and-Issuance-Process-v5.0.pdf" target="_blank" rel="noopener noreferrer">Registration and Issuance Process, v5.0 ↗</a></li>
+        <li><a href="https://verra.org/documents/procedure-for-applying-the-afolu-non-permanence-risk-tool-v5-0/" target="_blank" rel="noopener noreferrer">Procedure for Applying the AFOLU Non-Permanence Risk Tool, v5.0 ↗</a></li>
+        <li><a href="https://verra.org/documents/afolu-non-permanence-risk-report-excel-calculation-tool-v4-2-updated-6-dec-2023/" target="_blank" rel="noopener noreferrer">AFOLU Non-Permanence Risk Report Excel Calculation Tool, v4.2 ↗</a> <span style="color:var(--color-text-secondary);">(informational only)</span></li>
+      </ul>
+
+      <p class="cc-subhead">Templates &amp; Forms — Project Development</p>
+      <ul class="cc-linklist">
+        <li><a href="https://verra.org/documents/vcs-project-description-template-v5-0a/" target="_blank" rel="noopener noreferrer">VCS Project Description Template, v5.0A ↗</a></li>
+        <li><a href="https://verra.org/documents/vcs-project-description-template-v5-0b/" target="_blank" rel="noopener noreferrer">VCS Project Description Template, v5.0B ↗</a></li>
+        <li><a href="https://verra.org/documents/methodology-idea-note-template-v5-1/" target="_blank" rel="noopener noreferrer">Methodology Idea Note Template, v5.1 ↗</a></li>
+      </ul>
+
+      <p class="cc-subhead">Templates &amp; Forms — Monitoring</p>
+      <ul class="cc-linklist">
+        <li><a href="https://verra.org/documents/vcs-monitoring-report-template-v5-0a/" target="_blank" rel="noopener noreferrer">VCS Monitoring Report Template, v5.0A ↗</a></li>
+        <li><a href="https://verra.org/documents/vcs-monitoring-report-template-v5-0b/" target="_blank" rel="noopener noreferrer">VCS Monitoring Report Template, v5.0B ↗</a></li>
+      </ul>
+
+      <p class="cc-subhead">Templates &amp; Forms — Validation &amp; Verification</p>
+      <ul class="cc-linklist">
+        <li><a href="https://verra.org/documents/vcs-validation-report-template-v5-0a/" target="_blank" rel="noopener noreferrer">VCS Validation Report Template, v5.0A ↗</a></li>
+        <li><a href="https://verra.org/documents/vcs-validation-report-template-v5-0b/" target="_blank" rel="noopener noreferrer">VCS Validation Report Template, v5.0B ↗</a></li>
+        <li><a href="https://verra.org/documents/vcs-verification-report-template-v5-0a/" target="_blank" rel="noopener noreferrer">VCS Verification Report Template, v5.0A ↗</a></li>
+        <li><a href="https://verra.org/documents/vcs-verification-report-template-v5-0b/" target="_blank" rel="noopener noreferrer">VCS Verification Report Template, v5.0B ↗</a></li>
+      </ul>
+
+      <p class="cc-subhead">Templates &amp; Forms — ESG &amp; Stakeholder</p>
+      <ul class="cc-linklist">
+        <li><a href="https://verra.org/documents/vcs-esg-risk-assessment-template-v5-0/" target="_blank" rel="noopener noreferrer">VCS ESG Risk Assessment Template, v5.0 ↗</a></li>
+        <li><a href="https://verra.org/documents/vcs-esg-risk-monitoring-report-template-v5-0/" target="_blank" rel="noopener noreferrer">VCS ESG Risk Monitoring Report Template, v5.0 ↗</a></li>
+        <li><a href="https://verra.org/documents/vcs-stakeholder-engagement-plan-template-v5-0/" target="_blank" rel="noopener noreferrer">VCS Stakeholder Engagement Plan Template, v5.0 ↗</a></li>
+      </ul>
+
+      <p class="cc-subhead">Templates &amp; Forms — Registration &amp; Issuance</p>
+      <ul class="cc-linklist">
+        <li><a href="https://verra.org/documents/registration-representation-single-pp-v5-0/" target="_blank" rel="noopener noreferrer">Registration Representation (Single PP) ↗</a></li>
+        <li><a href="https://verra.org/documents/registration-representation-multiple-pps-v5-0/" target="_blank" rel="noopener noreferrer">Registration Representation (Multiple PPs) ↗</a></li>
+        <li><a href="https://verra.org/documents/validation-representation-v5-0/" target="_blank" rel="noopener noreferrer">Validation Representation ↗</a></li>
+        <li><a href="https://verra.org/documents/verification-representation-v5-0/" target="_blank" rel="noopener noreferrer">Verification Representation ↗</a></li>
+        <li><a href="https://verra.org/documents/issuance-representation-single-pp-v5-0/" target="_blank" rel="noopener noreferrer">Issuance Representation (Single PP) ↗</a></li>
+        <li><a href="https://verra.org/documents/issuance-representation-multiple-pps-v5-0/" target="_blank" rel="noopener noreferrer">Issuance Representation (Multiple PPs) ↗</a></li>
+      </ul>
+
+      <p class="cc-subhead">Templates &amp; Forms — Registry Forms</p>
+      <ul class="cc-linklist">
+        <li><a href="https://verra.org/documents/verra-registry-communications-agreement-template-single-pp-v2-2/" target="_blank" rel="noopener noreferrer">Verra Registry Communications Agreement (Single PP) ↗</a></li>
+        <li><a href="https://verra.org/documents/verra-registry-communications-agreement-template-multiple-pps-v2-2/" target="_blank" rel="noopener noreferrer">Verra Registry Communications Agreement (Multiple PPs) ↗</a></li>
+      </ul>
+
+      <p class="cc-subhead">India's Carbon Credit Trading Scheme (CCTS)</p>
+      <ul class="cc-linklist">
+        <li><a href="https://beeindia.gov.in/WriteReadData/RTF1984/RTF-PDF-6bc4092848da03f9_1776056999.pdf" target="_blank" rel="noopener noreferrer">Accreditation Procedure and Eligibility Criteria for Accredited Carbon Verification Agency ↗</a></li>
+        <li><a href="https://beeindia.gov.in/WriteReadData/RTF1984/RTF-PDF-d9cc8e301df47417_1776057016.pdf" target="_blank" rel="noopener noreferrer">Detailed Procedure for Compliance Mechanism ↗</a></li>
+        <li><a href="https://beeindia.gov.in/WriteReadData/RTF1984/RTF-PDF-4edb9be54a4b43e6_1776057028.pdf" target="_blank" rel="noopener noreferrer">Approved Sectors in Offset Mechanism under CCTS by Central Government ↗</a></li>
+        <li><a href="https://beeindia.gov.in/WriteReadData/RTF1984/RTF-PDF-dd26de202535b101_1776055896.pdf" target="_blank" rel="noopener noreferrer">Detailed Procedure for Offset Mechanism ↗</a></li>
+        <li><a href="https://beeindia.gov.in/view_content.php?lid=571&amp;lang=1" target="_blank" rel="noopener noreferrer">Methodologies and Tools under Offset Mechanism ↗</a></li>
+        <li><a href="https://beeindia.gov.in/WriteReadData/RTF1984/RTF-PDF-5c5d4497fb37c51b_1780903047.pdf" target="_blank" rel="noopener noreferrer">Monitoring Plan Template under Compliance Mechanism ↗</a> — <a href="https://beeindia.gov.in/WriteReadData/RTF1984/RTF-XLS-bc77bc0c3997ecf1_1781768044.xlsx" target="_blank" rel="noopener noreferrer">View File (xlsx) ↗</a></li>
+      </ul>
+    </section>
+
+    <!-- ================= 11 WHO TO CONTACT ================= -->
+    <section class="cc-section" id="contacts">
+      <div class="cc-section-head"><span class="cc-section-num">12</span><h2>Who to Contact</h2></div>
+      <p class="cc-section-sub">Registries for registering and issuing credits, accredited VVBs for validation and verification, national regulatory bodies, and carbon exchanges for selling credits once issued.</p>
+
+      <p class="cc-subhead" style="margin-top:0;">1. Carbon Credit Registries (To Register &amp; Issue Credits)</p>
+      <p class="cc-subhead-sub">Standard-setting bodies where your Project Design Document (PDD) is listed, registered, and where credits are generated/issued.</p>
+      <div class="cc-contact-grid">
+        <div class="cc-contact-card">
+          <p class="cc-contact-role">Verra (VCS)</p>
+          <p class="cc-contact-name">General &amp; Project Secretariat</p>
+          <p class="cc-contact-detail"><a href="mailto:secretariat@verra.org">secretariat@verra.org</a></p>
+          <p class="cc-contact-detail" style="margin-top:6px;"><strong>Registry &amp; Account Management:</strong> <a href="mailto:registry@verra.org">registry@verra.org</a></p>
+        </div>
+        <div class="cc-contact-card">
+          <p class="cc-contact-role">Gold Standard</p>
+          <p class="cc-contact-name">Project Enquiries &amp; Support Desk</p>
+          <p class="cc-contact-detail">Project Enquiries: <a href="mailto:help@goldstandard.org">help@goldstandard.org</a></p>
+          <p class="cc-contact-detail" style="margin-top:6px;">Support Desk: <a href="mailto:registry@goldstandard.org">registry@goldstandard.org</a></p>
+        </div>
+        <div class="cc-contact-card">
+          <p class="cc-contact-role">Bureau of Energy Efficiency (BEE)</p>
+          <p class="cc-contact-name">Indian Compliance Market (CCTS)</p>
+          <p class="cc-contact-detail">For projects under India's national Carbon Credit Trading Scheme (CCTS).<br><a href="mailto:helpdesk-ccts@beeindia.gov.in">helpdesk-ccts@beeindia.gov.in</a> / <a href="mailto:admin-bee@nic.in">admin-bee@nic.in</a><br>+91 11 26178352<br>Ministry of Power, 4th Floor, Sewa Bhawan, R.K. Puram, New Delhi – 110066</p>
+        </div>
+      </div>
+
+      <p class="cc-subhead">2. Accredited Validation &amp; Verification Bodies (VVBs) in India</p>
+      <p class="cc-subhead-sub">Independent auditors who conduct site visits, audit your PDD, and verify emission reductions before credits can be issued.</p>
+      <div class="cc-contact-grid">
+        <div class="cc-contact-card">
+          <p class="cc-contact-name">Carbon Check (India) Private Ltd.</p>
+          <p class="cc-contact-detail"><a href="mailto:info@carboncheck.co.in">info@carboncheck.co.in</a><br>+91 88914 47009<br>Unit No. 1505-1508, Bhutani Office Tower, Plot No. BW-58, Sector 32, Noida, Uttar Pradesh, India</p>
+        </div>
+        <div class="cc-contact-card">
+          <p class="cc-contact-name">TÜV SÜD South Asia Pvt. Ltd.</p>
+          <p class="cc-contact-detail"><a href="mailto:info.in@tuvsud.com">info.in@tuvsud.com</a><br>+91 22 67545666<br>Off Saki Vihar Road, Saki Naka, Andheri (East), Mumbai - 400072, Maharashtra, India</p>
+        </div>
+        <div class="cc-contact-card">
+          <p class="cc-contact-name">Bureau Veritas India Private Limited</p>
+          <p class="cc-contact-detail"><a href="mailto:bvindia.corporate@bureauveritas.com">bvindia.corporate@bureauveritas.com</a><br>Corporate Office: +91 22 6274 2000<br>Call: +91 970 272 1828 / +91 996 781 1828</p>
+        </div>
+        <div class="cc-contact-card">
+          <p class="cc-contact-name">Earthood Services Private Limited</p>
+          <p class="cc-contact-detail"><a href="mailto:info@earthood.in">info@earthood.in</a><br>+91 1244204599<br>Gurugram, Haryana</p>
+        </div>
+      </div>
+
+      <p class="cc-subhead">3. National Regulatory &amp; Accreditation Bodies</p>
+      <p class="cc-subhead-sub">Government and national bodies overseeing carbon market compliance, local environmental clearances, and accreditation of local auditors in India.</p>
+      <div class="cc-contact-grid">
+        <div class="cc-contact-card">
+          <p class="cc-contact-name">National Accreditation Board for Certification Bodies (NABCB)</p>
+          <p class="cc-contact-detail"><a href="mailto:contact.nabcb@qcin.org">contact.nabcb@qcin.org</a><br>011-26186680<br>World Trade Centre, J 200, Block J, Nauroji Nagar, New Delhi-110029<br><a href="https://nabcb.qci.org.in/" target="_blank" rel="noopener noreferrer">nabcb.qci.org.in ↗</a></p>
+        </div>
+        <div class="cc-contact-card">
+          <p class="cc-contact-role">Ministry of Environment, Forest and Climate Change (MoEFCC)</p>
+          <p class="cc-contact-name">Shri Ved Prakash Mishra, Joint Secretary</p>
+          <p class="cc-contact-detail"><a href="mailto:itdiv-moefcc@gov.in">itdiv-moefcc@gov.in</a><br>+91-11-20819265<br>Indira Paryavaran Bhawan, Jor Bagh Road, New Delhi – 110003<br><a href="https://moef.gov.in/" target="_blank" rel="noopener noreferrer">moef.gov.in ↗</a></p>
+        </div>
+      </div>
+
+      <p class="cc-subhead">4. Carbon Exchanges &amp; Marketplaces (To Sell Credits)</p>
+      <p class="cc-subhead-sub">Once credits are issued into your registry account, you trade or sell them through brokers, carbon exchanges, or direct buyers.</p>
+      <div class="cc-contact-grid">
+        <div class="cc-contact-card">
+          <p class="cc-contact-name">Indian Energy Exchange (IEX)</p>
+          <p class="cc-contact-detail"><a href="mailto:contact@iexindia.com">contact@iexindia.com</a><br>+91 120 464 8100<br>Plot No. C-001/A/1, 9th Floor, Max Towers, Sector-16B, Noida, Gautam Buddha Nagar, Uttar Pradesh – 201301, India<br><a href="https://www.iexindia.com" target="_blank" rel="noopener noreferrer">iexindia.com ↗</a><br><em>Market Operations (Carbon &amp; Trading Queries):</em> <a href="mailto:iex-operations@iexindia.com">iex-operations@iexindia.com</a> · +91 120 464 8240 / 464 8253 / 464 8254</p>
+        </div>
+        <div class="cc-contact-card">
+          <p class="cc-contact-name">International Carbon Exchange (ICX)</p>
+          <p class="cc-contact-detail"><a href="mailto:IRECsupport@icx-international.com">IRECsupport@icx-international.com</a><br>+91 120 464 8253, +91 88392 61049<br>Registered Office: 1st Floor, Unit No. 1.14(a), Avanta Business Centre, D-2, Southern Park, District Centre, Saket, New Delhi – 110017, India<br>Corporate Office: Plot No. C-001/A/A, 9th Floor, Max Towers, Sector-16B, Gautam Buddha Nagar, Noida, Uttar Pradesh – 201301, India<br><a href="https://www.icx-international.com" target="_blank" rel="noopener noreferrer">icx-international.com ↗</a></p>
+        </div>
+        <div class="cc-contact-card">
+          <p class="cc-contact-name">Power Exchange India Limited (PXIL)</p>
+          <p class="cc-contact-detail"><a href="mailto:info@pxil.co.in">info@pxil.co.in</a><br>Market Support: <a href="mailto:marketoperation@pxil.co.in">marketoperation@pxil.co.in</a><br>+91 22 4009 6600 · Market Support Helpline: +91 22 4009 6695 / 6697 / 6660<br>101–104, 1st Floor, Inizio, Cardinal Gracious Road, Chakala, Andheri (East), Mumbai – 400099, India<br><a href="https://www.pxil.co.in" target="_blank" rel="noopener noreferrer">pxil.co.in ↗</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 12 FAQ ================= -->
+    <section class="cc-section" id="faq">
+      <div class="cc-section-head"><span class="cc-section-num">13</span><h2>Frequently Asked Questions</h2></div>
+      <p class="cc-section-sub">Grouped by topic, based on Verra's own official FAQ structure.</p>
+
+      <div class="cc-faq-group">
+        <h3>Project Specific — Projects</h3>
+        <div class="cc-faq" data-faq-group="projects"></div>
+      </div>
+      <div class="cc-faq-group">
+        <h3>Methodologies</h3>
+        <div class="cc-faq" data-faq-group="methodologies"></div>
+      </div>
+      <div class="cc-faq-group">
+        <h3>Validation/Verification Bodies (VVBs)</h3>
+        <div class="cc-faq" data-faq-group="vvbs"></div>
+      </div>
+      <div class="cc-faq-group">
+        <h3>Registry</h3>
+        <div class="cc-faq" data-faq-group="registry"></div>
+      </div>
+      <div class="cc-faq-group">
+        <h3>Fees</h3>
+        <div class="cc-faq" data-faq-group="fees"></div>
+      </div>
+      <div class="cc-faq-group">
+        <h3>Trademarks</h3>
+        <div class="cc-faq" data-faq-group="trademarks"></div>
+      </div>
+      <div class="cc-faq-group">
+        <h3>General</h3>
+        <div class="cc-faq" data-faq-group="general"></div>
+      </div>
+    </section>
+
+  </div>
+
+  <div class="cc-disclaimer">
+    <div class="cc-disclaimer-box">
+      <strong>Disclaimer:</strong> the information on this page has been compiled from third-party sources, including verra.org and beeindia.gov.in, and is intended for general information only. It is not intended to be, and should not be relied upon as, legal, financial, investment, tax, regulatory, business or other professional advice. The document checklists and timelines on this page are illustrative and for guidance purposes only — as Verra's and the Indian Carbon Market's policies, procedures, templates, and eligibility requirements are periodically updated, users must consult the latest official guidance before preparing or submitting a project. Mere completion of any checklist on this page does not guarantee project eligibility, validation, registration, or credit issuance. The Coal Controller Organisation of India is not responsible for the accuracy, reliability or completeness of this information and does not warrant that it is accurate, suitable or complete; neither CCI, its employees, representatives, nor its members bear any liability arising from or relating to its use.
+    </div>
+  </div>
+
+  <footer id="site-footer-sf">
+    &copy; 2026 Coal Controller Organisation, Ministry of Coal, Government of India.&nbsp;&nbsp;
+    <a href="https://coalcontroller.gov.in/suvikalp.html" target="_blank" rel="noopener noreferrer">Original SUVIKALP tool &nearr;</a>
+  </footer>
+
+<script>
+  "use strict";
+
+  const PROCESS = [
+    {
+      title: "Confirm what your closure plan already requires",
+      body: "<p>Check your mining permit/government rules. If the law already forces you to replant the land anyway, you only earn credits for what you do beyond that legal minimum. Check this first — it can make or break the project's value.</p>"
+    },
+    {
+      title: "Open a Verra Registry account",
+      body: "<p>The Verra Registry account can be created online through the Verra Registry portal at no cost. This account serves as the official platform for registering, managing, transferring, and retiring Verified Carbon Units (VCUs) associated with the project.</p>",
+      links: [["Verra Registry","https://registry.verra.org/?utm_source=chatgpt.com"],["Verra Registry User Guide (PDF)","https://vcmintegrity.org/wp-content/uploads/2023/09/Verra-Registry-User-Guide.pdf?utm_source=chatgpt.com"]]
+    },
+    {
+      title: "Select an Approved Methodology",
+      body: "<p>Verra has different \"rulebooks\" for different activities — one for tree planting/revegetation, another for renewable energy, another for wetlands. You choose the one matching your plan; it defines exactly what you need to prove and measure.</p>",
+      links: [["Methodology","https://verra.org/program-methodology/vcs-program-standard/overview/"],["Methodology Idea Note Template, v5.1 (DOC)","https://verra.org/documents/methodology-idea-note-template-v5-1/"]]
+    },
+    {
+      title: "Prepare your Project Description",
+      body: "<p>Prepare all required project documents in accordance with the selected methodology and Verra requirements. These documents describe the project design, baseline scenario, monitoring approach, environmental and social safeguards, stakeholder engagement, and supporting legal information.</p>",
+      links: [
+        ["VCS Project Description Template v5.0A (DOC — start date before 1 Jan 2027)","https://verra.org/documents/vcs-project-description-template-v5-0a/"],
+        ["VCS Project Description Template v5.0B (DOC — start date on/after 1 Jan 2027)","https://verra.org/documents/vcs-project-description-template-v5-0b/"],
+        ["VCS ESG Risk Assessment Template, v5.0 (DOC)","https://verra.org/documents/vcs-esg-risk-assessment-template-v5-0/"],
+        ["VCS Stakeholder Engagement Plan Template, v5.0 (DOC)","https://verra.org/documents/vcs-stakeholder-engagement-plan-template-v5-0/"]
+      ]
+    },
+    {
+      title: "Validation by an Independent Auditor",
+      body: "<p>Submit the completed project documents to an accredited Validation and Verification Body (VVB). The independent auditor reviews the project design, methodology, baseline, monitoring plan, and supporting evidence to confirm compliance with the applicable programme requirements.</p>",
+      links: [
+        ["Validation and Verification Page","https://verra.org/project/vvb/"],
+        ["VCS Validation Report Template v5.0A (DOC — before 1 Jan 2027)","https://verra.org/documents/vcs-validation-report-template-v5-0a/"],
+        ["VCS Validation Report Template v5.0B (DOC — on/after 1 Jan 2027)","https://verra.org/documents/vcs-validation-report-template-v5-0b/"],
+        ["Verra VVB Directory","https://verra.org/validation-verification/?utm_source=chatgpt.com"]
+      ]
+    },
+    {
+      title: "List the project publicly (Verra Pipeline)",
+      body: "<p>After submission for registration, the project is listed on the Verra Registry for a mandatory 30-day public comment period. During this time, stakeholders and the public may review the project and provide feedback. The project proponent must address all relevant comments before registration can proceed.</p>",
+      links: [["Projects Open for Public Comment (Verra)","https://verra.org/projects-open-for-public-comment-may-18-2026/"],["Verra Public Consultations","https://verra.org/consultations/"]]
+    },
+    {
+      title: "Implement and Monitor the Project",
+      body: "<p>Once the project is registered, begin implementing the approved activities, such as afforestation, mine land restoration, renewable energy, or methane capture. Throughout implementation, monitor project performance, maintain accurate records, and collect the data required to demonstrate GHG emission reductions or removals.</p>"
+    },
+    {
+      title: "Verification",
+      body: "<p>After the monitoring period, prepare and submit the Monitoring Report to the VVB. The auditor independently verifies the monitored data, site conditions, and calculated emission reductions or removals to confirm that the project has achieved its claimed results. (v5.0A applies to projects starting on/after 1 Jan 2027; v5.0B applies to projects starting before 1 Jan 2027.)</p>",
+      links: [
+        ["VCS Monitoring Report Template, v5.0A (DOC)","https://verra.org/documents/vcs-monitoring-report-template-v5-0a/"],
+        ["VCS Monitoring Report Template, v5.0B (DOC)","https://verra.org/documents/vcs-monitoring-report-template-v5-0b/"],
+        ["VCS Verification Report Template, v5.0A (DOC)","https://verra.org/documents/vcs-verification-report-template-v5-0a/"],
+        ["VCS Verification Report Template, v5.0B (DOC)","https://verra.org/documents/vcs-verification-report-template-v5-0b/"],
+        ["VCS ESG Risk Monitoring Report Template, v5.0 (DOC)","https://verra.org/documents/vcs-esg-risk-monitoring-report-template-v5-0/"]
+      ]
+    },
+    {
+      title: "Verra Review",
+      body: "<p>Verra reviews the verification results, monitoring report, and issuance request to ensure that all programme requirements have been met. If the review is successful, the project becomes eligible for carbon credit issuance.</p>"
+    },
+    {
+      title: "Carbon Credits Issued &amp; Sold",
+      body: "<p>Following Verra's approval, Verified Carbon Units (VCUs) are issued to the project's Registry account. These carbon credits can be held, transferred, sold to buyers in the voluntary carbon market, or retired once used to offset GHG emissions.</p>",
+      links: [["Verified Carbon Units (VCUs)","https://verra.org/programs/verified-carbon-standard/verified-carbon-units-vcus"],["Verra Registry","https://registry.verra.org/?utm_source=chatgpt.com"]]
+    }
+  ];
+
+  const procAcc = document.getElementById("cc-process-acc");
+  procAcc.innerHTML = PROCESS.map((item, i) => `
+    <div class="cc-acc-row">
+      <button type="button" class="cc-acc-head">
+        <span class="cc-acc-num">${i + 1}</span>
+        <span class="cc-acc-name">${item.title}</span>
+        <svg class="cc-acc-chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg>
+      </button>
+      <div class="cc-acc-body"><div class="cc-acc-body-inner">${item.body}${item.links ? `<div class="cc-doclinks">${item.links.map(l => `<a href="${l[1]}" target="_blank" rel="noopener noreferrer">${l[0]}</a>`).join("")}</div>` : ""}</div></div>
+    </div>
+  `).join("");
+  procAcc.querySelectorAll(".cc-acc-head").forEach((btn) => {
+    btn.addEventListener("click", () => btn.closest(".cc-acc-row").classList.toggle("open"));
+  });
+  procAcc.querySelector(".cc-acc-row")?.classList.add("open");
+
+  const FAQ = {
+    projects: [
+      ["How do I develop a project?","https://verra.org/programs/verified-carbon-standard/develop-a-vcs-project/"],
+      ["How do I request registration of a project?","https://verra.org/documents/registration-and-issuance-process-v5-0/"],
+      ["How do I request issuance of credits?","https://verra.org/documents/registration-and-issuance-process-v5-0/"]
+    ],
+    methodologies: [
+      ["How do I develop a methodology?","https://verra.org/methodologies/"],
+      ["What methodologies has Verra approved?","https://verra.org/methodologies/"],
+      ["What methodologies are under development?","https://verra.org/methodologies/"]
+    ],
+    vvbs: [
+      ["How do I find a VVB?","https://verra.org/validation-verification/"],
+      ["How do I become a VVB?","https://verra.org/validation-verification/"],
+      ["Which VVBs are qualified to assess which methodologies?","https://verra.org/validation-verification/"]
+    ],
+    registry: [
+      ["What is the Verra Registry? (includes the Registry Terms of Use)","https://verra.org/registry/overview/"],
+      ["How do I open a Verra Registry account?","https://registry.verra.org/mymodule/reg/AHAgreement.asp"]
+    ],
+    fees: [
+      ["What fees does Verra charge?","https://verra.org/documents/program-fee-schedule/"]
+    ],
+    trademarks: [
+      ["Can I use one of Verra's trademarks?","https://verra.org/trademarks/"]
+    ],
+    general: [
+      ["What is Verra?","Verra is a global non-profit organisation that develops standards and programs for climate action and sustainable development. Its Verified Carbon Standard (VCS) Program certifies projects that reduce or remove greenhouse gas emissions and issues carbon credits called Verified Carbon Units (VCUs)."],
+      ["What is the Verified Carbon Standard (VCS)?","The Verified Carbon Standard (VCS) is Verra's carbon credit program that provides the rules and requirements for developing, validating, monitoring, verifying, and issuing carbon credits."],
+      ["What is a Verified Carbon Unit (VCU)?","A Verified Carbon Unit (VCU) is a carbon credit issued under the VCS Program. One VCU represents one tonne of carbon dioxide equivalent (1 tCO₂e) reduced or removed from the atmosphere."],
+      ["Is Verra a government organization?","No. Verra is an independent non-profit organization that develops internationally recognized environmental standards."],
+      ["Can a closed coal mine generate carbon credits?","Yes, if the repurposing project results in measurable and verified greenhouse gas emission reductions or carbon removals and complies with the applicable VCS requirements."],
+      ["Which mine repurposing projects may be eligible?","Depending on the methodology, eligible projects may include afforestation, agroforestry, biodiversity restoration, wetland restoration, renewable energy, and coal mine methane capture."],
+      ["Is every mine repurposing project eligible?","No. The project must satisfy the applicable eligibility requirements, including the use of an approved methodology and measurable climate benefits."],
+      ["Do I need land ownership to develop a project?","You must have the legal right to implement the project and claim the carbon benefits, such as through ownership, lease, or another valid legal agreement."],
+      ["What is a methodology?","A methodology provides the approved procedures for calculating, monitoring, and verifying greenhouse gas emission reductions or removals."],
+      ["How do I choose the right methodology?","Select the methodology that best matches your project activity and is applicable to your project type."],
+      ["Can I use my own methodology?","Only if it has been approved through Verra's methodology approval process."],
+      ["Where can I find approved methodologies?","Approved methodologies are available on the Verra website under the Methodologies section."],
+      ["What documents are required?","Typical documents include the Project Description (PDD), Monitoring Plan, Baseline Assessment, ESG Risk Assessment, Stakeholder Engagement Plan, legal documents, and validation and verification reports."],
+      ["What is a Project Description (PDD)?","The PDD is the main project document describing the project activities, methodology, baseline, monitoring plan, and other information required for project registration."],
+      ["What is a Monitoring Plan?","The Monitoring Plan explains how the project's emission reductions or removals will be measured and monitored throughout the project life."],
+      ["What is an ESG Risk Assessment?","It identifies potential environmental, social, and governance risks associated with the project and describes measures to manage those risks."],
+      ["What is validation?","Validation is an independent assessment confirming that the project design complies with VCS requirements before registration."],
+      ["What is verification?","Verification is an independent assessment confirming that the reported greenhouse gas emission reductions or removals have actually been achieved."],
+      ["What is the difference between validation and verification?","Validation assesses the project design before registration, while verification confirms the project's actual performance after implementation."],
+      ["Who performs validation and verification?","These assessments are conducted by accredited Validation and Verification Bodies (VVBs)."],
+      ["How do I find a VVB?","Verra publishes a directory of approved Validation and Verification Bodies on its website."],
+      ["What is the Verra Registry?","The Verra Registry is the official platform for registering projects and issuing, transferring, tracking, and retiring VCUs."],
+      ["How do I register my project?","After successful validation, submit a registration request through the Verra Registry along with the required documents and fees."],
+      ["Why is my project listed publicly?","Projects are published for stakeholder review and public comments before registration to ensure transparency."],
+      ["When are carbon credits issued?","Carbon credits are issued after the project's results have been independently verified and approved."],
+      ["Who owns the carbon credits?","Generally, the project proponent or the entity with the legal right to claim the project's carbon benefits."],
+      ["Can I sell my carbon credits?","Yes. Once issued, VCUs can be transferred or sold to buyers in the voluntary carbon market."],
+      ["What determines the value of carbon credits?","The value depends on factors such as project type, market demand, credit quality, buyer preferences, and co-benefits."],
+      ["Can carbon credits provide all the funding for my project?","Not necessarily. Carbon credit revenue is generally an additional source of income that can improve project viability."],
+      ["Do I need to monitor the project after registration?","Yes. Continuous monitoring is required to demonstrate ongoing project performance and support future credit issuance."],
+      ["How often is verification required?","Verification is carried out periodically according to the project's monitoring schedule and the applicable methodology."],
+      ["Can I receive more carbon credits in the future?","Yes. Additional credits may be issued after each successful monitoring and verification cycle, provided the project continues to generate verified climate benefits."],
+      ["Does Verra charge fees?","Yes. Fees may apply for project registration, carbon credit issuance, registry services, and other activities."],
+      ["How long does the certification process take?","The timeline depends on project complexity, documentation, validation, review, monitoring, and verification. Many projects take several months to over a year before the first credits are issued."],
+      ["Can a project receive carbon credits and other green finance?","It depends on the rules of the financing mechanism and the carbon standard. Projects must avoid double counting of environmental benefits."],
+      ["What happens after carbon credits are sold?","The buyer may hold the credits or retire them. Once retired, the credits cannot be transferred or claimed again."],
+      ["Where can I find official Verra documents?","Official standards, methodologies, templates, guidance documents, and registry information are available on the Verra website."],
+      ["Where can I get technical support?","Project developers can consult accredited carbon consultants, Validation and Verification Bodies (VVBs), or contact Verra through its official support channels."]
+    ]
+  };
+
+  document.querySelectorAll(".cc-faq[data-faq-group]").forEach((container) => {
+    const items = FAQ[container.getAttribute("data-faq-group")] || [];
+    container.innerHTML = items.map(([q, a]) => {
+      const isUrl = /^https?:\/\//.test(a);
+      const answer = isUrl ? `<a href="${a}" target="_blank" rel="noopener noreferrer">${a}</a>` : a;
+      return `
+      <div class="cc-faq-row">
+        <button type="button" class="cc-faq-head">
+          <span class="cc-faq-q">${q}</span>
+          <svg class="cc-faq-chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg>
+        </button>
+        <div class="cc-faq-body"><div class="cc-faq-body-inner">${answer}</div></div>
+      </div>`;
+    }).join("");
+    container.querySelectorAll(".cc-faq-head").forEach((btn) => {
+      btn.addEventListener("click", () => btn.closest(".cc-faq-row").classList.toggle("open"));
+    });
+  });
+
+  // in-page nav active-state on scroll
+  const navLinks = Array.from(document.querySelectorAll("#cc-nav a"));
+  const sections = navLinks.map((a) => document.querySelector(a.getAttribute("href")));
+  const setActive = () => {
+    let current = sections[0];
+    const y = window.scrollY + 160;
+    sections.forEach((s) => { if (s && s.offsetTop <= y) current = s; });
+    navLinks.forEach((a) => a.classList.toggle("active", document.querySelector(a.getAttribute("href")) === current));
+  };
+  document.addEventListener("scroll", setActive, { passive: true });
+  setActive();
+</script>
+</div>
+</body>
+</html>

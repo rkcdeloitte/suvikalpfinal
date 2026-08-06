@@ -1,147 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SUVIKALP — Browse Repurposing Options | Coal Controller Organisation</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root { --font-family-base: 'Noto Sans', 'Segoe UI', sans-serif; }
-    body  { font-family: var(--font-family-base); }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SUVIKALP — Green Finance Hub | Coal Controller Organisation</title>
+<link rel="stylesheet" href="../style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root { --font-family-base: 'Noto Sans', 'Segoe UI', sans-serif; }
+  body { font-family: var(--font-family-base); }
+  .page { padding-top:70px; }
 
-    /* ── Grid ─────────────────────────────────────────────── */
-    .browse-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      margin-bottom: 28px;
-    }
-    @media (max-width: 900px)  { .browse-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 520px)  { .browse-grid { grid-template-columns: 1fr; } }
+  .gf-shell { display:grid; grid-template-columns:300px 1fr; gap:0; max-width:1320px; margin:0 auto; align-items:start; }
+  @media (max-width:860px){ .gf-shell{ grid-template-columns:1fr; } }
 
-    /* ── Card ─────────────────────────────────────────────── */
-    .browse-card {
-      position: relative;
-      height: 260px;
-      border-radius: 12px;
-      overflow: hidden;
-      cursor: pointer;
-      box-shadow: 0 4px 6px -1px rgba(0,0,0,.08), 0 2px 4px -1px rgba(0,0,0,.05);
-      transition: box-shadow 0.35s ease, transform 0.35s ease;
-    }
-    .browse-card:hover {
-      box-shadow: 0 16px 32px rgba(0,0,0,.16), 0 6px 12px rgba(0,0,0,.08);
-      transform: translateY(-3px);
-    }
+  /* Sidebar directory */
+  .gf-sidebar { border-right:1px solid var(--color-card-border); padding:26px 20px; background:var(--color-surface); position:sticky; top:70px; align-self:start; max-height:calc(100vh - 70px); overflow-y:auto; }
+  @media (max-width:860px){ .gf-sidebar{ position:static; max-height:none; border-right:none; border-bottom:1px solid var(--color-card-border); } }
+  .gf-sidebar h2 { font-family:'Inter',sans-serif; font-size:1rem; font-weight:700; margin-bottom:4px; color:var(--color-text); }
+  .gf-sidebar > p.gf-count { font-size:.78rem; color:var(--color-text-secondary); margin-bottom:16px; }
+  .gf-search-wrap { position:relative; margin-bottom:16px; }
+  .gf-search { width:100%; padding:10px 14px 10px 36px; border-radius:var(--radius-full); border:1.5px solid var(--color-border); font-family:'Inter',sans-serif; font-size:.85rem; }
+  .gf-search:focus { outline:none; border-color:var(--color-primary); }
+  .gf-search-wrap svg { position:absolute; left:12px; top:50%; transform:translateY(-50%); width:15px; height:15px; stroke:var(--color-text-secondary); pointer-events:none; }
+  .gf-list { display:flex; flex-direction:column; gap:2px; }
+  .gf-list-item { display:flex; align-items:center; gap:10px; padding:9px 10px; border-radius:var(--radius); text-decoration:none; color:var(--color-text); font-size:.85rem; font-weight:500; transition: background .15s, color .15s; cursor:pointer; border:none; background:none; width:100%; text-align:left; font-family:inherit; }
+  .gf-list-item:hover, .gf-list-item.active { background:var(--color-teal-bg); color:var(--color-primary); font-weight:600; }
+  .gf-list-item img { width:30px; height:30px; border-radius:6px; object-fit:cover; flex-shrink:0; }
+  .gf-list-item .arrow { margin-left:auto; opacity:0; transition:opacity .15s; flex-shrink:0; }
+  .gf-list-item .arrow svg { width:13px; height:13px; }
+  .gf-list-item:hover .arrow, .gf-list-item.active .arrow { opacity:1; }
+  .gf-list-empty { padding:16px 10px; font-size:.82rem; color:var(--color-text-secondary); text-align:center; }
 
-    /* Image — blurs + zooms on hover */
-    .browse-card img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      display: block;
-      filter: brightness(1.05) saturate(1.05);
-      transition: filter 0.42s ease, transform 0.42s ease;
-    }
-    .browse-card:hover img {
-      filter: blur(3.5px) brightness(0.72) saturate(1.2);
-      transform: scale(1.07);
-    }
+  /* Main panel */
+  .gf-main { padding:34px 40px 60px; }
+  @media (max-width:600px){ .gf-main{ padding:26px 18px 50px; } }
+  .gf-eyebrow { font-family:'Inter',sans-serif; font-size:.72rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--color-primary); margin-bottom:8px; }
+  .gf-main h1 { font-family:'Inter',sans-serif; font-size:1.7rem; font-weight:700; color:var(--color-text); margin-bottom:10px; letter-spacing:-.01em; }
+  .gf-main > p.lead { font-size:.9rem; color:var(--color-text-secondary); max-width:640px; line-height:1.65; margin-bottom:28px; }
 
-    /* Always-visible dark vignette — only for title legibility, no teal */
-    .browse-card-vignette {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(0,0,0,.55) 0%, transparent 45%);
-      pointer-events: none;
-    }
+  .gf-preview {
+    display:flex; gap:20px; align-items:center; background:var(--color-surface); border:1px solid var(--color-card-border);
+    border-radius:var(--radius-lg); padding:20px; box-shadow:var(--shadow-sm); margin-bottom:36px; flex-wrap:wrap;
+  }
+  .gf-preview img { width:140px; height:100px; object-fit:cover; border-radius:var(--radius); flex-shrink:0; }
+  .gf-preview-body { flex:1; min-width:220px; }
+  .gf-preview-body .gf-preview-tag { font-family:'Inter',sans-serif; font-size:.68rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--color-primary); margin-bottom:6px; }
+  .gf-preview-body h3 { font-family:'Inter',sans-serif; font-size:1.2rem; font-weight:700; margin-bottom:6px; color:var(--color-text); }
+  .gf-preview-body p { font-size:.83rem; color:var(--color-text-secondary); margin-bottom:14px; line-height:1.55; }
+  .gf-btn-primary {
+    display:inline-flex; align-items:center; gap:8px; background:var(--color-primary); color:#fff; font-family:'Inter',sans-serif;
+    font-size:.85rem; font-weight:700; padding:10px 18px; border-radius:var(--radius-full); text-decoration:none;
+    box-shadow:0 4px 12px rgba(33,128,141,.28); transition: background .2s;
+  }
+  .gf-btn-primary:hover { background:var(--color-primary-hover); }
+  .gf-btn-primary svg { width:14px; height:14px; }
 
-    /* Teal wash — hidden by default, reveals on hover */
-    .browse-card-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        to top,
-        rgba(19, 52, 59, 0.88) 0%,
-        rgba(29, 116, 128, 0.60) 50%,
-        rgba(29, 116, 128, 0.15) 100%
-      );
-      opacity: 0;
-      transition: opacity 0.38s ease;
-    }
-    .browse-card:hover .browse-card-overlay { opacity: 1; }
+  .gf-section-label { font-family:'Inter',sans-serif; font-size:.95rem; font-weight:700; color:var(--color-text); margin-bottom:4px; margin-top:6px; }
+  .gf-section-sub { font-size:.8rem; color:var(--color-text-secondary); margin-bottom:16px; }
 
-    /* Title — always pinned at bottom, slides up on hover */
-    .browse-card-title {
-      position: absolute;
-      left: 0; right: 0;
-      bottom: 14px;
-      padding: 0 14px;
-      font-family: 'Inter', 'Noto Sans', sans-serif;
-      font-weight: 700;
-      font-size: 0.82rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: #fff;
-      text-shadow: 0 1px 5px rgba(0,0,0,.5);
-      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .browse-card:hover .browse-card-title {
-      transform: translateY(-34px);
-    }
+  .gf-inst-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-bottom:44px; }
+  @media (max-width:760px){ .gf-inst-grid{ grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:420px){ .gf-inst-grid{ grid-template-columns:1fr;} }
+  .gf-inst-card { display:block; border:1.5px solid var(--color-card-border); border-radius:var(--radius-lg); padding:18px; background:var(--color-surface); text-decoration:none; transition:border-color .15s, box-shadow .15s; }
+  a.gf-inst-card:hover { border-color:var(--color-primary); box-shadow:var(--shadow-sm); }
+  .gf-inst-icon { width:38px; height:38px; border-radius:var(--radius); background:var(--color-teal-bg); display:flex; align-items:center; justify-content:center; margin-bottom:10px; font-size:1.05rem; }
+  .gf-inst-card b { display:block; font-family:'Inter',sans-serif; font-size:.88rem; color:var(--color-text); margin-bottom:4px; }
+  .gf-inst-card span { font-size:.74rem; color:var(--color-text-secondary); line-height:1.5; }
 
-    /* CTA pill — hidden below, slides up on hover */
-    .browse-card-cta {
-      position: absolute;
-      left: 14px;
-      bottom: 14px;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(255,255,255,.18);
-      border: 1px solid rgba(255,255,255,.32);
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
-      color: #fff;
-      font-family: 'Inter', 'Noto Sans', sans-serif;
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      padding: 7px 14px;
-      border-radius: 99px;
-      opacity: 0;
-      transform: translateY(12px);
-      transition: opacity 0.28s ease 0.08s, transform 0.28s ease 0.08s;
-    }
-    .browse-card:hover .browse-card-cta {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .browse-card-cta svg { width: 12px; height: 12px; stroke: #fff; flex-shrink: 0; }
-
-    /* ── Header nav pills need breathing room between them ── */
-    .header-right { gap: 10px; }
-    .header-right .header-divider { margin: 0 6px; }
-
-    /* ── Browse-page-only banner overrides ───────────────── */
-    .info-banner {
-      background: linear-gradient(120deg, #1a6b77 0%, #21808d 45%, #2da6b2 100%);
-      border-left: 4px solid rgba(255,255,255,.35);
-      box-shadow: 0 4px 18px rgba(33,128,141,.32);
-      align-items: center;
-    }
-    .info-banner .banner-title {
-      font-family: 'Inter', 'Noto Sans', sans-serif;
-      font-weight: 700;
-      font-size: 0.82rem;
-      letter-spacing: 0.03em;
-      color: rgba(255,255,255,.92);
-      line-height: 1.55;
-    }
-  </style>
+</style>
 </head>
 <body>
 
@@ -151,17 +80,13 @@
       <span class="hindi">सुविकल्प:</span> Mine Repurposing Tool
     </div>
     <div class="header-tool-sub">
-      Browse all repurposing options — click any category to explore details
+      Check preliminary eligibility for Green Bonds, Carbon Credits, GCF &amp; Green Loans
     </div>
   </div>
   <div class="header-right">
-    <a href="index.html" class="header-browse-link" aria-label="Back to Factor Analysis">
+    <a href="../browse.html" class="header-browse-link" aria-label="Back to Browse">
       <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M10 3L5 8l5 5"/></svg>
-      Back to Factor Analysis
-    </a>
-    <a href="greenfinance/green-finance.html" class="header-browse-link" aria-label="Green Finance">
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
-      Green Finance
+      Back to Browse
     </a>
     <div class="header-divider"></div>
     <a href="https://coalcontroller.gov.in/" rel="noopener" title="CCO Home">
@@ -172,92 +97,121 @@
     </a>
   </div>
 </header>
+<div class="page">
+  <div class="gf-shell">
 
-<div id="page-results" class="page">
-
-  <main class="main-content">
-    <div class="section-heading">
-      <div class="section-num">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M3 20 L9 8 L12 13 L15 8 L21 20 Z"/>
-          <path d="M10.5 5.5 A2 2 0 1 1 13.5 5.5" stroke-width="1.6"/>
-          <polyline points="13.5,4 13.5,6.5 11,6.5" stroke-width="1.6"/>
-        </svg>
+    <aside class="gf-sidebar">
+      <h2>Project categories</h2>
+      <p class="gf-count" id="gf-count">17 categories screened for green finance</p>
+      <div class="gf-search-wrap">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="7" cy="7" r="5.2"/><path d="M11 11l3.5 3.5"/></svg>
+        <input class="gf-search" id="gf-search" placeholder="Search categories…" oninput="filterList(this.value)" autocomplete="off">
       </div>
-      <h1 class="section-title">Know about Mine Repurposing Projects</h1>
-    </div>
+      <div class="gf-list" id="gf-list"></div>
+      <p class="gf-list-empty" id="gf-list-empty" style="display:none;">No categories match your search.</p>
+    </aside>
 
-    <div class="info-banner" role="region" aria-label="Browse categories">
-      <div class="banner-icon">🗂️</div>
-      <div class="banner-title">Explore all repurposing options — click any card to view detailed analysis, feasibility, case studies and expert contacts.</div>
-    </div>
+    <main class="gf-main">
+      <div class="gf-eyebrow">Green Finance</div>
+      <h1>Check eligibility, category by category</h1>
+      <p class="lead">Select a project on the left to preview its Green Finance screening — a short questionnaire that checks preliminary eligibility against Green Bonds, Carbon Credits, the Green Climate Fund (GCF) and Green Loans.</p>
 
-    <div class="browse-grid" id="browse-grid"></div>
-  </main>
+      <div class="gf-preview" id="gf-preview"></div>
 
-  <footer id="site-footer">
-    &copy; 2026 Coal Controller Organisation, Ministry of Coal, Government of India.
-  </footer>
+      <div class="gf-section-label">Financing instruments</div>
+      <p class="gf-section-sub">Every category screening checks eligibility against the same four instruments.</p>
+      <div class="gf-inst-grid">
+        <a class="gf-inst-card" href="./green-climate-fund-guide.html">
+          <div class="gf-inst-icon">🌍</div><b>Green Climate Fund</b>
+          <span>Concessional climate finance for adaptation &amp; mitigation.</span>
+        </a>
+        <a class="gf-inst-card" href="./carbon-credits-steps-to-apply.html">
+          <div class="gf-inst-icon">🍃</div><b>Carbon Credit</b>
+          <span>Verified emission-reduction credits, tradable on carbon markets.</span>
+        </a>
+        <a class="gf-inst-card" href="./green-bonds-steps-to-apply.html">
+          <div class="gf-inst-icon">📜</div><b>Green Bonds</b>
+          <span>Debt instruments earmarked for climate &amp; environmental use.</span>
+        </a>
+        <a class="gf-inst-card" href="./green-loans-steps-to-apply.html">
+          <div class="gf-inst-icon">🏦</div><b>Green Loans</b>
+          <span>Preferential lending for sustainability-linked project finance.</span>
+        </a>
+      </div>
 
+    </main>
+  </div>
+
+  <footer id="site-footer">&copy; 2026 Coal Controller Organisation, Ministry of Coal, Government of India.</footer>
 </div>
 
 <script>
-'use strict';
-
-var PHASE1 = [
-  { title: 'Adventure Tourism',            img: 'images/adventure-tourism-hero-new.jpg',          url: 'categories/adventure-tourism.html' },
-  { title: 'Agroforestry',                 img: 'images/agroforestry-about.jpg',               url: 'categories/agroforestry.html' },
-  { title: 'Amphitheatre',                 img: 'images/amphitheatre-hero.jpg',                       url: 'categories/amphitheatre.html' },
-  { title: 'Apiculture',                   img: 'images/apiculture-about.jpg',                 url: 'categories/apiculture.html' },
-  { title: 'Aquaculture',                  img: 'images/aquaculture-thumb.jpg',                url: 'categories/aquaculture.html' },
-  { title: 'Art & Cultural Centre',        img: 'images/art-culture-hero.jpg',                url: 'categories/art-and-cultural-centre.html' },
-  { title: 'Battery Energy Storage (BESS)',img: 'images/cs-nlcil-bess.jpg',                   url: 'categories/bess.html' },
-  { title: 'Botanical Garden',             img: 'images/botanical-garden-hero1.jpg',           url: 'categories/botanical-garden.html' },
-  { title: 'Concrete Plants',              img: 'images/concrete-plant-bright.jpg',           url: 'categories/concrete.html' },
-  { title: 'Convention Centre',            img: 'images/convention-hero-varanasi.jpg',               url: 'categories/convention-centre.html' },
-  { title: 'Dairy Farming',               img: 'images/df-about.jpg',                        url: 'categories/dairy-farm.html' },
-  { title: 'Data Centres',                 img: 'images/dc-hero-Amazon_AWS_us-west-2.jpg',    url: 'categories/data-centre.html' },
-  { title: 'Eco Park',                     img: 'images/ecopark-hero.jpg',             url: 'categories/ecopark.html' },
-  { title: 'Floating Solar (FSPV)',         img: 'images/fspv-huainan-precedent.jpg',          url: 'categories/floating-solar.html' },
-  { title: 'Geo-Repository',               img: 'images/cs-geo-datacenter.jpg',                         url: 'categories/geo-repository.html' },
-  { title: 'Greenhouse Farming',           img: 'images/greenhouse-hero.jpg',                url: 'categories/greenhouse.html' },
-  { title: 'Heritage Museum',              img: 'images/cs/cs-heritage.jpg',            url: 'categories/heritage%20museum.html' },
-  { title: 'Industrial Hub',               img: 'images/ih-hero-industrial.jpg',              url: 'categories/industrial-hub.html' },
-  { title: 'Livelihood Centre',            img: 'images/lc-skill-training.jpg',               url: 'categories/livelihood-centre.html' },
-  { title: 'Livestock Farming',            img: 'images/ls-prec-india-buffalo.jpg',        url: 'categories/livestock.html' },
-  { title: 'Logistics Park & MMLP',        img: 'images/lp-hero-logistics.jpg',              url: 'categories/logistics-park.html' },
-  { title: 'Mine Driving School',          img: 'images/mds-hero-driving-track.png',                       url: 'categories/mining-driving-school.html' },
-  { title: 'Mushroom Cultivation',         img: 'images/mf-hero.jpg',                         url: 'categories/mushroom-farm.html' },
-  { title: 'Physics Lab / R&D Facility',   img: 'images/physics-lab-hero.jpg',               url: 'categories/physics-lab.html' },
-  { title: 'Pollinator & Wildlife Corridors', img: 'images/pollinator-thumb.jpg',             url: 'categories/pollinator-wildlife-corridors.html' },
-  { title: 'Preservation Centre',          img: 'images/pc-about.jpg',                        url: 'categories/preservation-centre.html' },
-  { title: 'Pumped Hydro Storage',         img: 'images/pumped-hydro-hero.jpg',               url: 'categories/pumped-hydro.html' },
-  { title: 'R&D Sites',                    img: 'images/iitm-research-park-hero.jpg',      url: 'categories/r&d-sites.html' },
-  { title: 'Solar PV Farms',               img: 'images/solar-pv1.jpg',                       url: 'categories/solar-pv.html' },
-  { title: 'Sports Complex',               img: 'images/sc-hero-stadium.jpg',                 url: 'categories/sports-complex.html' },
-  { title: 'Underground Park',             img: 'images/underground-park-hero.jpg',                   url: 'categories/underground-park.html' },
-  { title: 'Waste Recycling Centre',       img: 'images/recycling-hero.jpg',                  url: 'categories/recycling.html' },
-  { title: 'Wetlands Restoration',         img: 'images/wl-hero.jpg',                         url: 'categories/wetlands-restoration.html' },
-  { title: 'Wildlife Sanctuary',           img: 'images/rw-hero-deer.jpg',                    url: 'categories/wildlife-sanctuary.html' },
-  { title: 'Wind Farms',                   img: 'images/wf-hero.jpg',                         url: 'categories/wind-farm.html' },
+var CATS = [
+  { title:'Agroforestry', img:'../images/agroforestry-hero-new.jpg', url:'../categories/agroforestry-green-finance-tool.html', desc:'Timber, fruit and fodder tree systems on reclaimed mine land.' },
+  { title:'Apiculture', img:'../images/apiculture-hero.jpg', url:'../categories/apiculture-green-finance-tool.html', desc:'Beekeeping and pollination services on rehabilitated land.' },
+  { title:'Aquaculture', img:'../images/aquaculture-hero.jpg', url:'../categories/aquaculture-green-finance-tool.html', desc:'Fish and shrimp farming in flooded mine voids.' },
+  { title:'Battery Energy Storage (BESS)', img:'../images/bess-hero.jpg', url:'../categories/bess-green-finance-tool.html', desc:'Grid-scale storage repurposing mine infrastructure.' },
+  { title:'Botanical Garden', img:'../images/botanical-garden-hero1.jpg', url:'../categories/botanical-garden-green-finance-tool.html', desc:'Public gardens and conservation collections on reclaimed sites.' },
+  { title:'Dairy Farming', img:'../images/dairy-hero-cf.jpg', url:'../categories/dairy-farm-green-finance-tool.html', desc:'Dairy operations on reclaimed pasture land.' },
+  { title:'Eco Park', img:'../images/ecopark-hero.jpg', url:'../categories/ecopark-green-finance-tool.html', desc:'Recreational green space restoring former mine land.' },
+  { title:'Floating Solar (FSPV)', img:'../images/floating-solar-banner.jpg', url:'../categories/floating-solar-green-finance-tool.html', desc:'Solar arrays sited on mine-void water bodies.' },
+  { title:'Mushroom Cultivation', img:'../images/mf-hero.jpg', url:'../categories/mushroom-farm-green-finance-tool.html', desc:'Climate-controlled mushroom farming in old workings.' },
+  { title:'Pollinator / Wildlife Corridors', img:'../images/pollinator-thumb.jpg', url:'../categories/pollinator-wildlife-corridors-green-finance-tool.html', desc:'Habitat corridors linking fragmented ecosystems.' },
+  { title:'Preservation Centre / Cold Chain', img:'../images/cs-geo-preservation.jpg', url:'../categories/preservation-centre-green-finance-tool.html', desc:'Cold-chain and archival storage in stable underground voids.' },
+  { title:'Pumped Hydro Storage', img:'../images/pumped-hydro-hero.jpg', url:'../categories/pumped-hydro-green-finance-tool.html', desc:'Grid balancing using elevation difference in mine pits.' },
+  { title:'Solar PV Farms', img:'../images/solar-pv1.jpg', url:'../categories/solar-green-finance-tool.html', desc:'Ground-mounted solar on reclaimed overburden land.' },
+  { title:'Waste Recycling Centre', img:'../images/recycling-hero.jpg', url:'../categories/recycling-green-finance-tool.html', desc:'Material recovery facilities on brownfield sites.' },
+  { title:'Wetland Restoration', img:'../images/lausitzer-seenland-wetlands.jpg', url:'../categories/wetlands-restoration-green-finance-tool.html', desc:'Ecological wetlands restored from flooded mine pits.' },
+  { title:'Wildlife Sanctuary', img:'../images/rw-hero-deer.jpg', url:'../categories/wildlife-sanctuary-green-finance-tool.html', desc:'Protected habitat for native species on reclaimed land.' },
+  { title:'Wind Farms', img:'../images/wf-hero.jpg', url:'../categories/wind-farm-green-finance-tool.html', desc:'Wind generation capacity on high-elevation overburden.' }
 ];
 
-(function buildGrid() {
-  var container = document.getElementById('browse-grid');
-  var arrowSvg = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>';
+var list = document.getElementById('gf-list');
+var listEmpty = document.getElementById('gf-list-empty');
+var preview = document.getElementById('gf-preview');
+var countEl = document.getElementById('gf-count');
+countEl.textContent = CATS.length + ' categories screened for green finance';
 
-  PHASE1.forEach(function(opt) {
-    var nav = 'window.location.href=\'' + opt.url + '?from=browse\'';
-    container.innerHTML +=
-      '<div class="browse-card" onclick="' + nav + '">'
-      + '<img src="' + opt.img + '" alt="' + opt.title + '" loading="lazy">'
-      + '<div class="browse-card-vignette"></div>'
-      + '<div class="browse-card-overlay"></div>'
-      + '<div class="browse-card-title">' + opt.title + '</div>'
-      + '<div class="browse-card-cta">' + arrowSvg + ' Explore</div>'
-      + '</div>';
+var arrowSvg = '<span class="arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>';
+
+function renderPreview(c){
+  preview.innerHTML = '<img src="'+c.img+'" alt="'+c.title+'">'
+   + '<div class="gf-preview-body"><div class="gf-preview-tag">Green Finance Screening</div><h3>'+c.title+'</h3><p>'+c.desc+'</p>'
+   + '<a class="gf-btn-primary" href="'+c.url+'">Start Green Finance screening '
+   + '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></div>';
+}
+
+function setActive(a){
+  Array.prototype.forEach.call(list.children, function(el){ el.classList.remove('active'); });
+  a.classList.add('active');
+}
+
+function filterList(q){
+  q = q.toLowerCase().trim();
+  var visible = 0;
+  Array.prototype.forEach.call(list.children, function(el){
+    var match = el.dataset.title.indexOf(q) > -1;
+    el.style.display = match ? 'flex' : 'none';
+    if (match) visible++;
   });
-})();
+  listEmpty.style.display = visible === 0 ? 'block' : 'none';
+}
+
+CATS.forEach(function(c, i){
+  var btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'gf-list-item' + (i === 0 ? ' active' : '');
+  btn.dataset.title = c.title.toLowerCase();
+  btn.innerHTML = '<img src="'+c.img+'" alt="" loading="lazy">' + c.title + arrowSvg;
+  btn.addEventListener('click', function(){
+    setActive(btn);
+    renderPreview(c);
+  });
+  btn.addEventListener('dblclick', function(){ window.location.href = c.url; });
+  list.appendChild(btn);
+});
+
+renderPreview(CATS[0]);
 </script>
 
 </body>
