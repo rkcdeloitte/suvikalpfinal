@@ -762,15 +762,17 @@ function renderSpotlight(d){
   const color = sectorColor(d.sector);
   const stars = d.rating ? '★'.repeat(d.rating) + '☆'.repeat(5 - d.rating) : '';
   return `
-    <div class="spot-tag" style="--pc:${color};">
-      <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1l1.6 4.8H15l-4 3 1.5 4.9L8 10.8 3.5 13.7 5 8.8l-4-3h5.4z"/></svg>
-      Featured testimonial
-    </div>
-    <p class="spot-quote">"${escapeHtml(d.message)}"</p>
-    ${d.impact ? `<div class="spot-metric"><b>${escapeHtml(d.impact)}</b></div>` : ''}
-    <div class="spot-who">
-      <div><div class="spot-name">${escapeHtml(d.name)}</div><div class="spot-role">${escapeHtml(d.designation)}, ${escapeHtml(d.company)}</div></div>
-      ${stars ? `<span class="spot-stars">${stars}</span>` : ''}
+    <div class="spot-card" style="--pc:${color};">
+      <div class="spot-tag">
+        <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1l1.6 4.8H15l-4 3 1.5 4.9L8 10.8 3.5 13.7 5 8.8l-4-3h5.4z"/></svg>
+        Featured testimonial
+      </div>
+      <p class="spot-quote">"${escapeHtml(d.message)}"</p>
+      ${d.impact ? `<div class="spot-metric"><b>${escapeHtml(d.impact)}</b></div>` : ''}
+      <div class="spot-who">
+        <div><div class="spot-name">${escapeHtml(d.name)}</div><div class="spot-role">${escapeHtml(d.designation)}, ${escapeHtml(d.company)}</div></div>
+        ${stars ? `<span class="spot-stars">${stars}</span>` : ''}
+      </div>
     </div>
   `;
 }
