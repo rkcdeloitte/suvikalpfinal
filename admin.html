@@ -99,7 +99,7 @@ input:focus{outline:none;border-color:var(--teal-500);box-shadow:0 0 0 3px var(-
   <div class="header-right">
     <a href="testimonials.html">← Back to Testimonials</a>
     <div class="header-divider"></div>
-    <a href="https://coalcontroller.gov.in/" target="_blank" rel="noopener" title="CCO Home" class="logo-link"><img src="./CCO.png" style="height:56px;"></a>
+    <a href="https://coalcontroller.gov.in/" rel="noopener" title="CCO Home" class="logo-link"><img src="./CCO.png" style="height:56px;"></a>
   </div>
 </header>
 
@@ -296,17 +296,10 @@ async function updateStatus(id, fields){
   loadTestimonials();
 }
 
-// Only one testimonial should be featured at a time — unset any existing one first.
+// Multiple testimonials can be featured at once — they're shown as a
+// horizontally-scrolling row on the public page, so no need to unset others.
 async function toggleFeatured(id, makeFeatured){
-  if (makeFeatured) {
-    const snap = await db.collection('testimonials').where('featured','==',true).get();
-    const batch = db.batch();
-    snap.docs.forEach(doc => batch.update(doc.ref, { featured: false }));
-    batch.update(db.collection('testimonials').doc(id), { featured: true });
-    await batch.commit();
-  } else {
-    await db.collection('testimonials').doc(id).update({ featured: false });
-  }
+  await db.collection('testimonials').doc(id).update({ featured: makeFeatured });
   loadTestimonials();
 }
 
