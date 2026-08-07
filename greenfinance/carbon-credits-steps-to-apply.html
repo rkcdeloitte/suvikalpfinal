@@ -972,5 +972,17 @@
   setActive();
 </script>
 </div>
+<!-- green-finance-back-script -->
+<script>
+(function(){
+  var from = new URLSearchParams(location.search).get('from');
+  if (from) {
+    var btn = document.querySelector('.back-btn');
+    if (btn) {
+      btn.onclick = function(){ window.location.href = '../categories/' + from; };
+    }
+  }
+})();
+</script>
 </body>
 </html>

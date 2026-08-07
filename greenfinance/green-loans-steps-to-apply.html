@@ -239,7 +239,7 @@
 <div class="page">
 
   <div class="gl-backbar">
-    <button class="back-btn" onclick="window.location.href='../categories/agroforestry-green-finance-tool.html'" aria-label="Back to Green Finance">
+    <button class="back-btn" onclick="window.location.href='./green-finance.html'" aria-label="Back to Green Finance">
       <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3L5 8l5 5"/></svg>
       Back to Green Finance
     </button>
@@ -566,5 +566,17 @@
   setActive();
 </script>
 </div>
+<!-- green-finance-back-script -->
+<script>
+(function(){
+  var from = new URLSearchParams(location.search).get('from');
+  if (from) {
+    var btn = document.querySelector('.back-btn');
+    if (btn) {
+      btn.onclick = function(){ window.location.href = '../categories/' + from; };
+    }
+  }
+})();
+</script>
 </body>
 </html>
