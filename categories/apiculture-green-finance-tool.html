@@ -1094,5 +1094,21 @@
 
     renderQuestion();
   </script>
+<!-- green-finance-hub-back-script -->
+<script>
+(function(){
+  if (new URLSearchParams(location.search).get('from') === 'green-finance') {
+    var btn = document.querySelector('.back-btn');
+    if (btn) {
+      btn.onclick = function(){ window.location.href = '../greenfinance/green-finance.html'; };
+      btn.setAttribute('aria-label', 'Back to Green Finance');
+      for (var i = btn.childNodes.length - 1; i >= 0; i--) {
+        var n = btn.childNodes[i];
+        if (n.nodeType === 3 && n.textContent.trim()) { n.textContent = ' Back to Green Finance'; break; }
+      }
+    }
+  }
+})();
+</script>
 </body>
 </html>
