@@ -94,13 +94,30 @@
   .gcf-subhead:first-of-type{margin-top:0;}
   .gcf-subhead-sub{font-size:var(--fs-sm);color:var(--color-text-secondary);margin:0 0 16px;max-width:800px;line-height:1.6;}
 
-  /* ---------- sub-track block (used repeatedly within Application Procedure) ---------- */
-  .gcf-track{padding:34px 0;border-top:1px solid var(--color-card-border);scroll-margin-top:220px;}
-  .gcf-track:first-child{border-top:none;padding-top:0;}
-  .gcf-track-head{display:flex;align-items:baseline;gap:10px;margin-bottom:4px;flex-wrap:wrap;}
+  /* ---------- tab-panel behaviour (sections shown one at a time) ---------- */
+  .gcf-section{display:none;}
+  .gcf-section.gcf-active{display:block;animation:gcf-fade .25s ease;}
+  @keyframes gcf-fade{from{opacity:0;transform:translateY(4px);}to{opacity:1;transform:none;}}
+
+  /* ---------- sub-track block (used repeatedly within Application Procedure) — now an accordion card ---------- */
+  .gcf-track{
+    border:1px solid var(--color-card-border);border-radius:var(--radius-lg);background:var(--color-surface);
+    box-shadow:var(--shadow-sm);margin-bottom:14px;overflow:hidden;scroll-margin-top:220px;
+  }
+  .gcf-track:last-child{margin-bottom:0;}
+  .gcf-track-head{
+    display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:0;padding:16px 20px;cursor:pointer;
+    transition:background .15s;user-select:none;
+  }
+  .gcf-track-head:hover{background:var(--color-teal-bg);}
+  .gcf-track.gcf-open .gcf-track-head{border-bottom:1px solid var(--color-card-border);}
   .gcf-track-tag{font-size:var(--fs-xs);font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--color-teal-700);
-    background:var(--color-teal-bg);padding:3px 10px;border-radius:var(--radius-full);}
-  .gcf-track h3{margin:0 0 6px;font-size:1.15rem;font-weight:700;}
+    background:var(--color-teal-bg);padding:3px 10px;border-radius:var(--radius-full);flex-shrink:0;}
+  .gcf-track h3{margin:0;font-size:1.05rem;font-weight:700;flex:1;min-width:200px;}
+  .gcf-track-chevron{margin-left:auto;flex-shrink:0;width:16px;height:16px;color:var(--color-text-secondary);transition:transform .2s ease;}
+  .gcf-track.gcf-open .gcf-track-chevron{transform:rotate(180deg);}
+  .gcf-track-body{display:none;padding:4px 20px 22px;}
+  .gcf-track.gcf-open .gcf-track-body{display:block;}
   .gcf-track-sub{margin:0 0 18px;font-size:var(--fs-sm);color:var(--color-text-secondary);max-width:800px;line-height:1.6;}
 
   /* ---------- step flow (vertical numbered) ---------- */
@@ -409,7 +426,7 @@
         <div class="gcf-card"><p class="gcf-card-title">GCF Does Not Fund Individuals Directly</p><p class="gcf-card-desc">All GCF resources flow through Accredited Entities or, in specific cases, through the PSAA route with NDA endorsement. Individual applicants should partner with an eligible entity such as a state agency, financial institution, or NGO.</p></div>
         <div class="gcf-card"><p class="gcf-card-title">The NDA's "No-Objection" Is Central</p><p class="gcf-card-desc">For every route — Regular, SAP, PSAA, PPF — a No-Objection Letter from MoEFCC (India's NDA) confirming country ownership is a standard requirement before a proposal can proceed to the GCF Board.</p></div>
         <div class="gcf-card"><p class="gcf-card-title">Concept Notes Save Time</p><p class="gcf-card-desc">Although optional (except before a PPF request, where it is mandatory), submitting a Concept Note first is strongly encouraged — it gives early feedback and increases the "quality at entry" of the eventual Funding Proposal, reducing review time.</p></div>
-        <div class="gcf-card"><p class="gcf-card-title">Choose the Right Track for Your Project Size and Risk</p><p class="gcf-card-desc">Small, low-risk projects (GCF contribution up to USD 10 million with minimal ESS risk) should use the Simplified Approval Process (SAP) rather than the Regular track, to save time and reduce documentation.</p></div>
+        <div class="gcf-card"><p class="gcf-card-title">Choose the Right Track for Your Project Size and Risk</p><p class="gcf-card-desc">Small, low-risk projects (GCF contribution up to USD 25 million with minimal ESS risk) should use the Simplified Approval Process (SAP) rather than the Regular track, to save time and reduce documentation.</p></div>
         <div class="gcf-card"><p class="gcf-card-title">Not Accredited Yet? You Still Have Options</p><p class="gcf-card-desc">The Project-Specific Assessment Approach (PSAA) allows non-accredited entities with a strong, single project to access GCF funding without going through full institutional accreditation.</p></div>
       </div>
       <p class="gcf-inline-note">GCF has committed to completing its review of Concept Notes and Funding Proposals within 9 months or less (excluding the time proponents take to develop the proposal between the two stages).</p>
@@ -513,7 +530,7 @@
         <div class="gcf-eligibility">
           <p>Eligibility Criteria (all three must be met)</p>
           <ul>
-            <li>GCF contribution requested is up to USD 10 million.</li>
+            <li>GCF contribution requested is up to USD 25 million.</li>
             <li>Environmental &amp; Social Safeguards (ESS) category is minimal-to-none risk.</li>
             <li>Clear potential for scaling-up, transformation, and promoting a paradigm shift towards low-emission, climate-resilient development.</li>
           </ul>
@@ -1097,17 +1114,102 @@
 
 <script>
   "use strict";
-  // in-page nav active-state on scroll
+
+  /* ── Top-level tabs: show one .gcf-section at a time ───────── */
   const navLinks = Array.from(document.querySelectorAll("#gcf-nav a"));
   const sections = navLinks.map((a) => document.querySelector(a.getAttribute("href")));
-  const setActive = () => {
-    let current = sections[0];
-    const y = window.scrollY + 160;
-    sections.forEach((s) => { if (s && s.offsetTop <= y) current = s; });
-    navLinks.forEach((a) => a.classList.toggle("active", document.querySelector(a.getAttribute("href")) === current));
-  };
-  document.addEventListener("scroll", setActive, { passive: true });
-  setActive();
+
+  function activateSection(id, opts) {
+    opts = opts || {};
+    sections.forEach((s) => { if (s) s.classList.toggle("gcf-active", s.id === id); });
+    navLinks.forEach((a) => a.classList.toggle("active", a.getAttribute("href") === "#" + id));
+    if (opts.scroll !== false) {
+      const wrap = document.querySelector(".gcf-nav-wrap");
+      const y = wrap ? wrap.getBoundingClientRect().bottom + window.scrollY - 90 : 0;
+      window.scrollTo({ top: Math.max(0, y), behavior: opts.instant ? "auto" : "smooth" });
+    }
+  }
+
+  navLinks.forEach((a) => {
+    a.addEventListener("click", (e) => {
+      e.preventDefault();
+      const id = a.getAttribute("href").slice(1);
+      activateSection(id);
+      history.replaceState(null, "", "#" + id);
+    });
+  });
+
+  (function initSection() {
+    const fromHash = location.hash ? location.hash.slice(1) : null;
+    const target = fromHash && document.getElementById(fromHash);
+    // deep-linking to a track (e.g. #track-7-3) should activate its parent section, not fall back to intro
+    const parentSection = target && !target.classList.contains("gcf-section") ? target.closest(".gcf-section") : null;
+    const validSectionId = target && target.classList.contains("gcf-section") ? fromHash : (parentSection ? parentSection.id : null);
+    activateSection(validSectionId || sections[0].id, { scroll: false });
+  })();
+
+  /* ── Application Procedure: turn each .gcf-track into an accordion item ── */
+  (function initTrackAccordion() {
+    const tracks = Array.from(document.querySelectorAll(".gcf-track"));
+    const hashId = location.hash ? location.hash.slice(1) : null;
+    const hashTrack = hashId && tracks.find((t) => t.id === hashId);
+    tracks.forEach((track, i) => {
+      const head = track.querySelector(".gcf-track-head");
+      if (!head) return;
+
+      // wrap everything after the head into a collapsible body
+      const body = document.createElement("div");
+      body.className = "gcf-track-body";
+      let node = head.nextSibling;
+      while (node) {
+        const next = node.nextSibling;
+        body.appendChild(node);
+        node = next;
+      }
+      track.appendChild(body);
+
+      // chevron affordance
+      const chev = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+      chev.setAttribute("class", "gcf-track-chevron");
+      chev.setAttribute("viewBox", "0 0 16 16");
+      chev.setAttribute("fill", "none");
+      chev.setAttribute("stroke", "currentColor");
+      chev.setAttribute("stroke-width", "2");
+      chev.setAttribute("stroke-linecap", "round");
+      chev.setAttribute("stroke-linejoin", "round");
+      chev.innerHTML = '<path d="M4 6l4 4 4-4"/>';
+      head.appendChild(chev);
+
+      head.addEventListener("click", () => {
+        const willOpen = !track.classList.contains("gcf-open");
+        tracks.forEach((t) => t.classList.remove("gcf-open"));
+        if (willOpen) {
+          track.classList.add("gcf-open");
+          history.replaceState(null, "", "#" + track.id);
+        }
+      });
+
+      if (hashTrack ? track === hashTrack : i === 0) track.classList.add("gcf-open");
+    });
+
+    if (hashTrack) {
+      requestAnimationFrame(() => hashTrack.scrollIntoView({ behavior: "auto", block: "start" }));
+    }
+
+    // sub-nav within Application Procedure opens the right track
+    document.querySelectorAll(".gcf-subnav a").forEach((a) => {
+      a.addEventListener("click", (e) => {
+        e.preventDefault();
+        const id = a.getAttribute("href").slice(1);
+        const target = document.getElementById(id);
+        if (!target) return;
+        history.replaceState(null, "", "#" + id);
+        tracks.forEach((t) => t.classList.remove("gcf-open"));
+        target.classList.add("gcf-open");
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    });
+  })();
 </script>
 </div>
 <!-- green-finance-back-script -->
