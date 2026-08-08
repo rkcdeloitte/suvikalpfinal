@@ -218,7 +218,7 @@
   .gcf-checklist-box{padding:16px 18px;border-radius:var(--radius-lg);background:var(--color-surface);
     border:1px solid var(--color-card-border);box-shadow:var(--shadow-sm);margin:0;}
   .gcf-checklist-box p.gcf-cl-title{margin:0 0 8px;font-size:var(--fs-sm);font-weight:700;color:var(--color-text);}
-  .gcf-checklist-box ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:6px 20px;}
+  .gcf-checklist-box ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;}
   .gcf-checklist-box li{font-size:var(--fs-sm);line-height:1.6;color:var(--color-text-secondary);display:flex;gap:8px;align-items:flex-start;}
   .gcf-checklist-box li::before{content:"☐";flex-shrink:0;color:var(--color-teal-700);}
 
@@ -280,7 +280,6 @@
   @media (max-width:900px){
     .gcf-grid-3,.gcf-grid-4{grid-template-columns:1fr 1fr;}
     .gcf-grid-2{grid-template-columns:1fr;} .gcf-contact-grid{grid-template-columns:1fr;}
-    .gcf-checklist-box ul{grid-template-columns:1fr;}
   }
   @media (max-width:640px){
     .gcf-hero,.gcf-content,.gcf-backbar,.gcf-disclaimer,.gcf-nav-row,.gcf-nav-label,.gcf-cat-row{padding-left:18px;padding-right:18px;}
@@ -1302,7 +1301,7 @@
         if (firstInCat) {
           const id = firstInCat.getAttribute("href").slice(1);
           activateSection(id);
-          history.replaceState(null, "", "#" + id);
+          history.pushState(null, "", "#" + id);
         }
       }
     });
@@ -1340,8 +1339,14 @@
     const linkRect = link.getBoundingClientRect();
     const isClipped = linkRect.left < scrollerRect.left || linkRect.right > scrollerRect.right;
     if (!isClipped) return;
+    const max = navScroller.scrollWidth - navScroller.clientWidth;
     const target = link.offsetLeft - (navScroller.clientWidth / 2) + (link.clientWidth / 2);
-    navScroller.scrollTo({ left: Math.max(0, target), behavior: "smooth" });
+    // instant, not smooth: this is a supplementary "keep the active pill in
+    // view" affordance, not a focal animation — an animated scroll ties
+    // correctness to the animation actually finishing (frame timing that a
+    // backgrounded/throttled tab, or a user clicking rapidly through steps,
+    // can interrupt), where a plain synchronous jump can't be interrupted
+    navScroller.scrollLeft = Math.max(0, Math.min(max, target));
   }
 
   /* fade + arrow-button affordance so it's obvious there are more steps
@@ -1416,7 +1421,7 @@
       const id = btn.getAttribute("href").slice(1);
       if (!id) return;
       activateSection(id);
-      history.replaceState(null, "", "#" + id);
+      history.pushState(null, "", "#" + id);
     });
   });
 
@@ -1425,7 +1430,7 @@
       e.preventDefault();
       const id = a.getAttribute("href").slice(1);
       activateSection(id);
-      history.replaceState(null, "", "#" + id);
+      history.pushState(null, "", "#" + id);
     });
   });
 
@@ -1485,7 +1490,7 @@
         siblingsOf(track).forEach((t) => t.classList.remove("gcf-open"));
         if (willOpen) {
           track.classList.add("gcf-open");
-          history.replaceState(null, "", "#" + track.id);
+          history.pushState(null, "", "#" + track.id);
         }
       });
     });
@@ -1514,11 +1519,32 @@
         const id = a.getAttribute("href").slice(1);
         const target = document.getElementById(id);
         if (!target) return;
-        history.replaceState(null, "", "#" + id);
+        history.pushState(null, "", "#" + id);
         siblingsOf(target).forEach((t) => t.classList.remove("gcf-open"));
         target.classList.add("gcf-open");
         target.scrollIntoView({ behavior: "smooth", block: "start" });
       });
+    });
+
+    // Browser Back/Forward should step through sections/tracks too, with the
+    // same auto-scroll behaviour as clicking — every click handler above uses
+    // pushState (not replaceState) precisely so there are real history
+    // entries for Back/Forward to move through; this listener re-syncs the
+    // visible section, category, nav pill, and open track whichever
+    // direction it goes.
+    window.addEventListener("popstate", () => {
+      const hash = location.hash ? location.hash.slice(1) : null;
+      const target = hash && document.getElementById(hash);
+      const parentSection = target && !target.classList.contains("gcf-section") ? target.closest(".gcf-section") : null;
+      const sectionId = target && target.classList.contains("gcf-section") ? hash : (parentSection ? parentSection.id : sections[0].id);
+      activateSection(sectionId, { scroll: true });
+
+      const track = hash && tracks.find((t) => t.id === hash);
+      if (track) {
+        siblingsOf(track).forEach((t) => t.classList.remove("gcf-open"));
+        track.classList.add("gcf-open");
+        requestAnimationFrame(() => track.scrollIntoView({ behavior: "smooth", block: "start" }));
+      }
     });
   })();
 </script>
