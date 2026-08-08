@@ -25,7 +25,7 @@
 
   /* ---------- back / breadcrumb bar ---------- */
   .gcf-backbar{
-    max-width:1200px;margin:0 auto;padding:16px 32px 0;
+    max-width:980px;margin:0 auto;padding:16px 32px 0;
     display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;
   }
   .back-btn{
@@ -41,7 +41,7 @@
   .gcf-breadcrumb .current{color:var(--color-primary);font-weight:600;}
 
   /* ---------- hero ---------- */
-  .gcf-hero{max-width:1200px;margin:0 auto;padding:26px 32px 8px;}
+  .gcf-hero{max-width:980px;margin:0 auto;padding:26px 32px 8px;}
   .gcf-eyebrow{
     display:inline-block;font-size:var(--fs-xs);font-weight:700;letter-spacing:.07em;
     text-transform:uppercase;color:var(--color-teal-700);background:var(--color-teal-bg);
@@ -64,15 +64,16 @@
   /* ---------- in-page nav ---------- */
   .gcf-nav-wrap{position:sticky;top:72px;z-index:40;background:var(--color-background);
     border-bottom:1px solid var(--color-card-border);padding:12px 0 0;margin-top:22px;}
-  .gcf-nav-label{max-width:1200px;margin:0 auto;padding:0 32px 8px;display:flex;align-items:center;gap:8px;
+  .gcf-nav-label{max-width:980px;margin:0 auto;padding:0 32px 8px;display:flex;align-items:center;gap:8px;
     font-size:var(--fs-xs);font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--color-text-secondary);}
   .gcf-nav-label svg{width:13px;height:13px;flex-shrink:0;color:var(--color-primary);}
-  .gcf-nav{max-width:1200px;margin:0 auto;padding:0 32px 12px;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;}
+  .gcf-nav-row{position:relative;max-width:980px;margin:0 auto;padding:0 34px 12px;}
+  .gcf-nav{display:flex;gap:8px;overflow-x:auto;scroll-behavior:smooth;scrollbar-width:none;}
   .gcf-nav::-webkit-scrollbar{display:none;}
   .gcf-nav a{
     flex-shrink:0;display:flex;align-items:center;gap:7px;font-size:var(--fs-sm);font-weight:600;color:var(--color-text-secondary);
     text-decoration:none;padding:7px 14px 7px 8px;border-radius:var(--radius-full);border:1px solid var(--color-card-border);
-    background:var(--color-surface);white-space:nowrap;transition:all .15s;
+    background:var(--color-surface);white-space:nowrap;transition:all .15s;position:relative;
   }
   .gcf-nav a .gcf-nav-num{
     flex-shrink:0;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;
@@ -81,8 +82,35 @@
   .gcf-nav a:hover{color:var(--color-teal-700);border-color:var(--color-teal-border);background:var(--color-teal-bg);}
   .gcf-nav a.active{color:#fff;border-color:var(--color-primary);background:var(--color-primary);box-shadow:var(--shadow-sm);}
   .gcf-nav a.active .gcf-nav-num{background:rgba(255,255,255,.25);color:#fff;}
+  /* visited-but-not-active steps get a filled (not just outlined) number so progress is legible at a glance */
+  .gcf-nav a.visited:not(.active) .gcf-nav-num{background:var(--color-primary);color:#fff;}
   .gcf-nav-progress{height:3px;background:var(--color-card-border);position:relative;overflow:hidden;}
   .gcf-nav-progress-bar{height:100%;background:var(--color-primary);transition:width .25s ease;border-radius:0 3px 3px 0;}
+
+  /* edge fades hint that more steps sit off-screen (fixes "lost after step 6-7" complaint) */
+  .gcf-nav-row::before,.gcf-nav-row::after{
+    content:"";position:absolute;top:0;bottom:12px;width:40px;z-index:1;pointer-events:none;
+    opacity:0;transition:opacity .15s;
+  }
+  .gcf-nav-row::before{left:34px;background:linear-gradient(90deg,var(--color-background),transparent);}
+  .gcf-nav-row::after{right:34px;background:linear-gradient(270deg,var(--color-background),transparent);}
+  .gcf-nav-row.gcf-fade-left::before{opacity:1;}
+  .gcf-nav-row.gcf-fade-right::after{opacity:1;}
+
+  /* explicit scroll arrows — the fade alone wasn't a strong enough affordance */
+  .gcf-nav-scroll{
+    position:absolute;top:0;bottom:12px;z-index:2;width:28px;display:flex;align-items:center;justify-content:center;
+    border:none;background:none;cursor:pointer;color:var(--color-teal-700);opacity:1;visibility:visible;transition:opacity .15s,visibility .15s;
+  }
+  .gcf-nav-scroll span{
+    width:26px;height:26px;border-radius:50%;border:1px solid var(--color-card-border);background:var(--color-surface);
+    box-shadow:var(--shadow-sm);display:flex;align-items:center;justify-content:center;
+  }
+  .gcf-nav-scroll:hover span{border-color:var(--color-primary);background:var(--color-teal-bg);}
+  .gcf-nav-scroll svg{width:13px;height:13px;}
+  .gcf-nav-scroll-left{left:0;}
+  .gcf-nav-scroll-right{right:0;}
+  .gcf-nav-scroll.gcf-nav-scroll-hidden{opacity:0;visibility:hidden;pointer-events:none;}
 
   /* ---------- sub-nav (within Application Procedure) ---------- */
   .gcf-subnav{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 24px;}
@@ -93,7 +121,7 @@
   .gcf-subnav a:hover{text-decoration:underline;}
 
   /* ---------- content shell ---------- */
-  .gcf-content{max-width:1200px;margin:0 auto;padding:0 32px 60px;}
+  .gcf-content{max-width:980px;margin:0 auto;padding:0 32px 60px;}
   .gcf-section{padding:44px 0;border-bottom:1px solid var(--color-card-border);scroll-margin-top:140px;}
   .gcf-section:last-child{border-bottom:none;}
   .gcf-section-head{display:flex;align-items:baseline;gap:12px;margin-bottom:6px;}
@@ -210,7 +238,7 @@
   .gcf-contact-detail a{color:var(--color-teal-700);}
 
   /* ---------- disclaimer / footer ---------- */
-  .gcf-disclaimer{max-width:1200px;margin:0 auto;padding:0 32px 30px;}
+  .gcf-disclaimer{max-width:980px;margin:0 auto;padding:0 32px 30px;}
   .gcf-disclaimer-box{
     border:1px solid var(--color-card-border);background:var(--color-gray-200);border-radius:var(--radius-lg);
     padding:16px 18px;font-size:var(--fs-xs);line-height:1.65;color:var(--color-text-secondary);
@@ -228,7 +256,9 @@
     .gcf-checklist-box ul{grid-template-columns:1fr;}
   }
   @media (max-width:640px){
-    .gcf-hero,.gcf-content,.gcf-backbar,.gcf-disclaimer,.gcf-nav{padding-left:18px;padding-right:18px;}
+    .gcf-hero,.gcf-content,.gcf-backbar,.gcf-disclaimer,.gcf-nav-row,.gcf-nav-label{padding-left:18px;padding-right:18px;}
+    .gcf-nav-row{padding-left:30px;padding-right:30px;}
+    .gcf-nav-row::before{left:30px;} .gcf-nav-row::after{right:30px;}
     .gcf-grid-2,.gcf-grid-3,.gcf-grid-4{grid-template-columns:1fr;}
     .gcf-hero h1{font-size:1.5rem;}
     table.gcf-table{font-size:var(--fs-xs);}
@@ -278,21 +308,29 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h10M4 18h16"/></svg>
       <span id="gcf-nav-label-text">On this page — click a step to jump straight to it</span>
     </div>
-    <nav class="gcf-nav" id="gcf-nav">
-      <a href="#intro"><span class="gcf-nav-num">1</span>Introduction</a>
-      <a href="#governance"><span class="gcf-nav-num">2</span>Governance</a>
-      <a href="#eligibility"><span class="gcf-nav-num">3</span>Eligibility</a>
-      <a href="#rules"><span class="gcf-nav-num">4</span>Rules &amp; Policies</a>
-      <a href="#before-you-start"><span class="gcf-nav-num">5</span>Good to Know</a>
-      <a href="#instruments"><span class="gcf-nav-num">6</span>Financial Instruments</a>
-      <a href="#application"><span class="gcf-nav-num">7</span>Application Procedure</a>
-      <a href="#checklist"><span class="gcf-nav-num">8</span>Checklist</a>
-      <a href="#why-fail"><span class="gcf-nav-num">9</span>Why Proposals Fail</a>
-      <a href="#timelines"><span class="gcf-nav-num">10</span>Timelines</a>
-      <a href="#contacts"><span class="gcf-nav-num">11</span>Who to Contact</a>
-      <a href="#resources"><span class="gcf-nav-num">12</span>Resources</a>
-      <a href="#templates"><span class="gcf-nav-num">13</span>Templates</a>
-    </nav>
+    <div class="gcf-nav-row" id="gcf-nav-row">
+      <button type="button" class="gcf-nav-scroll gcf-nav-scroll-left gcf-nav-scroll-hidden" id="gcf-nav-scroll-left" aria-label="Scroll steps left">
+        <span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3L5 8l5 5"/></svg></span>
+      </button>
+      <nav class="gcf-nav" id="gcf-nav">
+        <a href="#intro"><span class="gcf-nav-num">1</span>Introduction</a>
+        <a href="#governance"><span class="gcf-nav-num">2</span>Governance</a>
+        <a href="#eligibility"><span class="gcf-nav-num">3</span>Eligibility</a>
+        <a href="#rules"><span class="gcf-nav-num">4</span>Rules &amp; Policies</a>
+        <a href="#before-you-start"><span class="gcf-nav-num">5</span>Good to Know</a>
+        <a href="#instruments"><span class="gcf-nav-num">6</span>Financial Instruments</a>
+        <a href="#application"><span class="gcf-nav-num">7</span>Application Procedure</a>
+        <a href="#checklist"><span class="gcf-nav-num">8</span>Checklist</a>
+        <a href="#why-fail"><span class="gcf-nav-num">9</span>Why Proposals Fail</a>
+        <a href="#timelines"><span class="gcf-nav-num">10</span>Timelines</a>
+        <a href="#contacts"><span class="gcf-nav-num">11</span>Who to Contact</a>
+        <a href="#resources"><span class="gcf-nav-num">12</span>Resources</a>
+        <a href="#templates"><span class="gcf-nav-num">13</span>Templates</a>
+      </nav>
+      <button type="button" class="gcf-nav-scroll gcf-nav-scroll-right gcf-nav-scroll-hidden" id="gcf-nav-scroll-right" aria-label="Scroll steps right">
+        <span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5"/></svg></span>
+      </button>
+    </div>
     <div class="gcf-nav-progress"><div class="gcf-nav-progress-bar" id="gcf-nav-progress-bar" style="width:0%"></div></div>
   </div>
 
@@ -1168,16 +1206,63 @@
   const pagerNext = document.getElementById("gcf-pager-next");
   const pagerPrevTitle = document.getElementById("gcf-pager-prev-title");
   const pagerNextTitle = document.getElementById("gcf-pager-next-title");
+  const navScroller = document.getElementById("gcf-nav");
+  const navRow = document.getElementById("gcf-nav-row");
+  const navScrollLeftBtn = document.getElementById("gcf-nav-scroll-left");
+  const navScrollRightBtn = document.getElementById("gcf-nav-scroll-right");
+  const visited = new Set();
 
   function sectionTitle(s) {
     const h2 = s.querySelector("h2");
     return h2 ? h2.textContent.replace(/^.*? — /, "").trim() : s.id;
   }
 
+  /* keep the active pill inside the visible scroll area — this is what was
+     missing when a user jumped to step 7/8/9: the pill activated but stayed
+     off-screen in the horizontally-scrolling strip, so nothing looked like
+     it had actually moved. */
+  function scrollActivePillIntoView(link) {
+    if (!navScroller || !link) return;
+    const scrollerRect = navScroller.getBoundingClientRect();
+    const linkRect = link.getBoundingClientRect();
+    const isClipped = linkRect.left < scrollerRect.left || linkRect.right > scrollerRect.right;
+    if (!isClipped) return;
+    const target = link.offsetLeft - (navScroller.clientWidth / 2) + (link.clientWidth / 2);
+    navScroller.scrollTo({ left: Math.max(0, target), behavior: "smooth" });
+  }
+
+  /* fade + arrow-button affordance so it's obvious there are more steps
+     off-screen, and so the arrows disappear once there's nothing left to scroll to */
+  function updateNavScrollAffordance() {
+    if (!navScroller || !navRow) return;
+    const max = navScroller.scrollWidth - navScroller.clientWidth;
+    const atStart = navScroller.scrollLeft <= 2;
+    const atEnd = navScroller.scrollLeft >= max - 2;
+    const overflowing = max > 4;
+    navRow.classList.toggle("gcf-fade-left", overflowing && !atStart);
+    navRow.classList.toggle("gcf-fade-right", overflowing && !atEnd);
+    if (navScrollLeftBtn) navScrollLeftBtn.classList.toggle("gcf-nav-scroll-hidden", !overflowing || atStart);
+    if (navScrollRightBtn) navScrollRightBtn.classList.toggle("gcf-nav-scroll-hidden", !overflowing || atEnd);
+  }
+
+  if (navScroller) {
+    navScroller.addEventListener("scroll", updateNavScrollAffordance);
+    window.addEventListener("resize", updateNavScrollAffordance);
+  }
+  if (navScrollLeftBtn) navScrollLeftBtn.addEventListener("click", () => navScroller.scrollBy({ left: -180, behavior: "smooth" }));
+  if (navScrollRightBtn) navScrollRightBtn.addEventListener("click", () => navScroller.scrollBy({ left: 180, behavior: "smooth" }));
+
   function activateSection(id, opts) {
     opts = opts || {};
     sections.forEach((s) => { if (s) s.classList.toggle("gcf-active", s.id === id); });
-    navLinks.forEach((a) => a.classList.toggle("active", a.getAttribute("href") === "#" + id));
+    visited.add(id);
+    let activeLink = null;
+    navLinks.forEach((a) => {
+      const isActive = a.getAttribute("href") === "#" + id;
+      a.classList.toggle("active", isActive);
+      a.classList.toggle("visited", visited.has(a.getAttribute("href").slice(1)));
+      if (isActive) activeLink = a;
+    });
 
     const idx = sections.findIndex((s) => s && s.id === id);
     if (idx > -1) {
@@ -1196,6 +1281,9 @@
         else { pagerNextTitle.textContent = ""; }
       }
     }
+
+    if (activeLink) scrollActivePillIntoView(activeLink);
+    requestAnimationFrame(updateNavScrollAffordance);
 
     if (opts.scroll !== false) {
       const wrap = document.querySelector(".gcf-nav-wrap");
