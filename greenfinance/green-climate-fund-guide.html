@@ -1217,6 +1217,23 @@
     return h2 ? h2.textContent.replace(/^.*? — /, "").trim() : s.id;
   }
 
+  /* Every tab should land in the exact same spot: right below the sticky nav.
+     The previous formula (`wrap.getBoundingClientRect().bottom + window.scrollY`)
+     silently depended on wherever the page happened to be scrolled to *before*
+     the click — since sections swap via display:none/block, a user who had
+     scrolled deep into a long section (e.g. Application Procedure) would land
+     somewhere random in a short one (e.g. Good to Know), or past its end
+     entirely. .gcf-nav-wrap's un-stuck position in the flow is constant
+     (everything above it — header, backbar, hero — never changes size when
+     the active section changes), so anchoring off wrap.offsetTop instead of
+     the live scroll position gives every tab the same, correct landing point. */
+  function navLandingTarget() {
+    const wrap = document.querySelector(".gcf-nav-wrap");
+    if (!wrap) return 0;
+    const stickyTop = parseFloat(getComputedStyle(wrap).top) || 0;
+    return Math.max(0, wrap.offsetTop - stickyTop);
+  }
+
   /* keep the active pill inside the visible scroll area — this is what was
      missing when a user jumped to step 7/8/9: the pill activated but stayed
      off-screen in the horizontally-scrolling strip, so nothing looked like
@@ -1286,9 +1303,7 @@
     requestAnimationFrame(updateNavScrollAffordance);
 
     if (opts.scroll !== false) {
-      const wrap = document.querySelector(".gcf-nav-wrap");
-      const y = wrap ? wrap.getBoundingClientRect().bottom + window.scrollY - 90 : 0;
-      window.scrollTo({ top: Math.max(0, y), behavior: opts.instant ? "auto" : "smooth" });
+      window.scrollTo({ top: navLandingTarget(), behavior: opts.instant ? "auto" : "smooth" });
     }
   }
 
