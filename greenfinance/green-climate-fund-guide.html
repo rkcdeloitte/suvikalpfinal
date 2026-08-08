@@ -63,15 +63,26 @@
 
   /* ---------- in-page nav ---------- */
   .gcf-nav-wrap{position:sticky;top:72px;z-index:40;background:var(--color-background);
-    border-bottom:1px solid var(--color-card-border);padding:10px 0;margin-top:22px;}
-  .gcf-nav{max-width:1200px;margin:0 auto;padding:0 32px;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;}
+    border-bottom:1px solid var(--color-card-border);padding:12px 0 0;margin-top:22px;}
+  .gcf-nav-label{max-width:1200px;margin:0 auto;padding:0 32px 8px;display:flex;align-items:center;gap:8px;
+    font-size:var(--fs-xs);font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--color-text-secondary);}
+  .gcf-nav-label svg{width:13px;height:13px;flex-shrink:0;color:var(--color-primary);}
+  .gcf-nav{max-width:1200px;margin:0 auto;padding:0 32px 12px;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;}
   .gcf-nav::-webkit-scrollbar{display:none;}
   .gcf-nav a{
-    flex-shrink:0;font-size:var(--fs-sm);font-weight:600;color:var(--color-text-secondary);
-    text-decoration:none;padding:7px 14px;border-radius:var(--radius-full);border:1px solid var(--color-card-border);
+    flex-shrink:0;display:flex;align-items:center;gap:7px;font-size:var(--fs-sm);font-weight:600;color:var(--color-text-secondary);
+    text-decoration:none;padding:7px 14px 7px 8px;border-radius:var(--radius-full);border:1px solid var(--color-card-border);
     background:var(--color-surface);white-space:nowrap;transition:all .15s;
   }
-  .gcf-nav a:hover, .gcf-nav a.active{color:var(--color-teal-700);border-color:var(--color-primary);background:var(--color-teal-bg);}
+  .gcf-nav a .gcf-nav-num{
+    flex-shrink:0;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    font-size:.68rem;font-weight:800;background:var(--color-teal-bg);color:var(--color-teal-700);transition:all .15s;
+  }
+  .gcf-nav a:hover{color:var(--color-teal-700);border-color:var(--color-teal-border);background:var(--color-teal-bg);}
+  .gcf-nav a.active{color:#fff;border-color:var(--color-primary);background:var(--color-primary);box-shadow:var(--shadow-sm);}
+  .gcf-nav a.active .gcf-nav-num{background:rgba(255,255,255,.25);color:#fff;}
+  .gcf-nav-progress{height:3px;background:var(--color-card-border);position:relative;overflow:hidden;}
+  .gcf-nav-progress-bar{height:100%;background:var(--color-primary);transition:width .25s ease;border-radius:0 3px 3px 0;}
 
   /* ---------- sub-nav (within Application Procedure) ---------- */
   .gcf-subnav{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 24px;}
@@ -98,6 +109,22 @@
   .gcf-section{display:none;}
   .gcf-section.gcf-active{display:block;animation:gcf-fade .25s ease;}
   @keyframes gcf-fade{from{opacity:0;transform:translateY(4px);}to{opacity:1;transform:none;}}
+
+  /* ---------- prev/next pager (guided flow between sections) ---------- */
+  .gcf-pager{display:flex;justify-content:space-between;gap:12px;margin-top:8px;padding-top:28px;border-top:1px solid var(--color-card-border);}
+  .gcf-pager-btn{
+    display:flex;align-items:center;gap:10px;flex:1;max-width:340px;padding:12px 16px;border-radius:var(--radius-lg);
+    border:1px solid var(--color-card-border);background:var(--color-surface);text-decoration:none;transition:all .15s;
+  }
+  .gcf-pager-btn:hover{border-color:var(--color-primary);background:var(--color-teal-bg);box-shadow:var(--shadow-sm);}
+  .gcf-pager-btn svg{width:15px;height:15px;flex-shrink:0;color:var(--color-primary);}
+  .gcf-pager-btn span{display:flex;flex-direction:column;gap:2px;min-width:0;}
+  .gcf-pager-btn em{font-style:normal;font-size:var(--fs-xs);font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--color-text-secondary);}
+  .gcf-pager-btn strong{font-size:var(--fs-sm);font-weight:700;color:var(--color-text-primary);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .gcf-pager-next{margin-left:auto;text-align:right;}
+  .gcf-pager-next span{align-items:flex-end;}
+  .gcf-pager-prev.gcf-pager-hidden,.gcf-pager-next.gcf-pager-hidden{visibility:hidden;}
+  @media (max-width:600px){.gcf-pager-btn strong{white-space:normal;}}
 
   /* ---------- sub-track block (used repeatedly within Application Procedure) — now an accordion card ---------- */
   .gcf-track{
@@ -247,21 +274,26 @@
   </div>
 
   <div class="gcf-nav-wrap">
+    <div class="gcf-nav-label">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h10M4 18h16"/></svg>
+      <span id="gcf-nav-label-text">On this page — click a step to jump straight to it</span>
+    </div>
     <nav class="gcf-nav" id="gcf-nav">
-      <a href="#intro">Introduction</a>
-      <a href="#governance">Governance</a>
-      <a href="#eligibility">Eligibility</a>
-      <a href="#rules">Rules &amp; Policies</a>
-      <a href="#before-you-start">Good to Know</a>
-      <a href="#instruments">Financial Instruments</a>
-      <a href="#application">Application Procedure</a>
-      <a href="#checklist">Checklist</a>
-      <a href="#why-fail">Why Proposals Fail</a>
-      <a href="#timelines">Timelines</a>
-      <a href="#contacts">Who to Contact</a>
-      <a href="#resources">Resources</a>
-      <a href="#templates">Templates</a>
+      <a href="#intro"><span class="gcf-nav-num">1</span>Introduction</a>
+      <a href="#governance"><span class="gcf-nav-num">2</span>Governance</a>
+      <a href="#eligibility"><span class="gcf-nav-num">3</span>Eligibility</a>
+      <a href="#rules"><span class="gcf-nav-num">4</span>Rules &amp; Policies</a>
+      <a href="#before-you-start"><span class="gcf-nav-num">5</span>Good to Know</a>
+      <a href="#instruments"><span class="gcf-nav-num">6</span>Financial Instruments</a>
+      <a href="#application"><span class="gcf-nav-num">7</span>Application Procedure</a>
+      <a href="#checklist"><span class="gcf-nav-num">8</span>Checklist</a>
+      <a href="#why-fail"><span class="gcf-nav-num">9</span>Why Proposals Fail</a>
+      <a href="#timelines"><span class="gcf-nav-num">10</span>Timelines</a>
+      <a href="#contacts"><span class="gcf-nav-num">11</span>Who to Contact</a>
+      <a href="#resources"><span class="gcf-nav-num">12</span>Resources</a>
+      <a href="#templates"><span class="gcf-nav-num">13</span>Templates</a>
     </nav>
+    <div class="gcf-nav-progress"><div class="gcf-nav-progress-bar" id="gcf-nav-progress-bar" style="width:0%"></div></div>
   </div>
 
   <div class="gcf-content">
@@ -1100,6 +1132,17 @@
       </div>
     </section>
 
+    <nav class="gcf-pager" id="gcf-pager" aria-label="Section navigation">
+      <a href="#" class="gcf-pager-btn gcf-pager-prev" id="gcf-pager-prev">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3L5 8l5 5"/></svg>
+        <span><em>Previous</em><strong id="gcf-pager-prev-title"></strong></span>
+      </a>
+      <a href="#" class="gcf-pager-btn gcf-pager-next" id="gcf-pager-next">
+        <span><em>Next</em><strong id="gcf-pager-next-title"></strong></span>
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5"/></svg>
+      </a>
+    </nav>
+
   </div>
 
   <div class="gcf-disclaimer">
@@ -1119,16 +1162,59 @@
   const navLinks = Array.from(document.querySelectorAll("#gcf-nav a"));
   const sections = navLinks.map((a) => document.querySelector(a.getAttribute("href")));
 
+  const progressBar = document.getElementById("gcf-nav-progress-bar");
+  const navLabelText = document.getElementById("gcf-nav-label-text");
+  const pagerPrev = document.getElementById("gcf-pager-prev");
+  const pagerNext = document.getElementById("gcf-pager-next");
+  const pagerPrevTitle = document.getElementById("gcf-pager-prev-title");
+  const pagerNextTitle = document.getElementById("gcf-pager-next-title");
+
+  function sectionTitle(s) {
+    const h2 = s.querySelector("h2");
+    return h2 ? h2.textContent.replace(/^.*? — /, "").trim() : s.id;
+  }
+
   function activateSection(id, opts) {
     opts = opts || {};
     sections.forEach((s) => { if (s) s.classList.toggle("gcf-active", s.id === id); });
     navLinks.forEach((a) => a.classList.toggle("active", a.getAttribute("href") === "#" + id));
+
+    const idx = sections.findIndex((s) => s && s.id === id);
+    if (idx > -1) {
+      if (progressBar) progressBar.style.width = (((idx + 1) / sections.length) * 100) + "%";
+      if (navLabelText) navLabelText.textContent = "Step " + (idx + 1) + " of " + sections.length + " — " + sectionTitle(sections[idx]);
+
+      const prevSection = sections[idx - 1];
+      const nextSection = sections[idx + 1];
+      if (pagerPrev) {
+        pagerPrev.classList.toggle("gcf-pager-hidden", !prevSection);
+        if (prevSection) { pagerPrev.href = "#" + prevSection.id; pagerPrevTitle.textContent = sectionTitle(prevSection); }
+      }
+      if (pagerNext) {
+        pagerNext.classList.toggle("gcf-pager-hidden", !nextSection);
+        if (nextSection) { pagerNext.href = "#" + nextSection.id; pagerNextTitle.textContent = sectionTitle(nextSection); }
+        else { pagerNextTitle.textContent = ""; }
+      }
+    }
+
     if (opts.scroll !== false) {
       const wrap = document.querySelector(".gcf-nav-wrap");
       const y = wrap ? wrap.getBoundingClientRect().bottom + window.scrollY - 90 : 0;
       window.scrollTo({ top: Math.max(0, y), behavior: opts.instant ? "auto" : "smooth" });
     }
   }
+
+  [pagerPrev, pagerNext].forEach((btn) => {
+    if (!btn) return;
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      if (btn.classList.contains("gcf-pager-hidden")) return;
+      const id = btn.getAttribute("href").slice(1);
+      if (!id) return;
+      activateSection(id);
+      history.replaceState(null, "", "#" + id);
+    });
+  });
 
   navLinks.forEach((a) => {
     a.addEventListener("click", (e) => {
