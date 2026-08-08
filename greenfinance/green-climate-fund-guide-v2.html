@@ -250,7 +250,7 @@
   .gcf-linklist .gcf-ll-desc{color:var(--color-text-secondary);}
 
   /* ---------- contact directory ---------- */
-  .gcf-contact-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
+  .gcf-contact-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;}
   .gcf-contact-card{padding:16px 17px;border-radius:var(--radius-lg);border:1px solid var(--color-card-border);
     background:var(--color-surface);box-shadow:var(--shadow-sm);}
   .gcf-contact-role{font-size:var(--fs-xs);font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--color-primary);margin:0 0 6px;}
@@ -273,7 +273,7 @@
 
   @media (max-width:900px){
     .gcf-grid-3,.gcf-grid-4{grid-template-columns:1fr 1fr;}
-    .gcf-grid-2,.gcf-contact-grid{grid-template-columns:1fr;}
+    .gcf-grid-2{grid-template-columns:1fr;} .gcf-contact-grid{grid-template-columns:1fr;}
     .gcf-checklist-box ul{grid-template-columns:1fr;}
   }
   @media (max-width:640px){
@@ -1009,128 +1009,144 @@
 
       <div class="gcf-scam"><strong>Beware of scam emails or messages</strong> purporting to be from a government organisation, GCF, or their representatives offering grants, funds, compensation, or partnerships. These are phishing scams and are not associated with government, GCF, or their personnel. Always verify communications through official websites and channels.</div>
 
-      <p class="gcf-subhead">1. National Designated Authority — Ministry of Environment, Forest and Climate Change (MoEFCC), India</p>
-      <p class="gcf-subhead-sub">A National Designated Authority (NDA) is the government institution that serves as the interface between a country and the Green Climate Fund. NDAs provide broad strategic oversight of GCF's activities in the country and communicate the country's priorities for financing low-emission and climate-resilient development. For India, the Ministry of Environment, Forest and Climate Change (MoEFCC) has been designated as the NDA, and the Climate Change Division of MoEFCC functions as India's contact point for GCF. In this capacity, the NDA:</p>
-      <ul class="gcf-linklist">
-        <li>Interfaces between GCF and the country to take forward a country-driven approach to climate finance.</li>
-        <li>Recommends national climate priorities and provides strategic guidance to align GCF-funded activities with India's development and climate goals.</li>
-        <li>Nominates national institutions (Direct Access Entities) for accreditation to the Fund.</li>
-        <li>Issues the "No-Objection Letter" required for every funding proposal before it can be submitted to the GCF Board, confirming country ownership.</li>
-        <li>Coordinates readiness and capacity-building support received by India from GCF.</li>
-      </ul>
-      <div class="gcf-contact-grid">
-        <div class="gcf-contact-card">
-          <p class="gcf-contact-role">Primary Contact — Economic Advisor</p>
-          <p class="gcf-contact-name">Ms. Rajasree Ray</p>
-          <p class="gcf-contact-detail">Indira Paryavaran Bhavan, Jor Bagh Road, New Delhi – 110003, India<br>011-2081-9197<br><a href="mailto:rajasree.r@nic.in">rajasree.r@nic.in</a></p>
-        </div>
-        <div class="gcf-contact-card">
-          <p class="gcf-contact-role">Secondary Contact — Joint Secretary</p>
-          <p class="gcf-contact-name">Mr. Ved Prakash Mishra</p>
-          <p class="gcf-contact-detail">+91 11 2081 9359<br><a href="mailto:mishra.vp@gov.in">mishra.vp@gov.in</a></p>
+      <div class="gcf-subnav">
+        <a href="#contact-nda">1. NDA (MoEFCC)</a>
+        <a href="#contact-dae-india">2. DAEs — India</a>
+        <a href="#contact-dae-intl">3. DAEs — International</a>
+        <a href="#contact-secretariat">4. GCF Secretariat</a>
+      </div>
+
+      <div class="gcf-track" id="contact-nda">
+        <div class="gcf-track-head"><span class="gcf-track-tag">1</span><h3>National Designated Authority — Ministry of Environment, Forest and Climate Change (MoEFCC), India</h3></div>
+        <p class="gcf-track-sub">A National Designated Authority (NDA) is the government institution that serves as the interface between a country and the Green Climate Fund. NDAs provide broad strategic oversight of GCF's activities in the country and communicate the country's priorities for financing low-emission and climate-resilient development. For India, the Ministry of Environment, Forest and Climate Change (MoEFCC) has been designated as the NDA, and the Climate Change Division of MoEFCC functions as India's contact point for GCF. In this capacity, the NDA:</p>
+        <ul class="gcf-linklist">
+          <li>Interfaces between GCF and the country to take forward a country-driven approach to climate finance.</li>
+          <li>Recommends national climate priorities and provides strategic guidance to align GCF-funded activities with India's development and climate goals.</li>
+          <li>Nominates national institutions (Direct Access Entities) for accreditation to the Fund.</li>
+          <li>Issues the "No-Objection Letter" required for every funding proposal before it can be submitted to the GCF Board, confirming country ownership.</li>
+          <li>Coordinates readiness and capacity-building support received by India from GCF.</li>
+        </ul>
+        <div class="gcf-contact-grid">
+          <div class="gcf-contact-card">
+            <p class="gcf-contact-role">Primary Contact — Economic Advisor</p>
+            <p class="gcf-contact-name">Ms. Rajasree Ray</p>
+            <p class="gcf-contact-detail">Indira Paryavaran Bhavan, Jor Bagh Road, New Delhi – 110003, India<br>011-2081-9197<br><a href="mailto:rajasree.r@nic.in">rajasree.r@nic.in</a></p>
+          </div>
+          <div class="gcf-contact-card">
+            <p class="gcf-contact-role">Secondary Contact — Joint Secretary</p>
+            <p class="gcf-contact-name">Mr. Ved Prakash Mishra</p>
+            <p class="gcf-contact-detail">+91 11 2081 9359<br><a href="mailto:mishra.vp@gov.in">mishra.vp@gov.in</a></p>
+          </div>
         </div>
       </div>
 
-      <p class="gcf-subhead">2. Direct Access Entities (Accredited Entities) — India</p>
-      <p class="gcf-subhead-sub">These are GCF-accredited institutions in India (national or regional) through which GCF financing may be accessed without pursuing accreditation themselves. These directly access and manage GCF resources on behalf of their country. The direct access modality is intended to strengthen country ownership by enabling national institutions to design, implement and oversee climate investments aligned with national priorities. In this capacity, Direct Access Entities:</p>
-      <ul class="gcf-linklist">
-        <li>Develop GCF funding proposals in consultation with national and sub-national stakeholders, ensuring alignment with India's climate priorities and the guidance of the National Designated Authority (NDA).</li>
-        <li>Submit funding proposals directly to the GCF after obtaining the NDA's No-Objection Letter.</li>
-        <li>Manage and administer GCF financial instruments, including grants, loans, equity and guarantees, in accordance with GCF fiduciary standards.</li>
-        <li>Implement approved projects and programmes directly or through Executing Entities, while ensuring effective financial management and procurement.</li>
-        <li>Monitor implementation, measure results, and report project progress to the GCF Secretariat.</li>
-        <li>Ensure compliance with GCF environmental and social safeguards, gender policy, integrity standards and other accreditation requirements throughout the project cycle.</li>
-        <li>Mobilize additional public and private finance to increase the scale and impact of climate investments.</li>
-        <li>Strengthen national institutional capacity and contribute to long-term country ownership of climate finance.</li>
-      </ul>
-      <div class="gcf-contact-grid">
-        <div class="gcf-contact-card">
-          <p class="gcf-contact-role">NABARD</p>
-          <p class="gcf-contact-name">Mr. Shaji K V — Chairman</p>
-          <p class="gcf-contact-detail">+91 022 2653 0000<br><a href="mailto:chairmansectt@nabard.org">chairmansectt@nabard.org</a></p>
-          <p class="gcf-contact-detail" style="margin-top:6px;"><strong>Shri S D Rohilla</strong> — Chief General Manager<br>+91 8652107870 / +91 022-68120077 / +91 022-26539861<br><a href="mailto:dcas@nabard.org">dcas@nabard.org</a> / <a href="mailto:sd.rohilla@nabard.org">sd.rohilla@nabard.org</a></p>
-        </div>
-        <div class="gcf-contact-card">
-          <p class="gcf-contact-role">SIDBI</p>
-          <p class="gcf-contact-name">Ms. Mamta Kumari — Deputy General Manager</p>
-          <p class="gcf-contact-detail">+91 9555545548<br><a href="mailto:mamta@sidbi.in">mamta@sidbi.in</a> / <a href="mailto:gcf-cell@sidbi.in">gcf-cell@sidbi.in</a></p>
-          <p class="gcf-contact-detail" style="margin-top:6px;"><strong>Mr. Neeraj Verma</strong> — Assistant General Manager<br>+91 9999001090<br><a href="mailto:neerajverma@sidbi.in">neerajverma@sidbi.in</a> / <a href="mailto:gcf-cell@sidbi.in">gcf-cell@sidbi.in</a></p>
-        </div>
-        <div class="gcf-contact-card">
-          <p class="gcf-contact-role">IDFC Bank Ltd (India)</p>
-          <p class="gcf-contact-name">Mr. Ashish Kumar — Head, Financial Institutions Group</p>
-          <p class="gcf-contact-detail">Naman Chambers, C-32, G-Block, Bandra Kurla Complex, Bandra East, Mumbai, India<br>+91-22-71325700<br><a href="mailto:ashish.kumar@idfcfirstbank.com">ashish.kumar@idfcfirstbank.com</a></p>
-          <p class="gcf-contact-detail" style="margin-top:6px;"><strong>Mr. Pankaj K. Verma</strong> — Environment Risk Specialist<br>+91-11-45036177<br><a href="mailto:pankaj.verma@idfcfirstbank.com">pankaj.verma@idfcfirstbank.com</a></p>
-        </div>
-        <div class="gcf-contact-card">
-          <p class="gcf-contact-role">Yes Bank Limited (India)</p>
-          <p class="gcf-contact-name">Mr. Nitesh Chandra — EVP, Financial &amp; Investor Strategy (Sustainable Finance &amp; Reporting)</p>
-          <p class="gcf-contact-detail">YES BANK House, Off Western Express Highway, Santacruz (East), Mumbai 400055, India<br>+91 22 5092 0459<br><a href="mailto:nitesh.chandra@yesbank.in">nitesh.chandra@yesbank.in</a></p>
-          <p class="gcf-contact-detail" style="margin-top:6px;"><strong>Ms. Kriti Kuksal</strong> — VP, Financial &amp; Investor Strategy (Sustainable Finance &amp; Reporting)<br>+91 22 5092 0468<br><a href="mailto:kriti.kuksal@yesbank.in">kriti.kuksal@yesbank.in</a></p>
-        </div>
-        <div class="gcf-contact-card">
-          <p class="gcf-contact-role">Indo Enviro Integrated Solutions Private Limited (formerly IL&amp;FS Environmental Infrastructure and Services Ltd)</p>
-          <p class="gcf-contact-name">Ms. Sandeep Shrivastava — Head, ESG</p>
-          <p class="gcf-contact-detail">+91 124 429 7200 / +91 9650446631<br><a href="mailto:sshrivastava@everenviro.com">sshrivastava@everenviro.com</a></p>
-          <p class="gcf-contact-detail" style="margin-top:6px;"><strong>Mr. Vishal Banthia</strong> — Chief Financial Officer<br>+91 8080997814<br><a href="mailto:vbanthia@everenviro.com">vbanthia@everenviro.com</a></p>
-        </div>
-      </div>
-
-      <p class="gcf-subhead">3. Direct Access Entities (Accredited Entities) — International</p>
-      <p class="gcf-subhead-sub">These are international organizations accredited by the Green Climate Fund to develop, finance and implement GCF-supported projects and programmes in developing countries. These include multilateral development banks, United Nations agencies, regional development institutions and international financial institutions. They work in partnership with governments, national institutions and the National Designated Authority to support country-driven climate action. In this capacity, International Access Entities:</p>
-      <ul class="gcf-linklist">
-        <li>Partner with governments and national institutions to identify and develop climate projects and programmes aligned with national priorities.</li>
-        <li>Prepare and submit GCF funding proposals after obtaining the required No-Objection Letter from the country's NDA.</li>
-        <li>Mobilize technical expertise and co-financing from international public and private sources to leverage GCF resources.</li>
-        <li>Implement and supervise approved projects directly or through Executing Entities, ensuring effective delivery and fiduciary oversight.</li>
-        <li>Support countries in project preparation, institutional strengthening and knowledge sharing, particularly where specialized technical expertise is required.</li>
-        <li>Ensure compliance with GCF fiduciary standards, environmental and social safeguards, gender policy, monitoring and reporting requirements.</li>
-        <li>Facilitate access to international best practices, innovation and climate finance partnerships that enhance project effectiveness and scalability.</li>
-      </ul>
-      <div class="gcf-contact-grid">
-        <div class="gcf-contact-card">
-          <p class="gcf-contact-role">Asian Development Bank (ADB)</p>
-          <p class="gcf-contact-name">Ms. Nisha Krishnan — Senior Climate Change Specialist</p>
-          <p class="gcf-contact-detail"><a href="mailto:adb-gcf@adb.org">adb-gcf@adb.org</a> / <a href="mailto:nkrishnan@adb.org">nkrishnan@adb.org</a></p>
-        </div>
-        <div class="gcf-contact-card">
-          <p class="gcf-contact-role">United Nations Development Programme (UNDP)</p>
-          <p class="gcf-contact-name">Ms. Nancy Bennet — Director, Quality and Impact Hub &amp; Executive Coordinator, Vertical Funds, BPPS</p>
-          <p class="gcf-contact-detail">304 East 45th Street, FF-9th Floor, New York, United States<br>+1 212 906 5044<br><a href="mailto:nancy.bennet@undp.org">nancy.bennet@undp.org</a></p>
-          <p class="gcf-contact-detail" style="margin-top:6px;"><strong>Mr. Robin Merlier</strong> — Principal Advisor, Environmental Law and Policy, Quality and Impact Hub, BPPS<br>+1 212 906 5842<br><a href="mailto:robin.merlier@undp.org">robin.merlier@undp.org</a></p>
+      <div class="gcf-track" id="contact-dae-india">
+        <div class="gcf-track-head"><span class="gcf-track-tag">2</span><h3>Direct Access Entities (Accredited Entities) — India</h3></div>
+        <p class="gcf-track-sub">These are GCF-accredited institutions in India (national or regional) through which GCF financing may be accessed without pursuing accreditation themselves. These directly access and manage GCF resources on behalf of their country. The direct access modality is intended to strengthen country ownership by enabling national institutions to design, implement and oversee climate investments aligned with national priorities. In this capacity, Direct Access Entities:</p>
+        <ul class="gcf-linklist">
+          <li>Develop GCF funding proposals in consultation with national and sub-national stakeholders, ensuring alignment with India's climate priorities and the guidance of the National Designated Authority (NDA).</li>
+          <li>Submit funding proposals directly to the GCF after obtaining the NDA's No-Objection Letter.</li>
+          <li>Manage and administer GCF financial instruments, including grants, loans, equity and guarantees, in accordance with GCF fiduciary standards.</li>
+          <li>Implement approved projects and programmes directly or through Executing Entities, while ensuring effective financial management and procurement.</li>
+          <li>Monitor implementation, measure results, and report project progress to the GCF Secretariat.</li>
+          <li>Ensure compliance with GCF environmental and social safeguards, gender policy, integrity standards and other accreditation requirements throughout the project cycle.</li>
+          <li>Mobilize additional public and private finance to increase the scale and impact of climate investments.</li>
+          <li>Strengthen national institutional capacity and contribute to long-term country ownership of climate finance.</li>
+        </ul>
+        <div class="gcf-contact-grid">
+          <div class="gcf-contact-card">
+            <p class="gcf-contact-role">NABARD</p>
+            <p class="gcf-contact-name">Mr. Shaji K V — Chairman</p>
+            <p class="gcf-contact-detail">+91 022 2653 0000<br><a href="mailto:chairmansectt@nabard.org">chairmansectt@nabard.org</a></p>
+            <p class="gcf-contact-detail" style="margin-top:6px;"><strong>Shri S D Rohilla</strong> — Chief General Manager<br>+91 8652107870 / +91 022-68120077 / +91 022-26539861<br><a href="mailto:dcas@nabard.org">dcas@nabard.org</a> / <a href="mailto:sd.rohilla@nabard.org">sd.rohilla@nabard.org</a></p>
+          </div>
+          <div class="gcf-contact-card">
+            <p class="gcf-contact-role">SIDBI</p>
+            <p class="gcf-contact-name">Ms. Mamta Kumari — Deputy General Manager</p>
+            <p class="gcf-contact-detail">+91 9555545548<br><a href="mailto:mamta@sidbi.in">mamta@sidbi.in</a> / <a href="mailto:gcf-cell@sidbi.in">gcf-cell@sidbi.in</a></p>
+            <p class="gcf-contact-detail" style="margin-top:6px;"><strong>Mr. Neeraj Verma</strong> — Assistant General Manager<br>+91 9999001090<br><a href="mailto:neerajverma@sidbi.in">neerajverma@sidbi.in</a> / <a href="mailto:gcf-cell@sidbi.in">gcf-cell@sidbi.in</a></p>
+          </div>
+          <div class="gcf-contact-card">
+            <p class="gcf-contact-role">IDFC Bank Ltd (India)</p>
+            <p class="gcf-contact-name">Mr. Ashish Kumar — Head, Financial Institutions Group</p>
+            <p class="gcf-contact-detail">Naman Chambers, C-32, G-Block, Bandra Kurla Complex, Bandra East, Mumbai, India<br>+91-22-71325700<br><a href="mailto:ashish.kumar@idfcfirstbank.com">ashish.kumar@idfcfirstbank.com</a></p>
+            <p class="gcf-contact-detail" style="margin-top:6px;"><strong>Mr. Pankaj K. Verma</strong> — Environment Risk Specialist<br>+91-11-45036177<br><a href="mailto:pankaj.verma@idfcfirstbank.com">pankaj.verma@idfcfirstbank.com</a></p>
+          </div>
+          <div class="gcf-contact-card">
+            <p class="gcf-contact-role">Yes Bank Limited (India)</p>
+            <p class="gcf-contact-name">Mr. Nitesh Chandra — EVP, Financial &amp; Investor Strategy (Sustainable Finance &amp; Reporting)</p>
+            <p class="gcf-contact-detail">YES BANK House, Off Western Express Highway, Santacruz (East), Mumbai 400055, India<br>+91 22 5092 0459<br><a href="mailto:nitesh.chandra@yesbank.in">nitesh.chandra@yesbank.in</a></p>
+            <p class="gcf-contact-detail" style="margin-top:6px;"><strong>Ms. Kriti Kuksal</strong> — VP, Financial &amp; Investor Strategy (Sustainable Finance &amp; Reporting)<br>+91 22 5092 0468<br><a href="mailto:kriti.kuksal@yesbank.in">kriti.kuksal@yesbank.in</a></p>
+          </div>
+          <div class="gcf-contact-card">
+            <p class="gcf-contact-role">Indo Enviro Integrated Solutions Private Limited (formerly IL&amp;FS Environmental Infrastructure and Services Ltd)</p>
+            <p class="gcf-contact-name">Ms. Sandeep Shrivastava — Head, ESG</p>
+            <p class="gcf-contact-detail">+91 124 429 7200 / +91 9650446631<br><a href="mailto:sshrivastava@everenviro.com">sshrivastava@everenviro.com</a></p>
+            <p class="gcf-contact-detail" style="margin-top:6px;"><strong>Mr. Vishal Banthia</strong> — Chief Financial Officer<br>+91 8080997814<br><a href="mailto:vbanthia@everenviro.com">vbanthia@everenviro.com</a></p>
+          </div>
         </div>
       </div>
 
-      <p class="gcf-subhead">4. GCF Secretariat — India-Facing Team</p>
-      <p class="gcf-subhead-sub">The Green Climate Fund Secretariat is the independent administrative body that supports the GCF Board and manages the Fund's day-to-day operations. Within the Secretariat, regional country teams engage directly with National Designated Authorities, Accredited Entities and other stakeholders to facilitate access to GCF resources and strengthen country programming. India is supported through the Secretariat's Asia regional engagement. In this capacity, the GCF Secretariat's India-facing team:</p>
-      <ul class="gcf-linklist">
-        <li>Serves as the primary operational point of contact between the GCF and India's National Designated Authority, Accredited Entities and project proponents.</li>
-        <li>Provides technical guidance on GCF policies, funding windows, project preparation, accreditation and programming processes.</li>
-        <li>Supports the development and review of concept notes and funding proposals before their consideration by the GCF Board.</li>
-        <li>Coordinates readiness and preparatory support programmes that strengthen national institutional capacity and country programming.</li>
-        <li>Facilitates dialogue among the NDA, Accredited Entities, implementing partners and other stakeholders throughout the project cycle.</li>
-        <li>Reviews project implementation, monitoring reports, procurement, safeguards and compliance with GCF policies.</li>
-        <li>Supports the development and implementation of India's Country Programme and promotes alignment with GCF strategic priorities.</li>
-        <li>Shares knowledge, lessons learned and best practices to improve the quality and impact of GCF-supported investments.</li>
-      </ul>
-      <div class="gcf-contact-grid">
-        <div class="gcf-contact-card">
-          <p class="gcf-contact-name">Satya Shiva Saswat — Institutional Focal Point</p>
-          <p class="gcf-contact-detail"><a href="mailto:ssaswat@gcfund.org">ssaswat@gcfund.org</a></p>
-        </div>
-        <div class="gcf-contact-card">
-          <p class="gcf-contact-name">Roma Gianina Panopio — Institutional Focal Point</p>
-          <p class="gcf-contact-detail"><a href="mailto:gpanopio@gcfund.org">gpanopio@gcfund.org</a></p>
-        </div>
-        <div class="gcf-contact-card">
-          <p class="gcf-contact-name">Diane Jegam — Regional Manager</p>
-          <p class="gcf-contact-detail"><a href="mailto:diane.jegam@gcfund.org">diane.jegam@gcfund.org</a></p>
-        </div>
-        <div class="gcf-contact-card">
-          <p class="gcf-contact-name">Mayuresh Patange — Private Sector Manager</p>
-          <p class="gcf-contact-detail"><a href="mailto:mpatange@gcfund.org">mpatange@gcfund.org</a></p>
+      <div class="gcf-track" id="contact-dae-intl">
+        <div class="gcf-track-head"><span class="gcf-track-tag">3</span><h3>Direct Access Entities (Accredited Entities) — International</h3></div>
+        <p class="gcf-track-sub">These are international organizations accredited by the Green Climate Fund to develop, finance and implement GCF-supported projects and programmes in developing countries. These include multilateral development banks, United Nations agencies, regional development institutions and international financial institutions. They work in partnership with governments, national institutions and the National Designated Authority to support country-driven climate action. In this capacity, International Access Entities:</p>
+        <ul class="gcf-linklist">
+          <li>Partner with governments and national institutions to identify and develop climate projects and programmes aligned with national priorities.</li>
+          <li>Prepare and submit GCF funding proposals after obtaining the required No-Objection Letter from the country's NDA.</li>
+          <li>Mobilize technical expertise and co-financing from international public and private sources to leverage GCF resources.</li>
+          <li>Implement and supervise approved projects directly or through Executing Entities, ensuring effective delivery and fiduciary oversight.</li>
+          <li>Support countries in project preparation, institutional strengthening and knowledge sharing, particularly where specialized technical expertise is required.</li>
+          <li>Ensure compliance with GCF fiduciary standards, environmental and social safeguards, gender policy, monitoring and reporting requirements.</li>
+          <li>Facilitate access to international best practices, innovation and climate finance partnerships that enhance project effectiveness and scalability.</li>
+        </ul>
+        <div class="gcf-contact-grid">
+          <div class="gcf-contact-card">
+            <p class="gcf-contact-role">Asian Development Bank (ADB)</p>
+            <p class="gcf-contact-name">Ms. Nisha Krishnan — Senior Climate Change Specialist</p>
+            <p class="gcf-contact-detail"><a href="mailto:adb-gcf@adb.org">adb-gcf@adb.org</a> / <a href="mailto:nkrishnan@adb.org">nkrishnan@adb.org</a></p>
+          </div>
+          <div class="gcf-contact-card">
+            <p class="gcf-contact-role">United Nations Development Programme (UNDP)</p>
+            <p class="gcf-contact-name">Ms. Nancy Bennet — Director, Quality and Impact Hub &amp; Executive Coordinator, Vertical Funds, BPPS</p>
+            <p class="gcf-contact-detail">304 East 45th Street, FF-9th Floor, New York, United States<br>+1 212 906 5044<br><a href="mailto:nancy.bennet@undp.org">nancy.bennet@undp.org</a></p>
+            <p class="gcf-contact-detail" style="margin-top:6px;"><strong>Mr. Robin Merlier</strong> — Principal Advisor, Environmental Law and Policy, Quality and Impact Hub, BPPS<br>+1 212 906 5842<br><a href="mailto:robin.merlier@undp.org">robin.merlier@undp.org</a></p>
+          </div>
         </div>
       </div>
+
+      <div class="gcf-track" id="contact-secretariat">
+        <div class="gcf-track-head"><span class="gcf-track-tag">4</span><h3>GCF Secretariat — India-Facing Team</h3></div>
+        <p class="gcf-track-sub">The Green Climate Fund Secretariat is the independent administrative body that supports the GCF Board and manages the Fund's day-to-day operations. Within the Secretariat, regional country teams engage directly with National Designated Authorities, Accredited Entities and other stakeholders to facilitate access to GCF resources and strengthen country programming. India is supported through the Secretariat's Asia regional engagement. In this capacity, the GCF Secretariat's India-facing team:</p>
+        <ul class="gcf-linklist">
+          <li>Serves as the primary operational point of contact between the GCF and India's National Designated Authority, Accredited Entities and project proponents.</li>
+          <li>Provides technical guidance on GCF policies, funding windows, project preparation, accreditation and programming processes.</li>
+          <li>Supports the development and review of concept notes and funding proposals before their consideration by the GCF Board.</li>
+          <li>Coordinates readiness and preparatory support programmes that strengthen national institutional capacity and country programming.</li>
+          <li>Facilitates dialogue among the NDA, Accredited Entities, implementing partners and other stakeholders throughout the project cycle.</li>
+          <li>Reviews project implementation, monitoring reports, procurement, safeguards and compliance with GCF policies.</li>
+          <li>Supports the development and implementation of India's Country Programme and promotes alignment with GCF strategic priorities.</li>
+          <li>Shares knowledge, lessons learned and best practices to improve the quality and impact of GCF-supported investments.</li>
+        </ul>
+        <div class="gcf-contact-grid">
+          <div class="gcf-contact-card">
+            <p class="gcf-contact-name">Satya Shiva Saswat — Institutional Focal Point</p>
+            <p class="gcf-contact-detail"><a href="mailto:ssaswat@gcfund.org">ssaswat@gcfund.org</a></p>
+          </div>
+          <div class="gcf-contact-card">
+            <p class="gcf-contact-name">Roma Gianina Panopio — Institutional Focal Point</p>
+            <p class="gcf-contact-detail"><a href="mailto:gpanopio@gcfund.org">gpanopio@gcfund.org</a></p>
+          </div>
+          <div class="gcf-contact-card">
+            <p class="gcf-contact-name">Diane Jegam — Regional Manager</p>
+            <p class="gcf-contact-detail"><a href="mailto:diane.jegam@gcfund.org">diane.jegam@gcfund.org</a></p>
+          </div>
+          <div class="gcf-contact-card">
+            <p class="gcf-contact-name">Mayuresh Patange — Private Sector Manager</p>
+            <p class="gcf-contact-detail"><a href="mailto:mpatange@gcfund.org">mpatange@gcfund.org</a></p>
+          </div>
+        </div>
+      </div>
+
       <p class="gcf-inline-note">The entities presented above are provided for ease of reference and should not be interpreted as the only organisations through which Indian institutions can access GCF resources — they do not represent the full list of GCF Accredited Entities. Depending on the project sector, financial instrument, risk category, accreditation scope and geographic mandate, Indian stakeholders may engage with any suitable GCF-accredited entity. Refer to the official <a href="https://www.greenclimate.fund/partners/accredited-entities" target="_blank" rel="noopener noreferrer">GCF Accredited Entities Directory ↗</a> for the latest information.</p>
     </section>
 
@@ -1415,11 +1431,21 @@
   })();
 
   /* ── Application Procedure: turn each .gcf-track into an accordion item ── */
+  /* Two independent accordion groups now live on this page (Application
+     Procedure's 8 tracks, and Who to Contact's 4 org groups). Closing
+     "every .gcf-track on the page" when one opens would silently reset the
+     other group's state whenever a user visited both sections — scope
+     open/close to siblings within the same .gcf-section instead. */
   (function initTrackAccordion() {
     const tracks = Array.from(document.querySelectorAll(".gcf-track"));
     const hashId = location.hash ? location.hash.slice(1) : null;
     const hashTrack = hashId && tracks.find((t) => t.id === hashId);
-    tracks.forEach((track, i) => {
+    const siblingsOf = (track) => {
+      const parent = track.closest(".gcf-section");
+      return tracks.filter((t) => t.closest(".gcf-section") === parent);
+    };
+
+    tracks.forEach((track) => {
       const head = track.querySelector(".gcf-track-head");
       if (!head) return;
 
@@ -1448,21 +1474,32 @@
 
       head.addEventListener("click", () => {
         const willOpen = !track.classList.contains("gcf-open");
-        tracks.forEach((t) => t.classList.remove("gcf-open"));
+        siblingsOf(track).forEach((t) => t.classList.remove("gcf-open"));
         if (willOpen) {
           track.classList.add("gcf-open");
           history.replaceState(null, "", "#" + track.id);
         }
       });
+    });
 
-      if (hashTrack ? track === hashTrack : i === 0) track.classList.add("gcf-open");
+    // default-open: the hash-matched track if it's on this page, else the
+    // first track within *each* accordion group (not just the very first
+    // track on the whole page)
+    const openedGroups = new Set();
+    tracks.forEach((track) => {
+      const parent = track.closest(".gcf-section");
+      const isDefaultForGroup = !hashTrack && !openedGroups.has(parent) && siblingsOf(track)[0] === track;
+      if (track === hashTrack || isDefaultForGroup) {
+        track.classList.add("gcf-open");
+        openedGroups.add(parent);
+      }
     });
 
     if (hashTrack) {
       requestAnimationFrame(() => hashTrack.scrollIntoView({ behavior: "auto", block: "start" }));
     }
 
-    // sub-nav within Application Procedure opens the right track
+    // sub-nav within a track group (Application Procedure / Who to Contact) opens the right track
     document.querySelectorAll(".gcf-subnav a").forEach((a) => {
       a.addEventListener("click", (e) => {
         e.preventDefault();
@@ -1470,7 +1507,7 @@
         const target = document.getElementById(id);
         if (!target) return;
         history.replaceState(null, "", "#" + id);
-        tracks.forEach((t) => t.classList.remove("gcf-open"));
+        siblingsOf(target).forEach((t) => t.classList.remove("gcf-open"));
         target.classList.add("gcf-open");
         target.scrollIntoView({ behavior: "smooth", block: "start" });
       });
