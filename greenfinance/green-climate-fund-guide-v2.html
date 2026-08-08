@@ -214,8 +214,9 @@
   .gcf-eligibility li{font-size:var(--fs-sm);line-height:1.65;color:var(--color-teal-700);}
 
   /* ---------- checklist box ---------- */
+  .gcf-checklist-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;align-items:start;margin:16px 0;}
   .gcf-checklist-box{padding:16px 18px;border-radius:var(--radius-lg);background:var(--color-surface);
-    border:1px solid var(--color-card-border);box-shadow:var(--shadow-sm);margin:16px 0;}
+    border:1px solid var(--color-card-border);box-shadow:var(--shadow-sm);margin:0;}
   .gcf-checklist-box p.gcf-cl-title{margin:0 0 8px;font-size:var(--fs-sm);font-weight:700;color:var(--color-text);}
   .gcf-checklist-box ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:6px 20px;}
   .gcf-checklist-box li{font-size:var(--fs-sm);line-height:1.6;color:var(--color-text-secondary);display:flex;gap:8px;align-items:flex-start;}
@@ -248,6 +249,11 @@
   .gcf-linklist li{padding:9px 0;border-top:1px solid var(--color-card-border);font-size:var(--fs-sm);line-height:1.5;}
   .gcf-linklist li:first-child{border-top:none;}
   .gcf-linklist .gcf-ll-desc{color:var(--color-text-secondary);}
+  /* a plain, undescribed link directory reads better as a compact multi-column
+     grid than as one long single-column list — used for "Official Links Directory" */
+  .gcf-linklist--compact{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:2px 20px;}
+  .gcf-linklist--compact li{border-top:none;padding:6px 0;}
+  @media (max-width:600px){.gcf-linklist--compact{grid-template-columns:1fr;}}
 
   /* ---------- contact directory ---------- */
   .gcf-contact-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;}
@@ -874,6 +880,7 @@
       <div class="gcf-section-head"><span class="gcf-section-num">08</span><h2>Consolidated Checklist by Track</h2></div>
       <p class="gcf-section-sub">All seven document checklists in one place, for quick reference. Mere completion of any checklist does not guarantee project eligibility, accreditation, funding approval, or endorsement by GCF or the NDA — final approval is subject to GCF's review processes, applicable policies, and Board decisions.</p>
 
+      <div class="gcf-checklist-grid">
       <div class="gcf-checklist-box">
         <p class="gcf-cl-title">SAP</p>
         <ul>
@@ -958,6 +965,7 @@
           <li>Recommendation of Executing Entity</li>
           <li>Approval of State Level Steering Committee, if applicable</li>
         </ul>
+      </div>
       </div>
     </section>
 
@@ -1176,7 +1184,7 @@
       <p class="gcf-inline-note">GCF has developed an e-learning course on the Simplified Approval Process, explained by GCF experts, to help entities prepare robust SAP proposals — available via the SAP resources page above.</p>
 
       <p class="gcf-subhead">Official Links Directory</p>
-      <ul class="gcf-linklist">
+      <ul class="gcf-linklist gcf-linklist--compact">
         <li><a href="https://www.greenclimate.fund/" target="_blank" rel="noopener noreferrer">GCF Home ↗</a></li>
         <li><a href="https://www.greenclimate.fund/about" target="_blank" rel="noopener noreferrer">About GCF ↗</a></li>
         <li><a href="https://www.greenclimate.fund/about/governance" target="_blank" rel="noopener noreferrer">Governance ↗</a></li>
