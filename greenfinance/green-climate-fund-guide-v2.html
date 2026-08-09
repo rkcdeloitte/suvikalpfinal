@@ -151,6 +151,21 @@
   .gcf-section{padding:44px 0;border-bottom:1px solid var(--color-card-border);scroll-margin-top:140px;}
   .gcf-section:last-child{border-bottom:none;}
   .gcf-section-head{display:flex;align-items:baseline;gap:12px;margin-bottom:6px;}
+  /* ---------- copy-link button (section / track / checklist-tab headings) ---------- */
+  .gcf-copy-link{
+    flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;
+    border-radius:50%;border:none;background:none;color:var(--color-text-secondary);
+    cursor:pointer;transition:all .15s;position:relative;padding:0;
+  }
+  .gcf-copy-link:hover{background:var(--color-teal-bg);color:var(--color-teal-700);}
+  .gcf-copy-link svg{width:14px;height:14px;}
+  .gcf-copy-link.gcf-copied{color:var(--color-primary);}
+  .gcf-copy-link::after{
+    content:"Copied!";position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%) translateY(4px);
+    background:var(--color-text);color:#fff;font-size:.68rem;font-weight:600;padding:4px 8px;border-radius:6px;
+    white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .15s,transform .15s;
+  }
+  .gcf-copy-link.gcf-copied::after{opacity:1;transform:translateX(-50%) translateY(0);}
   .gcf-section-num{font-family:var(--font-sans);font-size:var(--fs-sm);font-weight:700;color:var(--color-primary);}
   .gcf-section h2{margin:0 0 6px;font-size:1.4rem;font-weight:700;letter-spacing:-.01em;}
   .gcf-section-sub{margin:0 0 26px;font-size:var(--fs-md);color:var(--color-text-secondary);max-width:880px;line-height:1.6;}
@@ -238,13 +253,25 @@
   #checklist .gcf-checklist-box.gcf-cl-active{display:block;}
   .gcf-checklist-box{padding:16px 18px;border-radius:var(--radius-lg);background:var(--color-surface);
     border:1px solid var(--color-card-border);box-shadow:var(--shadow-sm);margin:0;}
-  .gcf-checklist-box p.gcf-cl-title{margin:0 0 8px;font-size:var(--fs-sm);font-weight:700;color:var(--color-text);}
+  .gcf-checklist-box p.gcf-cl-title{margin:0 0 8px;font-size:var(--fs-sm);font-weight:700;color:var(--color-text);display:flex;align-items:center;gap:6px;}
   .gcf-checklist-box ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;}
   .gcf-checklist-box li{font-size:var(--fs-sm);line-height:1.6;color:var(--color-text-secondary);display:flex;gap:8px;align-items:flex-start;}
   .gcf-checklist-box li::before{content:"☐";flex-shrink:0;color:var(--color-teal-700);}
 
   .gcf-inline-note{margin:12px 0 0;padding:10px 13px;border-radius:var(--radius);background:#fffbeb;
     border:1px solid #fde68a;font-size:var(--fs-xs);color:#78430b;}
+
+  /* ---------- back-to-top ---------- */
+  .gcf-back-to-top{
+    position:fixed;bottom:24px;right:24px;z-index:50;width:44px;height:44px;border-radius:50%;
+    border:none;background:var(--color-primary);color:#fff;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(0,0,0,.18);
+    opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .2s,visibility .2s,transform .2s,background .15s;
+  }
+  .gcf-back-to-top.gcf-visible{opacity:1;visibility:visible;transform:none;}
+  .gcf-back-to-top:hover{background:var(--color-teal-700);}
+  .gcf-back-to-top svg{width:18px;height:18px;}
+  @media print{.gcf-back-to-top{display:none !important;}}
 
   /* ---------- grid card patterns ---------- */
   .gcf-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
@@ -310,6 +337,19 @@
     .gcf-hero h1{font-size:1.5rem;}
     table.gcf-table{font-size:var(--fs-xs);}
   }
+
+  /* ---------- print: the on-screen view shows one tab/track/panel at a
+     time, but Ctrl+F and Ctrl+P should still see the whole document — force
+     everything visible for print only, on-screen behaviour is untouched ---------- */
+  @media print{
+    #site-header,.gcf-nav-wrap,.gcf-pager,.gcf-backbar,.gcf-cat-row,.gcf-copy-link,.gcf-back-to-top,.gcf-track-chevron{display:none !important;}
+    .page{padding-top:0 !important;}
+    .gcf-section{display:block !important;page-break-inside:avoid;}
+    .gcf-section:not(:last-child){page-break-after:always;}
+    .gcf-track-body{display:block !important;}
+    #checklist .gcf-checklist-box{display:block !important;margin-bottom:16px;max-width:none !important;}
+    .gcf-track-head{cursor:default;}
+  }
 </style>
 </head>
 <body>
@@ -357,16 +397,16 @@
     </div>
 
     <div class="gcf-cat-row">
-      <div class="gcf-cat-tabs" id="gcf-cat-tabs">
-        <button type="button" class="gcf-cat" data-cat="get-started">
+      <div class="gcf-cat-tabs" id="gcf-cat-tabs" role="tablist" aria-label="Guide category">
+        <button type="button" class="gcf-cat" data-cat="get-started" role="tab" aria-selected="false" tabindex="-1">
           <span class="gcf-cat-label-full">Get Started</span><span class="gcf-cat-label-short">Start</span>
           <span class="gcf-cat-count">3</span>
         </button>
-        <button type="button" class="gcf-cat" data-cat="apply">
+        <button type="button" class="gcf-cat" data-cat="apply" role="tab" aria-selected="false" tabindex="-1">
           <span class="gcf-cat-label-full">Apply</span><span class="gcf-cat-label-short">Apply</span>
           <span class="gcf-cat-count">5</span>
         </button>
-        <button type="button" class="gcf-cat" data-cat="reference">
+        <button type="button" class="gcf-cat" data-cat="reference" role="tab" aria-selected="false" tabindex="-1">
           <span class="gcf-cat-label-full">Reference</span><span class="gcf-cat-label-short">Ref.</span>
           <span class="gcf-cat-count">5</span>
         </button>
@@ -377,20 +417,20 @@
       <button type="button" class="gcf-nav-scroll gcf-nav-scroll-left gcf-nav-scroll-hidden" id="gcf-nav-scroll-left" aria-label="Scroll steps left">
         <span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3L5 8l5 5"/></svg></span>
       </button>
-      <nav class="gcf-nav" id="gcf-nav">
-        <a href="#intro" data-cat="get-started"><span class="gcf-nav-num">1</span>Introduction</a>
-        <a href="#governance" data-cat="get-started"><span class="gcf-nav-num">2</span>Governance</a>
-        <a href="#eligibility" data-cat="get-started"><span class="gcf-nav-num">3</span>Eligibility</a>
-        <a href="#rules" data-cat="apply"><span class="gcf-nav-num">4</span>Rules &amp; Policies</a>
-        <a href="#before-you-start" data-cat="apply"><span class="gcf-nav-num">5</span>Good to Know</a>
-        <a href="#instruments" data-cat="apply"><span class="gcf-nav-num">6</span>Financial Instruments</a>
-        <a href="#application" data-cat="apply"><span class="gcf-nav-num">7</span>Application Procedure</a>
-        <a href="#checklist" data-cat="apply"><span class="gcf-nav-num">8</span>Checklist</a>
-        <a href="#why-fail" data-cat="reference"><span class="gcf-nav-num">9</span>Why Proposals Fail</a>
-        <a href="#timelines" data-cat="reference"><span class="gcf-nav-num">10</span>Timelines</a>
-        <a href="#contacts" data-cat="reference"><span class="gcf-nav-num">11</span>Who to Contact</a>
-        <a href="#resources" data-cat="reference"><span class="gcf-nav-num">12</span>Resources</a>
-        <a href="#templates" data-cat="reference"><span class="gcf-nav-num">13</span>Templates</a>
+      <nav class="gcf-nav" id="gcf-nav" role="tablist" aria-label="Guide sections">
+        <a href="#intro" id="tab-intro" role="tab" aria-controls="intro" aria-selected="false" tabindex="-1" data-cat="get-started"><span class="gcf-nav-num">1</span>Introduction</a>
+        <a href="#governance" id="tab-governance" role="tab" aria-controls="governance" aria-selected="false" tabindex="-1" data-cat="get-started"><span class="gcf-nav-num">2</span>Governance</a>
+        <a href="#eligibility" id="tab-eligibility" role="tab" aria-controls="eligibility" aria-selected="false" tabindex="-1" data-cat="get-started"><span class="gcf-nav-num">3</span>Eligibility</a>
+        <a href="#rules" id="tab-rules" role="tab" aria-controls="rules" aria-selected="false" tabindex="-1" data-cat="apply"><span class="gcf-nav-num">4</span>Rules &amp; Policies</a>
+        <a href="#before-you-start" id="tab-before-you-start" role="tab" aria-controls="before-you-start" aria-selected="false" tabindex="-1" data-cat="apply"><span class="gcf-nav-num">5</span>Good to Know</a>
+        <a href="#instruments" id="tab-instruments" role="tab" aria-controls="instruments" aria-selected="false" tabindex="-1" data-cat="apply"><span class="gcf-nav-num">6</span>Financial Instruments</a>
+        <a href="#application" id="tab-application" role="tab" aria-controls="application" aria-selected="false" tabindex="-1" data-cat="apply"><span class="gcf-nav-num">7</span>Application Procedure</a>
+        <a href="#checklist" id="tab-checklist" role="tab" aria-controls="checklist" aria-selected="false" tabindex="-1" data-cat="apply"><span class="gcf-nav-num">8</span>Checklist</a>
+        <a href="#why-fail" id="tab-why-fail" role="tab" aria-controls="why-fail" aria-selected="false" tabindex="-1" data-cat="reference"><span class="gcf-nav-num">9</span>Why Proposals Fail</a>
+        <a href="#timelines" id="tab-timelines" role="tab" aria-controls="timelines" aria-selected="false" tabindex="-1" data-cat="reference"><span class="gcf-nav-num">10</span>Timelines</a>
+        <a href="#contacts" id="tab-contacts" role="tab" aria-controls="contacts" aria-selected="false" tabindex="-1" data-cat="reference"><span class="gcf-nav-num">11</span>Who to Contact</a>
+        <a href="#resources" id="tab-resources" role="tab" aria-controls="resources" aria-selected="false" tabindex="-1" data-cat="reference"><span class="gcf-nav-num">12</span>Resources</a>
+        <a href="#templates" id="tab-templates" role="tab" aria-controls="templates" aria-selected="false" tabindex="-1" data-cat="reference"><span class="gcf-nav-num">13</span>Templates</a>
       </nav>
       <button type="button" class="gcf-nav-scroll gcf-nav-scroll-right gcf-nav-scroll-hidden" id="gcf-nav-scroll-right" aria-label="Scroll steps right">
         <span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5"/></svg></span>
@@ -402,8 +442,8 @@
   <div class="gcf-content">
 
     <!-- ================= 01 INTRODUCTION ================= -->
-    <section class="gcf-section" id="intro">
-      <div class="gcf-section-head"><span class="gcf-section-num">01</span><h2>Introduction — What Is the Green Climate Fund (GCF)?</h2></div>
+    <section class="gcf-section" id="intro" role="tabpanel" aria-labelledby="tab-intro" tabindex="0">
+      <div class="gcf-section-head"><span class="gcf-section-num">01</span><h2>Introduction — What Is the Green Climate Fund (GCF)?</h2><button type="button" class="gcf-copy-link" data-copy-id="intro" aria-label="Copy link to this section"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 9.5a2 2 0 0 0 2.9.2l2-2a2 2 0 0 0-2.8-2.8l-.6.5"/><path d="M9.5 6.5a2 2 0 0 0-2.9-.2l-2 2a2 2 0 0 0 2.8 2.8l.5-.5"/></svg></button></div>
       <p class="gcf-section-sub">The world's climate fund for developing countries.</p>
       <p style="max-width:880px;font-size:var(--fs-base);line-height:1.7;color:var(--color-text-secondary);margin:0 0 14px;">The GCF was established by the 194 Parties to the United Nations Framework Convention on Climate Change (UNFCCC) in 2010, as an operating entity of the Convention's financial mechanism. It is designed to make a significant and ambitious contribution to global efforts to combat climate change, helping to keep the global average temperature rise well below 2°C, in line with the Paris Agreement.</p>
       <p style="max-width:880px;font-size:var(--fs-base);line-height:1.7;color:var(--color-text-secondary);margin:0 0 14px;">GCF is headquartered in Songdo, Incheon, Republic of Korea. It is governed by a 24-member Board of Country Representatives (12 from developed and 12 from developing countries) and is supported by an independent Secretariat that manages day-to-day operations.</p>
@@ -428,8 +468,8 @@
     </section>
 
     <!-- ================= 02 GOVERNANCE ================= -->
-    <section class="gcf-section" id="governance">
-      <div class="gcf-section-head"><span class="gcf-section-num">02</span><h2>Institutional Architecture &amp; Governance</h2></div>
+    <section class="gcf-section" id="governance" role="tabpanel" aria-labelledby="tab-governance" tabindex="0">
+      <div class="gcf-section-head"><span class="gcf-section-num">02</span><h2>Institutional Architecture &amp; Governance</h2><button type="button" class="gcf-copy-link" data-copy-id="governance" aria-label="Copy link to this section"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 9.5a2 2 0 0 0 2.9.2l2-2a2 2 0 0 0-2.8-2.8l-.6.5"/><path d="M9.5 6.5a2 2 0 0 0-2.9-.2l-2 2a2 2 0 0 0 2.8 2.8l.5-.5"/></svg></button></div>
       <p class="gcf-section-sub">GCF is accountable to the United Nations and is guided by the principles and provisions of the UNFCCC and its Governing Instrument, approved by the COP at its seventeenth session on 11 December 2011 in Durban, South Africa. The COP provides annual guidance to GCF on policies, programme priorities and eligibility criteria.</p>
 
       <p class="gcf-subhead" style="margin-top:0;">Key Institutional Actors</p>
@@ -469,8 +509,8 @@
     </section>
 
     <!-- ================= 03 ELIGIBILITY ================= -->
-    <section class="gcf-section" id="eligibility">
-      <div class="gcf-section-head"><span class="gcf-section-num">03</span><h2>Who Is Eligible?</h2></div>
+    <section class="gcf-section" id="eligibility" role="tabpanel" aria-labelledby="tab-eligibility" tabindex="0">
+      <div class="gcf-section-head"><span class="gcf-section-num">03</span><h2>Who Is Eligible?</h2><button type="button" class="gcf-copy-link" data-copy-id="eligibility" aria-label="Copy link to this section"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 9.5a2 2 0 0 0 2.9.2l2-2a2 2 0 0 0-2.8-2.8l-.6.5"/><path d="M9.5 6.5a2 2 0 0 0-2.9-.2l-2 2a2 2 0 0 0 2.8 2.8l.5-.5"/></svg></button></div>
       <p class="gcf-section-sub">Eligible countries, eligible entity types, the applicant routes open to Indian entities, institutional criteria for direct accreditation, and the six investment criteria every proposal is assessed against.</p>
 
       <p class="gcf-subhead" style="margin-top:0;">Eligible Countries</p>
@@ -537,8 +577,8 @@
     </section>
 
     <!-- ================= 04 RULES & POLICIES ================= -->
-    <section class="gcf-section" id="rules">
-      <div class="gcf-section-head"><span class="gcf-section-num">04</span><h2>Governing Rules, Policies &amp; Regulations</h2></div>
+    <section class="gcf-section" id="rules" role="tabpanel" aria-labelledby="tab-rules" tabindex="0">
+      <div class="gcf-section-head"><span class="gcf-section-num">04</span><h2>Governing Rules, Policies &amp; Regulations</h2><button type="button" class="gcf-copy-link" data-copy-id="rules" aria-label="Copy link to this section"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 9.5a2 2 0 0 0 2.9.2l2-2a2 2 0 0 0-2.8-2.8l-.6.5"/><path d="M9.5 6.5a2 2 0 0 0-2.9-.2l-2 2a2 2 0 0 0 2.8 2.8l.5-.5"/></svg></button></div>
       <p class="gcf-section-sub">The foundational documents and policy pages that govern the Fund.</p>
       <ul class="gcf-linklist">
         <li><a href="https://www.greenclimate.fund/document/governing-instrument" target="_blank" rel="noopener noreferrer">GCF Governing Instrument ↗</a> — <span class="gcf-ll-desc">the foundational legal document establishing GCF's mandate and governance.</span></li>
@@ -554,8 +594,8 @@
     </section>
 
     <!-- ================= 05 GOOD TO KNOW ================= -->
-    <section class="gcf-section" id="before-you-start">
-      <div class="gcf-section-head"><span class="gcf-section-num">05</span><h2>Good to Know Before You Start</h2></div>
+    <section class="gcf-section" id="before-you-start" role="tabpanel" aria-labelledby="tab-before-you-start" tabindex="0">
+      <div class="gcf-section-head"><span class="gcf-section-num">05</span><h2>Good to Know Before You Start</h2><button type="button" class="gcf-copy-link" data-copy-id="before-you-start" aria-label="Copy link to this section"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 9.5a2 2 0 0 0 2.9.2l2-2a2 2 0 0 0-2.8-2.8l-.6.5"/><path d="M9.5 6.5a2 2 0 0 0-2.9-.2l-2 2a2 2 0 0 0 2.8 2.8l.5-.5"/></svg></button></div>
       <p class="gcf-section-sub">A few things worth understanding before you pick a route.</p>
       <div class="gcf-grid-3">
         <div class="gcf-card"><p class="gcf-card-title">GCF Does Not Fund Individuals Directly</p><p class="gcf-card-desc">All GCF resources flow through Accredited Entities or, in specific cases, through the PSAA route with NDA endorsement. Individual applicants should partner with an eligible entity such as a state agency, financial institution, or NGO.</p></div>
@@ -568,8 +608,8 @@
     </section>
 
     <!-- ================= 06 FINANCIAL INSTRUMENTS ================= -->
-    <section class="gcf-section" id="instruments">
-      <div class="gcf-section-head"><span class="gcf-section-num">06</span><h2>Financial Instruments</h2></div>
+    <section class="gcf-section" id="instruments" role="tabpanel" aria-labelledby="tab-instruments" tabindex="0">
+      <div class="gcf-section-head"><span class="gcf-section-num">06</span><h2>Financial Instruments</h2><button type="button" class="gcf-copy-link" data-copy-id="instruments" aria-label="Copy link to this section"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 9.5a2 2 0 0 0 2.9.2l2-2a2 2 0 0 0-2.8-2.8l-.6.5"/><path d="M9.5 6.5a2 2 0 0 0-2.9-.2l-2 2a2 2 0 0 0 2.8 2.8l.5-.5"/></svg></button></div>
       <p class="gcf-section-sub">GCF deploys climate finance through a flexible combination of instruments, tailored to public, private and non-governmental projects. The Fund provides the minimum concessional funding necessary to make a project or programme viable, and does not require a minimum amount of co-financing.</p>
       <ul class="gcf-linklist">
         <li>Grants</li>
@@ -581,8 +621,8 @@
     </section>
 
     <!-- ================= 07 APPLICATION PROCEDURE ================= -->
-    <section class="gcf-section" id="application">
-      <div class="gcf-section-head"><span class="gcf-section-num">07</span><h2>Application Procedure</h2></div>
+    <section class="gcf-section" id="application" role="tabpanel" aria-labelledby="tab-application" tabindex="0">
+      <div class="gcf-section-head"><span class="gcf-section-num">07</span><h2>Application Procedure</h2><button type="button" class="gcf-copy-link" data-copy-id="application" aria-label="Copy link to this section"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 9.5a2 2 0 0 0 2.9.2l2-2a2 2 0 0 0-2.8-2.8l-.6.5"/><path d="M9.5 6.5a2 2 0 0 0-2.9-.2l-2 2a2 2 0 0 0 2.8 2.8l.5-.5"/></svg></button></div>
       <p class="gcf-section-sub">GCF offers several distinct routes to access finance, each suited to different project sizes, risk levels, and applicant profiles. Every mechanism below is explained with its own step-by-step flow, eligibility/criteria, and document checklist.</p>
 
       <nav class="gcf-subnav">
@@ -598,7 +638,7 @@
 
       <!-- 7.1 -->
       <div class="gcf-track" id="track-7-1">
-        <div class="gcf-track-head"><span class="gcf-track-tag">7.1</span><h3>The Overall Journey — From Idea to Disbursement (India)</h3></div>
+        <div class="gcf-track-head"><span class="gcf-track-tag">7.1</span><h3>The Overall Journey — From Idea to Disbursement (India)</h3><button type="button" class="gcf-copy-link" data-copy-id="track-7-1" aria-label="Copy link to this track"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 9.5a2 2 0 0 0 2.9.2l2-2a2 2 0 0 0-2.8-2.8l-.6.5"/><path d="M9.5 6.5a2 2 0 0 0-2.9-.2l-2 2a2 2 0 0 0 2.8 2.8l.5-.5"/></svg></button></div>
         <p class="gcf-track-sub">The typical end-to-end path for an Indian project proponent seeking GCF finance through an Accredited Entity such as NABARD or SIDBI.</p>
         <ul class="gcf-steps">
           <li><span class="gcf-step-n">1</span>Identify a climate mitigation/adaptation project idea aligned with India's NDCs &amp; national priorities</li>
@@ -617,7 +657,7 @@
 
       <!-- 7.2 -->
       <div class="gcf-track" id="track-7-2">
-        <div class="gcf-track-head"><span class="gcf-track-tag">7.2</span><h3>Regular Project/Programme Approval Process (PAP)</h3></div>
+        <div class="gcf-track-head"><span class="gcf-track-tag">7.2</span><h3>Regular Project/Programme Approval Process (PAP)</h3><button type="button" class="gcf-copy-link" data-copy-id="track-7-2" aria-label="Copy link to this track"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 9.5a2 2 0 0 0 2.9.2l2-2a2 2 0 0 0-2.8-2.8l-.6.5"/><path d="M9.5 6.5a2 2 0 0 0-2.9-.2l-2 2a2 2 0 0 0 2.8 2.8l.5-.5"/></svg></button></div>
         <p class="gcf-track-sub">The default track for most GCF projects and programmes, used for the full range of project sizes and risk categories. Proposals are submitted only by Accredited Entities.</p>
         <ul class="gcf-steps">
           <li><span class="gcf-step-n">1</span>Country Programming — GCF Secretariat, NDA and AEs identify strategic priorities through country missions/dialogues</li>
@@ -660,7 +700,7 @@
 
       <!-- 7.3 -->
       <div class="gcf-track" id="track-7-3">
-        <div class="gcf-track-head"><span class="gcf-track-tag">7.3</span><h3>Simplified Approval Process (SAP)</h3></div>
+        <div class="gcf-track-head"><span class="gcf-track-tag">7.3</span><h3>Simplified Approval Process (SAP)</h3><button type="button" class="gcf-copy-link" data-copy-id="track-7-3" aria-label="Copy link to this track"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 9.5a2 2 0 0 0 2.9.2l2-2a2 2 0 0 0-2.8-2.8l-.6.5"/><path d="M9.5 6.5a2 2 0 0 0-2.9-.2l-2 2a2 2 0 0 0 2.8 2.8l.5-.5"/></svg></button></div>
         <p class="gcf-track-sub">A streamlined track for small-scale, low-risk proposals, requiring less time, effort and documentation than the regular process.</p>
         <div class="gcf-eligibility">
           <p>Eligibility Criteria (all three must be met)</p>
@@ -696,7 +736,7 @@
 
       <!-- 7.4 -->
       <div class="gcf-track" id="track-7-4">
-        <div class="gcf-track-head"><span class="gcf-track-tag">7.4</span><h3>Project-Specific Assessment Approach (PSAA)</h3></div>
+        <div class="gcf-track-head"><span class="gcf-track-tag">7.4</span><h3>Project-Specific Assessment Approach (PSAA)</h3><button type="button" class="gcf-copy-link" data-copy-id="track-7-4" aria-label="Copy link to this track"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 9.5a2 2 0 0 0 2.9.2l2-2a2 2 0 0 0-2.8-2.8l-.6.5"/><path d="M9.5 6.5a2 2 0 0 0-2.9-.2l-2 2a2 2 0 0 0 2.8 2.8l.5-.5"/></svg></button></div>
         <p class="gcf-track-sub">Designed for entities that are not GCF Accredited Entities but wish to apply for GCF funding for one specific, well-developed project — without going through full institutional accreditation.</p>
         <ul class="gcf-steps">
           <li><span class="gcf-step-n">1</span>Applicant submits the PSAA questionnaire to GCF</li>
@@ -731,7 +771,7 @@
 
       <!-- 7.5 -->
       <div class="gcf-track" id="track-7-5">
-        <div class="gcf-track-head"><span class="gcf-track-tag">7.5</span><h3>Readiness and Preparatory Support Programme</h3></div>
+        <div class="gcf-track-head"><span class="gcf-track-tag">7.5</span><h3>Readiness and Preparatory Support Programme</h3><button type="button" class="gcf-copy-link" data-copy-id="track-7-5" aria-label="Copy link to this track"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 9.5a2 2 0 0 0 2.9.2l2-2a2 2 0 0 0-2.8-2.8l-.6.5"/><path d="M9.5 6.5a2 2 0 0 0-2.9-.2l-2 2a2 2 0 0 0 2.8 2.8l.5-.5"/></svg></button></div>
         <p class="gcf-track-sub">Provides grants and technical assistance — not project financing — to strengthen institutional capacity, governance, and pipeline development. Delivered through NDAs/Focal Points, and can also strengthen Direct Access Entities (DAEs).</p>
         <p class="gcf-subhead" style="margin-top:0;">Funding Envelopes</p>
         <ul class="gcf-linklist">
@@ -764,7 +804,7 @@
 
       <!-- 7.6 -->
       <div class="gcf-track" id="track-7-6">
-        <div class="gcf-track-head"><span class="gcf-track-tag">7.6</span><h3>Project Preparation Facility (PPF)</h3></div>
+        <div class="gcf-track-head"><span class="gcf-track-tag">7.6</span><h3>Project Preparation Facility (PPF)</h3><button type="button" class="gcf-copy-link" data-copy-id="track-7-6" aria-label="Copy link to this track"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 9.5a2 2 0 0 0 2.9.2l2-2a2 2 0 0 0-2.8-2.8l-.6.5"/><path d="M9.5 6.5a2 2 0 0 0-2.9-.2l-2 2a2 2 0 0 0 2.8 2.8l.5-.5"/></svg></button></div>
         <p class="gcf-track-sub">Provides financial and technical support (grants — reimbursable or non-reimbursable — or equity) to help Accredited Entities, particularly Direct Access Entities, and PSAA applicants develop high-quality Funding Proposals.</p>
         <p class="gcf-subhead" style="margin-top:0;">Key Facts</p>
         <ul class="gcf-linklist">
@@ -796,7 +836,7 @@
 
       <!-- 7.7 -->
       <div class="gcf-track" id="track-7-7">
-        <div class="gcf-track-head"><span class="gcf-track-tag">7.7</span><h3>GCF Accredited Entity (Direct Accreditation)</h3></div>
+        <div class="gcf-track-head"><span class="gcf-track-tag">7.7</span><h3>GCF Accredited Entity (Direct Accreditation)</h3><button type="button" class="gcf-copy-link" data-copy-id="track-7-7" aria-label="Copy link to this track"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 9.5a2 2 0 0 0 2.9.2l2-2a2 2 0 0 0-2.8-2.8l-.6.5"/><path d="M9.5 6.5a2 2 0 0 0-2.9-.2l-2 2a2 2 0 0 0 2.8 2.8l.5-.5"/></svg></button></div>
         <p class="gcf-track-sub">Relevant for Indian institutions (state financial institutions, banks, NBFCs, research bodies, NGOs) that wish to originate and manage their own pipeline of GCF-funded projects, rather than working through an existing AE such as NABARD or SIDBI.</p>
 
         <p class="gcf-subhead" style="margin-top:0;">Access Modalities</p>
@@ -876,7 +916,7 @@
 
       <!-- 7.8 -->
       <div class="gcf-track" id="track-7-8">
-        <div class="gcf-track-head"><span class="gcf-track-tag">7.8</span><h3>Issuance of No-Objection Letter (NOL)</h3></div>
+        <div class="gcf-track-head"><span class="gcf-track-tag">7.8</span><h3>Issuance of No-Objection Letter (NOL)</h3><button type="button" class="gcf-copy-link" data-copy-id="track-7-8" aria-label="Copy link to this track"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 9.5a2 2 0 0 0 2.9.2l2-2a2 2 0 0 0-2.8-2.8l-.6.5"/><path d="M9.5 6.5a2 2 0 0 0-2.9-.2l-2 2a2 2 0 0 0 2.8 2.8l.5-.5"/></svg></button></div>
         <p class="gcf-track-sub">As per the GCF mandate, all entities, including national and multilateral, are required to submit a NOL from the NDA during submission of a proposal to the GCF. Any proposal submitted without the NOL will not be reviewed by the Board, and the GCF Secretariat will inform the NDA accordingly.</p>
         <p class="gcf-subhead" style="margin-top:0;">The Process of Obtaining a NOL in India</p>
         <ul class="gcf-steps">
@@ -896,21 +936,21 @@
     </section>
 
     <!-- ================= 08 CONSOLIDATED CHECKLIST ================= -->
-    <section class="gcf-section" id="checklist">
-      <div class="gcf-section-head"><span class="gcf-section-num">08</span><h2>Consolidated Checklist by Track</h2></div>
+    <section class="gcf-section" id="checklist" role="tabpanel" aria-labelledby="tab-checklist" tabindex="0">
+      <div class="gcf-section-head"><span class="gcf-section-num">08</span><h2>Consolidated Checklist by Track</h2><button type="button" class="gcf-copy-link" data-copy-id="checklist" aria-label="Copy link to this section"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 9.5a2 2 0 0 0 2.9.2l2-2a2 2 0 0 0-2.8-2.8l-.6.5"/><path d="M9.5 6.5a2 2 0 0 0-2.9-.2l-2 2a2 2 0 0 0 2.8 2.8l.5-.5"/></svg></button></div>
       <p class="gcf-section-sub">All seven document checklists in one place, for quick reference. Mere completion of any checklist does not guarantee project eligibility, accreditation, funding approval, or endorsement by GCF or the NDA — final approval is subject to GCF's review processes, applicable policies, and Board decisions.</p>
 
-      <div class="gcf-cl-tabs" id="gcf-cl-tabs">
-        <button type="button" class="gcf-cl-tab" data-cl="cl-sap">SAP</button>
-        <button type="button" class="gcf-cl-tab" data-cl="cl-regular-pap">Regular / PAP</button>
-        <button type="button" class="gcf-cl-tab" data-cl="cl-psaa">PSAA</button>
-        <button type="button" class="gcf-cl-tab" data-cl="cl-readiness">Readiness</button>
-        <button type="button" class="gcf-cl-tab" data-cl="cl-accreditation">Accreditation</button>
-        <button type="button" class="gcf-cl-tab" data-cl="cl-ppf">PPF</button>
-        <button type="button" class="gcf-cl-tab" data-cl="cl-nol">No-Objection Letter</button>
+      <div class="gcf-cl-tabs" id="gcf-cl-tabs" role="tablist" aria-label="Checklist by track">
+        <button type="button" class="gcf-cl-tab" data-cl="cl-sap" id="cltab-cl-sap" role="tab" aria-controls="cl-sap" aria-selected="false" tabindex="-1">SAP</button>
+        <button type="button" class="gcf-cl-tab" data-cl="cl-regular-pap" id="cltab-cl-regular-pap" role="tab" aria-controls="cl-regular-pap" aria-selected="false" tabindex="-1">Regular / PAP</button>
+        <button type="button" class="gcf-cl-tab" data-cl="cl-psaa" id="cltab-cl-psaa" role="tab" aria-controls="cl-psaa" aria-selected="false" tabindex="-1">PSAA</button>
+        <button type="button" class="gcf-cl-tab" data-cl="cl-readiness" id="cltab-cl-readiness" role="tab" aria-controls="cl-readiness" aria-selected="false" tabindex="-1">Readiness</button>
+        <button type="button" class="gcf-cl-tab" data-cl="cl-accreditation" id="cltab-cl-accreditation" role="tab" aria-controls="cl-accreditation" aria-selected="false" tabindex="-1">Accreditation</button>
+        <button type="button" class="gcf-cl-tab" data-cl="cl-ppf" id="cltab-cl-ppf" role="tab" aria-controls="cl-ppf" aria-selected="false" tabindex="-1">PPF</button>
+        <button type="button" class="gcf-cl-tab" data-cl="cl-nol" id="cltab-cl-nol" role="tab" aria-controls="cl-nol" aria-selected="false" tabindex="-1">No-Objection Letter</button>
       </div>
-      <div class="gcf-checklist-box" id="cl-sap">
-        <p class="gcf-cl-title">SAP</p>
+      <div class="gcf-checklist-box" id="cl-sap" role="tabpanel" aria-labelledby="cltab-cl-sap" tabindex="0">
+        <p class="gcf-cl-title">SAP<button type="button" class="gcf-copy-link" data-copy-id="cl-sap" aria-label="Copy link to this checklist"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 9.5a2 2 0 0 0 2.9.2l2-2a2 2 0 0 0-2.8-2.8l-.6.5"/><path d="M9.5 6.5a2 2 0 0 0-2.9-.2l-2 2a2 2 0 0 0 2.8 2.8l.5-.5"/></svg></button></p>
         <ul>
           <li>SAP Concept Note (GCF digital template)</li>
           <li>No-Objection Letter from MoEFCC (NDA)</li>
@@ -924,8 +964,8 @@
           <li>Co-financing commitment letters</li>
         </ul>
       </div>
-      <div class="gcf-checklist-box" id="cl-regular-pap">
-        <p class="gcf-cl-title">Regular / PAP</p>
+      <div class="gcf-checklist-box" id="cl-regular-pap" role="tabpanel" aria-labelledby="cltab-cl-regular-pap" tabindex="0">
+        <p class="gcf-cl-title">Regular / PAP<button type="button" class="gcf-copy-link" data-copy-id="cl-regular-pap" aria-label="Copy link to this checklist"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 9.5a2 2 0 0 0 2.9.2l2-2a2 2 0 0 0-2.8-2.8l-.6.5"/><path d="M9.5 6.5a2 2 0 0 0-2.9-.2l-2 2a2 2 0 0 0 2.8 2.8l.5-.5"/></svg></button></p>
         <ul>
           <li>Full Funding Proposal document (GCF FP template, typically 40–80 pages)</li>
           <li>No-Objection Letter from MoEFCC</li>
@@ -944,8 +984,8 @@
           <li>Term sheet (for loans, guarantees, or equity instruments)</li>
         </ul>
       </div>
-      <div class="gcf-checklist-box" id="cl-psaa">
-        <p class="gcf-cl-title">PSAA</p>
+      <div class="gcf-checklist-box" id="cl-psaa" role="tabpanel" aria-labelledby="cltab-cl-psaa" tabindex="0">
+        <p class="gcf-cl-title">PSAA<button type="button" class="gcf-copy-link" data-copy-id="cl-psaa" aria-label="Copy link to this checklist"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 9.5a2 2 0 0 0 2.9.2l2-2a2 2 0 0 0-2.8-2.8l-.6.5"/><path d="M9.5 6.5a2 2 0 0 0-2.9-.2l-2 2a2 2 0 0 0 2.8 2.8l.5-.5"/></svg></button></p>
         <ul>
           <li>Completed PSAA questionnaire</li>
           <li>Concept Note (mandatory if a PPF request will follow)</li>
@@ -954,8 +994,8 @@
           <li>No-Objection Letter from MoEFCC</li>
         </ul>
       </div>
-      <div class="gcf-checklist-box" id="cl-readiness">
-        <p class="gcf-cl-title">Readiness</p>
+      <div class="gcf-checklist-box" id="cl-readiness" role="tabpanel" aria-labelledby="cltab-cl-readiness" tabindex="0">
+        <p class="gcf-cl-title">Readiness<button type="button" class="gcf-copy-link" data-copy-id="cl-readiness" aria-label="Copy link to this checklist"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 9.5a2 2 0 0 0 2.9.2l2-2a2 2 0 0 0-2.8-2.8l-.6.5"/><path d="M9.5 6.5a2 2 0 0 0-2.9-.2l-2 2a2 2 0 0 0 2.8 2.8l.5-.5"/></svg></button></p>
         <ul>
           <li>Readiness &amp; Preparatory Support proposal (GCF template)</li>
           <li>Delivery Partner capacity assessment (if not an AE)</li>
@@ -964,8 +1004,8 @@
           <li>M&amp;E plan aligned with the Readiness Results Management Framework</li>
         </ul>
       </div>
-      <div class="gcf-checklist-box" id="cl-accreditation">
-        <p class="gcf-cl-title">Accreditation</p>
+      <div class="gcf-checklist-box" id="cl-accreditation" role="tabpanel" aria-labelledby="cltab-cl-accreditation" tabindex="0">
+        <p class="gcf-cl-title">Accreditation<button type="button" class="gcf-copy-link" data-copy-id="cl-accreditation" aria-label="Copy link to this checklist"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 9.5a2 2 0 0 0 2.9.2l2-2a2 2 0 0 0-2.8-2.8l-.6.5"/><path d="M9.5 6.5a2 2 0 0 0-2.9-.2l-2 2a2 2 0 0 0 2.8 2.8l.5-.5"/></svg></button></p>
         <ul>
           <li>Completed Pre-Screening Questionnaire</li>
           <li>NDA Nomination Letter (for DAEs)</li>
@@ -976,8 +1016,8 @@
           <li>Signed Accreditation Master Agreement (post-approval)</li>
         </ul>
       </div>
-      <div class="gcf-checklist-box" id="cl-ppf">
-        <p class="gcf-cl-title">PPF</p>
+      <div class="gcf-checklist-box" id="cl-ppf" role="tabpanel" aria-labelledby="cltab-cl-ppf" tabindex="0">
+        <p class="gcf-cl-title">PPF<button type="button" class="gcf-copy-link" data-copy-id="cl-ppf" aria-label="Copy link to this checklist"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 9.5a2 2 0 0 0 2.9.2l2-2a2 2 0 0 0-2.8-2.8l-.6.5"/><path d="M9.5 6.5a2 2 0 0 0-2.9-.2l-2 2a2 2 0 0 0 2.8 2.8l.5-.5"/></svg></button></p>
         <ul>
           <li>GCF-endorsed Concept Note</li>
           <li>PPF application/template with scope of activities and budget</li>
@@ -986,8 +1026,8 @@
           <li>Post-approval PPF progress reports schedule</li>
         </ul>
       </div>
-      <div class="gcf-checklist-box" id="cl-nol">
-        <p class="gcf-cl-title">No-Objection Letter</p>
+      <div class="gcf-checklist-box" id="cl-nol" role="tabpanel" aria-labelledby="cltab-cl-nol" tabindex="0">
+        <p class="gcf-cl-title">No-Objection Letter<button type="button" class="gcf-copy-link" data-copy-id="cl-nol" aria-label="Copy link to this checklist"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 9.5a2 2 0 0 0 2.9.2l2-2a2 2 0 0 0-2.8-2.8l-.6.5"/><path d="M9.5 6.5a2 2 0 0 0-2.9-.2l-2 2a2 2 0 0 0 2.8 2.8l.5-.5"/></svg></button></p>
         <ul>
           <li>Concept Note (GCF template)</li>
           <li>Recommendation of Executing Entity</li>
@@ -997,8 +1037,8 @@
     </section>
 
     <!-- ================= 09 WHY PROPOSALS FAIL ================= -->
-    <section class="gcf-section" id="why-fail">
-      <div class="gcf-section-head"><span class="gcf-section-num">09</span><h2>Why Proposals Fail</h2></div>
+    <section class="gcf-section" id="why-fail" role="tabpanel" aria-labelledby="tab-why-fail" tabindex="0">
+      <div class="gcf-section-head"><span class="gcf-section-num">09</span><h2>Why Proposals Fail</h2><button type="button" class="gcf-copy-link" data-copy-id="why-fail" aria-label="Copy link to this section"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 9.5a2 2 0 0 0 2.9.2l2-2a2 2 0 0 0-2.8-2.8l-.6.5"/><path d="M9.5 6.5a2 2 0 0 0-2.9-.2l-2 2a2 2 0 0 0 2.8 2.8l.5-.5"/></svg></button></div>
       <p class="gcf-section-sub">These patterns recur across sectors and tracks. Screen your own proposal against every row before submission.</p>
       <div class="gcf-table-wrap">
         <table class="gcf-table">
@@ -1019,8 +1059,8 @@
     </section>
 
     <!-- ================= 10 TIMELINES ================= -->
-    <section class="gcf-section" id="timelines">
-      <div class="gcf-section-head"><span class="gcf-section-num">10</span><h2>Timelines</h2></div>
+    <section class="gcf-section" id="timelines" role="tabpanel" aria-labelledby="tab-timelines" tabindex="0">
+      <div class="gcf-section-head"><span class="gcf-section-num">10</span><h2>Timelines</h2><button type="button" class="gcf-copy-link" data-copy-id="timelines" aria-label="Copy link to this section"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 9.5a2 2 0 0 0 2.9.2l2-2a2 2 0 0 0-2.8-2.8l-.6.5"/><path d="M9.5 6.5a2 2 0 0 0-2.9-.2l-2 2a2 2 0 0 0 2.8 2.8l.5-.5"/></svg></button></div>
       <p class="gcf-section-sub">SAP vs. Regular/PAP — indicative durations only; may vary depending on project complexity, stakeholder consultations, document quality, review requirements, and approval processes of GCF, the Accredited Entity, and the NDA.</p>
       <div class="gcf-table-wrap">
         <table class="gcf-table">
@@ -1038,8 +1078,8 @@
     </section>
 
     <!-- ================= 11 WHO TO CONTACT ================= -->
-    <section class="gcf-section" id="contacts">
-      <div class="gcf-section-head"><span class="gcf-section-num">11</span><h2>Who to Contact</h2></div>
+    <section class="gcf-section" id="contacts" role="tabpanel" aria-labelledby="tab-contacts" tabindex="0">
+      <div class="gcf-section-head"><span class="gcf-section-num">11</span><h2>Who to Contact</h2><button type="button" class="gcf-copy-link" data-copy-id="contacts" aria-label="Copy link to this section"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 9.5a2 2 0 0 0 2.9.2l2-2a2 2 0 0 0-2.8-2.8l-.6.5"/><path d="M9.5 6.5a2 2 0 0 0-2.9-.2l-2 2a2 2 0 0 0 2.8 2.8l.5-.5"/></svg></button></div>
       <p class="gcf-section-sub">The NDA, India's Direct Access Entities, international Direct Access Entities, and the GCF Secretariat's India-facing team.</p>
 
       <div class="gcf-scam"><strong>Beware of scam emails or messages</strong> purporting to be from a government organisation, GCF, or their representatives offering grants, funds, compensation, or partnerships. These are phishing scams and are not associated with government, GCF, or their personnel. Always verify communications through official websites and channels.</div>
@@ -1052,7 +1092,7 @@
       </div>
 
       <div class="gcf-track" id="contact-nda">
-        <div class="gcf-track-head"><span class="gcf-track-tag">1</span><h3>National Designated Authority — Ministry of Environment, Forest and Climate Change (MoEFCC), India</h3></div>
+        <div class="gcf-track-head"><span class="gcf-track-tag">1</span><h3>National Designated Authority — Ministry of Environment, Forest and Climate Change (MoEFCC), India</h3><button type="button" class="gcf-copy-link" data-copy-id="contact-nda" aria-label="Copy link to this track"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 9.5a2 2 0 0 0 2.9.2l2-2a2 2 0 0 0-2.8-2.8l-.6.5"/><path d="M9.5 6.5a2 2 0 0 0-2.9-.2l-2 2a2 2 0 0 0 2.8 2.8l.5-.5"/></svg></button></div>
         <p class="gcf-track-sub">A National Designated Authority (NDA) is the government institution that serves as the interface between a country and the Green Climate Fund. NDAs provide broad strategic oversight of GCF's activities in the country and communicate the country's priorities for financing low-emission and climate-resilient development. For India, the Ministry of Environment, Forest and Climate Change (MoEFCC) has been designated as the NDA, and the Climate Change Division of MoEFCC functions as India's contact point for GCF. In this capacity, the NDA:</p>
         <ul class="gcf-linklist">
           <li>Interfaces between GCF and the country to take forward a country-driven approach to climate finance.</li>
@@ -1076,7 +1116,7 @@
       </div>
 
       <div class="gcf-track" id="contact-dae-india">
-        <div class="gcf-track-head"><span class="gcf-track-tag">2</span><h3>Direct Access Entities (Accredited Entities) — India</h3></div>
+        <div class="gcf-track-head"><span class="gcf-track-tag">2</span><h3>Direct Access Entities (Accredited Entities) — India</h3><button type="button" class="gcf-copy-link" data-copy-id="contact-dae-india" aria-label="Copy link to this track"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 9.5a2 2 0 0 0 2.9.2l2-2a2 2 0 0 0-2.8-2.8l-.6.5"/><path d="M9.5 6.5a2 2 0 0 0-2.9-.2l-2 2a2 2 0 0 0 2.8 2.8l.5-.5"/></svg></button></div>
         <p class="gcf-track-sub">These are GCF-accredited institutions in India (national or regional) through which GCF financing may be accessed without pursuing accreditation themselves. These directly access and manage GCF resources on behalf of their country. The direct access modality is intended to strengthen country ownership by enabling national institutions to design, implement and oversee climate investments aligned with national priorities. In this capacity, Direct Access Entities:</p>
         <ul class="gcf-linklist">
           <li>Develop GCF funding proposals in consultation with national and sub-national stakeholders, ensuring alignment with India's climate priorities and the guidance of the National Designated Authority (NDA).</li>
@@ -1123,7 +1163,7 @@
       </div>
 
       <div class="gcf-track" id="contact-dae-intl">
-        <div class="gcf-track-head"><span class="gcf-track-tag">3</span><h3>Direct Access Entities (Accredited Entities) — International</h3></div>
+        <div class="gcf-track-head"><span class="gcf-track-tag">3</span><h3>Direct Access Entities (Accredited Entities) — International</h3><button type="button" class="gcf-copy-link" data-copy-id="contact-dae-intl" aria-label="Copy link to this track"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 9.5a2 2 0 0 0 2.9.2l2-2a2 2 0 0 0-2.8-2.8l-.6.5"/><path d="M9.5 6.5a2 2 0 0 0-2.9-.2l-2 2a2 2 0 0 0 2.8 2.8l.5-.5"/></svg></button></div>
         <p class="gcf-track-sub">These are international organizations accredited by the Green Climate Fund to develop, finance and implement GCF-supported projects and programmes in developing countries. These include multilateral development banks, United Nations agencies, regional development institutions and international financial institutions. They work in partnership with governments, national institutions and the National Designated Authority to support country-driven climate action. In this capacity, International Access Entities:</p>
         <ul class="gcf-linklist">
           <li>Partner with governments and national institutions to identify and develop climate projects and programmes aligned with national priorities.</li>
@@ -1150,7 +1190,7 @@
       </div>
 
       <div class="gcf-track" id="contact-secretariat">
-        <div class="gcf-track-head"><span class="gcf-track-tag">4</span><h3>GCF Secretariat — India-Facing Team</h3></div>
+        <div class="gcf-track-head"><span class="gcf-track-tag">4</span><h3>GCF Secretariat — India-Facing Team</h3><button type="button" class="gcf-copy-link" data-copy-id="contact-secretariat" aria-label="Copy link to this track"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 9.5a2 2 0 0 0 2.9.2l2-2a2 2 0 0 0-2.8-2.8l-.6.5"/><path d="M9.5 6.5a2 2 0 0 0-2.9-.2l-2 2a2 2 0 0 0 2.8 2.8l.5-.5"/></svg></button></div>
         <p class="gcf-track-sub">The Green Climate Fund Secretariat is the independent administrative body that supports the GCF Board and manages the Fund's day-to-day operations. Within the Secretariat, regional country teams engage directly with National Designated Authorities, Accredited Entities and other stakeholders to facilitate access to GCF resources and strengthen country programming. India is supported through the Secretariat's Asia regional engagement. In this capacity, the GCF Secretariat's India-facing team:</p>
         <ul class="gcf-linklist">
           <li>Serves as the primary operational point of contact between the GCF and India's National Designated Authority, Accredited Entities and project proponents.</li>
@@ -1186,8 +1226,8 @@
     </section>
 
     <!-- ================= 12 RESOURCES ================= -->
-    <section class="gcf-section" id="resources">
-      <div class="gcf-section-head"><span class="gcf-section-num">12</span><h2>Official Tools &amp; Resources</h2></div>
+    <section class="gcf-section" id="resources" role="tabpanel" aria-labelledby="tab-resources" tabindex="0">
+      <div class="gcf-section-head"><span class="gcf-section-num">12</span><h2>Official Tools &amp; Resources</h2><button type="button" class="gcf-copy-link" data-copy-id="resources" aria-label="Copy link to this section"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 9.5a2 2 0 0 0 2.9.2l2-2a2 2 0 0 0-2.8-2.8l-.6.5"/><path d="M9.5 6.5a2 2 0 0 0-2.9-.2l-2 2a2 2 0 0 0 2.8 2.8l.5-.5"/></svg></button></div>
       <p class="gcf-section-sub">Direct links to every stage of the GCF project cycle, plus India-specific guidance.</p>
       <ul class="gcf-linklist">
         <li><a href="https://www.greenclimate.fund" target="_blank" rel="noopener noreferrer">GCF Official Website ↗</a> — <span class="gcf-ll-desc">main portal for all GCF information.</span></li>
@@ -1239,8 +1279,8 @@
     </section>
 
     <!-- ================= 13 TEMPLATES ================= -->
-    <section class="gcf-section" id="templates">
-      <div class="gcf-section-head"><span class="gcf-section-num">13</span><h2>Key Templates</h2></div>
+    <section class="gcf-section" id="templates" role="tabpanel" aria-labelledby="tab-templates" tabindex="0">
+      <div class="gcf-section-head"><span class="gcf-section-num">13</span><h2>Key Templates</h2><button type="button" class="gcf-copy-link" data-copy-id="templates" aria-label="Copy link to this section"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 9.5a2 2 0 0 0 2.9.2l2-2a2 2 0 0 0-2.8-2.8l-.6.5"/><path d="M9.5 6.5a2 2 0 0 0-2.9-.2l-2 2a2 2 0 0 0 2.8 2.8l.5-.5"/></svg></button></div>
       <p class="gcf-section-sub">Where to find every core template referenced across this guide.</p>
       <div class="gcf-table-wrap">
         <table class="gcf-table">
@@ -1272,6 +1312,10 @@
     </nav>
 
   </div>
+
+  <button type="button" class="gcf-back-to-top" id="gcf-back-to-top" aria-label="Back to top of page">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 13V3M3 7l5-5 5 5"/></svg>
+  </button>
 
   <div class="gcf-disclaimer">
     <div class="gcf-disclaimer-box">
@@ -1312,28 +1356,56 @@
     return h2 ? h2.textContent.replace(/^.*? — /, "").trim() : s.id;
   }
 
+  /* Generic roving-focus arrow-key navigation for a list of ARIA tab
+     elements — Left/Right move+activate, Home/End jump to first/last.
+     Shared by the top-level step nav, the checklist tabs, and (v2) the
+     category tabs, since all three are real ARIA tablists now. */
+  function wireArrowKeyNav(tabs, onActivate) {
+    tabs.forEach((tab, i) => {
+      tab.addEventListener("keydown", (e) => {
+        let next = null;
+        if (e.key === "ArrowRight") next = tabs[(i + 1) % tabs.length];
+        else if (e.key === "ArrowLeft") next = tabs[(i - 1 + tabs.length) % tabs.length];
+        else if (e.key === "Home") next = tabs[0];
+        else if (e.key === "End") next = tabs[tabs.length - 1];
+        if (next) {
+          e.preventDefault();
+          next.focus();
+          onActivate(next);
+        }
+      });
+    });
+  }
+
   function setActiveCategory(cat) {
-    catButtons.forEach((b) => b.classList.toggle("active", b.dataset.cat === cat));
+    catButtons.forEach((b) => {
+      const isActive = b.dataset.cat === cat;
+      b.classList.toggle("active", isActive);
+      b.setAttribute("aria-selected", String(isActive));
+      b.setAttribute("tabindex", isActive ? "0" : "-1");
+    });
     navLinks.forEach((a) => a.classList.toggle("gcf-cat-hidden", a.dataset.cat !== cat));
     requestAnimationFrame(updateNavScrollAffordance);
   }
 
-  catButtons.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const cat = btn.dataset.cat;
-      setActiveCategory(cat);
-      const current = navLinks.find((a) => a.classList.contains("active"));
-      // switching category jumps to its first step, unless the current step already belongs to it
-      if (!current || current.dataset.cat !== cat) {
-        const firstInCat = navLinks.find((a) => a.dataset.cat === cat);
-        if (firstInCat) {
-          const id = firstInCat.getAttribute("href").slice(1);
-          activateSection(id);
-          history.pushState(null, "", "#" + id);
-        }
+  function activateCategory(cat) {
+    setActiveCategory(cat);
+    const current = navLinks.find((a) => a.classList.contains("active"));
+    // switching category jumps to its first step, unless the current step already belongs to it
+    if (!current || current.dataset.cat !== cat) {
+      const firstInCat = navLinks.find((a) => a.dataset.cat === cat);
+      if (firstInCat) {
+        const id = firstInCat.getAttribute("href").slice(1);
+        activateSection(id);
+        history.pushState(null, "", "#" + id);
       }
-    });
+    }
+  }
+
+  catButtons.forEach((btn) => {
+    btn.addEventListener("click", () => activateCategory(btn.dataset.cat));
   });
+  wireArrowKeyNav(catButtons, (btn) => activateCategory(btn.dataset.cat));
 
   /* Every tab should land in the exact same spot: right below the sticky nav.
      Two formulas were tried and rejected before this one:
@@ -1422,6 +1494,8 @@
       const isActive = a.getAttribute("href") === "#" + id;
       a.classList.toggle("active", isActive);
       a.classList.toggle("visited", visited.has(a.getAttribute("href").slice(1)));
+      a.setAttribute("aria-selected", String(isActive));
+      a.setAttribute("tabindex", isActive ? "0" : "-1");
       if (isActive) activeLink = a;
     });
 
@@ -1476,6 +1550,11 @@
       history.pushState(null, "", "#" + id);
     });
   });
+  wireArrowKeyNav(navLinks, (a) => {
+    const id = a.getAttribute("href").slice(1);
+    activateSection(id);
+    history.pushState(null, "", "#" + id);
+  });
 
   (function initSection() {
     const fromHash = location.hash ? location.hash.slice(1) : null;
@@ -1493,10 +1572,32 @@
     if (!tabs.length || !panels.length) return;
     function activate(id) {
       panels.forEach((p) => p.classList.toggle("gcf-cl-active", p.id === id));
-      tabs.forEach((t) => t.classList.toggle("active", t.dataset.cl === id));
+      tabs.forEach((t) => {
+        const isActive = t.dataset.cl === id;
+        t.classList.toggle("active", isActive);
+        t.setAttribute("aria-selected", String(isActive));
+        t.setAttribute("tabindex", isActive ? "0" : "-1");
+      });
     }
-    tabs.forEach((t) => t.addEventListener("click", () => activate(t.dataset.cl)));
-    activate(tabs[0].dataset.cl);
+    tabs.forEach((t) => {
+      t.addEventListener("click", () => {
+        activate(t.dataset.cl);
+        history.pushState(null, "", "#" + t.dataset.cl);
+      });
+    });
+    wireArrowKeyNav(tabs, (t) => {
+      activate(t.dataset.cl);
+      history.pushState(null, "", "#" + t.dataset.cl);
+    });
+    // deep-link support: #cl-sap etc. opens straight to that checklist tab
+    const hashId = location.hash ? location.hash.slice(1) : null;
+    const hashTab = hashId && tabs.find((t) => t.dataset.cl === hashId);
+    activate(hashTab ? hashTab.dataset.cl : tabs[0].dataset.cl);
+    window.addEventListener("popstate", () => {
+      const id = location.hash ? location.hash.slice(1) : null;
+      const tab = id && tabs.find((t) => t.dataset.cl === id);
+      if (tab) activate(tab.dataset.cl);
+    });
   })();
 
   /* ── Application Procedure: turn each .gcf-track into an accordion item ── */
@@ -1614,6 +1715,46 @@
         requestAnimationFrame(() => scrollElementBelowNav(track, 12));
       }
     });
+  })();
+
+  /* ── Copy-link buttons (section / track / checklist headings) ── */
+  (function initCopyLinks() {
+    document.querySelectorAll(".gcf-copy-link").forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const id = btn.dataset.copyId;
+        const url = location.origin + location.pathname + "#" + id;
+        const done = () => {
+          btn.classList.add("gcf-copied");
+          setTimeout(() => btn.classList.remove("gcf-copied"), 1500);
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(url).then(done).catch(done);
+        } else {
+          // fallback for browsers/contexts without Clipboard API access
+          const ta = document.createElement("textarea");
+          ta.value = url;
+          ta.style.position = "fixed";
+          ta.style.opacity = "0";
+          document.body.appendChild(ta);
+          ta.select();
+          try { document.execCommand("copy"); } catch (err) {}
+          document.body.removeChild(ta);
+          done();
+        }
+      });
+    });
+  })();
+
+  /* ── Back to top ── */
+  (function initBackToTop() {
+    const btn = document.getElementById("gcf-back-to-top");
+    if (!btn) return;
+    window.addEventListener("scroll", () => {
+      btn.classList.toggle("gcf-visible", window.scrollY > 500);
+    }, { passive: true });
+    btn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
   })();
 </script>
 </div>
