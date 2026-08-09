@@ -134,7 +134,7 @@
   .gcf-nav-scroll.gcf-nav-scroll-hidden{opacity:0;visibility:hidden;pointer-events:none;}
 
   /* ---------- sub-nav (within Application Procedure) ---------- */
-  .gcf-subnav{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 24px;}
+  .gcf-subnav{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 24px;}
   .gcf-subnav a{
     font-size:var(--fs-xs);font-weight:700;color:var(--color-teal-700);text-decoration:none;
     padding:6px 14px;border-radius:var(--radius-full);border:1px solid var(--color-teal-border);
@@ -1357,6 +1357,21 @@
     return Math.max(0, content.offsetTop - wrap.offsetHeight - stickyTop);
   }
 
+  /* Scrolling an accordion track/subnav target into view previously used
+     native scrollIntoView() + a fixed `scroll-margin-top` guess on
+     .gcf-track (220px) that has to match the sticky nav's real rendered
+     height for the result to land correctly — the same class of "looks
+     right until it doesn't" problem already found and fixed for the
+     top-level section nav. Reuse the same offsetTop-based, always-correct
+     calculation here instead of guessing a margin. */
+  function scrollElementBelowNav(el, gap) {
+    const wrap = document.querySelector(".gcf-nav-wrap");
+    if (!wrap || !el) return;
+    const stickyTop = parseFloat(getComputedStyle(wrap).top) || 0;
+    const target = el.offsetTop - wrap.offsetHeight - stickyTop - (gap || 0);
+    window.scrollTo({ top: Math.max(0, target), behavior: "smooth" });
+  }
+
   /* keep the active pill inside the visible scroll area — this is what was
      missing when a user jumped to step 7/8/9: the pill activated but stayed
      off-screen in the horizontally-scrolling strip, so nothing looked like
@@ -1560,7 +1575,7 @@
     });
 
     if (hashTrack) {
-      requestAnimationFrame(() => hashTrack.scrollIntoView({ behavior: "auto", block: "start" }));
+      requestAnimationFrame(() => scrollElementBelowNav(hashTrack, 12));
     }
 
     // sub-nav within a track group (Application Procedure / Who to Contact) opens the right track
@@ -1574,7 +1589,7 @@
         siblingsOf(target).forEach((t) => t.classList.remove("gcf-open"));
         target.classList.add("gcf-open");
         syncSubnavActive(target);
-        target.scrollIntoView({ behavior: "smooth", block: "start" });
+        scrollElementBelowNav(target, 12);
       });
     });
 
@@ -1596,7 +1611,7 @@
         siblingsOf(track).forEach((t) => t.classList.remove("gcf-open"));
         track.classList.add("gcf-open");
         syncSubnavActive(track);
-        requestAnimationFrame(() => track.scrollIntoView({ behavior: "smooth", block: "start" }));
+        requestAnimationFrame(() => scrollElementBelowNav(track, 12));
       }
     });
   })();
