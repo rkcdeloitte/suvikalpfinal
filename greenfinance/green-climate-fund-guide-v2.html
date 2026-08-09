@@ -279,10 +279,51 @@
   .gcf-grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
   .gcf-card{background:var(--color-surface);border:1px solid var(--color-card-border);border-radius:var(--radius-lg);
     padding:17px 16px;box-shadow:var(--shadow-sm);}
-  .gcf-card-title{font-size:var(--fs-sm);font-weight:700;color:var(--color-teal-700);margin:0 0 6px;}
+  .gcf-card-title{font-size:var(--fs-sm);font-weight:700;color:var(--color-teal-700);margin:0 0 6px;display:flex;align-items:center;gap:8px;}
   .gcf-card-desc{font-size:var(--fs-sm);line-height:1.55;color:var(--color-text-secondary);margin:0;}
   .gcf-card-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;
     background:var(--color-teal-700);color:#fff;font-size:.72rem;font-weight:700;margin-bottom:10px;}
+  .gcf-card-icon{flex-shrink:0;width:20px;height:20px;color:var(--color-teal-700);}
+
+  /* ---------- stat tiles (visual summary above "Key Facts" table) ---------- */
+  .gcf-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:16px 0 22px;}
+  .gcf-stat{background:var(--color-teal-bg);border:1px solid var(--color-teal-border);border-radius:var(--radius-lg);
+    padding:18px 14px;text-align:center;}
+  .gcf-stat-num{font-size:1.5rem;font-weight:800;color:var(--color-teal-700);line-height:1.15;margin:0 0 4px;letter-spacing:-.01em;}
+  .gcf-stat-label{font-size:var(--fs-xs);color:var(--color-text-secondary);font-weight:600;line-height:1.3;}
+  @media (max-width:640px){.gcf-stats{grid-template-columns:1fr 1fr;}}
+
+  /* ---------- timeline bar-chart (visual layer above the Timelines table) ---------- */
+  .gcf-tl-chart{margin:16px 0 22px;padding:18px 20px 14px;border:1px solid var(--color-card-border);
+    border-radius:var(--radius-lg);background:var(--color-surface);box-shadow:var(--shadow-sm);}
+  .gcf-tl-legend{display:flex;gap:18px;margin-bottom:16px;font-size:var(--fs-xs);font-weight:700;color:var(--color-text-secondary);}
+  .gcf-tl-legend span{display:inline-flex;align-items:center;gap:6px;}
+  .gcf-tl-dot{width:10px;height:10px;border-radius:3px;display:inline-block;}
+  .gcf-tl-dot.gcf-tl-sap{background:var(--color-primary);}
+  .gcf-tl-dot.gcf-tl-reg{background:#c2851f;}
+  .gcf-tl-row{margin-bottom:16px;}
+  .gcf-tl-row:last-child{margin-bottom:0;}
+  .gcf-tl-label{font-size:var(--fs-sm);font-weight:600;color:var(--color-text);margin:0 0 8px;}
+  .gcf-tl-bar-line{display:flex;align-items:center;gap:10px;margin-bottom:5px;}
+  .gcf-tl-bar-line:last-child{margin-bottom:0;}
+  .gcf-tl-tag{flex-shrink:0;width:34px;font-size:.65rem;font-weight:800;letter-spacing:.02em;color:var(--color-text-secondary);}
+  .gcf-tl-track{flex:1;height:16px;background:var(--color-teal-bg);border-radius:4px;overflow:hidden;}
+  .gcf-tl-fill{height:100%;border-radius:4px;min-width:6px;transition:width .3s ease;}
+  .gcf-tl-fill.gcf-tl-sap{background:var(--color-primary);}
+  .gcf-tl-fill.gcf-tl-reg{background:#c2851f;}
+  .gcf-tl-val{flex-shrink:0;font-size:var(--fs-xs);color:var(--color-text-secondary);min-width:88px;}
+  .gcf-tl-total{margin-top:18px;padding-top:16px;border-top:1px dashed var(--color-card-border);}
+  .gcf-tl-total .gcf-tl-label{font-weight:700;color:var(--color-teal-700);}
+
+  /* ---------- interactive checklist checkboxes ---------- */
+  .gcf-cl-progress{font-size:var(--fs-xs);font-weight:700;color:var(--color-teal-700);margin:0 0 10px;}
+  .gcf-checklist-box li::before{content:none;}
+  .gcf-checklist-box li{padding:0;}
+  .gcf-cl-item{display:flex;gap:9px;align-items:flex-start;cursor:pointer;width:100%;}
+  .gcf-cl-item input[type="checkbox"]{margin:2px 0 0;flex-shrink:0;width:16px;height:16px;accent-color:var(--color-primary);cursor:pointer;}
+  .gcf-cl-item span{flex:1;}
+  .gcf-cl-item input:checked ~ span{color:var(--color-text-secondary);text-decoration:line-through;text-decoration-color:var(--color-card-border);}
+  @media print{.gcf-cl-progress{display:none;}}
 
   /* ---------- tables ---------- */
   .gcf-table-wrap{overflow-x:auto;border:1px solid var(--color-card-border);border-radius:var(--radius-lg);background:var(--color-surface);box-shadow:var(--shadow-sm);margin-bottom:20px;}
@@ -450,6 +491,12 @@
       <p style="max-width:880px;font-size:var(--fs-base);line-height:1.7;color:var(--color-text-secondary);margin:0;">The Fund allocates resources to low-emission and climate-resilient projects and programmes in developing countries, with particular focus on societies highly vulnerable to climate change — including Least Developed Countries (LDCs), Small Island Developing States (SIDS) and African States. GCF aims for a 50:50 balance in funding allocation between mitigation and adaptation activities, with a floor of 50% of the adaptation allocation ring-fenced for the most vulnerable countries.</p>
 
       <p class="gcf-subhead">Key Facts at a Glance</p>
+      <div class="gcf-stats">
+        <div class="gcf-stat"><p class="gcf-stat-num">2010</p><p class="gcf-stat-label">Established</p></div>
+        <div class="gcf-stat"><p class="gcf-stat-num">24</p><p class="gcf-stat-label">Board members</p></div>
+        <div class="gcf-stat"><p class="gcf-stat-num">353</p><p class="gcf-stat-label">Projects approved</p></div>
+        <div class="gcf-stat"><p class="gcf-stat-num">USD 20.1B</p><p class="gcf-stat-label">Total approved funding</p></div>
+      </div>
       <div class="gcf-table-wrap">
         <table class="gcf-table">
           <tbody>
@@ -566,12 +613,12 @@
 
       <p class="gcf-subhead">GCF's Six Investment Criteria</p>
       <div class="gcf-grid-3">
-        <div class="gcf-card"><span class="gcf-card-num">1</span><p class="gcf-card-title">Impact Potential</p><p class="gcf-card-desc">Potential to contribute to GCF's mitigation/adaptation objectives and result areas.</p></div>
-        <div class="gcf-card"><span class="gcf-card-num">2</span><p class="gcf-card-title">Paradigm-Shift Potential</p><p class="gcf-card-desc">Potential to catalyse a broader change beyond a one-off project.</p></div>
-        <div class="gcf-card"><span class="gcf-card-num">3</span><p class="gcf-card-title">Sustainable Development Potential</p><p class="gcf-card-desc">Environmental, social, economic and gender co-benefits.</p></div>
-        <div class="gcf-card"><span class="gcf-card-num">4</span><p class="gcf-card-title">Needs of the Recipient</p><p class="gcf-card-desc">Vulnerability and financing needs of the beneficiary country/population.</p></div>
-        <div class="gcf-card"><span class="gcf-card-num">5</span><p class="gcf-card-title">Country Ownership</p><p class="gcf-card-desc">Alignment with national climate strategies, NDCs, and existing capacities.</p></div>
-        <div class="gcf-card"><span class="gcf-card-num">6</span><p class="gcf-card-title">Efficiency &amp; Effectiveness</p><p class="gcf-card-desc">Cost-effectiveness and financial soundness, including co-financing leveraged.</p></div>
+        <div class="gcf-card"><span class="gcf-card-num">1</span><p class="gcf-card-title"><svg class="gcf-card-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="8" cy="8" r="6"/><circle cx="8" cy="8" r="3"/><circle cx="8" cy="8" r=".6" fill="currentColor" stroke="none"/></svg>Impact Potential</p><p class="gcf-card-desc">Potential to contribute to GCF's mitigation/adaptation objectives and result areas.</p></div>
+        <div class="gcf-card"><span class="gcf-card-num">2</span><p class="gcf-card-title"><svg class="gcf-card-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12l4-4 3 3 5-6"/><path d="M11 5h3v3"/></svg>Paradigm-Shift Potential</p><p class="gcf-card-desc">Potential to catalyse a broader change beyond a one-off project.</p></div>
+        <div class="gcf-card"><span class="gcf-card-num">3</span><p class="gcf-card-title"><svg class="gcf-card-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13c6 1 10-3 10-10-7 0-11 4-10 10z"/><path d="M3 13c2-3 4-5 7-7"/></svg>Sustainable Development Potential</p><p class="gcf-card-desc">Environmental, social, economic and gender co-benefits.</p></div>
+        <div class="gcf-card"><span class="gcf-card-num">4</span><p class="gcf-card-title"><svg class="gcf-card-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 13.5S2 10 2 6a3 3 0 0 1 5.5-1.7 3 3 0 0 1 5.5 1.7c0 4-5.5 7.5-5.5 7.5z"/></svg>Needs of the Recipient</p><p class="gcf-card-desc">Vulnerability and financing needs of the beneficiary country/population.</p></div>
+        <div class="gcf-card"><span class="gcf-card-num">5</span><p class="gcf-card-title"><svg class="gcf-card-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v12"/><path d="M3 3h9l-2 3 2 3H3"/></svg>Country Ownership</p><p class="gcf-card-desc">Alignment with national climate strategies, NDCs, and existing capacities.</p></div>
+        <div class="gcf-card"><span class="gcf-card-num">6</span><p class="gcf-card-title"><svg class="gcf-card-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 1 3 9h4l-1 6 6-8H8l1-6z"/></svg>Efficiency &amp; Effectiveness</p><p class="gcf-card-desc">Cost-effectiveness and financial soundness, including co-financing leveraged.</p></div>
       </div>
       <p class="gcf-inline-note">Each project/programme outcome within a project/programme logframe is linked to one of GCF's eight results areas — four mitigation and four adaptation — which facilitates systematic results reporting.</p>
     </section>
@@ -1062,6 +1109,44 @@
     <section class="gcf-section" id="timelines" role="tabpanel" aria-labelledby="tab-timelines" tabindex="0">
       <div class="gcf-section-head"><span class="gcf-section-num">10</span><h2>Timelines</h2><button type="button" class="gcf-copy-link" data-copy-id="timelines" aria-label="Copy link to this section"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 9.5a2 2 0 0 0 2.9.2l2-2a2 2 0 0 0-2.8-2.8l-.6.5"/><path d="M9.5 6.5a2 2 0 0 0-2.9-.2l-2 2a2 2 0 0 0 2.8 2.8l.5-.5"/></svg></button></div>
       <p class="gcf-section-sub">SAP vs. Regular/PAP — indicative durations only; may vary depending on project complexity, stakeholder consultations, document quality, review requirements, and approval processes of GCF, the Accredited Entity, and the NDA.</p>
+
+      <div class="gcf-tl-chart">
+        <div class="gcf-tl-legend">
+          <span><span class="gcf-tl-dot gcf-tl-sap"></span>SAP (≤ USD 25M)</span>
+          <span><span class="gcf-tl-dot gcf-tl-reg"></span>Regular / PAP (&gt; USD 25M)</span>
+        </div>
+        <div class="gcf-tl-row">
+          <p class="gcf-tl-label">Concept development + NDA/AE engagement</p>
+          <div class="gcf-tl-bar-line"><span class="gcf-tl-tag">SAP</span><div class="gcf-tl-track"><div class="gcf-tl-fill gcf-tl-sap" style="width:22%"></div></div><span class="gcf-tl-val">2–4 months</span></div>
+          <div class="gcf-tl-bar-line"><span class="gcf-tl-tag">REG</span><div class="gcf-tl-track"><div class="gcf-tl-fill gcf-tl-reg" style="width:33%"></div></div><span class="gcf-tl-val">3–6 months</span></div>
+        </div>
+        <div class="gcf-tl-row">
+          <p class="gcf-tl-label">Concept Note submission + Secretariat feedback</p>
+          <div class="gcf-tl-bar-line"><span class="gcf-tl-tag">SAP</span><div class="gcf-tl-track"><div class="gcf-tl-fill gcf-tl-sap" style="width:22%"></div></div><span class="gcf-tl-val">2–4 months</span></div>
+          <div class="gcf-tl-bar-line"><span class="gcf-tl-tag">REG</span><div class="gcf-tl-track"><div class="gcf-tl-fill gcf-tl-reg" style="width:33%"></div></div><span class="gcf-tl-val">3–6 months</span></div>
+        </div>
+        <div class="gcf-tl-row">
+          <p class="gcf-tl-label">Full proposal preparation</p>
+          <div class="gcf-tl-bar-line"><span class="gcf-tl-tag">SAP</span><div class="gcf-tl-track"><div class="gcf-tl-fill gcf-tl-sap" style="width:33%"></div></div><span class="gcf-tl-val">3–6 months</span></div>
+          <div class="gcf-tl-bar-line"><span class="gcf-tl-tag">REG</span><div class="gcf-tl-track"><div class="gcf-tl-fill gcf-tl-reg" style="width:100%"></div></div><span class="gcf-tl-val">6–18 months</span></div>
+        </div>
+        <div class="gcf-tl-row">
+          <p class="gcf-tl-label">Secretariat review + iTAP assessment</p>
+          <div class="gcf-tl-bar-line"><span class="gcf-tl-tag">SAP</span><div class="gcf-tl-track"><div class="gcf-tl-fill gcf-tl-sap" style="width:28%"></div></div><span class="gcf-tl-val">3–5 months</span></div>
+          <div class="gcf-tl-bar-line"><span class="gcf-tl-tag">REG</span><div class="gcf-tl-track"><div class="gcf-tl-fill gcf-tl-reg" style="width:44%"></div></div><span class="gcf-tl-val">4–8 months</span></div>
+        </div>
+        <div class="gcf-tl-row">
+          <p class="gcf-tl-label">Board approval + legal agreements</p>
+          <div class="gcf-tl-bar-line"><span class="gcf-tl-tag">SAP</span><div class="gcf-tl-track"><div class="gcf-tl-fill gcf-tl-sap" style="width:17%"></div></div><span class="gcf-tl-val">2–3 months</span></div>
+          <div class="gcf-tl-bar-line"><span class="gcf-tl-tag">REG</span><div class="gcf-tl-track"><div class="gcf-tl-fill gcf-tl-reg" style="width:33%"></div></div><span class="gcf-tl-val">3–6 months</span></div>
+        </div>
+        <div class="gcf-tl-total">
+          <p class="gcf-tl-label">Total: idea → first disbursement</p>
+          <div class="gcf-tl-bar-line"><span class="gcf-tl-tag">SAP</span><div class="gcf-tl-track"><div class="gcf-tl-fill gcf-tl-sap" style="width:43%"></div></div><span class="gcf-tl-val">~12–18 months</span></div>
+          <div class="gcf-tl-bar-line"><span class="gcf-tl-tag">REG</span><div class="gcf-tl-track"><div class="gcf-tl-fill gcf-tl-reg" style="width:100%"></div></div><span class="gcf-tl-val">~24–42 months</span></div>
+        </div>
+      </div>
+
       <div class="gcf-table-wrap">
         <table class="gcf-table">
           <thead><tr><th>Stage</th><th>SAP (≤ USD 25M)</th><th>Regular / PAP (&gt; USD 25M)</th></tr></thead>
@@ -1744,6 +1829,66 @@
           done();
         }
       });
+    });
+  })();
+
+  /* ── Interactive checklists: turn the static ☐ list items into real,
+     persisted checkboxes with a progress count — covers every
+     .gcf-checklist-box on the page: the 7 Checklist tabs AND the 6
+     "Documents Checklist" boxes embedded in Application Procedure
+     tracks, since they share the same markup pattern. Keys are a global
+     running index (stable as long as content order doesn't change),
+     stored in localStorage so progress survives a reload. ── */
+  (function initInteractiveChecklists() {
+    let localStorageOK = true;
+    try {
+      localStorage.setItem("__gcf_test__", "1");
+      localStorage.removeItem("__gcf_test__");
+    } catch (e) {
+      localStorageOK = false;
+    }
+
+    let globalIndex = 0;
+    document.querySelectorAll(".gcf-checklist-box").forEach((box) => {
+      const items = Array.from(box.querySelectorAll("ul > li"));
+      if (!items.length) return;
+
+      const progress = document.createElement("p");
+      progress.className = "gcf-cl-progress";
+      const titleEl = box.querySelector(".gcf-cl-title");
+      if (titleEl) titleEl.insertAdjacentElement("afterend", progress);
+      else box.insertBefore(progress, box.firstChild);
+
+      const boxes = [];
+      items.forEach((li) => {
+        const key = "gcf-cl-check-" + globalIndex++;
+        const text = li.innerHTML;
+        li.innerHTML = "";
+        const label = document.createElement("label");
+        label.className = "gcf-cl-item";
+        const cb = document.createElement("input");
+        cb.type = "checkbox";
+        cb.checked = localStorageOK && localStorage.getItem(key) === "1";
+        const span = document.createElement("span");
+        span.innerHTML = text;
+        label.appendChild(cb);
+        label.appendChild(span);
+        li.appendChild(label);
+        boxes.push(cb);
+        cb.addEventListener("change", () => {
+          if (localStorageOK) {
+            if (cb.checked) localStorage.setItem(key, "1");
+            else localStorage.removeItem(key);
+          }
+          updateProgress();
+        });
+      });
+
+      function updateProgress() {
+        const done = boxes.filter((c) => c.checked).length;
+        progress.textContent = done + " of " + boxes.length + " checked" + (done === boxes.length ? " — all done" : "");
+      }
+      updateProgress();
     });
   })();
 
