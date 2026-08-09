@@ -350,6 +350,85 @@
   }
   .gcf-instrument-chip svg{flex-shrink:0;width:17px;height:17px;color:var(--color-teal-700);}
 
+  /* ---------- ambient reading-progress bar (very top of viewport) ---------- */
+  .gcf-read-progress{
+    position:fixed;top:0;left:0;right:0;height:3px;z-index:400;background:transparent;pointer-events:none;
+  }
+  .gcf-read-progress-bar{
+    height:100%;width:0;background:linear-gradient(90deg,var(--color-teal-700),var(--color-primary));
+    transition:width .1s linear;
+  }
+  @media print{.gcf-read-progress{display:none;}}
+
+  /* ---------- application journey strip (visual anchor for section 07) ---------- */
+  .gcf-journey{
+    margin:18px 0 26px;padding:24px 22px 20px;border-radius:var(--radius-lg);
+    background:linear-gradient(160deg,var(--color-teal-bg),var(--color-surface));
+    border:1px solid var(--color-teal-border);box-shadow:var(--shadow-sm);
+  }
+  .gcf-journey-track{display:flex;align-items:flex-start;gap:0;position:relative;}
+  .gcf-journey-step{
+    flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;
+    position:relative;padding:0 6px;
+  }
+  /* connector line between nodes */
+  .gcf-journey-step:not(:last-child)::after{
+    content:"";position:absolute;top:17px;left:calc(50% + 22px);right:calc(-50% + 22px);height:2px;
+    background:var(--color-teal-border);z-index:0;
+  }
+  .gcf-journey-node{
+    width:34px;height:34px;border-radius:50%;flex-shrink:0;z-index:1;
+    background:var(--color-surface);border:2px solid var(--color-primary);color:var(--color-teal-700);
+    display:flex;align-items:center;justify-content:center;font-size:var(--fs-sm);font-weight:800;
+    box-shadow:0 2px 6px rgba(33,128,141,.18);
+  }
+  .gcf-journey-step:last-child .gcf-journey-node{background:var(--color-primary);color:#fff;}
+  .gcf-journey-label{font-size:var(--fs-xs);line-height:1.4;color:var(--color-text);font-weight:600;}
+  @media (max-width:760px){
+    .gcf-journey-track{flex-direction:column;gap:16px;}
+    .gcf-journey-step{flex-direction:row;text-align:left;align-items:center;gap:12px;width:100%;padding:0;}
+    .gcf-journey-step:not(:last-child)::after{
+      top:34px;bottom:-16px;left:16px;right:auto;width:2px;height:auto;
+    }
+  }
+
+  /* ---------- motion: staggered reveal of section content ---------- */
+  @keyframes gcf-rise{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:none;}}
+  .gcf-section.gcf-active > *{animation:gcf-rise .45s cubic-bezier(.22,.61,.36,1) both;}
+  .gcf-section.gcf-active > *:nth-child(1){animation-delay:.02s;}
+  .gcf-section.gcf-active > *:nth-child(2){animation-delay:.06s;}
+  .gcf-section.gcf-active > *:nth-child(3){animation-delay:.10s;}
+  .gcf-section.gcf-active > *:nth-child(4){animation-delay:.14s;}
+  .gcf-section.gcf-active > *:nth-child(5){animation-delay:.18s;}
+  .gcf-section.gcf-active > *:nth-child(6){animation-delay:.22s;}
+  .gcf-section.gcf-active > *:nth-child(7){animation-delay:.26s;}
+  .gcf-section.gcf-active > *:nth-child(n+8){animation-delay:.30s;}
+
+  /* completed-checklist acknowledgement — a calm pulse, not celebration */
+  @keyframes gcf-badge-pulse{
+    0%{box-shadow:0 0 0 0 rgba(33,128,141,.45);}
+    100%{box-shadow:0 0 0 12px rgba(33,128,141,0);}
+  }
+  .gcf-cl-total-badge.gcf-pulse{animation:gcf-badge-pulse .9s ease-out;}
+  .gcf-cl-progress.gcf-cl-done{color:var(--color-primary);}
+
+  /* ---------- polish: hero depth + card lift ---------- */
+  .gcf-hero{position:relative;}
+  .gcf-card{transition:box-shadow .2s ease,transform .2s ease;}
+  .gcf-card:hover{box-shadow:0 6px 18px rgba(0,0,0,.09);transform:translateY(-2px);}
+  .gcf-stat{transition:box-shadow .2s ease,transform .2s ease;}
+  .gcf-stat:hover{box-shadow:0 6px 18px rgba(33,128,141,.15);transform:translateY(-2px);}
+
+  /* ---------- accessibility: honour reduced-motion for every animation above ---------- */
+  @media (prefers-reduced-motion: reduce){
+    .gcf-section.gcf-active > *{animation:none !important;}
+    .gcf-cl-total-badge.gcf-pulse{animation:none !important;}
+    .gcf-tl-fill{transition:none !important;}
+    .gcf-read-progress-bar{transition:none !important;}
+    .gcf-card:hover,.gcf-stat:hover{transform:none;}
+    .gcf-section.gcf-active{animation:none !important;}
+  }
+
   /* ---------- tables ---------- */
   .gcf-table-wrap{overflow-x:auto;border:1px solid var(--color-card-border);border-radius:var(--radius-lg);background:var(--color-surface);box-shadow:var(--shadow-sm);margin-bottom:20px;}
   table.gcf-table{width:100%;border-collapse:collapse;font-size:var(--fs-sm);}
@@ -419,6 +498,8 @@
 </style>
 </head>
 <body>
+
+<div class="gcf-read-progress" aria-hidden="true"><div class="gcf-read-progress-bar" id="gcf-read-progress-bar"></div></div>
 
 <header id="site-header">
   <div class="header-left">
@@ -701,6 +782,31 @@
     <section class="gcf-section" id="application" role="tabpanel" aria-labelledby="tab-application" tabindex="0">
       <div class="gcf-section-head"><span class="gcf-section-num">07</span><h2>Application Procedure</h2><button type="button" class="gcf-copy-link" data-copy-id="application" aria-label="Copy link to this section"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 9.5a2 2 0 0 0 2.9.2l2-2a2 2 0 0 0-2.8-2.8l-.6.5"/><path d="M9.5 6.5a2 2 0 0 0-2.9-.2l-2 2a2 2 0 0 0 2.8 2.8l.5-.5"/></svg></button></div>
       <p class="gcf-section-sub">GCF offers several distinct routes to access finance, each suited to different project sizes, risk levels, and applicant profiles. Every mechanism below is explained with its own step-by-step flow, eligibility/criteria, and document checklist.</p>
+
+      <div class="gcf-journey" role="img" aria-label="Application journey: Concept development and NDA/AE engagement, then Concept Note submission and Secretariat feedback, then Full proposal preparation, then Secretariat review and iTAP assessment, then Board approval and legal agreements.">
+        <div class="gcf-journey-track">
+          <div class="gcf-journey-step">
+            <div class="gcf-journey-node">1</div>
+            <div class="gcf-journey-label">Concept development + NDA/AE engagement</div>
+          </div>
+          <div class="gcf-journey-step">
+            <div class="gcf-journey-node">2</div>
+            <div class="gcf-journey-label">Concept Note submission + Secretariat feedback</div>
+          </div>
+          <div class="gcf-journey-step">
+            <div class="gcf-journey-node">3</div>
+            <div class="gcf-journey-label">Full proposal preparation</div>
+          </div>
+          <div class="gcf-journey-step">
+            <div class="gcf-journey-node">4</div>
+            <div class="gcf-journey-label">Secretariat review + iTAP assessment</div>
+          </div>
+          <div class="gcf-journey-step">
+            <div class="gcf-journey-node">5</div>
+            <div class="gcf-journey-label">Board approval + legal agreements</div>
+          </div>
+        </div>
+      </div>
 
       <nav class="gcf-subnav">
         <a href="#track-7-1">7.1 Overall Journey</a>
@@ -1919,9 +2025,16 @@
         });
       });
 
+      let wasComplete = null;
       function updateProgress() {
         const done = boxes.filter((c) => c.checked).length;
-        progress.textContent = done + " of " + boxes.length + " checked" + (done === boxes.length ? " — all done" : "");
+        const isComplete = done === boxes.length;
+        progress.textContent = done + " of " + boxes.length + " checked" + (isComplete ? " — all done" : "");
+        progress.classList.toggle("gcf-cl-done", isComplete);
+        // acknowledge the moment a checklist is finished (not on initial load,
+        // where wasComplete is still null) with one calm pulse on the badge
+        if (wasComplete === false && isComplete) pulseTotalBadge();
+        wasComplete = isComplete;
       }
       updateProgress();
     });
@@ -1935,7 +2048,126 @@
       totalBadge.textContent = done + " of " + allCheckboxes.length + " items checked";
       totalBadge.hidden = false;
     }
+
+    function pulseTotalBadge() {
+      // checked inline rather than via the outer motion flag so this stays
+      // self-contained and correct regardless of script evaluation order
+      const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (!totalBadge || reduce) return;
+      totalBadge.classList.remove("gcf-pulse");
+      void totalBadge.offsetWidth; // restart the animation if it's already running
+      totalBadge.classList.add("gcf-pulse");
+      setTimeout(() => totalBadge.classList.remove("gcf-pulse"), 1000);
+    }
+
     updateTotalBadge();
+  })();
+
+  /* ── Motion layer ──────────────────────────────────────────────
+     Every animation below is progressive enhancement only: the page is
+     fully readable and correct with JS disabled (bars keep their inline
+     widths, stat tiles keep their literal values), and every effect is
+     skipped outright when the visitor has asked for reduced motion —
+     which matters for a public-sector page with accessibility duties. */
+  const gcfReduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* Ambient reading-progress bar */
+  (function initReadProgress() {
+    const bar = document.getElementById("gcf-read-progress-bar");
+    if (!bar) return;
+    function update() {
+      const doc = document.documentElement;
+      const max = doc.scrollHeight - window.innerHeight;
+      const pct = max > 0 ? Math.min(100, (window.scrollY / max) * 100) : 0;
+      bar.style.width = pct + "%";
+    }
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    update();
+  })();
+
+  /* Count-up on the Key Facts stat tiles, first time they're seen.
+     Splits "USD 20.1B" into prefix / number / suffix so the animation
+     only touches the numeric part and never rewrites the label. */
+  (function initCountUp() {
+    const nums = Array.from(document.querySelectorAll(".gcf-stat-num"));
+    if (!nums.length || gcfReduceMotion || !("IntersectionObserver" in window)) return;
+
+    nums.forEach((el) => {
+      const raw = el.textContent.trim();
+      const m = raw.match(/^(\D*?)([\d.,]+)(\D*)$/);
+      if (!m) return;
+      el.dataset.gcfPrefix = m[1];
+      el.dataset.gcfSuffix = m[3];
+      el.dataset.gcfTarget = m[2];
+    });
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        io.unobserve(el);
+        const targetStr = el.dataset.gcfTarget;
+        if (!targetStr) return;
+        const decimals = (targetStr.split(".")[1] || "").length;
+        const target = parseFloat(targetStr.replace(/,/g, ""));
+        if (isNaN(target)) return;
+        const prefix = el.dataset.gcfPrefix || "";
+        const suffix = el.dataset.gcfSuffix || "";
+        const duration = 900;
+        const start = performance.now();
+        function frame(now) {
+          const t = Math.min(1, (now - start) / duration);
+          // ease-out cubic
+          const eased = 1 - Math.pow(1 - t, 3);
+          const val = target * eased;
+          el.textContent = prefix + val.toFixed(decimals) + suffix;
+          if (t < 1) requestAnimationFrame(frame);
+          else el.textContent = prefix + targetStr + suffix; // land exactly on the real value
+        }
+        requestAnimationFrame(frame);
+      });
+    }, { threshold: 0.4 });
+
+    nums.forEach((el) => io.observe(el));
+  })();
+
+  /* Timeline bars grow to their width the first time the chart is seen.
+     Safety is the priority over the effect here: a bar chart stuck at 0%
+     would silently display *no data*, so the bars are only zeroed once we
+     know we can restore them, the observer uses threshold 0 (the chart is
+     taller than some viewports, so any fractional threshold can legitimately
+     never be met), and a failsafe timer restores them unconditionally if the
+     observer hasn't fired for any reason. */
+  (function initTimelineBars() {
+    const fills = Array.from(document.querySelectorAll(".gcf-tl-fill"));
+    const chart = document.querySelector(".gcf-tl-chart");
+    if (!fills.length || !chart || gcfReduceMotion || !("IntersectionObserver" in window)) return;
+
+    fills.forEach((f) => { f.dataset.gcfWidth = f.style.width; f.style.width = "0%"; });
+
+    let done = false;
+    function revealBars(stagger) {
+      if (done) return;
+      done = true;
+      clearTimeout(failsafe);
+      fills.forEach((f, i) => {
+        if (stagger) setTimeout(() => { f.style.width = f.dataset.gcfWidth; }, i * 60);
+        else f.style.width = f.dataset.gcfWidth;
+      });
+    }
+
+    // unconditional backstop — the chart must never be left empty
+    const failsafe = setTimeout(() => revealBars(false), 4000);
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        io.unobserve(entry.target);
+        revealBars(true);
+      });
+    }, { threshold: 0 });
+    io.observe(chart);
   })();
 
   /* ── Back to top ── */
