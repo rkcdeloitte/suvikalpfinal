@@ -137,9 +137,14 @@
   .gcf-subnav{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 24px;}
   .gcf-subnav a{
     font-size:var(--fs-xs);font-weight:700;color:var(--color-teal-700);text-decoration:none;
-    padding:5px 12px;border-radius:var(--radius-full);border:1px solid var(--color-teal-border);background:var(--color-teal-bg);
+    padding:6px 14px;border-radius:var(--radius-full);border:1px solid var(--color-teal-border);
+    background:var(--color-surface);transition:all .15s;
   }
-  .gcf-subnav a:hover{text-decoration:underline;}
+  .gcf-subnav a:hover{background:var(--color-teal-bg);}
+  /* shows which track is currently open — same active-tab language as the
+     Checklist tabs and the top-level step nav, so the whole page reads as
+     one consistent tab system instead of every subnav pill looking the same */
+  .gcf-subnav a.active{color:#fff;border-color:var(--color-primary);background:var(--color-primary);box-shadow:var(--shadow-sm);}
 
   /* ---------- content shell ---------- */
   .gcf-content{max-width:1040px;margin:0 auto;padding:0 32px 60px;}
@@ -1493,6 +1498,14 @@
       const parent = track.closest(".gcf-section");
       return tracks.filter((t) => t.closest(".gcf-section") === parent);
     };
+    // keep whichever .gcf-subnav pill points at the now-open track highlighted
+    // (each track id is only ever referenced by one subnav pill on the page,
+    // so no extra scoping is needed here)
+    const syncSubnavActive = (track) => {
+      document.querySelectorAll(".gcf-subnav a").forEach((a) => {
+        a.classList.toggle("active", a.getAttribute("href") === "#" + track.id);
+      });
+    };
 
     tracks.forEach((track) => {
       const head = track.querySelector(".gcf-track-head");
@@ -1526,6 +1539,7 @@
         siblingsOf(track).forEach((t) => t.classList.remove("gcf-open"));
         if (willOpen) {
           track.classList.add("gcf-open");
+          syncSubnavActive(track);
           history.pushState(null, "", "#" + track.id);
         }
       });
@@ -1540,6 +1554,7 @@
       const isDefaultForGroup = !hashTrack && !openedGroups.has(parent) && siblingsOf(track)[0] === track;
       if (track === hashTrack || isDefaultForGroup) {
         track.classList.add("gcf-open");
+        syncSubnavActive(track);
         openedGroups.add(parent);
       }
     });
@@ -1558,6 +1573,7 @@
         history.pushState(null, "", "#" + id);
         siblingsOf(target).forEach((t) => t.classList.remove("gcf-open"));
         target.classList.add("gcf-open");
+        syncSubnavActive(target);
         target.scrollIntoView({ behavior: "smooth", block: "start" });
       });
     });
@@ -1579,6 +1595,7 @@
       if (track) {
         siblingsOf(track).forEach((t) => t.classList.remove("gcf-open"));
         track.classList.add("gcf-open");
+        syncSubnavActive(track);
         requestAnimationFrame(() => track.scrollIntoView({ behavior: "smooth", block: "start" }));
       }
     });
