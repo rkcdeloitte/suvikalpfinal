@@ -214,7 +214,23 @@
   .gcf-eligibility li{font-size:var(--fs-sm);line-height:1.65;color:var(--color-teal-700);}
 
   /* ---------- checklist box ---------- */
-  .gcf-checklist-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;align-items:start;margin:16px 0;}
+  /* tabs for the 7 checklist tracks — same numbered-tab spirit as the
+     top-level step nav, so only one track's checklist shows at a time
+     instead of ragged cards of very different lengths */
+  .gcf-cl-tabs{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 20px;}
+  .gcf-cl-tab{
+    font-family:var(--font-sans);font-size:var(--fs-sm);font-weight:600;color:var(--color-text-secondary);
+    padding:8px 16px;border-radius:var(--radius-full);border:1px solid var(--color-card-border);
+    background:var(--color-surface);cursor:pointer;transition:all .15s;
+  }
+  .gcf-cl-tab:hover{color:var(--color-teal-700);border-color:var(--color-teal-border);background:var(--color-teal-bg);}
+  .gcf-cl-tab.active{color:#fff;border-color:var(--color-primary);background:var(--color-primary);box-shadow:var(--shadow-sm);}
+  /* only scope the show-one-at-a-time behaviour to the tabbed checklists in
+     this section — .gcf-checklist-box is reused (unscoped) inside each
+     Application Procedure track's own "Documents Checklist", which must
+     stay visible whenever that track is open */
+  #checklist .gcf-checklist-box{display:none;max-width:600px;}
+  #checklist .gcf-checklist-box.gcf-cl-active{display:block;}
   .gcf-checklist-box{padding:16px 18px;border-radius:var(--radius-lg);background:var(--color-surface);
     border:1px solid var(--color-card-border);box-shadow:var(--shadow-sm);margin:0;}
   .gcf-checklist-box p.gcf-cl-title{margin:0 0 8px;font-size:var(--fs-sm);font-weight:700;color:var(--color-text);}
@@ -879,8 +895,16 @@
       <div class="gcf-section-head"><span class="gcf-section-num">08</span><h2>Consolidated Checklist by Track</h2></div>
       <p class="gcf-section-sub">All seven document checklists in one place, for quick reference. Mere completion of any checklist does not guarantee project eligibility, accreditation, funding approval, or endorsement by GCF or the NDA — final approval is subject to GCF's review processes, applicable policies, and Board decisions.</p>
 
-      <div class="gcf-checklist-grid">
-      <div class="gcf-checklist-box">
+      <div class="gcf-cl-tabs" id="gcf-cl-tabs">
+        <button type="button" class="gcf-cl-tab" data-cl="cl-sap">SAP</button>
+        <button type="button" class="gcf-cl-tab" data-cl="cl-regular-pap">Regular / PAP</button>
+        <button type="button" class="gcf-cl-tab" data-cl="cl-psaa">PSAA</button>
+        <button type="button" class="gcf-cl-tab" data-cl="cl-readiness">Readiness</button>
+        <button type="button" class="gcf-cl-tab" data-cl="cl-accreditation">Accreditation</button>
+        <button type="button" class="gcf-cl-tab" data-cl="cl-ppf">PPF</button>
+        <button type="button" class="gcf-cl-tab" data-cl="cl-nol">No-Objection Letter</button>
+      </div>
+      <div class="gcf-checklist-box" id="cl-sap">
         <p class="gcf-cl-title">SAP</p>
         <ul>
           <li>SAP Concept Note (GCF digital template)</li>
@@ -895,7 +919,7 @@
           <li>Co-financing commitment letters</li>
         </ul>
       </div>
-      <div class="gcf-checklist-box">
+      <div class="gcf-checklist-box" id="cl-regular-pap">
         <p class="gcf-cl-title">Regular / PAP</p>
         <ul>
           <li>Full Funding Proposal document (GCF FP template, typically 40–80 pages)</li>
@@ -915,7 +939,7 @@
           <li>Term sheet (for loans, guarantees, or equity instruments)</li>
         </ul>
       </div>
-      <div class="gcf-checklist-box">
+      <div class="gcf-checklist-box" id="cl-psaa">
         <p class="gcf-cl-title">PSAA</p>
         <ul>
           <li>Completed PSAA questionnaire</li>
@@ -925,7 +949,7 @@
           <li>No-Objection Letter from MoEFCC</li>
         </ul>
       </div>
-      <div class="gcf-checklist-box">
+      <div class="gcf-checklist-box" id="cl-readiness">
         <p class="gcf-cl-title">Readiness</p>
         <ul>
           <li>Readiness &amp; Preparatory Support proposal (GCF template)</li>
@@ -935,7 +959,7 @@
           <li>M&amp;E plan aligned with the Readiness Results Management Framework</li>
         </ul>
       </div>
-      <div class="gcf-checklist-box">
+      <div class="gcf-checklist-box" id="cl-accreditation">
         <p class="gcf-cl-title">Accreditation</p>
         <ul>
           <li>Completed Pre-Screening Questionnaire</li>
@@ -947,7 +971,7 @@
           <li>Signed Accreditation Master Agreement (post-approval)</li>
         </ul>
       </div>
-      <div class="gcf-checklist-box">
+      <div class="gcf-checklist-box" id="cl-ppf">
         <p class="gcf-cl-title">PPF</p>
         <ul>
           <li>GCF-endorsed Concept Note</li>
@@ -957,14 +981,13 @@
           <li>Post-approval PPF progress reports schedule</li>
         </ul>
       </div>
-      <div class="gcf-checklist-box">
+      <div class="gcf-checklist-box" id="cl-nol">
         <p class="gcf-cl-title">No-Objection Letter</p>
         <ul>
           <li>Concept Note (GCF template)</li>
           <li>Recommendation of Executing Entity</li>
           <li>Approval of State Level Steering Committee, if applicable</li>
         </ul>
-      </div>
       </div>
     </section>
 
@@ -1441,6 +1464,19 @@
     const parentSection = target && !target.classList.contains("gcf-section") ? target.closest(".gcf-section") : null;
     const validSectionId = target && target.classList.contains("gcf-section") ? fromHash : (parentSection ? parentSection.id : null);
     activateSection(validSectionId || sections[0].id, { scroll: false });
+  })();
+
+  /* ── Checklist section: tabs, one track's checklist visible at a time ── */
+  (function initChecklistTabs() {
+    const tabs = Array.from(document.querySelectorAll(".gcf-cl-tab"));
+    const panels = Array.from(document.querySelectorAll("#checklist .gcf-checklist-box"));
+    if (!tabs.length || !panels.length) return;
+    function activate(id) {
+      panels.forEach((p) => p.classList.toggle("gcf-cl-active", p.id === id));
+      tabs.forEach((t) => t.classList.toggle("active", t.dataset.cl === id));
+    }
+    tabs.forEach((t) => t.addEventListener("click", () => activate(t.dataset.cl)));
+    activate(tabs[0].dataset.cl);
   })();
 
   /* ── Application Procedure: turn each .gcf-track into an accordion item ── */
