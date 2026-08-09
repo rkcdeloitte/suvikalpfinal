@@ -325,6 +325,31 @@
   .gcf-cl-item input:checked ~ span{color:var(--color-text-secondary);text-decoration:line-through;text-decoration-color:var(--color-card-border);}
   @media print{.gcf-cl-progress{display:none;}}
 
+  /* ---------- sitewide checklist progress badge (in the nav-label row) ---------- */
+  .gcf-nav-label{position:relative;}
+  .gcf-cl-total-badge{
+    margin-left:auto;font-size:var(--fs-xs);font-weight:700;color:var(--color-teal-700);
+    background:var(--color-teal-bg);padding:3px 10px;border-radius:var(--radius-full);
+    border:1px solid var(--color-teal-border);white-space:nowrap;text-transform:none;letter-spacing:normal;
+  }
+  @media print{.gcf-cl-total-badge{display:none;}}
+
+  /* ---------- mitigation/adaptation split bar ---------- */
+  .gcf-split-bar{display:flex;height:38px;border-radius:var(--radius-lg);overflow:hidden;margin:14px 0 0;
+    max-width:880px;box-shadow:var(--shadow-sm);}
+  .gcf-split-seg{display:flex;align-items:center;justify-content:center;font-size:var(--fs-xs);font-weight:700;color:#fff;}
+  .gcf-split-mit{background:var(--color-primary);}
+  .gcf-split-adapt{background:#c2851f;}
+
+  /* ---------- financial instrument chips ---------- */
+  .gcf-instrument-chips{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 20px;list-style:none;padding:0;}
+  .gcf-instrument-chip{
+    display:flex;align-items:center;gap:8px;padding:10px 16px;border-radius:var(--radius-full);
+    border:1px solid var(--color-card-border);background:var(--color-surface);box-shadow:var(--shadow-sm);
+    font-size:var(--fs-sm);font-weight:600;color:var(--color-text);
+  }
+  .gcf-instrument-chip svg{flex-shrink:0;width:17px;height:17px;color:var(--color-teal-700);}
+
   /* ---------- tables ---------- */
   .gcf-table-wrap{overflow-x:auto;border:1px solid var(--color-card-border);border-radius:var(--radius-lg);background:var(--color-surface);box-shadow:var(--shadow-sm);margin-bottom:20px;}
   table.gcf-table{width:100%;border-collapse:collapse;font-size:var(--fs-sm);}
@@ -435,6 +460,7 @@
     <div class="gcf-nav-label">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h10M4 18h16"/></svg>
       <span id="gcf-nav-label-text">On this page — click a step to jump straight to it</span>
+      <span class="gcf-cl-total-badge" id="gcf-cl-total-badge" hidden></span>
     </div>
 
     <div class="gcf-cat-row">
@@ -489,6 +515,10 @@
       <p style="max-width:880px;font-size:var(--fs-base);line-height:1.7;color:var(--color-text-secondary);margin:0 0 14px;">The GCF was established by the 194 Parties to the United Nations Framework Convention on Climate Change (UNFCCC) in 2010, as an operating entity of the Convention's financial mechanism. It is designed to make a significant and ambitious contribution to global efforts to combat climate change, helping to keep the global average temperature rise well below 2°C, in line with the Paris Agreement.</p>
       <p style="max-width:880px;font-size:var(--fs-base);line-height:1.7;color:var(--color-text-secondary);margin:0 0 14px;">GCF is headquartered in Songdo, Incheon, Republic of Korea. It is governed by a 24-member Board of Country Representatives (12 from developed and 12 from developing countries) and is supported by an independent Secretariat that manages day-to-day operations.</p>
       <p style="max-width:880px;font-size:var(--fs-base);line-height:1.7;color:var(--color-text-secondary);margin:0;">The Fund allocates resources to low-emission and climate-resilient projects and programmes in developing countries, with particular focus on societies highly vulnerable to climate change — including Least Developed Countries (LDCs), Small Island Developing States (SIDS) and African States. GCF aims for a 50:50 balance in funding allocation between mitigation and adaptation activities, with a floor of 50% of the adaptation allocation ring-fenced for the most vulnerable countries.</p>
+      <div class="gcf-split-bar" role="img" aria-label="Funding balance target: 50 percent mitigation, 50 percent adaptation">
+        <div class="gcf-split-seg gcf-split-mit" style="width:50%"><span>Mitigation 50%</span></div>
+        <div class="gcf-split-seg gcf-split-adapt" style="width:50%"><span>Adaptation 50%</span></div>
+      </div>
 
       <p class="gcf-subhead">Key Facts at a Glance</p>
       <div class="gcf-stats">
@@ -658,12 +688,12 @@
     <section class="gcf-section" id="instruments" role="tabpanel" aria-labelledby="tab-instruments" tabindex="0">
       <div class="gcf-section-head"><span class="gcf-section-num">06</span><h2>Financial Instruments</h2><button type="button" class="gcf-copy-link" data-copy-id="instruments" aria-label="Copy link to this section"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 9.5a2 2 0 0 0 2.9.2l2-2a2 2 0 0 0-2.8-2.8l-.6.5"/><path d="M9.5 6.5a2 2 0 0 0-2.9-.2l-2 2a2 2 0 0 0 2.8 2.8l.5-.5"/></svg></button></div>
       <p class="gcf-section-sub">GCF deploys climate finance through a flexible combination of instruments, tailored to public, private and non-governmental projects. The Fund provides the minimum concessional funding necessary to make a project or programme viable, and does not require a minimum amount of co-financing.</p>
-      <ul class="gcf-linklist">
-        <li>Grants</li>
-        <li>Concessional loans (senior and subordinated debt)</li>
-        <li>Equity</li>
-        <li>Guarantees</li>
-        <li>Results-based Payments</li>
+      <ul class="gcf-instrument-chips">
+        <li class="gcf-instrument-chip"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4.5V14M2 7h12v2a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7z"/><path d="M2 7V5.5A1.5 1.5 0 0 1 3.5 4H5a1.5 1.5 0 0 1 0 3M14 7V5.5A1.5 1.5 0 0 0 12.5 4H11a1.5 1.5 0 0 0 0 3"/></svg>Grants</li>
+        <li class="gcf-instrument-chip"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="12" height="7" rx="1"/><path d="M4.5 6V4a3.5 3.5 0 0 1 7 0v2"/></svg>Concessional loans (senior and subordinated debt)</li>
+        <li class="gcf-instrument-chip"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 8V2a6 6 0 1 1-6 6h6z"/></svg>Equity</li>
+        <li class="gcf-instrument-chip"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 1.5 2.5 3.5v3c0 4 2.3 6.8 5.5 8 3.2-1.2 5.5-4 5.5-8v-3L8 1.5z"/></svg>Guarantees</li>
+        <li class="gcf-instrument-chip"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="6"/><path d="M5.5 8.2 7.2 10 10.7 6"/></svg>Results-based Payments</li>
       </ul>
     </section>
 
@@ -1849,6 +1879,9 @@
     }
 
     let globalIndex = 0;
+    const allCheckboxes = [];
+    const totalBadge = document.getElementById("gcf-cl-total-badge");
+
     document.querySelectorAll(".gcf-checklist-box").forEach((box) => {
       const items = Array.from(box.querySelectorAll("ul > li"));
       if (!items.length) return;
@@ -1875,12 +1908,14 @@
         label.appendChild(span);
         li.appendChild(label);
         boxes.push(cb);
+        allCheckboxes.push(cb);
         cb.addEventListener("change", () => {
           if (localStorageOK) {
             if (cb.checked) localStorage.setItem(key, "1");
             else localStorage.removeItem(key);
           }
           updateProgress();
+          updateTotalBadge();
         });
       });
 
@@ -1890,6 +1925,17 @@
       }
       updateProgress();
     });
+
+    // sitewide rollup across every checklist on the page (the 7 Checklist
+    // tabs + the 6 embedded in Application Procedure tracks), surfaced next
+    // to the step label so progress is visible no matter which tab you're on
+    function updateTotalBadge() {
+      if (!totalBadge || !allCheckboxes.length) return;
+      const done = allCheckboxes.filter((c) => c.checked).length;
+      totalBadge.textContent = done + " of " + allCheckboxes.length + " items checked";
+      totalBadge.hidden = false;
+    }
+    updateTotalBadge();
   })();
 
   /* ── Back to top ── */
