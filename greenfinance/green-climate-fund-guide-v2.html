@@ -83,8 +83,13 @@
   .gcf-cat.active{background:var(--color-primary);color:#fff;box-shadow:var(--shadow-sm);}
   .gcf-cat-count{font-size:.68rem;font-weight:800;padding:1px 7px;border-radius:var(--radius-full);background:rgba(33,128,141,.12);color:var(--color-teal-700);}
   .gcf-cat.active .gcf-cat-count{background:rgba(255,255,255,.25);color:#fff;}
-  @media (max-width:560px){.gcf-cat span.gcf-cat-label-full{display:none;} .gcf-cat span.gcf-cat-label-short{display:inline;}}
   .gcf-cat span.gcf-cat-label-short{display:none;}
+  /* base rule above must come first — a later unconditional rule at equal
+     specificity always wins the cascade over an earlier @media override,
+     regardless of which one is "inside" the media query; this ordering had
+     it backwards, which silently hid BOTH label variants under 560px
+     (bare category tabs with a count and no text) */
+  @media (max-width:560px){.gcf-cat span.gcf-cat-label-full{display:none;} .gcf-cat span.gcf-cat-label-short{display:inline;}}
 
   .gcf-nav-row{position:relative;max-width:1040px;margin:0 auto;padding:0 34px 12px;}
   .gcf-nav{display:flex;gap:8px;overflow-x:auto;scroll-behavior:smooth;scrollbar-width:none;}
