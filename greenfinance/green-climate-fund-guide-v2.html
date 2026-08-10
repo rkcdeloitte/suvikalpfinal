@@ -365,38 +365,6 @@
   }
   @media print{.gcf-read-progress{display:none;}}
 
-  /* ---------- application journey strip (visual anchor for section 07) ---------- */
-  .gcf-journey{
-    margin:18px 0 26px;padding:24px 22px 20px;border-radius:var(--radius-lg);
-    background:linear-gradient(160deg,var(--color-teal-bg),var(--color-surface));
-    border:1px solid var(--color-teal-border);box-shadow:var(--shadow-sm);
-  }
-  .gcf-journey-track{display:flex;align-items:flex-start;gap:0;position:relative;}
-  .gcf-journey-step{
-    flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;
-    position:relative;padding:0 6px;
-  }
-  /* connector line between nodes */
-  .gcf-journey-step:not(:last-child)::after{
-    content:"";position:absolute;top:17px;left:calc(50% + 22px);right:calc(-50% + 22px);height:2px;
-    background:var(--color-teal-border);z-index:0;
-  }
-  .gcf-journey-node{
-    width:34px;height:34px;border-radius:50%;flex-shrink:0;z-index:1;
-    background:var(--color-surface);border:2px solid var(--color-primary);color:var(--color-teal-700);
-    display:flex;align-items:center;justify-content:center;font-size:var(--fs-sm);font-weight:800;
-    box-shadow:0 2px 6px rgba(33,128,141,.18);
-  }
-  .gcf-journey-step:last-child .gcf-journey-node{background:var(--color-primary);color:#fff;}
-  .gcf-journey-label{font-size:var(--fs-xs);line-height:1.4;color:var(--color-text);font-weight:600;}
-  @media (max-width:760px){
-    .gcf-journey-track{flex-direction:column;gap:16px;}
-    .gcf-journey-step{flex-direction:row;text-align:left;align-items:center;gap:12px;width:100%;padding:0;}
-    .gcf-journey-step:not(:last-child)::after{
-      top:34px;bottom:-16px;left:16px;right:auto;width:2px;height:auto;
-    }
-  }
-
   /* ---------- motion: staggered reveal of section content ---------- */
   @keyframes gcf-rise{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:none;}}
   .gcf-section.gcf-active > *{animation:gcf-rise .45s cubic-bezier(.22,.61,.36,1) both;}
@@ -787,31 +755,6 @@
     <section class="gcf-section" id="application" role="tabpanel" aria-labelledby="tab-application" tabindex="0">
       <div class="gcf-section-head"><span class="gcf-section-num">07</span><h2>Application Procedure</h2><button type="button" class="gcf-copy-link" data-copy-id="application" aria-label="Copy link to this section"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 9.5a2 2 0 0 0 2.9.2l2-2a2 2 0 0 0-2.8-2.8l-.6.5"/><path d="M9.5 6.5a2 2 0 0 0-2.9-.2l-2 2a2 2 0 0 0 2.8 2.8l.5-.5"/></svg></button></div>
       <p class="gcf-section-sub">GCF offers several distinct routes to access finance, each suited to different project sizes, risk levels, and applicant profiles. Every mechanism below is explained with its own step-by-step flow, eligibility/criteria, and document checklist.</p>
-
-      <div class="gcf-journey" role="img" aria-label="Application journey: Concept development and NDA/AE engagement, then Concept Note submission and Secretariat feedback, then Full proposal preparation, then Secretariat review and iTAP assessment, then Board approval and legal agreements.">
-        <div class="gcf-journey-track">
-          <div class="gcf-journey-step">
-            <div class="gcf-journey-node">1</div>
-            <div class="gcf-journey-label">Concept development + NDA/AE engagement</div>
-          </div>
-          <div class="gcf-journey-step">
-            <div class="gcf-journey-node">2</div>
-            <div class="gcf-journey-label">Concept Note submission + Secretariat feedback</div>
-          </div>
-          <div class="gcf-journey-step">
-            <div class="gcf-journey-node">3</div>
-            <div class="gcf-journey-label">Full proposal preparation</div>
-          </div>
-          <div class="gcf-journey-step">
-            <div class="gcf-journey-node">4</div>
-            <div class="gcf-journey-label">Secretariat review + iTAP assessment</div>
-          </div>
-          <div class="gcf-journey-step">
-            <div class="gcf-journey-node">5</div>
-            <div class="gcf-journey-label">Board approval + legal agreements</div>
-          </div>
-        </div>
-      </div>
 
       <nav class="gcf-subnav">
         <a href="#track-7-1">7.1 Overall Journey</a>
