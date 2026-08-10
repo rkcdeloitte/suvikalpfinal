@@ -320,25 +320,6 @@
   .gcf-tl-total{margin-top:18px;padding-top:16px;border-top:1px dashed var(--color-card-border);}
   .gcf-tl-total .gcf-tl-label{font-weight:700;color:var(--color-teal-700);}
 
-  /* ---------- interactive checklist checkboxes ---------- */
-  .gcf-cl-progress{font-size:var(--fs-xs);font-weight:700;color:var(--color-teal-700);margin:0 0 10px;}
-  .gcf-checklist-box li::before{content:none;}
-  .gcf-checklist-box li{padding:0;}
-  .gcf-cl-item{display:flex;gap:9px;align-items:flex-start;cursor:pointer;width:100%;}
-  .gcf-cl-item input[type="checkbox"]{margin:2px 0 0;flex-shrink:0;width:16px;height:16px;accent-color:var(--color-primary);cursor:pointer;}
-  .gcf-cl-item span{flex:1;}
-  .gcf-cl-item input:checked ~ span{color:var(--color-text-secondary);text-decoration:line-through;text-decoration-color:var(--color-card-border);}
-  @media print{.gcf-cl-progress{display:none;}}
-
-  /* ---------- sitewide checklist progress badge (in the nav-label row) ---------- */
-  .gcf-nav-label{position:relative;}
-  .gcf-cl-total-badge{
-    margin-left:auto;font-size:var(--fs-xs);font-weight:700;color:var(--color-teal-700);
-    background:var(--color-teal-bg);padding:3px 10px;border-radius:var(--radius-full);
-    border:1px solid var(--color-teal-border);white-space:nowrap;text-transform:none;letter-spacing:normal;
-  }
-  @media print{.gcf-cl-total-badge{display:none;}}
-
   /* ---------- mitigation/adaptation split bar ---------- */
   .gcf-split-bar{display:flex;height:38px;border-radius:var(--radius-lg);overflow:hidden;margin:14px 0 0;
     max-width:880px;box-shadow:var(--shadow-sm);}
@@ -377,14 +358,6 @@
   .gcf-section.gcf-active > *:nth-child(7){animation-delay:.26s;}
   .gcf-section.gcf-active > *:nth-child(n+8){animation-delay:.30s;}
 
-  /* completed-checklist acknowledgement — a calm pulse, not celebration */
-  @keyframes gcf-badge-pulse{
-    0%{box-shadow:0 0 0 0 rgba(33,128,141,.45);}
-    100%{box-shadow:0 0 0 12px rgba(33,128,141,0);}
-  }
-  .gcf-cl-total-badge.gcf-pulse{animation:gcf-badge-pulse .9s ease-out;}
-  .gcf-cl-progress.gcf-cl-done{color:var(--color-primary);}
-
   /* ---------- polish: hero depth + card lift ---------- */
   .gcf-hero{position:relative;}
   .gcf-card{transition:box-shadow .2s ease,transform .2s ease;}
@@ -395,7 +368,6 @@
   /* ---------- accessibility: honour reduced-motion for every animation above ---------- */
   @media (prefers-reduced-motion: reduce){
     .gcf-section.gcf-active > *{animation:none !important;}
-    .gcf-cl-total-badge.gcf-pulse{animation:none !important;}
     .gcf-tl-fill{transition:none !important;}
     .gcf-read-progress-bar{transition:none !important;}
     .gcf-card:hover,.gcf-stat:hover{transform:none;}
@@ -514,7 +486,6 @@
     <div class="gcf-nav-label">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h10M4 18h16"/></svg>
       <span id="gcf-nav-label-text">On this page — click a step to jump straight to it</span>
-      <span class="gcf-cl-total-badge" id="gcf-cl-total-badge" hidden></span>
     </div>
 
     <div class="gcf-cat-row">
@@ -1914,101 +1885,6 @@
         }
       });
     });
-  })();
-
-  /* ── Interactive checklists: turn the static ☐ list items into real,
-     persisted checkboxes with a progress count — covers every
-     .gcf-checklist-box on the page: the 7 Checklist tabs AND the 6
-     "Documents Checklist" boxes embedded in Application Procedure
-     tracks, since they share the same markup pattern. Keys are a global
-     running index (stable as long as content order doesn't change),
-     stored in localStorage so progress survives a reload. ── */
-  (function initInteractiveChecklists() {
-    let localStorageOK = true;
-    try {
-      localStorage.setItem("__gcf_test__", "1");
-      localStorage.removeItem("__gcf_test__");
-    } catch (e) {
-      localStorageOK = false;
-    }
-
-    let globalIndex = 0;
-    const allCheckboxes = [];
-    const totalBadge = document.getElementById("gcf-cl-total-badge");
-
-    document.querySelectorAll(".gcf-checklist-box").forEach((box) => {
-      const items = Array.from(box.querySelectorAll("ul > li"));
-      if (!items.length) return;
-
-      const progress = document.createElement("p");
-      progress.className = "gcf-cl-progress";
-      const titleEl = box.querySelector(".gcf-cl-title");
-      if (titleEl) titleEl.insertAdjacentElement("afterend", progress);
-      else box.insertBefore(progress, box.firstChild);
-
-      const boxes = [];
-      items.forEach((li) => {
-        const key = "gcf-cl-check-" + globalIndex++;
-        const text = li.innerHTML;
-        li.innerHTML = "";
-        const label = document.createElement("label");
-        label.className = "gcf-cl-item";
-        const cb = document.createElement("input");
-        cb.type = "checkbox";
-        cb.checked = localStorageOK && localStorage.getItem(key) === "1";
-        const span = document.createElement("span");
-        span.innerHTML = text;
-        label.appendChild(cb);
-        label.appendChild(span);
-        li.appendChild(label);
-        boxes.push(cb);
-        allCheckboxes.push(cb);
-        cb.addEventListener("change", () => {
-          if (localStorageOK) {
-            if (cb.checked) localStorage.setItem(key, "1");
-            else localStorage.removeItem(key);
-          }
-          updateProgress();
-          updateTotalBadge();
-        });
-      });
-
-      let wasComplete = null;
-      function updateProgress() {
-        const done = boxes.filter((c) => c.checked).length;
-        const isComplete = done === boxes.length;
-        progress.textContent = done + " of " + boxes.length + " checked" + (isComplete ? " — all done" : "");
-        progress.classList.toggle("gcf-cl-done", isComplete);
-        // acknowledge the moment a checklist is finished (not on initial load,
-        // where wasComplete is still null) with one calm pulse on the badge
-        if (wasComplete === false && isComplete) pulseTotalBadge();
-        wasComplete = isComplete;
-      }
-      updateProgress();
-    });
-
-    // sitewide rollup across every checklist on the page (the 7 Checklist
-    // tabs + the 6 embedded in Application Procedure tracks), surfaced next
-    // to the step label so progress is visible no matter which tab you're on
-    function updateTotalBadge() {
-      if (!totalBadge || !allCheckboxes.length) return;
-      const done = allCheckboxes.filter((c) => c.checked).length;
-      totalBadge.textContent = done + " of " + allCheckboxes.length + " items checked";
-      totalBadge.hidden = false;
-    }
-
-    function pulseTotalBadge() {
-      // checked inline rather than via the outer motion flag so this stays
-      // self-contained and correct regardless of script evaluation order
-      const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      if (!totalBadge || reduce) return;
-      totalBadge.classList.remove("gcf-pulse");
-      void totalBadge.offsetWidth; // restart the animation if it's already running
-      totalBadge.classList.add("gcf-pulse");
-      setTimeout(() => totalBadge.classList.remove("gcf-pulse"), 1000);
-    }
-
-    updateTotalBadge();
   })();
 
   /* ── Motion layer ──────────────────────────────────────────────
